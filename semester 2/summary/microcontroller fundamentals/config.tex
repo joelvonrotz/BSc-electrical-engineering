@@ -1,37 +1,34 @@
+\usepackage[utf8]{inputenc}
 \usepackage{amssymb, amsmath, etoolbox}
-\usepackage{multicol, xcolor}
-\usepackage{tabularx}
+\usepackage{multicol}
+\usepackage[dvipsnames]{xcolor}
+\definecolor{darkgreen}{HTML}{014f32}
+%\usepackage[german]{babel}
 
+\setlength\columnsep{20pt}
 
+\usepackage{fontawesome5}
+
+% MISC
+\usepackage[nodisplayskipstretch]{setspace}
+
+% FONTS
 \usepackage{lmodern}
 \renewcommand{\familydefault}{\sfdefault}
 \usepackage{cmbright}
 
-\usepackage[ddmmyyyy]{datetime}
-\renewcommand{\dateseparator}{.}
+% STYLING
+\usepackage{titlesec}
 
-\renewcommand{\arraystretch}{1.5}
+\titleformat{\title}{\Huge\bfseries}{}{0pt}{}[]
+\titleformat{\section}{\Large\bfseries}{}{0pt}{}[{\titlerule[0.8pt]}]
 
-\makeatletter
-\preto\env@matrix{\renewcommand{\arraystretch}{1}}
-\makeatother
+\titleformat{\subsection}[hang]{\large\slshape}{}{0pt}{}[{\titlerule*[.3pc]{\scriptsize .}}]
 
-\let\endtitlepage\relax
+\titleformat{\subsubsection}[runin]{\normalfont\bfseries}{}{0pt}{}[:]
+\titlespacing{\subsubsection}
+{\parindent}{*2}{\wordsep}
 
+% FIGURE POSITONING
+\usepackage{float}
 
-\newenvironment{conditions}
-  { % start-code
-    \par\vspace{\abovedisplayskip}\noindent
-    \begin{tabular}{>{$}c<{$} @{${}:{}$} l}
-  }
-  { % end-code
-    \end{tabular}
-    \par\vspace{\belowdisplayskip}
-  }
-  
-\makeatletter
-\renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
-  \hskip -\arraycolsep
-  \let\@ifnextchar\new@ifnextchar
-  \array{#1}}
-\makeatother
