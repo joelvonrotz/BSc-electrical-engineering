@@ -1,0 +1,43 @@
+% !TEX root = ./main.tex
+\documentclass[11pt,a4paper]{article}
+\usepackage{preamble}
+
+% [VISUAL STUDIO CODE]-------------------
+% I recommend setting an output path for the 'Latex Workshop' extension.
+% I use following path, which generates the output into a 'output' folder:
+% 
+% {
+%  "latex-workshop.latex.outDir": "%WORKSPACE_FOLDER%\\output"
+% }
+% 
+% ---------------------------------------
+
+% CONFIGURATION
+% here you can change basic infos about the document.
+\author{Joel \& Andreas}
+\date{29.03.2022}
+\title{Labor Bipolare Junction Transistoren}
+
+% =============================================================================
+\begin{document}
+
+% TITLE PAGE/BLOCK 
+\input{title.tex}
+
+\tableofcontents
+\newpage
+
+% SECTIONS
+\subfile{sections/01_introduction.tex}
+
+\subfile{sections/task1_gleichstrom.tex}
+\newpage
+\subfile{sections/task2_spannungsstabilisierung.tex}
+\newpage
+\subfile{sections/task3_levelshift.tex}
+
+\newpage
+\subfile{sections/07_Declaration_of_Independence.tex}
+\newpage
+\subfile{sections/08_appendix.tex}
+\end{document}

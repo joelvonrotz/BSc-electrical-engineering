@@ -1,0 +1,34 @@
+\usepackage{amssymb, amsmath, etoolbox}
+\usepackage{multicol}
+\usepackage[dvipsnames]{xcolor}
+\definecolor{darkgreen}{HTML}{014f32}
+\usepackage[german]{babel}
+
+\usepackage{fontawesome5}
+\setlength\columnsep{20pt}
+
+\usepackage[utf8]{inputenc}
+
+\usepackage[nodisplayskipstretch]{setspace}
+
+\newenvironment{conditions}
+  { % start-code
+    \par\vspace{\abovedisplayskip}\noindent
+    \begin{tabular}{>{$}c<{$} @{${}:{}$} l}
+  }
+  { % end-code
+    \end{tabular}
+    \par\vspace{\belowdisplayskip}
+  }
+
+% used to configure 
+\makeatletter
+\renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
+  \hskip -\arraycolsep
+  \let\@ifnextchar\new@ifnextchar
+  \array{#1}}
+\makeatother
+
+\usepackage{lmodern}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{cmbright}

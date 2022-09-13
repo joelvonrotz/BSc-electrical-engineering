@@ -1,0 +1,68 @@
+% !TEX root = C:/university/year_FS22/et2_labor/sw4/report/main.tex
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+\section{Erwartungen}
+
+Durch die Aufgabenstellung wurde die Magnetstärke $B_0 = \SI{0.25}{\milli\tesla}$ bereits festgelegt und die Stromstärke wird durch den maximalen Strom, welche das Powersupply des \textit{Virtual Benchs} ausgeben kann, begrenzt ($I_{PS} = \SI{1}{\ampere} \Rightarrow I_{MAX} = \SI{0.9}{\ampere}$).
+
+Die Dimension des Kunststoffrohrs, welches für das Aufwickeln des Kupferdrahts verwendet wurde, betragen die Dimensionen $l_{KR} = \SI{0.25}{\metre}$ und $d_{KR} = \SI{0.05}{\metre}$. Das innere Volumen des Rohrs kann vernachlässigt werden, da dieses nicht ferromagnetisch ist und daher wird eine Permeabilitätszahl von ${\mu}_r = 1$ angenommen.
+
+\begin{figure}[h]
+  \centering
+    \input{assets/pipe_measurements.pdf_tex}
+    \caption{Kunststoffrohr mit Kupferwicklung}
+  \label{expect_pipe_infos}
+\end{figure}
+
+\subsection{Berechnungen}
+
+Bevor ein Drahtdurchmesser ausgewählt wurde, musste ein Strom angenommen werden. Dazu wurde die Stromdichte $J_{CU} = \SI{5}{\ampere\per\milli\meter^2}$ verwendet, welche von der Seite \url{https://www.chemie.de/lexikon/Stromdichte.html} entnommen wurde und leicht angepasst wurde. Mit dieser Stromdichte können nun die maximale Ströme der zur Verfügung gestellten Kupferdrähte berechnet werden.
+
+\begin{table}[h]
+  \centering
+  \def\arraystretch{1.5}
+  \begin{tabular}{l|lllll}
+  $d_{CU} [\SI[parse-numbers = false]{}{\milli\metre}]$ & 0.4  & 0.42 & 0.52 & 0.6  & 0.7  \\ \hline
+  $I_{MAX} [\SI[parse-numbers = false]{}{\ampere}]$ & 0.63 & 0.69 & 1.06 & 1.41 & 1.92
+  \end{tabular}
+  \caption{Berechnete Maximalströme}
+  \label{tab:max_current}
+\end{table}
+
+Festgelegt wurde die Stromstärke auf $I_{Spule} = \SI{0.9}{\ampere}$ und den Drahtdurchmesser auf $d_{CU} = \SI{0.7}{\milli\metre}$, damit die Anzahl Windungen reduziert werden kann und der daraus entstehende Aufwand reduziert wird. Mit Strom und Drahtdurchmesser definiert, wird die Formel \ref{equ:flussdichte} nach der Windungszahl $N$ aufgelöst, was die Gleichung \ref{equ:windungen_calc} ergibt.
+
+\begin{equation}
+  B_{0} = {\mu}_0\cdot \frac{N \cdot I}{l_{KR}}
+  \label{equ:flussdichte}
+\end{equation}
+
+\begin{equation}
+  \Rightarrow N = \frac{B_0\cdot l_{KR}}{I \cdot {\mu}_0} = \frac{\SI{0.25}{\milli\tesla}\cdot \SI{0.25}{\metre}}{\SI{0.9}{\ampere}\cdot 4 \cdot \pi \cdot 10^{-7}\SI[parse-numbers = false]{}{\volt\second\per\ampere\per\metre}} = 55.262 \approx 56\ Windungen 
+  \label{equ:windungen_calc}
+\end{equation}
+
+Für die Spule werden 56 Windungen benötigt. Der Wert wurde aufgerundet, damit theoretisch eine minimale magnetische Felddichte von $B_0 = \SI{0.25}{\milli\tesla}$ aufgebaut werden kann. Die Anzahl Windungen berechnet, wird nächstens der Spulenwiderstand ausgerechnet mit dem spezifischen Widerstand von Kupfer $ {\rho}_{CU} = \SI{0.017}{\ohm\metre}$.
+
+\begin{equation}
+    l_{Spule} = N \cdot (\frac{d_{KR}}{2}+\frac{d_{CU}}{2}) \cdot 2 \pi = 56 \cdot \SI{0.05035}{\metre} \cdot 2 \pi  = \SI{17.72}{\metre}
+    \label{equ:wire_length}
+\end{equation}
+
+\begin{equation}
+  R_{Spule} = \frac{{\rho}_{CU} \cdot l_{Spule}}{A_{CU}} = \frac{\SI{0.017}{\ohm\metre} \cdot \SI{17.72}{\metre}}{(\frac{\SI{0.0007}{\metre}}{2})^2\cdot \pi} = \SI{0.783}{\ohm}
+  \label{equ:wire_resistance}
+\end{equation}
+
+\begin{equation}
+  P_{Spule} = I_{Spule} \cdot R_{Spule} = \SI{0.9}{\ampere} \cdot \SI{0.753}{\ohm} = \SI{0.634}{\watt}
+  \label{equ:wire_power}
+\end{equation}
+
+Die Spule wird vertikal aufgestellt und gemessen. Für die Messung wird folgendes erwartet:
+
+\begin{itemize}
+  \item In der Mitte des Kunststoffrohrs sollte eine Flussdichte von $B = \SI{0.25}{\milli\tesla} (\pm \SI{0.02}{\milli\tesla})$ mit dem Gaussmeter gemessen werden.
+  \item Ausserhalb der Spule sollte eine Flussdichte nahe $\SI{0}{\milli\tesla}$ sein. Oberhalb sollte die Flussdichte nicht mehr $\SI{0.25}{\milli\tesla}$ entsprechen sondern einem kleineren Wert.
+\end{itemize}
+\end{document}

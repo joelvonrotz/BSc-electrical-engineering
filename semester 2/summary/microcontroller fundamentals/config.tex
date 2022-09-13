@@ -1,0 +1,37 @@
+\usepackage{amssymb, amsmath, etoolbox}
+\usepackage{multicol, xcolor}
+\usepackage{tabularx}
+
+
+\usepackage{lmodern}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{cmbright}
+
+\usepackage[ddmmyyyy]{datetime}
+\renewcommand{\dateseparator}{.}
+
+\renewcommand{\arraystretch}{1.5}
+
+\makeatletter
+\preto\env@matrix{\renewcommand{\arraystretch}{1}}
+\makeatother
+
+\let\endtitlepage\relax
+
+
+\newenvironment{conditions}
+  { % start-code
+    \par\vspace{\abovedisplayskip}\noindent
+    \begin{tabular}{>{$}c<{$} @{${}:{}$} l}
+  }
+  { % end-code
+    \end{tabular}
+    \par\vspace{\belowdisplayskip}
+  }
+  
+\makeatletter
+\renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
+  \hskip -\arraycolsep
+  \let\@ifnextchar\new@ifnextchar
+  \array{#1}}
+\makeatother

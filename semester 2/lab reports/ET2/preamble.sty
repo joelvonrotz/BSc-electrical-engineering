@@ -1,0 +1,182 @@
+\ProvidesPackage{preamble}
+\usepackage{parskip}
+
+\usepackage{hyperref}
+\hypersetup{
+    urlcolor=blue
+}
+
+\usepackage{float}
+
+\usepackage{amsmath}
+\numberwithin{equation}{section}
+% Use Sans-Serif for whole document
+%\renewcommand{\familydefault}{\sfdefault}
+
+% Language Support using Babel
+\usepackage[german]{babel}
+
+% Define margines of the page
+\usepackage{geometry} 
+%\geometry{verbose,tmargin=25mm,bmargin=25mm,lmargin=25mm,rmargin=25mm}
+\geometry{verbose,tmargin=2.5cm,bmargin=2.5cm,lmargin=2.5cm,rmargin=2.5cm}
+% Show the frames
+% \usepackage{showframe} 
+
+% Get a reference of the last page of the document
+\usepackage{lastpage}
+
+% Adjust Document Header & Footer
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+
+\usepackage{amsmath}
+\usepackage{siunitx}
+\sisetup{
+  per-mode=fraction,
+  fraction-function=\tfrac
+}
+% Custom Units
+\DeclareSIUnit\gauss{G}
+%
+
+% footer and header styling
+\makeatletter
+\lhead{\textsf{HSLU T\&A - Elektrotechnik 2}}
+\chead{}
+\rhead{\textsf{\@author}}
+
+\lfoot{}
+\cfoot{\thepage\ / \pageref{LastPage}}
+\rfoot{\textsf{\@date}}
+\makeatother
+
+\renewcommand{\headrulewidth}{0.25pt}
+\renewcommand{\footrulewidth}{0.25pt}
+
+
+
+
+% All of the infos about the margin setting!!!
+% https://tex.stackexchange.com/questions/489233/documentclass-twoside-and-geometry-margin?rq=1
+
+%Command \k unavailable in encoding OT1
+%https://tex.stackexchange.com/questions/392208/command-k-unavailable-in-encoding-ot1-error-takes-me-to-line-which-doesnt-eve
+\usepackage[T1]{fontenc}
+
+% Set spacing in the document
+\usepackage[onehalfspacing]{setspace} 
+
+% Picture implementation
+\usepackage{graphicx} 
+\graphicspath{ {./assets/} }
+
+% For wrapping text around figures
+\usepackage{wrapfig}
+
+% Placing of pictures
+\usepackage{float}
+
+% picture caption
+\usepackage{subcaption} 
+
+%Additional parameters for picture caption
+%\usepackage[font=bf]{caption} %Additional parameters for picture caption
+%	\captionsetup[figure]{labelfont=bf}
+%	\captionsetup[figure]{justification=centering}
+%	\captionsetup[table]{justification=centering}
+%	\captionsetup{belowskip=4pt,aboveskip=4pt}
+%	\captionsetup[table]{labelfont=bf}
+	
+% Required for alignment in tables	
+%\usepackage{siunitx} 
+
+% Plot graphs from various data
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.17}
+
+% Generates table from .csv
+%\usepackage{pgfplotstable} 
+
+% For combatiblity
+%\pgfplotsset{compat = 1.16}
+
+% Rounds numbers to 2 places
+%\sisetup{round-mode = places, round-precision = 2} 
+
+% Required for multirows
+%\usepackage{multirow} 
+
+% For prettier tables
+%\usepackage{booktabs} 
+
+% To display tables on several pages
+%\usepackage{longtable} 
+
+% lets you display code
+\usepackage{listings} 
+
+% lets you display colored code
+\usepackage{color}
+
+% General setup for the code display package
+%\lstset{ 
+%	language=Python,
+%	basicstyle=\small\sffamily,
+%	numbers=left,
+%	numberstyle=\tiny,
+%	frame=tb,
+%	tabsize=4,
+%	columns=fixed,
+%	showstringspaces=false,
+%	showtabs=false,
+%	keepspaces,
+%	commentstyle=\color{red},
+%	keywordstyle=\color{blue}
+%}
+
+%Use biblatex for managing citations
+%\usepackage{biblatex}
+
+% define citation style (https://de.overleaf.com/learn/latex/Biblatex_bibliography_styles)
+%\usepackage[backend=biber,style=apa]{biblatex}
+
+% Implementation via: https://tex.stackexchange.com/questions/479300/problem-biblatex-numeric-apa-style
+% \makeatletter
+% \RequireBibliographyStyle{numeric}
+% \makeatother
+
+% add the bilatex resource from Citavi
+%\addbibresource{dummy.bib}
+
+% Landscape layout for the tables
+\usepackage{pdflscape}
+
+% Create subfiles Best loaded last in the preamble
+\usepackage{subfiles} 
+
+% Setup for the caption of tables and pictures
+\usepackage[font=small,labelsep=period,singlelinecheck=false]{caption}  
+        % Table and Figrue before title is bf
+        \captionsetup[figure]{labelfont=bf}
+        % Intend before and after caption
+        \captionsetup{belowskip=4pt,aboveskip=4pt}
+        % https://tex.stackexchange.com/questions/209097/caption-formatting
+        \captionsetup{format=plain}
+        % Table and Figrue before title is bf
+        \captionsetup[table]{labelfont=bf}
+        % Txt justification
+        \captionsetup{justification=centering}
+        
+
+
+% Definition of process description boxes
+\usepackage[most]{tcolorbox}
+\newtcolorbox{mybox}{
+    enhanced,
+    boxrule=0pt,frame hidden,
+    borderline west={4pt}{0pt}{black!60!white},
+    colback=black!10!white,
+    sharp corners
+}

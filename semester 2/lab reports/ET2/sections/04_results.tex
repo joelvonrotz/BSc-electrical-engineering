@@ -1,0 +1,65 @@
+% !TEX root = C:/university/year_FS22/et2_labor/sw4/report/main.tex
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+\section{Resultate}
+
+\subsection{Magnetfeld}
+
+Abbildung \ref{fig:how_it_was_measured} zeigt die Punkte, an denen gemessen wurden. Was aber dabei bemerkt werden muss ist, dass die genaue Position nicht genau der Abbildung entspricht, da keine Vorrichtung verwendet wurde um die Position genau zu setzen, weil es eine experimentelle Validierung ist.
+
+\begin{figure}[h]
+  \centering
+  \input{assets/pipe_meas_points.pdf_tex}
+  \caption{Messung}
+  \label{fig:how_it_was_measured}
+\end{figure}
+
+\begin{table}[h]
+  \centering
+  \def\arraystretch{1.5}
+  \begin{tabular}{l|l|l|l|l|l|l}
+  $B_{Mitte}$ & $B_{Top}$ & $B_{Aussen}$ & $B_1$ & $B_2$ & $B_3$ & $B_4$ \\ \hline
+  0.28         & 0.14       & -0.03         & 0.29   & 0.35   & 0.29   & 0.31  
+  \end{tabular}
+  \caption{Gemessene Werte (Werte sind in $\si{\milli\tesla}$)}
+  \label{tab:measurement_results}
+\end{table}
+
+\begin{table}[h]
+  \centering
+  \def\arraystretch{1.5}
+  \begin{tabular}{l|l|l}
+  $I_{Spule}$ & $\SI{0.9}{\ampere}$       & $\SI{0.82}{\ampere}$ \\ \hline
+  $B_{Mitte}$ & $\SI{0.28}{\milli\tesla}$ & $\SI{0.25}{\milli\tesla}$  
+  \end{tabular}
+  \caption{Stromanpassung bei Flussdichtemessung}
+  \label{tab:adjustments_current}
+\end{table}
+
+\subsection{Widerstand}
+
+\begin{table}[H]
+  \centering
+  \def\arraystretch{1.5}
+  \begin{tabular}{c|c|c||c}
+  $R_{GES}$        & $R_{Kabel}$        & $R_{Spule}$        & $R_{Spule-berechnet}$\\ \hline
+  $\SI{1.1}{\ohm}$ & $\SI{0.224}{\ohm}$ & $\SI{0.876}{\ohm}$ & $\SI{0.783}{\ohm}$
+  \end{tabular}
+  \caption{Gemessene \& berechnet Widerstände}
+  \label{tab:resistance_results}
+\end{table}
+
+\begin{equation}
+  R_{Spule} = R_{GES} - R_{Kabel}
+  \label{equ:calculate_wire_resistance}
+\end{equation}
+
+% \begin{figure}[h]
+%   \centering
+%   \input{assets/pipe_measurement_current.pdf_tex}
+%   \caption{Messung}
+%   \label{fig:how_it_was_measureddcfg}
+% \end{figure}
+\newpage
+\end{document}

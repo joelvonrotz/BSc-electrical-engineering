@@ -1,0 +1,2115 @@
+---
+title: "Zusammenfassung Linear Algebra"
+author: "Joel & a good friend"
+date: "10.06.2022"
+
+format:
+  pdf:
+    include-in-header:
+      - config.tex
+    keep-tex: true
+geometry: 
+- "top=15mm"
+- "bottom=25mm"
+- "left=15mm"
+- "right=15mm"
+papersize: a4paper
+fontsize: 10pt
+
+toc: true
+
+pdf-engine: pdflatex
+pagenumbering: none
+
+highlight-style: github
+editor: visual
+
+execute: 
+  output: true
+  echo: true
+---
+
+`\begin{multicols}{2}`{=latex}
+
+# Vektor
+
+## Spezielle Vektoren
+
+-   Nullvektor $\overrightarrow{0} \: \rightarrow \: \big | \overrightarrow{0} \big | = 0$
+-   Gegen-, Kehr, Inverser Vektor von $\overrightarrow{a}$ ist $-\overrightarrow{a}$
+-   Einheitsvektor $\overrightarrow{e}$ mit em Betrag $\big | \overrightarrow{e} \big | = 1$
+
+## Kollinearität
+
+Zwei Vektoren $\overrightarrow{a}$ & $\overrightarrow{b}$ nennt man *kollinear* oder *linear abhängig*, falls
+
+$$
+\overrightarrow{a} = s \cdot \overrightarrow{b}\quad \text{mit}\ s \in \mathbb{R}
+$$
+
+## Normierung
+
+![](images/normierung.png){width="4.8cm"}
+
+$$
+\overrightarrow{e_a} = \frac{\overrightarrow{a}}{\vert\overrightarrow{a}\vert} 
+$$
+
+$$
+\vert\overrightarrow{e_a}\vert=1
+$$
+
+## Skalarprodukt
+
+![](images/skalarprodukt.png)
+
+Das Skalarprodukt entspricht der Multiplikation der Projektion $\overrightarrow{b_a}$ auf $\overrightarrow{a}$ mit $\overrightarrow{a}$
+
+$$
+\overrightarrow{a} \bullet \overrightarrow{b} = \begin{bmatrix} a_1 \\ \vdots \\ a_n \end{bmatrix} \bullet \begin{bmatrix} b_1 \\ \vdots \\ b_n \end{bmatrix}= a_1 \cdot b_1 + \cdots + a_n \cdot b_n = \sum^n_{i=1}{a_i\cdot b_i}
+$$
+
+### Winkel & Orthogonalität
+
+![](images/winkel.png){height="4cm"}
+
+Beim Berechnen des Winkels zwischen zwei Vektoren 
+
+$$
+\varphi = \arccos{\frac{x\bullet y}{\Vert x \Vert \cdot \Vert y \Vert}}
+$$
+
+Es gilt:
+
+- $\overrightarrow{a} \bullet \overrightarrow{b} > 0\quad\text{wenn}\quad{\varphi}<\frac{\pi}{2}$
+
+- $\overrightarrow{a} \bullet \overrightarrow{b} < 0\quad\text{wenn}\quad{\varphi}>\frac{\pi}{2}$
+
+::: callout-important
+### Definition Orthogonalität
+Sind zwei Vektoren *orthogonal*/*senkrecht* zueinander, ergibt das Skalarprodukt
+
+$$
+\overrightarrow{a} \bullet \overrightarrow{b} = 0\quad\text{und}\quad\varphi = \frac{\pi}{2}
+$$
+:::
+
+`\vspace{2mm}`{=latex}
+
+::: callout-note
+### Richtungswinkel in $\mathbb{R}^3$
+
+$$
+\cos\alpha=\frac{a_x}{a} \textcolor{gray}{\text{ \& }} \cos\beta=\frac{a_y}{a} \textcolor{gray}{\text{ \& }} \cos\gamma=\frac{a_z}{a}
+$$
+
+$$
+\cos^2\alpha + \cos^2\beta + \cos^2\gamma = 1
+$$
+:::
+
+## Orthogonale Projektion
+
+![](images/orthogonale_projektion.png){height="3cm"}
+
+$$
+\overrightarrow{b_a}=\frac{\overrightarrow{a}\bullet \overrightarrow{b}}{\vert\overrightarrow{a}\vert^2} \cdot \overrightarrow{a}
+$$
+
+Es gilt folgendes:
+
+-   $\overrightarrow{b_a} = 0\quad\text{wenn}\quad\overrightarrow{b} \perp \overrightarrow{a}$
+
+-   $\overrightarrow{b_a}=\overrightarrow{b}\quad\text{wenn}\quad\varphi = 0°$
+
+## Vektorprodukt / Kreuzprodukt
+
+![](images/vektorprodukt.png){height="3cm"}
+
+**Tipp:** Rechte Handregel $\rightarrow$ Mittelfinger $\overrightarrow{c}$, Zeigefinger $\overrightarrow{b}$ & Daumen $\overrightarrow{a}$
+
+$$
+\overrightarrow{c} = \overrightarrow{a} \times \overrightarrow{b} =
+\begin{bmatrix}
+a_{\textcolor{red}{\textbf{x}}} \\ 
+a_{\textcolor{OliveGreen}{\textbf{y}}} \\ 
+a_{\textcolor{blue}{\textbf{z}}}
+\end{bmatrix} 
+\times 
+\begin{bmatrix}
+b_{\textcolor{red}{\textbf{x}}} \\ 
+b_{\textcolor{OliveGreen}{\textbf{y}}} \\ 
+b_{\textcolor{blue}{\textbf{z}}}
+\end{bmatrix} = 
+\begin{bmatrix}
+a_{\textcolor{OliveGreen}{\textbf{y}}} \cdot b_{\textcolor{blue}{\textbf{z}}} - a_{\textcolor{blue}{\textbf{z}}} \cdot b_{\textcolor{OliveGreen}{\textbf{y}}} \\ 
+a_{\textcolor{blue}{\textbf{z}}} \cdot b_{\textcolor{red}{\textbf{x}}} - a_{\textcolor{red}{\textbf{x}}} \cdot b_{\textcolor{blue}{\textbf{z}}} \\ 
+a_{\textcolor{red}{\textbf{x}}} \cdot b_{\textcolor{OliveGreen}{\textbf{y}}} - a_{\textcolor{OliveGreen}{\textbf{y}}} \cdot b_{\textcolor{red}{\textbf{x}}}
+\end{bmatrix}
+$$
+
+Der Betrag des Vektors $\overrightarrow{c}$ entspricht der Fläche, welche $\overrightarrow{a}$ & $\overrightarrow{b}$ aufspannen.
+$$
+\vert\overrightarrow{c}\vert = \vert{\overrightarrow{a} \times \overrightarrow{b}\vert} = \vert\overrightarrow{a}\vert \cdot \vert\overrightarrow{b}\vert \cdot \sin(\varphi)
+$$
+
+::: callout-caution
+## Nicht kommutativ & assoziativ
+
+$$
+(\overrightarrow{a}\times \overrightarrow{b}) \times \overrightarrow{c} \neq \overrightarrow{a}\times (\overrightarrow{b} \times \overrightarrow{c})
+$$
+
+$$
+\overrightarrow{a}\times \overrightarrow{b} \neq \overrightarrow{b}\times \overrightarrow{a}
+$$
+:::
+
+# Lineare Gleichungssystem
+
+::: callout-tip
+## Good to know!
+
+Ein lineares Gleichungssystem heisst **konsistent**, wenn es eine oder mehrere Lösungen hat, ansonsten wird es **inkonsistent** genannt (im Fall "zu viele" Lösungen).
+:::
+
+## Gaussche Eliminationsverfahren
+
+Mit dem Gausschen Eliminationsverfahren dürfen Zeilen einer Matrix vertauscht, multipliziert oder eine Zeile zu einer anderen Zeile addiert werden.
+
+$$
+\begin{bmatrix}
+1 & 2\\
+3 & 4
+\end{bmatrix}
+\begin{matrix}
+\text{}\\
+\text{II} - 3 \text{I}
+\end{matrix}
+\; \Rightarrow \;
+\begin{bmatrix}[cc]
+1 & 2\\
+0 & -2
+\end{bmatrix}
+$$
+
+$$
+\begin{matrix}
+a_{11}\cdot x_1 + \cdots + a_{1n}\cdot x_n = b_1 \\
+a_{21}\cdot x_1 + \cdots + a_{2n}\cdot x_n = b_2 \\
+\cdots \\
+a_{m1}\cdot x_1 + \cdots + a_{mn}\cdot x_n = b_m
+\end{matrix}
+$$
+
+$$
+\Rightarrow 
+\begin{bmatrix}
+a_{11} & \cdots & a_{1n}\\
+\vdots &        & \vdots\\
+a_{m1} & \cdots & a_{mn}
+\end{bmatrix} \text{und}
+\begin{bmatrix}[ccc|c]
+a_{11} & \cdots & a_{1n} & b_1\\
+\vdots &        & \vdots & \vdots\\
+a_{m1} & \cdots & a_{mn} & b_m
+\end{bmatrix}
+$$
+
+Die Matrizen heissen *Koeffizientenmatrix*, bzw. *erweitere Koeffizientenmatrix* des Systems.
+
+## Allgemeine Lösungen
+
+### Eindeutige Lösung
+
+![](images/one_solution.png){height="2.5cm"}
+
+![](images/visual_one_solution.png){height="2.5cm"}
+
+### Unendliche Lösungen
+
+![](images/infinite_solutions.png){height="2.5cm"}
+
+![](images/visual_infinite_solutions.png){height="2cm"}
+
+```{=latex}
+\vfill\null
+\columnbreak
+```
+
+### "Zu viele" Gleichungen
+
+Im Fall "Zu viele" Gleichungen, gibt es schlicht zu viele Werte und daher gilt das LGS als **inkonsistent**.
+
+![](images/too_many_solutions.png){height="2.5cm"}
+
+![](images/visual_too_many_solutions.png){height="2.5cm"}
+
+Das System kann keine, genau eine oder unendliche viele Lösungen haben. Diese kann meistens anhand unwahren Aussagen, wie z.B. $t_2 \cdot 0 = 1$, erkannt werden. Da egal für was z.B. $t_2$ eingesetzt wird, kann das Resultat nie $1$ werden.
+
+::: callout-important
+Wichtig zu bemerken ist, dass folgende Lösungsmöglichkeit
+
+$$
+\begin{bmatrix}[cc|c]
+  \dots & \dots & 1 \\
+  \dots & 1 & 0
+\end{bmatrix}
+$$
+
+nicht auf eine unwahre Aussage hindeutet. In diesem Fall wäre [$t_2 = 0$]{.underline}.
+:::
+
+# Matrix
+
+::: callout-note
+## Rechenregel
+
+-   $A+B \; = \; B+A$
+-   $(A+B)+C \; = \; A+(B+C)$
+-   $(AB)C \; = \; A(BC)$
+-   $(A+B)·C \; = \; AC + BC$
+-   $AB \neq BA$
+:::
+
+::: callout-tip
+## Merkregel
+
+**Z**eilen **z**uerst, **S**palten **s**päter
+
+$$
+a_{\textcolor{red}{Z}\textcolor{OliveGreen}{S}} \quad \Rightarrow \quad
+\begin{matrix}
+& \longleftarrow  \textcolor{OliveGreen}{Spalte}  \longrightarrow & \\
+\begin{matrix}
+\uparrow \\ \textcolor{red}{Zeile} \\ \downarrow \\
+\end{matrix} & \begin{bmatrix} 
+a_{11} & \cdots & a_{1\textcolor{OliveGreen}{S}}\\
+\vdots & & \vdots \\
+a_{\textcolor{red}{Z}1} & \cdots & a_{\textcolor{red}{Z}\textcolor{OliveGreen}{S}}
+\end{bmatrix}
+\end{matrix}
+$$
+:::
+
+```{=latex}
+\vfill\null
+\columnbreak
+```
+
+## Homogenes Gleichungssystem
+
+$$
+ A x = 0
+$$
+
+$$
+\begin{bmatrix}
+a_{11} & \cdots & a_{1n}\\
+\vdots &        & \vdots\\
+a_{m1} & \cdots & a_{mn}
+\end{bmatrix} 
+\cdot
+\begin{bmatrix}
+x_1 \\
+\vdots\\
+x_n
+\end{bmatrix}
+=
+\begin{bmatrix}
+0 \\
+\vdots\\
+0
+\end{bmatrix}
+$$
+
+## Inhomogenes Gleichungssystem
+
+$$
+Ax = b
+$$
+
+$$
+\begin{bmatrix}
+a_{11} & \cdots & a_{1n}\\
+\vdots &        & \vdots\\
+a_{m1} & \cdots & a_{mn}
+\end{bmatrix} 
+\cdot
+\begin{bmatrix}
+x_1 \\
+\vdots\\
+x_n
+\end{bmatrix}
+=
+\begin{bmatrix}
+b_1 \\
+\vdots\\
+b_n
+\end{bmatrix}
+$$
+
+## Transponieren von Matrizen
+
+Alle Matrizen können transponiert werden, egal ob quadratisch oder nicht!
+
+$$
+A \in \mathbb{R}^{m\times n} \Rightarrow A^T \in \mathbb{R}^{n\times m}
+$$
+
+$$
+\begin{bmatrix}
+  \textcolor{red}{1} & a\\
+  2 & \textcolor{red}{b}\\
+  3 & c
+\end{bmatrix} \Rightarrow
+\begin{bmatrix}
+  \textcolor{red}{1} & 2 & 3\\
+  a & \textcolor{red}{b} & c
+\end{bmatrix}
+$$
+
+## Transponieren von symmetrischer Matrix
+
+Symmetrische Matrizen (welche nur quadtratische sein können!) erhalten als Resultat des Transponieren sich selbst.
+
+$$
+A^T = A
+$$
+
+$$
+\begin{bmatrix}
+  1 & 2 & 3\\
+  2 & 1 & 2\\
+  3 & 2 & 1
+\end{bmatrix}^T = \begin{bmatrix}
+  1 & 2 & 3\\
+  2 & 1 & 2\\
+  3 & 2 & 1
+\end{bmatrix}
+$$
+
+::: callout-note
+## Rechenregel
+
+$$
+(A+B)^T = A^T + B^T
+$$
+:::
+
+```{=latex}
+\vfill\null
+\columnbreak
+```
+
+## Matrixmultiplikation
+
+::: callout-note
+## Rechenregel
+
+-   $(AB)C\; =\; A(BC)$
+-   $(A+B)C \; = \; AC + BC$
+-   $A(B+C) \; = \; AB + BC$
+-   $r(A)B\; = \; A(rB)$
+-   $I_m\cdot A = A \cdot I_n$ für $A \in \mathbb{R}^(m\times n)$
+:::
+
+::: callout-tip
+## Merkregel
+
+$$
+A \in \mathbb{R}^{m\times n},\,B \in \mathbb{R}^{n\times p}
+$$
+
+$$
+A \cdot B \Rightarrow (m \times \textcolor{red}{n})\cdot (\textcolor{red}{n}\times p) = (m\times p)
+$$
+![](images/matrixmul.png)
+
+:::
+
+::: callout-warning
+## Achtung!
+
+Matrixmultiplikation ist **nicht** kommutativ.
+
+$$
+AB \neq BA
+$$
+:::
+
+## Allgemeine Lösungsmengen von linearen Gleichungssystemen
+
+### Homogene LGS
+
+Bei einem homogenen Gleichungssystem ist die rechte Seite Null:
+
+$$
+A\cdot x = 0
+$$
+
+wobei $A \in \mathbb{R}^{m\times n}$ und $x \in \mathbb{R}^n$ der Vektor der Unbekannten ist.
+
+Die allgemeine Lösung des Homogenen Systems:
+$$
+x = x_h = t_1\cdot v_1 + \cdots + t_n \cdot v_n \quad \text{mit} \quad t_1,\ldots, t_n \in \mathbb{R}
+$$
+
+Ein homogenes LGS hat stets die triviale Lösung $x = 0 \in \mathbb{R}^n$.
+
+```{=latex}
+\vfill\null
+\columnbreak
+```
+
+### Inhomogene LGS
+
+Beim inhomogenen LGS wird nun erlaubt, dass $b\neq 0$ ist, also nicht mehr $0$.
+
+$$
+A \cdot x = A \cdot ( x_p + x_h )= b
+$$
+
+Die allgemeine Lösung des Inhomogenen Systems:
+$$
+x = x_p + t_1\cdot v_1 + \cdots + t_n \cdot v_n \quad \text{mit} \quad t_1,\ldots, t_n \in \mathbb{R}
+$$
+
+$x_p$ wird als *partikuläre* Lösung des inhomogenen Systems genannt.
+
+::: callout-tip
+## Vorgehen
+
+1.  Freiwählbare Parameter bestimmen
+2.  Partikuläre Lösung bestimmen
+    1.  irgendwelche Werte für die Parameter nehmen und Unbekannte Werte ausrechnen
+3.  Homogene Lösung bestimmen
+4.  Partikuläre & Homogene Lösung zusammenführen.
+:::
+
+## Inverse Matrix $A^{-1}$
+
+Eine **quadratische** Matrix $A \in \mathbb{R}^{n \times n}$ heisst [regulär]{.underline}, [invertierbar]{.underline}, [nicht-singulär]{.underline}, wenn es eine Matrix $A^{-1}$ gibt, sodass
+
+$$
+AA^{-1} = I_n
+$$
+
+Ansonsten heisst die Matrix $A$ [singulär]{.underline}!
+
+::: callout-note
+Eine Matrix $A$ ist invertierbar, wenn $\det{A}\neq0$. $\det{A} = 0$ wäre ähnlich wie eine "Divison durch 0".
+:::
+
+```{=latex}
+\vfill\null
+\columnbreak
+```
+
+::: callout-tip
+### Vorgehen Berechnung inverse Matrix z.B. $A\cdot X=I_2$
+
+1. Die gegebene Matrix $A\in\mathbb{R}^n$ links neben die Einheitsmatrix $I_n$ schreiben:
+$$
+\begin{bmatrix}[c|c] A & I_n\end{bmatrix}
+$$
+
+2. Durch Zeilenoperationen die Linke Seite $A$ in Treppenform überführen
+3. Wenn links eine Spalte [kein]{.underline} Pivot-Element besitzt, ist $A$ **nicht invertierbar**
+4. Die linke Seite hat im anderen Fall eine obere Dreiecksgestalt, mit allen Einträgen auf der Haupteinträge **ungleich Null**.
+5. Weitere Zeilenoperationen machen und die linke Seite in die Einheitsmatrix überführen.
+
+$$
+\rightarrow\begin{bmatrix}[c|c] I_n & \tilde{A} \end{bmatrix}
+$$
+
+6. Matrix auf rechter Seite entspricht der inversen Matrix $A^{-1} = \tilde{A}$.
+:::
+
+`\vspace{2mm}`{=latex}
+
+::: callout-note
+
+### Beispiel
+
+$$
+\begin{bmatrix}[cc|rr] 3 & 4 & 1 & 0\\ 6 & 2 & 0 & 1\end{bmatrix} \Rightarrow \begin{bmatrix}[cc|rr] 1 & 0 & -\frac{1}{9} & \frac{2}{9}\\ 0 & 1 & \frac{1}{3} & -\frac{1}{6}\end{bmatrix}
+$$
+
+Die Matrix $A^{-1}$ entspricht:
+
+$$
+A^{-1} = \begin{bmatrix} -\frac{1}{9} & \frac{2}{9}\\ \frac{1}{3} & -\frac{1}{6}\end{bmatrix}
+$$
+:::
+
+### Eigenschaft
+
+Die Inverse Matrix dient als "Matrix-Division" und kann verwendet werden um zum Beispiel gewisse Berechnungen rückgängig zu machen. Dies ist aber nur möglich, wenn die Matrix regulär ist.
+
+$$
+AX = B\quad \Rightarrow \quad X = A^{-1}B
+$$
+
+::: callout-note
+### Rechenregel für die Inverse
+
+-   $(A^{-1})^{-1} = A$
+-   $(sA)^{-1} = s^{-1}A^{-1}$
+-   $(AB)^{-1} = B^{-1}A^{-1}$ (Tauschung beachten!)
+-   $(A^T)^{-1} = (A^{-1})^T$
+:::
+
+```{=latex}
+\vfill\null
+\columnbreak
+```
+
+### Inverse einer $(2\times2)-$Matrix
+
+$$
+A = \begin{bmatrix} a & b \\ c & d \end{bmatrix}
+$$
+
+$$
+A^{-1} = \frac{1}{\det A} \begin{bmatrix} d & -b \\ -c & a \end{bmatrix} = \frac{1}{ad-bc} \begin{bmatrix} d & -b \\ -c & a \end{bmatrix}
+$$
+
+## Determinante $\mathrm{det}$
+
+Das zentrale Resultate über Determinanten ist das Kriterium für die Regularität. Mit der Determinante kann auch die Änderung einer Fläche/Volumen/etc., zum Beispiel ob sich ein Bild vergrössert, verkleinert oder geflipped wird.
+
+Wird eine **quadtratische** Matrix in eine obere oder untere Dreiecksform gebracht, gilt folgende Determinantenrechnung.
+
+$$
+U = \begin{bmatrix}
+\textcolor{blue}{u_{11}} & u_{12} & \cdots & u_{1n}\\
+0 & u_{22} & \cdots & u_{1n}\\
+\vdots & \vdots & \ddots & \vdots \\
+0 & 0 & \cdots & u_{nn}
+\end{bmatrix}
+$$
+
+$$
+\det U = (u_{11}\cdot u_{22}\cdot \ldots \cdot u_{nn})
+$$
+
+### Eigenschaften
+
+::: callout-note
+### Rechenregel
+
+Für quadratische Matrizen $A$ und $B$ und alle Skalare $s \in \mathbb{R}$ gilt
+
+-   $\det{A^T} = \det{A}$
+-   $\det(sA) = s^n \det{A}$ ($n$ = Anzahl Zeilen)
+-   $\det(AB) = \det(A) \cdot \det(B)$
+
+**Good to know**: Ein Produkt $AB$ ist dann regulär wenn $A$ und $B$ regulär sind.
+:::
+
+### Determinante einer $(2\times 2)-$Matrix
+
+$$
+\det A = \begin{vmatrix}a & b \\ c & d\end{vmatrix} = a\cdot d - b \cdot c
+$$
+
+### Determinante einer $(3\times 3)-$Matrix
+
+![](images/determinante_3x3.png)
+
+# Euklidische Vektorräume
+
+## Lineare Unterräume
+
+::: callout-note
+## Definition linearer Unterraum $U$
+
+Damit $U$ als Unterraum gilt, müssen folgende Bedingungen gelten.
+
+1.  $0 \in U$
+2.  $v,w \in U \Rightarrow v + w \in U$
+3.  $v \in U, s \in \mathbb{R} \Rightarrow s\cdot v \in U$
+:::
+
+## Aufgespannte Unterräume
+
+Unterräume können aufgespannt werden, das heisst die Basen, welche ein Unterraum definieren, werden zusätzlich parametrisiert. Dieser Unterraum definiert dadurch einen gewissen Wertebereich.
+
+$$
+U = \text{span}
+\left(\begin{bmatrix} 1 \\ 0 \\ 1 \end{bmatrix}, \begin{bmatrix} 0 \\ 1 \\ 0 \end{bmatrix}\right) = \begin{bmatrix} 1 \\ 0 \\ 1 \end{bmatrix} \cdot t_1 + \begin{bmatrix} 0 \\ 1 \\ 0 \end{bmatrix} \cdot t_2
+$$
+
+Möchte zum Beispiel geprüft werden, ob Vektor $\overrightarrow{v}$ in $U$ definiert ist, gilt:
+
+$$
+U = \text{span}(v_1, v_2) = \overrightarrow{v} \Rightarrow \begin{bmatrix} 1 \\ 0 \\ 1 \end{bmatrix} \cdot t_1 + \begin{bmatrix} 0 \\ 1 \\ 0 \end{bmatrix} \cdot t_2 = \begin{bmatrix} v_1 \\ v_2 \\ v_3 \end{bmatrix}
+$$
+
+::: callout-important
+Die Vektoren, welche $U$ aufspannen werden *Basen* genannt!
+:::
+
+::: callout-tip
+### Vorgehen Test, ob $v \in U \subseteq \mathbb{R}^n$ ist
+
+1. Lösen des linearen Gleichungssystems
+
+$$
+\begin{bmatrix}[ccc|c] v_1 & \cdots & v_k & v\end{bmatrix}
+$$
+
+2. Ist das System **konsistent**, so gilt $v\in U$, sonst $v \notin U$.
+:::
+
+## Geometrische, implizite & explizite Darstellung
+
+### Implizite Darstellung
+
+Implizite Darstellung eines Unterraums wird der Unterraum in die Treppenform gebracht und dann mit den Parametern ausgeschrieben. Folgende Matrix in Treppenform
+
+$$
+\begin{bmatrix}[ccc|c]
+-1 & \frac{1}{2} & 1 & 0 \\
+0 & 0 & 0 & 0
+\end{bmatrix}
+$$
+
+wird umgeschrieben in
+
+$$
+-x_1+\frac{1}{2}x_2+x_3=0
+$$
+
+### Explizite Darstellung
+
+Die explizite Darstellung gibt den Unterraum in Vektorform und Parametern an. Diese Darstellung wird auch **Parameterdarstellung** genannt.
+
+$$
+U = \text{span}\left(\begin{bmatrix} 1 \\ 0\end{bmatrix}, \begin{bmatrix} 0 \\ 1\end{bmatrix}\right) = \begin{bmatrix} 1 \\ 0\end{bmatrix} \cdot t_1 + \begin{bmatrix} 0 \\ 1\end{bmatrix} \cdot t_2
+$$
+
+### Geometrische 
+
+Die geometrische Darstellung ist, wie der Name bereits beschreibt, die Visualisierung des Unterraums in einem vorstellbaren Bereich ($\mathbb{R}^1,\mathbb{R}^2,\mathbb{R}^3$)
+
+Ein Beispiel wäre die [Orthogonale Projektion](#orthogonale-projektion) auf der ersten Seite.
+
+## Lineare Unabhängigkeit
+
+Die lineare Unabhängigkeit bezieht sich auf die Vektoren eines Unterraums. *Linear abhängige* Vektoren können durch andere im Unterraum enthaltene Vektoren "aufgebaut" werden.
+
+::: callout-note
+### Good to know!
+
+Wird eine Ebene in $\mathbb{R}^{3}$ aufgespannt von drei Vektoren $v_1, v_2, v_3$, wird ein Vektor linear **abhängig** von den anderen sein, da die Ebene in dieser Dimension nur zwei Vektoren benötigt.
+:::
+
+Die Lineare Unabhängigkeit einer Matrix kann mit den Ermitteln der Treppenform der Matrix geprüft werden.
+
+```{=latex}
+\vfill\null
+\columnbreak
+```
+
+::: callout-tip
+### Vorgehen
+
+Test der Vektoren $v_1,\ldots, v_k \in \mathbb{R}^{n}$ auf lineare Unabhängigkeit
+
+1.  Ist $k>n$ so sind $v_1,\ldots, v_k$ linear abhängig
+2.  Im anderen Fall, werden die Vektoren in eine $(n \times k)$-Matrix geschrieben und in die **Treppenform** gebracht.
+3.  Ist in einer Spalte kein Pivot vorhanden, so sind die Vektoren linear abhänging.
+4.  Haben alle Spalten einen Pivot, sind die Vektoren linear unabhängig.
+:::
+
+## Basis und Koordinaten
+
+![](images/versch_linearkombi.png)
+
+::: callout-note
+### Definition *Koordinaten*
+
+Es sei $v_1,\ldots,v_k \in U$ eine Basis von $U$. Dann kann jeder Vektor $v \in U$ *eindeutig* als Linearkombination
+
+$$
+v = s_1\cdot v_1 + \cdots + s_k\cdot v_k
+$$
+
+geschrieben werden. Die Koeffizienten $s_1, \ldots, s_k$ heissen *Koordinaten* von $v$ **bzgl. der Basis** $v_1,\ldots,v_k$. Die Koordinaten werden zu einem Koordinatenvektor zusammengefasst:
+
+$$
+\begin{bmatrix}
+s_1 \\
+\vdots \\
+s_k
+\end{bmatrix} \in \mathbb{R}^k
+$$
+:::
+
+::: callout-note
+### Definition *Basis*
+
+Die Vektoren $v_1,\ldots,v_k$ eines linearen Unterraums $U$ heissen eine *Basis von* $U$, falls sie
+
+1.  den ganzen Unterraum U erzeugen $\rightarrow U = \text{span}(v_1,\ldots,v_k)$ und
+2.  linear [unabhängig]{.underline} sind.
+:::
+
+## Dimension $\dim$
+
+::: callout-note
+### Eigenschaften der Dimension
+
+Es sei $U$ ein Unterraum von $\mathbb{R}^n$ der Dimension $d$ und $v_1,\ldots,v_k \in U$.
+
+1.  Wenn $v_1,\ldots,v_k$ linear unabhängig sind $\Rightarrow k \leq d$
+2.  Wenn $V = \text{span}(v_1,\ldots,v_k)$ ist $\Rightarrow k \geq d$
+3.  Für $k = d$ gilt: $v_1,\ldots,v_k$ ist Basis
+
+-   $v_1,\ldots,v_k$ sind linear unabhängig
+-   $V = \text{span}(v_1,\ldots,v_k)$
+:::
+
+`\vspace{5mm}`{=latex}
+
+## Basiswahl
+
+Durch das bestimmen der Lösungsmenge einer Matrix können die Basen der entsprechenden Lösungsmenge ermittelt werden.
+
+::: callout-tip
+### Vorgehen
+
+1. Aufschreiben der $(n \times m)$-Matrix mit den Spaltenvektoren
+
+$$
+A = \begin{bmatrix}v_1 & \cdots & v_k\end{bmatrix}
+$$
+
+2. Überführen von $A$ in eine Treppenform via Zeilenumformung
+3. Wenn $j_1,\ldots,j_p$ die Spalten mit Pivot-Element sind, dann bilden die Vektoren
+
+$$
+v_{j_1},\ldots,v_{j_p}\quad\text{eine Basis von }U
+$$
+
+**Wichtig!** Es werden die **ursprünglichen** Vektoren, nicht die der Treppenform, genommen.
+:::
+
+```{=latex}
+\newpage
+```
+
+## Affine Unterräume
+
+![](images/affiner_unterraum.png)
+
+
+::: callout-note
+### Definition
+
+Ein *affiner Unterraum* des $\mathbb{R}^n$ ist eine Menge der Form
+
+$$
+A = v + U = \{v + t_1v_1 + \cdots + t_kv_k\ |\ t_1 + \cdots + t_k \in \mathbb{R}\}
+$$ mit einem festen **Verschiebungsvektor** $v \in \mathbb{R}^n$.
+
+Die *Dimension* von $A$ ist die gleiche, wie von $U$:
+
+$$
+\dim{A} = \dim{U}
+$$
+:::
+
+`\vspace{2mm}`{=latex}
+
+::: callout-important
+### Inhomogenes LGS
+
+Es sei $A$ eine $(m \times n)$-Matrix und $b \in \mathbb{R}^m$.
+
+$$
+Ax = b
+$$
+
+Die Lösungsmenge ist ein affiner Unterraum von $\mathbb{R}^n$, welcher um einen *Verschiebungsvektor* $v \in \mathbb{R}^n$ verschoben wurde. Dies heisst, dass der affine Unterraum **nicht** durch $0$ geht, sondern durch den Punkt von $v$.
+
+Die *Parameterdarstellung* von $A$ ist
+
+$$
+A = \{v + t_1v_1+\cdots+t_nv_n\:|\:t_1,\ldots,t_n\in \mathnormal{R}\}
+$$
+
+:::
+
+```{=latex}
+\vfill\null
+\columnbreak
+```
+
+# Lineare Abbildung
+
+Eine Abbildung ist in anderen Worte eine Funktion mit Matrizen. Diese Abbildungen können zum Beispiel Vektoren auf einer Ebene rotieren, vergrössern oder verkleinern.
+
+::: callout-note
+## Definition Lineare Abbildung
+
+Eine gültige lineare Abbildung muss folgende Bedingungen erfüllen:
+
+-   $f(a\cdot x) = a \cdot f(x)$ wobei $a \in \mathbb{R}$ & $x \in \mathbb{R}^n$
+-   $f(x+y) = f(x)+f(y)$ wobei $x,y \in \mathbb{R}^n$
+
+Eine lineare Abbildung $L: \mathbb{R}^n \rightarrow \mathbb{R}^m$ bildet den Nullvektor auf den Nullvektor ab:
+
+$$
+L(0) = 0
+$$
+:::
+
+`\vspace{2mm}`{=latex}
+
+::: callout-note
+## Definition Abbildung durch Matrix
+
+Die Matrix einer Abbildung wird auch "Transformationsmatrix" genannt, da diese nichts anderes macht als gewisse Operationen auszuführen (z.B. Rotation, Streckung, etc.)
+
+Ist $A$ eine $(m \times n)$-Matrix, so definiert die Vorschrift
+
+$$
+L_A:\ \mathbb{R}^n \rightarrow \mathbb{R}^m,\quad x \mapsto Ax
+$$
+
+eine Abbildung.
+:::
+
+## Die Matrix einer linearen Abbildung
+
+![](images/matrixen_bezuglich_basen.png)
+
+Matrix bezüglich den Standardbasis-Vektoren
+
+$$
+a_1 = L(e_1) \qquad a_2 = L(e_2)
+$$
+
+$$
+L(x) = \begin{bmatrix}a_1 & a_2\end{bmatrix} \begin{bmatrix}x_1 \\ x_2\end{bmatrix} = Ax
+$$
+
+```{=latex}
+\vfill\null
+\columnbreak
+```
+
+::: callout-tip
+### Vorgehen Matrix bzgl. anderen Basen
+
+Bestimmung der Matrix der linearen Abbildung $L: \mathbb{R}^n \rightarrow \mathbb{R}^m$ bzgl. den Basen $v_1,\ldots,v_n \in \mathbb{R}^n$ und $w_1,\ldots,w_m \in \mathbb{R}^m$
+
+1.  Berechnen der Bilder der Basisvektoren $L(v_1),\ldots, L(v_n)$ in $\mathbb{R}^m$
+2.  Entwickeln der Bilder nach Basis $w_1,\ldots,w_m$ von $\mathbb{R}^m$
+
+$$
+L(v_x) = a_{1x}\ w_1 + \cdots + a_{mx}\ w_m\quad\text{für}\quad 1\leq x\leq n
+$$
+
+3.  Zusammenfassen der Koeffizienten zu Spalten und bilden der Matrix mit allen diesen Spalten (Reihenfolge beachten)
+
+$$
+L(v_1) = \textcolor{blue}{a_{1x}}w_1+\cdots+\textcolor{blue}{a_{mx}}w_m
+$$
+
+$$
+ a_{\textcolor{RedOrange}{x}} = \begin{bmatrix} a_{1\textcolor{RedOrange}{x}} \\ \vdots \\ a_{m\textcolor{RedOrange}{x}} \end{bmatrix} \rightarrow A = \begin{bmatrix} a_1 & \cdots & a_x \end{bmatrix}
+$$
+
+$a_1,\ldots,a_x$ sind Koordinatenvektoren
+:::
+
+## Inverse Abbildung
+
+Mit inversen Abbildung können Operationen rückgängig gemacht werden (z.B. 90° Drehung und als invers wäre es eine -90°). Damit die Abbildung $L: \mathbb{R}^n \rightarrow \mathbb{R}^n$ invertierbar ist, gelten folgende Vorraussetzungen:
+
+-   $L(v) = w \quad \Leftrightarrow \quad v = L^{-1}=M(w)$
+-   $L$ invertierbar $\Longleftrightarrow$ $A$ regulär $(\det{A} \neq 0)$
+
+für alle $v,w \in \mathbb{R}^n$. $M$ ist dabei die *zu* $L$ *inverse Abbildung* $\rightarrow M = L^{-1}$.
+
+## Affine Abbildung
+
+Eine Abbildung $F: \mathbb{R}^n \rightarrow \mathbb{R}^m$ heisst *affin*, wenn es eine lineare Abbildung $L: \mathbb{R}^n \rightarrow \mathbb{R}^m$ gibt und ein Verschiebungsvektor $w\in\mathbb{R}^m$.
+
+$$
+F(v) = L(v) + w \quad \text{für alle} \quad v\in\mathbb{R}^n
+$$
+
+```{=latex}
+\vfill\null
+\columnbreak
+```
+
+::: callout-tip
+### Vorgehen
+
+1.  Verschieben des Zentrums in den Ursprung
+2.  Anwendung der linearen Abbildung bzgl. des Ursprungs
+3.  Verschieben des Ursprungs zurück zum Zentrum
+
+Zum Beispiel "affine" Drehung. $r_z$ ist der Ortsvektor des verschobenen Zentrums $Z$.
+
+$$
+F(x) = D(x-r_z) + r_z = D(x)-D(r_z) + r_z
+$$
+:::
+
+## Nützliche Abbildungen $\mathbb{R}^2$
+
+Siehe [Lineare Abbildung](#lineare-abbildung) für die Eigenschaften der Abbildungen ($f(x\cdot a) = a\cdot f(x)$, etc.).
+
+### Drehung um Winkel $\alpha$
+
+![](images/rotation.png){height="4cm"}
+
+Abbildung $D_\alpha$ bzgl. Standardbasen
+
+$$
+D_\alpha(x) = \begin{bmatrix}
+  \cos{\alpha} & -\sin{\alpha} \\
+  \sin{\alpha} & \cos{\alpha}
+\end{bmatrix} \cdot x
+$$
+
+Die inverse Abbildung wäre mit $-\alpha$
+
+### Projektion auf eine Gerade (durch Ursprung)
+
+Bei der Projektion kann keine inverse Abbildungen ermittelt werden.
+
+![](images/projektion.png){height="4cm"}
+
+$$
+P( \overrightarrow{v} ) = \frac{\overrightarrow{u}\cdot \overrightarrow{v}}{\vert \overrightarrow{u} \vert^2}\cdot \overrightarrow{u}
+$$
+
+
+::: callout-note
+### Orthogonale Zerlegung bezüglich einer Gerade
+
+$$
+v = p + w
+$$
+
+mit $w \perp p$ (Abbildung oben ist $w$ die gestrichelte Linie)
+:::
+
+### Spiegelung an einer Gerade
+
+![](images/spiegelung_gerade.png){height="4cm"}
+
+$$
+S(\ \overrightarrow{v}\ ) = 2\cdot P(\ \overrightarrow{v}\ ) - \overrightarrow{v}
+$$
+
+## Kern $\mathrm{ker}$ & Bild $\mathrm{im}$
+
+### Kern (engl. Kernel)
+
+$$
+\ker L = \{ v \in \mathbb{R}^n\ | L(v) = 0\}
+$$
+
+$$
+\ker A \rightarrow \text{Lösungsraum von } Ax = 0
+$$
+
+$\rightarrow$ Treppenform auflösen und die parametrisierten Vektoren/Lösungsmenge entsprechen dem Kern.
+
+::: callout-note
+#### Beispiel
+
+$$
+A = \begin{bmatrix} 1 & 0 & 1 & 1 \\ 1 & 1 & 1 & 0 \\ 1 & 0 & 1 & 1 \end{bmatrix} \Rightarrow \begin{bmatrix}[cccc|c] 1 & 0 & 1 & 1 & 0 \\ 0 & 1 & 0 & -1 & 0 \\ 0 & 0 & 0 & 0 & 0 \end{bmatrix}
+$$
+
+Aus diesem Gleichungssystem entsteht folgende Lösungsmenge
+
+$$
+\left\{
+\begin{array}{ll}
+x_1 + x_3 + x_4 = 0\\
+x_2 - x_4 = 0
+\end{array} \right. \Rightarrow x = t_1 \begin{bmatrix}-1\\0\\1\\0\end{bmatrix} + t_2 \begin{bmatrix}-1\\1\\0\\1\end{bmatrix}
+$$
+
+Der Kern dieses Beispiels ist somit:
+
+$$
+\ker{A}= \text{span}\left(\begin{bmatrix}-1\\0\\1\\0\end{bmatrix},\begin{bmatrix}-1\\1\\0\\1\end{bmatrix}\right)
+$$
+:::
+
+```{=latex}
+\vfill\null
+\columnbreak
+```
+
+### Bild (engl. Image)
+
+$$
+\text{im}(L) = \{L(v)\ |\ v\in\mathbb{R}^n\}
+$$
+
+- Sind $a_1,\ldots,a_n$ die Spalten von $A$, so ist
+
+$$
+\text{im}(A) = \text{span}(a_1,\ldots,a_n)
+$$
+
+Es gibt aber den Fall, dass die Matrix $A$ linear abhängige Vektoren besitzt, welche minimiert werden können und dadurch ein kleineres Bild erhält.
+
+$\rightarrow$ Entspricht allen ursprünglichen Vektoren, welche in der Treppenform ein Pivot besitzen (linear unabhängigen)!
+
+::: callout-note
+#### Beispiel
+
+$$
+A = \begin{bmatrix} 1 & 0 & 1 & 1 \\ 1 & 1 & 1 & 0 \\ 1 & 0 & 1 & 1 \end{bmatrix}
+$$
+
+Im Vergleich zum Kern, wird jetzt nicht die Lösungsmenge genommen, sondern die **ursprünglichen** Vektoren, welche in der Treppenform ein Pivot besitzen. Dazu muss die Lösungsmatrix noch ein bisschen weiter verarbeitet werden, damit die Pivots bestimmt werden können
+
+$$
+\begin{bmatrix}[cccc]
+\textcolor{red}{1} & 1 & 1 & 0 \\ 
+0 & 0 & 0 & \textcolor{red}{-1}\\ 
+0 & 0 & 0 & 0
+\end{bmatrix}
+$$
+
+Das Bild dieses Beispiels ist somit:
+
+$$
+\text{im}(A)= \text{span}\left(\begin{bmatrix}1\\1\\1\end{bmatrix},\begin{bmatrix} 1\\ 0 \\1\end{bmatrix}\right)
+$$
+:::
+
+`\vspace{2mm}`{=latex}
+
+::: callout-important
+### Kern und Bild sind Vektorräume!
+
+Ist $L: \mathbb{R}^n \rightarrow \mathbb{R}^m$ eine lineare Abbildung, so ist ${ker}(L)$ ein linearer Unterraum von $\mathbb{R}^n$ und ${im}(L)$ ein linearer Unterraum von $\mathbb{R}^m$.
+
+Das Bild ${im}(L)$ wird auch *Spaltenraum* von A genannt.
+:::
+
+## Rang $\text{rk}$ & Defekt $\text{def}$
+
+### Rang (engl. rank)
+
+$$
+   \text{rk}(A) = \text{dim im } A
+$$
+
+$\rightarrow$ Anzahl Spalten **mit** Pivots zählen
+
+### Defekt (engl. defect)
+
+$$
+  \text{def}(A) = \text{dim ker}(A)
+$$
+
+$\rightarrow$ Anzahl Spalten **ohne** Pivots zählen
+
+::: callout-note
+### Dimensionssatz
+
+Für jede Matrix $A$ gilt
+
+$$
+\text{rk}(A) + \text{def}(A)= n\quad;\quad A\in\mathnormal{R}^n
+$$
+
+wobei $n$ die Anzahl Spalten von $A$ ist.
+:::
+
+## Eigenwerte & -vektoren
+
+::: callout-note
+### Definition
+
+1.  $L:\mathbb{R}^n\rightarrow\mathbb{R}^n$, Skalar $\lambda \in \mathbb{R}$ & Vektor $v \in \mathbb{R}^n$
+
+$$
+v \neq 0\quad\text{und}\quad L(v)=\lambda\cdot v
+$$
+
+$\rightarrow v$ heisst *Eigenvektor von L* und $\lambda$ heisst *Eigenwert von L*
+
+2.  Die *Eigenwerte* und *-vektoren* einer $(n\times n)$-Matrix $A$ sind die Eigenwerte und vektoren der linearen Abbildung
+
+$$
+L(v) = \lambda v\quad\Leftrightarrow\quad Ax = \lambda x
+$$
+:::
+
+`\vspace{2mm}`{=latex}
+
+::: callout-important
+### Wichtig!
+
+-   Eigenvektoren gibt es **nur** für **quadratische** Matrizen.
+-   $v \neq 0$, da ansonsten $\lambda$ jeder Wert annehmen könnte.
+-   Zu jedem Eigenwert gibt es **unendlich viele** Eigenvektoren
+:::
+
+`\vspace{2mm}`{=latex}
+
+::: callout-note
+### Eigenraum
+
+Die Menge aller Eigenvektoren zusammen mit dem Nullvektor
+
+$$
+U_{\lambda} = \{v\in\mathbb{R}^n\:|\:L(v)=\lambda v\}
+$$
+
+ist ein linearer Unterraum von V. Er heisst *Eigenraum* von $L$ zum Eigenwert $\lambda$.
+:::
+
+```{=latex}
+\vfill\null
+\columnbreak
+```
+
+### Bestimmung von Eigenwerten & -vektoren
+
+::: callout-note
+#### Definition Eigenraum
+
+Der Eigenraum entspricht der Lösungsmenge/Kern der folgenden Gleichung.
+
+$$
+U_\lambda = \ker(A-\lambda I_n)
+$$
+:::
+
+::: callout-note
+#### Definition Charakteristische Polynom von A
+
+Für eine quadratische Matrix $A$ heisst das Polynom
+
+$$
+p_A(\lambda) = det(A-\lambda I_n)
+$$
+
+das *charakteristische Polynom* von $A$.
+
+Damit können die Eigenwerte einer **quadratischen** Matrix berechnet werden (die Nullstellen des Polynoms $p_A$ entspricht den Eigenwerten $\lambda$).
+:::
+
+::: callout-tip
+#### Vorgehen
+
+1.  Berechnung des charakteristischen Polynoms
+
+$$
+p_A(\lambda) = det(A-\lambda I_n)
+$$
+
+2.  Bestimmung der Nullstellen $\lambda_1,\ldots,\lambda_r$ von $p_a(\lambda)$. Dies sind die [Eigenwerte von $A$]{.underline}.
+
+3.  Für jeden Eigenwert $\lambda_i$ Bestimmung des Eigenraums $U_{\lambda_i}$ als Lösungsmenge des Gleichungssystem
+
+$$
+(A-\lambda_i I_n)\cdot v = 0
+$$
+
+$v \in U_{\lambda_i}$ ist der Eigenvektor (oder mehrere).
+:::
+
+## Diagonalisierbarkeit
+
+::: callout-important
+### Eigenwerte
+
+:::
+
+::: callout-note
+### Definition
+
+Eine quadratische $(n\times n)$-Matrix $A$ heisst *diagonalisierbar*, wenn es eine Basis von $\mathbb{R}^n$ aus Eigenvektoren von $A$ gibt.
+
+$$
+v_1,\ldots,v_n \in \mathbb{R}^n\ \text{Basis mit}\ Av_i = \lambda_i v_i\quad\text{für}\quad 1\leq i \leq n
+$$
+
+:::
+
+Ist eine Matrix diagonalisierbar, kann die **Diagonalmatrix** $D$ zusammengestellt werden:
+
+$$
+D = \mathrm{diag}(\lambda_1,\ldots,\lambda_n) = \begin{bmatrix}\lambda_1 &  & 0\\ & \ddots & \\ 0 & & \lambda_n\end{bmatrix}
+$$
+
+::: callout-note
+### Eigenwertzerlegung
+
+Eine $(n\times n)$-Matrix $A$ ist genau dann diagonalisierbar, wenn es eine reguläre Matrix $S$ gibt, so dass
+
+$$
+S^{-1}AS= \mathrm{diag}(\lambda_1,\ldots,\lambda_n)
+$$
+
+Ist in diesem Fall $v_1,\ldots,v_n$ eine Basis aus **Eigenvektoren** zu den Eigenwerten $\lambda_1,\ldots,\lambda_n$ von $A$, so gilt
+
+$$
+S = [v_1\ \ldots\ v_n]
+$$
+:::
+
+## Normen & Metriken
+
+### Normen
+
+Normen sind in anderen Worten der Betrag von Vektoren. Je nach Norm ist der Betrag anders, wobei drei Normen betrachtet wird: Manhatten, Euklidisch & Maximum.
+
+1.  **Manhatten-Norm** (um die Ecken gehen)
+
+![](images/manhatten_norm.png){height="2cm"}
+
+$\rightarrow \Vert v \Vert_{\textcolor{RedOrange}{1}} = \vert v_1 \vert + \cdots + \vert v_n \vert$
+
+2.  **Euklidische Norm** (direkter Weg)
+
+![](images/euklidische_norm.PNG){height="2cm"}
+
+$\rightarrow \Vert v \Vert_{\textcolor{RedOrange}{2}} = \Vert v \Vert = \sqrt{v_1^2 + \cdots + v_n^2}$
+
+3.  **Maximum-Norm** (maximaler Betrag)
+
+$\rightarrow \Vert v \Vert_{\textcolor{RedOrange}{\infty}} = \text{max}(\left \vert v_1 \vert , \cdots , \vert v_n \vert \right)$
+
+Diese Norm gibt den Betrag eines Vektors $v_n$ zurück mit dem [grössten Betrag]{.underline}.
+
+### Metrik
+
+Jede Norm definiert einen Begriff von *Distanz zwischen Punkten* wie folgt.
+
+$$
+d(x,y) = \Vert x-y \Vert
+$$
+
+Es gibt aber auch Distanzen, die nicht von einer Norm herkommen.
+
+Die *Hamming-Distanz* $d_H(\cdots)$ zählt zwischen zwei Zeichenkette gleicher Länge die Anzahl der Positionen, an denen unterschiedliche Zeichen stehen.
+
+$$
+d_H(x,y) = \text{Anzahl der } i \text{ so dass } x_i \neq y_i
+$$
+
+::: callout-note
+#### Definition
+
+Eine *Metrik* $d$ auf einer Menge $M$ ist eine Funktion, die jedem Paar von Elementen $x,y \in M$ eine relle Zahl $d(x,y) \in \mathbb{R}$ zuordnet, sodass die folgenden Eigenschaften erfüllt sind: Für alle $x,y,z \in \mathbb{R}^n$ gilt
+
+1.  $d(x,x) \geq 0$
+2.  $d(x,y) = 0\quad\Leftrightarrow\quad x = y$
+3.  $d(x,y) \leq d(y,x)$ (Symmetrie)
+4.  $d(x,y) \leq d(x,z) + d(z,y)$ (Dreiecksungleichung)
+:::
+
+
+## Orthonormalbasen
+
+::: callout-note
+### Definition *Orthonormal*
+
+$$
+v_i\bullet v_j = \delta_{i,j} = \left\{
+                \begin{array}{l}
+                  1\quad\text{falls}\quad i = j\\
+                  0\quad\text{falls}\quad i \neq j
+                \end{array}
+              \right.
+$$
+
+1.  Eine Menge $\{v_1,\ldots,v_k\}$ von Vektoren heisst *orthogonal*, wenn
+
+$$
+v_i \bullet v_j = 0\quad\text{für alle}\quad 1 \leq i, j \leq k\quad\text{mit }i\neq j
+$$
+
+2.  Eine Menge $\{v_1,\ldots,v_k\}$ von Vektoren heisst *ortho**normal***, wenn
+
+**ortho**normal $\rightarrow$ orthogonal
+$$
+v_i \bullet v_j = 0\quad\text{für alle}\quad 1 \leq i, j \leq k\quad\text{mit }i\neq j
+$$
+
+ortho**normal** $\rightarrow$ normiert
+$$
+\Vert v_i \Vert = 1\quad\text{für alle}\quad 1 \leq i \leq k
+$$
+:::
+
+Orthonormalbasen spannen ein Unterraum auf, wobei alle Basen voneinander **orthogonal** sind und jeweils den euklidischen Betrag $\Vert v \Vert_2 = 1$ beträgt.
+
+::: callout-note
+### Definition Orthonormalbasis ONB
+
+Eine *Orthonormalbasis* (ONB) eines linearen Unterraums $U \subseteq \mathbb{R}^n$ ist eine orthonormale Menge, die auch eine Basis von $U$ ist.
+:::
+
+Orthonormalbasen können mit dem Gram-Schmidt Verfahren aufgebaut werden.
+
+### Gram-Schmidt-Verfahren {#gram-schmidt-verfahren}
+
+![](images/gram_schmidt_verfahren.png)
+
+::: callout-tip
+## Vorgehen
+
+1.  Normierung: $v_1 = w_1 / \Vert w_1 \Vert$
+2.  Für $i \in \{2,\ldots,n\}$ nimm an, dass $v_1,\ldots,v_{i-1}$ bereits konstruiert ist
+3.  Projektion des Vektors auf die normierten ONB-Vektoren
+$$
+v_i' = w_i - \textcolor{red}{(}(w_i \bullet v_1)v_1 - \cdots - (w_i \bullet v_{i-1})v_{i-1}\textcolor{red}{)}
+$$
+4.  Normierung: $v_i = v_i'/\Vert v_i' \Vert$
+5. Dies wird für alle benötigten Vektoren im ONB wiederholt.
+
+Die Funktion in $\textcolor{red}{(}\cdots\textcolor{red}{)}$ berechnet den Projektionsvektor $\overrightarrow{p}$. Durch die Projektion auf allen bereits normierten Vektoren, wird die Orthogonalität untereinander aufgestellt.
+:::
+
+## Spektralsatz
+
+::: callout-note
+### Orthogonale Matrizen
+
+Die Matrix $V$ besteht aus normierten Eigenvektoren!
+
+Bilden die Spalten der quadratischen Matrix $V \in \mathbb{R}^{n\times n}$ eine [**Orthonormalbasis**]{.underline}, so gilt
+
+$$
+V^TV = I_n
+$$
+
+$\rightarrow$ Eigenvektoren einzeln normieren!
+
+Solche Matrizen werden *orthogonal* genannt (nicht *ortho[normal]{.underline}*)
+:::
+
+```{=latex}
+\vfill\null
+\columnbreak
+```
+
+::: callout-note
+### Spektralsatz
+
+Matrix $A$ ist eine symmetrische quadratische Matrix $A$ und somit orthogonal diagonalisierbar.
+
+$$
+V^T A V = D
+$$
+
+Hierbei sind die Spalten von $V$ eine Basis des $\mathbb{R}^n$ von Eigenvektoren von $A$.
+:::
+
+Für eine quadratische Matrix $A$ erhält man die *Hauptachsentransformation*
+
+$$
+A = V D V^T
+$$
+
+::: callout-tip
+### Berechnung der Hauptachsentransformation
+
+Wenn Matrix $A \in \mathbb{R}^{n\times n}$ [symmetrisch]{.underline} ist:
+
+1.  Bestimmung der Eigenwerte $\lambda_1,\ldots,\lambda_n\in\mathbb{R}$
+2.  Für jeden Eigenwert $\lambda_i$ Bestimmung einer Basis des Eigenraums $U_\lambda$
+3.  Für jeden Eigenraum Anwendung des [Gram-Schmidt-Verfahrens](#gram-schmidt-verfahren) auf die Basis, um eine ONB zu finden $\Rightarrow \text{ONB } v_1, \ldots,v_n$ des $\mathbb{R}^n$
+4.  $D=\mathrm{diag}(\lambda_1,\ldots,\lambda_n)$ `\newline`{=latex} und $V = \begin{bmatrix}v_1 & \cdots & v_n\end{bmatrix}$
+5.  Hauptachsentransformation berechnen mit vorheriger Gleichung
+:::
+
+## Singulärwertzerlegung (engl. singular value decomposition (SVD))
+
+Die Singulärwertzerlegung existiert für jede Matrix, nicht nur für quadratische.
+
+Für jede $(n\times m)$-Matrix $A$ ist die $(n\times n)$-Matrix $S$ **symmetrisch**.
+
+$$
+S = A^TA
+$$
+
+Auf $S$ kann der [Spektralsatz](#spektralsatz) angewandt werden, und es gibt eine othogonale Matrix $V$ mit
+
+$$
+S = A^T A= VDV^T
+$$
+
+$\rightarrow$ Diagonalmatrix $D$ beinhaltet die Eigenwerte
+
+::: callout-note
+### Singulärwertzerlegung
+
+![](images/singularwertzerlegung.png){height="3cm"}
+
+Sei $A$ eine $(\textcolor{OliveGreen}{\textcolor{blue}{m}}\times\textcolor{red}{n})$. Dann existieren Matrizen
+
+-  **ONB** $U \in \mathbb{R}^{\textcolor{OliveGreen}{\textcolor{blue}{m}}\times\textcolor{OliveGreen}{\textcolor{blue}{m}}}$ mit Spaltenvektoren $u_i$
+-  **ONB** $V \in \mathbb{R}^{\textcolor{red}{n}\times\textcolor{red}{n}}$ mit Spaltenvektoren $v_i$
+-  $\Sigma\in \mathbb{R}^{\textcolor{OliveGreen}{\textcolor{blue}{m}}\times\textcolor{red}{n}}$ ist die *Singulärwertmatrix* von $A$ mit Einträgen
+
+$$
+\Sigma_{ij} = \left\{
+                \begin{array}{ll}
+                  \sigma\geq0 & \text{für}\ i = j\\
+                  0 & \text{für}\ i \neq j
+                \end{array}
+              \right.
+$$
+
+Die Einträge erfüllen $\sigma_1 \geq \sigma_2 \geq \cdots \geq \sigma_{min(m,n)} \geq 0$ `\newline`{=latex} (`\textcolor{red}{Sortieren nicht vergessen!}`{=latex})
+
+`\vspace{2mm}`{=latex}
+
+so dass
+
+$$
+A = U \Sigma V^T
+$$
+
+Diese Gleichung wird *Singulärwertzerlegung* (engl. singular value decomposition *SVD*) genannt.
+:::
+
+Die Matrix $\Sigma$ beinhaltet die Wurzelwerte der Eigenwerte.
+
+$$
+\Sigma= \begin{bmatrix}
+\sigma_1 & 0 & 0 \\
+0 & \ddots & 0 \\
+ & \ddots & \sigma_n \\
+\vdots &  & 0\\
+ & & \vdots\\
+0 & \cdots & 0
+\end{bmatrix} = 
+\begin{bmatrix}
+\sqrt{\lambda_1} & 0 & 0 \\
+0 & \ddots & 0 \\
+ & \ddots & \sqrt{\lambda_n} \\
+\vdots &  & 0\\
+ & & \vdots\\
+0 & \cdots & 0
+\end{bmatrix}
+$$
+
+
+### Singulärwert-Gleichung
+
+Mit der *Singulärwert-Gleichung* werden die Vektoren für die *Links-Singulärmatrix* $U$ berechnet. Falls zu wenig $\sigma_i$ für die Matrix, wird die Singulärwert-Gleichung als homogen betrachtet (Warum? keine Ahnung).
+
+$$
+A\cdot v_j = \left\{
+\begin{array}{ll}
+\sigma_j\cdot u_j & \text{für } j = 1,\ldots,r \\
+0 & \text{für } j = r + 1,\ldots,n
+\end{array}\right.
+$$
+
+**Wichtig!** $\sigma_j$ entspricht dem Singulär**wert**!
+
+$$
+u_j = \frac{1}{\sigma_j}A\cdot v_j
+$$
+
+Damit kann dann $U$ zusammengesetzt werden:
+
+$$
+U = \begin{bmatrix}u_1 & \cdots & u_n\end{bmatrix}
+$$
+`\newpage`{=latex}
+
+# Python \faPython
+
+## Basics
+
+### Listen
+
+Eine Liste kann gemischte Datentpen beinhalten.
+
+``` python
+pizza = ['Pizza',1,2,3,'not Pasta']
+len(pizza) # = 5
+pizza[4] = 4
+```
+
+Andere Funktionen mit Listen.
+
+``` python
+pizza[-1]     # get last item
+pizza + pizza # concat two lists
+pizza[:3]     # get 3 first items
+pizza[1:4]    # get item Nr.2 & 3
+```
+
+### Linspace
+
+Der Befehl `np.linspace(...)` erzeugt eine Liste, welche gleichmässige Abstände zu den Einträgen erzeugt.
+
+```python
+x = np.linspace(start=1, stop=10, num=4)
+array([ 1., 4., 7., 10.])
+```
+
+### Arange
+
+Der Befehl `np.arange(...)` erzeugt eine Liste, welche vom `start`-Wert in `step` Schritten bis **vor** dem `stop`-Wert geht.
+
+```python
+y = np.arange(start=1, stop=7, step=.6)
+array([1. , 1.6, 2.2, 2.8, 3.4, 4. , 4.6, 
+       5.2, 5.8, 6.4])
+```
+
+### Ein- & Ausgabe
+
+*Eingabe*
+
+``` python
+input("Flavour Text before Input: ") 
+```
+
+*Ausgabe*
+
+``` python
+print("This prints out this text")
+print(object)                     
+```
+
+### Nützliche Befehle
+
+-   `cls` , `clear` $\rightarrow$ Konsole leeren
+-   `who` $\rightarrow$ Liste aller Variablen anzeigen
+-   `whos` $\rightarrow$ Liste aller Variablen mit ihren Werten anzeigen
+-   `del <variable>` $\rightarrow$ Variable löschen
+-   `%reset` $\rightarrow$ Alle Variablen löschen
+-   `help()` $\rightarrow$ Interaktive Hilfe
+
+## Linear Algebra Libraries
+
+Für Linear Algebra können zwei Bibliotheken verwendet werden:
+
+```python
+import numpy as np
+from scipy import linalg
+```
+
+::: callout-note
+## Genauigkeit & Kompatibilität
+
+Generell sollten die Lineare-Algebra-Methoden von scipy verwendet werden. `scipy` beinhaltet alle Linear-Algebra von `numpy`.
+
+$\rightarrow$ `scipy` ist genauer als `numpy`
+:::
+
+## Format & Anzahl Elemente
+
+$$
+B = \begin{bmatrix}
+  1 & 2\\
+  3 & 4\\
+  5 & 6
+\end{bmatrix}
+$$
+
+`.shape` gibt das Format der Matrix `(<Zeilen>,<Spalten>)`, nach dem Ansatz von "Zeilen zuerst, Spalten Später".
+
+```python
+B.shape # Output: (3, 2)
+```
+
+`.size` Gibt die Anzahl Elemente der Matrix aus.
+
+```python
+B.size # Output: 6
+```
+
+
+### Matrixtypen
+
+``` python
+A = np.array([[1, 2], [3, 4], [5, 6]])
+```
+
+$$
+A = \begin{bmatrix}
+  1 & 2\\
+  3 & 4\\
+  5 & 6
+\end{bmatrix}
+$$
+
+``` python
+B = np.zeros([2,3])
+```
+
+$$
+B = \begin{bmatrix}
+ 0 & 0 & 0 \\
+ 0 & 0 & 0
+\end{bmatrix}
+$$
+
+``` python
+C = np.ones([3,2])
+```
+
+$$
+C = \begin{bmatrix}
+  1 & 1 \\
+  1 & 1 \\
+  1 & 1
+\end{bmatrix}
+$$
+
+``` python
+D = np.eye(3)
+```
+
+$$
+D = \begin{bmatrix}
+  1 & 0 & 0 \\
+  0 & 1 & 0 \\
+  0 & 0 & 1
+\end{bmatrix}
+$$
+
+``` python
+E = np.diag([1,2,3])
+```
+
+$$
+E = \begin{bmatrix}
+  1 & 0 & 0 \\
+  0 & 2 & 0 \\
+  0 & 0 & 3
+\end{bmatrix}
+$$
+
+### Zugriff auf Untermatrizen
+
+Ähnlich wie bei Listen, können bei Matrizen/Arrays einzelne Werte, Spalten, Zeilen oder Teilmatrizen entnommen werden.
+
+$$
+F = \begin{bmatrix}
+1 & 2 & 3 \\
+4 & 5 & 6 \\
+7 & 8 & 9
+\end{bmatrix}
+$$
+
+``` python
+F[1,0] => 4
+F[4,5] => ERROR - out of bounds
+```
+
+Anstatt einzelne Werte abzufragen, können auch
+
+``` python
+F[<row start>:<row end>,<col start>:<col end>]
+
+IN:  F[1:3,2:5]
+OUT: array([[6],
+            [9]])
+```
+
+![](images/code_chunk_of_matrix_over.png){height="3.5cm"}
+
+```python
+IN:  F[:3,2:]
+OUT: array([[3],
+            [6],
+            [9]])
+```
+
+![](images/code_column_over.png){height="3cm"}
+
+```python
+IN:  F[:2,:]
+OUT: array([[1, 2, 3],
+            [4, 5, 6]])
+```
+
+::: callout-important
+## Referenzen
+
+``` python
+G = F[1:3,2:4]
+```
+
+Lässt `G` als eine Referenz von `F` dienen. Jegliche Änderungen an `F` wird direkt an `G` übertragen.
+
+Um eine Kopie einer Matrix zu machen, muss die Methode `numpy.copy` verwendet werden.
+
+``` python
+G = F.copy()
+# oder wenn nur Untermatrix
+G = F[1:3,2:4].copy()
+```
+:::
+
+## Stitching
+
+Die *Stitching*-Funktionen `hstack` & `vstack` können verwendet werden, um Matrizen über die horizontale oder vertikale Seite zusammenzusetzen.
+
+``` python
+np.hstack([A,C])            
+```
+
+$$
+\begin{bmatrix}
+\textcolor{RedOrange}{A} & \textcolor{blue}{C}
+\end{bmatrix}
+=
+\begin{bmatrix}
+  \textcolor{RedOrange}{1} & \textcolor{RedOrange}{2} & \textcolor{blue}{1} & \textcolor{blue}{1}\\
+  \textcolor{RedOrange}{3} & \textcolor{RedOrange}{4} & \textcolor{blue}{1} & \textcolor{blue}{1}\\           
+  \textcolor{RedOrange}{5} & \textcolor{RedOrange}{6} & \textcolor{blue}{1} & \textcolor{blue}{1}             
+\end{bmatrix}  
+$$
+
+``` python
+np.vstack([B,D])           
+```
+
+$$        
+\begin{bmatrix}
+\textcolor{RedOrange}{B} \\ \textcolor{blue}{D}
+\end{bmatrix}
+=                 
+\Rightarrow \begin{bmatrix}
+  \textcolor{RedOrange}{0} & \textcolor{RedOrange}{0} & \textcolor{RedOrange}{0} \\             
+  \textcolor{RedOrange}{0} & \textcolor{RedOrange}{0} & \textcolor{RedOrange}{0} \\             
+  \textcolor{blue}{1} & \textcolor{blue}{0} & \textcolor{blue}{0} \\             
+  \textcolor{blue}{0} & \textcolor{blue}{1} & \textcolor{blue}{0} \\             
+  \textcolor{blue}{0} & \textcolor{blue}{0} & \textcolor{blue}{1}                
+\end{bmatrix}              
+$$
+
+## Grundoperationen
+
+$$
+A = \begin{bmatrix} 1 & 2 \\ 3 & 4 \end{bmatrix}
+$$
+
+### Transponieren
+
+``` python
+A.T
+```
+
+$$
+\begin{bmatrix} 1 & 3 \\ 2 & 4 \end{bmatrix}
+$$
+
+### Elementweise Operationen `+`, `-`, `*`, `/`
+
+``` python
+A*2
+```
+
+$$
+\begin{bmatrix} 2 & 4 \\ 6 & 8 \end{bmatrix}
+$$
+
+``` python
+A*np.eye(2)
+```
+
+$$
+\begin{bmatrix} 1 & 2 \\ 3 & 4 \end{bmatrix}
+\circ
+\begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix} = \begin{bmatrix} 1 & 0 \\ 0 & 4 \end{bmatrix}
+$$
+
+### Elementweise Potenz `**`
+
+``` python
+A**2
+```
+
+$$
+\begin{bmatrix} 1^2 & 2^2 \\ 3^2 & 4^2\end{bmatrix}=\begin{bmatrix} 1 & 4 \\ 9 & 16\end{bmatrix}
+$$
+
+``` python
+A**A
+```
+
+$$
+\begin{bmatrix} 1^{\textcolor{blue}{1}} & 2^{\textcolor{blue}{2}} \\ 3^{\textcolor{blue}{3}} & 4^{\textcolor{blue}{4}}\end{bmatrix}=\begin{bmatrix} 1 & 4 \\ 27 & 256\end{bmatrix}
+$$
+
+### Matrixmultiplikation `@`
+
+``` python
+A@A
+```
+
+$$
+\begin{bmatrix}
+7 & 10 \\
+15 & 22
+\end{bmatrix}
+$$
+
+### Potenz im Sinne Matrixmultiplikation
+
+``` python
+np.linalg.matrix_power(A,3)
+```
+
+$$
+AAA=
+\begin{bmatrix} 1 & 2 \\ 3 & 4 \end{bmatrix}\cdot \begin{bmatrix} 1 & 2 \\ 3 & 4 \end{bmatrix}\cdot \begin{bmatrix} 1 & 2 \\ 3 & 4 \end{bmatrix} = \begin{bmatrix}
+37 & 54 \\
+81 & 118
+\end{bmatrix}
+$$
+
+## Inverse
+
+``` python
+np.linalg.inv(A)
+```
+
+$$
+A^{-1}=
+\begin{bmatrix}
+-2 & 1 \\
+\frac{3}{2} & -\frac{1}{2}
+\end{bmatrix}
+$$
+
+::: callout-caution
+Diese Funktion gibt eine Fehlermeldungen aus, wenn Matrix `A` eine singuläre Matrix ist.
+:::
+
+## Determinante
+
+``` python
+det_A = np.linalg.det(A)
+```
+
+$$
+\det A = -2
+$$
+
+::: callout-caution
+### Nicht Vergessen!
+
+- $\det{A} = 0 \Rightarrow$ Nicht invertierbar!
+- $\det{A} \neq 0 \Rightarrow$ Invertierbar!
+:::
+
+## Eigenwerte und -vektoren
+
+``` python
+B = np.array([[1,1], [1,1]])
+ev, S = np.linalg.eig(B)
+```
+
+``` python
+# ev:
+[2. 0.]
+
+# S:
+[[ 0.70710678 -0.70710678]
+ [ 0.70710678 0.70710678]]
+```
+
+::: callout-important
+### Vorsicht!
+
+Ist die Matrix nicht diagonalisierbar, so liefert Python linear abhängige Eigenvektoren zurück.
+
+```python
+IN:  C = np.array([[1,1], [-1,3]])
+IN:  np.linalg.eig(C)
+OUT: (array([2.00000002, 1.99999998]),
+      array([[ 0.70710677, -0.70710679],
+             [ 0.70710679, -0.70710677]]))
+```
+
+:::
+
+## Normen, Skalarprodukt und das Gram-Schmidt-Verfahren
+
+### Norm
+
+``` python
+np.linalg.norm(<array>,<norm>)
+```
+
+-   `1` $\rightarrow$ Manhatten Norm ${\Vert v\Vert}_1$
+-   `2` $\rightarrow$ euklidische Norm ${\Vert v\Vert}_2$
+-   `inf` oder `np.inf` $\rightarrow$ Maximumnorm ${\Vert v\Vert}_\infty$
+
+### Skalarprodukt
+
+~~`np.dot(<vector>,<vector>)`~~
+
+*Nur folgendes verwenden*
+
+```python
+<vector>.T@<vector>
+```
+
+::: callout-important
+Nach Polonis Worten, funktioniert `np.dot(...)` **nicht**.
+:::
+
+Was der folgenden Gleichung entspricht
+
+$$
+x\bullet y = x^Ty = \begin{bmatrix} x_1 & \cdots & x_n \end{bmatrix} \begin{bmatrix} y_1 \\ \cdots \\ y_n \end{bmatrix}
+$$
+
+Berechnet das Skalarprodukt der angegebenen Vektoren.
+
+### Gram-Schmidt-Verfahren
+
+``` python
+np.linalg.qr(<matrix>)
+
+u = np.array([[1], [2], [0]])
+v = np.array([[8], [1], [-6]])
+w = np.array([[0], [0], [1]])
+
+A = np.hstack([u, v, w])
+
+Q,R = np.linalg.qr(A)
+```
+
+-   `Q` $\rightarrow$ Orthonormale Vektoren $v_1,\ldots,v_n$
+-   `R` $\rightarrow$ Koordinaten der ursprünglichen Vektoren $w_1,\ldots,w_n$
+
+
+## Singulärwertzerlegung
+
+``` python
+U, sigma, V_T = np.linalg.svd(A)
+```
+
+::: callout-important
+`sigma` beinhaltet nur die Singulärwerte, nicht die Matrix!
+
+`sigma` $= \left\{\sigma_1,\ldots,\sigma_n\right\}$
+
+:::
+
+## Lineare Gleichungssysteme
+
+::: callout-note
+### Mini Repetition
+
+$$
+Ax = b\quad\Leftrightarrow\quad x = A^{-1}b
+$$
+
+Wenn $x$ unbekannt ist, $A$ zuerst prüfen ob regulär mit `det(A)`, ansonsten nicht möglich, bzw. unendlich viele Lösungen möglich.
+
+**Matrixmultiplikationen** werden mit dem Befehl `@` ($\rightarrow A\cdot B$) anstatt `*` ($\rightarrow A \circ B$) gemacht!
+:::
+
+Die Funktion `np.linalg.solve(A,b)` löst das Gleichungssystem $Ax = b$ nach x auf.
+
+``` python
+np.linalg.solve(A,b)
+```
+
+::: callout-caution
+Diese Funktion gibt Fehlermeldungen aus, wenn...
+
+-   Matrix `A` eine singuläre Matrix ist
+
+-   Matrix `A` nicht quadratisch ist
+:::
+
+Dieses Gleichungssystem kann auch mit der inversen Matrix berechnet werden:
+
+```python
+x = np.linalg.inv(A)@b
+```
+
+```{=latex}
+\vfill\null
+\columnbreak
+```
+
+### Fall: Matrix ist singulär
+
+Wenn die Determinante einer Matrix (z.B. $A$) $\det{A} = 0$ ist, dann kann `np.linalg.solve(...)` nicht gebraucht werden. Es wird die Funktion `np.linalg.lstsq()` bzw. `scipy.linalg.lstsq()` verwendet (`lstsq` $\rightarrow$ least-squares solution)
+
+
+::: callout-important
+Die Lösung von `np.linalg.lstsq()` bzw. `scipy.linalg.lstsq()` immer überprüfen, da es möglich sein kann, dass die gegebene Lösung eigentlich gar keine Lösungist.
+
+Im Fall einer singulären Koeffizientenmatrix kann das Gleichungssystem entweder gar keine oder unendlich viele Lösungen haben.
+:::
+
+::: callout-note
+Hat ein lineares Gleichungssystem $Ax = b$ [unendlich viele Lösungen]{.underline}, so wird durch `scipy.linalg.lstsq()` der [euklidische Abstand von $x$ zum Ursprung]{.underline} minimiert.
+:::
+
+::: callout-note
+Hat ein lineares Gleichungssystem $Ax = b$ [keine Lösung]{.underline}, so wird durch `scipy.linalg.lstsq()` der [euklidische Abstand von $Ax$ zu $b$]{.underline} minimiert.
+:::
+
+## Kern
+
+Der Kern einer Matrix wird mit dem Befehl 
+
+```python
+np.linalg.null_space(A)
+# bzw. 
+linalg.null_space(A)
+```
+
+berechnet.
+
+## Rang 
+
+::: callout-note
+Ein lineares Gleichungssystem $Ax = b$ ist genau dann konsistent, wenn
+
+$$
+\text{rk }A = \text{rk}\begin{bmatrix}A & b\end{bmatrix}
+$$
+:::
+
+Der Rang wird mit dem Befehl 
+
+```python
+np.linalg.matrix_rank(A)
+```
+
+berechnet (`scipy` besitzt diese Funktion **nicht**)
+
+`\end{multicols}`{=latex}
+
+`\vspace{1cm}`{=latex}
+
+
+
+`\begin{multicols}{2}`{=latex}
+![](images/meme.jpg)
+
+![](images/meme2.jpg)
+
+`\end{multicols}`{=latex}
