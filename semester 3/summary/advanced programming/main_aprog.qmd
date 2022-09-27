@@ -1,0 +1,181 @@
+---
+title: "Zusammenfassung Advanced Programming"
+author: "Joel von Rotz"
+date: "19.06.1932"
+
+format:
+  pdf:
+    include-in-header:
+      - config.tex
+    keep-tex: true
+geometry: 
+- "top=15mm"
+- "bottom=25mm"
+- "left=15mm"
+- "right=15mm"
+papersize: a4paper
+fontsize: 10pt
+
+toc: true
+
+pdf-engine: pdflatex
+pagenumbering: none
+
+highlight-style: github
+editor: visual
+
+execute: 
+  output: true
+  echo: true
+---
+
+# Vergleich `C` & `C#`
+
+- Jede Funktion muss zu einer Klasse gehören. Es gibt keine ["nackten"]{.underline} Funktionen
+
+
+# Datentypen
+
+## String
+
+Strings werden mit dem folgender Deklaration `"inhalt"` 
+
+::: callout-important
+
+Strings können nicht verändert werden -> sind **read-only**
+
+```csharp
+string s = "Hallo Welt";
+
+s[1] = 'A'; // ERROR
+```
+
+:::
+
+### Parameter in String einfügen
+
+Parameter/variablen können in Strings direkt eingefügt werden.
+
+`\end{multicols}`{=latex}
+
+
+### Bildschirmausgabe
+
+**Variante 1** - C Style:
+
+```csharp
+Console.WriteLine("The sum of {0} and {1} is {2}",a,b,result);
+```
+
+**Variante 2** - C# Style:
+
+```csharp
+Console.WriteLine("The sum of" + a + "and" + b + "is" + result);
+```
+
+**Variante 3** - new C# Style:
+
+```csharp
+Console.WriteLine($"The sum of {a} and {b} is {result}");
+```
+
+`\begin{multicols}{2}`{=latex}
+
+# Overloading
+
+## Konstruktor Overloading
+
+```csharp
+class Point {
+  private int pos_x;
+  private int pos_y;
+
+  public Point(int x, int y) {
+    this.pos_x = x;
+    this.pos_y = y;
+  }
+
+  public Point() : this(0,0) {}
+}
+```
+
+Mit `this` nach dem Konstruktor (unterteilt mit `:`) kann der Aufruf auf einen anderen Konstruktor weitergeleitet werden. Der Inhalt des vorherigen Konstruktors wird erst nach dem Ablauf des `this`-Konstruktors (im Beispiel `Point(int x, int y)`).
+
+### Konstruktor Aufruf-Reihenfolge
+
+```csharp
+using System;
+
+class Point {
+  private int pos_x;
+  private int pos_y;
+
+  public Point(int x, int y) {
+    this.pos_x = x;
+    this.pos_y = y;
+    Console.WriteLine($"Point {this.pos_x}, {this.pos_y}");
+  }
+
+  public Point(int x) : this(x, 0) {
+    Console.WriteLine("x-only");
+  }
+
+  public Point() : this(0,0) {}
+  Console.WriteLine("no value");
+}
+```
+
+Wird nun `Point(4)` aufgerufen erhält man folgendes auf der Konsole
+
+```output
+Point 4, 0
+x-only
+```
+
+## Default Parameter (implizit Overloading)
+
+```csharp
+
+```
+
+# Funktion
+
+
+## `out` 
+
+```csharp
+
+```
+
+# Notes
+
+## Overflows Integer
+
+Im folgenden Code wird eine Variable `i` mit dem maximalen Wert eines `int` geladen und folgend inkrementiert.
+
+```csharp
+int i = int.MaxValue;
+i++;
+```
+
+Wird aber dies direkt in der Initialisierung eingebettet (`...+ 1`), ruft der Compiler aus, da er den Overflow erkennt.
+
+```csharp
+int i = int.MaxValue + 1; // COMPILE-FEHLER
+i++;
+```
+
+::: callout-caution
+
+Dieser Overflow-Fehler gilt nur bei **konstanten** Werten bei der Initialisierung. Wird eine separate Variable mit dem Maximalwert initialisierit und an `i` hinzuaddiert, gibt es keinen Fehler.
+
+
+```csharp
+int k = int.MaxValue;
+int i = k + 1; // KEIN Fehler
+```
+
+:::
+
+
+
