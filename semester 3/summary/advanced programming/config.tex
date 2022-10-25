@@ -1,34 +1,36 @@
-\usepackage{amssymb, amsmath, etoolbox}
-\usepackage{multicol}
-\usepackage[dvipsnames]{xcolor}
-\definecolor{darkgreen}{HTML}{014f32}
-\usepackage[german]{babel}
-
-\usepackage{fontawesome5}
-\setlength\columnsep{20pt}
+\usepackage{amssymb, amsmath}
+\numberwithin{equation}{section}
 
 \usepackage[utf8]{inputenc}
 
+% Flexible Multicolumn Option
+\usepackage{multicol}
+\setlength\columnsep{20pt}
+
+% Package for enabling colors (colorful output)
+\usepackage[dvipsnames]{xcolor}
+\definecolor{darkgreen}{HTML}{014f32}
+
+% Icons - http://mirrors.ctan.org/fonts/fontawesome5/doc/fontawesome5.pdf
+\usepackage{fontawesome5}
+
+
 \usepackage[nodisplayskipstretch]{setspace}
 
-\newenvironment{conditions}
-  { % start-code
-    \par\vspace{\abovedisplayskip}\noindent
-    \begin{tabular}{>{$}c<{$} @{${}:{}$} l}
-  }
-  { % end-code
-    \end{tabular}
-    \par\vspace{\belowdisplayskip}
-  }
-
-% used to configure 
-\makeatletter
-\renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
-  \hskip -\arraycolsep
-  \let\@ifnextchar\new@ifnextchar
-  \array{#1}}
-\makeatother
-
+% Font Configuration
 \usepackage{lmodern}
 \renewcommand{\familydefault}{\sfdefault}
 \usepackage{cmbright}
+
+% 
+\usepackage{fancyhdr}
+
+\pagestyle{fancy}
+\fancyhead{} % clear all header fields
+\makeatletter
+\fancyhead[R]{\@title}
+\makeatother
+\fancyhead[L]{HSLU T\&A}
+\fancyfoot{} % clear all footer fields
+\fancyfoot[C]{\thepage\ / \pageref{LastPage}}
+\fancyfoot[R]{APROG}
