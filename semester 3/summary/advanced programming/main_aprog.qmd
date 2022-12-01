@@ -1,7 +1,9 @@
 ---
 title: "Zusammenfassung Advanced Programming"
-author: "Joel von Rotz"
+author: "Joel von Rotz & Andreas Ming"
 date: "19.06.1932"
+
+lang: de
 
 format:
   pdf:
@@ -9,25 +11,33 @@ format:
       - config.tex
     keep-tex: true
 geometry: 
-- "top=15mm"
-- "bottom=25mm"
+- "top=25mm"
+- "bottom=30mm"
 - "left=15mm"
 - "right=15mm"
 papersize: a4paper
 fontsize: 10pt
 
 toc: true
+toc-depth: 3
+number-sections: true
+number-depth: 3
 
 pdf-engine: pdflatex
 pagenumbering: none
 
 highlight-style: github
-editor: visual
-
-execute: 
-  output: true
-  echo: true
 ---
+
+# C-Sharp Begriffe
+
+## Dictionary - `Dictionary<TKey,TValue> Class`
+
+
+
+
+
+
 
 # Vergleich `C` & `C#`
 
@@ -112,21 +122,15 @@ Parameter/variablen können in Strings direkt eingefügt werden.
 
 **Variante 1** - C Style:
 
-```csharp
-Console.WriteLine("The sum of {0} and {1} is {2}",a,b,result);
-```
+`Console.WriteLine("The sum of {0} and {1} is {2}",a,b,result);`{.csharp}
 
 **Variante 2** - C# Style:
 
-```csharp
-Console.WriteLine("The sum of" + a + "and" + b + "is" + result);
-```
+`Console.WriteLine("The sum of" + a + "and" + b + "is" + result);`{.csharp}
 
 **Variante 3** - new C# Style:
 
-```csharp
-Console.WriteLine($"The sum of {a} and {b} is {result}");
-```
+`Console.WriteLine($"The sum of {a} and {b} is {result}");`{.csharp}
 
 # Overloading
 
@@ -224,5 +228,55 @@ int i = k + 1; // KEIN Fehler
 
 :::
 
+# Multithreading `System.Threading`
 
+```csharp
+static void Main(string[] args) {
+  Thread t = new Thread(Run);
+  t.Start();
+  Console.ReadKey();
+}
 
+static void Run() {
+  Console.WriteLine("Thread is running...");
+}
+```
+
+## Parametrisierter Thread
+
+Falls ein Parameter übergeben werden muss, kann die delegierte `ParameterizedThreadStart`-Signatur verwendet werden. Der Thread wird normal aufgesetzt und bei `.Start()`
+
+```csharp
+static void Main(string[] args)
+{
+  //...
+  TcpClient client = listener.AcceptTcpClient();
+  Thread t = new Thread(HandleDateTimerequest);
+  t.Start(client);
+  // ...
+}
+
+// must be of ParameterizedThreadStart signature
+private void HandleDateTimerequest(object _object)
+{
+  TcpClient client = (TcpClient)_object;
+  // ...
+}
+```
+
+# **W**indows **P**resentation **F**oundation
+
+::: callout-note
+## Unterschied zwischen WPF & Console Application
+
+WPF ist 
+
+:::
+
+---
+
+# Glossar
+
+- **Timeslicing**: Bei Computersystemen wird *timeslicing* verwendet, damit mehrere Prozesse "parallel" verlaufen können. Jedem Prozess/Thread wird ein fixer Zeitslot gegeben, in dem es sein Code abarbeiten kann,  
+
+- **Präventiv/kooperativ**: Ein *präventives* Betriebsystem unterbricht ein Prozess, wenn dieser sein Time-Slot verbraucht hat. Ein *kooperatives* BS unterbicht die Prozesse [nicht]{.underline} und die Prozesse geben an, wann es fertig ist. 
