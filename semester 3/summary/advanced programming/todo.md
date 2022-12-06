@@ -128,3 +128,9 @@
 - Dispatcher
 - Key Event
 
+# Kapitel 12
+
+## Raspberry w/ TinyK22
+
+- Uart aktivierung in `/boot/config.txt`
+- Nuget *Systems.IO.Ports*
