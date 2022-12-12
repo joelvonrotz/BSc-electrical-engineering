@@ -2,6 +2,7 @@
 \numberwithin{equation}{section}
 
 \usepackage[utf8]{inputenc}
+\usepackage{lastpage} % counts all the pages, used in footer
 
 % Flexible Multicolumn Option
 \usepackage{multicol}
@@ -34,3 +35,4 @@
 \fancyfoot{} % clear all footer fields
 \fancyfoot[C]{\thepage\ / \pageref{LastPage}}
 \fancyfoot[R]{APROG}
+\fancyfoot[L]{\today}
