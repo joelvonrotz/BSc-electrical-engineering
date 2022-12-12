@@ -1,7 +1,8 @@
 ---
 title: "Zusammenfassung Advanced Programming"
+subtitle: "APROG HS22"
 author: "Joel von Rotz & Andreas Ming"
-date: "19.06.1932"
+date: "01.01.2023"
 
 lang: de
 
@@ -33,24 +34,31 @@ highlight-style: github
 
 
 
-# C-Sharp Begriffe
+# `C#` und `.Net`-Framework
 
-## Dictionary - `Dictionary<TKey,TValue> Class`
+## Vergleich `C` & `C#`
+
+|                 |                      C *(POP)*                     |                   C# *(OOP)*                  |
+|:---------------:|:--------------------------------------------------:|:---------------------------------------------:|
+|                 | **P**rozedurale **O**rientierte **P**rogrammierung | **O**bjekt **O**rientierte **P**rogrammierung |
+|   Compilation   |                     Interpreter                    |              Just-in-time *(CLR)*             |
+|    Execution    |                   Cross-Platform                   |                `.Net` Framework               |
+| Memory handling |              `free()` after `malloc()`             |               Garbage collector               |
+|    Anwendung    |             Embedded, Real-Time-Systeme            | Embedded OS, Windows, Linux, GUIs             |
+|  Execution Flow |                      Top-Down                      |                   Bottom-Up                   |
+|  Aufteilung in  |                     Funktionen                     |                    Methoden                   |
+|   Arbeitet mit  |                     Algorithmen                    |                     Daten                     |
+| Datenpersistenz |      Einfache Zugriffsregeln und Sichtbarkeit      | Data Hiding (`privat`, `public`, `protected`) |
+|  Lib-Einbindung |              *.h* File mit `#include`              |            *namespaces* mit `using`           |
+
+[]: # (Do more as you'd like. See table "VergleichC.tgn" to use on "https://www.tablesgenerator.com/markdown_tables")
 
 
+## Struktur `C#`-Programm
 
+### Klassen
 
-
-
-
-# Vergleich `C` & `C#`
-
-- Jede Funktion muss zu einer Klasse gehören. Es gibt keine ["nackten"]{.underline} Funktionen
-
-
-# Begriffe
-
-## Namespace
+### Namespace
 
 ```csharp
 namespace { ... }
@@ -74,7 +82,18 @@ namespace NameOfSpace {
 }
 ```
 
-## using
+## Keywords
+
+### Zugriffs-Modifier
+
+* `public`
+* `protected`
+* `protected internal`
+* `private protected`
+* `internal`
+* `private`
+
+### `using`
 
 `using` wird zum Abkürzen von Namen
 
@@ -87,7 +106,9 @@ using System;
 Console.WriteLine("Hello World!");
 ```
 
-## struct & class
+### `class`
+
+### `struct`
 
 ::: callout-important
 ## Unterschied `struct` & `class`
@@ -99,9 +120,9 @@ Console.WriteLine("Hello World!");
 
 :::
 
-# Datentypen
+## Datentypen
 
-## String
+### `string`
 
 Strings werden mit dem folgender Deklaration 
 
@@ -117,7 +138,7 @@ s[1] = 'A'; // ERROR
 
 :::
 
-### Parameter in String einfügen
+#### Parameter in String einfügen
 
 Parameter/variablen können in Strings direkt eingefügt werden.
 
@@ -136,9 +157,10 @@ Parameter/variablen können in Strings direkt eingefügt werden.
 
 `Console.WriteLine($"The sum of {a} and {b} is {result}");`{.csharp}
 
-# Overloading
+# Konzepte `C#`
+## Overloading
 
-## Konstruktor Overloading
+### Konstruktor Overloading
 
 ```csharp
 class Point {
@@ -156,7 +178,7 @@ class Point {
 
 Mit `this` nach dem Konstruktor (unterteilt mit `:`) kann der Aufruf auf einen anderen Konstruktor weitergeleitet werden. Der Inhalt des vorherigen Konstruktors wird erst nach dem Ablauf des `this`-Konstruktors (im Beispiel `Point(int x, int y)`).
 
-### Konstruktor Aufruf-Reihenfolge
+#### Konstruktor Aufruf-Reihenfolge
 
 ```csharp
 using System;
@@ -186,53 +208,11 @@ Wird nun `Point(4)` aufgerufen erhält man folgendes auf der Konsole
 Point 4, 0
 x-only
 ```
+### Methoden Overloading
 
 ## Default Parameter (implizit Overloading)
 
-```csharp
-
-```
-
-# Funktion
-
-
-## `out` 
-
-```csharp
-
-```
-
-# Notes
-
-## Overflows Integer
-
-Im folgenden Code wird eine Variable `i` mit dem maximalen Wert eines `int` geladen und folgend inkrementiert.
-
-```csharp
-int i = int.MaxValue;
-i++;
-```
-
-Wird aber dies direkt in der Initialisierung eingebettet (`...+ 1`), ruft der Compiler aus, da er den Overflow erkennt. (Einsetzung von Compilern)
-
-```csharp
-int i = int.MaxValue + 1; // COMPILE-FEHLER
-i++;
-```
-
-::: callout-caution
-
-Dieser Overflow-Fehler gilt nur bei **konstanten** Werten bei der Initialisierung. Wird eine separate Variable mit dem Maximalwert initialisierit und an `i` hinzuaddiert, gibt es keinen Fehler.
-
-
-```csharp
-int k = int.MaxValue;
-int i = k + 1; // KEIN Fehler
-```
-
-:::
-
-# Multithreading `System.Threading`
+## Multithreading `System.Threading`
 
 ```csharp
 static void Main(string[] args) {
@@ -268,6 +248,8 @@ private void HandleDateTimerequest(object _object)
 }
 ```
 
+# Linux & Raspberry Pi 4
+
 # **W**indows **P**resentation **F**oundation
 
 ::: callout-note
@@ -278,6 +260,44 @@ WPF ist
 :::
 
 ---
+
+# Weitere Konzepte
+
+## TCP / UDP
+
+## MQTT
+
+# Notes
+
+## Overflows Integer
+
+Im folgenden Code wird eine Variable `i` mit dem maximalen Wert eines `int` geladen und folgend inkrementiert.
+
+```csharp
+int i = int.MaxValue;
+i++;
+```
+
+Wird aber dies direkt in der Initialisierung eingebettet (`...+ 1`), ruft der Compiler aus, da er den Overflow erkennt. (Einsetzung von Compilern)
+
+```csharp
+int i = int.MaxValue + 1; // COMPILE-FEHLER
+i++;
+```
+
+::: callout-caution
+
+Dieser Overflow-Fehler gilt nur bei **konstanten** Werten bei der Initialisierung. Wird eine separate Variable mit dem Maximalwert initialisierit und an `i` hinzuaddiert, gibt es keinen Fehler.
+
+
+```csharp
+int k = int.MaxValue;
+int i = k + 1; // KEIN Fehler
+```
+
+:::
+
+
 
 # Glossar
 
