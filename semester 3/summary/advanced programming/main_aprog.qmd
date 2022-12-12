@@ -13,7 +13,6 @@ format:
     keep-tex: true
 
 pdf-engine: pdflatex
-
 # [DOCUMENT CONFIGURATION] ============================
 geometry: 
 - "top=25mm"
@@ -21,7 +20,7 @@ geometry:
 - "left=15mm"
 - "right=15mm"
 papersize: a4paper
-fontsize: 10pt
+fontsize: 9pt
 
 code-block-border-left: false
 code-block-bg: "#f7f7f7"
@@ -54,6 +53,7 @@ highlight-style: github
 []: # (Do more as you'd like. See table "VergleichC.tgn" to use on "https://www.tablesgenerator.com/markdown_tables")
 
 `\begin{multicols}{2}`{=latex}
+
 ## Struktur `C#`-Programm
 
 ### Klassen
@@ -242,13 +242,13 @@ static void Main(string[] args)
 {
   //...
   TcpClient client = listener.AcceptTcpClient();
-  Thread t = new Thread(HandleDateTimerequest);
+  Thread t = new Thread(HandleRequest);
   t.Start(client);
   // ...
 }
 
 // must be of ParameterizedThreadStart signature
-private void HandleDateTimerequest(object _object)
+private void HandleRequest(object _object)
 {
   TcpClient client = (TcpClient)_object;
   // ...
