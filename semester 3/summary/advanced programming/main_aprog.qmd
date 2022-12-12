@@ -1,16 +1,20 @@
 ---
 title: "Zusammenfassung Advanced Programming"
-subtitle: "APROG HS22"
 author: "Joel von Rotz & Andreas Ming"
 date: "01.01.2023"
 
 lang: de
 
+# [RENDER CONFIGURATION] ==============================
 format:
   pdf:
     include-in-header:
       - config.tex
     keep-tex: true
+
+pdf-engine: pdflatex
+
+# [DOCUMENT CONFIGURATION] ============================
 geometry: 
 - "top=25mm"
 - "bottom=30mm"
@@ -19,20 +23,16 @@ geometry:
 papersize: a4paper
 fontsize: 10pt
 
+code-block-border-left: false
+code-block-bg: "#f7f7f7"
+
 toc: true
 toc-depth: 3
 number-sections: true
 number-depth: 3
-
-pdf-engine: pdflatex
 pagenumbering: none
-
 highlight-style: github
 ---
-
-
-
-
 
 # `C#` und `.Net`-Framework
 
@@ -53,7 +53,7 @@ highlight-style: github
 
 []: # (Do more as you'd like. See table "VergleichC.tgn" to use on "https://www.tablesgenerator.com/markdown_tables")
 
-
+`\begin{multicols}{2}`{=latex}
 ## Struktur `C#`-Programm
 
 ### Klassen
@@ -143,19 +143,19 @@ s[1] = 'A'; // ERROR
 Parameter/variablen können in Strings direkt eingefügt werden.
 
 
-### Bildschirmausgabe
+### Konsolenausgabe
 
 **Variante 1** - C Style:
 
-`Console.WriteLine("The sum of {0} and {1} is {2}",a,b,result);`{.csharp}
+`Console.WriteLine("{0} + {1} = {2}",a,b,res);`{.csharp}
 
 **Variante 2** - C# Style:
 
-`Console.WriteLine("The sum of" + a + "and" + b + "is" + result);`{.csharp}
+`Console.WriteLine(a + " + " + b + " = " + res);`{.csharp}
 
 **Variante 3** - new C# Style:
 
-`Console.WriteLine($"The sum of {a} and {b} is {result}");`{.csharp}
+`Console.WriteLine($"{a} + {b} = {res}");`{.csharp}
 
 # Konzepte `C#`
 ## Overloading
@@ -190,11 +190,17 @@ class Point {
   public Point(int x, int y) {
     this.pos_x = x;
     this.pos_y = y;
-    Console.WriteLine($"Point {this.pos_x}, {this.pos_y}");
+    Console.WriteLine($"Point "+
+                      $"{pos_x},{pos_y}");
   }
 
   public Point(int x) : this(x, 0) {
     Console.WriteLine("x-only");
+  }
+
+  // Two identical signatures -> ERROR
+  public Point(int y) : this(y, 0) {
+    Console.WriteLine("y-only");
   }
 
   public Point() : this(0,0) {}
@@ -205,9 +211,10 @@ class Point {
 Wird nun `Point(4)` aufgerufen erhält man folgendes auf der Konsole
 
 ```output
-Point 4, 0
+Point 4,0
 x-only
 ```
+
 ### Methoden Overloading
 
 ## Default Parameter (implizit Overloading)
@@ -296,6 +303,8 @@ int i = k + 1; // KEIN Fehler
 ```
 
 :::
+
+`\end{multicols}`{=latex}
 
 
 
