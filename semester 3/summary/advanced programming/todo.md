@@ -13,18 +13,18 @@
 # Kapitel 2
 
 - [ ] Array & Multidimensionale Array 
-- [ ] OOP (vs. POP)
-- [ ] Modifier (`private,public,abstract,etc.`) -> Klassen, Enum, Membervariablen, Properties, Methoden
+- [x] OOP (vs. POP)
+- [x] Modifier (`private,public,abstract,etc.`) -> Klassen, Enum, Membervariablen, Properties, Methoden
 - [ ] Konstruktor & Destruktor
 - [ ] Statische & normale Klassen
 - [ ] Garbage Collector
-- [ ] Default Parameter `void draw(bool t=true) vs. void draw()`
+- [x] Default Parameter `void draw(bool t=true) vs. void draw()`
 - [ ] Methoden-Signaturen
-- [ ] Overload
+- [x] Overload
 
 # Kapitel 3
 
-- [ ] Namespace
+- [x] Namespace
 - [ ] Scope & Zugriff
 - [ ] `this`
 - [ ] (automatische) Properties

@@ -4,7 +4,7 @@
 \PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
 %
 \documentclass[
-  10pt,
+  9pt,
   a4paperpaper,
   DIV=11]{scrartcl}
 
@@ -119,6 +119,7 @@
 \numberwithin{equation}{section}
 
 \usepackage[utf8]{inputenc}
+\usepackage{lastpage} % counts all the pages, used in footer
 
 % Flexible Multicolumn Option
 \usepackage{multicol}
@@ -151,6 +152,7 @@
 \fancyfoot{} % clear all footer fields
 \fancyfoot[C]{\thepage\ / \pageref{LastPage}}
 \fancyfoot[R]{APROG}
+\fancyfoot[L]{\today}
 \KOMAoption{captions}{tableheading}
 \makeatletter
 \@ifpackageloaded{tcolorbox}{}{\usepackage[many]{tcolorbox}}
@@ -215,7 +217,7 @@
 \@ifpackageloaded{tcolorbox}{}{\usepackage[many]{tcolorbox}}
 \makeatother
 \makeatletter
-\@ifundefined{shadecolor}{\definecolor{shadecolor}{rgb}{.97, .97, .97}}
+\@ifundefined{shadecolor}{\definecolor{shadecolor}{HTML}{f7f7f7}}
 \makeatother
 \makeatletter
 \makeatother
@@ -246,19 +248,12 @@
   pdfcreator={LaTeX via pandoc}}
 
 \title{Zusammenfassung Advanced Programming}
-\usepackage{etoolbox}
-\makeatletter
-\providecommand{\subtitle}[1]{% add subtitle to \maketitle
-  \apptocmd{\@title}{\par {\large #1 \par}}{}{}
-}
-\makeatother
-\subtitle{APROG HS22}
 \author{Joel von Rotz \& Andreas Ming}
-\date{01.01.2023}
+\date{01.01.23}
 
 \begin{document}
 \maketitle
-\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[borderline west={3pt}{0pt}{shadecolor}, breakable, interior hidden, frame hidden, sharp corners, boxrule=0pt, enhanced]}{\end{tcolorbox}}\fi
+\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[breakable, enhanced, colback={shadecolor}, frame hidden, boxrule=0pt]}{\end{tcolorbox}}\fi
 
 \renewcommand*\contentsname{Inhaltsverzeichnis}
 {
@@ -305,12 +300,11 @@ Lib-Einbindung & \emph{.h} File mit \texttt{\#include} &
 \bottomrule()
 \end{longtable}
 
+\begin{multicols}{2}
+
 \hypertarget{struktur-c-programm}{%
 \subsection{\texorpdfstring{Struktur
 \texttt{C\#}-Programm}{Struktur C\#-Programm}}\label{struktur-c-programm}}
-
-\hypertarget{klassen}{%
-\subsubsection{Klassen}\label{klassen}}
 
 \hypertarget{namespace}{%
 \subsubsection{Namespace}\label{namespace}}
@@ -343,27 +337,121 @@ können.
 \end{Highlighting}
 \end{Shaded}
 
+Zum Aufrufen von Klassen/Methoden anderer \texttt{namespace}'s kann
+dieser über \texttt{using} eingebunden werden oder der Aufruf geschieht
+über \texttt{namespace.SampleClass}.
+
+\hypertarget{klassen}{%
+\subsubsection{Klassen}\label{klassen}}
+
+Klassen beschreiben den Bauplan von Objekten. Wenn man das nicht
+versteht, nützt dir auch der Rest der Zusammenfassung nichts ;)
+
+\hypertarget{konstruktor}{%
+\subsubsection{Konstruktor}\label{konstruktor}}
+
+Konstruktoren werden beim Erstellen von neuen Objekten aufgerufen. Ihnen
+können Parameter oder andere Objekte übergeben werden.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{public} \KeywordTok{class}\NormalTok{ Point}\OperatorTok{\{}
+  \DataTypeTok{int}\NormalTok{ size}\OperatorTok{;}
+
+  \KeywordTok{public} \FunctionTok{Point}\OperatorTok{(}\DataTypeTok{int}\NormalTok{ size}\OperatorTok{)} \OperatorTok{\{}
+    \KeywordTok{this}\OperatorTok{.}\FunctionTok{size} \OperatorTok{=}\NormalTok{ size}\OperatorTok{;}
+  \OperatorTok{\}}
+\OperatorTok{\}}
+
+\KeywordTok{public}\NormalTok{ Program}\OperatorTok{\{}
+\NormalTok{  satic }\DataTypeTok{void} \FunctionTok{Main}\OperatorTok{()\{}
+
+    \CommentTok{// initialize new Point object}
+\NormalTok{    Point smallPoint }\OperatorTok{=} \KeywordTok{new} \FunctionTok{Point}\OperatorTok{(}\DecValTok{2}\OperatorTok{);}
+  \OperatorTok{\}}
+\OperatorTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, toprule=.15mm, opacitybacktitle=0.6, colbacktitle=quarto-callout-tip-color!10!white, bottomrule=.15mm, opacityback=0, colframe=quarto-callout-tip-color-frame, colback=white, bottomtitle=1mm, titlerule=0mm, breakable, toptitle=1mm, rightrule=.15mm, arc=.35mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Tipp}, leftrule=.75mm, left=2mm]
+
+Der Default-Konstruktor nimmt keine Parameter entgegen. Wird ein
+Konstruktor angegeben, so ist der Default-Konstruktor nichtmehr
+aufrufbar.
+
+\end{tcolorbox}
+
+\hypertarget{destruktor}{%
+\subsubsection{Destruktor}\label{destruktor}}
+
+\hypertarget{methode}{%
+\subsubsection{Methode}\label{methode}}
+
+\hypertarget{membervariable}{%
+\subsubsection{Membervariable}\label{membervariable}}
+
+\hypertarget{property}{%
+\subsubsection{Property}\label{property}}
+
+\hypertarget{net-bibliotheken}{%
+\subsection{.Net Bibliotheken}\label{net-bibliotheken}}
+
+\hypertarget{system}{%
+\subsubsection{\texorpdfstring{\texttt{System}}{System}}\label{system}}
+
+\hypertarget{sysem.console}{%
+\paragraph{\texorpdfstring{\texttt{Sysem.Console}}{Sysem.Console}}\label{sysem.console}}
+
 \hypertarget{keywords}{%
 \subsection{Keywords}\label{keywords}}
 
-\hypertarget{zugriffs}{%
-\subsubsection{Zugriffs}\label{zugriffs}}
+\hypertarget{operatoren-abarbeitungsreihenfolge}{%
+\subsubsection{Operatoren \&
+Abarbeitungsreihenfolge}\label{operatoren-abarbeitungsreihenfolge}}
+
+\hypertarget{zugriffs-modifier}{%
+\subsubsection{Zugriffs-Modifier}\label{zugriffs-modifier}}
+
+\includegraphics{images/AccessModifiers.png}
+
+\emph{Modifier} sind auf Klassen, Enum, Membervariablen, Properties und
+Methoden anwendbar.
 
 \hypertarget{using}{%
 \subsubsection{\texorpdfstring{\texttt{using}}{using}}\label{using}}
 
-\texttt{using} wird zum Abkürzen von Namen
+Die \texttt{using}-Direktive teilt dem Compiler mit welcher
+\texttt{namespace} während der Compilierung verwendet werden soll. Wenn
+\texttt{using} nicht verwendet wird, muss bei einem Methodenaufruf auch
+der entsprechende \texttt{namespace} genannt werden.
 
 \begin{Shaded}
 \begin{Highlighting}[]
+\CommentTok{// w/o \textasciigrave{}using\textasciigrave{}}
 \NormalTok{System}\OperatorTok{.}\FunctionTok{Console}\OperatorTok{.}\FunctionTok{WriteLine}\OperatorTok{(}\StringTok{"Hello World!"}\OperatorTok{);}
 
-\CommentTok{// using Namespace}
+\CommentTok{// w/ \textasciigrave{}using\textasciigrave{}}
 \KeywordTok{using}\NormalTok{ System}\OperatorTok{;}
 \OperatorTok{...}
 \NormalTok{Console}\OperatorTok{.}\FunctionTok{WriteLine}\OperatorTok{(}\StringTok{"Hello World!"}\OperatorTok{);}
 \end{Highlighting}
 \end{Shaded}
+
+\hypertarget{static}{%
+\subsubsection{\texorpdfstring{\texttt{static}}{static}}\label{static}}
+
+\hypertarget{const}{%
+\subsubsection{\texorpdfstring{\texttt{const}}{const}}\label{const}}
+
+\hypertarget{readonly}{%
+\subsubsection{\texorpdfstring{\texttt{readonly}}{readonly}}\label{readonly}}
+
+\hypertarget{datentypen}{%
+\subsection{Datentypen}\label{datentypen}}
+
+Wie in C gibt es in C\# Wertetypen und Referenztypen
+
+\includegraphics{images/Types.png}
 
 \hypertarget{class}{%
 \subsubsection{\texorpdfstring{\texttt{class}}{class}}\label{class}}
@@ -371,7 +459,7 @@ können.
 \hypertarget{struct}{%
 \subsubsection{\texorpdfstring{\texttt{struct}}{struct}}\label{struct}}
 
-\begin{tcolorbox}[enhanced jigsaw, coltitle=black, colbacktitle=quarto-callout-important-color!10!white, opacityback=0, colframe=quarto-callout-important-color-frame, arc=.35mm, breakable, toprule=.15mm, rightrule=.15mm, titlerule=0mm, bottomtitle=1mm, colback=white, toptitle=1mm, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Unterschied \texttt{struct} \& \texttt{class}}, bottomrule=.15mm, leftrule=.75mm, opacitybacktitle=0.6, left=2mm]
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, toprule=.15mm, opacitybacktitle=0.6, colbacktitle=quarto-callout-important-color!10!white, bottomrule=.15mm, opacityback=0, colframe=quarto-callout-important-color-frame, colback=white, bottomtitle=1mm, titlerule=0mm, breakable, toptitle=1mm, rightrule=.15mm, arc=.35mm, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Unterschied \texttt{struct} \& \texttt{class}}, leftrule=.75mm, left=2mm]
 
 \texttt{struct}s sind \emph{value} Typen und übergeben jeden
 Wert/Eigenschaften. \texttt{class}es sind \emph{reference} Typen und
@@ -388,15 +476,12 @@ werden als Referenz übergeben.
 
 \end{tcolorbox}
 
-\hypertarget{datentypen}{%
-\subsection{Datentypen}\label{datentypen}}
-
 \hypertarget{string}{%
 \subsubsection{\texorpdfstring{\texttt{string}}{string}}\label{string}}
 
 Strings werden mit dem folgender Deklaration
 
-\begin{tcolorbox}[enhanced jigsaw, coltitle=black, colbacktitle=quarto-callout-important-color!10!white, opacityback=0, colframe=quarto-callout-important-color-frame, arc=.35mm, breakable, toprule=.15mm, rightrule=.15mm, titlerule=0mm, bottomtitle=1mm, colback=white, toptitle=1mm, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Wichtig}, bottomrule=.15mm, leftrule=.75mm, opacitybacktitle=0.6, left=2mm]
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, toprule=.15mm, opacitybacktitle=0.6, colbacktitle=quarto-callout-important-color!10!white, bottomrule=.15mm, opacityback=0, colframe=quarto-callout-important-color-frame, colback=white, bottomtitle=1mm, titlerule=0mm, breakable, toptitle=1mm, rightrule=.15mm, arc=.35mm, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Wichtig}, leftrule=.75mm, left=2mm]
 
 Strings können nicht verändert werden -\textgreater{} sind
 \textbf{read-only}
@@ -411,36 +496,64 @@ Strings können nicht verändert werden -\textgreater{} sind
 
 \end{tcolorbox}
 
-\hypertarget{parameter-in-string-einfuxfcgen}{%
-\paragraph{Parameter in String
-einfügen}\label{parameter-in-string-einfuxfcgen}}
+\hypertarget{stringformatierung}{%
+\paragraph{Stringformatierung}\label{stringformatierung}}
 
 Parameter/variablen können in Strings direkt eingefügt werden.
 
-\hypertarget{bildschirmausgabe}{%
-\subsubsection{Bildschirmausgabe}\label{bildschirmausgabe}}
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{// C{-}Sytle}
+\NormalTok{Console}\OperatorTok{.}\FunctionTok{WriteLine}\OperatorTok{(}\StringTok{"\{0\} + \{1\} = \{2\}"}\OperatorTok{,}\NormalTok{a}\OperatorTok{,}\NormalTok{b}\OperatorTok{,}\NormalTok{res}\OperatorTok{);}
 
-\textbf{Variante 1} - C Style:
+\CommentTok{// C\#{-}Style}
+\NormalTok{Console}\OperatorTok{.}\FunctionTok{WriteLine}\OperatorTok{(}\NormalTok{a }\OperatorTok{+} \StringTok{" + "} \OperatorTok{+}\NormalTok{ b }\OperatorTok{+} \StringTok{" = "} \OperatorTok{+}\NormalTok{ res}\OperatorTok{);}
 
-\VERB|\NormalTok{Console}\OperatorTok{.}\FunctionTok{WriteLine}\OperatorTok{(}\StringTok{"The sum of \{0\} and \{1\} is \{2\}"}\OperatorTok{,}\NormalTok{a}\OperatorTok{,}\NormalTok{b}\OperatorTok{,}\NormalTok{result}\OperatorTok{);}|
+\CommentTok{// C\# formatted string}
+\NormalTok{Console}\OperatorTok{.}\FunctionTok{WriteLine}\OperatorTok{(}\NormalTok{$}\StringTok{"\{a\} + \{b\} = \{res\}"}\OperatorTok{);}
+\end{Highlighting}
+\end{Shaded}
 
-\textbf{Variante 2} - C\# Style:
+\hypertarget{enum}{%
+\subsubsection{Enum}\label{enum}}
 
-\VERB|\NormalTok{Console}\OperatorTok{.}\FunctionTok{WriteLine}\OperatorTok{(}\StringTok{"The sum of"} \OperatorTok{+}\NormalTok{ a }\OperatorTok{+} \StringTok{"and"} \OperatorTok{+}\NormalTok{ b }\OperatorTok{+} \StringTok{"is"} \OperatorTok{+}\NormalTok{ result}\OperatorTok{);}|
-
-\textbf{Variante 3} - new C\# Style:
-
-\VERB|\NormalTok{Console}\OperatorTok{.}\FunctionTok{WriteLine}\OperatorTok{(}\NormalTok{$}\StringTok{"The sum of \{a\} and \{b\} is \{result\}"}\OperatorTok{);}|
+\hypertarget{array}{%
+\subsubsection{Array}\label{array}}
 
 \hypertarget{konzepte-c}{%
 \section{\texorpdfstring{Konzepte
 \texttt{C\#}}{Konzepte C\#}}\label{konzepte-c}}
 
+\hypertarget{collections}{%
+\subsection{Collections}\label{collections}}
+
+\hypertarget{indexer}{%
+\subsubsection{Indexer}\label{indexer}}
+
+\hypertarget{generics}{%
+\subsubsection{Generics}\label{generics}}
+
+\hypertarget{scope-zugriff}{%
+\subsection{Scope \& Zugriff}\label{scope-zugriff}}
+
 \hypertarget{overloading}{%
 \subsection{Overloading}\label{overloading}}
 
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, toprule=.15mm, opacitybacktitle=0.6, colbacktitle=quarto-callout-important-color!10!white, bottomrule=.15mm, opacityback=0, colframe=quarto-callout-important-color-frame, colback=white, bottomtitle=1mm, titlerule=0mm, breakable, toptitle=1mm, rightrule=.15mm, arc=.35mm, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Wichtig}, leftrule=.75mm, left=2mm]
+
+Overloading-Signaturen müssen sich in den \textbf{Datentypen}
+unterscheiden. Unterschiedliche Variabel-Namen führen zu einem
+\emph{Compiler-Error}.
+
+\end{tcolorbox}
+
 \hypertarget{konstruktor-overloading}{%
 \subsubsection{Konstruktor Overloading}\label{konstruktor-overloading}}
+
+Je nach Signatur können andere Konstruktoren aufgerufen werden. Dies
+nennt man auch \emph{Overloading}. In folgendem Beispiel kann ein
+\texttt{Point} Objekt erstellt werden entweder mit oder ohne Angabe der
+Position.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -453,37 +566,39 @@ Parameter/variablen können in Strings direkt eingefügt werden.
     \KeywordTok{this}\OperatorTok{.}\FunctionTok{pos\_y} \OperatorTok{=}\NormalTok{ y}\OperatorTok{;}
   \OperatorTok{\}}
 
-  \KeywordTok{public} \FunctionTok{Point}\OperatorTok{()} \OperatorTok{:} \KeywordTok{this}\OperatorTok{(}\DecValTok{0}\OperatorTok{,}\DecValTok{0}\OperatorTok{)} \OperatorTok{\{\}}
+  \KeywordTok{public} \FunctionTok{Point}\OperatorTok{()} \OperatorTok{\{} \OperatorTok{\}}
 \OperatorTok{\}}
 \end{Highlighting}
 \end{Shaded}
 
-Mit \texttt{this} nach dem Konstruktor (unterteilt mit \texttt{:}) kann
-der Aufruf auf einen anderen Konstruktor weitergeleitet werden. Der
-Inhalt des vorherigen Konstruktors wird erst nach dem Ablauf des
-\texttt{this}-Konstruktors (im Beispiel
-\texttt{Point(int\ x,\ int\ y)}).
-
 \hypertarget{konstruktor-aufruf-reihenfolge}{%
 \paragraph{Konstruktor
 Aufruf-Reihenfolge}\label{konstruktor-aufruf-reihenfolge}}
+
+Mit \texttt{this} nach dem Konstruktor (unterteilt mit \texttt{:}) kann
+der Aufruf auf einen anderen Konstruktor weitergereicht werden.
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \KeywordTok{using}\NormalTok{ System}\OperatorTok{;}
 
 \KeywordTok{class}\NormalTok{ Point }\OperatorTok{\{}
-  \KeywordTok{private} \DataTypeTok{int}\NormalTok{ pos\_x}\OperatorTok{;}
-  \KeywordTok{private} \DataTypeTok{int}\NormalTok{ pos\_y}\OperatorTok{;}
+  \KeywordTok{private} \DataTypeTok{int}\NormalTok{ x}\OperatorTok{;}
+  \KeywordTok{private} \DataTypeTok{int}\NormalTok{ y}\OperatorTok{;}
 
   \KeywordTok{public} \FunctionTok{Point}\OperatorTok{(}\DataTypeTok{int}\NormalTok{ x}\OperatorTok{,} \DataTypeTok{int}\NormalTok{ y}\OperatorTok{)} \OperatorTok{\{}
-    \KeywordTok{this}\OperatorTok{.}\FunctionTok{pos\_x} \OperatorTok{=}\NormalTok{ x}\OperatorTok{;}
-    \KeywordTok{this}\OperatorTok{.}\FunctionTok{pos\_y} \OperatorTok{=}\NormalTok{ y}\OperatorTok{;}
-\NormalTok{    Console}\OperatorTok{.}\FunctionTok{WriteLine}\OperatorTok{(}\NormalTok{$}\StringTok{"Point \{this.pos\_x\}, \{this.pos\_y\}"}\OperatorTok{);}
+    \KeywordTok{this}\OperatorTok{.}\FunctionTok{x} \OperatorTok{=}\NormalTok{ x}\OperatorTok{;}
+    \KeywordTok{this}\OperatorTok{.}\FunctionTok{y} \OperatorTok{=}\NormalTok{ y}\OperatorTok{;}
+\NormalTok{    Console}\OperatorTok{.}\FunctionTok{WriteLine}\OperatorTok{(}\NormalTok{$}\StringTok{"Point \{this.x\},\{this.y\}"}\OperatorTok{);}
   \OperatorTok{\}}
 
   \KeywordTok{public} \FunctionTok{Point}\OperatorTok{(}\DataTypeTok{int}\NormalTok{ x}\OperatorTok{)} \OperatorTok{:} \KeywordTok{this}\OperatorTok{(}\NormalTok{x}\OperatorTok{,} \DecValTok{0}\OperatorTok{)} \OperatorTok{\{}
 \NormalTok{    Console}\OperatorTok{.}\FunctionTok{WriteLine}\OperatorTok{(}\StringTok{"x{-}only"}\OperatorTok{);}
+  \OperatorTok{\}}
+
+  \CommentTok{// Two identical signatures {-}\textgreater{} ERROR}
+  \KeywordTok{public} \FunctionTok{Point}\OperatorTok{(}\DataTypeTok{int}\NormalTok{ y}\OperatorTok{)} \OperatorTok{:} \KeywordTok{this}\OperatorTok{(}\NormalTok{y}\OperatorTok{,} \DecValTok{0}\OperatorTok{)} \OperatorTok{\{}
+\NormalTok{    Console}\OperatorTok{.}\FunctionTok{WriteLine}\OperatorTok{(}\StringTok{"y{-}only"}\OperatorTok{);}
   \OperatorTok{\}}
 
   \KeywordTok{public} \FunctionTok{Point}\OperatorTok{()} \OperatorTok{:} \KeywordTok{this}\OperatorTok{(}\DecValTok{0}\OperatorTok{,}\DecValTok{0}\OperatorTok{)} \OperatorTok{\{\}}
@@ -492,12 +607,13 @@ Aufruf-Reihenfolge}\label{konstruktor-aufruf-reihenfolge}}
 \end{Highlighting}
 \end{Shaded}
 
-Wird nun \texttt{Point(4)} aufgerufen erhält man folgendes auf der
-Konsole
+Wird nun \texttt{Point(4)} aufgerufen, werden die Parameter auf die
+unterste Ebene durchgereicht und die Konstruktoren werden in umgekehrter
+Aufrufreihenfolge abgearbeitet. So erhält man folgendes auf der Konsole
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{Point 4, 0}
+\NormalTok{Point 4,0}
 \NormalTok{x{-}only}
 \end{Highlighting}
 \end{Shaded}
@@ -505,9 +621,51 @@ Konsole
 \hypertarget{methoden-overloading}{%
 \subsubsection{Methoden Overloading}\label{methoden-overloading}}
 
-\hypertarget{default-parameter-implizit-overloading}{%
-\subsection{Default Parameter (implizit
-Overloading)}\label{default-parameter-implizit-overloading}}
+Je nach Signatur können andere Methoden aufgerufen werden. Dies nennt
+man auch \emph{Overloading}. In folgendem können Flächen mit
+unterschiedlichen Angaben gerechnet werden.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{public} \DataTypeTok{int} \FunctionTok{Area}\OperatorTok{(}\DataTypeTok{int}\NormalTok{ width}\OperatorTok{,} \DataTypeTok{int}\NormalTok{ height}\OperatorTok{)} \OperatorTok{\{}
+  \KeywordTok{return}\NormalTok{ width }\OperatorTok{*}\NormalTok{ height}\OperatorTok{;}
+\OperatorTok{\}}
+
+\KeywordTok{public} \DataTypeTok{int} \FunctionTok{Area}\OperatorTok{(}\DataTypeTok{int}\NormalTok{ squareSide}\OperatorTok{)} \OperatorTok{\{}
+  \KeywordTok{return}\NormalTok{ squareSide}\OperatorTok{\^{}}\DecValTok{2}\OperatorTok{;}
+\OperatorTok{\}}
+
+\KeywordTok{public} \DataTypeTok{int} \FunctionTok{Area}\OperatorTok{(}\NormalTok{Point a}\OperatorTok{,}\NormalTok{ Point b}\OperatorTok{)} \OperatorTok{\{}
+  \KeywordTok{return} \OperatorTok{(}\NormalTok{a}\OperatorTok{.}\FunctionTok{x} \OperatorTok{{-}}\NormalTok{ b}\OperatorTok{.}\FunctionTok{x}\OperatorTok{)} \OperatorTok{*} \OperatorTok{(}\NormalTok{a}\OperatorTok{.}\FunctionTok{y} \OperatorTok{{-}}\NormalTok{ b}\OperatorTok{.}\FunctionTok{y}\OperatorTok{);}
+\OperatorTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{default-parameter}{%
+\subsection{Default Parameter}\label{default-parameter}}
+
+Für Default-Werte können Konstruktoren implizit Überladen werden.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{public} \DataTypeTok{void} \FunctionTok{Draw}\OperatorTok{(}\DataTypeTok{bool}\NormalTok{ inColor }\OperatorTok{=} \KeywordTok{true}\OperatorTok{)} \OperatorTok{\{} \OperatorTok{...} \OperatorTok{\}}
+
+\CommentTok{// initialize drawing object}
+\NormalTok{Draw inColor }\OperatorTok{=} \KeywordTok{new} \FunctionTok{Draw}\OperatorTok{();}    \CommentTok{// inColor = true}
+\NormalTok{Draw bw }\OperatorTok{=} \KeywordTok{new} \FunctionTok{Draw}\OperatorTok{(}\KeywordTok{false}\OperatorTok{);}    \CommentTok{// inColor = false}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{garbage-collector}{%
+\subsection{Garbage-Collector}\label{garbage-collector}}
+
+\hypertarget{signatur}{%
+\subsection{Signatur}\label{signatur}}
+
+\hypertarget{exceptions}{%
+\subsection{Exceptions}\label{exceptions}}
+
+(\texttt{try},\texttt{catch},\texttt{finally}, \texttt{throw})
 
 \hypertarget{multithreading-system.threading}{%
 \subsection{\texorpdfstring{Multithreading
@@ -527,8 +685,14 @@ Overloading)}\label{default-parameter-implizit-overloading}}
 \end{Highlighting}
 \end{Shaded}
 
+\hypertarget{sync}{%
+\subsubsection{Sync}\label{sync}}
+
+\hypertarget{deadlock}{%
+\subsubsection{Deadlock}\label{deadlock}}
+
 \hypertarget{parametrisierter-thread}{%
-\subsection{Parametrisierter Thread}\label{parametrisierter-thread}}
+\subsubsection{Parametrisierter Thread}\label{parametrisierter-thread}}
 
 Falls ein Parameter übergeben werden muss, kann die delegierte
 \texttt{ParameterizedThreadStart}-Signatur verwendet werden. Der Thread
@@ -540,13 +704,13 @@ wird normal aufgesetzt und bei \texttt{.Start()}
 \OperatorTok{\{}
   \CommentTok{//...}
 \NormalTok{  TcpClient client }\OperatorTok{=}\NormalTok{ listener}\OperatorTok{.}\FunctionTok{AcceptTcpClient}\OperatorTok{();}
-\NormalTok{  Thread t }\OperatorTok{=} \KeywordTok{new} \FunctionTok{Thread}\OperatorTok{(}\NormalTok{HandleDateTimerequest}\OperatorTok{);}
+\NormalTok{  Thread t }\OperatorTok{=} \KeywordTok{new} \FunctionTok{Thread}\OperatorTok{(}\NormalTok{HandleRequest}\OperatorTok{);}
 \NormalTok{  t}\OperatorTok{.}\FunctionTok{Start}\OperatorTok{(}\NormalTok{client}\OperatorTok{);}
   \CommentTok{// ...}
 \OperatorTok{\}}
 
 \CommentTok{// must be of ParameterizedThreadStart signature}
-\KeywordTok{private} \DataTypeTok{void} \FunctionTok{HandleDateTimerequest}\OperatorTok{(}\DataTypeTok{object}\NormalTok{ \_object}\OperatorTok{)}
+\KeywordTok{private} \DataTypeTok{void} \FunctionTok{HandleRequest}\OperatorTok{(}\DataTypeTok{object}\NormalTok{ \_object}\OperatorTok{)}
 \OperatorTok{\{}
 \NormalTok{  TcpClient client }\OperatorTok{=} \OperatorTok{(}\NormalTok{TcpClient}\OperatorTok{)}\NormalTok{\_object}\OperatorTok{;}
   \CommentTok{// ...}
@@ -554,18 +718,97 @@ wird normal aufgesetzt und bei \texttt{.Start()}
 \end{Highlighting}
 \end{Shaded}
 
+\hypertarget{boxing-unboxing}{%
+\subsection{Boxing \& Unboxing}\label{boxing-unboxing}}
+
+\hypertarget{streams}{%
+\subsection{Streams}\label{streams}}
+
+\hypertarget{delegates}{%
+\subsection{Delegates}\label{delegates}}
+
+\hypertarget{multicast}{%
+\subsubsection{Multicast}\label{multicast}}
+
+\hypertarget{events}{%
+\subsection{Events}\label{events}}
+
+\hypertarget{vererbung}{%
+\section{Vererbung}\label{vererbung}}
+
+\hypertarget{abstrakte-klassen}{%
+\subsection{Abstrakte Klassen}\label{abstrakte-klassen}}
+
+\hypertarget{interfaces}{%
+\subsection{Interfaces}\label{interfaces}}
+
+\hypertarget{polymorphismus}{%
+\subsection{Polymorphismus}\label{polymorphismus}}
+
+\hypertarget{klassendiagramme}{%
+\subsection{Klassendiagramme}\label{klassendiagramme}}
+
 \hypertarget{linux-raspberry-pi-4}{%
 \section{Linux \& Raspberry Pi 4}\label{linux-raspberry-pi-4}}
+
+\hypertarget{bash-commands}{%
+\subsection{Bash-Commands}\label{bash-commands}}
+
+\hypertarget{streams-1}{%
+\subsection{Streams}\label{streams-1}}
+
+\hypertarget{gpio-via-konsole}{%
+\subsection{GPIO via Konsole}\label{gpio-via-konsole}}
+
+\hypertarget{berechtigungssystem}{%
+\subsection{Berechtigungssystem}\label{berechtigungssystem}}
+
+\hypertarget{passwort-hashing}{%
+\subsection{Passwort Hashing}\label{passwort-hashing}}
+
+\hypertarget{logfiles-nlog}{%
+\subsection{Logfiles \& NLog}\label{logfiles-nlog}}
+
+\hypertarget{benutzerverwaltung}{%
+\subsection{Benutzerverwaltung}\label{benutzerverwaltung}}
+
+\hypertarget{ssh}{%
+\subsection{SSH}\label{ssh}}
+
+\hypertarget{c-deployment}{%
+\subsection{C\# deployment}\label{c-deployment}}
+
+\hypertarget{remote-debugging}{%
+\subsubsection{Remote-Debugging}\label{remote-debugging}}
+
+\hypertarget{system-control}{%
+\subsection{System-Control}\label{system-control}}
+
+\hypertarget{deamons}{%
+\subsubsection{Deamons}\label{deamons}}
+
+\hypertarget{tunneling}{%
+\subsection{Tunneling}\label{tunneling}}
+
+\hypertarget{uart-tinyk---rbp}{%
+\subsection{UART TinyK \textless-\textgreater{}
+RBP}\label{uart-tinyk---rbp}}
 
 \hypertarget{windows-presentation-foundation}{%
 \section{\texorpdfstring{\textbf{W}indows \textbf{P}resentation
 \textbf{F}oundation}{Windows Presentation Foundation}}\label{windows-presentation-foundation}}
 
-\begin{tcolorbox}[enhanced jigsaw, coltitle=black, colbacktitle=quarto-callout-note-color!10!white, opacityback=0, colframe=quarto-callout-note-color-frame, arc=.35mm, breakable, toprule=.15mm, rightrule=.15mm, titlerule=0mm, bottomtitle=1mm, colback=white, toptitle=1mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Unterschied zwischen WPF \& Console Application}, bottomrule=.15mm, leftrule=.75mm, opacitybacktitle=0.6, left=2mm]
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, toprule=.15mm, opacitybacktitle=0.6, colbacktitle=quarto-callout-note-color!10!white, bottomrule=.15mm, opacityback=0, colframe=quarto-callout-note-color-frame, colback=white, bottomtitle=1mm, titlerule=0mm, breakable, toptitle=1mm, rightrule=.15mm, arc=.35mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Unterschied zwischen WPF \& Console Application}, leftrule=.75mm, left=2mm]
+
 WPF ist
+
 \end{tcolorbox}
 
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+\hypertarget{dispatcher}{%
+\subsection{Dispatcher}\label{dispatcher}}
+
+\hypertarget{key-event}{%
+\subsection{Key-Event}\label{key-event}}
 
 \hypertarget{weitere-konzepte}{%
 \section{Weitere Konzepte}\label{weitere-konzepte}}
@@ -575,6 +818,9 @@ WPF ist
 
 \hypertarget{mqtt}{%
 \subsection{MQTT}\label{mqtt}}
+
+\hypertarget{unit-tests}{%
+\subsection{Unit Tests}\label{unit-tests}}
 
 \hypertarget{notes}{%
 \section{Notes}\label{notes}}
@@ -603,7 +849,7 @@ Wird aber dies direkt in der Initialisierung eingebettet
 \end{Highlighting}
 \end{Shaded}
 
-\begin{tcolorbox}[enhanced jigsaw, coltitle=black, colbacktitle=quarto-callout-caution-color!10!white, opacityback=0, colframe=quarto-callout-caution-color-frame, arc=.35mm, breakable, toprule=.15mm, rightrule=.15mm, titlerule=0mm, bottomtitle=1mm, colback=white, toptitle=1mm, title=\textcolor{quarto-callout-caution-color}{\faFire}\hspace{0.5em}{Vorsicht}, bottomrule=.15mm, leftrule=.75mm, opacitybacktitle=0.6, left=2mm]
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, toprule=.15mm, opacitybacktitle=0.6, colbacktitle=quarto-callout-caution-color!10!white, bottomrule=.15mm, opacityback=0, colframe=quarto-callout-caution-color-frame, colback=white, bottomtitle=1mm, titlerule=0mm, breakable, toptitle=1mm, rightrule=.15mm, arc=.35mm, title=\textcolor{quarto-callout-caution-color}{\faFire}\hspace{0.5em}{Vorsicht}, leftrule=.75mm, left=2mm]
 
 Dieser Overflow-Fehler gilt nur bei \textbf{konstanten} Werten bei der
 Initialisierung. Wird eine separate Variable mit dem Maximalwert
@@ -617,6 +863,8 @@ initialisierit und an \texttt{i} hinzuaddiert, gibt es keinen Fehler.
 \end{Shaded}
 
 \end{tcolorbox}
+
+\end{multicols}
 
 \hypertarget{glossar}{%
 \section{Glossar}\label{glossar}}

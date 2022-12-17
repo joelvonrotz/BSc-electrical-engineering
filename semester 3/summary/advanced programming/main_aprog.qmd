@@ -56,8 +56,6 @@ highlight-style: github
 
 ## Struktur `C#`-Programm
 
-### Klassen
-
 ### Namespace
 
 ```csharp
@@ -82,31 +80,90 @@ namespace NameOfSpace {
 }
 ```
 
+Zum Aufrufen von Klassen/Methoden anderer `namespace`'s kann dieser über `using` eingebunden werden oder der Aufruf geschieht über `namespace.SampleClass`.
+
+### Klassen
+
+Klassen beschreiben den Bauplan von Objekten. Wenn man das nicht versteht, nützt dir auch der Rest der Zusammenfassung nichts ;)
+
+### Konstruktor
+
+Konstruktoren werden beim Erstellen von neuen Objekten aufgerufen. Ihnen können Parameter oder andere Objekte übergeben werden.
+
+```{.csharp}
+public class Point{
+  int size;
+
+  public Point(int size) {
+    this.size = size;
+  }
+}
+
+public Program{
+  satic void Main(){
+
+    // initialize new Point object
+    Point smallPoint = new Point(2);
+  }
+}
+```
+
+::: callout-tip
+ Der Default-Konstruktor nimmt keine Parameter entgegen. Wird ein Konstruktor angegeben, so ist der Default-Konstruktor nichtmehr aufrufbar.
+:::
+
+### Destruktor
+
+### Methode
+
+### Membervariable
+
+### Property
+
+## .Net Bibliotheken
+
+### `System`
+
+#### `Sysem.Console`
+
 ## Keywords
+
+### Operatoren & Abarbeitungsreihenfolge
 
 ### Zugriffs-Modifier
 
-* `public`
-* `protected`
-* `protected internal`
-* `private protected`
-* `internal`
-* `private`
+![](images/AccessModifiers.png)
+
+*Modifier* sind auf Klassen, Enum, Membervariablen, Properties und Methoden anwendbar.
 
 ### `using`
 
-`using` wird zum Abkürzen von Namen
+Die `using`-Direktive teilt dem Compiler mit welcher `namespace` während der Compilierung verwendet werden soll. Wenn `using` nicht verwendet wird, muss bei einem Methodenaufruf auch der entsprechende `namespace` genannt werden.
 
 ```csharp
+// w/o `using`
 System.Console.WriteLine("Hello World!");
 
-// using Namespace
+// w/ `using`
 using System;
 ...
 Console.WriteLine("Hello World!");
 ```
 
+### `static`
+
+### `const`
+
+### `readonly`
+
+## Datentypen
+
+Wie in C gibt es in C# Wertetypen und Referenztypen
+
+![](images/Types.png)
+
 ### `class`
+
 
 ### `struct`
 
@@ -119,8 +176,6 @@ Console.WriteLine("Hello World!");
 - `struct` $\rightarrow$ call by value (Übergabe als Wert)
 
 :::
-
-## Datentypen
 
 ### `string`
 
@@ -138,29 +193,45 @@ s[1] = 'A'; // ERROR
 
 :::
 
-#### Parameter in String einfügen
+#### Stringformatierung
 
 Parameter/variablen können in Strings direkt eingefügt werden.
 
+```{.csharp}
+// C-Sytle
+Console.WriteLine("{0} + {1} = {2}",a,b,res);
 
-### Konsolenausgabe
+// C#-Style
+Console.WriteLine(a + " + " + b + " = " + res);
 
-**Variante 1** - C Style:
+// C# formatted string
+Console.WriteLine($"{a} + {b} = {res}");
+```
 
-`Console.WriteLine("{0} + {1} = {2}",a,b,res);`{.csharp}
+### Enum
 
-**Variante 2** - C# Style:
+### Array
 
-`Console.WriteLine(a + " + " + b + " = " + res);`{.csharp}
-
-**Variante 3** - new C# Style:
-
-`Console.WriteLine($"{a} + {b} = {res}");`{.csharp}
 
 # Konzepte `C#`
+
+## Collections
+
+### Indexer
+
+### Generics
+
+## Scope & Zugriff
+
 ## Overloading
 
+::: callout-important
+Overloading-Signaturen müssen sich in den **Datentypen** unterscheiden. Unterschiedliche Variabel-Namen führen zu einem *Compiler-Error*.
+:::
+
 ### Konstruktor Overloading
+
+Je nach Signatur können andere Konstruktoren aufgerufen werden. Dies nennt man auch *Overloading*. In folgendem Beispiel kann ein `Point` Objekt erstellt werden entweder mit oder ohne Angabe der Position.
 
 ```csharp
 class Point {
@@ -172,26 +243,25 @@ class Point {
     this.pos_y = y;
   }
 
-  public Point() : this(0,0) {}
+  public Point() { }
 }
 ```
 
-Mit `this` nach dem Konstruktor (unterteilt mit `:`) kann der Aufruf auf einen anderen Konstruktor weitergeleitet werden. Der Inhalt des vorherigen Konstruktors wird erst nach dem Ablauf des `this`-Konstruktors (im Beispiel `Point(int x, int y)`).
-
 #### Konstruktor Aufruf-Reihenfolge
+
+Mit `this` nach dem Konstruktor (unterteilt mit `:`) kann der Aufruf auf einen anderen Konstruktor weitergereicht werden.
 
 ```csharp
 using System;
 
 class Point {
-  private int pos_x;
-  private int pos_y;
+  private int x;
+  private int y;
 
   public Point(int x, int y) {
-    this.pos_x = x;
-    this.pos_y = y;
-    Console.WriteLine($"Point "+
-                      $"{pos_x},{pos_y}");
+    this.x = x;
+    this.y = y;
+    Console.WriteLine($"Point {this.x},{this.y}");
   }
 
   public Point(int x) : this(x, 0) {
@@ -208,7 +278,7 @@ class Point {
 }
 ```
 
-Wird nun `Point(4)` aufgerufen erhält man folgendes auf der Konsole
+Wird nun `Point(4)` aufgerufen, werden die Parameter auf die unterste Ebene durchgereicht und die Konstruktoren werden in umgekehrter Aufrufreihenfolge abgearbeitet. So erhält man folgendes auf der Konsole
 
 ```output
 Point 4,0
@@ -217,9 +287,44 @@ x-only
 
 ### Methoden Overloading
 
-## Default Parameter (implizit Overloading)
+Je nach Signatur können andere Methoden aufgerufen werden. Dies nennt man auch *Overloading*. In folgendem können Flächen mit unterschiedlichen Angaben gerechnet werden.
+
+```csharp
+public int Area(int width, int height) {
+  return width * height;
+}
+
+public int Area(int squareSide) {
+  return squareSide^2;
+}
+
+public int Area(Point a, Point b) {
+  return (a.x - b.x) * (a.y - b.y);
+}
+```
+
+## Default Parameter
+
+Für Default-Werte können Konstruktoren implizit Überladen werden.
+
+```{.csharp}
+public void Draw(bool inColor = true) { ... }
+
+// initialize drawing object
+Draw inColor = new Draw();    // inColor = true
+Draw bw = new Draw(false);    // inColor = false
+```
+
+## Garbage-Collector
+
+## Signatur
+
+## Exceptions
+
+(`try`,`catch`,`finally`, `throw`)
 
 ## Multithreading `System.Threading`
+
 
 ```csharp
 static void Main(string[] args) {
@@ -233,7 +338,11 @@ static void Run() {
 }
 ```
 
-## Parametrisierter Thread
+### Sync
+
+### Deadlock
+
+### Parametrisierter Thread
 
 Falls ein Parameter übergeben werden muss, kann die delegierte `ParameterizedThreadStart`-Signatur verwendet werden. Der Thread wird normal aufgesetzt und bei `.Start()`
 
@@ -255,7 +364,55 @@ private void HandleRequest(object _object)
 }
 ```
 
+## Boxing & Unboxing
+
+## Streams
+
+## Delegates
+
+### Multicast
+
+## Events
+
+# Vererbung
+
+## Abstrakte Klassen
+
+## Interfaces
+
+## Polymorphismus
+
+## Klassendiagramme
+
 # Linux & Raspberry Pi 4
+
+## Bash-Commands
+
+## Streams
+
+## GPIO via Konsole
+
+## Berechtigungssystem
+
+## Passwort Hashing
+
+## Logfiles & NLog
+
+## Benutzerverwaltung
+
+## SSH
+
+## C# deployment
+
+### Remote-Debugging
+
+## System-Control
+
+### Deamons
+
+## Tunneling
+
+## UART TinyK <-> RBP
 
 # **W**indows **P**resentation **F**oundation
 
@@ -266,13 +423,17 @@ WPF ist
 
 :::
 
----
+## Dispatcher
+
+## Key-Event
 
 # Weitere Konzepte
 
 ## TCP / UDP
 
 ## MQTT
+
+## Unit Tests
 
 # Notes
 
