@@ -307,7 +307,7 @@ public int Area(Point a, Point b) {
 
 Für Default-Werte können Konstruktoren implizit Überladen werden.
 
-```{.csharp}
+```csharp
 public void Draw(bool inColor = true) { ... }
 
 // initialize drawing object
@@ -320,6 +320,59 @@ Draw bw = new Draw(false);    // inColor = false
 ## Signatur
 
 ## Exceptions
+
+*Exceptions* sind in den meisten grundlegenden Funktionen implementiert und werden ausgelöst, wenn die Vorgaben nicht eingehalten werden. Ein Beispiel wäre ein Datenpacket via TCP zu verschicken, ohne zuerst mit dem TCP-Server zu verbinden.
+
+### Exceptions abfangen mit `try` & `catch`
+
+Zum Exceptions abfangen:
+
+```csharp
+try {
+  // do stuff, that might
+  // raise an exception
+}
+// explicitley catch 
+// The ArithmeticExcpetion e
+catch (ArithmeticException e) {
+  // catch Arithmetic Exception
+  // i.e. x/0
+}
+catch (Exception e) {
+  // catch any other Exception
+}
+```
+
+Die `catch`-"Parametern" müssen nicht unbedingt existieren, erlaubt aber den Fehler besser zu identifizeren.
+
+### Erweiterung `finally`
+
+Der `finally`-Codeblock wird verwendet, um etwas zu machen, bevor aus der Funktion gegangen wird. Ein Beispiel wäre eine Kommunikation zu beenden.
+
+```csharp
+try {
+  // do stuff
+  return thing;
+}
+catch (Exception e) {
+  // catch raised exception
+  return other_thing;
+}
+finally {
+  // do stuff here before returning
+}
+```
+
+### Exception werfen mit `throw`
+
+```csharp
+
+void function() {
+  // do stuff
+  throw new ArithmeticException("string")
+}
+
+```
 
 (`try`,`catch`,`finally`, `throw`)
 
