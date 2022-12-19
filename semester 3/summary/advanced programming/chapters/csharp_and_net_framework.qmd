@@ -77,7 +77,22 @@ public Program{
 
 ### Destruktor
 
+Destruktoren werden verwendet um die Resourcen von Objekten freizugeben. Es ist bereits ein Standard-Destruktor implementiert, welcher nur in seltenen Fällen überschrieben wird. Der Destruktor wird automatisch vom Garbage-Collector aufgerufen.
+
+```{.csharp}
+public class MyClass
+{
+    // Other members of the class...
+    ~MyClass()
+    {
+        // Release resources held by the object here.
+    }
+}
+```
+
 ### Methode
+
+Methoden sind das C#-pendant der Funktionen in C. Der Zugriff auf Methoden kann mit eingeschränkt werden.
 
 ### Membervariable
 

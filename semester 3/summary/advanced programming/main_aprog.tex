@@ -253,7 +253,7 @@
 
 \begin{document}
 \maketitle
-\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[breakable, enhanced, colback={shadecolor}, frame hidden, boxrule=0pt]}{\end{tcolorbox}}\fi
+\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[breakable, boxrule=0pt, frame hidden, colback={shadecolor}, enhanced]}{\end{tcolorbox}}\fi
 
 \renewcommand*\contentsname{Inhaltsverzeichnis}
 {
@@ -373,7 +373,7 @@ können Parameter oder andere Objekte übergeben werden.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{tcolorbox}[enhanced jigsaw, coltitle=black, toprule=.15mm, opacitybacktitle=0.6, colbacktitle=quarto-callout-tip-color!10!white, bottomrule=.15mm, opacityback=0, colframe=quarto-callout-tip-color-frame, colback=white, bottomtitle=1mm, titlerule=0mm, breakable, toptitle=1mm, rightrule=.15mm, arc=.35mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Tipp}, leftrule=.75mm, left=2mm]
+\begin{tcolorbox}[enhanced jigsaw, toprule=.15mm, toptitle=1mm, coltitle=black, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Tipp}, breakable, rightrule=.15mm, left=2mm, opacitybacktitle=0.6, bottomtitle=1mm, colframe=quarto-callout-tip-color-frame, titlerule=0mm, leftrule=.75mm, arc=.35mm, colback=white, bottomrule=.15mm, opacityback=0, colbacktitle=quarto-callout-tip-color!10!white]
 
 Der Default-Konstruktor nimmt keine Parameter entgegen. Wird ein
 Konstruktor angegeben, so ist der Default-Konstruktor nichtmehr
@@ -384,8 +384,29 @@ aufrufbar.
 \hypertarget{destruktor}{%
 \subsubsection{Destruktor}\label{destruktor}}
 
+Destruktoren werden verwendet um die Resourcen von Objekten freizugeben.
+Es ist bereits ein Standard-Destruktor implementiert, welcher nur in
+seltenen Fällen überschrieben wird. Der Destruktor wird automatisch vom
+Garbage-Collector aufgerufen.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{public} \KeywordTok{class}\NormalTok{ MyClass}
+\OperatorTok{\{}
+    \CommentTok{// Other members of the class...}
+    \OperatorTok{\textasciitilde{}}\FunctionTok{MyClass}\OperatorTok{()}
+    \OperatorTok{\{}
+        \CommentTok{// Release resources held by the object here.}
+    \OperatorTok{\}}
+\OperatorTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
 \hypertarget{methode}{%
 \subsubsection{Methode}\label{methode}}
+
+Methoden sind das C\#-pendant der Funktionen in C. Der Zugriff auf
+Methoden kann mit eingeschränkt werden.
 
 \hypertarget{membervariable}{%
 \subsubsection{Membervariable}\label{membervariable}}
@@ -459,7 +480,7 @@ Wie in C gibt es in C\# Wertetypen und Referenztypen
 \hypertarget{struct}{%
 \subsubsection{\texorpdfstring{\texttt{struct}}{struct}}\label{struct}}
 
-\begin{tcolorbox}[enhanced jigsaw, coltitle=black, toprule=.15mm, opacitybacktitle=0.6, colbacktitle=quarto-callout-important-color!10!white, bottomrule=.15mm, opacityback=0, colframe=quarto-callout-important-color-frame, colback=white, bottomtitle=1mm, titlerule=0mm, breakable, toptitle=1mm, rightrule=.15mm, arc=.35mm, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Unterschied \texttt{struct} \& \texttt{class}}, leftrule=.75mm, left=2mm]
+\begin{tcolorbox}[enhanced jigsaw, toprule=.15mm, toptitle=1mm, coltitle=black, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Unterschied \texttt{struct} \& \texttt{class}}, breakable, rightrule=.15mm, left=2mm, opacitybacktitle=0.6, bottomtitle=1mm, colframe=quarto-callout-important-color-frame, titlerule=0mm, leftrule=.75mm, arc=.35mm, colback=white, bottomrule=.15mm, opacityback=0, colbacktitle=quarto-callout-important-color!10!white]
 
 \texttt{struct}s sind \emph{value} Typen und übergeben jeden
 Wert/Eigenschaften. \texttt{class}es sind \emph{reference} Typen und
@@ -481,7 +502,7 @@ werden als Referenz übergeben.
 
 Strings werden mit dem folgender Deklaration
 
-\begin{tcolorbox}[enhanced jigsaw, coltitle=black, toprule=.15mm, opacitybacktitle=0.6, colbacktitle=quarto-callout-important-color!10!white, bottomrule=.15mm, opacityback=0, colframe=quarto-callout-important-color-frame, colback=white, bottomtitle=1mm, titlerule=0mm, breakable, toptitle=1mm, rightrule=.15mm, arc=.35mm, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Wichtig}, leftrule=.75mm, left=2mm]
+\begin{tcolorbox}[enhanced jigsaw, toprule=.15mm, toptitle=1mm, coltitle=black, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Wichtig}, breakable, rightrule=.15mm, left=2mm, opacitybacktitle=0.6, bottomtitle=1mm, colframe=quarto-callout-important-color-frame, titlerule=0mm, leftrule=.75mm, arc=.35mm, colback=white, bottomrule=.15mm, opacityback=0, colbacktitle=quarto-callout-important-color!10!white]
 
 Strings können nicht verändert werden -\textgreater{} sind
 \textbf{read-only}
@@ -539,7 +560,7 @@ Parameter/variablen können in Strings direkt eingefügt werden.
 \hypertarget{overloading}{%
 \subsection{Overloading}\label{overloading}}
 
-\begin{tcolorbox}[enhanced jigsaw, coltitle=black, toprule=.15mm, opacitybacktitle=0.6, colbacktitle=quarto-callout-important-color!10!white, bottomrule=.15mm, opacityback=0, colframe=quarto-callout-important-color-frame, colback=white, bottomtitle=1mm, titlerule=0mm, breakable, toptitle=1mm, rightrule=.15mm, arc=.35mm, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Wichtig}, leftrule=.75mm, left=2mm]
+\begin{tcolorbox}[enhanced jigsaw, toprule=.15mm, toptitle=1mm, coltitle=black, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Wichtig}, breakable, rightrule=.15mm, left=2mm, opacitybacktitle=0.6, bottomtitle=1mm, colframe=quarto-callout-important-color-frame, titlerule=0mm, leftrule=.75mm, arc=.35mm, colback=white, bottomrule=.15mm, opacityback=0, colbacktitle=quarto-callout-important-color!10!white]
 
 Overloading-Signaturen müssen sich in den \textbf{Datentypen}
 unterscheiden. Unterschiedliche Variabel-Namen führen zu einem
@@ -664,6 +685,76 @@ Für Default-Werte können Konstruktoren implizit Überladen werden.
 
 \hypertarget{exceptions}{%
 \subsection{Exceptions}\label{exceptions}}
+
+\emph{Exceptions} sind in den meisten grundlegenden Funktionen
+implementiert und werden ausgelöst, wenn die Vorgaben nicht eingehalten
+werden. Ein Beispiel wäre ein Datenpacket via TCP zu verschicken, ohne
+zuerst mit dem TCP-Server zu verbinden.
+
+\hypertarget{exceptions-abfangen-mit-try-catch}{%
+\subsubsection{\texorpdfstring{Exceptions abfangen mit \texttt{try} \&
+\texttt{catch}}{Exceptions abfangen mit try \& catch}}\label{exceptions-abfangen-mit-try-catch}}
+
+Zum Exceptions abfangen:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{try} \OperatorTok{\{}
+  \CommentTok{// do stuff, that might}
+  \CommentTok{// raise an exception}
+\OperatorTok{\}}
+\CommentTok{// explicitley catch }
+\CommentTok{// The ArithmeticExcpetion e}
+\KeywordTok{catch} \OperatorTok{(}\NormalTok{ArithmeticException e}\OperatorTok{)} \OperatorTok{\{}
+  \CommentTok{// catch Arithmetic Exception}
+  \CommentTok{// i.e. x/0}
+\OperatorTok{\}}
+\KeywordTok{catch} \OperatorTok{(}\NormalTok{Exception e}\OperatorTok{)} \OperatorTok{\{}
+  \CommentTok{// catch any other Exception}
+\OperatorTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+Die \texttt{catch}-``Parametern'' müssen nicht unbedingt existieren,
+erlaubt aber den Fehler besser zu identifizeren.
+
+\hypertarget{erweiterung-finally}{%
+\subsubsection{\texorpdfstring{Erweiterung
+\texttt{finally}}{Erweiterung finally}}\label{erweiterung-finally}}
+
+Der \texttt{finally}-Codeblock wird verwendet, um etwas zu machen, bevor
+aus der Funktion gegangen wird. Ein Beispiel wäre eine Kommunikation zu
+beenden.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{try} \OperatorTok{\{}
+  \CommentTok{// do stuff}
+  \KeywordTok{return}\NormalTok{ thing}\OperatorTok{;}
+\OperatorTok{\}}
+\KeywordTok{catch} \OperatorTok{(}\NormalTok{Exception e}\OperatorTok{)} \OperatorTok{\{}
+  \CommentTok{// catch raised exception}
+  \KeywordTok{return}\NormalTok{ other\_thing}\OperatorTok{;}
+\OperatorTok{\}}
+\KeywordTok{finally} \OperatorTok{\{}
+  \CommentTok{// do stuff here before returning}
+\OperatorTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{exception-werfen-mit-throw}{%
+\subsubsection{\texorpdfstring{Exception werfen mit
+\texttt{throw}}{Exception werfen mit throw}}\label{exception-werfen-mit-throw}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+
+\DataTypeTok{void} \FunctionTok{function}\OperatorTok{()} \OperatorTok{\{}
+  \CommentTok{// do stuff}
+  \KeywordTok{throw} \KeywordTok{new} \FunctionTok{ArithmeticException}\OperatorTok{(}\StringTok{"string"}\OperatorTok{)}
+\OperatorTok{\}}
+\end{Highlighting}
+\end{Shaded}
 
 (\texttt{try},\texttt{catch},\texttt{finally}, \texttt{throw})
 
@@ -790,37 +881,13 @@ wird normal aufgesetzt und bei \texttt{.Start()}
 \hypertarget{tunneling}{%
 \subsection{Tunneling}\label{tunneling}}
 
-\hypertarget{uart-tinyk---rbp}{%
+\hypertarget{uart-tinyk---raspi}{%
 \subsection{UART TinyK \textless-\textgreater{}
-RBP}\label{uart-tinyk---rbp}}
+Raspi}\label{uart-tinyk---raspi}}
 
 \hypertarget{windows-presentation-foundation}{%
 \section{\texorpdfstring{\textbf{W}indows \textbf{P}resentation
 \textbf{F}oundation}{Windows Presentation Foundation}}\label{windows-presentation-foundation}}
-
-\begin{tcolorbox}[enhanced jigsaw, coltitle=black, toprule=.15mm, opacitybacktitle=0.6, colbacktitle=quarto-callout-note-color!10!white, bottomrule=.15mm, opacityback=0, colframe=quarto-callout-note-color-frame, colback=white, bottomtitle=1mm, titlerule=0mm, breakable, toptitle=1mm, rightrule=.15mm, arc=.35mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Unterschied zwischen WPF \& Console Application}, leftrule=.75mm, left=2mm]
-
-WPF ist
-
-\end{tcolorbox}
-
-\hypertarget{dispatcher}{%
-\subsection{Dispatcher}\label{dispatcher}}
-
-\hypertarget{key-event}{%
-\subsection{Key-Event}\label{key-event}}
-
-\hypertarget{weitere-konzepte}{%
-\section{Weitere Konzepte}\label{weitere-konzepte}}
-
-\hypertarget{tcp-udp}{%
-\subsection{TCP / UDP}\label{tcp-udp}}
-
-\hypertarget{mqtt}{%
-\subsection{MQTT}\label{mqtt}}
-
-\hypertarget{unit-tests}{%
-\subsection{Unit Tests}\label{unit-tests}}
 
 \hypertarget{notes}{%
 \section{Notes}\label{notes}}
@@ -849,7 +916,7 @@ Wird aber dies direkt in der Initialisierung eingebettet
 \end{Highlighting}
 \end{Shaded}
 
-\begin{tcolorbox}[enhanced jigsaw, coltitle=black, toprule=.15mm, opacitybacktitle=0.6, colbacktitle=quarto-callout-caution-color!10!white, bottomrule=.15mm, opacityback=0, colframe=quarto-callout-caution-color-frame, colback=white, bottomtitle=1mm, titlerule=0mm, breakable, toptitle=1mm, rightrule=.15mm, arc=.35mm, title=\textcolor{quarto-callout-caution-color}{\faFire}\hspace{0.5em}{Vorsicht}, leftrule=.75mm, left=2mm]
+\begin{tcolorbox}[enhanced jigsaw, toprule=.15mm, toptitle=1mm, coltitle=black, title=\textcolor{quarto-callout-caution-color}{\faFire}\hspace{0.5em}{Vorsicht}, breakable, rightrule=.15mm, left=2mm, opacitybacktitle=0.6, bottomtitle=1mm, colframe=quarto-callout-caution-color-frame, titlerule=0mm, leftrule=.75mm, arc=.35mm, colback=white, bottomrule=.15mm, opacityback=0, colbacktitle=quarto-callout-caution-color!10!white]
 
 Dieser Overflow-Fehler gilt nur bei \textbf{konstanten} Werten bei der
 Initialisierung. Wird eine separate Variable mit dem Maximalwert
