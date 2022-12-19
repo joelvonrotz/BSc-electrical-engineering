@@ -1,0 +1,27 @@
+## Bash-Commands
+
+## Streams
+
+## GPIO via Konsole
+
+## Berechtigungssystem
+
+## Passwort Hashing
+
+## Logfiles & NLog
+
+## Benutzerverwaltung
+
+## SSH
+
+## C# deployment
+
+### Remote-Debugging
+
+## System-Control
+
+### Deamons
+
+## Tunneling
+
+## UART TinyK <-> Raspi

@@ -1,0 +1,176 @@
+## Vergleich `C` & `C#`
+
+|                 |                      C *(POP)*                     |                   C# *(OOP)*                  |
+|:---------------:|:--------------------------------------------------:|:---------------------------------------------:|
+|                 | **P**rozedurale **O**rientierte **P**rogrammierung | **O**bjekt **O**rientierte **P**rogrammierung |
+|   Compilation   |                     Interpreter                    |              Just-in-time *(CLR)*             |
+|    Execution    |                   Cross-Platform                   |                `.Net` Framework               |
+| Memory handling |              `free()` after `malloc()`             |               Garbage collector               |
+|    Anwendung    |             Embedded, Real-Time-Systeme            | Embedded OS, Windows, Linux, GUIs             |
+|  Execution Flow |                      Top-Down                      |                   Bottom-Up                   |
+|  Aufteilung in  |                     Funktionen                     |                    Methoden                   |
+|   Arbeitet mit  |                     Algorithmen                    |                     Daten                     |
+| Datenpersistenz |      Einfache Zugriffsregeln und Sichtbarkeit      | Data Hiding (`privat`, `public`, `protected`) |
+|  Lib-Einbindung |              *.h* File mit `#include`              |            *namespaces* mit `using`           |
+
+[]: # (Do more as you'd like. See table "VergleichC.tgn" to use on "https://www.tablesgenerator.com/markdown_tables")
+
+`\begin{multicols}{2}`{=latex}
+
+## Struktur `C#`-Programm
+
+### Namespace
+
+```csharp
+namespace { ... }
+```
+
+`namespace` dient zur Kapselung von Methoden, Klassen, etc., damit zum Beispiel mehrere Klassen/Methoden gleich benannt werden können.
+
+```csharp
+namespace SampleNamespace {
+  class SampleClass {...}
+  struct SampleStruct {...}
+  enum SampleEnum {a, b}
+  namespace Nested {
+    class SampleClass {...}
+  }
+}
+
+namespace NameOfSpace {
+  class SampleClass{...}
+  ...
+}
+```
+
+Zum Aufrufen von Klassen/Methoden anderer `namespace`'s kann dieser über `using` eingebunden werden oder der Aufruf geschieht über `namespace.SampleClass`.
+
+### Klassen
+
+Klassen beschreiben den Bauplan von Objekten. Wenn man das nicht versteht, nützt dir auch der Rest der Zusammenfassung nichts ;)
+
+### Konstruktor
+
+Konstruktoren werden beim Erstellen von neuen Objekten aufgerufen. Ihnen können Parameter oder andere Objekte übergeben werden.
+
+```{.csharp}
+public class Point{
+  int size;
+
+  public Point(int size) {
+    this.size = size;
+  }
+}
+
+public Program{
+  satic void Main(){
+
+    // initialize new Point object
+    Point smallPoint = new Point(2);
+  }
+}
+```
+
+::: callout-tip
+ Der Default-Konstruktor nimmt keine Parameter entgegen. Wird ein Konstruktor angegeben, so ist der Default-Konstruktor nichtmehr aufrufbar.
+:::
+
+### Destruktor
+
+### Methode
+
+### Membervariable
+
+### Property
+
+## .Net Bibliotheken
+
+### `System`
+
+#### `Sysem.Console`
+
+## Keywords
+
+### Operatoren & Abarbeitungsreihenfolge
+
+### Zugriffs-Modifier
+
+![](images/AccessModifiers.png)
+
+*Modifier* sind auf Klassen, Enum, Membervariablen, Properties und Methoden anwendbar.
+
+### `using`
+
+Die `using`-Direktive teilt dem Compiler mit welcher `namespace` während der Compilierung verwendet werden soll. Wenn `using` nicht verwendet wird, muss bei einem Methodenaufruf auch der entsprechende `namespace` genannt werden.
+
+```csharp
+// w/o `using`
+System.Console.WriteLine("Hello World!");
+
+// w/ `using`
+using System;
+...
+Console.WriteLine("Hello World!");
+```
+
+### `static`
+
+### `const`
+
+### `readonly`
+
+## Datentypen
+
+Wie in C gibt es in C# Wertetypen und Referenztypen
+
+![](images/Types.png)
+
+### `class`
+
+
+### `struct`
+
+::: callout-important
+## Unterschied `struct` & `class`
+
+`struct`s sind *value* Typen und übergeben jeden Wert/Eigenschaften. `class`es sind *reference* Typen und werden als Referenz übergeben.
+
+- `class` $\rightarrow$ call by reference (Übergabe als Reference)
+- `struct` $\rightarrow$ call by value (Übergabe als Wert)
+
+:::
+
+### `string`
+
+Strings werden mit dem folgender Deklaration 
+
+::: callout-important
+
+Strings können nicht verändert werden -> sind **read-only**
+
+```csharp
+string s = "Hallo Welt";
+
+s[1] = 'A'; // ERROR
+```
+
+:::
+
+#### Stringformatierung
+
+Parameter/variablen können in Strings direkt eingefügt werden.
+
+```{.csharp}
+// C-Sytle
+Console.WriteLine("{0} + {1} = {2}",a,b,res);
+
+// C#-Style
+Console.WriteLine(a + " + " + b + " = " + res);
+
+// C# formatted string
+Console.WriteLine($"{a} + {b} = {res}");
+```
+
+### Enum
+
+### Array

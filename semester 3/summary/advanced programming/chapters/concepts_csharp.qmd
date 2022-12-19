@@ -1,0 +1,211 @@
+## Collections
+
+### Indexer
+
+### Generics
+
+## Scope & Zugriff
+
+## Overloading
+
+::: callout-important
+Overloading-Signaturen müssen sich in den **Datentypen** unterscheiden. Unterschiedliche Variabel-Namen führen zu einem *Compiler-Error*.
+:::
+
+### Konstruktor Overloading
+
+Je nach Signatur können andere Konstruktoren aufgerufen werden. Dies nennt man auch *Overloading*. In folgendem Beispiel kann ein `Point` Objekt erstellt werden entweder mit oder ohne Angabe der Position.
+
+```csharp
+class Point {
+  private int pos_x;
+  private int pos_y;
+
+  public Point(int x, int y) {
+    this.pos_x = x;
+    this.pos_y = y;
+  }
+
+  public Point() { }
+}
+```
+
+#### Konstruktor Aufruf-Reihenfolge
+
+Mit `this` nach dem Konstruktor (unterteilt mit `:`) kann der Aufruf auf einen anderen Konstruktor weitergereicht werden.
+
+```csharp
+using System;
+
+class Point {
+  private int x;
+  private int y;
+
+  public Point(int x, int y) {
+    this.x = x;
+    this.y = y;
+    Console.WriteLine($"Point {this.x},{this.y}");
+  }
+
+  public Point(int x) : this(x, 0) {
+    Console.WriteLine("x-only");
+  }
+
+  // Two identical signatures -> ERROR
+  public Point(int y) : this(y, 0) {
+    Console.WriteLine("y-only");
+  }
+
+  public Point() : this(0,0) {}
+  Console.WriteLine("no value");
+}
+```
+
+Wird nun `Point(4)` aufgerufen, werden die Parameter auf die unterste Ebene durchgereicht und die Konstruktoren werden in umgekehrter Aufrufreihenfolge abgearbeitet. So erhält man folgendes auf der Konsole
+
+```output
+Point 4,0
+x-only
+```
+
+### Methoden Overloading
+
+Je nach Signatur können andere Methoden aufgerufen werden. Dies nennt man auch *Overloading*. In folgendem können Flächen mit unterschiedlichen Angaben gerechnet werden.
+
+```csharp
+public int Area(int width, int height) {
+  return width * height;
+}
+
+public int Area(int squareSide) {
+  return squareSide^2;
+}
+
+public int Area(Point a, Point b) {
+  return (a.x - b.x) * (a.y - b.y);
+}
+```
+
+## Default Parameter
+
+Für Default-Werte können Konstruktoren implizit Überladen werden.
+
+```csharp
+public void Draw(bool inColor = true) { ... }
+
+// initialize drawing object
+Draw inColor = new Draw();    // inColor = true
+Draw bw = new Draw(false);    // inColor = false
+```
+
+## Garbage-Collector
+
+## Signatur
+
+## Exceptions
+
+*Exceptions* sind in den meisten grundlegenden Funktionen implementiert und werden ausgelöst, wenn die Vorgaben nicht eingehalten werden. Ein Beispiel wäre ein Datenpacket via TCP zu verschicken, ohne zuerst mit dem TCP-Server zu verbinden.
+
+### Exceptions abfangen mit `try` & `catch`
+
+Zum Exceptions abfangen:
+
+```csharp
+try {
+  // do stuff, that might
+  // raise an exception
+}
+// explicitley catch 
+// The ArithmeticExcpetion e
+catch (ArithmeticException e) {
+  // catch Arithmetic Exception
+  // i.e. x/0
+}
+catch (Exception e) {
+  // catch any other Exception
+}
+```
+
+Die `catch`-"Parametern" müssen nicht unbedingt existieren, erlaubt aber den Fehler besser zu identifizeren.
+
+### Erweiterung `finally`
+
+Der `finally`-Codeblock wird verwendet, um etwas zu machen, bevor aus der Funktion gegangen wird. Ein Beispiel wäre eine Kommunikation zu beenden.
+
+```csharp
+try {
+  // do stuff
+  return thing;
+}
+catch (Exception e) {
+  // catch raised exception
+  return other_thing;
+}
+finally {
+  // do stuff here before returning
+}
+```
+
+### Exception werfen mit `throw`
+
+```csharp
+
+void function() {
+  // do stuff
+  throw new ArithmeticException("string")
+}
+
+```
+
+(`try`,`catch`,`finally`, `throw`)
+
+## Multithreading `System.Threading`
+
+
+```csharp
+static void Main(string[] args) {
+  Thread t = new Thread(Run);
+  t.Start();
+  Console.ReadKey();
+}
+
+static void Run() {
+  Console.WriteLine("Thread is running...");
+}
+```
+
+### Sync
+
+### Deadlock
+
+### Parametrisierter Thread
+
+Falls ein Parameter übergeben werden muss, kann die delegierte `ParameterizedThreadStart`-Signatur verwendet werden. Der Thread wird normal aufgesetzt und bei `.Start()`
+
+```csharp
+static void Main(string[] args)
+{
+  //...
+  TcpClient client = listener.AcceptTcpClient();
+  Thread t = new Thread(HandleRequest);
+  t.Start(client);
+  // ...
+}
+
+// must be of ParameterizedThreadStart signature
+private void HandleRequest(object _object)
+{
+  TcpClient client = (TcpClient)_object;
+  // ...
+}
+```
+
+## Boxing & Unboxing
+
+## Streams
+
+## Delegates
+
+### Multicast
+
+## Events

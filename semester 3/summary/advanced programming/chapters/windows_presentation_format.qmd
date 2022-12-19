@@ -1,0 +1,20 @@
+::: callout-note
+## Unterschied zwischen WPF & Console Application
+
+WPF ist 
+
+:::
+
+## Dispatcher
+
+## Key-Event
+
+# Weitere Konzepte
+
+## TCP / UDP
+
+## MQTT
+
+**M**essage **Q**ueuing **T**elemetry **T**ransport
+
+## Unit Tests

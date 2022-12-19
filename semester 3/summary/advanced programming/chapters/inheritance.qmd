@@ -1,0 +1,7 @@
+## Abstrakte Klassen
+
+## Interfaces
+
+## Polymorphismus
+
+## Klassendiagramme
