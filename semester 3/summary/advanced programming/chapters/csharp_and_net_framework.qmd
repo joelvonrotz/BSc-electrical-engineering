@@ -49,6 +49,21 @@ Zum Aufrufen von Klassen/Methoden anderer `namespace`'s kann dieser über `using
 
 Klassen beschreiben den Bauplan von Objekten. Wenn man das nicht versteht, nützt dir auch der Rest der Zusammenfassung nichts ;)
 
+Eine Klasse ist eine Sammlung von **Daten** und **Methoden**.
+
+::: callout-important
+* Pro Datei eine Klasse
+* Klassenname = Dateiname
+* Klassenname beginnt mit Grossbuchstabe
+:::
+
+Klassen können mit dem Schlüsselwort `static`{.csharp} statisch angelegt werden. Von statischen Klassen können keine Objekte erstellt werden, die Mehtoden sind immer über den Klassennamen aufrufbar. Ein Beispiel hierfür ist die `System`{.csharp} Klasse.
+
+```{.csharp}
+System.Console.WriteLine("Hallo Welt");
+```
+
+
 ### Konstruktor
 
 Konstruktoren werden beim Erstellen von neuen Objekten aufgerufen. Ihnen können Parameter oder andere Objekte übergeben werden.
@@ -92,9 +107,42 @@ public class MyClass
 
 ### Methode
 
-Methoden sind das C#-pendant der Funktionen in C. Der Zugriff auf Methoden kann mit eingeschränkt werden.
+Methoden sind das C#-pendant der Funktionen in C. Der Zugriff auf Methoden kann mit Zugriff-Modifizierern *(siehe @sec-modifier)* eingeschränkt werden.
+
+Methoden werden über Objekte aufgerufen
+
+```{.csharp}
+MyClass NewObject = new MyClass("some string");
+NewObject.DoSomething();
+
+public class MyClass{
+  public void DoSomething(){
+    // do something
+  }
+}
+```
+
+Um Methoden ohne Objekte aufzurufen ist das Schlüsselwort `static` nötig.
+
+```{.csharp}
+NewObject.DoSomething();
+
+public class MyClass{
+  public static void DoSomething(){
+    // do something
+  }
+}
+```
+
+Die `Main(string[] args) {}`{.csharp} Methode beschreibt den Einstiegspunkt eines Programms. In `args`{.csharp} sind Programm-Parameter gespeichert welche z.B. bei einer Konsolenaplikation angefügt werden *(hier `-debug`)
+
+```{.bash}
+dotnet MyProgram.dll -debug
+```
 
 ### Membervariable
+
+
 
 ### Property
 
@@ -108,7 +156,7 @@ Methoden sind das C#-pendant der Funktionen in C. Der Zugriff auf Methoden kann 
 
 ### Operatoren & Abarbeitungsreihenfolge
 
-### Zugriffs-Modifier
+### Zugriffs-Modifier {#sec-modifier}
 
 ![](images/AccessModifiers.png)
 
