@@ -54,7 +54,7 @@ Eine Klasse ist eine Sammlung von **Daten** und **Methoden**.
 ::: callout-important
 * Pro Datei eine Klasse
 * Klassenname = Dateiname
-* Klassenname beginnt mit Grossbuchstabe
+* Klassenname beginnt mit Grossbuchstabe: `MyClass`
 :::
 
 Klassen können mit dem Schlüsselwort `static`{.csharp} statisch angelegt werden. Von statischen Klassen können keine Objekte erstellt werden, die Mehtoden sind immer über den Klassennamen aufrufbar. Ein Beispiel hierfür ist die `System`{.csharp} Klasse.
@@ -142,7 +142,31 @@ dotnet MyProgram.dll -debug
 
 ### Membervariable
 
+Membervariabeln sind **Daten** oder **Attribute** eines Objektes. So ist z.B. `color` eine Membervariable in deiner Klasse `car`. Membervariablen können mit Zugriff-Modifizierern *(siehe @sec-modifier)* eingeschränkt werden.
 
+Deklaration:
+
+```{.csharp}
+public class Point{
+  private int xPos = 0;
+  private int yPos = 0;
+}
+```
+Für Membervariablen wird auf dem **Heap** Speicher reserviert. Membervariablen sollten explizit initialisiert werden, die Standardwerte der automatischen Initialisierung sind:
+* Numerische Typen **`0`**
+* enum **`0`**
+* boolean **`false`**
+* char **`'\0'`**
+* Referenzen **`null`**
+
+::: callout-important
+* Pro Enum eine Datei
+* Member beginnen mit Kleinbuchstaben: `fristName`
+* Enum's und Klassen beginnen mit Grossbuchstaben: `Person`, `Gender`
+* Member sollten grundsätzlich `private` sein
+* Enum's und Klassen sind grundsätzlich `public`
+* Member explizit initialisieren: `int x = 0;`
+:::
 
 ### Property
 
@@ -234,6 +258,34 @@ Console.WriteLine(a + " + " + b + " = " + res);
 Console.WriteLine($"{a} + {b} = {res}");
 ```
 
-### Enum
+### Aufzählungstypen (`enum`)
+
+Enumerationen sowie Klassen sollten der Übersichtlichkeit wegen in eigenen Dateien erstellt werden. Um Enums in logischen Operation oder als Flags zu nutzen kann dies mit dem Attribut `[Flags]`{.csharp} angegeben werden.
+
+```{.csharp}
+// File: ButtonState.cs
+[Flags]
+public enum Button{
+  NONE = 0,
+  LEFT = 1,
+  RIGHT = 2,
+  UP = 4,
+  DOWN = 8
+}
+```
+
+Verwendet werden Enums mit ihren Namen (`Button btn = Button.LEFT`{.csharp}). Zudem können diverse Rechenoperationen auf sie angewendet werden.
+
+```{.csharp}
+// Vergleich
+  if(c == Colors.Yellow) ...                    
+  if(c > Colors.Green && c < Colors.Yellow) ...
+// +, -, ++, --
+  c = c + 1;    c++;                                
+// &, |, ~
+  btn.UP & btn.DOWN  // = "12" -> UP, DOWN      
+```
+
+
 
 ### Array

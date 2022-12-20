@@ -253,7 +253,7 @@
 
 \begin{document}
 \maketitle
-\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[breakable, boxrule=0pt, enhanced, frame hidden, colback={shadecolor}]}{\end{tcolorbox}}\fi
+\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[boxrule=0pt, enhanced, colback={shadecolor}, breakable, frame hidden]}{\end{tcolorbox}}\fi
 
 \renewcommand*\contentsname{Inhaltsverzeichnis}
 {
@@ -349,7 +349,7 @@ versteht, nützt dir auch der Rest der Zusammenfassung nichts ;)
 
 Eine Klasse ist eine Sammlung von \textbf{Daten} und \textbf{Methoden}.
 
-\begin{tcolorbox}[enhanced jigsaw, opacityback=0, breakable, coltitle=black, toprule=.15mm, arc=.35mm, colback=white, titlerule=0mm, colbacktitle=quarto-callout-important-color!10!white, bottomtitle=1mm, colframe=quarto-callout-important-color-frame, opacitybacktitle=0.6, toptitle=1mm, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Wichtig}, left=2mm, rightrule=.15mm, bottomrule=.15mm, leftrule=.75mm]
+\begin{tcolorbox}[enhanced jigsaw, breakable, colbacktitle=quarto-callout-important-color!10!white, bottomtitle=1mm, toptitle=1mm, opacitybacktitle=0.6, colback=white, rightrule=.15mm, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Wichtig}, toprule=.15mm, coltitle=black, colframe=quarto-callout-important-color-frame, titlerule=0mm, arc=.35mm, bottomrule=.15mm, leftrule=.75mm, left=2mm, opacityback=0]
 
 \begin{itemize}
 \tightlist
@@ -358,10 +358,21 @@ Eine Klasse ist eine Sammlung von \textbf{Daten} und \textbf{Methoden}.
 \item
   Klassenname = Dateiname
 \item
-  Klassenname beginnt mit Grossbuchstabe
+  Klassenname beginnt mit Grossbuchstabe: \texttt{MyClass}
 \end{itemize}
 
 \end{tcolorbox}
+
+Klassen können mit dem Schlüsselwort \VERB|\KeywordTok{static}| statisch
+angelegt werden. Von statischen Klassen können keine Objekte erstellt
+werden, die Mehtoden sind immer über den Klassennamen aufrufbar. Ein
+Beispiel hierfür ist die \VERB|\NormalTok{System}| Klasse.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{System}\OperatorTok{.}\FunctionTok{Console}\OperatorTok{.}\FunctionTok{WriteLine}\OperatorTok{(}\StringTok{"Hallo Welt"}\OperatorTok{);}
+\end{Highlighting}
+\end{Shaded}
 
 \hypertarget{konstruktor}{%
 \subsubsection{Konstruktor}\label{konstruktor}}
@@ -389,7 +400,7 @@ können Parameter oder andere Objekte übergeben werden.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{tcolorbox}[enhanced jigsaw, opacityback=0, breakable, coltitle=black, toprule=.15mm, arc=.35mm, colback=white, titlerule=0mm, colbacktitle=quarto-callout-tip-color!10!white, bottomtitle=1mm, colframe=quarto-callout-tip-color-frame, opacitybacktitle=0.6, toptitle=1mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Tipp}, left=2mm, rightrule=.15mm, bottomrule=.15mm, leftrule=.75mm]
+\begin{tcolorbox}[enhanced jigsaw, breakable, colbacktitle=quarto-callout-tip-color!10!white, bottomtitle=1mm, toptitle=1mm, opacitybacktitle=0.6, colback=white, rightrule=.15mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Tipp}, toprule=.15mm, coltitle=black, colframe=quarto-callout-tip-color-frame, titlerule=0mm, arc=.35mm, bottomrule=.15mm, leftrule=.75mm, left=2mm, opacityback=0]
 
 Der Default-Konstruktor nimmt keine Parameter entgegen. Wird ein
 Konstruktor angegeben, so ist der Default-Konstruktor nichtmehr
@@ -470,6 +481,51 @@ bei einer Konsolenaplikation angefügt werden *(hier \texttt{-debug})
 \hypertarget{membervariable}{%
 \subsubsection{Membervariable}\label{membervariable}}
 
+Membervariabeln sind \textbf{Daten} oder \textbf{Attribute} eines
+Objektes. So ist z.B. \texttt{color} eine Membervariable in deiner
+Klasse \texttt{car}. Membervariablen können mit Zugriff-Modifizierern
+\emph{(siehe Kapitel~\ref{sec-modifier})} eingeschränkt werden.
+
+Deklaration:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{public} \KeywordTok{class}\NormalTok{ Point}\OperatorTok{\{}
+  \KeywordTok{private} \DataTypeTok{int}\NormalTok{ xPos }\OperatorTok{=} \DecValTok{0}\OperatorTok{;}
+  \KeywordTok{private} \DataTypeTok{int}\NormalTok{ yPos }\OperatorTok{=} \DecValTok{0}\OperatorTok{;}
+\OperatorTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+Für Membervariablen wird auf dem \textbf{Heap} Speicher reserviert.
+Membervariablen sollten explizit initialisiert werden, die Standardwerte
+der automatischen Initialisierung sind: * Numerische Typen
+\textbf{\texttt{0}} * enum \textbf{\texttt{0}} * boolean
+\textbf{\texttt{false}} * char
+\textbf{\texttt{\textquotesingle{}\textbackslash{}0\textquotesingle{}}}
+* Referenzen \textbf{\texttt{null}}
+
+\begin{tcolorbox}[enhanced jigsaw, breakable, colbacktitle=quarto-callout-important-color!10!white, bottomtitle=1mm, toptitle=1mm, opacitybacktitle=0.6, colback=white, rightrule=.15mm, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Wichtig}, toprule=.15mm, coltitle=black, colframe=quarto-callout-important-color-frame, titlerule=0mm, arc=.35mm, bottomrule=.15mm, leftrule=.75mm, left=2mm, opacityback=0]
+
+\begin{itemize}
+\tightlist
+\item
+  Pro Enum eine Datei
+\item
+  Member beginnen mit Kleinbuchstaben: \texttt{fristName}
+\item
+  Enum's und Klassen beginnen mit Grossbuchstaben: \texttt{Person},
+  \texttt{Gender}
+\item
+  Member sollten grundsätzlich \texttt{private} sein
+\item
+  Enum's und Klassen sind grundsätzlich \texttt{public}
+\item
+  Member explizit initialisieren: \texttt{int\ x\ =\ 0;}
+\end{itemize}
+
+\end{tcolorbox}
+
 \hypertarget{property}{%
 \subsubsection{Property}\label{property}}
 
@@ -539,7 +595,7 @@ Wie in C gibt es in C\# Wertetypen und Referenztypen
 \hypertarget{struct}{%
 \subsubsection{\texorpdfstring{\texttt{struct}}{struct}}\label{struct}}
 
-\begin{tcolorbox}[enhanced jigsaw, opacityback=0, breakable, coltitle=black, toprule=.15mm, arc=.35mm, colback=white, titlerule=0mm, colbacktitle=quarto-callout-important-color!10!white, bottomtitle=1mm, colframe=quarto-callout-important-color-frame, opacitybacktitle=0.6, toptitle=1mm, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Unterschied \texttt{struct} \& \texttt{class}}, left=2mm, rightrule=.15mm, bottomrule=.15mm, leftrule=.75mm]
+\begin{tcolorbox}[enhanced jigsaw, breakable, colbacktitle=quarto-callout-important-color!10!white, bottomtitle=1mm, toptitle=1mm, opacitybacktitle=0.6, colback=white, rightrule=.15mm, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Unterschied \texttt{struct} \& \texttt{class}}, toprule=.15mm, coltitle=black, colframe=quarto-callout-important-color-frame, titlerule=0mm, arc=.35mm, bottomrule=.15mm, leftrule=.75mm, left=2mm, opacityback=0]
 
 \texttt{struct}s sind \emph{value} Typen und übergeben jeden
 Wert/Eigenschaften. \texttt{class}es sind \emph{reference} Typen und
@@ -561,7 +617,7 @@ werden als Referenz übergeben.
 
 Strings werden mit dem folgender Deklaration
 
-\begin{tcolorbox}[enhanced jigsaw, opacityback=0, breakable, coltitle=black, toprule=.15mm, arc=.35mm, colback=white, titlerule=0mm, colbacktitle=quarto-callout-important-color!10!white, bottomtitle=1mm, colframe=quarto-callout-important-color-frame, opacitybacktitle=0.6, toptitle=1mm, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Wichtig}, left=2mm, rightrule=.15mm, bottomrule=.15mm, leftrule=.75mm]
+\begin{tcolorbox}[enhanced jigsaw, breakable, colbacktitle=quarto-callout-important-color!10!white, bottomtitle=1mm, toptitle=1mm, opacitybacktitle=0.6, colback=white, rightrule=.15mm, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Wichtig}, toprule=.15mm, coltitle=black, colframe=quarto-callout-important-color-frame, titlerule=0mm, arc=.35mm, bottomrule=.15mm, leftrule=.75mm, left=2mm, opacityback=0]
 
 Strings können nicht verändert werden -\textgreater{} sind
 \textbf{read-only}
@@ -594,8 +650,44 @@ Parameter/variablen können in Strings direkt eingefügt werden.
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{enum}{%
-\subsubsection{Enum}\label{enum}}
+\hypertarget{aufzuxe4hlungstypen-enum}{%
+\subsubsection{\texorpdfstring{Aufzählungstypen
+(\texttt{enum})}{Aufzählungstypen (enum)}}\label{aufzuxe4hlungstypen-enum}}
+
+Enumerationen sowie Klassen sollten der Übersichtlichkeit wegen in
+eigenen Dateien erstellt werden.
+
+Um Enums in logischen Operation oder als Flags zu nutzen kann dies mit
+dem Attribut \VERB|\OperatorTok{[}\NormalTok{Flags}\OperatorTok{]}|
+angegeben werden.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{// File: ButtonState.cs}
+\OperatorTok{[}\NormalTok{Flags}\OperatorTok{]}
+\KeywordTok{public} \KeywordTok{enum}\NormalTok{ Button}\OperatorTok{\{}
+\NormalTok{  NONE }\OperatorTok{=} \DecValTok{0}\OperatorTok{,}
+\NormalTok{  LEFT }\OperatorTok{=} \DecValTok{1}\OperatorTok{,}
+\NormalTok{  RIGHT }\OperatorTok{=} \DecValTok{2}\OperatorTok{,}
+\NormalTok{  UP }\OperatorTok{=} \DecValTok{4}\OperatorTok{,}
+\NormalTok{  DOWN }\OperatorTok{=} \DecValTok{8}
+\OperatorTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+Verwendet werden Enums mit ihren namen
+(\VERB|\NormalTok{Button btn }\OperatorTok{=}\NormalTok{ Button}\OperatorTok{.}\FunctionTok{LEFT}|).
+Zudem können diverse Rechenoperationen auf sie angewendet werden.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{if}\OperatorTok{(}\NormalTok{c }\OperatorTok{==}\NormalTok{ Colors}\OperatorTok{.}\FunctionTok{Yellow}\OperatorTok{)} \OperatorTok{...}                    \CommentTok{// Vergleich}
+\KeywordTok{if}\OperatorTok{(}\NormalTok{c }\OperatorTok{\textgreater{}}\NormalTok{ Colors}\OperatorTok{.}\FunctionTok{Green} \OperatorTok{\&\&}\NormalTok{ c }\OperatorTok{\textless{}}\NormalTok{ Colors}\OperatorTok{.}\FunctionTok{Yellow}\OperatorTok{)} \OperatorTok{...}
+\NormalTok{c }\OperatorTok{=}\NormalTok{ c }\OperatorTok{+} \DecValTok{1}\OperatorTok{;}                                    \CommentTok{// +, {-}}
+\NormalTok{c}\OperatorTok{++;}                                          \CommentTok{// ++, {-}{-}}
+\NormalTok{btn}\OperatorTok{.}\FunctionTok{UP} \OperatorTok{\&}\NormalTok{ btn}\OperatorTok{.}\FunctionTok{DOWN}  \CommentTok{// = "12" {-}\textgreater{} UP, DOWN      // \&, |, \textasciitilde{}}
+\end{Highlighting}
+\end{Shaded}
 
 \hypertarget{array}{%
 \subsubsection{Array}\label{array}}
@@ -619,7 +711,7 @@ Parameter/variablen können in Strings direkt eingefügt werden.
 \hypertarget{overloading}{%
 \subsection{Overloading}\label{overloading}}
 
-\begin{tcolorbox}[enhanced jigsaw, opacityback=0, breakable, coltitle=black, toprule=.15mm, arc=.35mm, colback=white, titlerule=0mm, colbacktitle=quarto-callout-important-color!10!white, bottomtitle=1mm, colframe=quarto-callout-important-color-frame, opacitybacktitle=0.6, toptitle=1mm, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Wichtig}, left=2mm, rightrule=.15mm, bottomrule=.15mm, leftrule=.75mm]
+\begin{tcolorbox}[enhanced jigsaw, breakable, colbacktitle=quarto-callout-important-color!10!white, bottomtitle=1mm, toptitle=1mm, opacitybacktitle=0.6, colback=white, rightrule=.15mm, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Wichtig}, toprule=.15mm, coltitle=black, colframe=quarto-callout-important-color-frame, titlerule=0mm, arc=.35mm, bottomrule=.15mm, leftrule=.75mm, left=2mm, opacityback=0]
 
 Overloading-Signaturen müssen sich in den \textbf{Datentypen}
 unterscheiden. Unterschiedliche Variabel-Namen führen zu einem
@@ -975,7 +1067,7 @@ Wird aber dies direkt in der Initialisierung eingebettet
 \end{Highlighting}
 \end{Shaded}
 
-\begin{tcolorbox}[enhanced jigsaw, opacityback=0, breakable, coltitle=black, toprule=.15mm, arc=.35mm, colback=white, titlerule=0mm, colbacktitle=quarto-callout-caution-color!10!white, bottomtitle=1mm, colframe=quarto-callout-caution-color-frame, opacitybacktitle=0.6, toptitle=1mm, title=\textcolor{quarto-callout-caution-color}{\faFire}\hspace{0.5em}{Vorsicht}, left=2mm, rightrule=.15mm, bottomrule=.15mm, leftrule=.75mm]
+\begin{tcolorbox}[enhanced jigsaw, breakable, colbacktitle=quarto-callout-caution-color!10!white, bottomtitle=1mm, toptitle=1mm, opacitybacktitle=0.6, colback=white, rightrule=.15mm, title=\textcolor{quarto-callout-caution-color}{\faFire}\hspace{0.5em}{Vorsicht}, toprule=.15mm, coltitle=black, colframe=quarto-callout-caution-color-frame, titlerule=0mm, arc=.35mm, bottomrule=.15mm, leftrule=.75mm, left=2mm, opacityback=0]
 
 Dieser Overflow-Fehler gilt nur bei \textbf{konstanten} Werten bei der
 Initialisierung. Wird eine separate Variable mit dem Maximalwert
