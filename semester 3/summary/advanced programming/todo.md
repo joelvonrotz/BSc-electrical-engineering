@@ -11,20 +11,20 @@ Da Andi, nimm das damit chasch de Spalt fillä
 
 - [ ] C# und .NET-Framework
 - [ ] Struktur C#-Programm
-- [ ] Klassen
+- [x] Klassen
 - [ ] Operatoren & Reihenfolge
 - [ ] Klasse `System.String`
 - [ ] Implizit & Explizit Casting
 - [ ] Klasse Console
-- [ ] Aufzählungen (Enum & `[FLAGS]`)
+- [x] Aufzählungen (Enum & `[FLAGS]`)
 
 # Kapitel 2
 
 - [ ] Array & Multidimensionale Array 
 - [x] OOP (vs. POP)
 - [x] Modifier (`private,public,abstract,etc.`) -> Klassen, Enum, Membervariablen, Properties, Methoden
-- [ ] Konstruktor & Destruktor
-- [ ] Statische & normale Klassen
+- [x] Konstruktor & Destruktor
+- [x] Statische & normale Klassen
 - [ ] Garbage Collector
 - [x] Default Parameter `void draw(bool t=true) vs. void draw()`
 - [ ] Methoden-Signaturen
