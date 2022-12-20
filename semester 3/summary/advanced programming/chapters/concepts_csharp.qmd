@@ -112,14 +112,10 @@ Zum Exceptions abfangen:
 
 ```csharp
 try {
-  // do stuff, that might
-  // raise an exception
+  // do stuff, that might raise an exception
 }
-// explicitley catch 
-// The ArithmeticExcpetion e
-catch (ArithmeticException e) {
-  // catch Arithmetic Exception
-  // i.e. x/0
+catch (ArithmeticException e) { // explicit
+  // catch Arithmetic Exception i.e. x/0
 }
 catch (Exception e) {
   // catch any other Exception
@@ -149,15 +145,8 @@ finally {
 ### Exception werfen mit `throw`
 
 ```csharp
-
-void function() {
-  // do stuff
-  throw new ArithmeticException("string")
-}
-
+throw new ArithmeticException("string")
 ```
-
-(`try`,`catch`,`finally`, `throw`)
 
 ## Multithreading `System.Threading`
 

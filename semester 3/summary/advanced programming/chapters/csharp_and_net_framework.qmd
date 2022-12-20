@@ -32,6 +32,7 @@ namespace SampleNamespace {
   class SampleClass {...}
   struct SampleStruct {...}
   enum SampleEnum {a, b}
+
   namespace Nested {
     class SampleClass {...}
   }
@@ -43,7 +44,7 @@ namespace NameOfSpace {
 }
 ```
 
-Zum Aufrufen von Klassen/Methoden anderer `namespace`'s kann dieser über `using` eingebunden werden oder der Aufruf geschieht über `namespace.SampleClass`.
+Zum Aufrufen von Klassen/Methoden anderer `namespace`'s kann dieser über `using` eingebunden werden oder der Aufruf geschieht über `<namespace>.SampleClass`.
 
 ### Klassen
 

@@ -49,7 +49,13 @@ highlight-style: github
 
 {{< include chapters/linux_and_raspberry_pi4.qmd >}}
 
-# **W**indows **P**resentation **F**oundation
+# Windows Presentation Foundation
+
+{{< include chapters/windows_presentation_format.qmd >}}
+
+# Weitere Konzepte
+
+{{< include chapters/more_concepts.qmd >}}
 
 # Notes
 
@@ -82,8 +88,6 @@ int i = k + 1; // KEIN Fehler
 :::
 
 `\end{multicols}`{=latex}
-
-
 
 # Glossar
 

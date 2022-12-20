@@ -1,20 +1,14 @@
 ::: callout-note
 ## Unterschied zwischen WPF & Console Application
 
-WPF ist 
+WPF-Applikationen bestehen aus grafischen Elementen und 
 
 :::
 
 ## Dispatcher
 
+Der Dispatcher wird zum Aktualisieren der Benutzeroberfläche über einen *nicht-UI*-Thread (z.B. separate Workload) verwendet.
+Es 
+
 ## Key-Event
 
-# Weitere Konzepte
-
-## TCP / UDP
-
-## MQTT
-
-**M**essage **Q**ueuing **T**elemetry **T**ransport
-
-## Unit Tests
