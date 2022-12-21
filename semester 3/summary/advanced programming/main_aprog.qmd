@@ -1,6 +1,6 @@
 ---
 title: "Zusammenfassung Advanced Programming"
-author: "Joel von Rotz & Andreas Ming"
+author: "Joel von Rotz, Manuel Fanger & Andreas Ming"
 date: "01.01.2023"
 
 lang: de
