@@ -76,7 +76,7 @@ Da Andi, nimm das damit chasch de Spalt fillä
 
 ## C# Exceptions, Vererbung
 
-- [ ] Exceptions (`try`,`catch`,`finally`)
+- [ ] Exceptions (`try`,`catch`,`finally`) `Joel`
 - [ ] Exception auslösen (`throw`)
 - [ ] Vererbung & Konstruktor
 - [ ] Polymorphismus (Vielgestaltigkeit)
