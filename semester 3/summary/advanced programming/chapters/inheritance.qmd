@@ -1,7 +1,7 @@
-## Abstrakte Klassen
+## Abstrakte Klassen (`Joel`)
 
-## Interfaces
+## Interfaces (`Joel`)
 
-## Polymorphismus
+## Polymorphismus (`Joel`)
 
-## Klassendiagramme
+## Klassendiagramme (`Joel`)
