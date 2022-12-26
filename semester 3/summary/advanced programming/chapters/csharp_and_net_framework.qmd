@@ -87,7 +87,7 @@ public Program{
 }
 ```
 
-::: callout-tip
+::: callout-caution
  Der Default-Konstruktor nimmt keine Parameter entgegen. Wird ein Konstruktor angegeben, so ist der Default-Konstruktor nichtmehr aufrufbar.
 :::
 
@@ -169,7 +169,68 @@ Für Membervariablen wird auf dem **Heap** Speicher reserviert. Membervariablen 
 * Member explizit initialisieren: `int x = 0;`
 :::
 
+### Getter- und Setter-Methoden
+
+::: callout-caution
+* Globale Variablen vermeiden
+* Kein direkter Zugriff auf Variablen durch `public`
+:::
+
+Um diese Anforderungen zu bewältigen, wird auf sogenannte **Getter**- und **Setter**-Methoden zurückgegriffen.
+
+```{.csharp}
+public class Point{
+  private int xPos;   // not viewable from outside
+  public void SetXPos(int xPos){  // set from outside
+    this.xPos = xPos;
+  }
+  public int GetXPos(){   // get from outside
+    return xPos;
+  }
+}
+```
+
 ### Property
+
+*Getter*- und *Setter*-Methoden sind sehr umständlich und führen zu viel Code bei vielen Variablen. Aus diesem Grund werden automatische Getter- und Setter-Methoden genutzt. Sogenannnte **Properties** mit den Schlüsselwörtern `get` und `set`.
+
+```{.csharp}
+public class Point{
+  private int xPos;
+  public int XPos {    // property
+    get { return xPos; }
+    set { xPos = value }
+  }
+
+  // short version working as above
+  public int YPos { get; set; }
+
+  // restrict certain access
+  public int Width { get; private set; }
+  public int Height { private get; set; }
+
+  // with initialization
+  public int Area { get; set; } = 125;
+}
+```
+
+Von aussen können Properties wie "normale" Variablen verwendet werden, diese rufen im Hintergrund jedoch eine Methode auf. Diese Methode kann beliebig ergänzt bzw. überschrieben werden. So können auch Fehleingaben abgefangen werden oder es wird eine Membervariable geschrieben, welche nur indirekt mit der Property zu tun hat.
+
+```{.csharp}
+private uint Birthyear;
+public uint Age {
+  get { 
+    return ((uint)DateTime.Now.Year - Birthyear); 
+    }
+  set { 
+    this.Birthyear = ((uint)DateTime.Now.Year - value); 
+    }
+}
+```
+
+::: callout-important
+Da Properties Methoden enthalten können, werden sie auch gross geschrieben: `XPos`, ...
+:::
 
 ## .Net Bibliotheken
 

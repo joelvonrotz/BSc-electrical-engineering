@@ -35,7 +35,7 @@ Da Andi, nimm das damit chasch de Spalt fillä
 - [x] Namespace
 - [ ] Scope & Zugriff
 - [ ] `this`
-- [ ] (automatische) Properties
+- [x] (automatische) Properties
 - [ ] Klassendiagramme
 
 ## GNU & Linux

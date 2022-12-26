@@ -1,5 +1,6 @@
 ---
 title: "Zusammenfassung Advanced Programming"
+subtitle: "APROG HS22"
 author: "Joel von Rotz & Andreas Ming"
 date: "01.01.2023"
 
