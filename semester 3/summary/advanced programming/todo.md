@@ -41,7 +41,7 @@ Da Andi, nimm das damit chasch de Spalt fillä
 ## GNU & Linux
 
 - [ ] Konsole (cheat sheet mit Befehlen)
-- [ ] Umleitung Streams
+- [x] Umleitung Streams
 - [ ] GPIO Ansteuerung via Konsole?
 
 # Kapitel 4
