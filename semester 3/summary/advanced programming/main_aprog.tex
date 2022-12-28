@@ -238,7 +238,7 @@
 \urlstyle{same} % disable monospaced font for URLs
 \hypersetup{
   pdftitle={Zusammenfassung Advanced Programming},
-  pdfauthor={Joel von Rotz \& Andreas Ming},
+  pdfauthor={Joel von Rotz, Manuel Fanger \& Andreas Ming},
   pdflang={de},
   colorlinks=true,
   linkcolor={blue},
@@ -248,12 +248,12 @@
   pdfcreator={LaTeX via pandoc}}
 
 \title{Zusammenfassung Advanced Programming}
-\author{Joel von Rotz \& Andreas Ming}
+\author{Joel von Rotz, Manuel Fanger \& Andreas Ming}
 \date{01.01.23}
 
 \begin{document}
 \maketitle
-\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[boxrule=0pt, enhanced, colback={shadecolor}, breakable, frame hidden]}{\end{tcolorbox}}\fi
+\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[boxrule=0pt, enhanced, breakable, colback={shadecolor}, frame hidden]}{\end{tcolorbox}}\fi
 
 \renewcommand*\contentsname{Inhaltsverzeichnis}
 {
@@ -325,6 +325,7 @@ können.
   \KeywordTok{class}\NormalTok{ SampleClass }\OperatorTok{\{...\}}
   \KeywordTok{struct}\NormalTok{ SampleStruct }\OperatorTok{\{...\}}
   \KeywordTok{enum}\NormalTok{ SampleEnum }\OperatorTok{\{}\NormalTok{a}\OperatorTok{,}\NormalTok{ b}\OperatorTok{\}}
+
   \KeywordTok{namespace}\NormalTok{ Nested }\OperatorTok{\{}
     \KeywordTok{class}\NormalTok{ SampleClass }\OperatorTok{\{...\}}
   \OperatorTok{\}}
@@ -339,7 +340,7 @@ können.
 
 Zum Aufrufen von Klassen/Methoden anderer \texttt{namespace}'s kann
 dieser über \texttt{using} eingebunden werden oder der Aufruf geschieht
-über \texttt{namespace.SampleClass}.
+über \texttt{\textless{}namespace\textgreater{}.SampleClass}.
 
 \hypertarget{klassen}{%
 \subsubsection{Klassen}\label{klassen}}
@@ -349,7 +350,7 @@ versteht, nützt dir auch der Rest der Zusammenfassung nichts ;)
 
 Eine Klasse ist eine Sammlung von \textbf{Daten} und \textbf{Methoden}.
 
-\begin{tcolorbox}[enhanced jigsaw, breakable, colbacktitle=quarto-callout-important-color!10!white, bottomtitle=1mm, toptitle=1mm, opacitybacktitle=0.6, colback=white, rightrule=.15mm, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Wichtig}, toprule=.15mm, coltitle=black, colframe=quarto-callout-important-color-frame, titlerule=0mm, arc=.35mm, bottomrule=.15mm, leftrule=.75mm, left=2mm, opacityback=0]
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, coltitle=black, colback=white, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Wichtig}, arc=.35mm, colbacktitle=quarto-callout-important-color!10!white, breakable, toprule=.15mm, left=2mm, rightrule=.15mm, titlerule=0mm, toptitle=1mm, colframe=quarto-callout-important-color-frame, opacityback=0, bottomtitle=1mm, leftrule=.75mm, opacitybacktitle=0.6]
 
 \begin{itemize}
 \tightlist
@@ -400,7 +401,7 @@ können Parameter oder andere Objekte übergeben werden.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{tcolorbox}[enhanced jigsaw, breakable, colbacktitle=quarto-callout-tip-color!10!white, bottomtitle=1mm, toptitle=1mm, opacitybacktitle=0.6, colback=white, rightrule=.15mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Tipp}, toprule=.15mm, coltitle=black, colframe=quarto-callout-tip-color-frame, titlerule=0mm, arc=.35mm, bottomrule=.15mm, leftrule=.75mm, left=2mm, opacityback=0]
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, coltitle=black, colback=white, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Tipp}, arc=.35mm, colbacktitle=quarto-callout-tip-color!10!white, breakable, toprule=.15mm, left=2mm, rightrule=.15mm, titlerule=0mm, toptitle=1mm, colframe=quarto-callout-tip-color-frame, opacityback=0, bottomtitle=1mm, leftrule=.75mm, opacitybacktitle=0.6]
 
 Der Default-Konstruktor nimmt keine Parameter entgegen. Wird ein
 Konstruktor angegeben, so ist der Default-Konstruktor nichtmehr
@@ -505,7 +506,7 @@ der automatischen Initialisierung sind: * Numerische Typen
 \textbf{\texttt{\textquotesingle{}\textbackslash{}0\textquotesingle{}}}
 * Referenzen \textbf{\texttt{null}}
 
-\begin{tcolorbox}[enhanced jigsaw, breakable, colbacktitle=quarto-callout-important-color!10!white, bottomtitle=1mm, toptitle=1mm, opacitybacktitle=0.6, colback=white, rightrule=.15mm, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Wichtig}, toprule=.15mm, coltitle=black, colframe=quarto-callout-important-color-frame, titlerule=0mm, arc=.35mm, bottomrule=.15mm, leftrule=.75mm, left=2mm, opacityback=0]
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, coltitle=black, colback=white, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Wichtig}, arc=.35mm, colbacktitle=quarto-callout-important-color!10!white, breakable, toprule=.15mm, left=2mm, rightrule=.15mm, titlerule=0mm, toptitle=1mm, colframe=quarto-callout-important-color-frame, opacityback=0, bottomtitle=1mm, leftrule=.75mm, opacitybacktitle=0.6]
 
 \begin{itemize}
 \tightlist
@@ -595,7 +596,7 @@ Wie in C gibt es in C\# Wertetypen und Referenztypen
 \hypertarget{struct}{%
 \subsubsection{\texorpdfstring{\texttt{struct}}{struct}}\label{struct}}
 
-\begin{tcolorbox}[enhanced jigsaw, breakable, colbacktitle=quarto-callout-important-color!10!white, bottomtitle=1mm, toptitle=1mm, opacitybacktitle=0.6, colback=white, rightrule=.15mm, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Unterschied \texttt{struct} \& \texttt{class}}, toprule=.15mm, coltitle=black, colframe=quarto-callout-important-color-frame, titlerule=0mm, arc=.35mm, bottomrule=.15mm, leftrule=.75mm, left=2mm, opacityback=0]
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, coltitle=black, colback=white, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Unterschied \texttt{struct} \& \texttt{class}}, arc=.35mm, colbacktitle=quarto-callout-important-color!10!white, breakable, toprule=.15mm, left=2mm, rightrule=.15mm, titlerule=0mm, toptitle=1mm, colframe=quarto-callout-important-color-frame, opacityback=0, bottomtitle=1mm, leftrule=.75mm, opacitybacktitle=0.6]
 
 \texttt{struct}s sind \emph{value} Typen und übergeben jeden
 Wert/Eigenschaften. \texttt{class}es sind \emph{reference} Typen und
@@ -617,7 +618,7 @@ werden als Referenz übergeben.
 
 Strings werden mit dem folgender Deklaration
 
-\begin{tcolorbox}[enhanced jigsaw, breakable, colbacktitle=quarto-callout-important-color!10!white, bottomtitle=1mm, toptitle=1mm, opacitybacktitle=0.6, colback=white, rightrule=.15mm, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Wichtig}, toprule=.15mm, coltitle=black, colframe=quarto-callout-important-color-frame, titlerule=0mm, arc=.35mm, bottomrule=.15mm, leftrule=.75mm, left=2mm, opacityback=0]
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, coltitle=black, colback=white, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Wichtig}, arc=.35mm, colbacktitle=quarto-callout-important-color!10!white, breakable, toprule=.15mm, left=2mm, rightrule=.15mm, titlerule=0mm, toptitle=1mm, colframe=quarto-callout-important-color-frame, opacityback=0, bottomtitle=1mm, leftrule=.75mm, opacitybacktitle=0.6]
 
 Strings können nicht verändert werden -\textgreater{} sind
 \textbf{read-only}
@@ -655,11 +656,9 @@ Parameter/variablen können in Strings direkt eingefügt werden.
 (\texttt{enum})}{Aufzählungstypen (enum)}}\label{aufzuxe4hlungstypen-enum}}
 
 Enumerationen sowie Klassen sollten der Übersichtlichkeit wegen in
-eigenen Dateien erstellt werden.
-
-Um Enums in logischen Operation oder als Flags zu nutzen kann dies mit
-dem Attribut \VERB|\OperatorTok{[}\NormalTok{Flags}\OperatorTok{]}|
-angegeben werden.
+eigenen Dateien erstellt werden. Um Enums in logischen Operation oder
+als Flags zu nutzen kann dies mit dem Attribut
+\VERB|\OperatorTok{[}\NormalTok{Flags}\OperatorTok{]}| angegeben werden.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -675,17 +674,19 @@ angegeben werden.
 \end{Highlighting}
 \end{Shaded}
 
-Verwendet werden Enums mit ihren namen
+Verwendet werden Enums mit ihren Namen
 (\VERB|\NormalTok{Button btn }\OperatorTok{=}\NormalTok{ Button}\OperatorTok{.}\FunctionTok{LEFT}|).
 Zudem können diverse Rechenoperationen auf sie angewendet werden.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{if}\OperatorTok{(}\NormalTok{c }\OperatorTok{==}\NormalTok{ Colors}\OperatorTok{.}\FunctionTok{Yellow}\OperatorTok{)} \OperatorTok{...}                    \CommentTok{// Vergleich}
-\KeywordTok{if}\OperatorTok{(}\NormalTok{c }\OperatorTok{\textgreater{}}\NormalTok{ Colors}\OperatorTok{.}\FunctionTok{Green} \OperatorTok{\&\&}\NormalTok{ c }\OperatorTok{\textless{}}\NormalTok{ Colors}\OperatorTok{.}\FunctionTok{Yellow}\OperatorTok{)} \OperatorTok{...}
-\NormalTok{c }\OperatorTok{=}\NormalTok{ c }\OperatorTok{+} \DecValTok{1}\OperatorTok{;}                                    \CommentTok{// +, {-}}
-\NormalTok{c}\OperatorTok{++;}                                          \CommentTok{// ++, {-}{-}}
-\NormalTok{btn}\OperatorTok{.}\FunctionTok{UP} \OperatorTok{\&}\NormalTok{ btn}\OperatorTok{.}\FunctionTok{DOWN}  \CommentTok{// = "12" {-}\textgreater{} UP, DOWN      // \&, |, \textasciitilde{}}
+\CommentTok{// Vergleich}
+  \KeywordTok{if}\OperatorTok{(}\NormalTok{c }\OperatorTok{==}\NormalTok{ Colors}\OperatorTok{.}\FunctionTok{Yellow}\OperatorTok{)} \OperatorTok{...}                    
+  \KeywordTok{if}\OperatorTok{(}\NormalTok{c }\OperatorTok{\textgreater{}}\NormalTok{ Colors}\OperatorTok{.}\FunctionTok{Green} \OperatorTok{\&\&}\NormalTok{ c }\OperatorTok{\textless{}}\NormalTok{ Colors}\OperatorTok{.}\FunctionTok{Yellow}\OperatorTok{)} \OperatorTok{...}
+\CommentTok{// +, {-}, ++, {-}{-}}
+\NormalTok{  c }\OperatorTok{=}\NormalTok{ c }\OperatorTok{+} \DecValTok{1}\OperatorTok{;}\NormalTok{    c}\OperatorTok{++;}                                
+\CommentTok{// \&, |, \textasciitilde{}}
+\NormalTok{  btn}\OperatorTok{.}\FunctionTok{UP} \OperatorTok{\&}\NormalTok{ btn}\OperatorTok{.}\FunctionTok{DOWN}  \CommentTok{// = "12" {-}\textgreater{} UP, DOWN      }
 \end{Highlighting}
 \end{Shaded}
 
@@ -711,7 +712,7 @@ Zudem können diverse Rechenoperationen auf sie angewendet werden.
 \hypertarget{overloading}{%
 \subsection{Overloading}\label{overloading}}
 
-\begin{tcolorbox}[enhanced jigsaw, breakable, colbacktitle=quarto-callout-important-color!10!white, bottomtitle=1mm, toptitle=1mm, opacitybacktitle=0.6, colback=white, rightrule=.15mm, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Wichtig}, toprule=.15mm, coltitle=black, colframe=quarto-callout-important-color-frame, titlerule=0mm, arc=.35mm, bottomrule=.15mm, leftrule=.75mm, left=2mm, opacityback=0]
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, coltitle=black, colback=white, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Wichtig}, arc=.35mm, colbacktitle=quarto-callout-important-color!10!white, breakable, toprule=.15mm, left=2mm, rightrule=.15mm, titlerule=0mm, toptitle=1mm, colframe=quarto-callout-important-color-frame, opacityback=0, bottomtitle=1mm, leftrule=.75mm, opacitybacktitle=0.6]
 
 Overloading-Signaturen müssen sich in den \textbf{Datentypen}
 unterscheiden. Unterschiedliche Variabel-Namen führen zu einem
@@ -851,14 +852,10 @@ Zum Exceptions abfangen:
 \begin{Shaded}
 \begin{Highlighting}[]
 \KeywordTok{try} \OperatorTok{\{}
-  \CommentTok{// do stuff, that might}
-  \CommentTok{// raise an exception}
+  \CommentTok{// do stuff, that might raise an exception}
 \OperatorTok{\}}
-\CommentTok{// explicitley catch }
-\CommentTok{// The ArithmeticExcpetion e}
-\KeywordTok{catch} \OperatorTok{(}\NormalTok{ArithmeticException e}\OperatorTok{)} \OperatorTok{\{}
-  \CommentTok{// catch Arithmetic Exception}
-  \CommentTok{// i.e. x/0}
+\KeywordTok{catch} \OperatorTok{(}\NormalTok{ArithmeticException e}\OperatorTok{)} \OperatorTok{\{} \CommentTok{// explicit}
+  \CommentTok{// catch Arithmetic Exception i.e. x/0}
 \OperatorTok{\}}
 \KeywordTok{catch} \OperatorTok{(}\NormalTok{Exception e}\OperatorTok{)} \OperatorTok{\{}
   \CommentTok{// catch any other Exception}
@@ -899,15 +896,9 @@ beenden.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-
-\DataTypeTok{void} \FunctionTok{function}\OperatorTok{()} \OperatorTok{\{}
-  \CommentTok{// do stuff}
-  \KeywordTok{throw} \KeywordTok{new} \FunctionTok{ArithmeticException}\OperatorTok{(}\StringTok{"string"}\OperatorTok{)}
-\OperatorTok{\}}
+\KeywordTok{throw} \KeywordTok{new} \FunctionTok{ArithmeticException}\OperatorTok{(}\StringTok{"string"}\OperatorTok{)}
 \end{Highlighting}
 \end{Shaded}
-
-(\texttt{try},\texttt{catch},\texttt{finally}, \texttt{throw})
 
 \hypertarget{multithreading-system.threading}{%
 \subsection{\texorpdfstring{Multithreading
@@ -1037,8 +1028,37 @@ wird normal aufgesetzt und bei \texttt{.Start()}
 Raspi}\label{uart-tinyk---raspi}}
 
 \hypertarget{windows-presentation-foundation}{%
-\section{\texorpdfstring{\textbf{W}indows \textbf{P}resentation
-\textbf{F}oundation}{Windows Presentation Foundation}}\label{windows-presentation-foundation}}
+\section{Windows Presentation
+Foundation}\label{windows-presentation-foundation}}
+
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, coltitle=black, colback=white, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Unterschied zwischen WPF \& Console Application}, arc=.35mm, colbacktitle=quarto-callout-note-color!10!white, breakable, toprule=.15mm, left=2mm, rightrule=.15mm, titlerule=0mm, toptitle=1mm, colframe=quarto-callout-note-color-frame, opacityback=0, bottomtitle=1mm, leftrule=.75mm, opacitybacktitle=0.6]
+
+WPF-Applikationen bestehen aus grafischen Elementen und
+
+\end{tcolorbox}
+
+\hypertarget{dispatcher}{%
+\subsection{Dispatcher}\label{dispatcher}}
+
+Der Dispatcher wird zum Aktualisieren der Benutzeroberfläche über einen
+\emph{nicht-UI}-Thread (z.B. separate Workload) verwendet. Es
+
+\hypertarget{key-event}{%
+\subsection{Key-Event}\label{key-event}}
+
+\hypertarget{weitere-konzepte}{%
+\section{Weitere Konzepte}\label{weitere-konzepte}}
+
+\hypertarget{mqtt}{%
+\subsection{MQTT}\label{mqtt}}
+
+\textbf{M}essage \textbf{Q}ueuing \textbf{T}elemetry \textbf{T}ransport
+
+\hypertarget{tcp-udp}{%
+\subsection{TCP / UDP}\label{tcp-udp}}
+
+\hypertarget{unit-tests}{%
+\subsection{Unit Tests}\label{unit-tests}}
 
 \hypertarget{notes}{%
 \section{Notes}\label{notes}}
@@ -1067,7 +1087,7 @@ Wird aber dies direkt in der Initialisierung eingebettet
 \end{Highlighting}
 \end{Shaded}
 
-\begin{tcolorbox}[enhanced jigsaw, breakable, colbacktitle=quarto-callout-caution-color!10!white, bottomtitle=1mm, toptitle=1mm, opacitybacktitle=0.6, colback=white, rightrule=.15mm, title=\textcolor{quarto-callout-caution-color}{\faFire}\hspace{0.5em}{Vorsicht}, toprule=.15mm, coltitle=black, colframe=quarto-callout-caution-color-frame, titlerule=0mm, arc=.35mm, bottomrule=.15mm, leftrule=.75mm, left=2mm, opacityback=0]
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, coltitle=black, colback=white, title=\textcolor{quarto-callout-caution-color}{\faFire}\hspace{0.5em}{Vorsicht}, arc=.35mm, colbacktitle=quarto-callout-caution-color!10!white, breakable, toprule=.15mm, left=2mm, rightrule=.15mm, titlerule=0mm, toptitle=1mm, colframe=quarto-callout-caution-color-frame, opacityback=0, bottomtitle=1mm, leftrule=.75mm, opacitybacktitle=0.6]
 
 Dieser Overflow-Fehler gilt nur bei \textbf{konstanten} Werten bei der
 Initialisierung. Wird eine separate Variable mit dem Maximalwert
