@@ -322,7 +322,39 @@ Die `Math` Klasse ist statisch und muss so nicht instanziert werden. Trotzdem ka
 
 ### `const`
 
+Konstante Variablen ...
+
+* ... müssen bei der deklaration initialisiert werden
+* ... müssen zur Kompilierzeit berechnet werden können
+`public const int MaxValue = int.MaxValue / 10;`{.csharp}
+
+* ... können bei gleichem Typ zusammen deklariert werden
+`public const int Months = 12, Weeks = 52;`{.csharp}
+
+* ... dürfen bei deklarierung durch berechnung nicht rekursiv sein
+`public const int WeeksPerMonth = Week / Month;`{.csharp}
+
+Der Zugriff ausserhalb erfolgt über den Klassennamen
+`int months = Calendar.Months`{.csharp}
+
 ### `readonly`
+
+Readonly Variablen ...
+
+* ... müssen **nicht** zur Kompilierzeit berechnet werden können
+* ... können bei der Deklaration gesetzt werden
+* ... können im Konstruktor gesetzt werden
+* ... können anschliessend **nichtmehr** geändert werden
+
+```{.csharp}
+public class BankAccount {
+  private readonly AccNumber;
+  public BankAccount ( int accNum ) {
+    this.AccNumber = accNum; 
+  }
+  // AccNumber can't be changend from here on
+}
+```
 
 ## Datentypen
 

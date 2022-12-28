@@ -63,7 +63,7 @@ Da Andi, nimm das damit chasch de Spalt fillä
 - [ ] Indexer
 - [ ] Generics
 - [x] `static`
-- [ ] `const`
+- [x] `const`
 
 ## Linux Logs, Users und SSH
 
