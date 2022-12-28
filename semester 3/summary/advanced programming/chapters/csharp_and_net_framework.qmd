@@ -55,7 +55,7 @@ Eine Klasse ist eine Sammlung von **Daten** und **Methoden**.
 ::: callout-important
 * Pro Datei eine Klasse
 * Klassenname = Dateiname
-* Klassenname beginnt mit Grossbuchstabe: `MyClass`
+* Namensgebung von Klassen: `PascalCase`
 :::
 
 Klassen können mit dem Schlüsselwort `static`{.csharp} statisch angelegt werden. Von statischen Klassen können keine Objekte erstellt werden, die Mehtoden sind immer über den Klassennamen aufrufbar. Ein Beispiel hierfür ist die `System`{.csharp} Klasse.
@@ -229,7 +229,8 @@ public uint Age {
 ```
 
 ::: callout-important
-Da Properties Methoden enthalten können, werden sie auch gross geschrieben: `XPos`, ...
+## Namensgebung
+Da Properties Methoden enthalten können, gilt: `PascalCase`
 :::
 
 ## .Net Bibliotheken
@@ -264,6 +265,61 @@ Console.WriteLine("Hello World!");
 
 ### `static`
 
+Statische ***Methoden*** ...
+
+* ... erhalten eine **fixe** Adresse
+* ... können nur **einmal** vorkommen
+* ... gehören der Klasse, **nicht** dem Objekt
+* ... sind ohne ein Objekt zu erstellen aufrufbar
+
+
+
+Statische ***Variablen*** ...
+
+* ... erhalten eine **fixe** Adresse
+* ... kommen pro Klasse nur **einmal** vor
+* ... werden in der Klasse, **nicht** im Objekt gespeichert
+* ... sind ohne ein Objekt zu erstellen aufrufbar
+
+::: callout-caution
+## Namensgebung statischer Variablen
+
+* Öffentlich: `PascalCase`
+* Privat: `camelCase`
+:::
+
+```{.csharp}
+class Program {
+  static void Main(){
+    Employee.PrintEmployeeCount();  // 0
+    Employee Hansli = new Employee ("Hans");
+    Employee.PrintEmployeeCount();  // 1
+  }
+}
+
+class Employee {
+  public string Name { get; private set; }
+  // one counter for all employees
+  private static uint employeeCount = 0;
+
+  public Employee (string name) {
+    this.Name = name;
+    employeeCount++;
+  }
+  // always callable through class
+  public static void PrintEmployeeCount () {
+    Console.WriteLine( employeeCount );
+  }
+}
+```
+
+Statische ***Klassen*** ...
+
+* ... können **nicht** instanziert werden
+* ... beinhalten nur statische Methoden und Variablen
+
+Die `Math` Klasse ist statisch und muss so nicht instanziert werden. Trotzdem kann auf statische Variablen zugegriffen werden. So ergibt `Math.Cos(Math.PI)` direkt den Wert $-1$.
+
 ### `const`
 
 ### `readonly`
@@ -279,10 +335,10 @@ Wie in C gibt es in C# Wertetypen und Referenztypen
 
 ### `struct`
 
-::: callout-important
+::: callout-tip
 ## Unterschied `struct` & `class`
 
-`struct`s sind *value* Typen und übergeben jeden Wert/Eigenschaften. `class`es sind *reference* Typen und werden als Referenz übergeben.
+`struct`s sind *value* Typen und übergeben jeden Wert/Eigenschaften. `class` es sind *reference* Typen und werden als Referenz übergeben.
 
 - `class` $\rightarrow$ call by reference (Übergabe als Reference)
 - `struct` $\rightarrow$ call by value (Übergabe als Wert)

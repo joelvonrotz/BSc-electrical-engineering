@@ -62,7 +62,8 @@ Da Andi, nimm das damit chasch de Spalt fillä
 
 - [ ] Indexer
 - [ ] Generics
-- [ ] `static` & `const`
+- [x] `static`
+- [ ] `const`
 
 ## Linux Logs, Users und SSH
 
@@ -99,7 +100,8 @@ Da Andi, nimm das damit chasch de Spalt fillä
 - [ ] Abstrake Klassen (`virtual`,`abstract`, `override`)   (`Manuel`)
 - [ ] Interfaces (`interface`)                              (`Manuel`)
 - [ ] Erbung Interfaces                                     (`Manuel`)
-- [ ] Namenskonflike - [ ] Explitzite Implementationen (`I1.draw()`,`I2.draw()`)
+- [ ] Namenskonflike 
+- [ ] Explitzite Implementationen (`I1.draw()`,`I2.draw()`)
 - [ ] Logging (NLog)
 - [ ] Tunneling
 
