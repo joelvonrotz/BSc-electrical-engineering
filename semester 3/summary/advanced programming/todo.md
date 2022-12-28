@@ -96,9 +96,9 @@ Da Andi, nimm das damit chasch de Spalt fillä
 
 # Kapitel 8
 
-- [ ] Abstrake Klassen (`virtual`,`abstract`, `override`)
-- [ ] Interfaces (`interface`)
-- [ ] Erbung Interfaces
+- [ ] Abstrake Klassen (`virtual`,`abstract`, `override`)   (`Manuel`)
+- [ ] Interfaces (`interface`)                              (`Manuel`)
+- [ ] Erbung Interfaces                                     (`Manuel`)
 - [ ] Namenskonflike - [ ] Explitzite Implementationen (`I1.draw()`,`I2.draw()`)
 - [ ] Logging (NLog)
 - [ ] Tunneling
