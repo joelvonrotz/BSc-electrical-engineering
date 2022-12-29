@@ -1,4 +1,27 @@
+Klassen können voneinander erben, damit bereits implementierte Methoden übernommen werden können. Dies wird meistens für "detailiertere" Klassen verwendet, zum Beispiel eine `Verkäufer`-Klasse erbt von der `Person`-Klasse, da der Verkäufer eine Person ist.
+
 ## Abstrakte Klassen (`Joel`)
+
+`abstract` deutet auf eine unvöllständige Implementierung an, welche in der erbenden Klasse implementiert wird/werden muss. Klassen mit `abstract`-Methoden sind selbst `abstract`.
+
+```csharp
+abstract class Brot
+{
+  abstract Brot(int mehlArt, float dauer_min);
+  abstract void backen(int backform);
+
+  void schneiden()
+  {
+    // ...
+  }
+}
+```
+
+Von `abstract` beschriftete Methoden und Klassen können nicht  
+
+Gibt es `abstract`e Methoden, so muss auch die Klasse `abstract` sein.
+
+
 
 ## Interfaces (`Joel`)
 
