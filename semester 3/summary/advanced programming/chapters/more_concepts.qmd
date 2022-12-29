@@ -2,7 +2,130 @@
 
 **M**essage **Q**ueuing **T**elemetry **T**ransport
 
+## Netzwerk
 
-## TCP / UDP
+Jeder **Host** hat eine **IP-Adresse** (IPv4: 32 Bit oder IPv6: 128 Bit). Es wird jedoch mit Hostnamen gearbeitet. Die Zuordnung zwischen IP und Hostname übernimmt der **DNS**. Im PC-Terminal kann der DNS mit `nslookup *Hostname*`{.bash} ermittelt werden.
+
+![](images/Networking.png)
+
+Daten werden über das Schichtmodell zwischen den Hosts ausgetauscht. Im internet wird über *IP-Adresse* und *Ports* (16 Bit, 0-65535) adressiert. Ein grossteil der Port-Nummern sind [standardisiert](https://en.wikipedia.org/wiki/List_of_TCP_and_UDP_port_numbers) (bsp.: 22 für SSH, 80 für HTTP). IP und Port ergeben zusammen den **Socket**.
+
+![](images/InternetLayers.png)
+
+### Netzwerkkommunikation in .NET
+
+Der Namespace `System.Net`{.csharp} bietet Implementierungen von Internetprotokollen (wie *TCP*, *UDP*, *HTTP*) und Internetdiensten (wie *DNS*). `System.Net.Sockets`{.csharp} bietet Klassen fpr datenstrom-orientierte Kommunikation über Sockets.
+
+Für die Kommunikation wird die IP-Adresse oder der Hostname für den Endpunkt benötigt
+
+```{.csharp}
+IPAddress ip1 = IPAddress.Parse("192.168.1.2");
+IPEndPoint ep1 = new IPEndPoint(ip, 1234);
+
+IPAddress Ip2 = 
+        Dns.GetHostEntry("eee").AddressList[0];
+IPEndPoint ep2 = new IPEndPoint(ip2, 1234);
+```
+
+Es ist zu wissen, dass bei einem `.WriteLine()`{.csharp} oder `.ReadLine()`{.csharp} immer nur auf den Puffer zugegriffen wird und nicht direkt auf den Verbundenen Host. Die Datenübermittlung übernimmt das Betriebssystem.
+
+![](images/BufferedNet.png)
+
+### TCP
+
+Bei **TCP** (Transmission Control Protocol) wird sichergestellt, dass Daten ohne Übertragungsfehler und in der richtigen Reihenfolge übertragen werden (bsp. *www*, *ssh*, *FTP*, *Email*). **Verbindungsorientiertes** Bytstrom Protokoll.
+
+Die Klasse `System.Net.TcpClient`{.csharp} stellt funktionalitäten wie `Connect()` für das TCP-Protokoll zur Verfügung
+
+```{.csharp}
+IPEndPoint ep = new IPEndPoint(ip, 13);
+TcpClient tcpClient = new TcpClient();
+tcpClient.Connect(ep);
+
+//short version
+TcpClient otherTcpClient = new TcpClient();
+otherTcpClient.Connect("hostname", 13);
+```
+
+Mit `Socket socket = tcpClient.Client;`{.csharp} erhält man den Socket des Clients.
+
+Zur Kommunikation werden Streams verwendet, wobei der `NetworkStream` bidirektional verwendbar ist. Über ein `StreamReader` und `StreamWriter` sind Daten zu senden und empfangen. 
+
+```{.csharp}
+NetworkStream stream = tcpClient.GetStream();
+
+StreamReader sr = new StreamReader(stream);
+StreamWriter sw = new StreamWriter(stream);
+sw.WriteLine("Hello Internet");
+// Don't expect imediate response! (Server)
+string s = sr.ReadLine();
+tcp.Client.Close();
+```
+
+#### TCP Server
+
+Als Server benötigt man einen `TcpListener` um auf einkommende Anfragen zu reagieren. In folgendem Programm wird in der `while (true)`-Schlaufe ein Client nach dem andern bedient. Jeder Client wird meist in einen eigenen Thread ausgelagert.
+
+![](images/ServerClients.png)
+
+```{.csharp}
+// listener config (my adress)
+IPEndPoint ep = new IPEndPoint(IPAddress.Any, 13);
+TcpListener listener = new TcpListener(ep);
+
+// start listening (open port)
+listener.Start();
+
+// handle clients
+while (true) {
+    // Waiting for connection
+    TcpClient client = listener.AcceptTcpClient();
+    // send Data
+    NetworkStream stream  = client.GetStream();
+    StreamWriter sw = new StreamWriter(stream);
+    sw.WriteLine("Hello Client");
+    // close connection
+    tcpClient.Close();
+}
+```
+
+### UDP
+
+Bei **UDP** (User Datagram Protocol) ist nicht garantiert, dass Daten lückenlos und in der richtigen Reihenfolge ankommen (bsp. *Online Games*, *Live Streams*, *DNS*, *VPN*). **Verbindungsloses** Protokoll.
+
+Daten können Byteweise bidirektional direkt über den `UdpClient` übertragen werden.
+
+```{.csharp}
+// UDP client config
+IPEndPoint ep = new IPEndPoint(IPAddress.Parse("124.0.0.1"), 12);
+UdpClient client = new UdpClient();
+client.Connect(ep);
+
+// transmit byte Array
+byte[] data = Encoding.ASCII.GetBytes("Hello");
+client.Send(data, data.Length);
+
+// close connection
+client.Close();
+```
+
+#### UDP Server
+
+UDP istverbindungslos und es gibt darum nicht auf beiden seiten einen client. Es muss beidseitig auf den **selben Socket** verbunden werden, damit die "Verbindung" steht. So muss Serverseitig ein `UdpClient` auf den selben `IPEndPoint` verbunden werden wie Clientseitig.
+
+```{.csharp}
+// "listener" config
+IPEndPoint ep = new IPEndPoint(IPAddress.Any, 13);
+UdpClient client = new UdpClient(ep);
+
+// start listening, waiting for a UDP packet
+byte[] data = client.Receive(ref ep);
+string msg = Encoding.ASCII.GetString(data, 0, data.Length);
+
+// close connection
+client.Close();
+
+```
+
 
 ## Unit Tests
