@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.10) (preloaded format=pdflatex 2022.10.22)  19 DEC 2022 23:21
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.10) (preloaded format=pdflatex 2022.10.22)  23 DEC 2022 18:17
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1125,36 +1125,36 @@ LaTeX Warning: Unused global option(s):
 (c:\Users\andre\Documents\GitHub\bachelor-electrical-engineering\semester 3\summary\advanced programming\output\main_aprog.aux)
 \openout1 = `main_aprog.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 254.
-LaTeX Font Info:    ... okay on input line 254.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 254.
-LaTeX Font Info:    ... okay on input line 254.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 254.
-LaTeX Font Info:    ... okay on input line 254.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 254.
-LaTeX Font Info:    ... okay on input line 254.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 254.
-LaTeX Font Info:    ... okay on input line 254.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 254.
-LaTeX Font Info:    ... okay on input line 254.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 254.
-LaTeX Font Info:    ... okay on input line 254.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 254.
-LaTeX Font Info:    ... okay on input line 254.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 254.
-LaTeX Font Info:    ... okay on input line 254.
-LaTeX Info: Redefining \microtypecontext on input line 254.
-Package microtype Info: Applying patch `item' on input line 254.
-Package microtype Info: Applying patch `toc' on input line 254.
-Package microtype Info: Applying patch `eqnum' on input line 254.
-Package microtype Info: Applying patch `footnote' on input line 254.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 261.
+LaTeX Font Info:    ... okay on input line 261.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 261.
+LaTeX Font Info:    ... okay on input line 261.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 261.
+LaTeX Font Info:    ... okay on input line 261.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 261.
+LaTeX Font Info:    ... okay on input line 261.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 261.
+LaTeX Font Info:    ... okay on input line 261.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 261.
+LaTeX Font Info:    ... okay on input line 261.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 261.
+LaTeX Font Info:    ... okay on input line 261.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 261.
+LaTeX Font Info:    ... okay on input line 261.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 261.
+LaTeX Font Info:    ... okay on input line 261.
+LaTeX Info: Redefining \microtypecontext on input line 261.
+Package microtype Info: Applying patch `item' on input line 261.
+Package microtype Info: Applying patch `toc' on input line 261.
+Package microtype Info: Applying patch `eqnum' on input line 261.
+Package microtype Info: Applying patch `footnote' on input line 261.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using protrusion set `basicmath'.
 Package microtype Info: Automatic font expansion enabled (level 2),
 (microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
 Package microtype Info: Using default expansion set `alltext-nott'.
-LaTeX Info: Redefining \showhyphens on input line 254.
+LaTeX Info: Redefining \showhyphens on input line 261.
 Package microtype Info: No adjustment of tracking.
 Package microtype Info: No adjustment of interword spacing.
 Package microtype Info: No adjustment of character kerning.
@@ -1217,17 +1217,19 @@ File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 
 Package lastpage Info: Please have a look at the pageslts package at
 (lastpage)             https://www.ctan.org/pkg/pageslts
-(lastpage)             ! on input line 254.
+(lastpage)             ! on input line 261.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: float package is loaded.
 Package caption Info: hyperref package is loaded.
 Package caption Info: End \AtBeginDocument code.
-Package hyperref Info: Link coloring ON on input line 254.
+Package hyperref Info: Link coloring ON on input line 261.
 LaTeX Font Info:    Font shape `T1/cmbr/b/n' in size <9> not available
-(Font)              Font shape `T1/cmbr/bx/n' tried instead on input line 256.
+(Font)              Font shape `T1/cmbr/bx/n' tried instead on input line 263.
 LaTeX Font Info:    Font shape `T1/cmbr/b/n' in size <14.4> not available
-(Font)              Font shape `T1/cmbr/bx/n' tried instead on input line 256.
-LaTeX Font Info:    Trying to load font information for OT1+cmbr on input line 256.
+(Font)              Font shape `T1/cmbr/bx/n' tried instead on input line 263.
+LaTeX Font Info:    Font shape `T1/cmbr/b/n' in size <10> not available
+(Font)              Font shape `T1/cmbr/bx/n' tried instead on input line 263.
+LaTeX Font Info:    Trying to load font information for OT1+cmbr on input line 263.
 (C:\Users\andre\AppData\Local\Programs\MiKTeX\tex/latex/cmbright\ot1cmbr.fd
 File: ot1cmbr.fd 2005/04/13 v8.1 (WaS)
 )
@@ -1235,32 +1237,32 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `cmbr' (encoding: OT1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-LaTeX Font Info:    Trying to load font information for OML+cmbrm on input line 256.
+LaTeX Font Info:    Trying to load font information for OML+cmbrm on input line 263.
  (C:\Users\andre\AppData\Local\Programs\MiKTeX\tex/latex/cmbright\omlcmbrm.fd
 File: omlcmbrm.fd 2005/04/13 v8.1 (WaS)
 )
-LaTeX Font Info:    Trying to load font information for OMS+cmbrs on input line 256.
+LaTeX Font Info:    Trying to load font information for OMS+cmbrs on input line 263.
  (C:\Users\andre\AppData\Local\Programs\MiKTeX\tex/latex/cmbright\omscmbrs.fd
 File: omscmbrs.fd 2005/04/13 v8.1 (WaS)
 )
-LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 256.
+LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 263.
  (C:\Users\andre\AppData\Local\Programs\MiKTeX\tex/latex/lm\omxlmex.fd
 File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10.95> on input line 256.
+(Font)              <10.95> on input line 263.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 256.
+(Font)              <8> on input line 263.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 256.
+(Font)              <6> on input line 263.
  (C:\Users\andre\AppData\Local\Programs\MiKTeX\tex/latex/microtype\mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 ) (C:\Users\andre\AppData\Local\Programs\MiKTeX\tex/latex/microtype\mt-msb.cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
 LaTeX Font Info:    Font shape `T1/cmbr/b/n' in size <10.95> not available
-(Font)              Font shape `T1/cmbr/bx/n' tried instead on input line 262.
-Package tocbasic Info: character protrusion at toc deactivated on input line 262.
+(Font)              Font shape `T1/cmbr/bx/n' tried instead on input line 269.
+Package tocbasic Info: character protrusion at toc deactivated on input line 269.
  (c:\Users\andre\Documents\GitHub\bachelor-electrical-engineering\semester 3\summary\advanced programming\output\main_aprog.toc
 LaTeX Font Info:    Trying to load font information for T1+cmtl on input line 2.
  (C:\Users\andre\AppData\Local\Programs\MiKTeX\tex/latex/cmbright\t1cmtl.fd
@@ -1281,46 +1283,52 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 \tf@toc=\write5
 \openout5 = `main_aprog.toc'.
 
-LaTeX Font Info:    Font shape `T1/cmbr/b/n' in size <10> not available
-(Font)              Font shape `T1/cmbr/bx/n' tried instead on input line 270.
 LaTeX Font Info:    Font shape `T1/cmbr/m/it' in size <9> not available
-(Font)              Font shape `T1/cmbr/m/sl' tried instead on input line 279.
+(Font)              Font shape `T1/cmbr/m/sl' tried instead on input line 286.
  [2]
-LaTeX Font Info:    Trying to load font information for U+fontawesomefree2 on input line 376.
- (C:\Users\andre\AppData\Local\Programs\MiKTeX\tex/latex/fontawesome5\ufontawesomefree2.fd)
-<images/AccessModifiers.png, id=174, 580.41844pt x 220.95047pt>
+LaTeX Font Info:    Trying to load font information for U+fontawesomefree1 on input line 360.
+ (C:\Users\andre\AppData\Local\Programs\MiKTeX\tex/latex/fontawesome5\ufontawesomefree1.fd)
+LaTeX Font Info:    Trying to load font information for TS1+cmbr on input line 365.
+ (C:\Users\andre\AppData\Local\Programs\MiKTeX\tex/latex/cmbright\ts1cmbr.fd
+File: ts1cmbr.fd 2005/04/13 v8.1 (WaS)
+)
+LaTeX Font Info:    Trying to load font information for U+fontawesomefree2 on input line 411.
+ (C:\Users\andre\AppData\Local\Programs\MiKTeX\tex/latex/fontawesome5\ufontawesomefree2.fd) [3]
+LaTeX Font Info:    Trying to load font information for TS1+cmtl on input line 513.
+ (C:\Users\andre\AppData\Local\Programs\MiKTeX\tex/latex/cmbright\ts1cmtl.fd
+File: ts1cmtl.fd 2005/04/13 v8.1 (WaS)
+)
+
+LaTeX Font Warning: Font shape `TS1/cmtl/b/n' undefined
+(Font)              using `TS1/cmtl/m/n' instead
+(Font)              for symbol `textquotesingle' on input line 513.
+
+<images/AccessModifiers.png, id=200, 580.41844pt x 220.95047pt>
 File: images/AccessModifiers.png Graphic file (type png)
 <use images/AccessModifiers.png>
-Package pdftex.def Info: images/AccessModifiers.png  used on input line 436.
+Package pdftex.def Info: images/AccessModifiers.png  used on input line 559.
 (pdftex.def)             Requested size: 246.07675pt x 93.67513pt.
 
-Overfull \hbox (9.70201pt too wide) in paragraph at lines 436--437
+Overfull \hbox (9.70201pt too wide) in paragraph at lines 559--560
 [] 
  []
 
-LaTeX Font Info:    Trying to load font information for TS1+cmtl on input line 451.
-(C:\Users\andre\AppData\Local\Programs\MiKTeX\tex/latex/cmbright\ts1cmtl.fd
-File: ts1cmtl.fd 2005/04/13 v8.1 (WaS)
-) [3 <./images/AccessModifiers.png>]
-<images/Types.png, id=198, 1016.29688pt x 333.11954pt>
+<images/Types.png, id=202, 1016.29688pt x 333.11954pt>
 File: images/Types.png Graphic file (type png)
 <use images/Types.png>
-Package pdftex.def Info: images/Types.png  used on input line 475.
+Package pdftex.def Info: images/Types.png  used on input line 598.
 (pdftex.def)             Requested size: 246.07176pt x 80.65685pt.
 
-Overfull \hbox (9.69702pt too wide) in paragraph at lines 475--476
+Overfull \hbox (9.69702pt too wide) in paragraph at lines 598--599
 [][] 
  []
 
-LaTeX Font Info:    Trying to load font information for U+fontawesomefree1 on input line 483.
-(C:\Users\andre\AppData\Local\Programs\MiKTeX\tex/latex/fontawesome5\ufontawesomefree1.fd)
-LaTeX Font Info:    Trying to load font information for TS1+cmbr on input line 492.
- (C:\Users\andre\AppData\Local\Programs\MiKTeX\tex/latex/cmbright\ts1cmbr.fd
-File: ts1cmbr.fd 2005/04/13 v8.1 (WaS)
-) [4 <./images/Types.png>] [5] [6]
-Overfull \vbox (31.09323pt too high) has occurred while \output is active []
+[4 <./images/AccessModifiers.png> <./images/Types.png>]
+Overfull \hbox (39.53867pt too wide) in paragraph at lines 684--687
+[]\T1/cmbr/m/n/9 (-20) Verwendet wer-den En-ums mit ih-ren Na-men ([]).
+ []
 
- [7] 
+[5] [6] [7] 
 AED: lastpage setting LastPage
 [8] (c:\Users\andre\Documents\GitHub\bachelor-electrical-engineering\semester 3\summary\advanced programming\output\main_aprog.aux)
 
@@ -1328,17 +1336,17 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 38125 strings out of 475385
- 777979 string characters out of 2776906
- 1303212 words of memory out of 3000000
- 58627 multiletter control sequences out of 15000+600000
- 491824 words of font info for 126 fonts, out of 8000000 for 9000
+ 38177 strings out of 475385
+ 778593 string characters out of 2776906
+ 1308212 words of memory out of 3000000
+ 58651 multiletter control sequences out of 15000+600000
+ 492642 words of font info for 134 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 108i,12n,106p,10711b,1563s stack positions out of 10000i,1000n,20000p,200000b,80000s
-{C:/Users/andre/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/cm-super/cm-super-ts1.enc}{C:/Users/andre/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/fontawesome5/fa5free1.enc}{C:/Users/andre/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/fontawesome5/fa5free2.enc}{C:/Users/andre/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/cm-super/cm-super-t1.enc}<C:/Users/andre/AppData/Local/Programs/MiKTeX/fonts/type1/public/fontawesome5/FontAwesome5Free-Solid.pfb><C:/Users/andre/AppData/Local/Programs/MiKTeX/fonts/type1/public/hfbright/hfbrsy9.pfb><C:/Users/andre/AppData/Local/Programs/MiKTeX/fonts/type1/public/cm-super/sfbbx10.pfb><C:/Users/andre/AppData/Local/Programs/MiKTeX/fonts/type1/public/cm-super/sfbmo9.pfb><C:/Users/andre/AppData/Local/Programs/MiKTeX/fonts/type1/public/cm-super/sfbmr10.pfb><C:/Users/andre/AppData/Local/Programs/MiKTeX/fonts/type1/public/cm-super/sfbmr9.pfb><C:/Users/andre/AppData/Local/Programs/MiKTeX/fonts/type1/public/cm-super/sfbtl10.pfb>
-Output written on "c:\Users\andre\Documents\GitHub\bachelor-electrical-engineering\semester 3\summary\advanced programming\output\main_aprog.pdf" (8 pages, 433859 bytes).
+ 108i,11n,106p,10711b,1554s stack positions out of 10000i,1000n,20000p,200000b,80000s
+{C:/Users/andre/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/cm-super/cm-super-ts1.enc}{C:/Users/andre/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/fontawesome5/fa5free2.enc}{C:/Users/andre/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/fontawesome5/fa5free1.enc}{C:/Users/andre/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/cm-super/cm-super-t1.enc}<C:/Users/andre/AppData/Local/Programs/MiKTeX/fonts/type1/public/fontawesome5/FontAwesome5Free-Solid.pfb><C:/Users/andre/AppData/Local/Programs/MiKTeX/fonts/type1/public/hfbright/hfbrsy9.pfb><C:/Users/andre/AppData/Local/Programs/MiKTeX/fonts/type1/public/cm-super/sfbbx10.pfb><C:/Users/andre/AppData/Local/Programs/MiKTeX/fonts/type1/public/cm-super/sfbmo9.pfb><C:/Users/andre/AppData/Local/Programs/MiKTeX/fonts/type1/public/cm-super/sfbmr10.pfb><C:/Users/andre/AppData/Local/Programs/MiKTeX/fonts/type1/public/cm-super/sfbmr9.pfb><C:/Users/andre/AppData/Local/Programs/MiKTeX/fonts/type1/public/cm-super/sfbtl10.pfb>
+Output written on "c:\Users\andre\Documents\GitHub\bachelor-electrical-engineering\semester 3\summary\advanced programming\output\main_aprog.pdf" (8 pages, 449076 bytes).
 PDF statistics:
- 587 PDF objects out of 1000 (max. 8388607)
- 166 named destinations out of 1000 (max. 500000)
- 27231 words of extra memory for PDF output out of 29859 (max. 10000000)
+ 627 PDF objects out of 1000 (max. 8388607)
+ 178 named destinations out of 1000 (max. 500000)
+ 27279 words of extra memory for PDF output out of 29859 (max. 10000000)
 

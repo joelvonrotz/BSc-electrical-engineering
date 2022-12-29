@@ -1323,6 +1323,7 @@ INPUT C:\Users\andre\AppData\Local\Programs\MiKTeX\tex\latex\xurl\xurl.sty
 INPUT C:\Users\andre\AppData\Local\Programs\MiKTeX\tex\latex\xurl\xurl.sty
 INPUT C:\Users\andre\AppData\Local\Programs\MiKTeX\tex\latex\xurl\xurl.sty
 INPUT C:\Users\andre\AppData\Local\Programs\MiKTeX\tex\latex\url\url.sty
+INPUT C:\Users\andre\AppData\Local\Programs\MiKTeX\tex\latex\etoolbox\etoolbox.sty
 INPUT c:\Users\andre\Documents\GitHub\bachelor-electrical-engineering\semester 3\summary\advanced programming\output\main_aprog.aux
 INPUT c:\Users\andre\Documents\GitHub\bachelor-electrical-engineering\semester 3\summary\advanced programming\output\main_aprog.aux
 INPUT c:\Users\andre\Documents\GitHub\bachelor-electrical-engineering\semester 3\summary\advanced programming\output\main_aprog.aux
@@ -1348,6 +1349,7 @@ INPUT C:\Users\andre\AppData\Local\Programs\MiKTeX\tex\latex\00miktex\epstopdf-s
 INPUT C:\Users\andre\AppData\Local\Programs\MiKTeX\tex\latex\00miktex\epstopdf-sys.cfg
 INPUT C:\Users\andre\AppData\Local\Programs\MiKTeX\tex\latex\graphics\color.sty
 OUTPUT c:\Users\andre\Documents\GitHub\bachelor-electrical-engineering\semester 3\summary\advanced programming\output\main_aprog.pdf
+INPUT C:\Users\andre\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cmbright\ebbx10.tfm
 INPUT C:\Users\andre\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cmbright\ebbx10.tfm
 INPUT C:\Users\andre\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cmbright\ebbx10.tfm
 INPUT C:\Users\andre\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cmbright\ebmr10.tfm
@@ -1413,33 +1415,8 @@ INPUT C:\Users\andre\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cmbright\cmb
 INPUT C:\Users\andre\AppData\Local\MiKTeX\fonts\map\pdftex\pdftex.map
 OUTPUT c:\Users\andre\Documents\GitHub\bachelor-electrical-engineering\semester 3\summary\advanced programming\output\main_aprog.toc
 INPUT C:\Users\andre\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cmbright\ebtl10.tfm
-INPUT C:\Users\andre\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cmbright\ebbx10.tfm
 INPUT C:\Users\andre\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cmbright\ebtl10.tfm
 INPUT C:\Users\andre\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cmbright\ebmo9.tfm
-INPUT C:\Users\andre\AppData\Local\Programs\MiKTeX\tex\latex\fontawesome5\ufontawesomefree2.fd
-INPUT C:\Users\andre\AppData\Local\Programs\MiKTeX\tex\latex\fontawesome5\ufontawesomefree2.fd
-INPUT C:\Users\andre\AppData\Local\Programs\MiKTeX\tex\latex\fontawesome5\ufontawesomefree2.fd
-INPUT C:\Users\andre\AppData\Local\Programs\MiKTeX\tex\latex\fontawesome5\ufontawesomefree2.fd
-INPUT C:\Users\andre\AppData\Local\Programs\MiKTeX\fonts\tfm\public\fontawesome5\fa5free2solid.tfm
-INPUT .\images\AccessModifiers.png
-INPUT .\images\AccessModifiers.png
-INPUT images\AccessModifiers.png
-INPUT .\images\AccessModifiers.png
-INPUT .\images\AccessModifiers.png
-INPUT .\images\AccessModifiers.png
-INPUT .\images\AccessModifiers.png
-INPUT C:\Users\andre\AppData\Local\Programs\MiKTeX\tex\latex\cmbright\ts1cmtl.fd
-INPUT C:\Users\andre\AppData\Local\Programs\MiKTeX\tex\latex\cmbright\ts1cmtl.fd
-INPUT C:\Users\andre\AppData\Local\Programs\MiKTeX\tex\latex\cmbright\ts1cmtl.fd
-INPUT C:\Users\andre\AppData\Local\Programs\MiKTeX\tex\latex\cmbright\ts1cmtl.fd
-INPUT C:\Users\andre\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cmbright\tbtl10.tfm
-INPUT .\images\Types.png
-INPUT .\images\Types.png
-INPUT images\Types.png
-INPUT .\images\Types.png
-INPUT .\images\Types.png
-INPUT .\images\Types.png
-INPUT .\images\Types.png
 INPUT C:\Users\andre\AppData\Local\Programs\MiKTeX\tex\latex\fontawesome5\ufontawesomefree1.fd
 INPUT C:\Users\andre\AppData\Local\Programs\MiKTeX\tex\latex\fontawesome5\ufontawesomefree1.fd
 INPUT C:\Users\andre\AppData\Local\Programs\MiKTeX\tex\latex\fontawesome5\ufontawesomefree1.fd
@@ -1450,10 +1427,34 @@ INPUT C:\Users\andre\AppData\Local\Programs\MiKTeX\tex\latex\cmbright\ts1cmbr.fd
 INPUT C:\Users\andre\AppData\Local\Programs\MiKTeX\tex\latex\cmbright\ts1cmbr.fd
 INPUT C:\Users\andre\AppData\Local\Programs\MiKTeX\tex\latex\cmbright\ts1cmbr.fd
 INPUT C:\Users\andre\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cmbright\tbmr9.tfm
+INPUT C:\Users\andre\AppData\Local\Programs\MiKTeX\tex\latex\fontawesome5\ufontawesomefree2.fd
+INPUT C:\Users\andre\AppData\Local\Programs\MiKTeX\tex\latex\fontawesome5\ufontawesomefree2.fd
+INPUT C:\Users\andre\AppData\Local\Programs\MiKTeX\tex\latex\fontawesome5\ufontawesomefree2.fd
+INPUT C:\Users\andre\AppData\Local\Programs\MiKTeX\tex\latex\fontawesome5\ufontawesomefree2.fd
+INPUT C:\Users\andre\AppData\Local\Programs\MiKTeX\fonts\tfm\public\fontawesome5\fa5free2solid.tfm
+INPUT C:\Users\andre\AppData\Local\Programs\MiKTeX\tex\latex\cmbright\ts1cmtl.fd
+INPUT C:\Users\andre\AppData\Local\Programs\MiKTeX\tex\latex\cmbright\ts1cmtl.fd
+INPUT C:\Users\andre\AppData\Local\Programs\MiKTeX\tex\latex\cmbright\ts1cmtl.fd
+INPUT C:\Users\andre\AppData\Local\Programs\MiKTeX\tex\latex\cmbright\ts1cmtl.fd
+INPUT C:\Users\andre\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cmbright\tbtl10.tfm
+INPUT .\images\AccessModifiers.png
+INPUT .\images\AccessModifiers.png
+INPUT images\AccessModifiers.png
+INPUT .\images\AccessModifiers.png
+INPUT .\images\AccessModifiers.png
+INPUT .\images\AccessModifiers.png
+INPUT .\images\AccessModifiers.png
+INPUT .\images\Types.png
+INPUT .\images\Types.png
+INPUT images\Types.png
+INPUT .\images\Types.png
+INPUT .\images\Types.png
+INPUT .\images\Types.png
+INPUT .\images\Types.png
 INPUT c:\Users\andre\Documents\GitHub\bachelor-electrical-engineering\semester 3\summary\advanced programming\output\main_aprog.aux
 INPUT C:\Users\andre\AppData\Local\Programs\MiKTeX\fonts\enc\dvips\cm-super\cm-super-ts1.enc
-INPUT C:\Users\andre\AppData\Local\Programs\MiKTeX\fonts\enc\dvips\fontawesome5\fa5free1.enc
 INPUT C:\Users\andre\AppData\Local\Programs\MiKTeX\fonts\enc\dvips\fontawesome5\fa5free2.enc
+INPUT C:\Users\andre\AppData\Local\Programs\MiKTeX\fonts\enc\dvips\fontawesome5\fa5free1.enc
 INPUT C:\Users\andre\AppData\Local\Programs\MiKTeX\fonts\enc\dvips\cm-super\cm-super-t1.enc
 INPUT C:\Users\andre\AppData\Local\Programs\MiKTeX\fonts\type1\public\fontawesome5\FontAwesome5Free-Solid.pfb
 INPUT C:\Users\andre\AppData\Local\Programs\MiKTeX\fonts\type1\public\fontawesome5\FontAwesome5Free-Solid.pfb

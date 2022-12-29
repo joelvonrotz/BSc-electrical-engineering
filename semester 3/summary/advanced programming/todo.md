@@ -35,13 +35,13 @@ Da Andi, nimm das damit chasch de Spalt fillä
 - [x] Namespace
 - [ ] Scope & Zugriff
 - [ ] `this`
-- [ ] (automatische) Properties
+- [x] (automatische) Properties
 - [ ] Klassendiagramme
 
 ## GNU & Linux
 
 - [ ] Konsole (cheat sheet mit Befehlen)
-- [ ] Umleitung Streams
+- [x] Umleitung Streams
 - [ ] GPIO Ansteuerung via Konsole?
 
 # Kapitel 4
@@ -62,7 +62,8 @@ Da Andi, nimm das damit chasch de Spalt fillä
 
 - [ ] Indexer
 - [ ] Generics
-- [ ] `static` & `const`
+- [x] `static`
+- [x] `const`
 
 ## Linux Logs, Users und SSH
 
@@ -96,10 +97,11 @@ Da Andi, nimm das damit chasch de Spalt fillä
 
 # Kapitel 8
 
-- [ ] Abstrake Klassen (`virtual`,`abstract`, `override`)
-- [ ] Interfaces (`interface`)
-- [ ] Erbung Interfaces
-- [ ] Namenskonflike - [ ] Explitzite Implementationen (`I1.draw()`,`I2.draw()`)
+- [ ] Abstrake Klassen (`virtual`,`abstract`, `override`)   (`Manuel`)
+- [ ] Interfaces (`interface`)                              (`Manuel`)
+- [ ] Erbung Interfaces                                     (`Manuel`)
+- [ ] Namenskonflike 
+- [ ] Explitzite Implementationen (`I1.draw()`,`I2.draw()`)
 - [ ] Logging (NLog)
 - [ ] Tunneling
 

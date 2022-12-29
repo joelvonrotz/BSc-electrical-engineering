@@ -55,7 +55,7 @@ Eine Klasse ist eine Sammlung von **Daten** und **Methoden**.
 ::: callout-important
 * Pro Datei eine Klasse
 * Klassenname = Dateiname
-* Klassenname beginnt mit Grossbuchstabe: `MyClass`
+* Namensgebung von Klassen: `PascalCase`
 :::
 
 Klassen können mit dem Schlüsselwort `static`{.csharp} statisch angelegt werden. Von statischen Klassen können keine Objekte erstellt werden, die Mehtoden sind immer über den Klassennamen aufrufbar. Ein Beispiel hierfür ist die `System`{.csharp} Klasse.
@@ -87,7 +87,7 @@ public Program{
 }
 ```
 
-::: callout-tip
+::: callout-caution
  Der Default-Konstruktor nimmt keine Parameter entgegen. Wird ein Konstruktor angegeben, so ist der Default-Konstruktor nichtmehr aufrufbar.
 :::
 
@@ -169,7 +169,69 @@ Für Membervariablen wird auf dem **Heap** Speicher reserviert. Membervariablen 
 * Member explizit initialisieren: `int x = 0;`
 :::
 
+### Getter- und Setter-Methoden
+
+::: callout-caution
+* Globale Variablen vermeiden
+* Kein direkter Zugriff auf Variablen durch `public`
+:::
+
+Um diese Anforderungen zu bewältigen, wird auf sogenannte **Getter**- und **Setter**-Methoden zurückgegriffen.
+
+```{.csharp}
+public class Point{
+  private int xPos;   // not viewable from outside
+  public void SetXPos(int xPos){  // set from outside
+    this.xPos = xPos;
+  }
+  public int GetXPos(){   // get from outside
+    return xPos;
+  }
+}
+```
+
 ### Property
+
+*Getter*- und *Setter*-Methoden sind sehr umständlich und führen zu viel Code bei vielen Variablen. Aus diesem Grund werden automatische Getter- und Setter-Methoden genutzt. Sogenannnte **Properties** mit den Schlüsselwörtern `get` und `set`.
+
+```{.csharp}
+public class Point{
+  private int xPos;
+  public int XPos {    // property
+    get { return xPos; }
+    set { xPos = value }
+  }
+
+  // short version working as above
+  public int YPos { get; set; }
+
+  // restrict certain access
+  public int Width { get; private set; }
+  public int Height { private get; set; }
+
+  // with initialization
+  public int Area { get; set; } = 125;
+}
+```
+
+Von aussen können Properties wie "normale" Variablen verwendet werden, diese rufen im Hintergrund jedoch eine Methode auf. Diese Methode kann beliebig ergänzt bzw. überschrieben werden. So können auch Fehleingaben abgefangen werden oder es wird eine Membervariable geschrieben, welche nur indirekt mit der Property zu tun hat.
+
+```{.csharp}
+private uint Birthyear;
+public uint Age {
+  get { 
+    return ((uint)DateTime.Now.Year - Birthyear); 
+    }
+  set { 
+    this.Birthyear = ((uint)DateTime.Now.Year - value); 
+    }
+}
+```
+
+::: callout-important
+## Namensgebung
+Da Properties Methoden enthalten können, gilt: `PascalCase`
+:::
 
 ## .Net Bibliotheken
 
@@ -203,9 +265,96 @@ Console.WriteLine("Hello World!");
 
 ### `static`
 
+Statische ***Methoden*** ...
+
+* ... erhalten eine **fixe** Adresse
+* ... können nur **einmal** vorkommen
+* ... gehören der Klasse, **nicht** dem Objekt
+* ... sind ohne ein Objekt zu erstellen aufrufbar
+
+
+
+Statische ***Variablen*** ...
+
+* ... erhalten eine **fixe** Adresse
+* ... kommen pro Klasse nur **einmal** vor
+* ... werden in der Klasse, **nicht** im Objekt gespeichert
+* ... sind ohne ein Objekt zu erstellen aufrufbar
+
+::: callout-caution
+## Namensgebung statischer Variablen
+
+* Öffentlich: `PascalCase`
+* Privat: `camelCase`
+:::
+
+```{.csharp}
+class Program {
+  static void Main(){
+    Employee.PrintEmployeeCount();  // 0
+    Employee Hansli = new Employee ("Hans");
+    Employee.PrintEmployeeCount();  // 1
+  }
+}
+
+class Employee {
+  public string Name { get; private set; }
+  // one counter for all employees
+  private static uint employeeCount = 0;
+
+  public Employee (string name) {
+    this.Name = name;
+    employeeCount++;
+  }
+  // always callable through class
+  public static void PrintEmployeeCount () {
+    Console.WriteLine( employeeCount );
+  }
+}
+```
+
+Statische ***Klassen*** ...
+
+* ... können **nicht** instanziert werden
+* ... beinhalten nur statische Methoden und Variablen
+
+Die `Math` Klasse ist statisch und muss so nicht instanziert werden. Trotzdem kann auf statische Variablen zugegriffen werden. So ergibt `Math.Cos(Math.PI)` direkt den Wert $-1$.
+
 ### `const`
 
+Konstante Variablen ...
+
+* ... müssen bei der deklaration initialisiert werden
+* ... müssen zur Kompilierzeit berechnet werden können
+`public const int MaxValue = int.MaxValue / 10;`{.csharp}
+
+* ... können bei gleichem Typ zusammen deklariert werden
+`public const int Months = 12, Weeks = 52;`{.csharp}
+
+* ... dürfen bei deklarierung durch berechnung nicht rekursiv sein
+`public const int WeeksPerMonth = Week / Month;`{.csharp}
+
+Der Zugriff ausserhalb erfolgt über den Klassennamen
+`int months = Calendar.Months`{.csharp}
+
 ### `readonly`
+
+Readonly Variablen ...
+
+* ... müssen **nicht** zur Kompilierzeit berechnet werden können
+* ... können bei der Deklaration gesetzt werden
+* ... können im Konstruktor gesetzt werden
+* ... können anschliessend **nichtmehr** geändert werden
+
+```{.csharp}
+public class BankAccount {
+  private readonly AccNumber;
+  public BankAccount ( int accNum ) {
+    this.AccNumber = accNum; 
+  }
+  // AccNumber can't be changend from here on
+}
+```
 
 ## Datentypen
 
@@ -218,10 +367,10 @@ Wie in C gibt es in C# Wertetypen und Referenztypen
 
 ### `struct`
 
-::: callout-important
+::: callout-tip
 ## Unterschied `struct` & `class`
 
-`struct`s sind *value* Typen und übergeben jeden Wert/Eigenschaften. `class`es sind *reference* Typen und werden als Referenz übergeben.
+`struct`s sind *value* Typen und übergeben jeden Wert/Eigenschaften. `class` es sind *reference* Typen und werden als Referenz übergeben.
 
 - `class` $\rightarrow$ call by reference (Übergabe als Reference)
 - `struct` $\rightarrow$ call by value (Übergabe als Wert)
