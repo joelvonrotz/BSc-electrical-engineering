@@ -1,8 +1,41 @@
-Klassen können voneinander erben, damit bereits implementierte Methoden übernommen werden können. Dies wird meistens für "detailiertere" Klassen verwendet, zum Beispiel eine `Verkäufer`-Klasse erbt von der `Person`-Klasse, da der Verkäufer eine Person ist.
+Bei der Vererbung wird eine Klasse als **Erweiterung** einer anderen (*Basis*-)Klasse definiert. Die **Basis**klasse beinhaltet die [gemeinsamen]{.underline} Eigenschaften von Klassen und die Erweiterung hat direkten Zugriff auf diese, solange diese [nicht]{.underline} `private` sind.
 
-## Abstrakte Klassen (`Joel`)
+Vererbungen werden mit dem Schlüsselwort `:` direkt nach dem Klassennamen angegeben. Als Vererbungen können Interfaces, abstrakte und normale Klassen verwendet werden.
 
-`abstract` deutet auf eine unvöllständige Implementierung an, welche in der erbenden Klasse implementiert wird/werden muss. Klassen mit `abstract`-Methoden sind selbst `abstract`.
+::: callout-important
+Klassen können nur von **einer** Klasse (inkl. abstrakt) erben, dafür von **mehreren** Interfaces.
+:::
+
+```csharp
+class Shape {
+  protected int x;
+  private int ID;
+  //...
+}
+
+class Circle : Shape {
+  public Circle(int x) {
+    this.x = x;
+    this.ID = ...; // ERROR: no direct access
+  }
+}
+```
+
+Basisklasse-Konstruktoren **mit** Parametern, müssen in dem erbenden Klassenkonstruktor mit dem Schlüsselwort `base` ausgeführt werden (mit einem Doppelpunkt `:` dazwischen).
+
+```csharp
+class Shape {
+  protected Shape(int x, int y) { /* ... */ }
+}
+
+class Circle : Shape {
+  public Circle() : base(0,0) { /* ... */ }
+}
+```
+
+## Abstrakte Klassen
+
+`abstract` deutet auf eine unvöllständige Implementierung an, welche in der erbenden Klasse fertig implementiert wird/werden muss. 
 
 ```csharp
 abstract class Brot
@@ -17,14 +50,59 @@ abstract class Brot
 }
 ```
 
-Von `abstract` beschriftete Methoden und Klassen können nicht  
+::: callout-important 
 
-Gibt es `abstract`e Methoden, so muss auch die Klasse `abstract` sein.
+## `abstract` bei `class`
+
+Klassen mit `abstract`en Methoden, müssen selbst `abstract` sein!
+
+:::
+
+
+## Interfaces
+
+`interface` sind komplett abstrakte Klassen und können nur Methodenprototypen, Delegates und leere Properties beinhalten, daher **keine** Implementationen. Sie bilden das Grundfundament für Basis- und Erweiterungsklassen.
+
+```csharp
+interface IAnimal {
+  void animalSound(); // interface method 
+  void run(); // interface method
+}
+```
+
+Wenn Interfaces geerbt werden, muss der Inhalt des Interfaces implementiert werden, ansonsten ist das Programm nicht kompilierbar.
+
+::: callout-caution
+Es können keine Objekte von Interfaces erstellt werden!
+:::
+
+::: callout-note
+Interfaces werden meist mit dem `I`-Präfix gekennzeichnet.
+
+```csharp
+interface IAnimal
+```
+:::
+
+Interfaces können von einander erben und es kann einfach die neuen Inhalte eingefügt werden. Die explizite Implementierung findet in den Klassen statt.
+
+```csharp
+interface IAnimal {
+  void animalSound();
+}
+
+interface IDog : IAnimal {
+  void useSnout();
+}
+```
+
+## Polymorphismus
+
+```csharp
+Animal animal = new animal();
+Animal dog = new Dog();
+```
 
 
 
-## Interfaces (`Joel`)
-
-## Polymorphismus (`Joel`)
-
-## Klassendiagramme (`Joel`)
+## Klassendiagramme
