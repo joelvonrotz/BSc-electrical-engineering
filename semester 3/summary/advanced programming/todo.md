@@ -110,13 +110,14 @@ Da Andi, nimm das damit chasch de Spalt fillä
 - [ ] Unit Tests?
 - [x] Streams (Reader, Writer, etc.)
 
-- [ ] Netzwerkbegriffe
-- [ ] Internet
-- [ ] Protokolle (TCP, UDP)
-- [ ] Client - [ ] Server
+- [x] Netzwerkbegriffe
+- [x] Internet
+- [x] Protokolle (TCP, UDP)
+- [x] Client 
+- [x] Server
 
-- [ ] TCP Client & Server
-- [ ] UDP Client & Server
+- [x] TCP Client & Server
+- [x] UDP Client & Server
 
 # Kapitel 10
 
