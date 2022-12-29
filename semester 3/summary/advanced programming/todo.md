@@ -108,7 +108,7 @@ Da Andi, nimm das damit chasch de Spalt fillä
 # Kapitel 9
 
 - [ ] Unit Tests?
-- [ ] Streams (Reader, Writer, etc.)
+- [x] Streams (Reader, Writer, etc.)
 
 - [ ] Netzwerkbegriffe
 - [ ] Internet

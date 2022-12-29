@@ -193,6 +193,59 @@ private void HandleRequest(object _object)
 
 ## Streams
 
+Streams (*Datenströme*) sind ein grundlegendes Konzept für Daten Ein-/Ausgabe. Streams abstrahieren ein dahinterliegendes I/O-Gerät (z.B. Datei, Tastatur, Konsole, Netzwerk, ...) und lassen so C#-Programme Daten darauf lesen oder schreiben. Es wird der Namespace `System.IO`{.csharp} genutzt und alle Streams implementieren die abstrakte `System.IO.Stream`{.csharp} Klasse.
+
+* `FileStream` zum schreiben von Files
+* `TextReader` und `TextWriter` für I/O mit Unicode-Zeichen
+* `BinaryReader` und `BinaryWriter` für I/O mit Binärdaten
+* `MemoryStream` liest und schreibt in den Speicher
+* `BufferdStream` erhöht die Performance
+* `CryptoStream` zur verschlüsselung von I/O
+
+Beispiel-Code zum Komprimieren, Schreiben und Lesen einer Datei:
+
+```{.csharp}
+// Text to file
+// BinaryWriter -> GZipStream -> 
+// CryptoStream -> Filestream -> Datei 
+// Initialize streams in opposite direction 
+// (Always from file to top-level-function)
+FileStream fs = new FileStream("./Chaining.txt", 
+                               FileMode.Create);
+GZipStream gs = new GZipStream(fs, 
+                      CompressionMode.Compress);
+BinaryWriter bw = new BinaryWriter(gs);
+
+// Write
+bw.Write("Hello File");
+bw.Flush();
+bw.Close();
+
+// file to Text
+// BinaryReader <- GZipStream <- 
+// CryptoStream <- Filestream <- Datei
+// Initialize in streams direction 
+//(Always from file to top-level-function)
+FileStream fsB = new FileStream("./Chaining.txt", 
+                                FileMode.Open);
+GZipStream gsB = new GZipStream(fsB, 
+                      CompressionMode.Decompress);
+BinaryReader brB = new BinaryReader(gsB);
+
+// Read
+string msg = brB.ReadString();
+brB.Close();
+
+// ...
+```
+
+::: callout-important
+* `.Write( ... )` um etwas an den Buffer des Streams zu übergeben
+* `.Flush()` um den Buffer zu leeren *(Übertragen)*
+* `.Read()` um etwas aus dem Stream zu lesen
+* `.Close()` um den Stream zu schliessen **!Immer!**
+:::
+
 ## Delegates
 
 ### Multicast
