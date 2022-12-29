@@ -50,7 +50,7 @@ Zum Aufrufen von Klassen/Methoden anderer `namespace`'s kann dieser über `using
 
 Klassen beschreiben den Bauplan von Objekten. Wenn man das nicht versteht, nützt dir auch der Rest der Zusammenfassung nichts ;)
 
-Eine Klasse ist eine Sammlung von **Daten** und **Methoden**.
+Eine Klasse ist eine Sammlung von **Daten** und **Methoden**. Es wird das Keyword `class` genutzt.
 
 ::: callout-important
 * Pro Datei eine Klasse
