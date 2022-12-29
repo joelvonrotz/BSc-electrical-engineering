@@ -191,6 +191,19 @@ private void HandleRequest(object _object)
 
 ## Boxing & Unboxing
 
+*Boxing* und *Unboxing* ermöglicht das Konvertieren von Wertetypen (`int`, `Bool`, `struct`) in Referenztypen (z.B. `object`) und zurück. Dies kann hilfreich sein wenn z.B. Wertetypen in einer Sammlung gespeichert werden soll, welche nur Referenztypen akzeptiert.
+
+Im folgenden Beispiel wird der Integerwert $123$ *geboxed* (impliziter cast) und das neue Objekt zeigt nun auf den geboxted Integer. Zum *unboxen* muss **explizit** gecastet werden!
+
+```{.csharp}
+int i = 123;
+object o = i; // box the int
+
+// o -> `123`
+
+int j = (int)o; // unbox the object
+```
+
 ## Streams
 
 Streams (*Datenströme*) sind ein grundlegendes Konzept für Daten Ein-/Ausgabe. Streams abstrahieren ein dahinterliegendes I/O-Gerät (z.B. Datei, Tastatur, Konsole, Netzwerk, ...) und lassen so C#-Programme Daten darauf lesen oder schreiben. Es wird der Namespace `System.IO`{.csharp} genutzt und alle Streams implementieren die abstrakte `System.IO.Stream`{.csharp} Klasse.
