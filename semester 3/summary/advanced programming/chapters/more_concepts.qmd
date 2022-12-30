@@ -14,7 +14,7 @@ Daten werden über das Schichtmodell zwischen den Hosts ausgetauscht. Im interne
 
 ### Netzwerkkommunikation in .NET
 
-Der Namespace `System.Net`{.csharp} bietet Implementierungen von Internetprotokollen (wie *TCP*, *UDP*, *HTTP*) und Internetdiensten (wie *DNS*). `System.Net.Sockets`{.csharp} bietet Klassen fpr datenstrom-orientierte Kommunikation über Sockets.
+Der Namespace `System.Net`{.csharp} bietet Implementierungen von Internetprotokollen (wie *TCP*, *UDP*, *HTTP*) und Internetdiensten (wie *DNS*). `System.Net.Sockets`{.csharp} bietet Klassen für datenstrom-orientierte Kommunikation über Sockets.
 
 Für die Kommunikation wird die IP-Adresse oder der Hostname für den Endpunkt benötigt
 
@@ -33,7 +33,7 @@ Es ist zu wissen, dass bei einem `.WriteLine()`{.csharp} oder `.ReadLine()`{.csh
 
 ### TCP
 
-Bei **TCP** (Transmission Control Protocol) wird sichergestellt, dass Daten ohne Übertragungsfehler und in der richtigen Reihenfolge übertragen werden (bsp. *www*, *ssh*, *FTP*, *Email*). **Verbindungsorientiertes** Bytstrom Protokoll.
+Bei **TCP** (Transmission Control Protocol) wird sichergestellt, dass Daten ohne Übertragungsfehler und in der richtigen Reihenfolge übertragen werden (bsp. *www*, *ssh*, *FTP*, *Email*). **Verbindungsorientiertes** Bytestrom Protokoll.
 
 Die Klasse `System.Net.TcpClient`{.csharp} stellt funktionalitäten wie `Connect()` für das TCP-Protokoll zur Verfügung
 
@@ -93,7 +93,7 @@ while (true) {
 
 Bei **UDP** (User Datagram Protocol) ist nicht garantiert, dass Daten lückenlos und in der richtigen Reihenfolge ankommen (bsp. *Online Games*, *Live Streams*, *DNS*, *VPN*). **Verbindungsloses** Protokoll.
 
-Daten können Byteweise bidirektional direkt über den `UdpClient` übertragen werden. **Achtung** Da UDP *Verbindungslos* ist, wird bei einem `.Close()` nur die dieses Seite der Verbindung geschlossen, respektive der Socket suspendiert. 
+Daten können Byteweise bidirektional direkt über den `UdpClient` übertragen werden. **Achtung** Da UDP *Verbindungslos* ist, wird bei einem `.Close()` nur dieses Seite der Verbindung geschlossen, respektive der Socket suspendiert. 
 
 ```{.csharp}
 // UDP client config
@@ -111,7 +111,7 @@ client.Close();
 
 #### UDP Server
 
-UDP istverbindungslos und es gibt darum nicht auf beiden seiten einen client. Es muss beidseitig auf den **selben Socket** verbunden werden, damit die "Verbindung" steht. So muss Serverseitig ein `UdpClient` auf den selben `IPEndPoint` verbunden werden wie Clientseitig.
+UDP ist verbindungslos, darum gibt es auf beiden Seiten einen Client. Es muss beidseitig auf den **selben Socket** verbunden werden, damit die "Verbindung" steht. So muss Serverseitig ein `UdpClient` auf den selben `IPEndPoint` verbunden werden wie Clientseitig.
 
 ```{.csharp}
 // "listener" config
@@ -120,8 +120,8 @@ UdpClient client = new UdpClient(ep);
 
 // start listening, waiting for a UDP packet
 byte[] data = client.Receive(ref ep);
-string msg = Encoding.ASCII.GetString(data, 0, data.Length);
-
+string msg = Encoding.ASCII.GetString(data, 
+                            0, data.Length);
 // close connection
 client.Close();
 
