@@ -94,4 +94,6 @@ int i = k + 1; // KEIN Fehler
 
 - **Timeslicing**: Bei Computersystemen wird *timeslicing* verwendet, damit mehrere Prozesse "parallel" verlaufen können. Jedem Prozess/Thread wird ein fixer Zeitslot gegeben, in dem es sein Code abarbeiten kann,  
 
+![](images/TimeSlicing.png)
+
 - **Präventiv/kooperativ**: Ein *präventives* Betriebsystem unterbricht ein Prozess, wenn dieser sein Time-Slot verbraucht hat. Ein *kooperatives* BS unterbicht die Prozesse [nicht]{.underline} und die Prozesse geben an, wann es fertig ist. 
