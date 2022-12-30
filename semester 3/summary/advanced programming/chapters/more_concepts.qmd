@@ -93,7 +93,7 @@ while (true) {
 
 Bei **UDP** (User Datagram Protocol) ist nicht garantiert, dass Daten lückenlos und in der richtigen Reihenfolge ankommen (bsp. *Online Games*, *Live Streams*, *DNS*, *VPN*). **Verbindungsloses** Protokoll.
 
-Daten können Byteweise bidirektional direkt über den `UdpClient` übertragen werden.
+Daten können Byteweise bidirektional direkt über den `UdpClient` übertragen werden. **Achtung** Da UDP *Verbindungslos* ist, wird bei einem `.Close()` nur die dieses Seite der Verbindung geschlossen, respektive der Socket suspendiert. 
 
 ```{.csharp}
 // UDP client config
