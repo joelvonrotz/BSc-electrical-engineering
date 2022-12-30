@@ -42,41 +42,37 @@ Das Schlüsselwort `virtual` wird verwendet, um Methoden-, Eigenschaften-, Index
 ```csharp
 class TestClass
 {
-    public class Shape
+  public class Shape
+  {
+    public const double PI = Math.PI;
+    protected double _x, _y;
+    public Shape() { }
+    public Shape(double x, double y)
     {
-        public const double PI = Math.PI;
-        protected double _x, _y;
-        public Shape()
-        {
-        }
-        public Shape(double x, double y)
-        {
-            _x = x;
-            _y = y;
-        }
-        public virtual double Area()
-        {
-            return _x * _y;
-        }
+        _x = x;
+        _y = y;
     }
-    public class Circle : Shape
+    public virtual double Area()
     {
-        public Circle(double r) : base(r, 0)
-        {
-        }
-        public override double Area()
-        {
-            return PI * _x * _x;
-        }
+        return _x * _y;
     }
+  }
+  public class Circle : Shape
+  {
+    public Circle(double r) : base(r, 0) { }
+    public override double Area()
+    {
+        return PI * _x * _x;
+    }
+  }
 
-    static void Main()
-    {
-        double r = 3.0, h = 5.0;
-        Shape c = new Circle(r);
-        // Display results.
-        Console.WriteLine("Area of Circle   = {0:F2}", c.Area());
-    }
+  static void Main()
+  {
+    double r = 3.0, h = 5.0;
+    Shape c = new Circle(r);
+    // Display results.
+    Console.WriteLine("Area = {0:F2}", c.Area());
+  }
 }
 ```
 
@@ -87,23 +83,23 @@ Der Modifier `abstract` gibt an, dass das Objekt, welches geändert wird, eine f
 ```csharp
 abstract class Shape
 {
-    public abstract int GetArea();
+  public abstract int GetArea();
 }
 
 class Square : Shape
 {
-    private int _side;
+  private int _side;
 
-    public Square(int n) => _side = n;
+  public Square(int n) => _side = n;
 
-    // GetArea method is required to avoid a compile-time error.
-    public override int GetArea() => _side * _side;
+  // GetArea method is required to avoid a error.
+  public override int GetArea() => _side * _side;
 
-    static void Main()
-    {
-        var sq = new Square(12);
-        Console.WriteLine($"Area of the square = {sq.GetArea()}");
-    }
+  static void Main()
+  {
+    var sq = new Square(12);
+    Console.WriteLine($"Area = {sq.GetArea()}");
+  }
 }
 // Output: Area of the square = 144
 ```
@@ -128,23 +124,23 @@ Eine `non-virtual` oder `static` Methode kann nicht überschrieben werden. Die �
 ```csharp
 abstract class Shape
 {
-    public abstract int GetArea();
+  public abstract int GetArea();
 }
 
 class Square : Shape
 {
-    private int _side;
+  private int _side;
 
-    public Square(int n) => _side = n;
+  public Square(int n) => _side = n;
 
-    // GetArea method is required to avoid a compile-time error.
-    public override int GetArea() => _side * _side;
+  // GetArea method is required to avoid a error.
+  public override int GetArea() => _side * _side;
 
-    static void Main()
-    {
-        var sq = new Square(12);
-        Console.WriteLine($"Area of the square = {sq.GetArea()}");
-    }
+  static void Main()
+  {
+    var sq = new Square(12);
+    Console.WriteLine($"Area = {sq.GetArea()}");
+  }
 }
 // Output: Area of the square = 144
 ```
