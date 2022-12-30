@@ -60,7 +60,7 @@ Eine Klasse ist eine Sammlung von **Daten** und **Methoden**. Es wird das Keywor
 
 Klassen können mit dem Schlüsselwort `static`{.csharp} statisch angelegt werden. Von statischen Klassen können keine Objekte erstellt werden, die Mehtoden sind immer über den Klassennamen aufrufbar. Ein Beispiel hierfür ist die `System`{.csharp} Klasse.
 
-```{.csharp}
+```csharp
 System.Console.WriteLine("Hallo Welt");
 ```
 
@@ -69,7 +69,7 @@ System.Console.WriteLine("Hallo Welt");
 
 Konstruktoren werden beim Erstellen von neuen Objekten aufgerufen. Ihnen können Parameter oder andere Objekte übergeben werden.
 
-```{.csharp}
+```csharp
 public class Point{
   int size;
 
@@ -95,7 +95,7 @@ public Program{
 
 Destruktoren werden verwendet um die Resourcen von Objekten freizugeben. Es ist bereits ein Standard-Destruktor implementiert, welcher nur in seltenen Fällen überschrieben wird. Der Destruktor wird automatisch vom Garbage-Collector aufgerufen.
 
-```{.csharp}
+```csharp
 public class MyClass
 {
     // Other members of the class...
@@ -112,7 +112,7 @@ Methoden sind das C#-pendant der Funktionen in C. Der Zugriff auf Methoden kann 
 
 Methoden werden über Objekte aufgerufen
 
-```{.csharp}
+```csharp
 MyClass NewObject = new MyClass("some string");
 NewObject.DoSomething();
 
@@ -125,7 +125,7 @@ public class MyClass{
 
 Um Methoden ohne Objekte aufzurufen ist das Schlüsselwort `static` nötig.
 
-```{.csharp}
+```csharp
 NewObject.DoSomething();
 
 public class MyClass{
@@ -147,7 +147,7 @@ Membervariabeln sind **Daten** oder **Attribute** eines Objektes. So ist z.B. `c
 
 Deklaration:
 
-```{.csharp}
+```csharp
 public class Point{
   private int xPos = 0;
   private int yPos = 0;
@@ -178,7 +178,7 @@ Für Membervariablen wird auf dem **Heap** Speicher reserviert. Membervariablen 
 
 Um diese Anforderungen zu bewältigen, wird auf sogenannte **Getter**- und **Setter**-Methoden zurückgegriffen.
 
-```{.csharp}
+```csharp
 public class Point{
   private int xPos;   // not viewable from outside
   public void SetXPos(int xPos){  // set from outside
@@ -194,7 +194,7 @@ public class Point{
 
 *Getter*- und *Setter*-Methoden sind sehr umständlich und führen zu viel Code bei vielen Variablen. Aus diesem Grund werden automatische Getter- und Setter-Methoden genutzt. Sogenannnte **Properties** mit den Schlüsselwörtern `get` und `set`.
 
-```{.csharp}
+```csharp
 public class Point{
   private int xPos;
   public int XPos {    // property
@@ -216,7 +216,7 @@ public class Point{
 
 Von aussen können Properties wie "normale" Variablen verwendet werden, diese rufen im Hintergrund jedoch eine Methode auf. Diese Methode kann beliebig ergänzt bzw. überschrieben werden. So können auch Fehleingaben abgefangen werden oder es wird eine Membervariable geschrieben, welche nur indirekt mit der Property zu tun hat.
 
-```{.csharp}
+```csharp
 private uint Birthyear;
 public uint Age {
   get { 
@@ -288,7 +288,7 @@ Statische ***Variablen*** ...
 * Privat: `camelCase`
 :::
 
-```{.csharp}
+```csharp
 class Program {
   static void Main(){
     Employee.PrintEmployeeCount();  // 0
@@ -346,7 +346,7 @@ Readonly Variablen ...
 * ... können im Konstruktor gesetzt werden
 * ... können anschliessend **nichtmehr** geändert werden
 
-```{.csharp}
+```csharp
 public class BankAccount {
   private readonly AccNumber;
   public BankAccount ( int accNum ) {
@@ -397,7 +397,7 @@ s[1] = 'A'; // ERROR
 
 Parameter/variablen können in Strings direkt eingefügt werden.
 
-```{.csharp}
+```csharp
 // C-Sytle
 Console.WriteLine("{0} + {1} = {2}",a,b,res);
 
@@ -412,7 +412,7 @@ Console.WriteLine($"{a} + {b} = {res}");
 
 Enumerationen sowie Klassen sollten der Übersichtlichkeit wegen in eigenen Dateien erstellt werden. Um Enums in logischen Operation oder als Flags zu nutzen kann dies mit dem Attribut `[Flags]`{.csharp} angegeben werden.
 
-```{.csharp}
+```csharp
 // File: ButtonState.cs
 [Flags]
 public enum Button{
@@ -426,7 +426,7 @@ public enum Button{
 
 Verwendet werden Enums mit ihren Namen (`Button btn = Button.LEFT`{.csharp}). Zudem können diverse Rechenoperationen auf sie angewendet werden.
 
-```{.csharp}
+```csharp
 // Vergleich
   if(c == Colors.Yellow) ...                    
   if(c > Colors.Green && c < Colors.Yellow) ...

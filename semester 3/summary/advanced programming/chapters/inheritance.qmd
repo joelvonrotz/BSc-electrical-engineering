@@ -39,7 +39,7 @@ class Circle : Shape {
 
 Das Schlüsselwort `virtual` wird verwendet, um Methoden-, Eigenschaften-, Indexer- oder Ereignisdeklarationen zu ändern und erlaubt es abgeleiteten Klassen, diese zu überschreiben. Wenn eine `virtual` Methode aufgerufen wird, wird der Laufzeittyp des Objekts auf einen `override` Member überprüft. Der überschreibende Member der am meisten abgeleitete Klasse wird aufgerufen, was der ursprüngliche Member sein kann, wenn keine erbende Klasse den Member überschrieben hat. Per Default sind Methoden `non-virtual` und lassen sich nicht überschreiben.
 
-```{.csharp}
+```csharp
 class TestClass
 {
     public class Shape
@@ -84,7 +84,7 @@ class TestClass
 
 Der Modifier `abstract` gibt an, dass das Objekt, welches geändert wird, eine fehlende oder unvollständige Implementation aufweist. Der `abstract` Modifier kann mit Klassen, Methoden, Properties, Indexern und Events verwendet werden und gibt in einer Klassen-Deklaration an, dass die Klasse ausschliesslich dazu dient, als Basisklasse für andere Klassen zu dienen. Member, die als `abstract` klassifiziert sind, müssen von `non-abstract` Klassen implementiert werden, die von der `abstract` Klasse erben.
 
-```{.csharp}
+```csharp
 abstract class Shape
 {
     public abstract int GetArea();
@@ -125,7 +125,7 @@ Der Modifier `override` ist erforderlich, um die `abstract` oder `virtual` Imple
 
 Eine `non-virtual` oder `static` Methode kann nicht überschrieben werden. Die überschriebene Base-Methode muss `virtual`, `abstract` oder `override` sein. Eine `override` Deklaration kann nicht die Zugänglichkeit auf die `virtual` Methode ändern. Die `override` und die `virtual` Methode müssen die selben access level modifier haben. Die Modifier `new`, `static`, oder `virtual` können nicht verwendet werden, um eine `override` Methode zu ändern.
 
-```{.csharp}
+```csharp
 abstract class Shape
 {
     public abstract int GetArea();

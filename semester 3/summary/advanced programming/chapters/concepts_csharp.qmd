@@ -195,7 +195,7 @@ private void HandleRequest(object _object)
 
 Im folgenden Beispiel wird der Integerwert $123$ *geboxed* (impliziter cast) und das neue Objekt zeigt nun auf den geboxted Integer. Zum *unboxen* muss **explizit** gecastet werden!
 
-```{.csharp}
+```csharp
 int i = 123;
 object o = i; // box the int
 
@@ -217,7 +217,7 @@ Streams (*Datenströme*) sind ein grundlegendes Konzept für Daten Ein-/Ausgabe.
 
 Beispiel-Code zum Komprimieren, Schreiben und Lesen einer Datei:
 
-```{.csharp}
+```csharp
 // Text to file
 // BinaryWriter -> GZipStream -> 
 // CryptoStream -> Filestream -> Datei 

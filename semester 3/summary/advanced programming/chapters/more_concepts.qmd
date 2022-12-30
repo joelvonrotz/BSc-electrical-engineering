@@ -18,7 +18,7 @@ Der Namespace `System.Net`{.csharp} bietet Implementierungen von Internetprotoko
 
 Für die Kommunikation wird die IP-Adresse oder der Hostname für den Endpunkt benötigt
 
-```{.csharp}
+```csharp
 IPAddress ip1 = IPAddress.Parse("192.168.1.2");
 IPEndPoint ep1 = new IPEndPoint(ip, 1234);
 
@@ -37,7 +37,7 @@ Bei **TCP** (Transmission Control Protocol) wird sichergestellt, dass Daten ohne
 
 Die Klasse `System.Net.TcpClient`{.csharp} stellt funktionalitäten wie `Connect()` für das TCP-Protokoll zur Verfügung
 
-```{.csharp}
+```csharp
 IPEndPoint ep = new IPEndPoint(ip, 13);
 TcpClient tcpClient = new TcpClient();
 tcpClient.Connect(ep);
@@ -51,7 +51,7 @@ Mit `Socket socket = tcpClient.Client;`{.csharp} erhält man den Socket des Clie
 
 Zur Kommunikation werden Streams verwendet, wobei der `NetworkStream` bidirektional verwendbar ist. Über ein `StreamReader` und `StreamWriter` sind Daten zu senden und empfangen. 
 
-```{.csharp}
+```csharp
 NetworkStream stream = tcpClient.GetStream();
 
 StreamReader sr = new StreamReader(stream);
@@ -68,7 +68,7 @@ Als Server benötigt man einen `TcpListener` um auf einkommende Anfragen zu reag
 
 ![](images/ServerClients.png)
 
-```{.csharp}
+```csharp
 // listener config (my adress)
 IPEndPoint ep = new IPEndPoint(IPAddress.Any, 13);
 TcpListener listener = new TcpListener(ep);
@@ -95,7 +95,7 @@ Bei **UDP** (User Datagram Protocol) ist nicht garantiert, dass Daten lückenlos
 
 Daten können Byteweise bidirektional direkt über den `UdpClient` übertragen werden. **Achtung** Da UDP *Verbindungslos* ist, wird bei einem `.Close()` nur dieses Seite der Verbindung geschlossen, respektive der Socket suspendiert. 
 
-```{.csharp}
+```csharp
 // UDP client config
 IPEndPoint ep = new IPEndPoint(IPAddress.Parse("124.0.0.1"), 12);
 UdpClient client = new UdpClient();
@@ -113,7 +113,7 @@ client.Close();
 
 UDP ist verbindungslos, darum gibt es auf beiden Seiten einen Client. Es muss beidseitig auf den **selben Socket** verbunden werden, damit die "Verbindung" steht. So muss Serverseitig ein `UdpClient` auf den selben `IPEndPoint` verbunden werden wie Clientseitig.
 
-```{.csharp}
+```csharp
 // "listener" config
 IPEndPoint ep = new IPEndPoint(IPAddress.Any, 13);
 UdpClient client = new UdpClient(ep);
