@@ -49,7 +49,7 @@ Da Andi, nimm das damit chasch de Spalt fillä
 - [ ] .NET Bibliotheken
 - [ ] System.Environment
 - [ ] Collections
-- [ ] Boxing & Unboxing
+- [x] Boxing & Unboxing
 
 ## Linux Dateisystem
 
@@ -108,15 +108,16 @@ Da Andi, nimm das damit chasch de Spalt fillä
 # Kapitel 9
 
 - [ ] Unit Tests?
-- [ ] Streams (Reader, Writer, etc.)
+- [x] Streams (Reader, Writer, etc.)
 
-- [ ] Netzwerkbegriffe
-- [ ] Internet
-- [ ] Protokolle (TCP, UDP)
-- [ ] Client - [ ] Server
+- [x] Netzwerkbegriffe
+- [x] Internet
+- [x] Protokolle (TCP, UDP)
+- [x] Client 
+- [x] Server
 
-- [ ] TCP Client & Server
-- [ ] UDP Client & Server
+- [x] TCP Client & Server
+- [x] UDP Client & Server
 
 # Kapitel 10
 

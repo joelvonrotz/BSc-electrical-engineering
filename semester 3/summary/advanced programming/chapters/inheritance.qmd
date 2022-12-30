@@ -35,29 +35,115 @@ class Circle : Shape {
 
 ## Abstrakte Klassen
 
-`abstract` deutet auf eine unvöllständige Implementierung an, welche in der erbenden Klasse fertig implementiert wird/werden muss. 
+### virtual
+
+Das Schlüsselwort `virtual` wird verwendet, um Methoden-, Eigenschaften-, Indexer- oder Ereignisdeklarationen zu ändern und erlaubt es abgeleiteten Klassen, diese zu überschreiben. Wenn eine `virtual` Methode aufgerufen wird, wird der Laufzeittyp des Objekts auf einen `override` Member überprüft. Der überschreibende Member der am meisten abgeleitete Klasse wird aufgerufen, was der ursprüngliche Member sein kann, wenn keine erbende Klasse den Member überschrieben hat. Per Default sind Methoden `non-virtual` und lassen sich nicht überschreiben.
 
 ```csharp
-abstract class Brot
+class TestClass
 {
-  abstract Brot(int mehlArt, float dauer_min);
-  abstract void backen(int backform);
-
-  void schneiden()
+  public class Shape
   {
-    // ...
+    public const double PI = Math.PI;
+    protected double _x, _y;
+    public Shape() { }
+    public Shape(double x, double y)
+    {
+        _x = x;
+        _y = y;
+    }
+    public virtual double Area()
+    {
+        return _x * _y;
+    }
+  }
+  public class Circle : Shape
+  {
+    public Circle(double r) : base(r, 0) { }
+    public override double Area()
+    {
+        return PI * _x * _x;
+    }
+  }
+
+  static void Main()
+  {
+    double r = 3.0, h = 5.0;
+    Shape c = new Circle(r);
+    // Display results.
+    Console.WriteLine("Area = {0:F2}", c.Area());
   }
 }
 ```
 
-::: callout-important 
+### abstract
 
-## `abstract` bei `class`
+Der Modifier `abstract` gibt an, dass das Objekt, welches geändert wird, eine fehlende oder unvollständige Implementation aufweist. Der `abstract` Modifier kann mit Klassen, Methoden, Properties, Indexern und Events verwendet werden und gibt in einer Klassen-Deklaration an, dass die Klasse ausschliesslich dazu dient, als Basisklasse für andere Klassen zu dienen. Member, die als `abstract` klassifiziert sind, müssen von `non-abstract` Klassen implementiert werden, die von der `abstract` Klasse erben.
 
-Klassen mit `abstract`en Methoden, müssen selbst `abstract` sein!
+```csharp
+abstract class Shape
+{
+  public abstract int GetArea();
+}
 
-:::
+class Square : Shape
+{
+  private int _side;
 
+  public Square(int n) => _side = n;
+
+  // GetArea method is required to avoid a error.
+  public override int GetArea() => _side * _side;
+
+  static void Main()
+  {
+    var sq = new Square(12);
+    Console.WriteLine($"Area = {sq.GetArea()}");
+  }
+}
+// Output: Area of the square = 144
+```
+
+`Abstract` Klassen haben folgende Eigenschaften:
+    - eine `abstract` Klasse kann nicht instantiiert werden
+    - eine `abstract` Klasse kann `abstract` Methoden und Accessors beinhalten
+    - eine nicht abstrakte Klasse, die von einer abstrakten Klasse abgeleitet wurde, muss Implementierungen aller geerbten abstrakten Methoden und Accessoren enthalten
+
+`Abstract` Methoden haben folgende Eigenschaften:
+    - eine `abstract` Methode ist implizit eine `virtual` Methode
+    - abstrakte Methodendeklarationen sind nur in abstrakten Klassen zulässig
+    - es gibt keinen Methodenkörper, da eine abstrakte Methodendeklaration keine Implementierungen bietet; die Methodendeklaration enden ganz einfach mit einem Semikolon; auf die Signatur folgen keine geschweiften Klammern
+    - es ist unzulässig, die Modifizierer `static` oder `virtual` in einer abstrakten Methodendeklaration zu verwenden.
+
+### override
+
+Der Modifier `override` ist erforderlich, um die `abstract` oder `virtual` Implementierung von einer geerbten Methode, Property, eines Indexers oder eines Events zu erweitern oder zu ändern. Eine `override` Methode muss die selbe Signatur wie die überschriebene Basis-Methode haben. Der Rückgabetyp einer `override` Methode kann sich unterscheiden vom Rückgabetyp der korrespondierenden Basis-Methode. 
+
+Eine `non-virtual` oder `static` Methode kann nicht überschrieben werden. Die überschriebene Base-Methode muss `virtual`, `abstract` oder `override` sein. Eine `override` Deklaration kann nicht die Zugänglichkeit auf die `virtual` Methode ändern. Die `override` und die `virtual` Methode müssen die selben access level modifier haben. Die Modifier `new`, `static`, oder `virtual` können nicht verwendet werden, um eine `override` Methode zu ändern.
+
+```csharp
+abstract class Shape
+{
+  public abstract int GetArea();
+}
+
+class Square : Shape
+{
+  private int _side;
+
+  public Square(int n) => _side = n;
+
+  // GetArea method is required to avoid a error.
+  public override int GetArea() => _side * _side;
+
+  static void Main()
+  {
+    var sq = new Square(12);
+    Console.WriteLine($"Area = {sq.GetArea()}");
+  }
+}
+// Output: Area of the square = 144
+```
 
 ## Interfaces
 
