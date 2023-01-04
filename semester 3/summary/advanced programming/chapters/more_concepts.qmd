@@ -81,13 +81,48 @@ while (true) {
     // Waiting for connection
     TcpClient client = listener.AcceptTcpClient();
     // send Data
-    NetworkStream stream  = client.GetStream();
+    NetworkStream stream = client.GetStream();
     StreamWriter sw = new StreamWriter(stream);
     sw.WriteLine("Hello Client");
     // close connection
     tcpClient.Close();
 }
 ```
+
+Für die Auslagerung in einen Thread wird eine Methode benötigt, welche den Client bedient.
+
+```csharp
+// handle clients
+while (true) {
+    // Waiting for connection
+    TcpClient client = listener.AcceptTcpClient();
+    // start Thread
+    ClHandler clHandler = new ClHandler(client);
+    new Thread(clHandler.DoHandle).Start();
+}
+
+// ...
+
+// class to handle Client
+class ClHandler {
+    private TcpClient client;
+
+    public ClHandler(TcpClient client){
+        this.client = client
+    }
+
+    public void DoHandle () {
+        // -- do intensive stuff --
+        // send Data
+        NetworkStream stream = client.GetStream();
+        StreamWriter sw = new StreamWriter(stream);
+        sw.WriteLine("Hello Client");
+        // close connection
+        tcpClient.Close();
+    }
+}
+```
+
 
 ### UDP
 
@@ -97,7 +132,8 @@ Daten können Byteweise bidirektional direkt über den `UdpClient` übertragen w
 
 ```csharp
 // UDP client config
-IPEndPoint ep = new IPEndPoint(IPAddress.Parse("124.0.0.1"), 12);
+IPAddress ip = IPAddress.Parse("124.0.0.1");
+IPEndPoint ep = new IPEndPoint(ip, 12);
 UdpClient client = new UdpClient();
 client.Connect(ep);
 
