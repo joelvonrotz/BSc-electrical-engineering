@@ -135,7 +135,7 @@ int i = k + 1; // KEIN Fehler
 | `df`                 | disk free                   | Belegung Speicherplatz                            |                                                                       |
 | `free`               | freier SPeicher             | Belegung Memory                                   |                                                                       |
 | `top`                | Linux Prozesse anzeigen     | "Taskmanager", 'q' zum beenden                    |                                                                       |
-| `hstop`              | Interaktiver Prozess Viewer | "Taskmanager", `top` on steroids                  |                                                                       |
+| `htop`               | Interaktiver Prozess Viewer | "Taskmanager", `top` on steroids                  |                                                                       |
 
 []: # (Do more as you'd like. See table "LinuxCommands.tgn" to use on "https://www.tablesgenerator.com/markdown_tables")
 
