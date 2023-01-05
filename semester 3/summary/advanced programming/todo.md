@@ -53,7 +53,7 @@ Da Andi, nimm das damit chasch de Spalt fillä
 
 ## Linux Dateisystem
 
-- [ ] Befehle (siehe Labor für Cheatsheet)
+- [x] Befehle (siehe Labor für Cheatsheet)
 - [ ] Berechtigungssystem
 
 # Kapitel 5
