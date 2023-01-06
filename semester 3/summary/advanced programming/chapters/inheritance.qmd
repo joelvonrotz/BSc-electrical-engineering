@@ -189,7 +189,7 @@ Mit Polymorhpismus kann die vererbte Methode einen anderen Task ausführen, inde
 ```csharp
 class Animal {
   public virtual void animalSound() {
-    Console.WriteLine("Animal makes sound");
+    Console.WriteLine("Animal makes no sound");
   }
 }
 
@@ -217,10 +217,19 @@ void Main() {
   // base `Animal` is needed here, other types
   // aren't allowed
   foreach (Animal animal in animals) {
+    // make respective sound or fallback to
+    // base method when none exists.
     animal.doAnimalSound();
   }
 }
+```
 
+[Ausgabe]{.underline}:
+
+```cmd
+Animal makes no sound
+Oink Oink!
+Woof Woof!
 ```
 
 ::: callout-important
