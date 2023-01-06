@@ -2,7 +2,49 @@
 
 ### Indexer
 
+Indexer ermöglichen die Indexierung von Klassen oder Structs. Der Indexer wird mit dem `this` Keyword definiert. Indexer müssen nicht durch einen Integer-Wert indexiert werden und können überladen werden. Mehrere Parameter können verwendet werden, um beispielsweise auf ein zweidimensionales Array zuzugreifen.
+
+```csharp
+class Collection<T> {
+  private T[] arr = new T[100];
+  public T this[int i] {
+    get => arr[i];
+    set => arr[i] = value;
+  }
+}
+
+class Program {
+  static void Main() {
+    var strCollection = new Collection<string>();
+    strCollection[0] = "Hello, World!";
+    Console.WriteLine(strCollection[0]);
+  }
+}
+// output: Hello, World!
+```
+
 ### Generics
+
+Mit dem generischen Typenparameter `T` deklariert werden, bei welcher erst zur Deklaration der Datentyp instanziiert wird. Wenn eine Klasse mit einem kontreten Typen instanziiert wird, wird `T` mit dem Typen ersetzt.
+
+```csharp
+public class GenericList<T> {
+  public void Add(T input) { }
+}
+
+class TestGenericList {
+  private class ExampleClass { }
+  static void Main() {
+    // Declare a list of type int.
+    GenericList<int> list1 = new GenericList<int>();
+    list1.Add(1);
+
+    // Declare a list of type ExampleClass.
+    GenericList<ExampleClass> list2 = new GenericList<ExampleClass>();
+    list2.Add(new ExampleClass());
+  }
+}
+```
 
 ## Scope & Zugriff
 
