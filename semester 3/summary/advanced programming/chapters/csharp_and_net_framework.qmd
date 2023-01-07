@@ -13,7 +13,9 @@
 | Datenpersistenz |      Einfache Zugriffsregeln und Sichtbarkeit      | Data Hiding (`privat`, `public`, `protected`) |
 |  Lib-Einbindung |              *.h* File mit `#include`              |            *namespaces* mit `using`           |
 
-[]: # (Do more as you'd like. See table "VergleichC.tgn" to use on "https://www.tablesgenerator.com/markdown_tables")
+<!--
+(Do more as you'd like. See table "VergleichC.tgn" to use on "https://www.tablesgenerator.com/markdown_tables")
+-->
 
 `\begin{multicols}{2}`{=latex}
 
@@ -435,7 +437,6 @@ Verwendet werden Enums mit ihren Namen (`Button btn = Button.LEFT`{.csharp}). Zu
 // &, |, ~
   btn.UP & btn.DOWN  // = "12" -> UP, DOWN      
 ```
-
 
 
 ### Array
