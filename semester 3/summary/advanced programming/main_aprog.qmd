@@ -10,7 +10,6 @@ format:
   pdf:
     include-in-header:
       - config.tex
-    keep-tex: true
 
 pdf-engine: pdflatex
 # [DOCUMENT CONFIGURATION] ============================
@@ -32,6 +31,8 @@ number-depth: 3
 pagenumbering: none
 highlight-style: github
 ---
+
+<!-- [Chapters] -->
 
 # `C#` und `.Net`-Framework
 
@@ -57,13 +58,13 @@ highlight-style: github
 
 {{< include chapters/more_concepts.qmd >}}
 
+<!-- [Appendices] -->
+
 # Notes
 
 {{< include chapters/misc_notes.qmd >}}
 
 `\end{multicols}`{=latex}
-
-## Linux bash commands
 
 {{< include chapters/linux_bash_commands.qmd >}}
 
