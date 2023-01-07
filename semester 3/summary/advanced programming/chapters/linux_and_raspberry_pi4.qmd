@@ -1,5 +1,7 @@
 ## Bash-Commands
 
+Siehe @tbl-bash-commands in @sec-bash-commands.
+
 ## Streams
 
 Datenströme oder *Streams* sind eine Grundlegende Eigenschaft der Linux-Kommandozeile. Jedes Programm hat drei Standard *File Deskriptoren* (**FD**) bzw. Datei 'Handles', welche nummeriert vorliegen
