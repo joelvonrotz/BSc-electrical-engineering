@@ -1,3 +1,5 @@
+# Linux bash Befehle {#sec-bash-commands}
+
 +----------------------+-----------------------------+---------------------------------------------------+-----------------------------------------------------------------------+
 | Befehl               | Bedeutung                   | Erklärung                                         | Beispiel / Ergänzung                                                  |
 +======================+=============================+===================================================+=======================================================================+
@@ -84,7 +86,9 @@
 | `hstop`              | Interaktiver Prozess Viewer | "Taskmanager", `top` on steroids                  |                                                                       |
 +----------------------+-----------------------------+---------------------------------------------------+-----------------------------------------------------------------------+
 
-: Table of Linux Commands {tbl-colwidths="[20,20,25,35]"}
+: Table of Linux Commands {#tbl-bash-commands tbl-colwidths="[20,20,25,35]"}
 
-[]: # IMPORTANT: this has been updated to the Quarto-Gridtables (https://quarto.org/docs/authoring/tables.html#grid-tables)
-[]: # (Do more as you'd like. See table "LinuxCommands.tgn" to use on "https://www.tablesgenerator.com/markdown_tables")
+<!--
+IMPORTANT: this has been updated to the Quarto-Gridtables (https://quarto.org/docs/authoring/tables.html#grid-tables)
+(Do more as you'd like. See table "LinuxCommands.tgn" to use on "https://www.tablesgenerator.com/markdown_tables")
+-->
