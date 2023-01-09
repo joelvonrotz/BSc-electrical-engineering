@@ -1,0 +1,28 @@
+
+## Overflows Integer
+
+Im folgenden Code wird eine Variable `i` mit dem maximalen Wert eines `int` geladen und folgend inkrementiert.
+
+```csharp
+int i = int.MaxValue;
+i++;
+```
+
+Wird aber dies direkt in der Initialisierung eingebettet (`...+ 1`), ruft der Compiler aus, da er den Overflow erkennt. (Einsetzung von Compilern)
+
+```csharp
+int i = int.MaxValue + 1; // COMPILE-FEHLER
+i++;
+```
+
+::: callout-caution
+
+Dieser Overflow-Fehler gilt nur bei **konstanten** Werten bei der Initialisierung. Wird eine separate Variable mit dem Maximalwert initialisierit und an `i` hinzuaddiert, gibt es keinen Fehler.
+
+
+```csharp
+int k = int.MaxValue;
+int i = k + 1; // KEIN Fehler
+```
+
+:::

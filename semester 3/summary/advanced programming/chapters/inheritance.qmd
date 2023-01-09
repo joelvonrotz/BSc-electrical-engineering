@@ -148,27 +148,27 @@ class Square : Shape
 
 ## Interfaces
 
-`interface` sind komplett abstrakte Klassen und können nur Methodenprototypen, Delegates und leere Properties beinhalten, daher **keine** Implementationen. Sie bilden das Grundfundament für Basis- und Erweiterungsklassen.
+`interface` sind komplett abstrakte Klassen und können nur Methodenprototypen, Delegates und leere Properties beinhalten, daher **keine** Implementationen. Sie bilden das Grundfundament für Basis- und Erweiterungsklassen. Es ist **nicht möglich Objekte von Interfaces** zu erstellen.
 
 ```csharp
 interface IAnimal {
-  void animalSound(); // interface method 
+  void animalSound(); // interface method
+  bool Age { get; set; }
   void run(); // interface method
+  event EventHandler<AnimalArgs> MoodChanged;
 }
 ```
 
 Wenn Interfaces geerbt werden, muss der Inhalt des Interfaces implementiert werden, ansonsten ist das Programm nicht kompilierbar.
 
-::: callout-caution
-Es können keine Objekte von Interfaces erstellt werden!
-:::
-
 ::: callout-note
+
 Interfaces werden meist mit dem `I`-Präfix gekennzeichnet.
 
 ```csharp
 interface IAnimal
 ```
+
 :::
 
 Interfaces können von einander erben und es kann einfach die neuen Inhalte eingefügt werden. Die explizite Implementierung findet in den Klassen statt.
@@ -183,13 +183,63 @@ interface IDog : IAnimal {
 }
 ```
 
-## Polymorphismus
+## Polymorphismus (Vielgestaltigkeit)
+
+Mit Polymorhpismus kann die vererbte Methode einen anderen Task ausführen, indem diese [überschrieben]{.underline} wird. Es bietet die Möglichkeit, dass Klassen verschiedene Implementierungen von Methoden anbieten, die über denselben Namen aufgerufen werden.
 
 ```csharp
-Animal animal = new animal();
-Animal dog = new Dog();
+class Animal {
+  public virtual void animalSound() {
+    Console.WriteLine("Animal makes no sound");
+  }
+}
+
+class Pig : Animal {
+  public override void animalSound() {
+    Console.WriteLine("Oink Oink!");
+  }
+}
+
+class Dog : Animal {
+  public override void animalSound() {
+    Console.WriteLine("Woof Woof!");
+  }
+}
 ```
 
+Zur Laufzeit können Objekte einer abgeleiteten Klasse als Objekte einer Basisklasse behandelt werden, z. B. in Methodenparametern und Sammlungen oder Arrays (bei `Animal`-Array die Tiere durchgehen, wie im folgenden Beispiel).
 
+```csharp
+void Main() {
+  Animal[] animals = new Animal[] {
+    new Animal(),
+    new Dog(),
+    new Pig() };
+  // base `Animal` is needed here, other types
+  // aren't allowed
+  foreach (Animal animal in animals) {
+    // make respective sound or fallback to
+    // base method when none exists.
+    animal.doAnimalSound();
+  }
+}
+```
+
+[Ausgabe]{.underline}:
+
+```cmd
+Animal makes no sound
+Oink Oink!
+Woof Woof!
+```
+
+::: callout-important
+
+- Dass `override` und `virtual` ist wichtig, da ansonsten die Base-Methode `animalSound` verwendet wird, anstatt die individuellen `animalSound`. 
+- Polymorphismus wird in der Run-Time ausgeführt und 
+
+:::
 
 ## Klassendiagramme
+
+Ein Klassendiagramm beschreibt die Beziehungen zwischen den Klassen und die einzelnen Elemente der Klasse, zum Beispiel Methoden, Variablen, Prototypen, etc..

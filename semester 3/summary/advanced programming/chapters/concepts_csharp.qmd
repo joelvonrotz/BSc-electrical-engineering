@@ -146,7 +146,7 @@ Draw bw = new Draw(false);    // inColor = false
 
 ## Exceptions
 
-*Exceptions* sind in den meisten grundlegenden Funktionen implementiert und werden ausgelöst, wenn die Vorgaben nicht eingehalten werden. Ein Beispiel wäre ein Datenpacket via TCP zu verschicken, ohne zuerst mit dem TCP-Server zu verbinden.
+*Exceptions* sind in den meisten grundlegenden Funktionen implementiert und werden ausgelöst, wenn die entsprechenden Vorgaben nicht eingehalten werden. Ein Beispiel wäre ein Datenpacket via TCP zu verschicken, ohne zuerst mit dem TCP-Server zu verbinden (wenn keine Strasse zur Adresse existiert, wie sollte die Post wissen wo durch?)
 
 ### Exceptions abfangen mit `try` & `catch`
 
@@ -168,7 +168,7 @@ Die `catch`-"Parametern" müssen nicht unbedingt existieren, erlaubt aber den Fe
 
 ### Erweiterung `finally`
 
-Der `finally`-Codeblock wird verwendet, um etwas zu machen, bevor aus der Funktion gegangen wird. Ein Beispiel wäre eine Kommunikation zu beenden.
+Der `finally`-Codeblock wird verwendet, um etwas zu machen, bevor aus der Funktion gesprungen wird mit `return`. Ein Beispiel wäre eine Kommunikation zu beenden.
 
 ```csharp
 try {
