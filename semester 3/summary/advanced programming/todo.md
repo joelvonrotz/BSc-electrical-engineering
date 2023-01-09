@@ -12,7 +12,7 @@ Da Andi, nimm das damit chasch de Spalt fillä
 - [ ] C# und .NET-Framework
 - [ ] Struktur C#-Programm
 - [x] Klassen
-- [ ] Operatoren & Reihenfolge
+- [x] Operatoren & Reihenfolge
 - [ ] Klasse `System.String`
 - [ ] Implizit & Explizit Casting
 - [ ] Klasse Console

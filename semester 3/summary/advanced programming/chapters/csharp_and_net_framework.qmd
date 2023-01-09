@@ -243,7 +243,20 @@ Da Properties Methoden enthalten können, gilt: `PascalCase`
 
 ## Keywords
 
-### Operatoren & Abarbeitungsreihenfolge
+### Operatoren & Rangreihenfolge
+
+#### Rangreihenfolge
+
+Die Tabelle listet alle Operatoren in C# von höchstem zu tiefstem Vorrang auf.
+
+![](images/OperationOrder.png)
+
+#### Null Checking
+
+Der `x?[y]` Operator gibt `NULL` zurück wenn die linke Seite `NULL` ist.  So muss kein `null`-Zeiger-Test gemacht werden.
+
+Der `a??b` Operator gibt `a` zurück wenn dieser nicht `NULL` ist, andernfalls `b`.
+
 
 ### Zugriffs-Modifier {#sec-modifier}
 
