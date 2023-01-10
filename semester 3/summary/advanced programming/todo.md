@@ -123,8 +123,8 @@ Da Andi, nimm das damit chasch de Spalt fillä
 
 ## C# - [ ] Delegates, Events & Threads
 
-- [ ] Delegates
-- [ ] Multicast Delegates
+- [x] Delegates
+- [x] Multicast Delegates
 - [ ] Events & Eventhandler
 - [ ] Multithreading
 - [ ] Threadlebenszyklus
