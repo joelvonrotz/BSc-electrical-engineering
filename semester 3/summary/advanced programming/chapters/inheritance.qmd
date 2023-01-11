@@ -3,7 +3,7 @@ Bei der Vererbung wird eine Klasse als **Erweiterung** einer anderen (*Basis*-)K
 Vererbungen werden mit dem Schlüsselwort `:` direkt nach dem Klassennamen angegeben. Als Vererbungen können Interfaces, abstrakte und normale Klassen verwendet werden.
 
 ::: callout-important
-Klassen können nur von **einer** Klasse (inkl. abstrakt) erben, dafür von **mehreren** Interfaces.
+Klassen können nur von **einer** Klasse (inkl. abstrakt) erben, dafür **mehrere** Interfaces implementieren.
 :::
 
 ```csharp
@@ -31,105 +31,103 @@ class Shape {
 class Circle : Shape {
   public Circle() : base(0,0) { /* ... */ }
 }
+
+class Square : Shape {
+  public Square(int x, int y) : base(x,y) {
+    /* ... */
+  }
+}
 ```
 
 ## Abstrakte Klassen
 
 ### virtual
 
-Das Schlüsselwort `virtual` wird verwendet, um Methoden-, Eigenschaften-, Indexer- oder Ereignisdeklarationen zu ändern und erlaubt es abgeleiteten Klassen, diese zu überschreiben. Wenn eine `virtual` Methode aufgerufen wird, wird der Laufzeittyp des Objekts auf einen `override` Member überprüft. Der überschreibende Member der am meisten abgeleitete Klasse wird aufgerufen, was der ursprüngliche Member sein kann, wenn keine erbende Klasse den Member überschrieben hat. Per Default sind Methoden `non-virtual` und lassen sich nicht überschreiben.
+Das Schlüsselwort `virtual` wird verwendet, um Methoden-, Eigenschaften-, Indexer- oder Ereignisdeklarationen überschreibbar zu machen und erlaubt es so, abgeleiteten Klassen, diese zu überschreiben. Wenn eine `virtual` Methode aufgerufen wird, wird der Laufzeittyp des Objekts auf einen `override` Member überprüft. Der überschreibende Member der am meisten abgeleitete Klasse wird aufgerufen, was der ursprüngliche Member sein kann, wenn keine erbende Klasse den Member überschrieben hat. Per Default sind Methoden `non-virtual` und lassen sich nicht überschreiben.
 
 ```csharp
-class TestClass
-{
-  public class Shape
-  {
-    public const double PI = Math.PI;
-    protected double _x, _y;
-    public Shape() { }
-    public Shape(double x, double y)
-    {
-        _x = x;
-        _y = y;
-    }
-    public virtual double Area()
-    {
-        return _x * _y;
-    }
+public class Shape {
+  protected double _x, _y;
+  public Shape(double xSize, double ySize) {
+      _x = xSize;
+      _y = ySize;
   }
-  
-  public class Circle : Shape
-  {
-    public Circle(double r) : base(r, 0) { }
-    public override double Area()
-    {
-        return PI * _x * _x;
-    }
+  public virtual double Area {
+      get { return _x * _y; }
   }
+}
 
-  static void Main()
-  {
-    double r = 3.0, h = 5.0;
-    Shape c = new Circle(r);
-    // Display results.
-    Console.WriteLine("Area = {0:F2}", c.Area());
+public class Square : Shape {
+  public Square(double r) : base(r, 0) { }
+  public override double Area {
+      get { return _x * _x; }
   }
+}
+
+static void Main() {
+  double r = 3.0;
+  Shape c = new Square(r);
+  // display results
+  Console.WriteLine("Area = {0:F2}", c.Area);
 }
 ```
 
 ### abstract
 
-Der Modifier `abstract` gibt an, dass das Objekt, welches geändert wird, eine fehlende oder unvollständige Implementation aufweist. Der `abstract` Modifier kann mit Klassen, Methoden, Properties, Indexern und Events verwendet werden und gibt in einer Klassen-Deklaration an, dass die Klasse ausschliesslich dazu dient, als Basisklasse für andere Klassen zu dienen. Member, die als `abstract` klassifiziert sind, müssen von `non-abstract` Klassen implementiert werden, die von der `abstract` Klasse erben.
+Der Modifier `abstract` gibt an, dass die Klasse unvollständige Implementationen aufweist. Der `abstract` Modifier kann mit Klassen, Methoden, Properties, Indexern und Events verwendet werden und gibt in einer Klassen-Deklaration an, dass die Klasse ausschliesslich dazu dient, als Basisklasse für andere Klassen zu dienen. Member, die als `abstract` klassifiziert sind, müssen von `non-abstract` Klassen implementiert werden, die von der `abstract` Klasse erben.
 
 ```csharp
-abstract class Shape
-{
+abstract class Shape {
   public abstract int GetArea();
 }
 
-class Square : Shape
-{
+class Square : Shape {
   private int _side;
 
   public Square(int n) => _side = n;
 
   // GetArea method is required to avoid a error.
-  public override int GetArea() => _side * _side;
+  public override int GetArea() => _side*_side;
+}
 
-  static void Main()
-  {
-    var sq = new Square(12);
-    Console.WriteLine($"Area = {sq.GetArea()}");
-  }
+static void Main() {
+  var sq = new Square(12);
+  Console.WriteLine($"Area = {sq.GetArea()}");
 }
 // Output: Area of the square = 144
 ```
 
 `Abstract` Klassen haben folgende Eigenschaften:
-    - eine `abstract` Klasse kann nicht instantiiert werden
-    - eine `abstract` Klasse kann `abstract` Methoden und Accessors beinhalten
-    - eine nicht abstrakte Klasse, die von einer abstrakten Klasse abgeleitet wurde, muss Implementierungen aller geerbten abstrakten Methoden und Accessoren enthalten
+
+  - eine `abstract` Klasse kann nicht instantiiert werden
+  - eine `abstract` Klasse kann `abstract` Methoden und Accessors beinhalten
+  - eine nicht abstrakte Klasse, die von einer abstrakten Klasse abgeleitet wurde, muss Implementierungen aller geerbten abstrakten Methoden und Accessoren enthalten
 
 `Abstract` Methoden haben folgende Eigenschaften:
-    - eine `abstract` Methode ist implizit eine `virtual` Methode
-    - abstrakte Methodendeklarationen sind nur in abstrakten Klassen zulässig
-    - es gibt keinen Methodenkörper, da eine abstrakte Methodendeklaration keine Implementierungen bietet; die Methodendeklaration enden ganz einfach mit einem Semikolon; auf die Signatur folgen keine geschweiften Klammern
-    - es ist unzulässig, die Modifizierer `static` oder `virtual` in einer abstrakten Methodendeklaration zu verwenden.
+
+  - eine `abstract` Methode ist implizit eine `virtual` Methode
+  - abstrakte Methodendeklarationen sind nur in abstrakten Klassen zulässig
+  - es gibt keinen Methodenkörper, da eine abstrakte Methodendeklaration keine Implementierungen bietet
+  - es ist unzulässig, die Modifizierer `static` oder `virtual` in einer abstrakten Methodendeklaration zu verwenden.
 
 ### override
 
-Der Modifier `override` ist erforderlich, um die `abstract` oder `virtual` Implementierung von einer geerbten Methode, Property, eines Indexers oder eines Events zu erweitern oder zu ändern. Eine `override` Methode muss die selbe Signatur wie die überschriebene Basis-Methode haben. Der Rückgabetyp einer `override` Methode kann sich unterscheiden vom Rückgabetyp der korrespondierenden Basis-Methode. 
+Der Modifier `override` ist erforderlich, um die mit `abstract` oder `virtual` bezeichneten Methoden und Membern einer abstrakten Klasse zu implementieren. Eine `override` Methode muss die selbe Signatur wie die überschriebene Basis-Methode haben. Der Rückgabetyp einer `override` Methode kann sich unterscheiden vom Rückgabetyp der korrespondierenden Basis-Methode. 
 
-Eine `non-virtual` oder `static` Methode kann nicht überschrieben werden. Die überschriebene Base-Methode muss `virtual`, `abstract` oder `override` sein. Eine `override` Deklaration kann nicht die Zugänglichkeit auf die `virtual` Methode ändern. Die `override` und die `virtual` Methode müssen die selben access level modifier haben. Die Modifier `new`, `static`, oder `virtual` können nicht verwendet werden, um eine `override` Methode zu ändern.
+Eine `non-virtual` oder `static` Methode kann nicht überschrieben werden. Die überschriebene Base-Methode muss `virtual`, `abstract` oder `override` sein. Die `override` und die `virtual` Methode müssen die selben access level modifier haben. Die Modifier `new`, `static`, oder `virtual` können nicht verwendet werden, um eine `override` Methode zu ändern.
 
 ```csharp
-abstract class Shape
-{
+abstract class Shape {
   public abstract int GetArea();
+  public virtual void PrintArea() {
+    Console.WriteLine("No Area implemented");
+  }
+  public virtual void PrintPos() {
+    Console.WriteLine("No Position implemented");
+  }
 }
 
-class Square : Shape
-{
+class Square : Shape {
   private int _side;
 
   public Square(int n) => _side = n;
@@ -137,13 +135,20 @@ class Square : Shape
   // GetArea method is required to avoid a error.
   public override int GetArea() => _side * _side;
 
-  static void Main()
-  {
-    var sq = new Square(12);
-    Console.WriteLine($"Area = {sq.GetArea()}");
+  // virtual methods can be implemented
+  public override void PrintArea() {
+    Console.WriteLine($"Area = {GetArea()}");
   }
 }
-// Output: Area of the square = 144
+
+static void Main() {
+  var sq = new Square(12);
+  sq.PrintArea();
+  sq.PrintPos();
+}
+// Output: 
+// Area = 144
+// No Position implemented
 ```
 
 ## Interfaces
@@ -159,11 +164,11 @@ interface IAnimal {
 }
 ```
 
-Wenn Interfaces geerbt werden, muss der Inhalt des Interfaces implementiert werden, ansonsten ist das Programm nicht kompilierbar.
+Wenn Interfaces implementiert werden, müssen alle Methoden und Member des Interfaces implementiert werden, ansonsten ist das Programm nicht kompilierbar.
 
 ::: callout-note
 
-Interfaces werden meist mit dem `I`-Präfix gekennzeichnet.
+Interfaces werden mit dem `I`-Präfix gekennzeichnet.
 
 ```csharp
 interface IAnimal
@@ -236,7 +241,7 @@ Woof Woof!
 ::: callout-important
 
 - Dass `override` und `virtual` ist wichtig, da ansonsten die Base-Methode `animalSound` verwendet wird, anstatt die individuellen `animalSound`. 
-- Polymorphismus wird in der Run-Time ausgeführt und 
+- Polymorphismus wird zur Laufzeit ausgeführt
 
 :::
 
