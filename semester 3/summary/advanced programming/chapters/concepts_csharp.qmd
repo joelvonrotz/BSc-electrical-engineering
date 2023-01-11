@@ -384,3 +384,82 @@ doNotify.Invoke("Sissi")
 ```
 
 ## Events
+
+Events entsprechen einer spezifizierten Nutzung von Delegates. Ein Ereignis ist ein Mechanismus mit dem ein Programmabschnitt darüber informiert werden kann, dass etwas im System passiert ist um darauf zu reagieren. z.B. anklicken einer Schaltfläche, Unterbruch einer Netzwerkverbindung, Änderung eines Wertes. Ein Ereignis besteht aus einem Ereignisauslöser (**event trigger**) und einem oder mehrerer Ereignishandlern (**event handler**), welche aufgerufen werden, wenn das Event ausgelöst wird.
+
+Ein Event kann nur in der eigenen Klasse (oder Implementierung) geändert und gefeuert werden (Events sind immer `public`). Ausserhalb ist nur das Hinzufügen `+=` und Entfernen `-=` von Eventhandlern erlaubt. Folgendes Beispiel beschreibt die Klasse einer Ereignisquelle
+
+```csharp
+public class Model {
+  // event
+  event EventHandler<ModelEventArgs> ModelChanged;
+  // instantiate arguments
+  public ModelEventArgs e;
+  e = new ModelEventArgs("Update Model");
+  // fire event
+  public void Update() {
+    ModelChanged?.Invoke()
+  }
+}
+```
+
+::: callout-important
+Eventhandler haben wie Delegatesmethoden ein vorgegebene Signatur die eingehalten werden muss
+
+```csharp
+void EventHandler(object source, EventArgs e);
+```
+
+Benötigte Parameter werden in den Parameter **`e`** verpackt um so der Signatur gerecht zu werden. Hierzu wird die Klasse `MyEventArgs` benötigt, welche von `EventArgs` erbt
+
+```csharp
+public class ModelEventArgs : EventArgs {
+  // constructor to generate e
+  public ModelEventArgs (string eventData) {
+    this.EventData = eventData;
+  }
+  // all data needed in a handler
+  public string EventData { get; }
+}
+```
+:::
+
+Nun können beliebige Klassen und Objekte Methoden auf den *`ModelChanged`* Event registrieren, welche über `Model.Update()` ausgeführt werden. Dies kann auch im Konstruktor einer Klasse geschehen
+
+```csharp
+public class View {
+  private string Id { get; }
+
+  public View (string id, Model m) {
+    this.Id = id;
+    // register event
+    m.ModelChanged += ChangedHandler;
+  }
+  // Eventhandler
+  private void ChangedHandler (object source, 
+                              ModelEventArgs e){
+    string data = e.EventData;
+    Console.WriteLine($"{Id} does: {data}");
+  }
+}
+```
+
+Es können nun Objekte von `View` erstellt werden, welche sich direkt auf den Event `ModelChanged` registrieren. Wird ein `.Update()` ausgeführt, geschieht dies mit allen Objekten
+
+```csharp
+static void Main() {
+  Model m = new Model();
+  View v1 = new View("v1", m);
+  View v2 = new View("v2", m);
+  // fire event
+  m.Update();
+}
+```
+
+Bei Ausführung des Programms erhalten wir so den Output
+
+```bash
+v1 does: Update Model
+v2 does: Update Model
+```
+

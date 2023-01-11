@@ -125,7 +125,7 @@ Da Andi, nimm das damit chasch de Spalt fillä
 
 - [x] Delegates
 - [x] Multicast Delegates
-- [ ] Events & Eventhandler
+- [x] Events & Eventhandler
 - [ ] Multithreading
 - [ ] Threadlebenszyklus
 - [ ] Synchronisation
