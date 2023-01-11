@@ -20,7 +20,7 @@ Da Andi, nimm das damit chasch de Spalt fillä
 
 # Kapitel 2
 
-- [ ] Array & Multidimensionale Array 
+- [x] Array & Multidimensionale Array 
 - [x] OOP (vs. POP)
 - [x] Modifier (`private,public,abstract,etc.`) -> Klassen, Enum, Membervariablen, Properties, Methoden
 - [x] Konstruktor & Destruktor
