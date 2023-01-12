@@ -250,12 +250,12 @@ int j = (int)o; // unbox the object
 
 Streams (*Datenströme*) sind ein grundlegendes Konzept für Daten Ein-/Ausgabe. Streams abstrahieren ein dahinterliegendes I/O-Gerät (z.B. Datei, Tastatur, Konsole, Netzwerk, ...) und lassen so C#-Programme Daten darauf lesen oder schreiben. Es wird der Namespace `System.IO`{.csharp} genutzt und alle Streams implementieren die abstrakte `System.IO.Stream`{.csharp} Klasse.
 
-* `FileStream` zum schreiben von Files
-* `TextReader` und `TextWriter` für I/O mit Unicode-Zeichen
-* `BinaryReader` und `BinaryWriter` für I/O mit Binärdaten
-* `MemoryStream` liest und schreibt in den Speicher
-* `BufferdStream` erhöht die Performance
-* `CryptoStream` zur verschlüsselung von I/O
+- `FileStream` zum schreiben von Files
+- `TextReader` und `TextWriter` für I/O mit Unicode-Zeichen
+- `BinaryReader` und `BinaryWriter` für I/O mit Binärdaten
+- `MemoryStream` liest und schreibt in den Speicher
+- `BufferdStream` erhöht die Performance
+- `CryptoStream` zur verschlüsselung von I/O
 
 Beispiel-Code zum Komprimieren, Schreiben und Lesen einer Datei:
 
@@ -295,10 +295,10 @@ brB.Close();
 ```
 
 ::: callout-important
-* `.Write( ... )` um etwas an den Buffer des Streams zu übergeben
-* `.Flush()` um den Buffer zu leeren *(Übertragen)*
-* `.Read()` um etwas aus dem Stream zu lesen
-* `.Close()` um den Stream zu schliessen **!Immer!**
+- `.Write( ... )` um etwas an den Buffer des Streams zu übergeben
+- `.Flush()` um den Buffer zu leeren *(Übertragen)*
+- `.Read()` um etwas aus dem Stream zu lesen
+- `.Close()` um den Stream zu schliessen **!Immer!**
 :::
 
 ## Delegates
@@ -326,8 +326,8 @@ static void Main () {
 Im obigen Beispiel wird dem delegate `doNotify` der Referenz der Methode `SayHello` übergeben. Das Delegate kann nun wie die Methode `SayHello` aufgerufen werden.
 
 ::: callout-important
-* Die Signatur des Delegates `void Notifier (string message)` muss mit jener der Methode `void SayHello (string sender)` übereinstimmen (auch der Rückgabewert).
-* Delegate Methoden dürfen nur aufgerufen werden wenn diese nicht `NULL`, also eine Zuweisung aufweisen
+- Die Signatur des Delegates `void Notifier (string message)` muss mit jener der Methode `void SayHello (string sender)` übereinstimmen (auch der Rückgabewert).
+- Delegate Methoden dürfen nur aufgerufen werden wenn diese nicht `NULL`, also eine Zuweisung aufweisen
 :::
 
 Delegates können auch auf Methoden von Objekten oder statischen Klassen zeigen
@@ -365,8 +365,8 @@ Mit dem Befehl `GetInvocationList()` kann ein Array aller Methoden auf dem Delag
 Es können auch *mehrere* Methoden auf ein Delegate zugewiesen werden, dies wird **Multicast**-Delegate genannt. Bei einem Aufruf oder `.Invoke()` werden der Reihe nach alle Methoden aufgerufen.
 
 ::: callout-important
-* Gibt es einen Rückgabewert, so wird nur der Letzte geliefert
-* Alle Methoden müssen die absolut selbe Signatur haben
+- Gibt es einen Rückgabewert, so wird nur der Letzte geliefert
+- Alle Methoden müssen die absolut selbe Signatur haben
 :::
 
 ```csharp
@@ -422,6 +422,19 @@ public class ModelEventArgs : EventArgs {
   public string EventData { get; }
 }
 ```
+:::
+
+`\vspace{5mm}`{=latex}
+
+::: callout-tip
+### `Eventhandler`
+
+Anstatt einzelne Delegates deklarieren zu müssen, kann das vordefinierte delegate `Eventhandler<TEventArgs>`{.csharp} verwendet werden.
+
+```csharp
+EventHandler<MyEventArgs> myEventHandler;
+```
+
 :::
 
 Nun können beliebige Klassen und Objekte Methoden auf den *`ModelChanged`* Event registrieren, welche über `Model.Update()` ausgeführt werden. Dies kann auch im Konstruktor einer Klasse geschehen
