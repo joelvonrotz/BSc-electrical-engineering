@@ -188,6 +188,70 @@ interface IDog : IAnimal {
 }
 ```
 
+### Explizite Implementation (Namenskonflikte)
+
+Da eine Klasse von zwei Klassen erben kann, können Namenskonflikte auftreten, wenn zwei Methoden gleich heissen. Dies wird über die *Explizite Implementation* gelöst.
+
+```csharp
+public interface IFileLog {
+  void LogError (string msg);
+}
+
+public interface INetLog {
+  void LogError (string msg);
+}
+
+public class MyLogger : IFileLog, INetLog {
+  void LogError(string msg) {
+    Console.Write("MyLogger: " + msg);
+  }
+}
+
+static void Main() {
+  IFileLog fileLog = new MyLogger();
+  INetLog netLog = new MyLogger();
+  MyLogger myLog = new MyLogger();
+  fileLog.LogError("Hanswurst Error");
+  netLog.LogError("Franzwurst Error");
+  myLog.LogError("Peterwurst Error");
+}
+```
+
+Die Methode `LogError` in der Klasse `MyLogger` implementiert gerade die Methoden beider Interfaces. Es wird also vom Objekttyp unabhängig auf die implementierte Methode zugegriffen. Der Output lautet somit
+
+```bash
+MyLogger: Hanswurst Error
+MyLogger: Franzwurst Error
+MyLogger: Peterwurst Error
+```
+
+Es kann auch für jedes Interface eine eigene Implementation erstellt werden, also **explizit Implementiert**
+
+```csharp
+public class MyLogger : IFileLog, INetLog {
+  void LogError(string msg) {
+    Console.Write("MyLogger: " + msg);
+  }
+
+  void IFileLog.LogError(string msg) {
+      Console.WriteLine("FileLog: " + msg);
+  }
+
+  void INetLog.LogError(string msg) {
+      Console.WriteLine("NetLog: " + msg);
+  }
+}
+```
+
+ So wird für jeden Methodenaufruf die explizit implementierte Methode aufgerufen und der Output ist nun
+
+```bash
+FileLog: Hanswurst Error
+NetLog: Franzwurst Error
+MyLogger: Peterwurst Error
+```
+
+
 ## Polymorphismus (Vielgestaltigkeit)
 
 Mit Polymorhpismus kann die vererbte Methode einen anderen Task ausführen, indem diese [überschrieben]{.underline} wird. Es bietet die Möglichkeit, dass Klassen verschiedene Implementierungen von Methoden anbieten, die über denselben Namen aufgerufen werden.
