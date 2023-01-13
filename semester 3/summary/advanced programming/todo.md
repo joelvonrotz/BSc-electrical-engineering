@@ -33,10 +33,10 @@ Da Andi, nimm das damit chasch de Spalt fillä
 # Kapitel 3
 
 - [x] Namespace
-- [ ] Scope & Zugriff
-- [ ] `this`
+- [x] Scope & Zugriff
+- [x] `this`
 - [x] (automatische) Properties
-- [ ] Klassendiagramme
+- [x] Klassendiagramme
 
 ## GNU & Linux
 

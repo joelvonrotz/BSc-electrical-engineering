@@ -46,7 +46,63 @@ class TestGenericList {
 }
 ```
 
-## Scope & Zugriff
+## Scope / Geltungsbereich
+
+Der Teil des Programms, in dem auf eine bestimmte Variable zugegriffen werden kann, wird als der Geltungsbereich oder *Scope* dieser Variable bezeichnet. Schlüsselwörter, wie `namespace` (siehe Kapitel @sec-namespace), `class` und andere, passen den Geltungsbereich an.
+
+::: {.callout-important}
+
+Die lokalste Variable wird immer bevorzugt. Im folgenden Beispiel wird bei `price = price`{.csharp} der Methodenparameter `price` anstatt die Membervariable `price` bevorzugt.
+
+```csharp
+public class Car {
+  private int price;
+  public void SetPrice(int price) {
+    price = price;
+  }
+}
+```
+:::
+
+### Class Level (Membervariablen) {.unnumbered .unlisted}
+
+- Variablen in der Klasse, aber ausserhalb von Methoden, können von jeder nicht-`static`-Methode zugegriffen werden.
+- `static` Variablen können diese von jeder (inklusive `static`) Methoden verwendet werden.
+- Auf Membervariablen kann auch außerhalb der Klasse zugegriffen werden, indem die Zugriffsmodifikatoren (@sec-modifier) verwendet werden.
+- Zugriffsmodifikatoren der Variablen haben keinen Einfluss auf den Scope in der Klasse. 
+
+**Methoden Level**
+
+### Methoden Level (lokale Variablen) {.unnumbered .unlisted}
+
+In Methoden deklarierte Variablen...
+
+- ...haben ihren Scope [nur]{.underline} auf [Methodenebene]{.underline}
+- ...sind in verschachtelten Codeblöcken innerhalb einer Methode zugreifbar.
+- ...existieren nicht mehr, nachdem die Ausführung der Methode beendet ist.
+- Wenn diese Variablen zweimal mit demselben Namen im selben Scope deklariert werden, kommt es zu einem Kompilierungsfehler.
+
+### Block Level (Schleifen-/Anweisungsvariablen) {.unnumbered .unlisted}
+
+Schleifen-/Anweisungsvariablen Variablen...
+
+- ...werden innerhalb der for-, if-, while-Anweisung usw. deklariert.
+- ...werden so bezeichnet, da ihr Scope nur in der Anweisung, in der sie deklariert wurden, begrenzt ist.
+- Variablen, die außerhalb der Schleife deklariert wurden, sind auch innerhalb der verschachtelten Schleifen zugänglich.
+- Eine Variable, die innerhalb eines Schleifenkörpers deklariert ist, ist außerhalb des Schleifenkörpers nicht sichtbar.
+
+```csharp
+int a = 0;
+if(a == 0) {
+  int b = 3;
+  a++;
+  
+  if(b == 3 && a == 1) {
+    int c = a + b;
+  }
+  c = 4; // Compile Error -> outside of scope
+}
+```
 
 ## Overloading
 
@@ -102,6 +158,15 @@ class Point {
   Console.WriteLine("no value");
 }
 ```
+
+`\vspace{3mm}`{=latex}
+
+::: {.callout-note}
+
+##### Schlüsselwort `this`
+
+`this` wird nur in Methoden des eigenen Objektes verwendet, um in einer Methode der eigenen Klasse eine Membervariable oder Methoden von sich selbst (also dem Objekt) anzuwenden. Das Schlüsselwort [kann weggelassen]{.underline} werden, wenn es [keine andere Variablen mit dem gleichen Namen]{.underline} in der Methode existieren (z.B. von einem Parameter).
+:::
 
 Wird nun `Point(4)` aufgerufen, werden die Parameter auf die unterste Ebene durchgereicht und die Konstruktoren werden in umgekehrter Aufrufreihenfolge abgearbeitet. So erhält man folgendes auf der Konsole
 

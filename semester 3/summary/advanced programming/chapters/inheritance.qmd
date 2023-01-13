@@ -247,4 +247,24 @@ Woof Woof!
 
 ## Klassendiagramme
 
-Ein Klassendiagramm beschreibt die Beziehungen zwischen den Klassen und die einzelnen Elemente der Klasse, zum Beispiel Methoden, Variablen, Prototypen, etc..
+Ein Klassendiagramm beschreibt die Beziehungen zwischen mehreren Klassen und die einzelnen Elemente der Klasse, zum Beispiel Methoden, Variablen, Prototypen, etc.. Diese Diagramme dienen eher als Übersicht der Klassen. In Visual Studio können das Erstellen neuer Klassen, Interfaces, etc. und Vererbungen gemacht werden.
+
+**Beziehungen** werden mit einer Linie (A `\textemdash`{=latex} B) gekennzeichnet und beschreiben eine Verbindung zwischen Klasse A und Klasse B.
+
+![](images/klassendiagramm/Assoziation_Beziehung.png)
+
+Die **Assoziation** wird mit einem Pfeil (*Line* $\longrightarrow$ *Point*) gekennzeichnet und beschreibt, dass zum Beispiel die Klasse *Line* zwei Objekte von *Point* besitzt.
+
+![](images/klassendiagramm/Assoziation_Navigierbarkeit.png)
+
+Die **Aggregation** ist ein Sonderfall der Beziehung. Diese beschreibt, dass zum Beispiel die Klasse *Student* auch ohne *Vorlesung* existieren [kann]{.underline}.
+
+![](images/klassendiagramm/Assoziation_Aggregation.png)
+
+Die Komposition ist ebenfalls ein Sonderfall und beschreibt die Abhängigkeit einer Klasse zu einer anderen. Zum Beispiel kann die Klasse *Raum* ohne *Gebäude* [nicht]{.underline} existieren.
+
+![](images/klassendiagramm/Assoziation_Komposition.png)
+
+Letzteres kommt die **Vererbung** und beschreibt, dass zum Beispiel die Klasse *Student* die Eigenschaften und Methoden von der Klasse *Mensch* erbt. 
+
+![](images/klassendiagramm/Assoziation_Vererbung.png)
