@@ -28,20 +28,20 @@ class Program {
 Mit dem generischen Typenparameter `T` deklariert werden, bei welcher erst zur Deklaration der Datentyp instanziiert wird. Wenn eine Klasse mit einem kontreten Typen instanziiert wird, wird `T` mit dem Typen ersetzt.
 
 ```csharp
-public class GenericList<T> {
+public class GenList<T> {
   public void Add(T input) { }
 }
 
 class TestGenericList {
-  private class ExampleClass { }
+  private class Class { }
   static void Main() {
     // Declare a list of type int.
-    GenericList<int> list1 = new GenericList<int>();
+    GenList<int> list1 = new GenList<int>();
     list1.Add(1);
 
     // Declare a list of type ExampleClass.
-    GenericList<ExampleClass> list2 = new GenericList<ExampleClass>();
-    list2.Add(new ExampleClass());
+    GenList<Class> list2 = new GenList<Class>();
+    list2.Add(new Class());
   }
 }
 ```
