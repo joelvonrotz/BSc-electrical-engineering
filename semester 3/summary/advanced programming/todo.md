@@ -12,7 +12,7 @@ Da Andi, nimm das damit chasch de Spalt fillä
 - [ ] C# und .NET-Framework
 - [ ] Struktur C#-Programm
 - [x] Klassen
-- [ ] Operatoren & Reihenfolge
+- [x] Operatoren & Reihenfolge
 - [ ] Klasse `System.String`
 - [ ] Implizit & Explizit Casting
 - [ ] Klasse Console
@@ -20,7 +20,7 @@ Da Andi, nimm das damit chasch de Spalt fillä
 
 # Kapitel 2
 
-- [ ] Array & Multidimensionale Array 
+- [x] Array & Multidimensionale Array 
 - [x] OOP (vs. POP)
 - [x] Modifier (`private,public,abstract,etc.`) -> Klassen, Enum, Membervariablen, Properties, Methoden
 - [x] Konstruktor & Destruktor
@@ -33,14 +33,14 @@ Da Andi, nimm das damit chasch de Spalt fillä
 # Kapitel 3
 
 - [x] Namespace
-- [ ] Scope & Zugriff
-- [ ] `this`
+- [x] Scope & Zugriff
+- [x] `this`
 - [x] (automatische) Properties
-- [ ] Klassendiagramme
+- [x] Klassendiagramme
 
 ## GNU & Linux
 
-- [ ] Konsole (cheat sheet mit Befehlen)
+- [x] Konsole (cheat sheet mit Befehlen)
 - [x] Umleitung Streams
 - [ ] GPIO Ansteuerung via Konsole?
 
@@ -53,15 +53,15 @@ Da Andi, nimm das damit chasch de Spalt fillä
 
 ## Linux Dateisystem
 
-- [ ] Befehle (siehe Labor für Cheatsheet)
+- [x] Befehle (siehe Labor für Cheatsheet)
 - [ ] Berechtigungssystem
 
 # Kapitel 5
 
 ## C# Genercis, Lists und Collections
 
-- [ ] Indexer
-- [ ] Generics
+- [x] Indexer
+- [x] Generics
 - [x] `static`
 - [x] `const`
 
@@ -77,10 +77,10 @@ Da Andi, nimm das damit chasch de Spalt fillä
 
 ## C# Exceptions, Vererbung
 
-- [ ] Exceptions (`try`,`catch`,`finally`)  (`Joel`)
-- [ ] Exception auslösen (`throw`)          (`Joel`)
-- [ ] Vererbung & Konstruktor               (`Joel`)
-- [ ] Polymorphismus (Vielgestaltigkeit)    (`Joel`)
+- [x] Exceptions (`try`,`catch`,`finally`)  (`Joel`)
+- [x] Exception auslösen (`throw`)          (`Joel`)
+- [x] Vererbung & Konstruktor               (`Joel`)
+- [x] Polymorphismus (Vielgestaltigkeit)    (`Joel`)
 
 ## .NET unter Linux
 
@@ -97,11 +97,11 @@ Da Andi, nimm das damit chasch de Spalt fillä
 
 # Kapitel 8
 
-- [ ] Abstrake Klassen (`virtual`,`abstract`, `override`)   (`Manuel`)
-- [ ] Interfaces (`interface`)                              (`Manuel`)
-- [ ] Erbung Interfaces                                     (`Manuel`)
-- [ ] Namenskonflike 
-- [ ] Explitzite Implementationen (`I1.draw()`,`I2.draw()`)
+- [x] Abstrake Klassen (`virtual`,`abstract`, `override`)   (`Manuel`)
+- [x] Interfaces (`interface`)                              (`Manuel`)
+- [x] Erbung Interfaces                                     (`Manuel`)
+- [x] Namenskonflike 
+- [x] Explitzite Implementationen (`I1.draw()`,`I2.draw()`)
 - [ ] Logging (NLog)
 - [ ] Tunneling
 
@@ -123,9 +123,9 @@ Da Andi, nimm das damit chasch de Spalt fillä
 
 ## C# - [ ] Delegates, Events & Threads
 
-- [ ] Delegates
-- [ ] Multicast Delegates
-- [ ] Events & Eventhandler
+- [x] Delegates
+- [x] Multicast Delegates
+- [x] Events & Eventhandler
 - [ ] Multithreading
 - [ ] Threadlebenszyklus
 - [ ] Synchronisation

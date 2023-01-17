@@ -46,7 +46,63 @@ class TestGenericList {
 }
 ```
 
-## Scope & Zugriff
+## Scope / Geltungsbereich
+
+Der Teil des Programms, in dem auf eine bestimmte Variable zugegriffen werden kann, wird als der Geltungsbereich oder *Scope* dieser Variable bezeichnet. Schlüsselwörter, wie `namespace` (siehe Kapitel @sec-namespace), `class` und andere, passen den Geltungsbereich an.
+
+::: {.callout-important}
+
+Die lokalste Variable wird immer bevorzugt. Im folgenden Beispiel wird bei `price = price`{.csharp} der Methodenparameter `price` anstatt die Membervariable `price` bevorzugt.
+
+```csharp
+public class Car {
+  private int price;
+  public void SetPrice(int price) {
+    price = price;
+  }
+}
+```
+:::
+
+### Class Level (Membervariablen) {.unnumbered .unlisted}
+
+- Variablen in der Klasse, aber ausserhalb von Methoden, können von jeder nicht-`static`-Methode zugegriffen werden.
+- `static` Variablen können diese von jeder (inklusive `static`) Methoden verwendet werden.
+- Auf Membervariablen kann auch außerhalb der Klasse zugegriffen werden, indem die Zugriffsmodifikatoren (@sec-modifier) verwendet werden.
+- Zugriffsmodifikatoren der Variablen haben keinen Einfluss auf den Scope in der Klasse. 
+
+**Methoden Level**
+
+### Methoden Level (lokale Variablen) {.unnumbered .unlisted}
+
+In Methoden deklarierte Variablen...
+
+- ...haben ihren Scope [nur]{.underline} auf [Methodenebene]{.underline}
+- ...sind in verschachtelten Codeblöcken innerhalb einer Methode zugreifbar.
+- ...existieren nicht mehr, nachdem die Ausführung der Methode beendet ist.
+- Wenn diese Variablen zweimal mit demselben Namen im selben Scope deklariert werden, kommt es zu einem Kompilierungsfehler.
+
+### Block Level (Schleifen-/Anweisungsvariablen) {.unnumbered .unlisted}
+
+Schleifen-/Anweisungsvariablen Variablen...
+
+- ...werden innerhalb der for-, if-, while-Anweisung usw. deklariert.
+- ...werden so bezeichnet, da ihr Scope nur in der Anweisung, in der sie deklariert wurden, begrenzt ist.
+- Variablen, die außerhalb der Schleife deklariert wurden, sind auch innerhalb der verschachtelten Schleifen zugänglich.
+- Eine Variable, die innerhalb eines Schleifenkörpers deklariert ist, ist außerhalb des Schleifenkörpers nicht sichtbar.
+
+```csharp
+int a = 0;
+if(a == 0) {
+  int b = 3;
+  a++;
+  
+  if(b == 3 && a == 1) {
+    int c = a + b;
+  }
+  c = 4; // Compile Error -> outside of scope
+}
+```
 
 ## Overloading
 
@@ -103,6 +159,15 @@ class Point {
 }
 ```
 
+`\vspace{3mm}`{=latex}
+
+::: {.callout-note}
+
+##### Schlüsselwort `this`
+
+`this` wird nur in Methoden des eigenen Objektes verwendet, um in einer Methode der eigenen Klasse eine Membervariable oder Methoden von sich selbst (also dem Objekt) anzuwenden. Das Schlüsselwort [kann weggelassen]{.underline} werden, wenn es [keine andere Variablen mit dem gleichen Namen]{.underline} in der Methode existieren (z.B. von einem Parameter).
+:::
+
 Wird nun `Point(4)` aufgerufen, werden die Parameter auf die unterste Ebene durchgereicht und die Konstruktoren werden in umgekehrter Aufrufreihenfolge abgearbeitet. So erhält man folgendes auf der Konsole
 
 ```output
@@ -146,7 +211,7 @@ Draw bw = new Draw(false);    // inColor = false
 
 ## Exceptions
 
-*Exceptions* sind in den meisten grundlegenden Funktionen implementiert und werden ausgelöst, wenn die Vorgaben nicht eingehalten werden. Ein Beispiel wäre ein Datenpacket via TCP zu verschicken, ohne zuerst mit dem TCP-Server zu verbinden.
+*Exceptions* sind in den meisten grundlegenden Funktionen implementiert und werden ausgelöst, wenn die entsprechenden Vorgaben nicht eingehalten werden. Ein Beispiel wäre ein Datenpacket via TCP zu verschicken, ohne zuerst mit dem TCP-Server zu verbinden (wenn keine Strasse zur Adresse existiert, wie sollte die Post wissen wo durch?)
 
 ### Exceptions abfangen mit `try` & `catch`
 
@@ -168,7 +233,7 @@ Die `catch`-"Parametern" müssen nicht unbedingt existieren, erlaubt aber den Fe
 
 ### Erweiterung `finally`
 
-Der `finally`-Codeblock wird verwendet, um etwas zu machen, bevor aus der Funktion gegangen wird. Ein Beispiel wäre eine Kommunikation zu beenden.
+Der `finally`-Codeblock wird verwendet, um etwas zu machen, bevor aus der Funktion gesprungen wird mit `return`. Ein Beispiel wäre eine Kommunikation zu beenden.
 
 ```csharp
 try {
@@ -250,12 +315,12 @@ int j = (int)o; // unbox the object
 
 Streams (*Datenströme*) sind ein grundlegendes Konzept für Daten Ein-/Ausgabe. Streams abstrahieren ein dahinterliegendes I/O-Gerät (z.B. Datei, Tastatur, Konsole, Netzwerk, ...) und lassen so C#-Programme Daten darauf lesen oder schreiben. Es wird der Namespace `System.IO`{.csharp} genutzt und alle Streams implementieren die abstrakte `System.IO.Stream`{.csharp} Klasse.
 
-* `FileStream` zum schreiben von Files
-* `TextReader` und `TextWriter` für I/O mit Unicode-Zeichen
-* `BinaryReader` und `BinaryWriter` für I/O mit Binärdaten
-* `MemoryStream` liest und schreibt in den Speicher
-* `BufferdStream` erhöht die Performance
-* `CryptoStream` zur verschlüsselung von I/O
+- `FileStream` zum schreiben von Files
+- `TextReader` und `TextWriter` für I/O mit Unicode-Zeichen
+- `BinaryReader` und `BinaryWriter` für I/O mit Binärdaten
+- `MemoryStream` liest und schreibt in den Speicher
+- `BufferdStream` erhöht die Performance
+- `CryptoStream` zur verschlüsselung von I/O
 
 Beispiel-Code zum Komprimieren, Schreiben und Lesen einer Datei:
 
@@ -295,14 +360,187 @@ brB.Close();
 ```
 
 ::: callout-important
-* `.Write( ... )` um etwas an den Buffer des Streams zu übergeben
-* `.Flush()` um den Buffer zu leeren *(Übertragen)*
-* `.Read()` um etwas aus dem Stream zu lesen
-* `.Close()` um den Stream zu schliessen **!Immer!**
+- `.Write( ... )` um etwas an den Buffer des Streams zu übergeben
+- `.Flush()` um den Buffer zu leeren *(Übertragen)*
+- `.Read()` um etwas aus dem Stream zu lesen
+- `.Close()` um den Stream zu schliessen **!Immer!**
 :::
 
 ## Delegates
 
+Delegates sind das OOP-pendant zu *Funktionszeigern* in `C` oder `C++`, ist also eine **Referenztyp-Variable** welche mit dem Schlüsselwort `delegate` verwendet wird und auf eine Mehtode zeigt.
+
+```csharp
+private delegate void Notifier (string message);
+
+// method for Notifier
+static void SayHello (string sender) {
+  Console.WriteLine($"Hello from {sender}");
+}
+
+// main-method
+static void Main () {
+  // attach method to delegate
+  Notifier doNotify = SayHello; 
+  doNotify("Hanswurst");
+}
+
+// out: "Hello from Hanswurst"
+```
+
+Im obigen Beispiel wird dem delegate `doNotify` der Referenz der Methode `SayHello` übergeben. Das Delegate kann nun wie die Methode `SayHello` aufgerufen werden.
+
+::: callout-important
+- Die Signatur des Delegates `void Notifier (string message)` muss mit jener der Methode `void SayHello (string sender)` übereinstimmen (auch der Rückgabewert).
+- Delegate Methoden dürfen nur aufgerufen werden wenn diese nicht `NULL`, also eine Zuweisung aufweisen
+:::
+
+Delegates können auch auf Methoden von Objekten oder statischen Klassen zeigen
+
+```csharp
+doNotify = Obj.SayGueteMorge;
+doNotify = StaticClass.SayMoin;
+doNotify = this.SayAdieu;
+```
+
+### `.Invoke()`
+
+Anstelle des direkten Funktionsaufruf des Delegates
+
+```csharp
+doNotify("Oliver");
+```
+
+Kann auch die Methode `.Invoke()` angewendet werden. Diese führt die Methode aus, auf welche das Delegate zeigt
+
+```csharp
+doNotify.Invoke("Oliver");
+```
+
+Der Vorteil hierbei liegt bei der möglichen Verwendung von `NULL`-checking. So wird das Delegate nur ausgeführt, wenn auch eine Methode zugewiesen wurde.
+
+```csharp
+doNotify?.Invoke("Oliver");
+```
+
+Mit dem Befehl `GetInvocationList()` kann ein Array aller Methoden auf dem Delagate generiert werden.
+
 ### Multicast
 
+Es können auch *mehrere* Methoden auf ein Delegate zugewiesen werden, dies wird **Multicast**-Delegate genannt. Bei einem Aufruf oder `.Invoke()` werden der Reihe nach alle Methoden aufgerufen.
+
+::: callout-important
+- Gibt es einen Rückgabewert, so wird nur der Letzte geliefert
+- Alle Methoden müssen die absolut selbe Signatur haben
+:::
+
+```csharp
+Notifier doNotify;
+// add methods to delegate
+doNotify += SayHello;
+doNotify += SayGoodBye;
+// output Hello !and! GoodBye
+doNotify.Invoke("Franzl");
+
+// remove a method
+doNotify -= SayHello;
+// output GoodBye only
+doNotify.Invoke("Sissi")
+```
+
 ## Events
+
+Events entsprechen einer spezifizierten Nutzung von Delegates. Ein Ereignis ist ein Mechanismus mit dem ein Programmabschnitt darüber informiert werden kann, dass etwas im System passiert ist um darauf zu reagieren. z.B. anklicken einer Schaltfläche, Unterbruch einer Netzwerkverbindung, Änderung eines Wertes. Ein Ereignis besteht aus einem Ereignisauslöser (**event trigger**) und einem oder mehrerer Ereignishandlern (**event handler**), welche aufgerufen werden, wenn das Event ausgelöst wird.
+
+Ein Event kann nur in der eigenen Klasse (oder Implementierung) geändert und gefeuert werden (Events sind immer `public`). Ausserhalb ist nur das Hinzufügen `+=` und Entfernen `-=` von Eventhandlern erlaubt. Folgendes Beispiel beschreibt die Klasse einer Ereignisquelle
+
+```csharp
+public class Model {
+  // event
+  event EventHandler<ModelEventArgs> ModelChanged;
+  // instantiate arguments
+  public ModelEventArgs e;
+  e = new ModelEventArgs("Update Model");
+  // fire event
+  public void Update() {
+    ModelChanged?.Invoke()
+  }
+}
+```
+
+::: callout-important
+Eventhandler haben wie Delegatesmethoden ein vorgegebene Signatur die eingehalten werden muss
+
+```csharp
+void EventHandler(object source, EventArgs e);
+```
+
+Benötigte Parameter werden in den Parameter **`e`** verpackt um so der Signatur gerecht zu werden. Hierzu wird die Klasse `MyEventArgs` benötigt, welche von `EventArgs` erbt
+
+```csharp
+public class ModelEventArgs : EventArgs {
+  // constructor to generate e
+  public ModelEventArgs (string eventData) {
+    this.EventData = eventData;
+  }
+  // all data needed in a handler
+  public string EventData { get; }
+}
+```
+:::
+
+`\vspace{5mm}`{=latex}
+
+::: callout-tip
+### `Eventhandler`
+
+Anstatt einzelne Delegates deklarieren zu müssen, kann das vordefinierte delegate `Eventhandler<TEventArgs>`{.csharp} verwendet werden.
+
+```csharp
+EventHandler<MyEventArgs> myEventHandler;
+```
+
+:::
+
+Nun können beliebige Klassen und Objekte Methoden auf den *`ModelChanged`* Event registrieren, welche über `Model.Update()` ausgeführt werden. Dies kann auch im Konstruktor einer Klasse geschehen
+
+```csharp
+public class View {
+  private string Id { get; }
+
+  public View (string id, Model m) {
+    this.Id = id;
+    // register event
+    m.ModelChanged += ChangedHandler;
+  }
+  // Eventhandler
+  private void ChangedHandler (object source, 
+                              ModelEventArgs e){
+    string data = e.EventData;
+    Console.WriteLine($"{Id} does: {data}");
+  }
+}
+```
+
+Es können nun Objekte von `View` erstellt werden, welche sich direkt auf den Event `ModelChanged` registrieren. Wird ein `.Update()` ausgeführt, geschieht dies mit allen Objekten
+
+```csharp
+static void Main() {
+  Model m = new Model();
+  View v1 = new View("v1", m);
+  View v2 = new View("v2", m);
+  // fire event
+  m.Update();
+}
+```
+
+Bei Ausführung des Programms erhalten wir so den Output
+
+```bash
+v1 does: Update Model
+v2 does: Update Model
+```
+
+Das Obige Beispiel kann so veranschaulicht werden:
+
+![](images/EventHandling.png)

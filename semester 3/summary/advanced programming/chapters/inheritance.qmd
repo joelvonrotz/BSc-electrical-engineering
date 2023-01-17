@@ -3,7 +3,7 @@ Bei der Vererbung wird eine Klasse als **Erweiterung** einer anderen (*Basis*-)K
 Vererbungen werden mit dem Schlüsselwort `:` direkt nach dem Klassennamen angegeben. Als Vererbungen können Interfaces, abstrakte und normale Klassen verwendet werden.
 
 ::: callout-important
-Klassen können nur von **einer** Klasse (inkl. abstrakt) erben, dafür von **mehreren** Interfaces.
+Klassen können nur von **einer** Klasse (inkl. abstrakt) erben, dafür **mehrere** Interfaces implementieren.
 :::
 
 ```csharp
@@ -31,13 +31,19 @@ class Shape {
 class Circle : Shape {
   public Circle() : base(0,0) { /* ... */ }
 }
+
+class Square : Shape {
+  public Square(int x, int y) : base(x,y) {
+    /* ... */
+  }
+}
 ```
 
 ## Abstrakte Klassen
 
 ### virtual
 
-Das Schlüsselwort `virtual` wird verwendet, um Methoden-, Eigenschaften-, Indexer- oder Ereignisdeklarationen zu ändern und erlaubt es abgeleiteten Klassen, diese zu überschreiben. Wenn eine `virtual` Methode aufgerufen wird, wird der Laufzeittyp des Objekts auf einen `override` Member überprüft. Der überschreibende Member der am meisten abgeleitete Klasse wird aufgerufen, was der ursprüngliche Member sein kann, wenn keine erbende Klasse den Member überschrieben hat. Per Default sind Methoden `non-virtual` und lassen sich nicht überschreiben.
+Das Schlüsselwort `virtual` wird verwendet, um Methoden-, Eigenschaften-, Indexer- oder Ereignisdeklarationen überschreibbar zu machen und erlaubt es so, abgeleiteten Klassen, diese zu überschreiben. Wenn eine `virtual` Methode aufgerufen wird, wird der Laufzeittyp des Objekts auf einen `override` Member überprüft. Der überschreibende Member der am meisten abgeleitete Klasse wird aufgerufen, was der ursprüngliche Member sein kann, wenn keine erbende Klasse den Member überschrieben hat. Per Default sind Methoden `non-virtual` und lassen sich nicht überschreiben.
 
 ```csharp
 class TestClass {
@@ -72,20 +78,23 @@ class TestClass {
 
 ### abstract
 
-Der Modifier `abstract` gibt an, dass das Objekt, welches geändert wird, eine fehlende oder unvollständige Implementation aufweist. Der `abstract` Modifier kann mit Klassen, Methoden, Properties, Indexern und Events verwendet werden und gibt in einer Klassen-Deklaration an, dass die Klasse ausschliesslich dazu dient, als Basisklasse für andere Klassen zu dienen. Member, die als `abstract` klassifiziert sind, müssen von `non-abstract` Klassen implementiert werden, die von der `abstract` Klasse erben.
+Der Modifier `abstract` gibt an, dass die Klasse unvollständige Implementationen aufweist. Der `abstract` Modifier kann mit Klassen, Methoden, Properties, Indexern und Events verwendet werden und gibt in einer Klassen-Deklaration an, dass die Klasse ausschliesslich dazu dient, als Basisklasse für andere Klassen zu dienen. Member, die als `abstract` klassifiziert sind, müssen von `non-abstract` Klassen implementiert werden, die von der `abstract` Klasse erben.
 
 ```csharp
+abstract class Shape {
 abstract class Shape {
   public abstract int GetArea();
 }
 
+class Square : Shape {
 class Square : Shape {
   private int _side;
 
   public Square(int n) => _side = n;
 
   // GetArea method is required to avoid a error.
-  public override int GetArea() => _side * _side;
+  public override int GetArea() => _side*_side;
+}
 
   static void Main() {
     var sq = new Square(12);
@@ -96,25 +105,33 @@ class Square : Shape {
 ```
 
 `Abstract` Klassen haben folgende Eigenschaften:
-    - eine `abstract` Klasse kann nicht instantiiert werden
-    - eine `abstract` Klasse kann `abstract` Methoden und Accessors beinhalten
-    - eine nicht abstrakte Klasse, die von einer abstrakten Klasse abgeleitet wurde, muss Implementierungen aller geerbten abstrakten Methoden und Accessoren enthalten
+
+  - eine `abstract` Klasse kann nicht instantiiert werden
+  - eine `abstract` Klasse kann `abstract` Methoden und Accessors beinhalten
+  - eine nicht abstrakte Klasse, die von einer abstrakten Klasse abgeleitet wurde, muss Implementierungen aller geerbten abstrakten Methoden und Accessoren enthalten
 
 `Abstract` Methoden haben folgende Eigenschaften:
-    - eine `abstract` Methode ist implizit eine `virtual` Methode
-    - abstrakte Methodendeklarationen sind nur in abstrakten Klassen zulässig
-    - es gibt keinen Methodenkörper, da eine abstrakte Methodendeklaration keine Implementierungen bietet; die Methodendeklaration enden ganz einfach mit einem Semikolon; auf die Signatur folgen keine geschweiften Klammern
-    - es ist unzulässig, die Modifizierer `static` oder `virtual` in einer abstrakten Methodendeklaration zu verwenden.
+
+  - eine `abstract` Methode ist implizit eine `virtual` Methode
+  - abstrakte Methodendeklarationen sind nur in abstrakten Klassen zulässig
+  - es gibt keinen Methodenkörper, da eine abstrakte Methodendeklaration keine Implementierungen bietet
+  - es ist unzulässig, die Modifizierer `static` oder `virtual` in einer abstrakten Methodendeklaration zu verwenden.
 
 ### override
 
-Der Modifier `override` ist erforderlich, um die `abstract` oder `virtual` Implementierung von einer geerbten Methode, Property, eines Indexers oder eines Events zu erweitern oder zu ändern. Eine `override` Methode muss die selbe Signatur wie die überschriebene Basis-Methode haben. Der Rückgabetyp einer `override` Methode kann sich unterscheiden vom Rückgabetyp der korrespondierenden Basis-Methode. 
+Der Modifier `override` ist erforderlich, um die mit `abstract` oder `virtual` bezeichneten Methoden und Membern einer abstrakten Klasse zu implementieren. Eine `override` Methode muss die selbe Signatur wie die überschriebene Basis-Methode haben. Der Rückgabetyp einer `override` Methode kann sich unterscheiden vom Rückgabetyp der korrespondierenden Basis-Methode. 
 
-Eine `non-virtual` oder `static` Methode kann nicht überschrieben werden. Die überschriebene Base-Methode muss `virtual`, `abstract` oder `override` sein. Eine `override` Deklaration kann nicht die Zugänglichkeit auf die `virtual` Methode ändern. Die `override` und die `virtual` Methode müssen die selben access level modifier haben. Die Modifier `new`, `static`, oder `virtual` können nicht verwendet werden, um eine `override` Methode zu ändern.
+Eine `non-virtual` oder `static` Methode kann nicht überschrieben werden. Die überschriebene Base-Methode muss `virtual`, `abstract` oder `override` sein. Die `override` und die `virtual` Methode müssen die selben access level modifier haben. Die Modifier `new`, `static`, oder `virtual` können nicht verwendet werden, um eine `override` Methode zu ändern.
 
 ```csharp
 abstract class Shape {
   public abstract int GetArea();
+  public virtual void PrintArea() {
+    Console.WriteLine("No Area implemented");
+  }
+  public virtual void PrintPos() {
+    Console.WriteLine("No Position implemented");
+  }
 }
 
 class Square : Shape {
@@ -130,32 +147,40 @@ class Square : Shape {
     Console.WriteLine($"Area = {sq.GetArea()}");
   }
 }
-// Output: Area of the square = 144
+
+static void Main() {
+  var sq = new Square(12);
+  sq.PrintArea();
+  sq.PrintPos();
+}
+// Output: 
+// Area = 144
+// No Position implemented
 ```
 
 ## Interfaces
 
-`interface` sind komplett abstrakte Klassen und können nur Methodenprototypen, Delegates und leere Properties beinhalten, daher **keine** Implementationen. Sie bilden das Grundfundament für Basis- und Erweiterungsklassen.
+`interface` sind komplett abstrakte Klassen und können nur Methodenprototypen, Delegates und leere Properties beinhalten, daher **keine** Implementationen. Sie bilden das Grundfundament für Basis- und Erweiterungsklassen. Es ist **nicht möglich Objekte von Interfaces** zu erstellen.
 
 ```csharp
 interface IAnimal {
-  void animalSound(); // interface method 
+  void animalSound(); // interface method
+  bool Age { get; set; }
   void run(); // interface method
+  event EventHandler<AnimalArgs> MoodChanged;
 }
 ```
 
-Wenn Interfaces geerbt werden, muss der Inhalt des Interfaces implementiert werden, ansonsten ist das Programm nicht kompilierbar.
-
-::: callout-caution
-Es können keine Objekte von Interfaces erstellt werden!
-:::
+Wenn Interfaces implementiert werden, müssen alle Methoden und Member des Interfaces implementiert werden, ansonsten ist das Programm nicht kompilierbar.
 
 ::: callout-note
-Interfaces werden meist mit dem `I`-Präfix gekennzeichnet.
+
+Interfaces werden mit dem `I`-Präfix gekennzeichnet.
 
 ```csharp
 interface IAnimal
 ```
+
 :::
 
 Interfaces können von einander erben und es kann einfach die neuen Inhalte eingefügt werden. Die explizite Implementierung findet in den Klassen statt.
@@ -170,13 +195,147 @@ interface IDog : IAnimal {
 }
 ```
 
-## Polymorphismus
+### Explizite Implementation (Namenskonflikte)
+
+Da eine Klasse von zwei Klassen erben kann, können Namenskonflikte auftreten, wenn zwei Methoden gleich heissen. Dies wird über die *Explizite Implementation* gelöst.
 
 ```csharp
-Animal animal = new animal();
-Animal dog = new Dog();
+public interface IFileLog {
+  void LogError (string msg);
+}
+
+public interface INetLog {
+  void LogError (string msg);
+}
+
+public class MyLogger : IFileLog, INetLog {
+  void LogError(string msg) {
+    Console.Write("MyLogger: " + msg);
+  }
+}
+
+static void Main() {
+  IFileLog fileLog = new MyLogger();
+  INetLog netLog = new MyLogger();
+  MyLogger myLog = new MyLogger();
+  fileLog.LogError("Hanswurst Error");
+  netLog.LogError("Franzwurst Error");
+  myLog.LogError("Peterwurst Error");
+}
+```
+
+Die Methode `LogError` in der Klasse `MyLogger` implementiert gerade die Methoden beider Interfaces. Es wird also vom Objekttyp unabhängig auf die implementierte Methode zugegriffen. Der Output lautet somit
+
+```bash
+MyLogger: Hanswurst Error
+MyLogger: Franzwurst Error
+MyLogger: Peterwurst Error
+```
+
+Es kann auch für jedes Interface eine eigene Implementation erstellt werden, also **explizit Implementiert**
+
+```csharp
+public class MyLogger : IFileLog, INetLog {
+  void LogError(string msg) {
+    Console.Write("MyLogger: " + msg);
+  }
+
+  void IFileLog.LogError(string msg) {
+      Console.WriteLine("FileLog: " + msg);
+  }
+
+  void INetLog.LogError(string msg) {
+      Console.WriteLine("NetLog: " + msg);
+  }
+}
+```
+
+ So wird für jeden Methodenaufruf die explizit implementierte Methode aufgerufen und der Output ist nun
+
+```bash
+FileLog: Hanswurst Error
+NetLog: Franzwurst Error
+MyLogger: Peterwurst Error
 ```
 
 
+## Polymorphismus (Vielgestaltigkeit)
+
+Mit Polymorhpismus kann die vererbte Methode einen anderen Task ausführen, indem diese [überschrieben]{.underline} wird. Es bietet die Möglichkeit, dass Klassen verschiedene Implementierungen von Methoden anbieten, die über denselben Namen aufgerufen werden.
+
+```csharp
+class Animal {
+  public virtual void animalSound() {
+    Console.WriteLine("Animal makes no sound");
+  }
+}
+
+class Pig : Animal {
+  public override void animalSound() {
+    Console.WriteLine("Oink Oink!");
+  }
+}
+
+class Dog : Animal {
+  public override void animalSound() {
+    Console.WriteLine("Woof Woof!");
+  }
+}
+```
+
+Zur Laufzeit können Objekte einer abgeleiteten Klasse als Objekte einer Basisklasse behandelt werden, z. B. in Methodenparametern und Sammlungen oder Arrays (bei `Animal`-Array die Tiere durchgehen, wie im folgenden Beispiel).
+
+```csharp
+void Main() {
+  Animal[] animals = new Animal[] {
+    new Animal(),
+    new Dog(),
+    new Pig() };
+  // base `Animal` is needed here, other types
+  // aren't allowed
+  foreach (Animal animal in animals) {
+    // make respective sound or fallback to
+    // base method when none exists.
+    animal.doAnimalSound();
+  }
+}
+```
+
+[Ausgabe]{.underline}:
+
+```cmd
+Animal makes no sound
+Oink Oink!
+Woof Woof!
+```
+
+::: callout-important
+
+- Dass `override` und `virtual` ist wichtig, da ansonsten die Base-Methode `animalSound` verwendet wird, anstatt die individuellen `animalSound`. 
+- Polymorphismus wird zur Laufzeit ausgeführt
+
+:::
 
 ## Klassendiagramme
+
+Ein Klassendiagramm beschreibt die Beziehungen zwischen mehreren Klassen und die einzelnen Elemente der Klasse, zum Beispiel Methoden, Variablen, Prototypen, etc.. Diese Diagramme dienen eher als Übersicht der Klassen. In Visual Studio können das Erstellen neuer Klassen, Interfaces, etc. und Vererbungen gemacht werden.
+
+**Beziehungen** werden mit einer Linie (A `\textemdash`{=latex} B) gekennzeichnet und beschreiben eine Verbindung zwischen Klasse A und Klasse B.
+
+![](images/klassendiagramm/Assoziation_Beziehung.png)
+
+Die **Assoziation** wird mit einem Pfeil (*Line* $\longrightarrow$ *Point*) gekennzeichnet und beschreibt, dass zum Beispiel die Klasse *Line* zwei Objekte von *Point* besitzt.
+
+![](images/klassendiagramm/Assoziation_Navigierbarkeit.png)
+
+Die **Aggregation** ist ein Sonderfall der Beziehung. Diese beschreibt, dass zum Beispiel die Klasse *Student* auch ohne *Vorlesung* existieren [kann]{.underline}.
+
+![](images/klassendiagramm/Assoziation_Aggregation.png)
+
+Die Komposition ist ebenfalls ein Sonderfall und beschreibt die Abhängigkeit einer Klasse zu einer anderen. Zum Beispiel kann die Klasse *Raum* ohne *Gebäude* [nicht]{.underline} existieren.
+
+![](images/klassendiagramm/Assoziation_Komposition.png)
+
+Letzteres kommt die **Vererbung** und beschreibt, dass zum Beispiel die Klasse *Student* die Eigenschaften und Methoden von der Klasse *Mensch* erbt. 
+
+![](images/klassendiagramm/Assoziation_Vererbung.png)

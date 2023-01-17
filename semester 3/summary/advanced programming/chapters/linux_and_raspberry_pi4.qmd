@@ -1,5 +1,7 @@
 ## Bash-Commands
 
+Siehe @tbl-bash-commands in @sec-bash-commands.
+
 ## Streams
 
 Datenströme oder *Streams* sind eine Grundlegende Eigenschaft der Linux-Kommandozeile. Jedes Programm hat drei Standard *File Deskriptoren* (**FD**) bzw. Datei 'Handles', welche nummeriert vorliegen
@@ -20,7 +22,7 @@ Diese Handles können in Files umgeleitet werden oder explizit auf der Konsole a
 
 ![](images/RedirectedFileHandle.png)
 
-```{bash}
+```bash
 // output from command to txt
 $ ls -la > dirlist.txt
 
@@ -40,13 +42,13 @@ $ ls ? 2> err.txt
 
 Spezifisch um *stdout* in *stdin* umzuleiten, wird der **Pipe**(|)-Befehl benutzt.
 
-```{bash}
+```bash
 $ ifconfig | grep wlan
 ```
 
 Zudem kann z. B. *stderr* mit `2>&1` in *stdout* umgeleitet werden.
 
-```{bash}
+```bash
 $ ls ? > combined.txt 2>&1
 // or
 $ ls ? &> combined.txt

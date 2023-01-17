@@ -13,13 +13,15 @@
 | Datenpersistenz |      Einfache Zugriffsregeln und Sichtbarkeit      | Data Hiding (`privat`, `public`, `protected`) |
 |  Lib-Einbindung |              *.h* File mit `#include`              |            *namespaces* mit `using`           |
 
-[]: # (Do more as you'd like. See table "VergleichC.tgn" to use on "https://www.tablesgenerator.com/markdown_tables")
+<!--
+(Do more as you'd like. See table "VergleichC.tgn" to use on "https://www.tablesgenerator.com/markdown_tables")
+-->
 
 `\begin{multicols}{2}`{=latex}
 
 ## Struktur `C#`-Programm
 
-### Namespace
+### Namespace {#sec-namespace}
 
 ```csharp
 namespace { ... }
@@ -241,7 +243,20 @@ Da Properties Methoden enthalten können, gilt: `PascalCase`
 
 ## Keywords
 
-### Operatoren & Abarbeitungsreihenfolge
+### Operatoren & Rangreihenfolge
+
+#### Rangreihenfolge
+
+Die Tabelle listet alle Operatoren in C# von höchstem zu tiefstem Vorrang auf.
+
+![](images/OperationOrder.png)
+
+#### Null Checking
+
+Der `x?[y]` Operator gibt `NULL` zurück wenn die linke Seite `NULL` ist.  So muss kein `null`-Zeiger-Test gemacht werden.
+
+Der `a??b` Operator gibt `a` zurück wenn dieser nicht `NULL` ist, andernfalls `b`.
+
 
 ### Zugriffs-Modifier {#sec-modifier}
 
@@ -437,5 +452,56 @@ Verwendet werden Enums mit ihren Namen (`Button btn = Button.LEFT`{.csharp}). Zu
 ```
 
 
-
 ### Array
+
+C# Arrays sind ähnlich wie C Arrays, einfach mit ein paar weiteren Eigenschaften. C# Arrays erben von `object` und nach einer Deklarierung eines Arrays, muss diese initalisiert werden. Sind diese nicht initialisiert, können diese nicht verwendet werden.
+
+Sie [verhalten]{.underline} sich wie [Array-Zeiger]{.underline} und wenn es auf kein Array zeigt, was solls denn tun?
+
+```csharp
+type[] arrayName;
+//zum Beispiel
+int[] catPhotoStock;
+```
+
+Nach Initialisierung besitzen Arrays eine **nicht** änderbare Grösse (ähnlich wie `string`). Und mehrere Array-Methoden erstellen ein komplett neues Array mit den Angaben und überschreiben die Array-Variable (z.B. `void Resize<T> (ref T[]? array, int newSize)`{.csharp}).
+
+::: {.callout-important}
+#### Cooli Facts
+
+- Die Grösse eines Arrays wird bei der Initialisierung festgelegt. Diese Grösse kann **nicht** verändert werden.
+- Die Variable dient als Array-Zeiger.
+- Deklarierungen müssen via `new type[...]` initialisiert werden.
+- Mit `.Length` bei eindimensionalen und `.GetLength(dimension)` bei multidimensionalen Arrays erhält man die Grösse. (`.GetLength(0)` für 1.Dimension, `...(1)` für 2., etc.)
+:::
+
+Hauptsächlich unterscheidet man zwischen **drei** Typen von Arrays: dem eindimensionalen, multidimensionalen und jagged Array.
+
+Ein **eindimensionales** Array ist das *de facto* Array und besitzt wie es im Namen beschreibt, eine Dimension.
+
+```csharp
+// Single-dimensional array [5]
+int[] array1 = new int[5];
+int[] array2 = new int[] { 1, 3, 5, 7, 9 };
+int[] array3 = { 1, 2, 3, 4, 5 };
+```
+
+Ein **Multi-dimensionales** oder **rechteckiges** Array besteht aus mehr als einer Dimension.
+
+```csharp
+// Mutli-dimensional Array [2,3]
+int[,] multiArray1 = new int[2, 3];
+int[,] multiArray2 = { {1,2,3} , {4,5,6} };
+```
+
+Ein **Jagged** Array ist ein Array-von-Arrays. Der Vorteil dieser Art ist, dass die *Unter*arrays unterschiedlicher Länge sein können (ähnlich wie C-Array mit Array-Zeigern).
+
+```csharp
+int[][] jaggedArray = new int[6][];
+
+// Set the values of the first array
+// in the jagged array structure.
+jaggedArray[0] = new int[4] { 1, 2, 3, 4 };
+```
+
+Mit `.Rank` können die Anzahl Dimensionen ermittelt werden. `array1.Rank` würde den Wert `1` ergeben, `multiArray1.Rank` den Wert `2` und `jaggedArray.Rank` ergibt [`1`]{.underline}.
