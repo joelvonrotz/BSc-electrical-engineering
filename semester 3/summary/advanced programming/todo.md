@@ -27,7 +27,7 @@ Da Andi, nimm das damit chasch de Spalt fillä
 - [x] Statische & normale Klassen
 - [ ] Garbage Collector
 - [x] Default Parameter `void draw(bool t=true) vs. void draw()`
-- [ ] Methoden-Signaturen
+- [x] Methoden-Signaturen
 - [x] Overload
 
 # Kapitel 3

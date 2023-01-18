@@ -207,7 +207,52 @@ Draw bw = new Draw(false);    // inColor = false
 
 ## Garbage-Collector
 
-## Signatur
+## Methoden-Signatur
+
+Eine Methoden-Signatur beschreibt die Struktur einer Methode, welche zum Beispiel bei Overloading und Methodendeklarierungen berücksichtigt werden muss.
+
+```csharp
+type function(type param1, type param2) { ... }
+```
+
+Die Signatur beinhaltet folgende Informationen:
+
+- Funktionsname
+- Parametertypen (`int`,`string`,...)
+- `ref` & `out` Modifier
+
+Informationen welche **nicht** berücksichtigt werden:
+
+- Rückgabe*typ*
+- Parameter*modifier*
+- Parameter*namen*
+
+```csharp
+void MyFunc(); // MyFunc()
+void MyFunc(int x); // MyFunc(int)
+void MyFunc(ref int x); // MyFunc(ref int)
+void MyFunc(out int x); // MyFunc(out int)
+void MyFunc(int x, int y); // MyFunc(int, int)
+int MyFunc(string s); // MyFunc(string)
+int MyFunc(int x); // MyFunc(int)
+void MyFunc(string[] a); // MyFunc(string[])
+void MyFunc(params string[] a); // MyFunc(string[])
+```
+
+`\vspace{2mm}`{=latex}
+
+::: {.callout-note}
+Der Grund, warum der Returntyp nicht berücksichtigt wird, ist, weil Methoden auch ohne Wertzuweisung ausgeführt werden können.
+
+```csharp
+int MyFunc(int x); // MyFunc(int)
+
+int y = MyFunc(2);
+MyFunc(2);
+```
+
+Die zweite Methodenausführung sieht ähnlich aus wie einer `void`-basierten Methode.
+:::
 
 ## Exceptions
 
