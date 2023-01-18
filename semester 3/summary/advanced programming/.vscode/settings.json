@@ -1,0 +1,6 @@
+{
+  "[quarto]": {
+    "editor.snippetSuggestions": "inline",
+    "editor.tabCompletion": "on"
+  }
+}
