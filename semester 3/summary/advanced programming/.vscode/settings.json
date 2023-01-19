@@ -1,6 +1,6 @@
 {
   "[quarto]": {
-    "editor.snippetSuggestions": "inline",
+    "editor.snippetSuggestions": "bottom",
     "editor.tabCompletion": "on"
   }
 }
