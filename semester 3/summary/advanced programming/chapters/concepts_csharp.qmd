@@ -205,7 +205,56 @@ Draw inColor = new Draw();    // inColor = true
 Draw bw = new Draw(false);    // inColor = false
 ```
 
-## Garbage-Collector
+## Garbage-Collector `GC`
+
+Objekte werden im dynamischen Heap-Speicher erstellt. Es ist daher wichtig, dass der Speicher von nicht mehr verwendeten Objekten freigegeben wird, damit kein *Memory Leak* entsteht.
+
+In der common language runtime (CLR), dient der Garbage Collector (GC) als **automatischer Speichermanager**. Der GC verwaltet die Zuweisung und Freigabe von Speicher für eine Applikation. Ebenfalls regelt dieser die Speichersicherheit, damit Variablen nicht über ihren eigenen Speicher greifen können.
+
+- Jeder Prozess hat einen eigenen *virtuellen* Speicher, welcher als Gateway zum physikalischen dient.
+- Es kann nicht auf den physikalischen Speicher direkt zugegriffen werden, nur über den virtuellen.
+- Virtuelle Speicher kann sich fragmentieren (Speicherblöcke oder auch Löcher genannt).
+- Bei Speicheranfrage sucht der *virtuelle* Speichermanager nach Platz für einen **ganzen** Speicherblock (kann nicht aufgeteilt werden).
+- Der [virtuelle Speicher]{.underline} besitzt drei Zuständen:
+
+```{=latex}
+\begin{center}
+  \begin{tabularx}{\linewidth}{|lX|}
+  \hline
+  \texttt{Free}      & Speicherblock ist frei und kann reserviert werden.                           \\ \hline
+  \texttt{Reserved}  & Speicherblock ist reserviert, aber kann noch nicht beschrieben werden.       \\ \hline
+  \texttt{Committed} & Speicherblock wurde physikalischem Speicher zugewiesen und ist beschreibbar. \\ \hline
+  \end{tabularx}
+\end{center}
+```
+
+Pro initalisierten Prozess, wird je eine Speicherregion reserviert, welcher *managed Memory* genannt wird und ein Zeiger besitzt, welcher immer auf die nächst freie Speicherstelle zeigt. Dieser Speicher ist schneller als the *unmanaged Memory*.
+
+::: {.callout-important}
+1. Das Garbage Collecting wird gemacht oder regelmässiger gemacht, wenn...
+
+- ...ein Threshold im managed Memory erreicht wurde
+- ...das System wenig Speicherplatz hat.
+- ...`GC.Collect` von `System` ausgeführt wurde.
+
+2. Grosse Objekte werden in einen separaten Heap-Speicher abgelegt.
+:::
+
+### GC Generationen
+
+Der GC-Algorithmus arbeitet mit Generationen und nach jeder GC-Sequenz wird der *überlebte* Speicher auf die nächste Generation *promoted* (bis auf die höchste Generation 2).
+
+```{=tex}
+\begin{center}
+  \begin{tabularx}{\linewidth}{|cX|}
+  \hline
+  \textbf{Generation} & \textbf{Bedeutung} \\ \hline
+  \texttt{0} & Jüngster Speciehr \& beinhaltet \textit{short-lived} Objekte.                        \\ \hline
+  \texttt{1} & Dieser Speicher dient als Buffer zwischen \textit{short} und \textit{long-lived} Objekten. \\ \hline
+  \texttt{2} & Beinhaltet \textit{long-lived} Objekte wie zum Beispiel Daten die jederzeit zugreifbar sind. \\ \hline
+  \end{tabularx}
+\end{center}
+```
 
 ## Methoden-Signatur
 
@@ -251,7 +300,7 @@ int y = MyFunc(2);
 MyFunc(2);
 ```
 
-Die zweite Methodenausführung sieht ähnlich aus wie einer `void`-basierten Methode.
+Die zweite Methodenausführung sieht ähnlich aus wie eine `void`-basierte Methode.
 :::
 
 ## Exceptions

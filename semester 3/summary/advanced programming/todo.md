@@ -25,7 +25,7 @@ Da Andi, nimm das damit chasch de Spalt fillä
 - [x] Modifier (`private,public,abstract,etc.`) -> Klassen, Enum, Membervariablen, Properties, Methoden
 - [x] Konstruktor & Destruktor
 - [x] Statische & normale Klassen
-- [ ] Garbage Collector
+- [x] Garbage Collector
 - [x] Default Parameter `void draw(bool t=true) vs. void draw()`
 - [x] Methoden-Signaturen
 - [x] Overload
