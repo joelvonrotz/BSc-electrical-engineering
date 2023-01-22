@@ -81,7 +81,7 @@ public class Point{
 }
 
 public Program{
-  satic void Main(){
+  static void Main(){
 
     // initialize new Point object
     Point smallPoint = new Point(2);
