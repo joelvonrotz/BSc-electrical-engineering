@@ -54,18 +54,17 @@ Klassen beschreiben den Bauplan von Objekten. Wenn man das nicht versteht, nütz
 
 Eine Klasse ist eine Sammlung von **Daten** und **Methoden**. Es wird das Keyword `class` genutzt.
 
-::: callout-important
+::: {.callout-important}
 * Pro Datei eine Klasse
 * Klassenname = Dateiname
 * Namensgebung von Klassen: `PascalCase`
 :::
 
-Klassen können mit dem Schlüsselwort `static`{.csharp} statisch angelegt werden. Von statischen Klassen können keine Objekte erstellt werden, die Mehtoden sind immer über den Klassennamen aufrufbar. Ein Beispiel hierfür ist die `System`{.csharp} Klasse.
+Klassen können mit dem Schlüsselwort `static`{.csharp} statisch angelegt werden. Von statischen Klassen können keine Objekte erstellt werden, die Methoden sind immer über den Klassennamen aufrufbar. Ein Beispiel hierfür ist die `Math`{.csharp} Klasse.
 
 ```csharp
-System.Console.WriteLine("Hallo Welt");
+Math.Atan2(5, 1);
 ```
-
 
 ### Konstruktor
 
@@ -192,7 +191,7 @@ public class Point{
 }
 ```
 
-### Property
+### Property {#sec-property}
 
 *Getter*- und *Setter*-Methoden sind sehr umständlich und führen zu viel Code bei vielen Variablen. Aus diesem Grund werden automatische Getter- und Setter-Methoden genutzt. Sogenannnte **Properties** mit den Schlüsselwörtern `get` und `set`.
 
@@ -328,7 +327,7 @@ class Employee {
 }
 ```
 
-Statische ***Klassen*** ...
+Statische **Klassen** ...
 
 * ... können **nicht** instanziert werden
 * ... beinhalten nur statische Methoden und Variablen
@@ -340,9 +339,8 @@ Die `Math` Klasse ist statisch und muss so nicht instanziert werden. Trotzdem ka
 Konstante Variablen ...
 
 * ... müssen bei der deklaration initialisiert werden
-* ... müssen zur Kompilierzeit berechnet werden können
+* ... müssen zur Kompilierzeit berechnet werden können 
 `public const int MaxValue = int.MaxValue / 10;`{.csharp}
-
 * ... können bei gleichem Typ zusammen deklariert werden
 `public const int Months = 12, Weeks = 52;`{.csharp}
 
@@ -376,9 +374,6 @@ public class BankAccount {
 Wie in C gibt es in C# Wertetypen und Referenztypen
 
 ![](images/Types.png)
-
-### `class`
-
 
 ### `struct`
 
