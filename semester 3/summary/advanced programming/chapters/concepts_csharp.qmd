@@ -345,6 +345,8 @@ finally {
 
 ### Exception werfen mit `throw`
 
+Mit dem Schlüsselwort `throw` werden Exceptions ausgelöst, welche dann z.B. ausserhalb der Methode mit `catch` gefangen werden können.
+
 ```csharp
 throw new ArithmeticException("string")
 ```
@@ -364,9 +366,70 @@ static void Run() {
 }
 ```
 
+### Lebenszyklus
+
+![](images/Threading/lebenszyklus.png)
+
+### Join
+
+Mit `t.Join()`{.csharp} kann gewartet werden, bis sich der Thread beendet hat.
+
+```csharp
+static void Main()
+{
+  Thread t1 = new Thread(Run);
+  t1.Start();
+  t1.Join();
+}
+```
+
 ### Sync
 
+Falls ein Thread ein wichtigen Prozess machen muss, kann er diesen mit `lock` oder `Monitor.Enter` sperren. Dabei wird eine Variable mit dem Typ `object` verwendet. Alle anderen Threads, welche an dieser Stelle stehen, warten bis es freigegeben wird.
+
+```csharp
+private object syncRoot = new object();
+Monitor.Enter(syncRoot);
+try {
+  // critical section
+  // ...
+}
+finally {
+  Monitor.Exit(syncRoot);
+}
+```
+
+Kurzform:
+
+```csharp
+lock(syncRoot) {
+  // alternative syntax
+  // critical section
+  // ...
+}
+```
+
 ### Deadlock
+
+Der Deadblock ist ein Softlock, welcher zwei miteinander interagierenden Threads blockiert.
+Wenn Thread #1 `lockA` sperrt und direkt danach Thread #2 `lockB` blockiert, haben sich beide Threads gegenseitig gesperrt.
+
+```csharp
+void f1() {
+  lock (lockA) {
+    lock (lockB) {
+      /* ... */
+    }
+  }
+}
+void f2() {
+  lock (lockB) {
+    lock (lockA) {
+      /* ... */
+    }
+  }
+}
+```
 
 ### Parametrisierter Thread
 
@@ -381,7 +444,6 @@ static void Main(string[] args)
   t.Start(client);
   // ...
 }
-
 // must be of ParameterizedThreadStart signature
 private void HandleRequest(object _object)
 {
