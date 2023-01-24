@@ -54,12 +54,90 @@ $ ls ? > combined.txt 2>&1
 $ ls ? &> combined.txt
 ```
 
-
 ![](images/RedirectedERR.png)
 
 ## GPIO via Konsole
 
-## Berechtigungssystem
+Bei Linux 'ist alles eine Datei' und damit können Gerätetreiber mit Schreiben und Lesen interagiert werden (wie z.B. Raspi LEDs).
+
+Um die Raspi-LEDs anzusteuern, Superuser: `sudo -s`.
+
+```bash
+# set Trigger to none
+echo none > /sys/class/leds/led0/trigger
+# activate LED
+echo 1 > /sys/class/leds/led0/brightness
+# deactivate LED
+echo 0 > /sys/class/leds/led0/brightness
+# reset to old Trigger
+echo mmc0 > /sys/class/leds/led0/trigger
+# exit Superuser
+exit
+```
+
+## Berechtigungssystem `ls -la`
+
+Jedem Ordner und jeder Datei ist Berechtigungen zugewiesen, welche beschreibt, wer darf was genau machen. Im Linux-Berechtigungssystem werden **drei** Berechtigungen für **drei** Berechtigungsgruppen und ein Dateityp-Feld angegeben im folgenden Format:
+
+```bash
+pi@raspy:~ $ ls -la
+-rw-r--r--  1 pi  pi  3523  Jun 27 00:17 .bashrc
+-rw-------  1 pi  pi  980   Oct  3 18:24 .bash_history
+drwx------  9 pi  pi  4096  Oct  3 05:46 .config
+drwxr-xr-x  2 pi  pi  4096  Jun 27 01:23 Downloads
+```
+
+- `r`: Lesen (*read*)
+- `w`: Schreiben (*write*)
+- `x`: Ausführen (*execute*)
+
+Eine Zeile ist wie gefolgt aufgebaut
+
+- Berechtigung (siehe folgende Tabelle für Bedeutung)
+- Anzahl Hardlinks
+- Name des Besitzers
+- Gruppenname
+- Grösse
+- Datum & Uhrzeit von letzer Änderung
+- Dateiname
+
+```{=latex}
+\colorbox{NavyBlue!30}{\textbf{\texttt{-}}}\colorbox{ForestGreen!30}{\textbf{\texttt{rw-}}}\colorbox{RedOrange!30}{\textbf{\texttt{r-{}-}}}\colorbox{Purple!30}{\textbf{\texttt{r-{}-}}}\textcolor{lightgray}{\texttt{  1 pi  pi ...}}
+```
+
+```{=tex}
+\begin{center}
+  \begin{tabularx}{\linewidth}{|cX|}
+  \hline
+  \textbf{Snippet} & \textbf{Bedeutung} \\ \hline
+  \colorbox{NavyBlue!30}{\textbf{\texttt{-}}}      & Dateityp (\texttt{-}: Datei, \texttt{d}: Ordner) \\ \hline
+  \colorbox{ForestGreen!30}{\textbf{\texttt{rw-}}} & Berechtigung Benutzer \\ \hline
+  \colorbox{RedOrange!30}{\textbf{\texttt{r-{}-}}}   & Berechtigung Gruppe \\ \hline
+  \colorbox{Purple!30}{\textbf{\texttt{r-{}-}}}      & Berechtigung alle anderen \\ \hline
+  \end{tabularx}
+\end{center}
+```
+
+### Berechtigung ändern `chmod`
+
+Mit `chmod` kann die Berechtigung einer Datei/Ordner geändert werden.
+
+```bash
+pi@raspy:~ $ chmod ug+rw myfile.txt
+```
+
+Struktur erster Parameter (`ug+rw`)
+
+1. `u`(*user*), `g`(*group*), `o`(*other*) (Kombinationen möglich), `a`(*all*) für alle.
+2. `+`: Rechte hinzuzufügen, `-` Rechte entfernen, `=` Berechtigung überschreiben.
+3. `r`, `w`, `x` einzeln oder eine Kombination davon
+
+::: {.callout-note}
+## Berechtigung Ordner
+
+Die Berechtigungen von Ordner sind ähnlich wie bei Dateien.
+Aber `x` gibt an, ob der Ordner via `cd` geöffnet werden darf. 
+:::
 
 ## Passwort Hashing
 
@@ -73,7 +151,17 @@ $ ls ? &> combined.txt
 
 ### Remote-Debugging
 
-## System-Control
+Mit `System.Diagnostics.Debugger.IsAttached` kann geprüft werden, ob ein Debugger mit der Ausführung des Programmes verbunden wurde.
+
+1. Programm starten
+2. **Debug** > **Attach to Process**
+3. **Connection Type** auf *SSH*
+4. Connection Target `pi@<eee-adress>` angeben
+5. Allenfalls Public Key mitgeben und Passwort
+6. In *available processes* `dotnet` auswählen.
+7. Attach
+
+## Systemd, `systemctl`
 
 ### Deamons
 
