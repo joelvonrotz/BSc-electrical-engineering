@@ -42,7 +42,7 @@ Da Andi, nimm das damit chasch de Spalt fillä
 
 - [x] Konsole (cheat sheet mit Befehlen)
 - [x] Umleitung Streams
-- [ ] GPIO Ansteuerung via Konsole?
+- [x] GPIO Ansteuerung via Konsole?
 
 # Kapitel 4
 
@@ -54,7 +54,7 @@ Da Andi, nimm das damit chasch de Spalt fillä
 ## Linux Dateisystem
 
 - [x] Befehle (siehe Labor für Cheatsheet)
-- [ ] Berechtigungssystem
+- [x] Berechtigungssystem
 
 # Kapitel 5
 
@@ -126,10 +126,10 @@ Da Andi, nimm das damit chasch de Spalt fillä
 - [x] Delegates
 - [x] Multicast Delegates
 - [x] Events & Eventhandler
-- [ ] Multithreading
-- [ ] Threadlebenszyklus
-- [ ] Synchronisation
-- [ ] Deadlock (nested-lock)
+- [x] Multithreading
+- [x] Threadlebenszyklus
+- [x] Synchronisation
+- [x] Deadlock (nested-lock)
 
 # Kapitel 11
 
