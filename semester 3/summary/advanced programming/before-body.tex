@@ -1,0 +1,25 @@
+$if(has-frontmatter)$
+\frontmatter
+$endif$
+$if(title)$ % [START] title
+$if(beamer)$ % [START] beamer
+\frame{\titlepage}
+$else$ % [ELSE] beamer
+\maketitle
+
+$if(source)$ % [START] Source
+\begin{center}
+$if(source.github)$
+{\large \faGithub\hspace{1mm} \href{$source.github$}{Quelldateien}}
+$endif$
+\end{center}
+$endif$ % [END] title
+
+
+$endif$ % [END] beamer
+$if(abstract)$
+\begin{abstract}
+$abstract$
+\end{abstract}
+$endif$
+$endif$ % [END] title

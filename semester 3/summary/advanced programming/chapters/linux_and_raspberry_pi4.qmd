@@ -219,7 +219,7 @@ Mit `System.Diagnostics.Debugger.IsAttached` kann geprüft werden, ob ein Debugg
 
 *Systemd* ist eine Kollektion von Tools und Services und wird insbesondere für Hintergrundprozesse verwendet. Ein *Daemon* bezeichnet ein Program, welches im im Hintergrund läuft und die Kommunikation verläuft über Signale, Pipes oder Sockets (kein direkter Zugriff).
 
-Systemd verwendet Unit-Dateien um Prozess zu beschreiben und diese werden unter `/etc/systemd/[system/user/network]/` abgelegt.
+Systemd verwendet Unit-Dateien um Prozess zu beschreiben und diese werden unter `/etc/systemd/system/`, `/etc/systemd/network/` oder `/etc/systemd/user/` abgelegt.
 
 Eine Unit-Datei kann folgendes beinhalten.
 
