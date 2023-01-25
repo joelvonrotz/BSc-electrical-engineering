@@ -54,18 +54,17 @@ Klassen beschreiben den Bauplan von Objekten. Wenn man das nicht versteht, nütz
 
 Eine Klasse ist eine Sammlung von **Daten** und **Methoden**. Es wird das Keyword `class` genutzt.
 
-::: callout-important
+::: {.callout-important}
 * Pro Datei eine Klasse
 * Klassenname = Dateiname
 * Namensgebung von Klassen: `PascalCase`
 :::
 
-Klassen können mit dem Schlüsselwort `static`{.csharp} statisch angelegt werden. Von statischen Klassen können keine Objekte erstellt werden, die Mehtoden sind immer über den Klassennamen aufrufbar. Ein Beispiel hierfür ist die `System`{.csharp} Klasse.
+Klassen können mit dem Schlüsselwort `static`{.csharp} statisch angelegt werden. Von statischen Klassen können keine Objekte erstellt werden, die Methoden sind immer über den Klassennamen aufrufbar. Ein Beispiel hierfür ist die `Math`{.csharp} Klasse.
 
 ```csharp
-System.Console.WriteLine("Hallo Welt");
+Math.Atan2(5, 1);
 ```
-
 
 ### Konstruktor
 
@@ -81,7 +80,7 @@ public class Point{
 }
 
 public Program{
-  satic void Main(){
+  static void Main(){
 
     // initialize new Point object
     Point smallPoint = new Point(2);
@@ -192,7 +191,7 @@ public class Point{
 }
 ```
 
-### Property
+### Property {#sec-property}
 
 *Getter*- und *Setter*-Methoden sind sehr umständlich und führen zu viel Code bei vielen Variablen. Aus diesem Grund werden automatische Getter- und Setter-Methoden genutzt. Sogenannnte **Properties** mit den Schlüsselwörtern `get` und `set`.
 
@@ -239,7 +238,156 @@ Da Properties Methoden enthalten können, gilt: `PascalCase`
 
 ### `System`
 
-#### `Sysem.Console`
+Der `System`-Namespace beinhaltet einige der Fundamentalen C#-Klassen und Strukturen.
+
+#### `System.Console`
+
+Mit der  Klasse `Console` wird mit der Konsole interagiert, folgend sind die grundlegenden Funktionen beschrieben
+
+- Ausgabe auf Konsole
+
+```csharp
+// Write on line
+Console.Write("Hello");
+// Write Followed by new Line
+Console.WriteLine("World");
+```
+
+- Lesen von Konsole
+
+```csharp
+// Read next char from stream
+char c = Console.Read();
+// Read next line from stream
+string msg = Console.ReadLine();
+// Read Key with modifiers
+ConsoleKeyInfo k = Console.ReadKey();
+```
+
+Mit `.ReadKey()`{.csharp} werden auch Tasten gelesen, die kein char ergeben *(z.B. Enter, Backspace,...)*. 
+Mit `k.Key == ConsoleKey.Escape`{.csharp} kann zum Beispiel überprüft werden, ob die *Enter*-Taste gedrückt wurde. 
+Mit `k.Modifiers == ConsoleModifiers.Shift`{.csharp} kann zudem überprüft werden, ob ein Chrakter mit einem Modifier (Hier *Shift*) verwendet wurde.
+Mit `char c = k.KeyChar`{.csharp} kann zudem direkt der Charakter erlangt werden.
+
+- Konsole leeren
+
+```csharp
+Console.Clear();
+```
+
+- Modifizieren des Cursors
+
+```csharp
+// Get Cursor position !screen relative!
+(int l, int t) = Console.GetCursorPosition();
+// Set Cursor position !screen relative!
+Console.SetCursorPosition(newLeft, newTop);
+```
+
+- Auf Tastenanschlag prüfen
+
+```csharp
+if (Console.KeyAvailable){
+  // Do stuff with key
+  // !Key must be read for no further activation!
+}
+```
+
+#### `System.String`
+
+Strings sind im vergleich zu C lediglich **read-only**. String variablen sind grundsätzlich Pointer die auf den eigentlichen String im Speicher zeigen. Dies hat zur Folge, dass Methoden immer einen String *(Adresse zum **neuen** String)* als return-Wert haben.
+
+```csharp
+string name = "Hansli";
+name.ToLower();
+Console.WriteLine(name);  // "Hansli"
+name = name.ToLower();
+Console.WriteLine(name);  // "hansli"
+```
+
+::: callout-note
+# String Characteristics
+
+- `string`{.csharp} ist ein *Referenztyp*
+- ist unveränderlich
+- Kann `NULL` (`"\0"`) enthalten
+- **`==`**-Operator wird als "Stringvergleicher" überschrieben (Vergleicht Inhalt, nicht Referenz)
+:::
+
+Strings können auch durch **Aneinanderreihung** mehrerer Strings erstellt werden:
+
+```csharp
+string s1 = "Hello";
+string s2 = "World";
+string str = s1 + " " + s2; // Hello World
+```
+
+Strings können auch durch **Konstruktoren** erstellt werden:
+
+```csharp
+char[] ch = {'H','o','i'};
+string s1 = new string(ch);
+
+// string with repeated characters
+string s2 = new string('G',20);
+```
+
+Über die Property **`Char[]`** kann auf die Zeichen des Strings indexiert werden
+
+```csharp
+string s1 = "Hello";
+Console.Write(s1[1]); // out: e
+```
+
+Die Property **`Length`** beschreibt die Länge des Strings
+
+```csharp
+string s1 = "Hello";
+Console.Write(s1.Length); // out: 5
+```
+
+##### Weitere nützliche Methoden
+
+- `String.Compare(string s1, string s2)`{.csharp} vergleicht den Inhalt lexikalisch :)
+- `s1.Contains(Char c)`{.csharp} prüft den String auf vorhandensein eines Charakters
+- `s1.Equals(string s2)`{.csharp} prüft den Inhalt auf Gleichheit
+- `s1.Insert(int index, string s2)`{.csharp} gibt einen string zurück in dem `s2` an der Stelle `index` eingefügt wurde
+- `s1.Replace(char c1, char c2)`{.csharp} gibt einen string zurück, in dem `c1` mit `c2` ausgetauscht wurde
+- `s1.Split(char c)`{.csharp} gibt ein StringArray mit den, jeweils bei `c` getrennten, substrings zurück
+- `String.Join(string[] str)`{.csharp} gibt einen zusammengefügten String des Stringarrays zurück
+- `s1.ToCharArray()`{.csharp} gibt ein CharArray (No Joke) mit den Charaktern zurück
+- `s1.ToLower()`{.csharp} gibt einen, in lowercase konvertierten, string zurück
+- `s1.ToUpper()`{.csharp} gibt einen, in UPPERCASE konvertierten, string zurück
+- `s1.Trim()`{.csharp} entfernt alle Whitespaces am Ende und am Anfang, gibt diesen String zurück
+
+#### `System.Environment`
+
+Die `System.Environment`-Klasse gibt Nützliche Informationen bezüglich des gerade benutzen Gerätes, Versionen, etc.
+
+`Environment.`
+
+- `Current Directory` Programmverzeichnis
+- `ProcessPath` Programmpfad
+- `Is64BitOperatingSystem` True/False
+- `OSVersion`
+- `MachineName`
+- `ProcessorCount` Anzahl (virtueller) Prozessoren
+- `TickCount` Anzahl Ticks seit Aufstarten
+- `UserName`
+- `UserDomainName`
+- `CurrentManagedThreadId` Thread Id
+- `Version` Common Language Runtime *CLR* Version
+- `GetLogicalDrives()` gibt ein Stringarray aller Laufwerke
+
+Es gibt zudem noch weitere Variablen welche nicht direkt über eine Methode einsehbar sind, welche mit `Environment.GetEnvironmentalVariable()` abgerufen werden können (Bsp. `"PROCESSOR_IDENTIFIER"`). Mit folgendem Beispiel sind alle einsehbar:
+
+```csharp
+Console.WriteLine("GetEnvironmentVariables: ");
+  foreach (DictionaryEntry de in 
+                Environment.GetEnvironmentVariables()) {
+      Console.WriteLine("  {0} = {1}", de.Key, de.Value);
+  }
+```
 
 ## Keywords
 
@@ -249,7 +397,35 @@ Da Properties Methoden enthalten können, gilt: `PascalCase`
 
 Die Tabelle listet alle Operatoren in C# von höchstem zu tiefstem Vorrang auf.
 
-![](images/OperationOrder.png)
+<!--![](images/OperationOrder.png)-->
+
+```{=latex}
+\begin{center}
+  \begin{tabularx}{\linewidth}{|p{4cm}|X|}
+  \hline
+  \textbf{Operator} & \textbf{Category or name} \\ \hline
+x.y\textbf{,} f(x)\textbf{,} a{[}i{]}\textbf{,} x?.y\textbf{,} x?{[}y{]}\textbf{,} x++\textbf{,} x--\textbf{,} x!\textbf{,}   new\textbf{,} typeof\textbf{,} checked\textbf{,} unchecked\textbf{,} default\textbf{,} nameof\textbf{,} delegate\textbf{,} sizeof\textbf{,}   stackalloc\textbf{,} x-\textgreater{}y &
+  Primary \\ \hline
++x\textbf{,} -x\textbf{,} !x\textbf{,} $\sim$x\textbf{,} ++x\textbf{,} --x\textbf{,} \textasciicircum{}x\textbf{,} (T)x\textbf{,} await\textbf{,}   \&x\textbf{,} *x\textbf{,} true and false                & Unary                                      \\ \hline
+x..y                                                                                                      & Range                                      \\ \hline
+switch\textbf{,} with                                                                                              & switch and with expressions                \\ \hline
+x * y\textbf{,} x / y\textbf{,} x \% y                                                                                      & Multiplicative                             \\ \hline
+x + y\textbf{,} x – y                                                                                              & Additive                                   \\ \hline
+x \textless{}\textless  y\textbf{,} x \textgreater{}\textgreater y\textbf{,} x   \textgreater{}\textgreater{}\textgreater y & Shift                                      \\ \hline
+x \textless y\textbf{,} x \textgreater y\textbf{,} x \textless{}= y\textbf{,} x \textgreater{}= y\textbf{,} is\textbf{,}   as                          & Relational and type-testing                \\ \hline
+x == y\textbf{,} x != y                                                                                            & Equality                                   \\ \hline
+x \& y                                                                                                    & Boolean logical AND or bitwise logical AND \\ \hline
+x \textasciicircum y                                                                                      & Boolean logical XOR or bitwise logical XOR \\ \hline
+x | y                                                                                                     & Boolean logical OR or bitwise logical OR   \\ \hline
+x \&\& y                                                                                                  & Conditional AND                            \\ \hline
+x || y                                                                                                    & Conditional OR                             \\ \hline
+x ?? y                                                                                                    & Null-coalescing operator                   \\ \hline
+c ? t : f                                                                                                 & Conditional operator                       \\ \hline
+x = y\textbf{,} x += y\textbf{,} x -= y\textbf{,} x *= y\textbf{,} x /= y\textbf{,} x \%= y\textbf{,}   x \&= y\textbf{,} x |= y\textbf{,} x \textasciicircum{}= y\textbf{,} x \textless{}\textless{}= y\textbf{,} x \textgreater{}\textgreater{}= y\textbf{,} x \textgreater{}\textgreater{}\textgreater{}= y\textbf{,}   x ??= y\textbf{,} =\textgreater{} &
+  Assignment and lambda declaration \\ \hline
+\end{tabularx}
+\end{center}
+```
 
 #### Null Checking
 
@@ -260,8 +436,9 @@ Der `a??b` Operator gibt `a` zurück wenn dieser nicht `NULL` ist, andernfalls `
 
 ### Zugriffs-Modifier {#sec-modifier}
 
-![](images/AccessModifiers.png)
+Siehe @sec-modifiertable
 
+<!-- ![](images/AccessModifiers.png) -->
 *Modifier* sind auf Klassen, Enum, Membervariablen, Properties und Methoden anwendbar.
 
 ### `using`
@@ -328,7 +505,7 @@ class Employee {
 }
 ```
 
-Statische ***Klassen*** ...
+Statische **Klassen** ...
 
 * ... können **nicht** instanziert werden
 * ... beinhalten nur statische Methoden und Variablen
@@ -340,9 +517,8 @@ Die `Math` Klasse ist statisch und muss so nicht instanziert werden. Trotzdem ka
 Konstante Variablen ...
 
 * ... müssen bei der deklaration initialisiert werden
-* ... müssen zur Kompilierzeit berechnet werden können
+* ... müssen zur Kompilierzeit berechnet werden können 
 `public const int MaxValue = int.MaxValue / 10;`{.csharp}
-
 * ... können bei gleichem Typ zusammen deklariert werden
 `public const int Months = 12, Weeks = 52;`{.csharp}
 
@@ -376,9 +552,6 @@ public class BankAccount {
 Wie in C gibt es in C# Wertetypen und Referenztypen
 
 ![](images/Types.png)
-
-### `class`
-
 
 ### `struct`
 

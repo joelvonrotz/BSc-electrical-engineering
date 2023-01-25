@@ -1,5 +1,90 @@
 ## Collections
 
+### Queue
+
+Repräsentiert eine first-in, first-out Collection von Objekten. Gut geeigent für temporären Speicher von Informationen. Drei grundlegende Operationen können auf einer `Queue<T>` und ihren Elementen ausgeführt werden:
+- Enqueue, fügt einer `Queue<T>` ein Element hinzu
+- Dequeue, entfernt das älteste Element vom Start einer `Queue<T>`
+- Peek, gibt das älteste Element vom Start einer `Queue<T>` zurück, ohne es zu entfernen
+
+```csharp
+Queue<string> numbers = new Queue<string>();
+  numbers.Enqueue("one");
+  numbers.Enqueue("two");
+  numbers.Enqueue("three");
+
+  Console.WriteLine("\nDequeuing '{0}'",
+    numbers.Dequeue());
+  Console.WriteLine("Peek next item: {0}",
+    numbers.Peek());
+  Console.WriteLine("Dequeuing '{0}'",
+    numbers.Dequeue());
+```
+### Linked List
+
+Repräsentiert eine doppelt gelinkte universelle Liste. `LinkedList<T>` beinhaltet Nodes vom Typ `LinkedListNode<T>` und ermöglicht es, an erster und letzter Stelle der Liste Elemente hinzuzufügen. Die Klasse beinhaltet folgende Funktionen:
+- AddBefore(LinkedListNode<T>, T), fügt einen neuen Node vor dem mitgegebenen Node ein.
+- AddAfter(LinkedListNode<T>, T), fügt einen neuen Node nach dem mitgegebenen Node ein.
+- AddFirst(T)
+- AddLast(T)
+- Find(T), findet den ersten Node, der den angegebenen Value beinhaltet.
+- Remove(T), entfernt den ersten Node, der den angegebenen Value beinhaltet.
+- RemoveFirst()
+- RemoveLast()
+
+```csharp
+string[] words =
+  { "the", "fox", "jumps", "over", "the", "dog" };
+LinkedList<string> sentence =
+  new LinkedList<string>(words);
+
+// Add  word 'today' to beginning of the list.
+sentence.AddFirst("today");
+sentence.AddFirst("today");
+
+// Move the first node to be the last node.
+LinkedListNode<string> mark1 = sentence.First;
+sentence.RemoveFirst();
+sentence.AddLast(mark1);
+```
+
+### Dictionary
+
+Repräsentiert eine Collection von Key-Value-Paaren. Eine `KeyNotFoundException` wird erzeugt, wenn ein verlangter Key nicht vorhanden ist. Zu Keys zugehörige Values können ersetzt werden. Key Value Paare sind einzigartig. Ein Key kann nicht null sein, ein Value aber schon. Die `TryGetValue` Methode kann verwendet werden, wenn das Programm oft nach Key Values suchen muss, die nicht im `Dictionary<TKey,TValue>` vorhanden sind. Mit `ContainsKey` kann überprüft werden, ob ein Key bereits existiert.
+
+- Add(TKey, TValue), fügt ein Value mit dazugehörigem Key ein.
+- Clear(), entfernt alle Elemente der SortedList.
+- Remove(TKey), entfernt das entsprechende Element mit diesem Key.
+- TryGetValue(TKey, TValue), gibt den mit dem key verbundene Value zurück.
+
+Adds the specified key and value to the dictionary.
+
+```csharp
+// Create a new dictionary of strings.
+Dictionary<string, string> openWith =
+  new Dictionary<string, string>();
+
+// Add some elements to the dictionary.
+openWith.Add("txt", "notepad.exe");
+openWith.Add("bmp", "paint.exe");
+
+// Setting the indexer for a key
+// adds a new key/value pair.
+openWith["doc"] = "winword.exe";
+```
+### Sorted List
+
+Eine `SortedList<TKey, TValue>` ist eine Collection mit Key/Value Paaren, welche nach den Werten der Keys geordnet ist. Die Sortierung erfolgt mit der `IComparer<T>` Collection. Sowohl Keys wie auch Values haben einen Generischen Wertetyp. Dabei kann ein Key nur einmal vorkommen, um keine Verwechslungen zu ermöglichen. Eine `SortedList<TKey, TValue>` funktioniert in dieser Hinsicht gleich wie ein `SortedDictionary<TKey, TValue>`, braucht aber weniger Speicher und ist langsamer beim Hinzufügen und Entfernen von unsortierten Daten. Beim Erzeugen einer Liste mit sortierten Daten ist die `SortedList<TKey, TValue>` schneller als `SortedDictionary<TKey, TValue>`.
+
+- Add(TKey, TValue), fügt ein Value mit dazugehörigem Key ein.
+- Clear(), entfernt alle Elemente der SortedList.
+- IndexOfKey(TKey), sucht den entsprechenden Key und gibt dessen Index aus.
+- IndexOfValue(TValue), sucht die entsprechende Value und gibt deren Index aus.
+- Remove(TKey), entfernt das entsprechende Element mit diesem Key.
+- RemoveAt(Int32), entfernt das Element mit diesem Index.
+- TryGetValue(TKey, TValue), vergleicht ob Eingabe schon vorhanden ist.
+
+
 ### Indexer
 
 Indexer ermöglichen die Indexierung von Klassen oder Structs. Der Indexer wird mit dem `this` Keyword definiert. Indexer müssen nicht durch einen Integer-Wert indexiert werden und können überladen werden. Mehrere Parameter können verwendet werden, um beispielsweise auf ein zweidimensionales Array zuzugreifen.
@@ -25,7 +110,7 @@ class Program {
 
 ### Generics
 
-Mit dem generischen Typenparameter `T` deklariert werden, bei welcher erst zur Deklaration der Datentyp instanziiert wird. Wenn eine Klasse mit einem kontreten Typen instanziiert wird, wird `T` mit dem Typen ersetzt.
+Mit dem generischen Typenparameter `T` können Klassen oder Methoden deklariert werden, bei welchen erst zur Deklaration der Datentyp instanziiert wird. Wenn eine Klasse mit einem kontreten Typen instanziiert wird, wird `T` mit dem Typen ersetzt.
 
 ```csharp
 public class GenList<T> {
@@ -205,9 +290,103 @@ Draw inColor = new Draw();    // inColor = true
 Draw bw = new Draw(false);    // inColor = false
 ```
 
-## Garbage-Collector
+## Garbage-Collector `GC`
 
-## Signatur
+Objekte werden im dynamischen Heap-Speicher erstellt. Es ist daher wichtig, dass der Speicher von nicht mehr verwendeten Objekten freigegeben wird, damit kein *Memory Leak* entsteht.
+
+In der common language runtime (CLR), dient der Garbage Collector (GC) als **automatischer Speichermanager**. Der GC verwaltet die Zuweisung und Freigabe von Speicher für eine Applikation. Ebenfalls regelt dieser die Speichersicherheit, damit Variablen nicht über ihren eigenen Speicher greifen können.
+
+- Jeder Prozess hat einen eigenen *virtuellen* Speicher, welcher als Gateway zum physikalischen dient.
+- Es kann nicht auf den physikalischen Speicher direkt zugegriffen werden, nur über den virtuellen.
+- Virtuelle Speicher kann sich fragmentieren (Speicherblöcke oder auch Löcher genannt).
+- Bei Speicheranfrage sucht der *virtuelle* Speichermanager nach Platz für einen **ganzen** Speicherblock (kann nicht aufgeteilt werden).
+- Der [virtuelle Speicher]{.underline} besitzt drei Zuständen:
+
+```{=latex}
+\begin{center}
+  \begin{tabularx}{\linewidth}{|lX|}
+  \hline
+  \texttt{Free}      & Speicherblock ist frei und kann reserviert werden.                           \\ \hline
+  \texttt{Reserved}  & Speicherblock ist reserviert, aber kann noch nicht beschrieben werden.       \\ \hline
+  \texttt{Committed} & Speicherblock wurde physikalischem Speicher zugewiesen und ist beschreibbar. \\ \hline
+  \end{tabularx}
+\end{center}
+```
+
+Pro initalisierten Prozess, wird je eine Speicherregion reserviert, welcher *managed Memory* genannt wird und ein Zeiger besitzt, welcher immer auf die nächst freie Speicherstelle zeigt. Dieser Speicher ist schneller als the *unmanaged Memory*.
+
+::: {.callout-important}
+1. Das Garbage Collecting wird gemacht oder regelmässiger gemacht, wenn...
+
+- ...ein Threshold im managed Memory erreicht wurde
+- ...das System wenig Speicherplatz hat.
+- ...`GC.Collect` von `System` ausgeführt wurde.
+
+2. Grosse Objekte werden in einen separaten Heap-Speicher abgelegt.
+:::
+
+### GC Generationen
+
+Der GC-Algorithmus arbeitet mit Generationen und nach jeder GC-Sequenz wird der *überlebte* Speicher auf die nächste Generation *promoted* (bis auf die höchste Generation 2).
+
+```{=tex}
+\begin{center}
+  \begin{tabularx}{\linewidth}{|cX|}
+  \hline
+  \textbf{Generation} & \textbf{Bedeutung} \\ \hline
+  \texttt{0} & Jüngster Speciehr \& beinhaltet \textit{short-lived} Objekte.                        \\ \hline
+  \texttt{1} & Dieser Speicher dient als Buffer zwischen \textit{short} und \textit{long-lived} Objekten. \\ \hline
+  \texttt{2} & Beinhaltet \textit{long-lived} Objekte wie zum Beispiel Daten die jederzeit zugreifbar sind. \\ \hline
+  \end{tabularx}
+\end{center}
+```
+
+## Methoden-Signatur
+
+Eine Methoden-Signatur beschreibt die Struktur einer Methode, welche zum Beispiel bei Overloading und Methodendeklarierungen berücksichtigt werden muss.
+
+```csharp
+type function(type param1, type param2) { ... }
+```
+
+Die Signatur beinhaltet folgende Informationen:
+
+- Funktionsname
+- Parametertypen (`int`,`string`,...)
+- `ref` & `out` Modifier
+
+Informationen welche **nicht** berücksichtigt werden:
+
+- Rückgabe*typ*
+- Parameter*modifier*
+- Parameter*namen*
+
+```csharp
+void MyFunc(); // MyFunc()
+void MyFunc(int x); // MyFunc(int)
+void MyFunc(ref int x); // MyFunc(ref int)
+void MyFunc(out int x); // MyFunc(out int)
+void MyFunc(int x, int y); // MyFunc(int, int)
+int MyFunc(string s); // MyFunc(string)
+int MyFunc(int x); // MyFunc(int)
+void MyFunc(string[] a); // MyFunc(string[])
+void MyFunc(params string[] a); // MyFunc(string[])
+```
+
+`\vspace{2mm}`{=latex}
+
+::: {.callout-note}
+Der Grund, warum der Returntyp nicht berücksichtigt wird, ist, weil Methoden auch ohne Wertzuweisung ausgeführt werden können.
+
+```csharp
+int MyFunc(int x); // MyFunc(int)
+
+int y = MyFunc(2);
+MyFunc(2);
+```
+
+Die zweite Methodenausführung sieht ähnlich aus wie eine `void`-basierte Methode.
+:::
 
 ## Exceptions
 
@@ -251,6 +430,8 @@ finally {
 
 ### Exception werfen mit `throw`
 
+Mit dem Schlüsselwort `throw` werden Exceptions ausgelöst, welche dann z.B. ausserhalb der Methode mit `catch` gefangen werden können.
+
 ```csharp
 throw new ArithmeticException("string")
 ```
@@ -270,9 +451,70 @@ static void Run() {
 }
 ```
 
+### Lebenszyklus
+
+![](images/Threading/lebenszyklus.png)
+
+### Join
+
+Mit `t.Join()`{.csharp} kann gewartet werden, bis sich der Thread beendet hat.
+
+```csharp
+static void Main()
+{
+  Thread t1 = new Thread(Run);
+  t1.Start();
+  t1.Join();
+}
+```
+
 ### Sync
 
+Falls ein Thread ein wichtigen Prozess machen muss, kann er diesen mit `lock` oder `Monitor.Enter` sperren. Dabei wird eine Variable mit dem Typ `object` verwendet. Alle anderen Threads, welche an dieser Stelle stehen, warten bis es freigegeben wird.
+
+```csharp
+private object syncRoot = new object();
+Monitor.Enter(syncRoot);
+try {
+  // critical section
+  // ...
+}
+finally {
+  Monitor.Exit(syncRoot);
+}
+```
+
+Kurzform:
+
+```csharp
+lock(syncRoot) {
+  // alternative syntax
+  // critical section
+  // ...
+}
+```
+
 ### Deadlock
+
+Der Deadblock ist ein Softlock, welcher zwei miteinander interagierenden Threads blockiert.
+Wenn Thread #1 `lockA` sperrt und direkt danach Thread #2 `lockB` blockiert, haben sich beide Threads gegenseitig gesperrt.
+
+```csharp
+void f1() {
+  lock (lockA) {
+    lock (lockB) {
+      /* ... */
+    }
+  }
+}
+void f2() {
+  lock (lockB) {
+    lock (lockA) {
+      /* ... */
+    }
+  }
+}
+```
 
 ### Parametrisierter Thread
 
@@ -287,7 +529,6 @@ static void Main(string[] args)
   t.Start(client);
   // ...
 }
-
 // must be of ParameterizedThreadStart signature
 private void HandleRequest(object _object)
 {

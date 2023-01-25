@@ -13,9 +13,9 @@ Da Andi, nimm das damit chasch de Spalt fillä
 - [ ] Struktur C#-Programm
 - [x] Klassen
 - [x] Operatoren & Reihenfolge
-- [ ] Klasse `System.String`
-- [ ] Implizit & Explizit Casting
-- [ ] Klasse Console
+- [x] Klasse `System.String`
+- [x] Implizit & Explizit Casting
+- [x] Klasse Console
 - [x] Aufzählungen (Enum & `[FLAGS]`)
 
 # Kapitel 2
@@ -25,9 +25,9 @@ Da Andi, nimm das damit chasch de Spalt fillä
 - [x] Modifier (`private,public,abstract,etc.`) -> Klassen, Enum, Membervariablen, Properties, Methoden
 - [x] Konstruktor & Destruktor
 - [x] Statische & normale Klassen
-- [ ] Garbage Collector
+- [x] Garbage Collector
 - [x] Default Parameter `void draw(bool t=true) vs. void draw()`
-- [ ] Methoden-Signaturen
+- [x] Methoden-Signaturen
 - [x] Overload
 
 # Kapitel 3
@@ -42,19 +42,19 @@ Da Andi, nimm das damit chasch de Spalt fillä
 
 - [x] Konsole (cheat sheet mit Befehlen)
 - [x] Umleitung Streams
-- [ ] GPIO Ansteuerung via Konsole?
+- [x] GPIO Ansteuerung via Konsole?
 
 # Kapitel 4
 
-- [ ] .NET Bibliotheken
-- [ ] System.Environment
+- [x] .NET Bibliotheken
+- [x] System.Environment
 - [ ] Collections
 - [x] Boxing & Unboxing
 
 ## Linux Dateisystem
 
 - [x] Befehle (siehe Labor für Cheatsheet)
-- [ ] Berechtigungssystem
+- [x] Berechtigungssystem
 
 # Kapitel 5
 
@@ -69,8 +69,8 @@ Da Andi, nimm das damit chasch de Spalt fillä
 
 - [ ] Passwort Hashing
 - [ ] Logfiles
-- [ ] Kommandos
-- [ ] Benutzer erstellen/-informationen
+- [x] Kommandos
+- [x] Benutzer erstellen/-informationen
 - [ ] SSH-Verbindung (Verbindung Crypto)
 
 # Kapitel 6
@@ -84,7 +84,7 @@ Da Andi, nimm das damit chasch de Spalt fillä
 
 ## .NET unter Linux
 
-- [ ] Befehle
+- [x] Befehle
 - [ ] C# Deployment auf Linux
 - [ ] Remote-Debugging
 
@@ -92,7 +92,7 @@ Da Andi, nimm das damit chasch de Spalt fillä
 
 ## System Control
 
-- [ ] `systemd` -> daemons (Labor für Zusätzliches)
+- [x] `systemd` -> daemons (Labor für Zusätzliches)
 - [ ] NuGet
 
 # Kapitel 8
@@ -126,10 +126,10 @@ Da Andi, nimm das damit chasch de Spalt fillä
 - [x] Delegates
 - [x] Multicast Delegates
 - [x] Events & Eventhandler
-- [ ] Multithreading
-- [ ] Threadlebenszyklus
-- [ ] Synchronisation
-- [ ] Deadlock (nested-lock)
+- [x] Multithreading
+- [x] Threadlebenszyklus
+- [x] Synchronisation
+- [x] Deadlock (nested-lock)
 
 # Kapitel 11
 

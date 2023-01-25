@@ -54,12 +54,90 @@ $ ls ? > combined.txt 2>&1
 $ ls ? &> combined.txt
 ```
 
-
 ![](images/RedirectedERR.png)
 
 ## GPIO via Konsole
 
-## Berechtigungssystem
+Bei Linux 'ist alles eine Datei' und damit können Gerätetreiber mit Schreiben und Lesen interagiert werden (wie z.B. Raspi LEDs).
+
+Um die Raspi-LEDs anzusteuern, Superuser: `sudo -s`.
+
+```bash
+# set Trigger to none
+echo none > /sys/class/leds/led0/trigger
+# activate LED
+echo 1 > /sys/class/leds/led0/brightness
+# deactivate LED
+echo 0 > /sys/class/leds/led0/brightness
+# reset to old Trigger
+echo mmc0 > /sys/class/leds/led0/trigger
+# exit Superuser
+exit
+```
+
+## Berechtigungssystem `ls -la`
+
+Jedem Ordner und jeder Datei ist Berechtigungen zugewiesen, welche beschreibt, wer darf was genau machen. Im Linux-Berechtigungssystem werden **drei** Berechtigungen für **drei** Berechtigungsgruppen und ein Dateityp-Feld angegeben im folgenden Format:
+
+```bash
+pi@raspy:~ $ ls -la
+-rw-r--r--  1 pi  pi  3523  Jun 27 00:17 .bashrc
+-rw-------  1 pi  pi  980   Oct  3 18:24 .bash_history
+drwx------  9 pi  pi  4096  Oct  3 05:46 .config
+drwxr-xr-x  2 pi  pi  4096  Jun 27 01:23 Downloads
+```
+
+- `r`: Lesen (*read*)
+- `w`: Schreiben (*write*)
+- `x`: Ausführen (*execute*)
+
+Eine Zeile ist wie gefolgt aufgebaut
+
+- Berechtigung (siehe folgende Tabelle für Bedeutung)
+- Anzahl Hardlinks
+- Name des Besitzers
+- Gruppenname
+- Grösse
+- Datum & Uhrzeit von letzer Änderung
+- Dateiname
+
+```{=latex}
+\colorbox{NavyBlue!30}{\textbf{\texttt{-}}}\colorbox{ForestGreen!30}{\textbf{\texttt{rw-}}}\colorbox{RedOrange!30}{\textbf{\texttt{r-{}-}}}\colorbox{Purple!30}{\textbf{\texttt{r-{}-}}}\textcolor{lightgray}{\texttt{  1 pi  pi ...}}
+```
+
+```{=tex}
+\begin{center}
+  \begin{tabularx}{\linewidth}{|cX|}
+  \hline
+  \textbf{Snippet} & \textbf{Bedeutung} \\ \hline
+  \colorbox{NavyBlue!30}{\textbf{\texttt{-}}}      & Dateityp (\texttt{-}: Datei, \texttt{d}: Ordner) \\ \hline
+  \colorbox{ForestGreen!30}{\textbf{\texttt{rw-}}} & Berechtigung Benutzer \\ \hline
+  \colorbox{RedOrange!30}{\textbf{\texttt{r-{}-}}}   & Berechtigung Gruppe \\ \hline
+  \colorbox{Purple!30}{\textbf{\texttt{r-{}-}}}      & Berechtigung alle anderen \\ \hline
+  \end{tabularx}
+\end{center}
+```
+
+### Berechtigung ändern `chmod`
+
+Mit `chmod` kann die Berechtigung einer Datei/Ordner geändert werden.
+
+```bash
+pi@raspy:~ $ chmod ug+rw myfile.txt
+```
+
+Struktur erster Parameter (`ug+rw`)
+
+1. `u`(*user*), `g`(*group*), `o`(*other*) (Kombinationen möglich), `a`(*all*) für alle.
+2. `+`: Rechte hinzuzufügen, `-` Rechte entfernen, `=` Berechtigung überschreiben.
+3. `r`, `w`, `x` einzeln oder eine Kombination davon
+
+::: {.callout-note}
+## Berechtigung Ordner
+
+Die Berechtigungen von Ordner sind ähnlich wie bei Dateien.
+Aber `x` gibt an, ob der Ordner via `cd` geöffnet werden darf. 
+:::
 
 ## Passwort Hashing
 
@@ -67,15 +145,111 @@ $ ls ? &> combined.txt
 
 ## Benutzerverwaltung
 
+### Benutzer erstellen
+
+Ein Benutzer wird mit `sudo adduser <name>`{.bash} erstellt.
+
+```bash
+sudo adduser peter_enis
+```
+
+- Das Home-Verzeichnis `/etc/<name>` wird anhand des Templates in `/etc/skel` erstellt.
+- Das Benutzerkonto wird in der Datei `/etc/passwd` erstellt.
+- Das Passwort wird [als Hash]{.underline} in `/etc/shadow` gespeichert.
+
+Um zum User zu wechseln, kann `su <name>`{.bash} verwendet werden.
+
+::: {.callout-note}
+#### `whoami`
+
+Mit `whoami` wird der aktuelle Nutzer angegeben.
+:::
+
+### Benutzer löschen
+
+Um einen Benutzer zu löschen, wird der `deluser` Befehl benötigt.
+
+```bash
+deluser peter_enis
+```
+
+Dies löscht nur den Benutzer, aber deren Home-Verzeichnis nicht. Dies muss diesbezüglich mit dem zusätzlichen Parameter `--remove-home` gemacht werden.
+
+```bash
+deluser peter_enis --remove-home
+```
+
+Möchte man alle Dateien löschen, die der User besass, wird der Parameter `--remove-all-files` verwendet.
+
+```bash
+deluser peter_enis --remove-all-files
+```
+
+### Benutzer einer Gruppe hinzufügen
+
+Um den User einer Gruppe hinzuzufügen, wird `gpasswd` verwendet.
+
+```bash
+sudo gpasswd -a peter_enis sudo
+```
+
+Um diesen aus einer Gruppe zu entfernen, wird `-d` verwendet.
+
+```bash
+gpasswd -d peter_enis sudo
+```
+
 ## SSH
 
 ## C# deployment
 
 ### Remote-Debugging
 
-## System-Control
+Mit `System.Diagnostics.Debugger.IsAttached` kann geprüft werden, ob ein Debugger mit der Ausführung des Programmes verbunden wurde.
 
-### Deamons
+1. Programm starten
+2. **Debug** > **Attach to Process**
+3. **Connection Type** auf *SSH*
+4. Connection Target `pi@<eee-adress>` angeben
+5. Allenfalls Public Key mitgeben und Passwort
+6. In *available processes* `dotnet` auswählen.
+7. Attach
+
+## Systemd - *System Daemon*
+
+*Systemd* ist eine Kollektion von Tools und Services und wird insbesondere für Hintergrundprozesse verwendet. Ein *Daemon* bezeichnet ein Program, welches im im Hintergrund läuft und die Kommunikation verläuft über Signale, Pipes oder Sockets (kein direkter Zugriff).
+
+Systemd verwendet Unit-Dateien um Prozess zu beschreiben und diese werden unter `/etc/systemd/[system/user/network]/` abgelegt.
+
+Eine Unit-Datei kann folgendes beinhalten.
+
+```conf
+[Unit]
+Description=My Hello World from C Sharp Service
+After=multi-user.target
+
+[Service]
+Type=idle
+ExecStart =/usr/local/bin/dotnet ...
+  .../home/pi/netcore/HelloWorld/HelloWorld.dll
+
+[Install]
+WantedBy=multi-user.target
+```
+
+`[Unit]`{.conf} beschreibt Service und Abhängigkeiten. `[Service]`{.conf} beschreibt Service und Befehl für Start & Stop. `[Install]`{.conf} beschreibt wie die Unit *enabled* und *disabled*.
+
+### Befehle
+
+- `systemctl`{.bash} zeigt geladene Units
+- `systemctl list-unit-files` zeigt alle Units 
+- `sudo systemctl start <service>.service`{.bash}
+- `sudo systemctl stop <service>.service`{.bash}
+- `sudo systemctl try-restart <service>.service`{.bash}
+- `sudo systemctl daemon-reload`{.bash} informiert Daemon über neue Units.
+- `sudo systemctl enable sample.service`{.bash}
+- `sudo systemctl disable sample.service`{.bash}
+- `journalctl -u sample.service`{.bash} zeigt Protokoll/Journal des Daemons
 
 ## Tunneling
 
