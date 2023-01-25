@@ -70,7 +70,7 @@ Da Andi, nimm das damit chasch de Spalt fillä
 - [ ] Passwort Hashing
 - [ ] Logfiles
 - [ ] Kommandos
-- [ ] Benutzer erstellen/-informationen
+- [x] Benutzer erstellen/-informationen
 - [ ] SSH-Verbindung (Verbindung Crypto)
 
 # Kapitel 6
@@ -92,7 +92,7 @@ Da Andi, nimm das damit chasch de Spalt fillä
 
 ## System Control
 
-- [ ] `systemd` -> daemons (Labor für Zusätzliches)
+- [x] `systemd` -> daemons (Labor für Zusätzliches)
 - [ ] NuGet
 
 # Kapitel 8

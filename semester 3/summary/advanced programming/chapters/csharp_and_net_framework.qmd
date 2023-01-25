@@ -299,7 +299,35 @@ if (Console.KeyAvailable){
 
 Die Tabelle listet alle Operatoren in C# von höchstem zu tiefstem Vorrang auf.
 
-![](images/OperationOrder.png)
+<!--![](images/OperationOrder.png)-->
+
+```{=latex}
+\begin{center}
+  \begin{tabularx}{\linewidth}{|p{4cm}|X|}
+  \hline
+  \textbf{Operator} & \textbf{Category or name} \\ \hline
+x.y\textbf{,} f(x)\textbf{,} a{[}i{]}\textbf{,} x?.y\textbf{,} x?{[}y{]}\textbf{,} x++\textbf{,} x--\textbf{,} x!\textbf{,}   new\textbf{,} typeof\textbf{,} checked\textbf{,} unchecked\textbf{,} default\textbf{,} nameof\textbf{,} delegate\textbf{,} sizeof\textbf{,}   stackalloc\textbf{,} x-\textgreater{}y &
+  Primary \\ \hline
++x\textbf{,} -x\textbf{,} !x\textbf{,} $\sim$x\textbf{,} ++x\textbf{,} --x\textbf{,} \textasciicircum{}x\textbf{,} (T)x\textbf{,} await\textbf{,}   \&x\textbf{,} *x\textbf{,} true and false                & Unary                                      \\ \hline
+x..y                                                                                                      & Range                                      \\ \hline
+switch\textbf{,} with                                                                                              & switch and with expressions                \\ \hline
+x * y\textbf{,} x / y\textbf{,} x \% y                                                                                      & Multiplicative                             \\ \hline
+x + y\textbf{,} x – y                                                                                              & Additive                                   \\ \hline
+x \textless{}\textless  y\textbf{,} x \textgreater{}\textgreater y\textbf{,} x   \textgreater{}\textgreater{}\textgreater y & Shift                                      \\ \hline
+x \textless y\textbf{,} x \textgreater y\textbf{,} x \textless{}= y\textbf{,} x \textgreater{}= y\textbf{,} is\textbf{,}   as                          & Relational and type-testing                \\ \hline
+x == y\textbf{,} x != y                                                                                            & Equality                                   \\ \hline
+x \& y                                                                                                    & Boolean logical AND or bitwise logical AND \\ \hline
+x \textasciicircum y                                                                                      & Boolean logical XOR or bitwise logical XOR \\ \hline
+x | y                                                                                                     & Boolean logical OR or bitwise logical OR   \\ \hline
+x \&\& y                                                                                                  & Conditional AND                            \\ \hline
+x || y                                                                                                    & Conditional OR                             \\ \hline
+x ?? y                                                                                                    & Null-coalescing operator                   \\ \hline
+c ? t : f                                                                                                 & Conditional operator                       \\ \hline
+x = y\textbf{,} x += y\textbf{,} x -= y\textbf{,} x *= y\textbf{,} x /= y\textbf{,} x \%= y\textbf{,}   x \&= y\textbf{,} x |= y\textbf{,} x \textasciicircum{}= y\textbf{,} x \textless{}\textless{}= y\textbf{,} x \textgreater{}\textgreater{}= y\textbf{,} x \textgreater{}\textgreater{}\textgreater{}= y\textbf{,}   x ??= y\textbf{,} =\textgreater{} &
+  Assignment and lambda declaration \\ \hline
+\end{tabularx}
+\end{center}
+```
 
 #### Null Checking
 
@@ -310,8 +338,9 @@ Der `a??b` Operator gibt `a` zurück wenn dieser nicht `NULL` ist, andernfalls `
 
 ### Zugriffs-Modifier {#sec-modifier}
 
-![](images/AccessModifiers.png)
+Siehe @sec-modifiertable
 
+<!-- ![](images/AccessModifiers.png) -->
 *Modifier* sind auf Klassen, Enum, Membervariablen, Properties und Methoden anwendbar.
 
 ### `using`

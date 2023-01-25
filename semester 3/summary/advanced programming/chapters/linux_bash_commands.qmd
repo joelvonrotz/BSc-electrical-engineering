@@ -99,3 +99,19 @@ Do more as you'd like. See table "LinuxCommands.tgn" to use on "https://www.tabl
 
 Make shure to check [x] Use reStructuredText syntax 
 -->
+
+# Zugriff Modifier {#sec-modifiertable}
+
+```{=latex}
+\begin{center}
+\begin{tabularx}{\linewidth}{|l|c|c|c|c|c|c|}
+\hline
+\textbf{Standort des Aufrufers}            & \multicolumn{1}{l|}{\textbf{public}} & \multicolumn{1}{l|}{\textbf{protected internal}} & \multicolumn{1}{l|}{\textbf{protected}} & \multicolumn{1}{l|}{\textbf{internal}} & \multicolumn{1}{l|}{\textbf{private protected}} & \multicolumn{1}{l|}{\textbf{private}} \\ \hline
+Innerhalb der Klasse                       & \textcolor{ForestGreen}{\faCheck}    & \textcolor{ForestGreen}{\faCheck}                & \textcolor{ForestGreen}{\faCheck}       & \textcolor{ForestGreen}{\faCheck}      & \textcolor{ForestGreen}{\faCheck}               & \textcolor{ForestGreen}{\faCheck}     \\ \hline
+Abgeleitete Klasse (selbe Assembly)        & \textcolor{ForestGreen}{\faCheck}    & \textcolor{ForestGreen}{\faCheck}                & \textcolor{ForestGreen}{\faCheck}       & \textcolor{ForestGreen}{\faCheck}      & \textcolor{ForestGreen}{\faCheck}               & \textcolor{BrickRed}{\faTimes}        \\ \hline
+Nicht abgeleitete Klasse (selbe Assembly)  & \textcolor{ForestGreen}{\faCheck}    & \textcolor{ForestGreen}{\faCheck}                & \textcolor{BrickRed}{\faTimes}          & \textcolor{ForestGreen}{\faCheck}      & \textcolor{BrickRed}{\faTimes}                  & \textcolor{BrickRed}{\faTimes}        \\ \hline
+Abgeleitete Klasse (andere Assembly)       & \textcolor{ForestGreen}{\faCheck}    & \textcolor{ForestGreen}{\faCheck}                & \textcolor{ForestGreen}{\faCheck}       & \textcolor{BrickRed}{\faTimes}         & \textcolor{BrickRed}{\faTimes}                  & \textcolor{BrickRed}{\faTimes}        \\ \hline
+Nicht abgeleitete Klasse (andere Assembly) & \textcolor{ForestGreen}{\faCheck}    & \textcolor{BrickRed}{\faTimes}                   & \textcolor{BrickRed}{\faTimes}          & \textcolor{BrickRed}{\faTimes}         & \textcolor{BrickRed}{\faTimes}                  & \textcolor{BrickRed}{\faTimes}        \\ \hline
+\end{tabularx}
+\end{center}
+```

@@ -145,6 +145,60 @@ Aber `x` gibt an, ob der Ordner via `cd` geöffnet werden darf.
 
 ## Benutzerverwaltung
 
+### Benutzer erstellen
+
+Ein Benutzer wird mit `sudo adduser <name>`{.bash} erstellt.
+
+```bash
+sudo adduser peter_enis
+```
+
+- Das Home-Verzeichnis `/etc/<name>` wird anhand des Templates in `/etc/skel` erstellt.
+- Das Benutzerkonto wird in der Datei `/etc/passwd` erstellt.
+- Das Passwort wird [als Hash]{.underline} in `/etc/shadow` gespeichert.
+
+Um zum User zu wechseln, kann `su <name>`{.bash} verwendet werden.
+
+::: {.callout-note}
+#### `whoami`
+
+Mit `whoami` wird der aktuelle Nutzer angegeben.
+:::
+
+### Benutzer löschen
+
+Um einen Benutzer zu löschen, wird der `deluser` Befehl benötigt.
+
+```bash
+deluser peter_enis
+```
+
+Dies löscht nur den Benutzer, aber deren Home-Verzeichnis nicht. Dies muss diesbezüglich mit dem zusätzlichen Parameter `--remove-home` gemacht werden.
+
+```bash
+deluser peter_enis --remove-home
+```
+
+Möchte man alle Dateien löschen, die der User besass, wird der Parameter `--remove-all-files` verwendet.
+
+```bash
+deluser peter_enis --remove-all-files
+```
+
+### Benutzer einer Gruppe hinzufügen
+
+Um den User einer Gruppe hinzuzufügen, wird `gpasswd` verwendet.
+
+```bash
+sudo gpasswd -a peter_enis sudo
+```
+
+Um diesen aus einer Gruppe zu entfernen, wird `-d` verwendet.
+
+```bash
+gpasswd -d peter_enis sudo
+```
+
 ## SSH
 
 ## C# deployment
@@ -161,9 +215,41 @@ Mit `System.Diagnostics.Debugger.IsAttached` kann geprüft werden, ob ein Debugg
 6. In *available processes* `dotnet` auswählen.
 7. Attach
 
-## Systemd, `systemctl`
+## Systemd - *System Daemon*
 
-### Deamons
+*Systemd* ist eine Kollektion von Tools und Services und wird insbesondere für Hintergrundprozesse verwendet. Ein *Daemon* bezeichnet ein Program, welches im im Hintergrund läuft und die Kommunikation verläuft über Signale, Pipes oder Sockets (kein direkter Zugriff).
+
+Systemd verwendet Unit-Dateien um Prozess zu beschreiben und diese werden unter `/etc/systemd/[system/user/network]/` abgelegt.
+
+Eine Unit-Datei kann folgendes beinhalten.
+
+```conf
+[Unit]
+Description=My Hello World from C Sharp Service
+After=multi-user.target
+
+[Service]
+Type=idle
+ExecStart =/usr/local/bin/dotnet ...
+  .../home/pi/netcore/HelloWorld/HelloWorld.dll
+
+[Install]
+WantedBy=multi-user.target
+```
+
+`[Unit]`{.conf} beschreibt Service und Abhängigkeiten. `[Service]`{.conf} beschreibt Service und Befehl für Start & Stop. `[Install]`{.conf} beschreibt wie die Unit *enabled* und *disabled*.
+
+### Befehle
+
+- `systemctl`{.bash} zeigt geladene Units
+- `systemctl list-unit-files` zeigt alle Units 
+- `sudo systemctl start <service>.service`{.bash}
+- `sudo systemctl stop <service>.service`{.bash}
+- `sudo systemctl try-restart <service>.service`{.bash}
+- `sudo systemctl daemon-reload`{.bash} informiert Daemon über neue Units.
+- `sudo systemctl enable sample.service`{.bash}
+- `sudo systemctl disable sample.service`{.bash}
+- `journalctl -u sample.service`{.bash} zeigt Protokoll/Journal des Daemons
 
 ## Tunneling
 
