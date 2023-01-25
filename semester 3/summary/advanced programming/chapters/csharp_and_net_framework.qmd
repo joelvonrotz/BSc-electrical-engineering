@@ -238,7 +238,58 @@ Da Properties Methoden enthalten können, gilt: `PascalCase`
 
 ### `System`
 
-#### `Sysem.Console`
+Der `System`-Namespace beinhaltet einige der Fundamentalen C#-Klassen und Strukturen.
+
+#### `System.Console`
+
+Mit der  Klasse `Console` wird mit der Konsole interagiert, folgend sind die grundlegenden Funktionen beschrieben
+
+- Ausgabe auf Konsole
+
+```csharp
+Console.Write("Hello");   // Write on line
+Console.WriteLine("World");  // Write Followed by "\n"
+```
+
+- Lesen von Konsole
+
+```csharp
+// Read next char from stream
+char c = Console.Read();
+// Read next line from stream
+string msg = Console.ReadLine();
+// Read Key with modifiers
+ConsoleKeyInfo k = Console.ReadKey();
+```
+
+Mit `.ReadKey()`{.csharp} werden auch Tasten gelesen, die kein char ergeben *(z.B. Enter, Backspace,...)*. 
+Mit `k.Key == ConsoleKey.Escape`{.csharp} kann zum Beispiel überprüft werden, ob die *Enter*-Taste gedrückt wurde. 
+Mit `k.Modifiers == ConsoleModifiers.Shift`{.csharp} kann zudem überprüft werden, ob ein Chrakter mit einem Modifier (Hier *Shift*) verwendet wurde.
+Mit `char c = k.KeyChar`{.csharp} kann zudem direkt der Charakter erlangt werden.
+
+- Konsole leeren
+
+```csharp
+Console.Clear();
+```
+
+- Modifizieren des Cursors
+
+```csharp
+// Get Cursor position !screen relative!
+(int l, int t) = Console.GetCursorPosition();
+// Set Cursor position !screen relative!
+Console.SetCursorPosition(newLeft, newTop);
+```
+
+- Auf Tastenanschlag prüfen
+
+```csharp
+if (Console.KeyAvailable){
+  // Do stuff with key
+  // !Key must be read for no futher activation!
+}
+```
 
 ## Keywords
 
