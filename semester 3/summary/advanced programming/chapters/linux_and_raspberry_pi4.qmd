@@ -199,7 +199,125 @@ Um diesen aus einer Gruppe zu entfernen, wird `-d` verwendet.
 gpasswd -d peter_enis sudo
 ```
 
+## Verschlüsselung
+
+### Symmetrische Verschlüsselung
+
+![](images/SymEncrypt.png "Title: Symmetrische Verschlüsselung")
+
+- Sender und Empfänger verwenden den gleichen Schlüssel
+- Sehr schnell *(Ressourcenschonend)* bei hoher Sicherheit
+- Algorithmen:
+  + AES 128, 192 oder 256 Bit-Schlüssel
+  + IDEA *(von ETH)*
+
+### Asymmetrische Verschlüsselung (Public-Private Key)
+
+![](images/AsymEncrypt.png)
+
+- Sender verschlüsselt mit *öffentlichem* Schlüssel
+- Empfänger entschlüsselt mit *privatem* Schlüssel
+- Rechenintensiver (10'000x), als symmetrische Verfahren
+- Algorithmen:
+  + RSA 1024, 2048, 4096, ... Bit-Schlüssel
+  + Elliptische-Kurven-Verfahren
+
+::: callout-tip
+Wegen der benötigten Rechenleistung werden keine grosse Daten über *asymmetrische* Verschlüsselung übertragen. Meist wird über eine *asymmetrische* Verschlüsselung lediglich ein gemeinsamer Schlüssel ausgetauscht um anschliessend eine *symmetrische* Übertragung aufzubauen.
+:::
+
+### Digitale Signatur (Public-Private Key)
+
+![](images/DigiSignature.png)
+
+- Sender verschlüsselt Prüfsumme der Nachricht mit dem privaten Schlüssel
+- Empfänger verifiziert die Prüfsumme mit dem öffentlichen Schlüssel
+- **Nur der Sender kann signieren, alle können die Signatur verifizieren**
+
 ## SSH
+
+![](images/SSHTunnel.png)
+
+- Die Kommunikation erfolgt bidirektional via verschlüsseltem Tunnel
+- SSH is ein mächtiges Tool:
+  + Netzwerkverkehr lässt sich über SSH umleiten
+  + Filetransfer (SCP, SFTP)
+  + Remote Filesystem (SSHFS)
+  + Portforwarding
+
+![](images/SSHConnect.png)
+
+::: callout-important
+Der *Public Key* muss auf Korrektheit überprüft werden. Ansonsten besteht die Gefahr einer **man-in-the-middle**-Attacke.
+:::
+
+### Schlüssel in Linux generieren
+
+::: callout-tip
+Macht man den Public Key auf dem Server bekannt z.B. in einen *authorized Key Storage* auf den Server einträgt. Unter Linux wir der Key im *User*-Verzeichnis gespeichert, so wird die SSH-Verbindung direkt "in den Benutzer" verbunden, so entfällt das Login und der Benutzername.
+:::
+
+Zuerst ein Verzeichnis erstellen und den Zugriff auf den eigenen Benutzer einschränken
+
+```bash
+pi@raspy:$ mkdir ~/.ssh
+pi@raspy:$ chmod 700 ~/.ssh
+```
+
+Erstellen einer *Key*-Datei und einschränkung des Zugriffs
+
+```bash
+pi@raspy:~/.ssh $ touch authorized_keys
+pi@raspy:~/.ssh $ chmod 600 authorized_keys
+```
+
+Erstellen eines RSA-Schlüssels mit 4096 Bits. Mit Argument `-m PEM`{.bash} für Benutzung mit Visual Studio *SecureUpload.exe*. Es muss **kein** *passphrase* eingegeben werden
+
+```bash
+pi@raspy:~/.ssh $ ssh-keygen -m PEM -b 4069 -t rsa piKey
+```
+
+Der *Public Key* wird nun in die Datei *authorized_keys* geschrieben (angehängt)
+
+```bash
+pi@raspy:~/.ssh $ cat piKey.pub >> authorized_keys
+```
+
+### Windoof Host Konfiguration
+
+*.ssh*-Verzeichnis erstellen und *Private_Key* via `scp`{.bash} (Secure Copy) in das Verzeichnis kopieren
+
+```bash
+PC> mkdir "%USERPROFILE%\.ssh"
+PC> scp pi@hostname:~/.ssh/piKey "%USERPROFILE%\.ssh"
+```
+
+SSH-Konfigurationsdatei namens **config** in *.ssh* Verzeichnis erstellen, folgender Inhalt
+
+```
+Host pi-hslu
+  #HostName <IP-Adresse oder Hostname>
+  HostName <hostname>.simple.eee.intern
+  User pi
+  Identityfile "C:\Users\<username>\.ssh\piKey"
+```
+
+Testen mit 
+
+```bash
+PC> ssh pi-hslu
+```
+
+### SSH-Tunneling
+
+*Bsp.* aus dem eee-Netz kann nicht in das HSLU-Netz zugegriffen werden. Hierzu wird **SSH-Tunneling** verwendet. Es wird vom Host eine Verbindung auf den Client eröffnet.
+
+```bash
+PC> ssh -R 9999:127.0.0.1:9999 pi@hostname.simple.eee.intern
+```
+Die Option `-R`{.bash} sagt, dass auf der Remote Maschine ein Port *9999* (erste Zahl) geöffnet werden soll, und dass die Pakete zu der IP-Adresse 127.0.0.1 (localhost, auf der PC-Seite) und auf den Port *9999* (hintere Zahl) des PC gesendet werden sollen.
+
+Nun können Daten vom Client auf den Clientport 9999 gesendet werden, welche über SSH auf den Host übertragen werden und auf dem Port 9999 entgegengenommen werden können.
 
 ## C# deployment
 
@@ -251,6 +369,5 @@ WantedBy=multi-user.target
 - `sudo systemctl disable sample.service`{.bash}
 - `journalctl -u sample.service`{.bash} zeigt Protokoll/Journal des Daemons
 
-## Tunneling
 
 ## UART TinyK <-> Raspi

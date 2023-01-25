@@ -71,7 +71,7 @@ Da Andi, nimm das damit chasch de Spalt fillä
 - [ ] Logfiles
 - [x] Kommandos
 - [x] Benutzer erstellen/-informationen
-- [ ] SSH-Verbindung (Verbindung Crypto)
+- [x] SSH-Verbindung (Verbindung Crypto)
 
 # Kapitel 6
 
@@ -86,7 +86,7 @@ Da Andi, nimm das damit chasch de Spalt fillä
 
 - [x] Befehle
 - [ ] C# Deployment auf Linux
-- [ ] Remote-Debugging
+- [x] Remote-Debugging
 
 # Kapitel 7
 
@@ -103,7 +103,7 @@ Da Andi, nimm das damit chasch de Spalt fillä
 - [x] Namenskonflike 
 - [x] Explitzite Implementationen (`I1.draw()`,`I2.draw()`)
 - [ ] Logging (NLog)
-- [ ] Tunneling
+- [x] Tunneling
 
 # Kapitel 9
 

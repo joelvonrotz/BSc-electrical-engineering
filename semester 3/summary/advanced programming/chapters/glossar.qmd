@@ -3,3 +3,12 @@
 ![](images/TimeSlicing.png)
 
 - **Präventiv/kooperativ**: Ein *präventives* Betriebsystem unterbricht ein Prozess, wenn dieser sein Time-Slot verbraucht hat. Ein *kooperatives* BS unterbicht die Prozesse [nicht]{.underline} und die Prozesse geben an, wann es fertig ist. 
+
+- **HAT** "Hardware On Top" für Raspberry Pi, "Shield" für Arduino, "Cape" für Beaglebone
+
+- **CLR** "Common Language Runtime" stellt eine Laufzeitumgebung zur Verfügung, um Programme unabhängig der darunterliegenden Hardware auszuführen und unterstützt
+eine Vielzahl von Programmiersprachen.
+
+- **Linux Betriebssystem** "Linus Unix" monolithischer Kernel, überwiegend in *C*, wenig in *Assembler* geschrieben
+
+- **GNU** "GNU is not Unix" unixähnliches Betriebssystem und freie Software. Es ist unix ähnlich, enthält aber kein Unix COde
