@@ -46,8 +46,8 @@ Da Andi, nimm das damit chasch de Spalt fillä
 
 # Kapitel 4
 
-- [ ] .NET Bibliotheken
-- [ ] System.Environment
+- [x] .NET Bibliotheken
+- [x] System.Environment
 - [ ] Collections
 - [x] Boxing & Unboxing
 

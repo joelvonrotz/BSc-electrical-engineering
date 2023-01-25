@@ -354,10 +354,40 @@ Console.Write(s1.Length); // out: 5
 - `s1.Insert(int index, string s2)`{.csharp} gibt einen string zurück in dem `s2` an der Stelle `index` eingefügt wurde
 - `s1.Replace(char c1, char c2)`{.csharp} gibt einen string zurück, in dem `c1` mit `c2` ausgetauscht wurde
 - `s1.Split(char c)`{.csharp} gibt ein StringArray mit den, jeweils bei `c` getrennten, substrings zurück
+- `String.Join(string[] str)`{.csharp} gibt einen zusammengefügten String des Stringarrays zurück
 - `s1.ToCharArray()`{.csharp} gibt ein CharArray (No Joke) mit den Charaktern zurück
 - `s1.ToLower()`{.csharp} gibt einen, in lowercase konvertierten, string zurück
 - `s1.ToUpper()`{.csharp} gibt einen, in UPPERCASE konvertierten, string zurück
 - `s1.Trim()`{.csharp} entfernt alle Whitespaces am Ende und am Anfang, gibt diesen String zurück
+
+#### `System.Environment`
+
+Die `System.Environment`-Klasse gibt Nützliche Informationen bezüglich des gerade benutzen Gerätes, Versionen, etc.
+
+`Environment.`
+
+- `Current Directory` Programmverzeichnis
+- `ProcessPath` Programmpfad
+- `Is64BitOperatingSystem` True/False
+- `OSVersion`
+- `MachineName`
+- `ProcessorCount` Anzahl (virtueller) Prozessoren
+- `TickCount` Anzahl Ticks seit Aufstarten
+- `UserName`
+- `UserDomainName`
+- `CurrentManagedThreadId` Thread Id
+- `Version` Common Language Runtime *CLR* Version
+- `GetLogicalDrives()` gibt ein Stringarray aller Laufwerke
+
+Es gibt zudem noch weitere Variablen welche nicht direkt über eine Methode einsehbar sind, welche mit `Environment.GetEnvironmentalVariable()` abgerufen werden können (Bsp. `"PROCESSOR_IDENTIFIER"`). Mit folgendem Beispiel sind alle einsehbar:
+
+```csharp
+Console.WriteLine("GetEnvironmentVariables: ");
+  foreach (DictionaryEntry de in 
+                Environment.GetEnvironmentVariables()) {
+      Console.WriteLine("  {0} = {1}", de.Key, de.Value);
+  }
+```
 
 ## Keywords
 
