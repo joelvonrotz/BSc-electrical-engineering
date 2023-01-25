@@ -247,8 +247,10 @@ Mit der  Klasse `Console` wird mit der Konsole interagiert, folgend sind die gru
 - Ausgabe auf Konsole
 
 ```csharp
-Console.Write("Hello");   // Write on line
-Console.WriteLine("World");  // Write Followed by "\n"
+// Write on line
+Console.Write("Hello");
+// Write Followed by new Line
+Console.WriteLine("World");
 ```
 
 - Lesen von Konsole
@@ -287,9 +289,75 @@ Console.SetCursorPosition(newLeft, newTop);
 ```csharp
 if (Console.KeyAvailable){
   // Do stuff with key
-  // !Key must be read for no futher activation!
+  // !Key must be read for no further activation!
 }
 ```
+
+#### `System.String`
+
+Strings sind im vergleich zu C lediglich **read-only**. String variablen sind grundsätzlich Pointer die auf den eigentlichen String im Speicher zeigen. Dies hat zur Folge, dass Methoden immer einen String *(Adresse zum **neuen** String)* als return-Wert haben.
+
+```csharp
+string name = "Hansli";
+name.ToLower();
+Console.WriteLine(name);  // "Hansli"
+name = name.ToLower();
+Console.WriteLine(name);  // "hansli"
+```
+
+::: callout-note
+# String Characteristics
+
+- `string`{.csharp} ist ein *Referenztyp*
+- ist unveränderlich
+- Kann `NULL` (`"\0"`) enthalten
+- **`==`**-Operator wird als "Stringvergleicher" überschrieben (Vergleicht Inhalt, nicht Referenz)
+:::
+
+Strings können auch durch **Aneinanderreihung** mehrerer Strings erstellt werden:
+
+```csharp
+string s1 = "Hello";
+string s2 = "World";
+string str = s1 + " " + s2; // Hello World
+```
+
+Strings können auch durch **Konstruktoren** erstellt werden:
+
+```csharp
+char[] ch = {'H','o','i'};
+string s1 = new string(ch);
+
+// string with repeated characters
+string s2 = new string('G',20);
+```
+
+Über die Property **`Char[]`** kann auf die Zeichen des Strings indexiert werden
+
+```csharp
+string s1 = "Hello";
+Console.Write(s1[1]); // out: e
+```
+
+Die Property **`Length`** beschreibt die Länge des Strings
+
+```csharp
+string s1 = "Hello";
+Console.Write(s1.Length); // out: 5
+```
+
+##### Weitere nützliche Methoden
+
+- `String.Compare(string s1, string s2)`{.csharp} vergleicht den Inhalt lexikalisch :)
+- `s1.Contains(Char c)`{.csharp} prüft den String auf vorhandensein eines Charakters
+- `s1.Equals(string s2)`{.csharp} prüft den Inhalt auf Gleichheit
+- `s1.Insert(int index, string s2)`{.csharp} gibt einen string zurück in dem `s2` an der Stelle `index` eingefügt wurde
+- `s1.Replace(char c1, char c2)`{.csharp} gibt einen string zurück, in dem `c1` mit `c2` ausgetauscht wurde
+- `s1.Split(char c)`{.csharp} gibt ein StringArray mit den, jeweils bei `c` getrennten, substrings zurück
+- `s1.ToCharArray()`{.csharp} gibt ein CharArray (No Joke) mit den Charaktern zurück
+- `s1.ToLower()`{.csharp} gibt einen, in lowercase konvertierten, string zurück
+- `s1.ToUpper()`{.csharp} gibt einen, in UPPERCASE konvertierten, string zurück
+- `s1.Trim()`{.csharp} entfernt alle Whitespaces am Ende und am Anfang, gibt diesen String zurück
 
 ## Keywords
 

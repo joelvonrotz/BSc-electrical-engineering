@@ -13,9 +13,9 @@ Da Andi, nimm das damit chasch de Spalt fillä
 - [ ] Struktur C#-Programm
 - [x] Klassen
 - [x] Operatoren & Reihenfolge
-- [ ] Klasse `System.String`
-- [ ] Implizit & Explizit Casting
-- [ ] Klasse Console
+- [x] Klasse `System.String`
+- [x] Implizit & Explizit Casting
+- [x] Klasse Console
 - [x] Aufzählungen (Enum & `[FLAGS]`)
 
 # Kapitel 2
@@ -69,7 +69,7 @@ Da Andi, nimm das damit chasch de Spalt fillä
 
 - [ ] Passwort Hashing
 - [ ] Logfiles
-- [ ] Kommandos
+- [x] Kommandos
 - [x] Benutzer erstellen/-informationen
 - [ ] SSH-Verbindung (Verbindung Crypto)
 
@@ -84,7 +84,7 @@ Da Andi, nimm das damit chasch de Spalt fillä
 
 ## .NET unter Linux
 
-- [ ] Befehle
+- [x] Befehle
 - [ ] C# Deployment auf Linux
 - [ ] Remote-Debugging
 
