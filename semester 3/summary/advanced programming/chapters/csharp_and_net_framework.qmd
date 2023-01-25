@@ -136,15 +136,15 @@ public class MyClass{
 }
 ```
 
-Die `Main(string[] args) {}`{.csharp} Methode beschreibt den Einstiegspunkt eines Programms. In `args`{.csharp} sind Programm-Parameter gespeichert welche z.B. bei einer Konsolenaplikation angefügt werden *(hier `-debug`)
+Die `Main(string[] args) {}`{.csharp} Methode beschreibt den Einstiegspunkt eines Programms. In `args`{.csharp} sind Programm-Parameter gespeichert welche z.B. bei einer Konsolenapplikation angefügt werden (folgendes Beispiel mit `--debug`)
 
 ```{.bash}
-dotnet MyProgram.dll -debug
+dotnet MyProgram.dll --debug
 ```
 
 ### Membervariable
 
-Membervariabeln sind **Daten** oder **Attribute** eines Objektes. So ist z.B. `color` eine Membervariable in deiner Klasse `car`. Membervariablen können mit Zugriff-Modifizierern *(siehe @sec-modifier)* eingeschränkt werden.
+Membervariabeln sind **Daten** oder **Attribute** eines Objektes. So ist z.B. `color` eine Membervariable in deiner Klasse `car`. Membervariablen können mit Zugriff-Modifizierern (siehe @sec-modifier) eingeschränkt werden.
 
 Deklaration:
 
@@ -155,6 +155,7 @@ public class Point{
 }
 ```
 Für Membervariablen wird auf dem **Heap** Speicher reserviert. Membervariablen sollten explizit initialisiert werden, die Standardwerte der automatischen Initialisierung sind:
+
 * Numerische Typen **`0`**
 * enum **`0`**
 * boolean **`false`**
