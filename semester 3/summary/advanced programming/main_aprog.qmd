@@ -20,11 +20,12 @@ pdf-engine: pdflatex
 # [DOCUMENT CONFIGURATION] ============================
 geometry: 
 - "top=10mm"
-- "bottom=13mm"
+- "headsep=4mm"
+- "bottom=15mm"
 - "left=5mm"
 - "right=5mm"
-- "footskip=8mm"
-- "tmargin=15mm"
+- "footskip=9mm"
+- "tmargin=13mm"
 papersize: a4
 fontsize: 10pt
 
