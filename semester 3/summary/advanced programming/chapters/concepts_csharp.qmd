@@ -1,5 +1,90 @@
 ## Collections
 
+### Queue
+
+Repräsentiert eine first-in, first-out Collection von Objekten. Gut geeigent für temporären Speicher von Informationen. Drei grundlegende Operationen können auf einer `Queue<T>` und ihren Elementen ausgeführt werden:
+- Enqueue, fügt einer `Queue<T>` ein Element hinzu
+- Dequeue, entfernt das älteste Element vom Start einer `Queue<T>`
+- Peek, gibt das älteste Element vom Start einer `Queue<T>` zurück, ohne es zu entfernen
+
+```csharp
+Queue<string> numbers = new Queue<string>();
+  numbers.Enqueue("one");
+  numbers.Enqueue("two");
+  numbers.Enqueue("three");
+
+  Console.WriteLine("\nDequeuing '{0}'",
+    numbers.Dequeue());
+  Console.WriteLine("Peek next item: {0}",
+    numbers.Peek());
+  Console.WriteLine("Dequeuing '{0}'",
+    numbers.Dequeue());
+```
+### Linked List
+
+Repräsentiert eine doppelt gelinkte universelle Liste. `LinkedList<T>` beinhaltet Nodes vom Typ `LinkedListNode<T>` und ermöglicht es, an erster und letzter Stelle der Liste Elemente hinzuzufügen. Die Klasse beinhaltet folgende Funktionen:
+- AddBefore(LinkedListNode<T>, T), fügt einen neuen Node vor dem mitgegebenen Node ein.
+- AddAfter(LinkedListNode<T>, T), fügt einen neuen Node nach dem mitgegebenen Node ein.
+- AddFirst(T)
+- AddLast(T)
+- Find(T), findet den ersten Node, der den angegebenen Value beinhaltet.
+- Remove(T), entfernt den ersten Node, der den angegebenen Value beinhaltet.
+- RemoveFirst()
+- RemoveLast()
+
+```csharp
+string[] words =
+  { "the", "fox", "jumps", "over", "the", "dog" };
+LinkedList<string> sentence =
+  new LinkedList<string>(words);
+
+// Add  word 'today' to beginning of the list.
+sentence.AddFirst("today");
+sentence.AddFirst("today");
+
+// Move the first node to be the last node.
+LinkedListNode<string> mark1 = sentence.First;
+sentence.RemoveFirst();
+sentence.AddLast(mark1);
+```
+
+### Dictionary
+
+Repräsentiert eine Collection von Key-Value-Paaren. Eine `KeyNotFoundException` wird erzeugt, wenn ein verlangter Key nicht vorhanden ist. Zu Keys zugehörige Values können ersetzt werden. Key Value Paare sind einzigartig. Ein Key kann nicht null sein, ein Value aber schon. Die `TryGetValue` Methode kann verwendet werden, wenn das Programm oft nach Key Values suchen muss, die nicht im `Dictionary<TKey,TValue>` vorhanden sind. Mit `ContainsKey` kann überprüft werden, ob ein Key bereits existiert.
+
+- Add(TKey, TValue), fügt ein Value mit dazugehörigem Key ein.
+- Clear(), entfernt alle Elemente der SortedList.
+- Remove(TKey), entfernt das entsprechende Element mit diesem Key.
+- TryGetValue(TKey, TValue), gibt den mit dem key verbundene Value zurück.
+
+Adds the specified key and value to the dictionary.
+
+```csharp
+// Create a new dictionary of strings.
+Dictionary<string, string> openWith =
+  new Dictionary<string, string>();
+
+// Add some elements to the dictionary.
+openWith.Add("txt", "notepad.exe");
+openWith.Add("bmp", "paint.exe");
+
+// Setting the indexer for a key
+// adds a new key/value pair.
+openWith["doc"] = "winword.exe";
+```
+### Sorted List
+
+Eine `SortedList<TKey, TValue>` ist eine Collection mit Key/Value Paaren, welche nach den Werten der Keys geordnet ist. Die Sortierung erfolgt mit der `IComparer<T>` Collection. Sowohl Keys wie auch Values haben einen Generischen Wertetyp. Dabei kann ein Key nur einmal vorkommen, um keine Verwechslungen zu ermöglichen. Eine `SortedList<TKey, TValue>` funktioniert in dieser Hinsicht gleich wie ein `SortedDictionary<TKey, TValue>`, braucht aber weniger Speicher und ist langsamer beim Hinzufügen und Entfernen von unsortierten Daten. Beim Erzeugen einer Liste mit sortierten Daten ist die `SortedList<TKey, TValue>` schneller als `SortedDictionary<TKey, TValue>`.
+
+- Add(TKey, TValue), fügt ein Value mit dazugehörigem Key ein.
+- Clear(), entfernt alle Elemente der SortedList.
+- IndexOfKey(TKey), sucht den entsprechenden Key und gibt dessen Index aus.
+- IndexOfValue(TValue), sucht die entsprechende Value und gibt deren Index aus.
+- Remove(TKey), entfernt das entsprechende Element mit diesem Key.
+- RemoveAt(Int32), entfernt das Element mit diesem Index.
+- TryGetValue(TKey, TValue), vergleicht ob Eingabe schon vorhanden ist.
+
+
 ### Indexer
 
 Indexer ermöglichen die Indexierung von Klassen oder Structs. Der Indexer wird mit dem `this` Keyword definiert. Indexer müssen nicht durch einen Integer-Wert indexiert werden und können überladen werden. Mehrere Parameter können verwendet werden, um beispielsweise auf ein zweidimensionales Array zuzugreifen.
@@ -25,7 +110,7 @@ class Program {
 
 ### Generics
 
-Mit dem generischen Typenparameter `T` deklariert werden, bei welcher erst zur Deklaration der Datentyp instanziiert wird. Wenn eine Klasse mit einem kontreten Typen instanziiert wird, wird `T` mit dem Typen ersetzt.
+Mit dem generischen Typenparameter `T` können Klassen oder Methoden deklariert werden, bei welchen erst zur Deklaration der Datentyp instanziiert wird. Wenn eine Klasse mit einem kontreten Typen instanziiert wird, wird `T` mit dem Typen ersetzt.
 
 ```csharp
 public class GenList<T> {
