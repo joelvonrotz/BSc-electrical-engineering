@@ -15,9 +15,11 @@ Wird also ein Event-Handler wie `UserUpdate` von ausserhalb des WPF aufgerufen, 
 void UserUpdate(object sender, UserUpdateEventArgs e) {
     if (!Dispatcher.CheckAccess())
     {
-        // put Userupdate into event que with right context
+        // put Userupdate into event queue
+        // with right context
         Dispatcher.Invoke(
-            new EventHandler<UserUpdateEventArgs>(UserUpdate), 
+            new EventHandler<UserUpdateEventArgs>(
+                UserUpdate), 
             sender, e);
         return;
     }
