@@ -228,7 +228,13 @@ class ClHandler {
   }
 }
 ```
+::: callout-important
+Es kann sein, dass `StreamReader.ReadLine()` keine Nachricht zurückgibt. Um dies zu unterdrücken sollte folgende Zeile eingesetzt werden
 
+```csharp
+// Back to top of while(true)
+if( msg == null ) break;
+``` 
 
 ### UDP
 
