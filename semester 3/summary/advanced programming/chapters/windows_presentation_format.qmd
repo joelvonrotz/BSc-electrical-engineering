@@ -8,7 +8,22 @@ WPF-Applikationen bestehen aus grafischen Elementen und
 ## Dispatcher
 
 Der Dispatcher wird zum Aktualisieren der Benutzeroberfläche über einen *nicht-UI*-Thread (z.B. separate Workload) verwendet.
-Es 
+
+Wird also ein Event-Handler wie `UserUpdate` von ausserhalb des WPF aufgerufen, kann dieser Eventhandler nicht auf die Elemente des WPF zugreifen. Wierzu wird der **`Dispatcher`** genutzt. Dieser `Invoked` den Event-Handler nocheinmal mit den selben Parameter, diesmal jedoch im WPF-Thread.
+
+```csharp
+void UserUpdate(object sender, UserUpdateEventArgs e) {
+    if (!Dispatcher.CheckAccess())
+    {
+        // put Userupdate into event que with right context
+        Dispatcher.Invoke(
+            new EventHandler<UserUpdateEventArgs>(UserUpdate), 
+            sender, e);
+        return;
+    }
+    /* WPF-Element-Update */
+}
+```
 
 ## Key-Event
 
