@@ -313,7 +313,7 @@ PC> ssh pi-hslu
 *Bsp.* aus dem eee-Netz kann nicht in das HSLU-Netz zugegriffen werden. Hierzu wird **SSH-Tunneling** verwendet. Es wird vom Host eine Verbindung auf den Client eröffnet.
 
 ```bash
-PC> ssh -R 9999:127.0.0.1:9999 pi@hostname.simple.eee.intern
+PC> ssh -R 9999:127.0.0.1:9999 pi@<eee-address>
 ```
 Die Option `-R`{.bash} sagt, dass auf der Remote Maschine ein Port *9999* (erste Zahl) geöffnet werden soll, und dass die Pakete zu der IP-Adresse 127.0.0.1 (localhost, auf der PC-Seite) und auf den Port *9999* (hintere Zahl) des PC gesendet werden sollen.
 

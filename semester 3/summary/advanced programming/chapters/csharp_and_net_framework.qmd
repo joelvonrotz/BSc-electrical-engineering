@@ -173,6 +173,8 @@ Für Membervariablen wird auf dem **Heap** Speicher reserviert. Membervariablen 
 
 ### Getter- und Setter-Methoden
 
+Getter- und Setter-Methoden werden für kontrolliertes Verändern und Abfragen von Variablen verwendet. Meistens möchte man bei einer Membervariable den Wert zuerst prüfen, bevor diese beschrieben wird, und dafür werden Getter und Setter verwendet. `Properties` besitzen diese Methoden mit `get` und `set`.
+
 ::: callout-caution
 * Globale Variablen vermeiden
 * Kein direkter Zugriff auf Variablen durch `public`

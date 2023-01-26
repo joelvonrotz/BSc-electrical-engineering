@@ -8,10 +8,11 @@ lang: de
 # [RENDER CONFIGURATION] ==============================
 format:
   pdf:
+    keep-tex: true
     include-in-header:
       - config.tex
-    template-partials:
-    - before-body.tex
+    #template-partials:
+    #  - before-body.tex
 
 source:
   github: "https://github.com/joelvonrotz/bachelor-electrical-engineering/tree/main/semester%203/summary/advanced%20programming"
@@ -39,6 +40,18 @@ number-depth: 3
 pagenumbering: none
 highlight-style: github
 ---
+
+```{=latex}
+\vspace{0.5cm}
+\hrule
+\vspace{0.4cm}
+\begin{center}
+{\large \faGithub\space \href{$source.github$}{Quelldateien}\hspace{1cm}{EEE-Adresse: \texttt{eee-}\underline{\hspace{2cm}}\texttt{.simple.eee.intern}}}
+\end{center}
+\vspace{0.5cm}
+\hrule
+\vspace{0.5cm}
+```
 
 <!-- [Chapters] -->
 

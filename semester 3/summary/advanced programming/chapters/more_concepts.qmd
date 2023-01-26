@@ -1,6 +1,110 @@
-## MQTT
+## Message Queuing Telemetry Transport
 
-**M**essage **Q**ueuing **T**elemetry **T**ransport
+![](images/mqtt/flow_graph.png)
+
+MQTT ist ein Nachrichtenprotokoll nach dem Publish/Subscribe-Prinzip. Clients verbinden sich mit einem Broker, welcher die Publish & Subscribe-Nachrichten bearbeitet. Abonniert ein Subscriber einen Sensor, merkt sich der Broker die Identität des Subscribers und leitet alle Publishs des Sensor zu diesem Subscriber weiter.
+
+Eine Nachricht besteht aus einem Topic und einer Nachricht, also dem Inhalt. Topics werden meistens in Form von `<ID>/<Topic>/<subtopic>` verwendet, wobei jeder Teil einem *Topic-Level* entspricht. Dumm gesagt, `<ID>` ist ebenfalls ein Topic.
+
+Mit Wildcards `#` und `+` kann bei mehreren Topics "subscribed" werden.
+
+`+` ist die Single-Level Wildcard und betrachtet nur das Topic-Level in das es eingesetzt wurde. 
+
+```{=latex}
+\texttt{myhome\textcolor{ForestGreen}{/}EG\textcolor{ForestGreen}{/}\textcolor{BrickRed}{\textbf{+}}\textcolor{ForestGreen}{/}temperature}
+```
+
+```{=latex}
+\begin{center}
+\begin{tabularx}{\linewidth}{cX}
+\hline
+\textcolor{ForestGreen}{\faCheck} & \texttt{myhome/EG/livingroom/temperature} \\
+\textcolor{ForestGreen}{\faCheck} & \texttt{myhome/EG/kitchen/temperature} \\
+\textcolor{BrickRed}{\faTimes} & \texttt{myhome/EG/kitchen/\textcolor{BrickRed}{brightness}} \\
+\textcolor{BrickRed}{\faTimes} & \texttt{myhome/\textcolor{BrickRed}{OG}/kitchen/temperature} \\
+\textcolor{BrickRed}{\faTimes} & \texttt{myhome/EG/kitchen/\textcolor{BrickRed}{fridge}/temperature} \\
+\end{tabularx}
+\end{center}
+```
+
+`#` ist die Multi-Level Wildcard und betrachtet mehrere Topic-Levels ab Einsetzung. 
+
+```{=latex}
+\texttt{myhome\textcolor{ForestGreen}{/}EG\textcolor{ForestGreen}{/}\textcolor{BrickRed}{\textbf{\#}}}
+```
+
+```{=latex}
+\begin{center}
+\begin{tabularx}{\linewidth}{cX}
+\hline
+\textcolor{ForestGreen}{\faCheck} & \texttt{myhome/EG/livingroom/temperature} \\
+\textcolor{ForestGreen}{\faCheck} & \texttt{myhome/EG/kitchen/temperature} \\
+\textcolor{ForestGreen}{\faCheck} & \texttt{myhome/EG/kitchen/brightness} \\
+\textcolor{BrickRed}{\faTimes} & \texttt{myhome/\textcolor{BrickRed}{OG}/kitchen/temperature} \\
+\end{tabularx}
+\end{center}
+```
+
+::: {.callout-warning}
+#### Retained Message `-r`
+
+Mit `-r` kann die Nachricht als *retained* markieren. Dies führt dazu, dass der Broker diese Nachricht speichert und bei einer Anmeldung wird die entsprechende *retained* Nachricht direkt verschickt.
+:::
+
+### Bash mit `mosquitto`
+
+Mit der Applikation `mosquitto` können Publish-Nachrichten mit `mosquitto_pub -t "<topic>" -h "<host>" -m "<msg"`{.bash} versendet werden. Mit `mosquitto_sub -t "<topic>" -h "<host>"`{.bash} kann ein Subscription-Prozess gestartet werden.
+
+::: {.callout-note}
+Ein nützlicher Host ist `http://broker.hivemq.com/`.
+:::
+
+### C# mit `M2Mqtt`
+
+Mit dem Package *M2MqttDotnetCore* von *Hamidreza Mohaqeq* kann via MQTT mit anderen Clients interagiert werden.
+
+#### Subscribing
+
+Zum Verbinden wird eine zusätzliche GUID benötigt. Diese kann via `Guid.NewGuid().ToString()`{.bash} erhalten werden.
+
+```csharp
+// create client instance 
+MqttClient client = new MqttClient(
+  IPAddress.Parse(MQTT_BROKER_ADDRESS)); 
+// register to message received 
+client.MqttMsgPublishReceived += MsgPubReceived; 
+string clientId = Guid.NewGuid().ToString(); 
+client.Connect(clientId); 
+// subscribe to the topic "/home/temperature"
+// ...with QoS 2 
+client.Subscribe(
+  new string[] {"/home/temperature"},
+  new byte[] {MqttMsgBase.QOS_LEVEL_EXACTLY_ONCE}); 
+ 
+static void MsgPubReceived(
+  object sender,
+  MqttMsgPublishEventArgs e) 
+{ /* handle message received */ } 
+```
+
+#### Publishing
+
+```csharp
+// create client instance 
+MqttClient client = new MqttClient(
+  IPAddress.Parse(MQTT_BROKER_ADDRESS)); 
+ 
+string clientId = Guid.NewGuid().ToString(); 
+client.Connect(clientId); 
+ 
+string strValue = Convert.ToString(value); 
+ 
+// publish a message on "/home/temperature" topic
+// ...with QoS 2 
+client.Publish("/home/temperature",
+  Encoding.UTF8.GetBytes(strValue),
+  MqttMsgBase.QOS_LEVEL_EXACTLY_ONCE, false); 
+```
 
 ## Netzwerk
 
@@ -78,14 +182,15 @@ listener.Start();
 
 // handle clients
 while (true) {
-    // Waiting for connection
-    TcpClient client = listener.AcceptTcpClient();
-    // send Data
-    NetworkStream stream = client.GetStream();
-    StreamWriter sw = new StreamWriter(stream);
-    sw.WriteLine("Hello Client");
-    // close connection
-    tcpClient.Close();
+  // Waiting for connection
+  TcpClient client = listener.AcceptTcpClient();
+  // send Data
+  NetworkStream stream = client.GetStream();
+  StreamWriter sw = new StreamWriter(stream);
+  sw.WriteLine("Hello Client");
+  sw.Flush();
+  // close connection
+  tcpClient.Close();
 }
 ```
 
@@ -94,32 +199,33 @@ Für die Auslagerung in einen Thread wird eine Methode benötigt, welche den Cli
 ```csharp
 // handle clients
 while (true) {
-    // Waiting for connection
-    TcpClient client = listener.AcceptTcpClient();
-    // start Thread
-    ClHandler clHandler = new ClHandler(client);
-    new Thread(clHandler.DoHandle).Start();
+  // Waiting for connection
+  TcpClient client = listener.AcceptTcpClient();
+  // start Thread
+  ClHandler clHandler = new ClHandler(client);
+  new Thread(clHandler.DoHandle).Start();
 }
 
 // ...
 
 // class to handle Client
 class ClHandler {
-    private TcpClient client;
+  private TcpClient client;
 
-    public ClHandler(TcpClient client){
-        this.client = client
-    }
+  public ClHandler(TcpClient client){
+    this.client = client
+  }
 
-    public void DoHandle () {
-        // -- do intensive stuff --
-        // send Data
-        NetworkStream stream = client.GetStream();
-        StreamWriter sw = new StreamWriter(stream);
-        sw.WriteLine("Hello Client");
-        // close connection
-        tcpClient.Close();
-    }
+  public void DoHandle () {
+    // -- do intensive stuff --
+    // send Data
+    NetworkStream stream = client.GetStream();
+    StreamWriter sw = new StreamWriter(stream);
+    sw.WriteLine("Hello Client");
+    sw.Flush();
+    // close connection
+    tcpClient.Close();
+  }
 }
 ```
 
@@ -165,3 +271,46 @@ client.Close();
 
 
 ## Unit Tests
+
+
+## UART & I2C
+
+Mit dem Packet `System.Device.Gpio` werden die GPIO- und I2C-Schnittstellen zur Verfügung gestellt.
+Mit `System.IO.Ports` kann die UART-Schnittstelle hinzugefügt werden.
+
+```csharp
+const string uart = "/dev/ttyAMA2";
+byte[] data = new byte[512];
+SerialPort serial = new SerialPort(uart, 115200);
+serial.Open();
+
+if (serial == null || !serial.IsOpen) {
+  throw new Exception($"Error opening {uart}");
+}
+Console.WriteLine($"Port {uart} open");
+serial.NewLine = "\r\n";
+
+serial.WriteLine("led red on");
+
+/* [UART Handshake with TinyK22] ============= */
+int pinTinyK22Enable = 17;
+GpioController ctrl = new GpioController();
+
+// set GPIO to output mode
+ctrl.OpenPin(pinTinyK22Enable, PinMode.Output);
+
+// enable UART-Interface on tinyK
+ctrl.Write(pinTinyK22Enable, PinValue.High);
+
+while (!Console.KeyAvailable)
+{
+  try {
+    int bytes = serial.Read(data, 0, data.Length);
+    string read = Encoding.ASCII
+      .GetString(data, 0, bytes);
+    Console.WriteLine(read);
+  } catch (Exception ex) {
+    Console.WriteLine($"ERROR: {ex.Message}");
+  }
+}
+```
