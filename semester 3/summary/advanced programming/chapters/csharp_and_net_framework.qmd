@@ -71,17 +71,15 @@ Math.Atan2(5, 1);
 Konstruktoren werden beim Erstellen von neuen Objekten aufgerufen. Ihnen können Parameter oder andere Objekte übergeben werden.
 
 ```csharp
-public class Point{
+public class Point {
   int size;
-
   public Point(int size) {
     this.size = size;
   }
 }
 
-public Program{
-  static void Main(){
-
+public Program {
+  static void Main() {
     // initialize new Point object
     Point smallPoint = new Point(2);
   }
@@ -89,19 +87,17 @@ public Program{
 ```
 
 ::: callout-caution
- Der Default-Konstruktor nimmt keine Parameter entgegen. Wird ein Konstruktor angegeben, so ist der Default-Konstruktor nichtmehr aufrufbar.
+ Der Default-Konstruktor nimmt keine Parameter entgegen. Wird ein Konstruktor angegeben, so ist der Default-Konstruktor nicht mehr aufrufbar.
 :::
 
 ### Destruktor
 
-Destruktoren werden verwendet um die Resourcen von Objekten freizugeben. Es ist bereits ein Standard-Destruktor implementiert, welcher nur in seltenen Fällen überschrieben wird. Der Destruktor wird automatisch vom Garbage-Collector aufgerufen.
+Destruktoren werden verwendet, um die Resourcen von Objekten freizugeben. Es ist bereits ein Standard-Destruktor implementiert, welcher nur in seltenen Fällen überschrieben wird. Der Destruktor wird automatisch vom Garbage-Collector aufgerufen.
 
 ```csharp
-public class MyClass
-{
+public class MyClass {
     // Other members of the class...
-    ~MyClass()
-    {
+    ~MyClass() {
         // Release resources held by the object here.
     }
 }
@@ -109,34 +105,32 @@ public class MyClass
 
 ### Methode
 
-Methoden sind das C#-pendant der Funktionen in C. Der Zugriff auf Methoden kann mit Zugriff-Modifizierern *(siehe @sec-modifier)* eingeschränkt werden.
-
-Methoden werden über Objekte aufgerufen
+Methoden sind das C#-pendant der Funktionen in C. Der Zugriff auf Methoden kann mit Zugriff-Modifizierern *(siehe @sec-modifier)* eingeschränkt werden. Methoden werden über Objekte aufgerufen.
 
 ```csharp
 MyClass NewObject = new MyClass("some string");
 NewObject.DoSomething();
 
-public class MyClass{
-  public void DoSomething(){
+public class MyClass {
+  public void DoSomething() {
     // do something
   }
 }
 ```
 
-Um Methoden ohne Objekte aufzurufen ist das Schlüsselwort `static` nötig.
+Um Methoden ohne Objekte aufrufen zu können, ist das Schlüsselwort `static` nötig. Für den Zugriff wird der Klassenname der Methode vorangestellt und mit einem Punkt getrennt. Statische Methoden werden nur einmal erzeugt.
 
 ```csharp
-NewObject.DoSomething();
+MyClass.DoSomething();
 
-public class MyClass{
-  public static void DoSomething(){
+public class MyClass {
+  public static void DoSomething() {
     // do something
   }
 }
 ```
 
-Die `Main(string[] args) {}`{.csharp} Methode beschreibt den Einstiegspunkt eines Programms. In `args`{.csharp} sind Programm-Parameter gespeichert welche z.B. bei einer Konsolenapplikation angefügt werden (folgendes Beispiel mit `--debug`)
+Die `Main(string[] args) {}`{.csharp} Methode beschreibt den Einstiegspunkt eines Programms. In `args`{.csharp} sind Programm-Parameter gespeichert welche z.B. bei einer Konsolenapplikation angefügt werden (folgendes Beispiel mit `--debug`).
 
 ```{.bash}
 dotnet MyProgram.dll --debug
@@ -144,12 +138,12 @@ dotnet MyProgram.dll --debug
 
 ### Membervariable
 
-Membervariabeln sind **Daten** oder **Attribute** eines Objektes. So ist z.B. `color` eine Membervariable in deiner Klasse `car`. Membervariablen können mit Zugriff-Modifizierern (siehe @sec-modifier) eingeschränkt werden.
+Membervariablen sind **Daten** oder **Attribute** eines Objektes. So ist z.B. `color` eine Membervariable in der Klasse `car`. Membervariablen können mit Zugriff-Modifizierern (siehe @sec-modifier) eingeschränkt werden.
 
 Deklaration:
 
 ```csharp
-public class Point{
+public class Point {
   private int xPos = 0;
   private int yPos = 0;
 }
@@ -183,12 +177,12 @@ Getter- und Setter-Methoden werden für kontrolliertes Verändern und Abfragen v
 Um diese Anforderungen zu bewältigen, wird auf sogenannte **Getter**- und **Setter**-Methoden zurückgegriffen.
 
 ```csharp
-public class Point{
-  private int xPos;   // not viewable from outside
-  public void SetXPos(int xPos){  // set from outside
+public class Point {
+  private int xPos;//not viewable from outside
+  public void SetXPos(int xPos){//set from outside
     this.xPos = xPos;
   }
-  public int GetXPos(){   // get from outside
+  public int GetXPos() {//get from outside
     return xPos;
   }
 }
@@ -196,18 +190,23 @@ public class Point{
 
 ### Property {#sec-property}
 
-*Getter*- und *Setter*-Methoden sind sehr umständlich und führen zu viel Code bei vielen Variablen. Aus diesem Grund werden automatische Getter- und Setter-Methoden genutzt. Sogenannnte **Properties** mit den Schlüsselwörtern `get` und `set`.
+*Getter*- und *Setter*-Methoden sind sehr umständlich und führen bei vielen Variablen zu viel Code. Aus diesem Grund werden automatische Getter- und Setter-Methoden genutzt, nämlich **Properties** mit den Schlüsselwörtern `get` und `set`.
 
 ```csharp
-public class Point{
+public class Point {
   private int xPos;
+  private int yPos;
+
   public int XPos {    // property
     get { return xPos; }
     set { xPos = value }
   }
 
   // short version working as above
-  public int YPos { get; set; }
+  public int XPos { get; set; }
+
+  // readonly property
+  public int YPos => yPos;
 
   // restrict certain access
   public int Width { get; private set; }
@@ -245,14 +244,14 @@ Der `System`-Namespace beinhaltet einige der Fundamentalen C#-Klassen und Strukt
 
 #### `System.Console`
 
-Mit der  Klasse `Console` wird mit der Konsole interagiert, folgend sind die grundlegenden Funktionen beschrieben
+Mit der Klasse `Console` wird mit der Konsole interagiert, folgend sind die grundlegenden Funktionen beschrieben:
 
 - Ausgabe auf Konsole
 
 ```csharp
 // Write on line
 Console.Write("Hello");
-// Write Followed by new Line
+// Write, followed by new Line
 Console.WriteLine("World");
 ```
 
@@ -268,9 +267,9 @@ ConsoleKeyInfo k = Console.ReadKey();
 ```
 
 Mit `.ReadKey()`{.csharp} werden auch Tasten gelesen, die kein char ergeben *(z.B. Enter, Backspace,...)*. 
-Mit `k.Key == ConsoleKey.Escape`{.csharp} kann zum Beispiel überprüft werden, ob die *Enter*-Taste gedrückt wurde. 
-Mit `k.Modifiers == ConsoleModifiers.Shift`{.csharp} kann zudem überprüft werden, ob ein Chrakter mit einem Modifier (Hier *Shift*) verwendet wurde.
-Mit `char c = k.KeyChar`{.csharp} kann zudem direkt der Charakter erlangt werden.
+Mit `k.Key == ConsoleKey.Escape`{.csharp} kann zum Beispiel überprüft werden, ob die *Escape*-Taste gedrückt wurde. 
+Mit `k.Modifiers == ConsoleModifiers.Shift`{.csharp} kann zudem überprüft werden, ob ein Charakter mit einem Modifier (hier *Shift*) verwendet wurde.
+Mit `char c = k.KeyChar`{.csharp} wird zudem direkt der Charakter ausgelesen.
 
 - Konsole leeren
 
@@ -290,7 +289,7 @@ Console.SetCursorPosition(newLeft, newTop);
 - Auf Tastenanschlag prüfen
 
 ```csharp
-if (Console.KeyAvailable){
+if (Console.KeyAvailable) {
   // Do stuff with key
   // !Key must be read for no further activation!
 }
@@ -298,7 +297,7 @@ if (Console.KeyAvailable){
 
 #### `System.String`
 
-Strings sind im vergleich zu C lediglich **read-only**. String variablen sind grundsätzlich Pointer die auf den eigentlichen String im Speicher zeigen. Dies hat zur Folge, dass Methoden immer einen String *(Adresse zum **neuen** String)* als return-Wert haben.
+Strings sind im vergleich zu C lediglich **read-only**. String variablen sind grundsätzlich Pointer, die auf den eigentlichen String im Speicher zeigen. Dies hat zur Folge, dass Methoden immer einen String *(Adresse zum **neuen** String)* als return-Wert haben.
 
 ```csharp
 string name = "Hansli";
@@ -314,7 +313,7 @@ Console.WriteLine(name);  // "hansli"
 - `string`{.csharp} ist ein *Referenztyp*
 - ist unveränderlich
 - Kann `NULL` (`"\0"`) enthalten
-- **`==`**-Operator wird als "Stringvergleicher" überschrieben (Vergleicht Inhalt, nicht Referenz)
+- **`==`**-Operator wird als "Stringvergleicher" überschrieben (vergleicht Inhalt, nicht Referenz)
 :::
 
 Strings können auch durch **Aneinanderreihung** mehrerer Strings erstellt werden:
@@ -335,14 +334,14 @@ string s1 = new string(ch);
 string s2 = new string('G',20);
 ```
 
-Über die Property **`Char[]`** kann auf die Zeichen des Strings indexiert werden
+Über die Property **`Char[]`** kann auf die Zeichen des Strings indexiert werden:
 
 ```csharp
 string s1 = "Hello";
 Console.Write(s1[1]); // out: e
 ```
 
-Die Property **`Length`** beschreibt die Länge des Strings
+Die Property **`Length`** beschreibt die Länge des Strings:
 
 ```csharp
 string s1 = "Hello";
@@ -354,18 +353,18 @@ Console.Write(s1.Length); // out: 5
 - `String.Compare(string s1, string s2)`{.csharp} vergleicht den Inhalt lexikalisch :)
 - `s1.Contains(Char c)`{.csharp} prüft den String auf vorhandensein eines Charakters
 - `s1.Equals(string s2)`{.csharp} prüft den Inhalt auf Gleichheit
-- `s1.Insert(int index, string s2)`{.csharp} gibt einen string zurück in dem `s2` an der Stelle `index` eingefügt wurde
-- `s1.Replace(char c1, char c2)`{.csharp} gibt einen string zurück, in dem `c1` mit `c2` ausgetauscht wurde
-- `s1.Split(char c)`{.csharp} gibt ein StringArray mit den, jeweils bei `c` getrennten, substrings zurück
+- `s1.Insert(int index, string s2)`{.csharp} gibt einen String zurück in dem `s2` an der Stelle `index` eingefügt wurde
+- `s1.Replace(char c1, char c2)`{.csharp} gibt einen String zurück, in dem `c1` mit `c2` ausgetauscht wurde
+- `s1.Split(char c)`{.csharp} gibt ein StringArray mit den jeweils bei `c` getrennten substrings zurück
 - `String.Join(string[] str)`{.csharp} gibt einen zusammengefügten String des Stringarrays zurück
 - `s1.ToCharArray()`{.csharp} gibt ein CharArray (No Joke) mit den Charaktern zurück
-- `s1.ToLower()`{.csharp} gibt einen, in lowercase konvertierten, string zurück
-- `s1.ToUpper()`{.csharp} gibt einen, in UPPERCASE konvertierten, string zurück
-- `s1.Trim()`{.csharp} entfernt alle Whitespaces am Ende und am Anfang, gibt diesen String zurück
+- `s1.ToLower()`{.csharp} gibt einen - in lowercase konvertierten - String zurück
+- `s1.ToUpper()`{.csharp} gibt einen - in UPPERCASE konvertierten - String zurück
+- `s1.Trim()`{.csharp} entfernt alle Whitespaces am Ende und am Anfang und gibt diesen String zurück
 
 #### `System.Environment`
 
-Die `System.Environment`-Klasse gibt Nützliche Informationen bezüglich des gerade benutzen Gerätes, Versionen, etc.
+Die `System.Environment`-Klasse beinhaltet nützliche Informationen bezüglich des gerade benutzen Gerätes, Versionen, etc.
 
 `Environment.`
 
@@ -382,13 +381,14 @@ Die `System.Environment`-Klasse gibt Nützliche Informationen bezüglich des ger
 - `Version` Common Language Runtime *CLR* Version
 - `GetLogicalDrives()` gibt ein Stringarray aller Laufwerke
 
-Es gibt zudem noch weitere Variablen welche nicht direkt über eine Methode einsehbar sind, welche mit `Environment.GetEnvironmentalVariable()` abgerufen werden können (Bsp. `"PROCESSOR_IDENTIFIER"`). Mit folgendem Beispiel sind alle einsehbar:
+Es gibt zudem noch weitere Variablen, welche nicht direkt über eine Methode einsehbar sind und mit `Environment.GetEnvironmentalVariable()` abgerufen werden können (z.B. `"PROCESSOR_IDENTIFIER"`). Mit folgendem Beispiel sind alle Variablen einsehbar:
 
 ```csharp
 Console.WriteLine("GetEnvironmentVariables: ");
   foreach (DictionaryEntry de in 
-                Environment.GetEnvironmentVariables()) {
-      Console.WriteLine("  {0} = {1}", de.Key, de.Value);
+      Environment.GetEnvironmentVariables()) {
+    Console.WriteLine("  {0} = {1}", de.Key,
+      de.Value);
   }
 ```
 
@@ -432,9 +432,9 @@ x = y\textbf{,} x += y\textbf{,} x -= y\textbf{,} x *= y\textbf{,} x /= y\textbf
 
 #### Null Checking
 
-Der `x?[y]` Operator gibt `NULL` zurück wenn die linke Seite `NULL` ist.  So muss kein `null`-Zeiger-Test gemacht werden.
+Der `x?[y]` Operator gibt `NULL` zurück, wenn die linke Seite `NULL` ist.  So muss kein `null`-Zeiger-Test gemacht werden.
 
-Der `a??b` Operator gibt `a` zurück wenn dieser nicht `NULL` ist, andernfalls `b`.
+Der `a??b` Operator gibt `a` zurück, wenn dieser nicht `NULL` ist, andernfalls `b`.
 
 
 ### Zugriffs-Modifier {#sec-modifier}
@@ -446,7 +446,7 @@ Siehe @sec-modifiertable
 
 ### `using`
 
-Die `using`-Direktive teilt dem Compiler mit welcher `namespace` während der Compilierung verwendet werden soll. Wenn `using` nicht verwendet wird, muss bei einem Methodenaufruf auch der entsprechende `namespace` genannt werden.
+Die `using`-Direktive teilt dem Compiler mit, welcher `namespace` während der Kompilierung verwendet werden soll. Wenn `using` nicht verwendet wird, muss bei einem Methodenaufruf auch der entsprechende `namespace` genannt werden.
 
 ```csharp
 // w/o `using`
@@ -466,8 +466,6 @@ Statische ***Methoden*** ...
 * ... können nur **einmal** vorkommen
 * ... gehören der Klasse, **nicht** dem Objekt
 * ... sind ohne ein Objekt zu erstellen aufrufbar
-
-
 
 Statische ***Variablen*** ...
 
@@ -513,7 +511,7 @@ Statische **Klassen** ...
 * ... können **nicht** instanziert werden
 * ... beinhalten nur statische Methoden und Variablen
 
-Die `Math` Klasse ist statisch und muss so nicht instanziert werden. Trotzdem kann auf statische Variablen zugegriffen werden. So ergibt `Math.Cos(Math.PI)` direkt den Wert $-1$.
+Die `Math` Klasse ist statisch und muss darum nicht instanziert werden. Trotzdem kann auf statische Variablen zugegriffen werden. So ergibt `Math.Cos(Math.PI)` direkt den Wert $-1$.
 
 ### `const`
 
@@ -525,7 +523,7 @@ Konstante Variablen ...
 * ... können bei gleichem Typ zusammen deklariert werden
 `public const int Months = 12, Weeks = 52;`{.csharp}
 
-* ... dürfen bei deklarierung durch berechnung nicht rekursiv sein
+* ... dürfen bei Deklarierung durch Berechnung nicht rekursiv sein
 `public const int WeeksPerMonth = Week / Month;`{.csharp}
 
 Der Zugriff ausserhalb erfolgt über den Klassennamen
@@ -561,7 +559,7 @@ Wie in C gibt es in C# Wertetypen und Referenztypen
 ::: callout-tip
 ## Unterschied `struct` & `class`
 
-`struct`s sind *value* Typen und übergeben jeden Wert/Eigenschaften. `class` es sind *reference* Typen und werden als Referenz übergeben.
+`struct`s sind *value* Typen und übergeben jeden Wert / jede Eigenschaften. `class` sind *reference* Typen und werden als Referenz übergeben.
 
 - `class` $\rightarrow$ call by reference (Übergabe als Reference)
 - `struct` $\rightarrow$ call by value (Übergabe als Wert)
@@ -570,11 +568,31 @@ Wie in C gibt es in C# Wertetypen und Referenztypen
 
 ### `string`
 
-Strings werden mit dem folgender Deklaration 
+Strings werden wie folgt deklariert:
+
+```csharp
+// Declare without initializing.
+string message1;
+
+// Initialize to null.
+string message2 = null;
+
+// Initialize as an empty string.
+// Empty constant instead of the literal "".
+string message3 = System.String.Empty;
+
+// Initialize with a regular string literal.
+string oldPath = "c:\\Program Files\\Python";
+
+// Initialize with a verbatim string literal.
+string newPath = @"c:\Program Files\Python";
+```
+
+Mit dem Verbatim-Literal `@` werden Zeilenumbrechende Zeichen als Teil des Strings behandelt.
 
 ::: callout-important
 
-Strings können nicht verändert werden -> sind **read-only**
+Strings können nicht verändert werden -> sind **read-only**.
 
 ```csharp
 string s = "Hallo Welt";
@@ -586,7 +604,7 @@ s[1] = 'A'; // ERROR
 
 #### Stringformatierung
 
-Parameter/variablen können in Strings direkt eingefügt werden.
+Parameter/variablen können direkt in Strings eingefügt werden.
 
 ```csharp
 // C-Sytle
@@ -601,7 +619,7 @@ Console.WriteLine($"{a} + {b} = {res}");
 
 ### Aufzählungstypen (`enum`)
 
-Enumerationen sowie Klassen sollten der Übersichtlichkeit wegen in eigenen Dateien erstellt werden. Um Enums in logischen Operation oder als Flags zu nutzen kann dies mit dem Attribut `[Flags]`{.csharp} angegeben werden.
+Enumerationen sowie Klassen sollten der Übersichtlichkeit wegen in eigenen Dateien erstellt werden. Um Enums in logischen Operation oder als Flags zu nutzen, kann dies mit dem Attribut `[Flags]`{.csharp} angegeben werden.
 
 ```csharp
 // File: ButtonState.cs
@@ -640,7 +658,7 @@ type[] arrayName;
 int[] catPhotoStock;
 ```
 
-Nach Initialisierung besitzen Arrays eine **nicht** änderbare Grösse (ähnlich wie `string`). Und mehrere Array-Methoden erstellen ein komplett neues Array mit den Angaben und überschreiben die Array-Variable (z.B. `void Resize<T> (ref T[]? array, int newSize)`{.csharp}).
+Nach Initialisierung besitzen Arrays eine **nicht** änderbare Grösse (ähnlich wie `string`). Mehrere Array-Methoden erstellen ein komplett neues Array mit den Angaben und überschreiben die Array-Variable (z.B. `void Resize<T> (ref T[]? array, int newSize)`{.csharp}).
 
 ::: {.callout-important}
 #### Cooli Facts
@@ -653,7 +671,7 @@ Nach Initialisierung besitzen Arrays eine **nicht** änderbare Grösse (ähnlich
 
 Hauptsächlich unterscheidet man zwischen **drei** Typen von Arrays: dem eindimensionalen, multidimensionalen und jagged Array.
 
-Ein **eindimensionales** Array ist das *de facto* Array und besitzt wie es im Namen beschreibt, eine Dimension.
+Ein **eindimensionales** Array ist das *de facto* Array und besitzt eine Dimension.
 
 ```csharp
 // Single-dimensional array [5]

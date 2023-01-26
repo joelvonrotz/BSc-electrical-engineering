@@ -43,7 +43,7 @@ class Square : Shape {
 
 ### virtual
 
-Das Schlüsselwort `virtual` wird verwendet, um Methoden-, Eigenschaften-, Indexer- oder Ereignisdeklarationen überschreibbar zu machen und erlaubt es so, abgeleiteten Klassen, diese zu überschreiben. Wenn eine `virtual` Methode aufgerufen wird, wird der Laufzeittyp des Objekts auf einen `override` Member überprüft. Der überschreibende Member der am meisten abgeleitete Klasse wird aufgerufen, was der ursprüngliche Member sein kann, wenn keine erbende Klasse den Member überschrieben hat. Per Default sind Methoden `non-virtual` und lassen sich nicht überschreiben.
+Das Schlüsselwort `virtual` wird verwendet, um Methoden-, Eigenschaften-, Indexer- oder Ereignisdeklarationen überschreibbar zu machen und erlaubt es so abgeleiteten Klassen, diese zu überschreiben. Wenn eine `virtual` Methode aufgerufen wird, wird der Laufzeittyp des Objekts auf einen `override` Member überprüft. Der überschreibende Member der am meisten abgeleitete Klasse wird aufgerufen, was der ursprüngliche Member sein kann, wenn keine erbende Klasse den Member überschrieben hat. Per Default sind Methoden `non-virtual` und lassen sich nicht überschreiben.
 
 ```csharp
 class TestClass {
@@ -183,7 +183,7 @@ interface IAnimal
 
 :::
 
-Interfaces können von einander erben und es kann einfach die neuen Inhalte eingefügt werden. Die explizite Implementierung findet in den Klassen statt.
+Interfaces können voneinander erben und es können einfach die neuen Inhalte eingefügt werden. Die explizite Implementierung findet in den Klassen statt.
 
 ```csharp
 interface IAnimal {
@@ -250,7 +250,7 @@ public class MyLogger : IFileLog, INetLog {
 }
 ```
 
- So wird für jeden Methodenaufruf die explizit implementierte Methode aufgerufen und der Output ist nun
+So wird für jeden Methodenaufruf die explizit implementierte Methode aufgerufen und der Output ist nun:
 
 ```bash
 FileLog: Hanswurst Error
