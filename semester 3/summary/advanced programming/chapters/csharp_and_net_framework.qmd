@@ -97,11 +97,9 @@ public Program{
 Destruktoren werden verwendet um die Resourcen von Objekten freizugeben. Es ist bereits ein Standard-Destruktor implementiert, welcher nur in seltenen Fällen überschrieben wird. Der Destruktor wird automatisch vom Garbage-Collector aufgerufen.
 
 ```csharp
-public class MyClass
-{
+public class MyClass {
     // Other members of the class...
-    ~MyClass()
-    {
+    ~MyClass() {
         // Release resources held by the object here.
     }
 }
@@ -117,8 +115,8 @@ Methoden werden über Objekte aufgerufen
 MyClass NewObject = new MyClass("some string");
 NewObject.DoSomething();
 
-public class MyClass{
-  public void DoSomething(){
+public class MyClass {
+  public void DoSomething() {
     // do something
   }
 }
@@ -127,10 +125,10 @@ public class MyClass{
 Um Methoden ohne Objekte aufzurufen ist das Schlüsselwort `static` nötig.
 
 ```csharp
-NewObject.DoSomething();
+MyClass.DoSomething();
 
-public class MyClass{
-  public static void DoSomething(){
+public class MyClass {
+  public static void DoSomething() {
     // do something
   }
 }
@@ -149,7 +147,7 @@ Membervariabeln sind **Daten** oder **Attribute** eines Objektes. So ist z.B. `c
 Deklaration:
 
 ```csharp
-public class Point{
+public class Point {
   private int xPos = 0;
   private int yPos = 0;
 }
@@ -183,12 +181,12 @@ Getter- und Setter-Methoden werden für kontrolliertes Verändern und Abfragen v
 Um diese Anforderungen zu bewältigen, wird auf sogenannte **Getter**- und **Setter**-Methoden zurückgegriffen.
 
 ```csharp
-public class Point{
+public class Point {
   private int xPos;   // not viewable from outside
   public void SetXPos(int xPos){  // set from outside
     this.xPos = xPos;
   }
-  public int GetXPos(){   // get from outside
+  public int GetXPos() {   // get from outside
     return xPos;
   }
 }
@@ -199,7 +197,7 @@ public class Point{
 *Getter*- und *Setter*-Methoden sind sehr umständlich und führen zu viel Code bei vielen Variablen. Aus diesem Grund werden automatische Getter- und Setter-Methoden genutzt. Sogenannnte **Properties** mit den Schlüsselwörtern `get` und `set`.
 
 ```csharp
-public class Point{
+public class Point {
   private int xPos;
   public int XPos {    // property
     get { return xPos; }
