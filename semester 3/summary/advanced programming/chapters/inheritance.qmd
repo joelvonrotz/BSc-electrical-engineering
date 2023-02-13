@@ -38,7 +38,10 @@ class Square : Shape {
   }
 }
 ```
-
+```{=latex}
+\vfill\null
+\columnbreak
+```
 ## Abstrakte Klassen
 
 ### virtual

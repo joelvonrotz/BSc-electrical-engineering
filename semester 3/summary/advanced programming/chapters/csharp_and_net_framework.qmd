@@ -554,8 +554,11 @@ Wie in C gibt es in C# Wertetypen und Referenztypen
 
 ![](images/Types.png)
 
+```{=latex}
+\vfill\null
+\columnbreak
+```
 ### `struct`
-
 ::: callout-tip
 ## Unterschied `struct` & `class`
 

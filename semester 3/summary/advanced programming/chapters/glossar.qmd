@@ -11,4 +11,6 @@ eine Vielzahl von Programmiersprachen.
 
 - **Linux Betriebssystem** "Linus Unix" monolithischer Kernel, überwiegend in *C*, wenig in *Assembler* geschrieben
 
-- **GNU** "GNU is not Unix" unixähnliches Betriebssystem und freie Software. Es ist unix ähnlich, enthält aber kein Unix COde
+- **GNU** "GNU is not Unix" unixähnliches Betriebssystem und freie Software. Es ist unix ähnlich, enthält aber kein Unix Code. By *Richard Stallmann*
+
+- **GPL** "GNU Public License" *(Qualltexte müssen offen sein, Man kann die Bedinungnen nicht einschränken, Jede Änderung fällt unter die gleichen Bedingungen, Lizenzbedingungen müssen beigefügt werden)

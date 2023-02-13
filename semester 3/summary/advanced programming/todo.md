@@ -48,7 +48,7 @@ Da Andi, nimm das damit chasch de Spalt fillä
 
 - [x] .NET Bibliotheken
 - [x] System.Environment
-- [ ] Collections
+- [x] Collections
 - [x] Boxing & Unboxing
 
 ## Linux Dateisystem
