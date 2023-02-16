@@ -67,6 +67,11 @@ highlight-style: github
 
 {{< include chapters/inheritance.qmd >}}
 
+```{=latex}
+\vfill\null
+\columnbreak
+```
+
 # Linux & Raspberry Pi 4
 
 {{< include chapters/linux_and_raspberry_pi4.qmd >}}
