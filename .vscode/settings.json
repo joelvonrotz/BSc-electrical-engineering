@@ -1,0 +1,5 @@
+{
+  "[quarto]": {
+    "editor.snippetSuggestions": "inline"
+  }
+}
