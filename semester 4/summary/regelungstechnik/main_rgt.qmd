@@ -1,0 +1,130 @@
+---
+title: "Zusammenfassung Regelungstechnik"
+author: "Joel von Rotz"
+date: now
+
+lang: de
+
+# [RENDER CONFIGURATION] ==============================
+format:
+  pdf:
+    keep-tex: true
+    include-in-header:
+      - config.tex
+    template-partials:
+      - before-body.tex
+
+source:
+  github: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+
+pdf-engine: pdflatex
+# [DOCUMENT CONFIGURATION] ============================
+geometry: 
+- "top=25mm"
+- "bottom=25mm"
+- "left=15mm"
+- "right=15mm"
+papersize: a4
+fontsize: 10pt
+
+code-block-border-left: false
+code-block-bg: "#f7f7f7"
+
+toc: true
+toc-depth: 3
+number-sections: true
+number-depth: 3
+pagenumbering: none
+highlight-style: github
+
+callout-appearance: simple
+---
+
+```{python}
+#|echo: false
+import matplotlib.pyplot as plt
+import numpy as np
+```
+
+`\begin{multicols}{2}`{=latex}
+
+# Einführung
+
+## Rückkopplung
+
+*Rückkopplung* beschreibt eine Anordnung, bei welcher zwei oder mehr dynamische Systeme Systeme untereinander so verbunden sind, dass sie sich [gegenseitig]{.underline} beeinflussen.
+
+![](images/open-closed-loop.png)
+
+Wird das Rückkopplungssignals des geschlossenen Kreises vom Eingangssignal entfernt, also die Leitung wird aufgebrochen, wird aus dem Kreis ein *offener* Kreis.
+
+::: callout-caution
+**Geschlossene** Kreise sind schwieriger zum Berechnen und zum Untersuchen, da diese ein rückgekoppeltes Signal (mit dem Eingangssignal kombinierend) Teil des Eingangssignals zum System besitzen. **Offene** Kreise haben kein rückgekoppeltes Signal.
+:::
+
+## Mit- und Gegenkopplung
+
+Beide beschriebenden Systeme arbeiten nach dem Prinzip der *Gegenkopplung*
+
+## Regelung vs. Steuerung
+
+![](images/regelung_steuerung.png)
+
+```{=latex}
+\begin{conditions}
+ v     &  Störung
+\end{conditions}
+```
+-   Steuerung $\rightarrow$ *Feed[forward]{.underline} Control*
+-   Regelung $\rightarrow$ *Feed[back]{.underline} Control*
+
+## Regelung
+
+Ziel eines Reglers ist die Angleichung einer Regelgrösse $y$ an eine Führungsgrösse \$r\$. Hauptmerkmal des Reglers ist die Rückkopplung und die Fehlergrösse \$e\$. Das System versucht die Fehlergrösse möglichst auf $0$ zu behalten, was $r = y$ bedeutet, also die Ist-Grösse entspricht der Soll-Grösse.
+
+![](images/definition_regelung.png)
+
+```{=latex}
+\begin{conditions}
+ r & Führungsgrösse (Soll-Wert) \\
+ e & Regelfehler \\
+ u & Stellgrösse \\
+ y & Regelgrösse (Ist-Wert) \\
+ v & Störgrösse
+\end{conditions}
+```
+::: callout-note
+## Merkmale einer Regelung
+
+Folgende Merkmale **muss** eine Regelung aufweisen. Liegt eines nicht vor, so handelt es sich nicht um eine Regelung.
+
+1.  Erfassung (Messen) der Regelgrösse
+2.  Vergleich von Regel- und Führungsgrösse
+3.  Geschlossener Wirkungskreis
+:::
+
+```{=latex}
+\begin{align*}
+y = R \cdot P \cdot e = R \cdot P\ (r-y)= R \cdot P \cdot r - R \cdot P \cdot y \\
+y + R \cdot P \cdot y = R \cdot P \cdot r\quad \Rightarrow\quad\frac{y}{r}=\frac{R\cdot P}{1+R\cdot P} \stackrel{!}{=} \underline{1}
+\end{align*}
+```
+### Eigenschaften
+
+-   **Robustheit** --
+-   **Dynamik** --
+-   **Modularität** --
+-   **Genauigkeit** --
+-   **Herauserforderungen** --
+
+```{python}
+#|echo: false
+
+x = np.arange(-10,10.1,0.1)
+y = x/(1-x)
+
+plt.plot(x,y)
+plt.show()
+```
+
+`\end{multicols}`{=latex}
