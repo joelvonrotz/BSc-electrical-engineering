@@ -1,43 +1,62 @@
 # Fragen
 
 ## SW01 Einführung
+
 ### Administratives
 1. Was bedeutet *Embedded*?
 
+
 2. Was ist ein *Embedded System*?
+
 
 3. Was bedeutet *IPC*?
 
+
 4. Beurteile, ob ein Raspberry Pi ein *Embedded System* ist.
 
+
 5. Erkläre, was man unter *Build Tools* versteht.
+
 
 ### Software & Tools
 1. Eclipse ist eine sehr universell einsetzbare IDE, was vielleicht auch problematisch sein kann. Was wären mögliche Kritikpunkte?
 
+
 2. Was hat wohl wesentlich dazu beigetragen, dass Eclipse als Open Source Projekt erfolgreich wurde?
+
 
 3. Was ist die Rolle einer Foundation wie die der für Eclipse? Inwiefern unterscheidet sich eine Foundation von einer Firma wie IBM?
 
+
 4. Hersteller bieten oft ’Eval Boards’ an (ähnlich wie das tinyK22). Was ist der Sinn und Zweck davon?
+
 
 5. Welche Komponenten finden Sie typischerweise in einem SDK?
 
+
 6. Das Raspberry Pi ist weder das beste, schnellste, modernste noch das billigste Board, trotzdem ist es ein Erfolg. Was könnten die Erfolgsfaktoren sein?
+
 
 7. Was ist der Grund, dass man im Pins Tool für einen Pin einen Identifier verwendet?
 
+
 8. Sie wollen von Ihrer Firma ein Projekt in die Open Source Domäne ’entlassen’. Was müssten Sie dabei berücksichtigen, damit es ein Erfolg wird?
+
 
 9. Sie realisieren ein neues Embedded System: Was ist der Unterschied zwischen *Design* und *Architektur*?
 
+
 10. Für welche Anforderungen oder Anwendungen eignet sich eher ein FPGA als ein Mikrocontroller? Was sind die Gründe dafür?
+
 
 11. Was versteht man unter einer Debug Probe?
 
+
 12. Was ist *CMSIS-DAP*?
 
+
 13. Was ist *CMSIS*?
+
 
 ## SW02 Architektur
 ### System
