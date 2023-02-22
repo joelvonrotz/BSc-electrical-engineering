@@ -5,15 +5,20 @@
 ### Administratives
 1. Was bedeutet *Embedded*?
 
+*Embedded* bedeutet 'eingebettet' und weist darauf hin, dass ein Komponente oder Objekt Teil eines Ganzen ist.
 
 2. Was ist ein *Embedded System*?
 
+*Embedded Systems* bestehen aus Rechner (zum Beispiel Mikrocontroller), welche in einem grösseren System 'eingebettet' sind, also Teil eines Ganzen. Obwohl diese Rechner sind, sind diese nicht als 'normale' Rechner wie ein Desktop Computer oder Laptop erkennbar. Diese besitzen keine typischen Merkmale, wie Bildschirm, Maus, Tastatur, sondern sind für einen speziellen Zweck optimiert.
+Durch die Spezialisierung besitzt meistens ein Embedded System beschränkte Ressourcen oder sind auf gewisse Faktoren wie Grösse, Kosten oder Energieverbrauch ausgelegt.
 
 3. Was bedeutet *IPC*?
 
 
 4. Beurteile, ob ein Raspberry Pi ein *Embedded System* ist.
 
+Ein Raspberry Pi kann für beide Fälle verwendet werden, entweder als ein Modul in einem System, welche zum Beispiel Bildverarbeitung für ein Bilderkennungssystem macht, oder als Desktop Computer verwendet werden.
+Es kann als beides bezeichnet werden.
 
 5. Erkläre, was man unter *Build Tools* versteht.
 
@@ -36,12 +41,15 @@
 
 6. Das Raspberry Pi ist weder das beste, schnellste, modernste noch das billigste Board, trotzdem ist es ein Erfolg. Was könnten die Erfolgsfaktoren sein?
 
+Die Raspberry Foundation legt grossen Wert auf die Dokumentationen ihrer Geräte/Produkte. Die Datenblätter & andere Dokumentation sind sehr detailliert beschrieben und besteht ebenfalls aus vielen Anleitungen, wie man den Raspberry Pi.  
 
 7. Was ist der Grund, dass man im Pins Tool für einen Pin einen Identifier verwendet?
 
+Damit im Code nicht mit *Magic Numbers* gearbeitet wird, also im Sinne dass man direkt sieht, mit welchem Pin man es zu tun hat.
 
 8. Sie wollen von Ihrer Firma ein Projekt in die Open Source Domäne ’entlassen’. Was müssten Sie dabei berücksichtigen, damit es ein Erfolg wird?
 
+Es sollte ein Projekt sein, dass auch nützlich sein sollte. Ein kleines Marketing um das Projekt und auch eine einfache zugreifbare Plattform, wo das Projekt heruntergeladen werden kann.
 
 9. Sie realisieren ein neues Embedded System: Was ist der Unterschied zwischen *Design* und *Architektur*?
 
