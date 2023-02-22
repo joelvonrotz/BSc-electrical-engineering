@@ -1,5 +1,5 @@
 ---
-title: "Zusammenfassung Advanced Embedded Systems"
+title: "Zusammenfassung Nachrichtentechnik"
 author: "Joel von Rotz & Andreas Ming"
 date: now
 

@@ -1,5 +1,5 @@
 ---
-title: "Zusammenfassung Advanced Embedded Systems"
+title: "Zusammenfassung Leistungselektronik und Elektrische Antriebe"
 author: "Joel von Rotz & Andreas Ming"
 date: now
 
