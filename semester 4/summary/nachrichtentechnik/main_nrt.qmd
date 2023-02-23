@@ -15,7 +15,7 @@ format:
       - before-body.tex
 
 source:
-  github: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+  github: "https://github.com/joelvonrotz/bachelor-electrical-engineering/tree/main/semester%204/summary/nachrichtentechnik"
 
 pdf-engine: pdflatex
 # [DOCUMENT CONFIGURATION] ============================
@@ -41,3 +41,22 @@ highlight-style: github
 <!-- [Chapters] -->
 
 {{< include chapters/questions.qmd >}}
+
+# Kommunikationssysteme
+
+## Struktur
+
+### Punkt-Punkt Verbindung (Grundelemente)
+
+Simplex-Verbindung: Die Information fliesst nur von A nach B.
+
+Halbduplex-Verbindung: Es kann nur die eine oder andere Seite Informationen senden. Vollduplex-Verbindung: Informationen können einander unabhängig voneinander übermittelt werden.
+
+### Kommunikationsnetz
+
+Durch Zusammenführen mehrerer Grundelemente entsteht ein Kommunikationsnetz, an das eine Vielzahl von Teilnehmern angeschlossen werden können.
+
+-   Ring: ein einzelner Unterbruch stört das Kommunikationsnetz nicht, da die Informationen in die andere Richtung versendet werden können.
+-   Bus
+-   Stern
+-   Kombinationen
