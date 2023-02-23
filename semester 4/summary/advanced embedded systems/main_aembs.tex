@@ -130,11 +130,14 @@
 \newenvironment{conditions}
   {\par\vspace{\abovedisplayskip}\noindent\begin{tabular}{>{$}l<{$} @{${}:{}$} l}}
   {\end{tabular}\par\vspace{\belowdisplayskip}}
-  
+
+% Used for pandoc code block generations.
+% Introduces breaklines for overflowing code blocks, by defining the Highlighting environment with breakline & symbol.
+% Don't know what commandchars does :)
 \usepackage{fvextra}
 \DefineVerbatimEnvironment{Highlighting}{Verbatim}{
   breaklines,
-  breaksymbolleft={\tiny\faAngleRight},
+  breaksymbolleft={\textcolor{gray}{\scriptsize\ensuremath\hookrightarrow}},
   commandchars=\\\{\}
 }
 \makeatletter
@@ -216,7 +219,7 @@
 
 \title{Zusammenfassung Advanced Embedded Systems}
 \author{Joel von Rotz \& Andreas Ming}
-\date{22.02.23}
+\date{23.02.23}
 
 \begin{document}
  % [START] title
@@ -248,7 +251,7 @@
  % [END] title
 
 
-\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[colback={shadecolor}, boxrule=0pt, frame hidden, enhanced, breakable]}{\end{tcolorbox}}\fi\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[enhanced, boxrule=0pt, colback={shadecolor}, breakable, frame hidden]}{\end{tcolorbox}}\fi
+\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[colback={shadecolor}, boxrule=0pt, frame hidden, enhanced, breakable]}{\end{tcolorbox}}\fi\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[frame hidden, enhanced, breakable, colback={shadecolor}, boxrule=0pt]}{\end{tcolorbox}}\fi
 
 \renewcommand*\contentsname{Inhaltsverzeichnis}
 {
@@ -256,6 +259,40 @@
 \setcounter{tocdepth}{3}
 \tableofcontents
 }
+\hypertarget{einfuxfchrung}{%
+\section{Einführung}\label{einfuxfchrung}}
+
+\hypertarget{architektur}{%
+\section{Architektur}\label{architektur}}
+
+\hypertarget{entwicklung}{%
+\section{Entwicklung}\label{entwicklung}}
+
+\hypertarget{firmware}{%
+\section{Firmware}\label{firmware}}
+
+\hypertarget{real-time-operating-system}{%
+\section{\texorpdfstring{\textbf{R}eal \textbf{T}ime \textbf{O}perating
+\textbf{S}ystem}{Real Time Operating System}}\label{real-time-operating-system}}
+
+\hypertarget{kernel}{%
+\section{Kernel}\label{kernel}}
+
+\hypertarget{synchronisation}{%
+\section{Synchronisation}\label{synchronisation}}
+
+\hypertarget{nachrichten}{%
+\section{Nachrichten}\label{nachrichten}}
+
+\hypertarget{parallelituxe4t}{%
+\section{Parallelität}\label{parallelituxe4t}}
+
+\hypertarget{benutzer}{%
+\section{Benutzer}\label{benutzer}}
+
+\hypertarget{grafik}{%
+\section{Grafik}\label{grafik}}
+
 \hypertarget{fragen}{%
 \section{Fragen}\label{fragen}}
 
@@ -680,8 +717,8 @@ Kombination von Softwarekomponenten verschiedener Anbieter.
 \hypertarget{sw04-firmware}{%
 \subsection{SW04 Firmware}\label{sw04-firmware}}
 
-\hypertarget{architektur}{%
-\subsubsection{Architektur}\label{architektur}}
+\hypertarget{architektur-1}{%
+\subsubsection{Architektur}\label{architektur-1}}
 
 \hypertarget{module}{%
 \subsubsection{Module}\label{module}}

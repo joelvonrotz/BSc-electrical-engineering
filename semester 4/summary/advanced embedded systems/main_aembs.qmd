@@ -40,4 +40,15 @@ highlight-style: github
 
 <!-- [Chapters] -->
 
+{{< include chapters/01_einfuehrung.qmd >}}
+{{< include chapters/02_architektur.qmd >}}
+{{< include chapters/03_entwicklung.qmd >}}
+{{< include chapters/04_firmware.qmd >}}
+{{< include chapters/05_rtos.qmd >}}
+{{< include chapters/06_kernel.qmd >}}
+{{< include chapters/07_sync.qmd >}}
+{{< include chapters/08_nachrichten.qmd >}}
+{{< include chapters/09_parallel.qmd >}}
+{{< include chapters/10_benutzer.qmd >}}
+{{< include chapters/11_grafik.qmd >}}
 {{< include chapters/questions.qmd >}}
