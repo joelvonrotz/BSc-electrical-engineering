@@ -40,13 +40,9 @@ highlight-style: github
 callout-appearance: simple
 ---
 
-```{python}
-#|echo: false
-import matplotlib.pyplot as plt
-import numpy as np
-```
-
 `\begin{multicols}{2}`{=latex}
+
+{{< include chapters/matlab.qmd >}}
 
 # Einführung
 
@@ -116,15 +112,5 @@ y + R \cdot P \cdot y = R \cdot P \cdot r\quad \Rightarrow\quad\frac{y}{r}=\frac
 -   **Modularität** --
 -   **Genauigkeit** --
 -   **Herauserforderungen** --
-
-```{python}
-#|echo: false
-
-x = np.arange(-10,10.1,0.1)
-y = x/(1-x)
-
-plt.plot(x,y)
-plt.show()
-```
 
 `\end{multicols}`{=latex}
