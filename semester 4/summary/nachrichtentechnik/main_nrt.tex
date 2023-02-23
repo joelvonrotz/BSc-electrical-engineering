@@ -121,7 +121,7 @@
 \fancyhead[L]{HSLU T\&A}
 \fancyfoot{} % clear all footer fields
 \fancyfoot[C]{\thepage\ / \pageref{LastPage}}
-\fancyfoot[R]{APROG}
+\fancyfoot[R]{NRT}
 \fancyfoot[L]{\today}
 
 % introduces conditions environment to create nice equation parameter descriptions
@@ -130,11 +130,14 @@
 \newenvironment{conditions}
   {\par\vspace{\abovedisplayskip}\noindent\begin{tabular}{>{$}l<{$} @{${}:{}$} l}}
   {\end{tabular}\par\vspace{\belowdisplayskip}}
-  
+
+% Used for pandoc code block generations.
+% Introduces breaklines for overflowing code blocks, by defining the Highlighting environment with breakline & symbol.
+% Don't know what commandchars does :)
 \usepackage{fvextra}
 \DefineVerbatimEnvironment{Highlighting}{Verbatim}{
   breaklines,
-  breaksymbolleft={\tiny\faAngleRight},
+  breaksymbolleft={\textcolor{gray}{\scriptsize\ensuremath\hookrightarrow}},
   commandchars=\\\{\}
 }
 \makeatletter
@@ -216,7 +219,7 @@
 
 \title{Zusammenfassung Nachrichtentechnik}
 \author{Joel von Rotz \& Andreas Ming}
-\date{22.02.23}
+\date{23.02.23}
 
 \begin{document}
  % [START] title
@@ -239,7 +242,7 @@
 
  % [START] Source
 \begin{center}
-{\large \faGithub\space \href{https://www.youtube.com/watch?v=dQw4w9WgXcQ}{Quelldateien}}
+{\large \faGithub\space \href{https://github.com/joelvonrotz/bachelor-electrical-engineering/tree/main/semester\%204/summary/nachrichtentechnik}{Quelldateien}}
 \end{center}
  % [END] title
 
@@ -248,7 +251,7 @@
  % [END] title
 
 
-\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[colback={shadecolor}, boxrule=0pt, frame hidden, enhanced, breakable]}{\end{tcolorbox}}\fi\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[breakable, frame hidden, colback={shadecolor}, enhanced, boxrule=0pt]}{\end{tcolorbox}}\fi
+\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[colback={shadecolor}, boxrule=0pt, frame hidden, enhanced, breakable]}{\end{tcolorbox}}\fi\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[colback={shadecolor}, boxrule=0pt, enhanced, breakable, frame hidden]}{\end{tcolorbox}}\fi
 
 \renewcommand*\contentsname{Inhaltsverzeichnis}
 {
@@ -256,7 +259,55 @@
 \setcounter{tocdepth}{3}
 \tableofcontents
 }
+\hypertarget{einfuxfchrung}{%
+\section{Einführung}\label{einfuxfchrung}}
 
+\hypertarget{struktur-von-kommunikationssystemen}{%
+\subsection{Struktur von
+Kommunikationssystemen}\label{struktur-von-kommunikationssystemen}}
+
+\hypertarget{punkt-punkt-verbindung-grundelemente}{%
+\subsubsection{Punkt-Punkt Verbindung
+(Grundelemente)}\label{punkt-punkt-verbindung-grundelemente}}
+
+Simplex-Verbindung: Die Information fliesst nur von A nach B.
+
+Halbduplex-Verbindung: Es kann nur die eine oder andere Seite
+Informationen senden. Vollduplex-Verbindung: Informationen können
+einander unabhängig voneinander übermittelt werden.
+
+\hypertarget{kommunikationsnetz}{%
+\subsubsection{Kommunikationsnetz}\label{kommunikationsnetz}}
+
+Durch Zusammenführen mehrerer Grundelemente entsteht ein
+Kommunikationsnetz, an das eine Vielzahl von Teilnehmern angeschlossen
+werden können.
+
+\begin{itemize}
+\tightlist
+\item
+  Ring: ein einzelner Unterbruch stört das Kommunikationsnetz nicht, da
+  die Informationen in die andere Richtung versendet werden können.
+\item
+  Bus
+\item
+  Stern
+\item
+  Kombinationen
+\end{itemize}
+
+\hypertarget{signalanalyse}{%
+\section{Signalanalyse}\label{signalanalyse}}
+
+\hypertarget{signaluxfcbertragung-und-filterung}{%
+\section{Signalübertragung und
+Filterung}\label{signaluxfcbertragung-und-filterung}}
+
+\hypertarget{modulation}{%
+\section{Modulation}\label{modulation}}
+
+\hypertarget{emv-aspekte}{%
+\section{EMV Aspekte}\label{emv-aspekte}}
 
 
 
