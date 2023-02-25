@@ -46,10 +46,10 @@ highlight-style: github
 \ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[
   colback={shadecolor},
   boxrule=0pt,
-  left=0pt,
-  right=0pt,
-  top=0pt,
-  bottom=0pt,
+  left=3pt,
+  right=3pt,
+  top=3pt,
+  bottom=3pt,
   frame hidden,
   enhanced,
   breakable
