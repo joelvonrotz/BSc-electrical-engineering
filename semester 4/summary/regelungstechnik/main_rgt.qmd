@@ -38,13 +38,8 @@ pagenumbering: none
 highlight-style: github
 
 callout-appearance: simple
+bibliography: references.bib
 ---
-
-```{python}
-#|echo: false
-import matplotlib.pyplot as plt
-import numpy as np
-```
 
 `\begin{multicols}{2}`{=latex}
 
@@ -54,7 +49,9 @@ import numpy as np
 
 *Rückkopplung* beschreibt eine Anordnung, bei welcher zwei oder mehr dynamische Systeme Systeme untereinander so verbunden sind, dass sie sich [gegenseitig]{.underline} beeinflussen.
 
-![](images/open-closed-loop.png)
+![](images/closed_loop.png){width="8cm"}
+
+![](images/open-loop.png){width="8cm"}
 
 Wird das Rückkopplungssignals des geschlossenen Kreises vom Eingangssignal entfernt, also die Leitung wird aufgebrochen, wird aus dem Kreis ein *offener* Kreis.
 
@@ -66,23 +63,17 @@ Wird das Rückkopplungssignals des geschlossenen Kreises vom Eingangssignal entf
 
 Beide beschriebenden Systeme arbeiten nach dem Prinzip der *Gegenkopplung*
 
-## Regelung vs. Steuerung
+## Steuerung (Feed[forward]{.underline} Control)
 
-![](images/regelung_steuerung.png)
+![](images/steuerung.png){width="8cm"}
 
-```{=latex}
-\begin{conditions}
- v     &  Störung
-\end{conditions}
-```
--   Steuerung $\rightarrow$ *Feed[forward]{.underline} Control*
--   Regelung $\rightarrow$ *Feed[back]{.underline} Control*
+## Regelung (Feed[back]{.underline} Control)
 
-## Regelung
+![](images/regelung.png){width="8cm"}
 
-Ziel eines Reglers ist die Angleichung einer Regelgrösse $y$ an eine Führungsgrösse \$r\$. Hauptmerkmal des Reglers ist die Rückkopplung und die Fehlergrösse \$e\$. Das System versucht die Fehlergrösse möglichst auf $0$ zu behalten, was $r = y$ bedeutet, also die Ist-Grösse entspricht der Soll-Grösse.
+Ziel eines Reglers ist die Angleichung einer Regelgrösse $y$ an eine Führungsgrösse $r$. Hauptmerkmal des Reglers ist die Rückkopplung und die Fehlergrösse $e$. Das System versucht die Fehlergrösse möglichst auf $0$ zu behalten, was $r = y$ bedeutet, also die Ist-Grösse entspricht der Soll-Grösse.
 
-![](images/definition_regelung.png)
+![](images/definition_regelung.png){width="8cm"}
 
 ```{=latex}
 \begin{conditions}
@@ -116,15 +107,5 @@ y + R \cdot P \cdot y = R \cdot P \cdot r\quad \Rightarrow\quad\frac{y}{r}=\frac
 -   **Modularität** --
 -   **Genauigkeit** --
 -   **Herauserforderungen** --
-
-```{python}
-#|echo: false
-
-x = np.arange(-10,10.1,0.1)
-y = x/(1-x)
-
-plt.plot(x,y)
-plt.show()
-```
 
 `\end{multicols}`{=latex}
