@@ -37,3 +37,7 @@ $abstract$
 \end{abstract}
 $endif$
 $endif$ % [END] title
+
+
+% fix missing code background
+\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[colback={shadecolor}, boxrule=0pt, frame hidden, enhanced, breakable]}{\end{tcolorbox}}\fi

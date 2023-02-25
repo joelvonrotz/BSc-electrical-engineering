@@ -11,8 +11,8 @@ format:
     keep-tex: true
     include-in-header:
       - config.tex
-    #template-partials:
-    #  - before-body.tex
+    template-partials:
+      - before-body.tex
 
 source:
   github: "https://github.com/joelvonrotz/bachelor-electrical-engineering/tree/main/semester%203/summary/advanced%20programming"
@@ -42,15 +42,18 @@ highlight-style: github
 ---
 
 ```{=latex}
-\vspace{0.5cm}
-\hrule
-\vspace{0.4cm}
-\begin{center}
-{\large \faGithub\space \href{$source.github$}{Quelldateien}\hspace{1cm}{EEE-Adresse: \texttt{eee-}\underline{\hspace{2cm}}\texttt{.simple.eee.intern}}}
-\end{center}
-\vspace{0.5cm}
-\hrule
-\vspace{0.5cm}
+% keep this to have smaller code blocks
+\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[
+  colback={shadecolor},
+  boxrule=0pt,
+  left=0pt,
+  right=0pt,
+  top=0pt,
+  bottom=0pt,
+  frame hidden,
+  enhanced,
+  breakable
+]}{\end{tcolorbox}}\fi
 ```
 
 <!-- [Chapters] -->
@@ -71,7 +74,6 @@ highlight-style: github
 \vfill\null
 \columnbreak
 ```
-
 # Linux & Raspberry Pi 4
 
 {{< include chapters/linux_and_raspberry_pi4.qmd >}}

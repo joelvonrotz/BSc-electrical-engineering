@@ -1,69 +1,112 @@
 # Fragen
 
 ## SW01 Einführung
+
 ### Administratives
-1. Was bedeutet *Embedded*?
 
-2. Was ist ein *Embedded System*?
+1.  Was bedeutet *Embedded*?
 
-3. Was bedeutet *IPC*?
+*Embedded* bedeutet 'eingebettet' und weist darauf hin, dass ein Komponente oder Objekt Teil eines Ganzen ist.
 
-4. Beurteile, ob ein Raspberry Pi ein *Embedded System* ist.
+2.  Was ist ein *Embedded System*?
 
-5. Erkläre, was man unter *Build Tools* versteht.
+*Embedded Systems* bestehen aus Rechner (zum Beispiel Mikrocontroller), welche in einem grösseren System 'eingebettet' sind, also Teil eines Ganzen. Obwohl diese Rechner sind, sind diese nicht als 'normale' Rechner wie ein Desktop Computer oder Laptop erkennbar. Diese besitzen keine typischen Merkmale, wie Bildschirm, Maus, Tastatur, sondern sind für einen speziellen Zweck optimiert. Durch die Spezialisierung besitzt meistens ein Embedded System beschränkte Ressourcen oder sind auf gewisse Faktoren wie Grösse, Kosten oder Energieverbrauch ausgelegt.
+
+3.  Was bedeutet *IPC*?
+
+**I**nter-**P**rocess **C**ommunication, wie zum Beispiel eine Queue. Dies beschreibt die Kommunikation zwischen zwei Prozessen in einem RTOS.
+
+4.  Beurteile, ob ein Raspberry Pi ein *Embedded System* ist.
+
+Ein Raspberry Pi kann für beide Fälle verwendet werden, entweder als ein Modul in einem System, welche zum Beispiel Bildverarbeitung für ein Bilderkennungssystem macht, oder als Desktop Computer verwendet werden. Der Übergang ist fliessend. Man kann es als Mini-Computer bezeichnen.
+
+5.  Erkläre, was man unter *Build Tools* versteht.
+
+Unter Build Tools versteht man die Werkzeuge, welche das Programm in den Maschinen Code übersetzt. Funktionen sind: Compiler, Linker, Standard Libraries, Debugger und zusätzliche Tools. Das Build Environment übernimmt die Anwendung dieser Werkzeuge.
 
 ### Software & Tools
-1. Eclipse ist eine sehr universell einsetzbare IDE, was vielleicht auch problematisch sein kann. Was wären mögliche Kritikpunkte?
 
-2. Was hat wohl wesentlich dazu beigetragen, dass Eclipse als Open Source Projekt erfolgreich wurde?
+1.  Eclipse ist eine sehr universell einsetzbare IDE, was vielleicht auch problematisch sein kann. Was wären mögliche Kritikpunkte?
 
-3. Was ist die Rolle einer Foundation wie die der für Eclipse? Inwiefern unterscheidet sich eine Foundation von einer Firma wie IBM?
+Weniger Performant, da es in Java geschrieben ist. Die Komplexität von Eclipse führt ebenfalls zu Performance-Einbussen.
 
-4. Hersteller bieten oft ’Eval Boards’ an (ähnlich wie das tinyK22). Was ist der Sinn und Zweck davon?
+2.  Was hat wohl wesentlich dazu beigetragen, dass Eclipse als Open Source Projekt erfolgreich wurde?
 
-5. Welche Komponenten finden Sie typischerweise in einem SDK?
+Durch das Eclipse Open Source Konsortium wurde die Entwicklung von Eclipse stark gefördert und in die Öffentlichkeit gebracht. Ebenfalls hat es das Plugin-System eingeführt.
 
-6. Das Raspberry Pi ist weder das beste, schnellste, modernste noch das billigste Board, trotzdem ist es ein Erfolg. Was könnten die Erfolgsfaktoren sein?
+3.  Was ist die Rolle einer Foundation wie die der für Eclipse? Inwiefern unterscheidet sich eine Foundation von einer Firma wie IBM?
 
-7. Was ist der Grund, dass man im Pins Tool für einen Pin einen Identifier verwendet?
+*Foundation*s sind non-profit Organisationen.
 
-8. Sie wollen von Ihrer Firma ein Projekt in die Open Source Domäne ’entlassen’. Was müssten Sie dabei berücksichtigen, damit es ein Erfolg wird?
+4.  Hersteller bieten oft 'Eval Boards' an (ähnlich wie das tinyK22). Was ist der Sinn und Zweck davon?
 
-9. Sie realisieren ein neues Embedded System: Was ist der Unterschied zwischen *Design* und *Architektur*?
+Ein Eval-Board besitzt das Minimum der kritischen Komponenten, damit der Haupt-Komponenten (z.B. Sensor) funktioniert. Es wird zum Evaluieren/Austesten der Haupt-Komponent verwendet, aber auch für die direkte Hardware Integration. Ebenfalls reduziert es den Hardware-Designaufwand, da man keine eigene Eval-Boards machen muss.
+
+5.  Welche Komponenten finden Sie typischerweise in einem SDK?
+
+Beispiel-Projekte, Dokumentation, Treiber, Lizenzinformationen.
+
+6.  Das Raspberry Pi ist weder das beste, schnellste, modernste noch das billigste Board, trotzdem ist es ein Erfolg. Was könnten die Erfolgsfaktoren sein?
+
+Die Raspberry Foundation legt grossen Wert auf die Dokumentationen ihrer Geräte/Produkte. Die Datenblätter & andere Dokumentation sind sehr detailliert beschrieben und besteht ebenfalls aus vielen Anleitungen, wie man den Raspberry Pi.
+
+7.  Was ist der Grund, dass man im Pins Tool für einen Pin einen Identifier verwendet?
+
+Damit im Code nicht mit *Magic Numbers* gearbeitet wird, also im Sinne dass man direkt sieht, mit welchem Pin man es zu tun hat. Man gibt dem Pin eine Bedeutung.
+
+8.  Sie wollen von Ihrer Firma ein Projekt in die Open Source Domäne 'entlassen'. Was müssten Sie dabei berücksichtigen, damit es ein Erfolg wird?
+
+Alle verwendeten Software-Komponenten müssen öffentlich zugänglich sein (nicht closed source) und die entsprechende Lizenz muss einer Open Source Lizenz entsprechen (z.B. GNU GPLv3, MIT, Creative Commons).
+
+9.  Sie realisieren ein neues Embedded System: Was ist der Unterschied zwischen *Design* und *Architektur*?
+
+Die Architektur beschreibt die Beziehung zwischen den Komponenten (z.B. Kommunikation) und Design beschreibt die Implementation bezüglich der Architektur.
 
 10. Für welche Anforderungen oder Anwendungen eignet sich eher ein FPGA als ein Mikrocontroller? Was sind die Gründe dafür?
 
-11. Was versteht man unter einer Debug Probe?
+FPGAs werden für datenintensive, parallele und reaktionsschnelle Systeme verwendet. Beispiel wäre ein Digital Oszilloskop.
+
+9.  Was versteht man unter einer Debug Probe?
+
+Eine Debug-Probe ist ein Gerät, welches die Verbindung zwischen Target und Host. Unter anderem, verwenden diese Geräte als Schnittstellen JTAG, SWD oder ISP.
 
 12. Was ist *CMSIS-DAP*?
 
+**C**ommon **M**icrocontroller **S**oftware **I**ndustry **S**tandard - **D**ebug **A**ccess **P**ort
+
+CMSIS-DAP ist ein standardisiertes Kommunikationsprotokoll für Debug-Zwecken. Die Firmware von CMSIS-DAP wird DAPLink verwendet.
+
 13. Was ist *CMSIS*?
 
+**C**ommon **M**icrocontroller **S**oftware **I**ndustry **S**tandard ist eine Kollektion von verschiedenen Industrie-Standards für Mikrocontroller Systemen. Es bietet Schnittstellen zu Prozessoren und Peripheriegeräten, Echtzeitbetriebssystemen und Middleware-Komponenten. CMSIS umfasst einen Liefermechanismus für Geräte, Platinen und Software und ermöglicht die Kombination von Softwarekomponenten verschiedener Anbieter.
+
 ## SW02 Architektur
+
 ### System
-1. Nenne drei gute Beispiele eines transformierenden Systems.
 
-2. Nenne drei gute Beispiele eines reaktiven Systems.
+1.  Nenne drei gute Beispiele eines transformierenden Systems.
 
-3. Nenne drei gute Beispiele eines interaktiven Systems.
+2.  Nenne drei gute Beispiele eines reaktiven Systems.
 
-4. Inwiefern unterscheiden sich transformierende Systeme von reaktiven Systemen?
+3.  Nenne drei gute Beispiele eines interaktiven Systems.
 
-5. Beschreibe ein gutes Beispiel eines transformierenden Systems, welches über einen Eingabestrom und zwei Ausgabeströme verfügt.
+4.  Inwiefern unterscheiden sich transformierende Systeme von reaktiven Systemen?
 
-6. Gibt es ein Beispiel eines Embedded Systems ohne Benutzerschnittstelle?
+5.  Beschreibe ein gutes Beispiel eines transformierenden Systems, welches über einen Eingabestrom und zwei Ausgabeströme verfügt.
 
-7. Zu welcher System Klasse gehört ein ’Embedded System’?
+6.  Gibt es ein Beispiel eines Embedded Systems ohne Benutzerschnittstelle?
 
-8. Viele Systeme sind eine Kombination von transformierenden, reaktiven und interaktiven Systemen. Bestimme diese am Beipsiel eines Smartphone
+7.  Zu welcher System Klasse gehört ein 'Embedded System'?
 
-9. Wieso ist die Verarbeitungsqualität für transformierende Systeme so wichtig?
+8.  Viele Systeme sind eine Kombination von transformierenden, reaktiven und interaktiven Systemen. Bestimme diese am Beipsiel eines Smartphone
+
+9.  Wieso ist die Verarbeitungsqualität für transformierende Systeme so wichtig?
 
 10. Wieso sind transformierende Systeme typischerweise optimiert für eine optimale Systemausnutzung?
 
 11. Interaktive Systeme sind typischerweise optimiert für eine schnelle Antwortzeit. überlege typische Antwortzeiten für interaktive Systeme geben: Wovon hängen diese ab?
 
-12. Was bedeutet ’Verarbeitungsqualität’ bei einem Audio Encoder System?
+12. Was bedeutet 'Verarbeitungsqualität' bei einem Audio Encoder System?
 
 13. Klassifiziere die folgenden Systeme nach reaktiv, interaktiv und transformativ: Digital-Uhr, Airbag, Polizei-Radar, Feuer Alarmsystem, Geldautomat, Tankanzeige im Flugzeug.
 
@@ -72,36 +115,38 @@
 15. Mit mehr Speicher k¨onnen Systeme oft schneller rechnen. Probiere Beispiele dazu zu finden.
 
 ### Rechner
-1. Ist ein Intel basiertes Notebook eher eine von Neumann oder Harvard Architektur?
 
-2. Ist der Instruktionssatz des tinyK22 CISC oder RISC?
+1.  Ist ein Intel basiertes Notebook eher eine von Neumann oder Harvard Architektur?
 
-3. Wie kann eine RISC Architektur einen Rechner beschleunigen, da doch dabei mehr Instruktionen ausgeführt werden müssen?
+2.  Ist der Instruktionssatz des tinyK22 CISC oder RISC?
 
-4. Wieso eignen sich SIMD Instruktionen vor allem für Signalverarbeitung?
+3.  Wie kann eine RISC Architektur einen Rechner beschleunigen, da doch dabei mehr Instruktionen ausgeführt werden müssen?
 
-5. Was sind die Grenzen eines SoC Ansatzes, und wie können diese überwunden werden?
+4.  Wieso eignen sich SIMD Instruktionen vor allem für Signalverarbeitung?
 
-6. Wieso benötigt man ein XiP Verfahren bei einem externen Programmspeicher? Hinweis: Adressbereiche.
+5.  Was sind die Grenzen eines SoC Ansatzes, und wie können diese überwunden werden?
+
+6.  Wieso benötigt man ein XiP Verfahren bei einem externen Programmspeicher? Hinweis: Adressbereiche.
 
 ### Cortex
-1. Eine Anwendung verwenden viele 32bit Multiplikationen und Divisionen. Eignet sich ein ARM Cortex-M0+ dafür? Was sind Alternativen?
 
-2. Was ist der Grund, dass beim M7 oft ein externer Speicher zum Einsatz kommt?
+1.  Eine Anwendung verwenden viele 32bit Multiplikationen und Divisionen. Eignet sich ein ARM Cortex-M0+ dafür? Was sind Alternativen?
 
-3. Wieso ist eine MMU für den Einsatz eines Linux nötig?
+2.  Was ist der Grund, dass beim M7 oft ein externer Speicher zum Einsatz kommt?
 
-4. Wieso wurde ARM mit den ARM11 so erfolgreich?
+3.  Wieso ist eine MMU für den Einsatz eines Linux nötig?
 
-5. Der M3 war und ist sehr erfolgreich. Was waren die Gründe für den M0 und M4?
+4.  Wieso wurde ARM mit den ARM11 so erfolgreich?
 
-6. Was ist das Konzept von TrustZone?
+5.  Der M3 war und ist sehr erfolgreich. Was waren die Gründe für den M0 und M4?
 
-7. Was ist der Unterschied zwischen einer MPU und einer MMU?
+6.  Was ist das Konzept von TrustZone?
 
-8. Bringe ein Beispiel für eine Sättigungsarithmethik.
+7.  Was ist der Unterschied zwischen einer MPU und einer MMU?
 
-9. Welche Schlüsseleigenschaften wurden von welchen Firmen in die Gründung des ARM Joint Venture eingebracht und von wem?
+8.  Bringe ein Beispiel für eine Sättigungsarithmethik.
+
+9.  Welche Schlüsseleigenschaften wurden von welchen Firmen in die Gründung des ARM Joint Venture eingebracht und von wem?
 
 10. Wieso wurde die mögliche Übernahme von ARM durch Nvidia kontrovers diskutiert?
 
@@ -109,71 +154,92 @@
 
 12. Was könnte ein guter Kritikpunkt an ARM und deren Prozessoren sein? Gibt es Alternativen?
 
-13. RISC-V ist in ’aller Munde’: Beschreibe in ein paar kurzen Sätzen was RISC-V ist.
+13. RISC-V ist in 'aller Munde': Beschreibe in ein paar kurzen Sätzen was RISC-V ist.
 
 14. Welcher Vorteil hat Arm gegenüber einer Konkurrenz wie Intel?
 
 15. Ein Temperatur Sensor unterstützt einen Temperaturbereich von -45 Grad Celsius bis 125 Grad Celsius mit einer Auflösung von 0.1 Grad? Ist dafür eine Gleitkomma-Repräsentation mit den zugehörigen Operationen angebracht? Was wäre eine Möglichkeit?
 
 ## SW03 Entwicklung
+
 ### Prozess
-1. Was ist der Unterschied zwischen Verifikation und Validierung? Erläutere es mit einem Beispiel.
 
-2. Erkläre den Unterschied zwischen Unit Test, Integration Test und System Test?
+1.  Was ist der Unterschied zwischen Verifikation und Validierung? Erläutere es mit einem Beispiel.
 
-3. Wieso geht die Phase der Ausserbetriebnahme eines Produktes oft vergessen? Was sind mögliche Konsequenzen?
+2.  Erkläre den Unterschied zwischen Unit Test, Integration Test und System Test?
 
-4. Das Wasserfall Modell wird oft als ’schlecht’ dargestellt? Ist das berechtigt?
+3.  Wieso geht die Phase der Ausserbetriebnahme eines Produktes oft vergessen? Was sind mögliche Konsequenzen?
 
-5. Welche grundlegenden Vorteile führt das V Modell gegenüber dem Wasserfall Modell ein?
+4.  Das Wasserfall Modell wird oft als 'schlecht' dargestellt? Ist das berechtigt?
 
-6. Welche Anforderungen stellt das Agile Modell an das Entwicklungsteam?
+5.  Welche grundlegenden Vorteile führt das V Modell gegenüber dem Wasserfall Modell ein?
 
-7. Unter welcher Annahme wird das Agile Modell nur einmal durchlaufen?
+6.  Welche Anforderungen stellt das Agile Modell an das Entwicklungsteam?
 
-8. Wieso braucht es beim Agile Modell ein Backlog?
+7.  Unter welcher Annahme wird das Agile Modell nur einmal durchlaufen?
+
+8.  Wieso braucht es beim Agile Modell ein Backlog?
 
 ### Werkzeuge
-1. Was versteht man unter einem Refactoring und was ist das Ziel davon?
 
-2. Was ist der Unterschied zwischen Coverage und Profiling?
+1.  Was versteht man unter einem Refactoring und was ist das Ziel davon?
 
-3. Was ist der grosse Vorteil von statischen Analyse Werkzeugen gegenüber den dynamischen?
+2.  Was ist der Unterschied zwischen Coverage und Profiling?
 
-4. Welcher Vorteil ergibt eine Commit Phase mit einem VCS?
+3.  Was ist der grosse Vorteil von statischen Analyse Werkzeugen gegenüber den dynamischen?
 
-5. Gib ein Beispiel, wo es schwierig ist eine 100% Coverage zu erreichen?
+4.  Welcher Vorteil ergibt eine Commit Phase mit einem VCS?
+
+5.  Gib ein Beispiel, wo es schwierig ist eine 100% Coverage zu erreichen?
 
 ## SW04 Firmware
+
 ### Architektur
+
 ### Module
+
 ### Bibliotheken
 
 ## SW05 RTOS
+
 ### Echtzeit
+
 ### FreeRTOS
+
 ### Archtiektur
+
 ### Kernel API
+
 ### Tasks
 
 ## SW06 Kernel
+
 ### Interrupts
+
 ### Visualisierung
 
 ## SW07 Synchronisation
+
 ### Synchronisierung
+
 ### FreeRTOS & Interrupts
 
 ## SW08 Nachrichten
+
 ### Queues
+
 ### Timer
 
 ## SW09 Parallelität
+
 ### Reentrancy
+
 ### Sema
 
 ## SW10 Benutzer
+
 ### Benutzerschnittstellen
 
 ## SW11 Grafik
+
 ### Graphical User Interface

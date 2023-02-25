@@ -1,0 +1,798 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+  10pt,
+  a4paper,
+]{article}
+
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[top=25mm,bottom=25mm,left=25mm,right=25mm]{geometry}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\setcounter{secnumdepth}{3}
+% Make \paragraph and \subparagraph free-standing
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+
+\usepackage{amssymb, amsmath}
+\numberwithin{equation}{section}
+
+\usepackage[utf8]{inputenc}
+\usepackage{lastpage} % counts all the pages, used in footer
+\usepackage{hyperref}
+
+% Flexible Multicolumn Option
+\usepackage{multicol}
+\setlength\columnsep{20pt}
+
+% Package for enabling colors (colorful output)
+\usepackage[dvipsnames]{xcolor}
+\definecolor{darkgreen}{HTML}{014f32}
+
+% Icons - http://mirrors.ctan.org/fonts/fontawesome5/doc/fontawesome5.pdf
+\usepackage{fontawesome5}
+
+
+\usepackage{tabularx}
+\renewcommand\tabularxcolumn[1]{m{#1}} % vertically center content
+
+
+\usepackage[nodisplayskipstretch]{setspace}
+
+% Font Configuration
+\usepackage{lmodern}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{cmbright}
+\usepackage[scaled=0.85]{beramono}
+
+% 
+\usepackage{fancyhdr}
+
+\renewcommand{\headrulewidth}{1pt}
+\renewcommand{\footrulewidth}{1pt}
+
+\pagestyle{fancy}
+\fancyhead{} % clear all header fields
+\makeatletter
+\fancyhead[R]{\@title}
+\makeatother
+\fancyhead[L]{HSLU T\&A}
+\fancyfoot{} % clear all footer fields
+\fancyfoot[C]{\thepage\ / \pageref{LastPage}}
+\fancyfoot[R]{AEMBS}
+\fancyfoot[L]{\today}
+
+% introduces conditions environment to create nice equation parameter descriptions
+\usepackage{array}
+
+\newenvironment{conditions}
+  {\par\vspace{\abovedisplayskip}\noindent\begin{tabular}{>{$}l<{$} @{${}:{}$} l}}
+  {\end{tabular}\par\vspace{\belowdisplayskip}}
+
+% Used for pandoc code block generations.
+% Introduces breaklines for overflowing code blocks, by defining the Highlighting environment with breakline & symbol.
+% Don't know what commandchars does :)
+\usepackage{fvextra}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{
+  breaklines,
+  breaksymbolleft={\textcolor{gray}{\scriptsize\ensuremath\hookrightarrow}},
+  commandchars=\\\{\}
+}
+\makeatletter
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Inhaltsverzeichnis}
+\else
+  \newcommand\contentsname{Inhaltsverzeichnis}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{Abbildungsverzeichnis}
+\else
+  \newcommand\listfigurename{Abbildungsverzeichnis}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{Tabellenverzeichnis}
+\else
+  \newcommand\listtablename{Tabellenverzeichnis}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Abbildung}
+\else
+  \newcommand\figurename{Abbildung}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Tabelle}
+\else
+  \newcommand\tablename{Tabelle}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listing}
+\newcommand*\listoflistings{\listof{codelisting}{Listingverzeichnis}}
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+\makeatletter
+\@ifpackageloaded{tcolorbox}{}{\usepackage[many]{tcolorbox}}
+\makeatother
+\makeatletter
+\@ifundefined{shadecolor}{\definecolor{shadecolor}{HTML}{f7f7f7}}
+\makeatother
+\makeatletter
+\makeatother
+\ifLuaTeX
+\usepackage[bidi=basic]{babel}
+\else
+\usepackage[bidi=default]{babel}
+\fi
+\babelprovide[main,import]{ngerman}
+% get rid of language-specific shorthands (see #6817):
+\let\LanguageShortHands\languageshorthands
+\def\languageshorthands#1{}
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={Zusammenfassung Advanced Embedded Systems},
+  pdfauthor={Joel von Rotz \& Andreas Ming},
+  pdflang={de},
+  colorlinks=true,
+  linkcolor={blue},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={Blue},
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Zusammenfassung Advanced Embedded Systems}
+\author{Joel von Rotz \& Andreas Ming}
+\date{23.02.23}
+
+\begin{document}
+ % [START] title
+ % [ELSE] beamer
+
+\makeatletter
+\begin{center}
+  \vspace*{0.5cm}
+  
+  \textbf{\Huge \@title}
+  
+  \vspace{0.1cm}
+
+  {\Large {\@author \hspace{4.8cm} \@date}}
+  
+  \vspace{0.5cm}
+
+\end{center}
+\makeatother
+
+ % [START] Source
+\begin{center}
+{\large \faGithub\space \href{https://www.youtube.com/watch?v=dQw4w9WgXcQ}{Quelldateien}}
+\end{center}
+ % [END] title
+
+
+ % [END] beamer
+ % [END] title
+
+
+\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[colback={shadecolor}, boxrule=0pt, frame hidden, enhanced, breakable]}{\end{tcolorbox}}\fi\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[frame hidden, enhanced, breakable, colback={shadecolor}, boxrule=0pt]}{\end{tcolorbox}}\fi
+
+\renewcommand*\contentsname{Inhaltsverzeichnis}
+{
+\hypersetup{linkcolor=}
+\setcounter{tocdepth}{3}
+\tableofcontents
+}
+\hypertarget{einfuxfchrung}{%
+\section{Einführung}\label{einfuxfchrung}}
+
+\hypertarget{architektur}{%
+\section{Architektur}\label{architektur}}
+
+\hypertarget{entwicklung}{%
+\section{Entwicklung}\label{entwicklung}}
+
+\hypertarget{firmware}{%
+\section{Firmware}\label{firmware}}
+
+\hypertarget{real-time-operating-system}{%
+\section{\texorpdfstring{\textbf{R}eal \textbf{T}ime \textbf{O}perating
+\textbf{S}ystem}{Real Time Operating System}}\label{real-time-operating-system}}
+
+\hypertarget{kernel}{%
+\section{Kernel}\label{kernel}}
+
+\hypertarget{synchronisation}{%
+\section{Synchronisation}\label{synchronisation}}
+
+\hypertarget{nachrichten}{%
+\section{Nachrichten}\label{nachrichten}}
+
+\hypertarget{parallelituxe4t}{%
+\section{Parallelität}\label{parallelituxe4t}}
+
+\hypertarget{benutzer}{%
+\section{Benutzer}\label{benutzer}}
+
+\hypertarget{grafik}{%
+\section{Grafik}\label{grafik}}
+
+\hypertarget{fragen}{%
+\section{Fragen}\label{fragen}}
+
+\hypertarget{sw01-einfuxfchrung}{%
+\subsection{SW01 Einführung}\label{sw01-einfuxfchrung}}
+
+\hypertarget{administratives}{%
+\subsubsection{Administratives}\label{administratives}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Was bedeutet \emph{Embedded}?
+\end{enumerate}
+
+\emph{Embedded} bedeutet `eingebettet' und weist darauf hin, dass ein
+Komponente oder Objekt Teil eines Ganzen ist.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  Was ist ein \emph{Embedded System}?
+\end{enumerate}
+
+\emph{Embedded Systems} bestehen aus Rechner (zum Beispiel
+Mikrocontroller), welche in einem grösseren System `eingebettet' sind,
+also Teil eines Ganzen. Obwohl diese Rechner sind, sind diese nicht als
+`normale' Rechner wie ein Desktop Computer oder Laptop erkennbar. Diese
+besitzen keine typischen Merkmale, wie Bildschirm, Maus, Tastatur,
+sondern sind für einen speziellen Zweck optimiert. Durch die
+Spezialisierung besitzt meistens ein Embedded System beschränkte
+Ressourcen oder sind auf gewisse Faktoren wie Grösse, Kosten oder
+Energieverbrauch ausgelegt.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  Was bedeutet \emph{IPC}?
+\end{enumerate}
+
+\textbf{I}nter-\textbf{P}rocess \textbf{C}ommunication, wie zum Beispiel
+eine Queue. Dies beschreibt die Kommunikation zwischen zwei Prozessen in
+einem RTOS.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{3}
+\tightlist
+\item
+  Beurteile, ob ein Raspberry Pi ein \emph{Embedded System} ist.
+\end{enumerate}
+
+Ein Raspberry Pi kann für beide Fälle verwendet werden, entweder als ein
+Modul in einem System, welche zum Beispiel Bildverarbeitung für ein
+Bilderkennungssystem macht, oder als Desktop Computer verwendet werden.
+Der Übergang ist fliessend. Man kann es als Mini-Computer bezeichnen.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{4}
+\tightlist
+\item
+  Erkläre, was man unter \emph{Build Tools} versteht.
+\end{enumerate}
+
+Unter Build Tools versteht man die Werkzeuge, welche das Programm in den
+Maschinen Code übersetzt. Funktionen sind: Compiler, Linker, Standard
+Libraries, Debugger und zusätzliche Tools. Das Build Environment
+übernimmt die Anwendung dieser Werkzeuge.
+
+\hypertarget{software-tools}{%
+\subsubsection{Software \& Tools}\label{software-tools}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Eclipse ist eine sehr universell einsetzbare IDE, was vielleicht auch
+  problematisch sein kann. Was wären mögliche Kritikpunkte?
+\end{enumerate}
+
+Weniger Performant, da es in Java geschrieben ist. Die Komplexität von
+Eclipse führt ebenfalls zu Performance-Einbussen.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  Was hat wohl wesentlich dazu beigetragen, dass Eclipse als Open Source
+  Projekt erfolgreich wurde?
+\end{enumerate}
+
+Durch das Eclipse Open Source Konsortium wurde die Entwicklung von
+Eclipse stark gefördert und in die Öffentlichkeit gebracht. Ebenfalls
+hat es das Plugin-System eingeführt.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  Was ist die Rolle einer Foundation wie die der für Eclipse? Inwiefern
+  unterscheidet sich eine Foundation von einer Firma wie IBM?
+\end{enumerate}
+
+\emph{Foundation}s sind non-profit Organisationen.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{3}
+\tightlist
+\item
+  Hersteller bieten oft `Eval Boards' an (ähnlich wie das tinyK22). Was
+  ist der Sinn und Zweck davon?
+\end{enumerate}
+
+Ein Eval-Board besitzt das Minimum der kritischen Komponenten, damit der
+Haupt-Komponenten (z.B. Sensor) funktioniert. Es wird zum
+Evaluieren/Austesten der Haupt-Komponent verwendet, aber auch für die
+direkte Hardware Integration. Ebenfalls reduziert es den
+Hardware-Designaufwand, da man keine eigene Eval-Boards machen muss.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{4}
+\tightlist
+\item
+  Welche Komponenten finden Sie typischerweise in einem SDK?
+\end{enumerate}
+
+Beispiel-Projekte, Dokumentation, Treiber, Lizenzinformationen.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{5}
+\tightlist
+\item
+  Das Raspberry Pi ist weder das beste, schnellste, modernste noch das
+  billigste Board, trotzdem ist es ein Erfolg. Was könnten die
+  Erfolgsfaktoren sein?
+\end{enumerate}
+
+Die Raspberry Foundation legt grossen Wert auf die Dokumentationen ihrer
+Geräte/Produkte. Die Datenblätter \& andere Dokumentation sind sehr
+detailliert beschrieben und besteht ebenfalls aus vielen Anleitungen,
+wie man den Raspberry Pi.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{6}
+\tightlist
+\item
+  Was ist der Grund, dass man im Pins Tool für einen Pin einen
+  Identifier verwendet?
+\end{enumerate}
+
+Damit im Code nicht mit \emph{Magic Numbers} gearbeitet wird, also im
+Sinne dass man direkt sieht, mit welchem Pin man es zu tun hat. Man gibt
+dem Pin eine Bedeutung.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{7}
+\tightlist
+\item
+  Sie wollen von Ihrer Firma ein Projekt in die Open Source Domäne
+  `entlassen'. Was müssten Sie dabei berücksichtigen, damit es ein
+  Erfolg wird?
+\end{enumerate}
+
+Alle verwendeten Software-Komponenten müssen öffentlich zugänglich sein
+(nicht closed source) und die entsprechende Lizenz muss einer Open
+Source Lizenz entsprechen (z.B. GNU GPLv3, MIT, Creative Commons).
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{8}
+\tightlist
+\item
+  Sie realisieren ein neues Embedded System: Was ist der Unterschied
+  zwischen \emph{Design} und \emph{Architektur}?
+\end{enumerate}
+
+Die Architektur beschreibt die Beziehung zwischen den Komponenten (z.B.
+Kommunikation) und Design beschreibt die Implementation bezüglich der
+Architektur.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{9}
+\tightlist
+\item
+  Für welche Anforderungen oder Anwendungen eignet sich eher ein FPGA
+  als ein Mikrocontroller? Was sind die Gründe dafür?
+\end{enumerate}
+
+FPGAs werden für datenintensive, parallele und reaktionsschnelle Systeme
+verwendet. Beispiel wäre ein Digital Oszilloskop.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{8}
+\tightlist
+\item
+  Was versteht man unter einer Debug Probe?
+\end{enumerate}
+
+Eine Debug-Probe ist ein Gerät, welches die Verbindung zwischen Target
+und Host. Unter anderem, verwenden diese Geräte als Schnittstellen JTAG,
+SWD oder ISP.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{11}
+\tightlist
+\item
+  Was ist \emph{CMSIS-DAP}?
+\end{enumerate}
+
+\textbf{C}ommon \textbf{M}icrocontroller \textbf{S}oftware
+\textbf{I}ndustry \textbf{S}tandard - \textbf{D}ebug \textbf{A}ccess
+\textbf{P}ort
+
+CMSIS-DAP ist ein standardisiertes Kommunikationsprotokoll für
+Debug-Zwecken. Die Firmware von CMSIS-DAP wird DAPLink verwendet.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{12}
+\tightlist
+\item
+  Was ist \emph{CMSIS}?
+\end{enumerate}
+
+\textbf{C}ommon \textbf{M}icrocontroller \textbf{S}oftware
+\textbf{I}ndustry \textbf{S}tandard ist eine Kollektion von
+verschiedenen Industrie-Standards für Mikrocontroller Systemen. Es
+bietet Schnittstellen zu Prozessoren und Peripheriegeräten,
+Echtzeitbetriebssystemen und Middleware-Komponenten. CMSIS umfasst einen
+Liefermechanismus für Geräte, Platinen und Software und ermöglicht die
+Kombination von Softwarekomponenten verschiedener Anbieter.
+
+\hypertarget{sw02-architektur}{%
+\subsection{SW02 Architektur}\label{sw02-architektur}}
+
+\hypertarget{system}{%
+\subsubsection{System}\label{system}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Nenne drei gute Beispiele eines transformierenden Systems.
+\item
+  Nenne drei gute Beispiele eines reaktiven Systems.
+\item
+  Nenne drei gute Beispiele eines interaktiven Systems.
+\item
+  Inwiefern unterscheiden sich transformierende Systeme von reaktiven
+  Systemen?
+\item
+  Beschreibe ein gutes Beispiel eines transformierenden Systems, welches
+  über einen Eingabestrom und zwei Ausgabeströme verfügt.
+\item
+  Gibt es ein Beispiel eines Embedded Systems ohne
+  Benutzerschnittstelle?
+\item
+  Zu welcher System Klasse gehört ein `Embedded System'?
+\item
+  Viele Systeme sind eine Kombination von transformierenden, reaktiven
+  und interaktiven Systemen. Bestimme diese am Beipsiel eines Smartphone
+\item
+  Wieso ist die Verarbeitungsqualität für transformierende Systeme so
+  wichtig?
+\item
+  Wieso sind transformierende Systeme typischerweise optimiert für eine
+  optimale Systemausnutzung?
+\item
+  Interaktive Systeme sind typischerweise optimiert für eine schnelle
+  Antwortzeit. überlege typische Antwortzeiten für interaktive Systeme
+  geben: Wovon hängen diese ab?
+\item
+  Was bedeutet `Verarbeitungsqualität' bei einem Audio Encoder System?
+\item
+  Klassifiziere die folgenden Systeme nach reaktiv, interaktiv und
+  transformativ: Digital-Uhr, Airbag, Polizei-Radar, Feuer Alarmsystem,
+  Geldautomat, Tankanzeige im Flugzeug.
+\item
+  Nenne einige Systeme, welche keinen Computer oder Mikroprozessor
+  verwenden.
+\item
+  Mit mehr Speicher k¨onnen Systeme oft schneller rechnen. Probiere
+  Beispiele dazu zu finden.
+\end{enumerate}
+
+\hypertarget{rechner}{%
+\subsubsection{Rechner}\label{rechner}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Ist ein Intel basiertes Notebook eher eine von Neumann oder Harvard
+  Architektur?
+\item
+  Ist der Instruktionssatz des tinyK22 CISC oder RISC?
+\item
+  Wie kann eine RISC Architektur einen Rechner beschleunigen, da doch
+  dabei mehr Instruktionen ausgeführt werden müssen?
+\item
+  Wieso eignen sich SIMD Instruktionen vor allem für Signalverarbeitung?
+\item
+  Was sind die Grenzen eines SoC Ansatzes, und wie können diese
+  überwunden werden?
+\item
+  Wieso benötigt man ein XiP Verfahren bei einem externen
+  Programmspeicher? Hinweis: Adressbereiche.
+\end{enumerate}
+
+\hypertarget{cortex}{%
+\subsubsection{Cortex}\label{cortex}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Eine Anwendung verwenden viele 32bit Multiplikationen und Divisionen.
+  Eignet sich ein ARM Cortex-M0+ dafür? Was sind Alternativen?
+\item
+  Was ist der Grund, dass beim M7 oft ein externer Speicher zum Einsatz
+  kommt?
+\item
+  Wieso ist eine MMU für den Einsatz eines Linux nötig?
+\item
+  Wieso wurde ARM mit den ARM11 so erfolgreich?
+\item
+  Der M3 war und ist sehr erfolgreich. Was waren die Gründe für den M0
+  und M4?
+\item
+  Was ist das Konzept von TrustZone?
+\item
+  Was ist der Unterschied zwischen einer MPU und einer MMU?
+\item
+  Bringe ein Beispiel für eine Sättigungsarithmethik.
+\item
+  Welche Schlüsseleigenschaften wurden von welchen Firmen in die
+  Gründung des ARM Joint Venture eingebracht und von wem?
+\item
+  Wieso wurde die mögliche Übernahme von ARM durch Nvidia kontrovers
+  diskutiert?
+\item
+  Was sind die wichtigsten Erfolgsfaktoren von ARM Prozessoren aus Sicht
+  der Anwender?
+\item
+  Was könnte ein guter Kritikpunkt an ARM und deren Prozessoren sein?
+  Gibt es Alternativen?
+\item
+  RISC-V ist in `aller Munde': Beschreibe in ein paar kurzen Sätzen was
+  RISC-V ist.
+\item
+  Welcher Vorteil hat Arm gegenüber einer Konkurrenz wie Intel?
+\item
+  Ein Temperatur Sensor unterstützt einen Temperaturbereich von -45 Grad
+  Celsius bis 125 Grad Celsius mit einer Auflösung von 0.1 Grad? Ist
+  dafür eine Gleitkomma-Repräsentation mit den zugehörigen Operationen
+  angebracht? Was wäre eine Möglichkeit?
+\end{enumerate}
+
+\hypertarget{sw03-entwicklung}{%
+\subsection{SW03 Entwicklung}\label{sw03-entwicklung}}
+
+\hypertarget{prozess}{%
+\subsubsection{Prozess}\label{prozess}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Was ist der Unterschied zwischen Verifikation und Validierung?
+  Erläutere es mit einem Beispiel.
+\item
+  Erkläre den Unterschied zwischen Unit Test, Integration Test und
+  System Test?
+\item
+  Wieso geht die Phase der Ausserbetriebnahme eines Produktes oft
+  vergessen? Was sind mögliche Konsequenzen?
+\item
+  Das Wasserfall Modell wird oft als `schlecht' dargestellt? Ist das
+  berechtigt?
+\item
+  Welche grundlegenden Vorteile führt das V Modell gegenüber dem
+  Wasserfall Modell ein?
+\item
+  Welche Anforderungen stellt das Agile Modell an das Entwicklungsteam?
+\item
+  Unter welcher Annahme wird das Agile Modell nur einmal durchlaufen?
+\item
+  Wieso braucht es beim Agile Modell ein Backlog?
+\end{enumerate}
+
+\hypertarget{werkzeuge}{%
+\subsubsection{Werkzeuge}\label{werkzeuge}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Was versteht man unter einem Refactoring und was ist das Ziel davon?
+\item
+  Was ist der Unterschied zwischen Coverage und Profiling?
+\item
+  Was ist der grosse Vorteil von statischen Analyse Werkzeugen gegenüber
+  den dynamischen?
+\item
+  Welcher Vorteil ergibt eine Commit Phase mit einem VCS?
+\item
+  Gib ein Beispiel, wo es schwierig ist eine 100\% Coverage zu
+  erreichen?
+\end{enumerate}
+
+\hypertarget{sw04-firmware}{%
+\subsection{SW04 Firmware}\label{sw04-firmware}}
+
+\hypertarget{architektur-1}{%
+\subsubsection{Architektur}\label{architektur-1}}
+
+\hypertarget{module}{%
+\subsubsection{Module}\label{module}}
+
+\hypertarget{bibliotheken}{%
+\subsubsection{Bibliotheken}\label{bibliotheken}}
+
+\hypertarget{sw05-rtos}{%
+\subsection{SW05 RTOS}\label{sw05-rtos}}
+
+\hypertarget{echtzeit}{%
+\subsubsection{Echtzeit}\label{echtzeit}}
+
+\hypertarget{freertos}{%
+\subsubsection{FreeRTOS}\label{freertos}}
+
+\hypertarget{archtiektur}{%
+\subsubsection{Archtiektur}\label{archtiektur}}
+
+\hypertarget{kernel-api}{%
+\subsubsection{Kernel API}\label{kernel-api}}
+
+\hypertarget{tasks}{%
+\subsubsection{Tasks}\label{tasks}}
+
+\hypertarget{sw06-kernel}{%
+\subsection{SW06 Kernel}\label{sw06-kernel}}
+
+\hypertarget{interrupts}{%
+\subsubsection{Interrupts}\label{interrupts}}
+
+\hypertarget{visualisierung}{%
+\subsubsection{Visualisierung}\label{visualisierung}}
+
+\hypertarget{sw07-synchronisation}{%
+\subsection{SW07 Synchronisation}\label{sw07-synchronisation}}
+
+\hypertarget{synchronisierung}{%
+\subsubsection{Synchronisierung}\label{synchronisierung}}
+
+\hypertarget{freertos-interrupts}{%
+\subsubsection{FreeRTOS \& Interrupts}\label{freertos-interrupts}}
+
+\hypertarget{sw08-nachrichten}{%
+\subsection{SW08 Nachrichten}\label{sw08-nachrichten}}
+
+\hypertarget{queues}{%
+\subsubsection{Queues}\label{queues}}
+
+\hypertarget{timer}{%
+\subsubsection{Timer}\label{timer}}
+
+\hypertarget{sw09-parallelituxe4t}{%
+\subsection{SW09 Parallelität}\label{sw09-parallelituxe4t}}
+
+\hypertarget{reentrancy}{%
+\subsubsection{Reentrancy}\label{reentrancy}}
+
+\hypertarget{sema}{%
+\subsubsection{Sema}\label{sema}}
+
+\hypertarget{sw10-benutzer}{%
+\subsection{SW10 Benutzer}\label{sw10-benutzer}}
+
+\hypertarget{benutzerschnittstellen}{%
+\subsubsection{Benutzerschnittstellen}\label{benutzerschnittstellen}}
+
+\hypertarget{sw11-grafik}{%
+\subsection{SW11 Grafik}\label{sw11-grafik}}
+
+\hypertarget{graphical-user-interface}{%
+\subsubsection{Graphical User
+Interface}\label{graphical-user-interface}}
+
+
+
+\end{document}

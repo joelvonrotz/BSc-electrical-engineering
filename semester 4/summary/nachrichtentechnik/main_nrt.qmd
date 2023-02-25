@@ -1,5 +1,5 @@
 ---
-title: "Zusammenfassung Advanced Embedded Systems"
+title: "Zusammenfassung Nachrichtentechnik"
 author: "Joel von Rotz & Andreas Ming"
 date: now
 
@@ -15,7 +15,7 @@ format:
       - before-body.tex
 
 source:
-  github: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+  github: "https://github.com/joelvonrotz/bachelor-electrical-engineering/tree/main/semester%204/summary/nachrichtentechnik"
 
 pdf-engine: pdflatex
 # [DOCUMENT CONFIGURATION] ============================
@@ -40,15 +40,8 @@ highlight-style: github
 
 <!-- [Chapters] -->
 
-{{< include chapters/01_einfuehrung.qmd >}}
-{{< include chapters/02_architektur.qmd >}}
-{{< include chapters/03_entwicklung.qmd >}}
-{{< include chapters/04_firmware.qmd >}}
-{{< include chapters/05_rtos.qmd >}}
-{{< include chapters/06_kernel.qmd >}}
-{{< include chapters/07_sync.qmd >}}
-{{< include chapters/08_nachrichten.qmd >}}
-{{< include chapters/09_parallel.qmd >}}
-{{< include chapters/10_benutzer.qmd >}}
-{{< include chapters/11_grafik.qmd >}}
-{{< include chapters/questions.qmd >}}
+{{< include chapters/01_einführung.qmd >}}
+{{< include chapters/02_signalanalyse.qmd >}}
+{{< include chapters/03_uebertragung_filterung.qmd >}}
+{{< include chapters/04_modulation.qmd >}}
+{{< include chapters/05_emv.qmd >}}
