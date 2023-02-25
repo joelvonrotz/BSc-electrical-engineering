@@ -1,5 +1,6 @@
 {
   "[quarto]": {
     "editor.snippetSuggestions": "inline"
-  }
+  },
+  "quarto.visualEditor.spellingDictionary": "de_DE"
 }
