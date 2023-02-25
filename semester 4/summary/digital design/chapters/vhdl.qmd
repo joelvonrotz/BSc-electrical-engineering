@@ -1,0 +1,105 @@
+# VHDL
+
+::: {.callout-note}
+**V**ery High Speed Integrated Circuit **H**ardware **D**escription **L**anguage ist einer Hardwarebeschreibung und [keine]{.underline} Programmiersprache.
+:::
+
+## Designflow
+
+![](images/vhdl_fpga_designflow.png)
+
+### VHDL
+
+### Goldenes Model
+
+### Simulation
+
+## Struktur Datei
+
+```vhdl
+-- File: MyComponent.vhd
+-- Author: myself
+-- Date: yesterday
+
+library ...
+-- Library einbinden
+use ...
+-- Packages aus Library bekanntgeben
+
+entity ...
+-- Schnittstelle der Komponente gegen aussen
+
+architecture ...
+-- Funktion (Innenleben) der Komponente
+```
+
+### Entity
+
+Eine Entity beschreibt den Komponenten für äusserliche Zugriffe. Es wird nur die Struktur des Komponents bekannt gegeben, aber nicht den Inhalt des Komponenten.
+
+```vhdl
+entity MyComponent is
+  port ( a_pi, b_pi : in std_logic;
+        -- Input Ports
+        c_po : out std_logic
+        -- Output Port
+        --x_pio : inout std_logic
+        -- Bidirektionaler Port
+       );
+  constant c_max_cnt : integer := 20_000;
+end MyComponent;
+```
+
+- `ports` definiert die Anschlüsse (Pins)
+- `constants` beschreibt Konstanten
+
+::: {.callout-note}
+Alles was in der Entity bekannt ist (inkl. Libraries), ist auch in der zugehörigen Architecture bekannt.
+:::
+
+### Architekture
+
+Architecture beschreibt die Implementation oder das Innenleben des Komponents. Darin wird beschrieben, wie die deklarierten Signalen miteinander interagieren.
+
+```vhdl
+architecture a1 of MyComponent is
+  -- Deklarationen (Signale, Komponenten)
+  signal tmp : std_logic;
+begin
+  -- Implementierung
+  tmp  <= a_pi or b_pi;
+  c_po <= tmp;
+end a1;
+```
+
+- Der **Deklarationsteil** startet [vor]{.underline} dem `begin`
+- Der **Implementierungsteil** startet nach `begin` und endet vor `end`
+
+::: {.callout-note}
+#### `rtl` & `struct`
+
+Der Name `rtl` wird verwendet, um grundlegende Logik-Komponenten zu definieren, wie zum Beispiel *OR*, *XOR*, *AND*, etc. `struct` beinhaltet eine Kombination/Anwendung von `rtl`-Komponenten.
+:::
+
+## Grundlegende Konzepte
+
+### Ports & Signale
+
+Port sind die Anschlüsse eines Komponents und Signale sind Komponent-interne Signale, welche von aussen nicht zugreifbar sind.
+
+### Treiber `<=`
+
+Der Treiber `<=` beschreibt, dass das linke Signal vom rechten Signal angetrieben wird.
+Folgendes Beispiel beschreibt einen Inverter:
+
+```vhdl
+Inv_Out <= not Inv_In;
+```
+
+### `if`
+
+
+### `for`
+
+
+### `case`
