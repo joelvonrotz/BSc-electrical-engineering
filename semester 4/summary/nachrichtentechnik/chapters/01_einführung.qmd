@@ -18,7 +18,7 @@
 
 Durch Zusammenführen mehrerer Grundelemente entsteht ein Kommunikationsnetz, an das eine Vielzahl von Teilnehmern angeschlossen werden können.
 
-![Gebräuchliche Netzstrukturen](images/01_Netzstruktur-01.png)
+![Gebräuchliche Netzstrukturen](images/01_Netzstruktur.png)
 
 ### Übertragungskapazität
 
@@ -58,12 +58,14 @@ $$
 
 #### Störfestigkeit der Übertragung
 
-Störungen dringen zu einem grossen Teil auf dem Übertragungsweg ein.![Störquellen](images/01_St%C3%B6rungen.png)
+Störungen dringen zu einem grossen Teil auf dem Übertragungsweg ein.
+
+![Störquellen](images/01_Stoerungen.png)
 
 Um die Qualität einer Übertragung zu quantifizieren wird der sogenannte *Störabstand* (**S**ignal to **N**oise **R**ation) berechnet
 
 $$
-SNR=10\cdot\log_{10}\left(\frac{S [P]}{N [P]}\right)[dB]
+SNR=10\cdot\log_{10}\left(\frac{S\space[P]}{N\space[P]}\right)\space[dB]
 $$
 
 Bei digitaler Übertragung wird die *Bitfehlerrate* (**B**it **E**rror **R**atio) oder die *Bitfehlerwarscheinlikeit* $P_e$ angegeben, welche die Wahrscheinlichkeit angibt, dass ein Zustand falsch detektiert wird.
@@ -82,6 +84,60 @@ $$
 
 #### Wiedergabetreue
 
+Die Verzerrung ist bei einem ungestörten Übertragungskanal die Differenz der Signapegel am Ein- und Ausgang
+
+$$
+\varepsilon(t)=y(t)-x(t)
+$$
+
+![Linearer Übertragungskanal](images/01_Wiedergabetreue.png)
+
 Die Wiedergabe eines Übertragunssystems ist umso besser, je geringer die Signalverzerrung ist. Eine Verzerrungsfreie Übertragung hat die Bedingungen **konstante Verstärkung** und **linearer Phasengang**
 
 Eine *Lineare Verzerrung* liegt vor wenn das Ausgangssignal **keine zusätzlichen Frequenzkomponenten** enthält.
+
+Um die Wiedergabetreue zu messen wird die *Eintonmessung* angewendet, bei welcher das Testsignal $x(t) = \cos(2\pi f_0t)$ eingespiesen wird und man das Ausgangssignal $y(t)=a_1\cos(\omega_0t)+a_2\cos^2(\omega_0t)+...$ erhält. Mit der Trigonometrischen Umformung
+
+$$
+\cos(\alpha)\cos(\beta)=\frac12\cos(\alpha-\beta)+\frac12\cos(\alpha+\beta)
+$$
+
+den Therm
+
+$$
+y(t)=\underbrace{\left(\frac{a_2}{2}+\frac{3a_4}{8}+...\right)}_{A_0 \space[DC-Anteil]}+
+\underbrace{\left(a_1+\frac{3a_3}{4}+...\right)}_{A_1}\cos(\omega_0t)+
+\underbrace{\left(\frac{a_2}{2}+\frac{a_4}{4}+...\right)}_{A_2}\cos(2\omega_0t)+...
+$$
+
+Zur beschreibung der Nichtlinearität wird der **Klirrfaktor** $k$ benutzt
+
+$$
+k=\sqrt{\frac{Oberwellen\space Amplituden}{Gesamt\space Amplituden\space (ohne\space DC)}}=\sqrt{\frac{(A_2)^2+(A_3)^2+...}{(A_1)^2+(A_2)^2+(A_3)^2+...}}
+$$
+
+Wird die *Zweitonmessung* $x(t)=\cos(\omega_1t)+\cos(\omega_2t)$ gemacht, so enthält das Ausgangssignal eines nichtlinearen Systems neben den Oberwellen auch die Terme der Form $(\omega_2-\omega_1),\space(\omega_2+\omega_1),\space(\omega_2-2\omega_1)+...$, was man als **Inetrmodulationsprodukte** bezeichnet.
+
+#### Zeittransparenz *Latenz*
+
+Die *Latenz* beschreibt in einem Kommunikationsnetz die Einflüsse einer *Übertragungsverzögerung* und *Verarbeitungsverzögerung*, wichtige Parameter für Echtzeitdienste.
+
+Die gesamte Verzögerungszeit $T_{delay}$ besteht aus drei Anteilen
+
+$$
+T_{delay}=T_a+T_ü+T_v
+$$
+
+Ausbreitungsverzögerung *propagation delay*
+
+$$
+T_a=\frac{Entfernung\space [m]}{Ausbreitungsgeschwindigkeit\space[\frac{m}{s}]}[s]
+$$
+
+Übertragungsverzögerung *transmission delay*
+
+$$
+T_ü=\frac{Paketgrösse\space[byte]}{Datenrate\space[\frac{bytes}{s}]}[s]
+$$
+
+Die Verarbeitungsverzögerung *process delay* $T_v$ ist vom Verarbeitungssystem abhängig und beschreibt z. B. eine Prozesszeit.

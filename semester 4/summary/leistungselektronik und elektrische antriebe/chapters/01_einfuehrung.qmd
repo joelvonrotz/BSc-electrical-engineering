@@ -1,1 +1,41 @@
 # Einführung
+
+Stromrichter sind Leistungselektronische Geräte welche dort eingesetzt werden wo zwischen der Speisung und dem Verbraucher eine Umformung der Stromart, der Spannung oder der Frequenz erforderlich ist.
+
+![](images/01_Stromrichter.png)
+
+## Gleichstromsteller *Chopper*
+
+Der Gleichstromsteller basiert auf dem zerhacken der Eingangsspannung
+
+![](images/01_Chopper.png)
+
+Die Ausgangsspannung wird durch das Verhältnis $\frac{T_{ein}}{T}$ festgelegt, wobei der Mittelwert eben diesem Tastverhältnis $a$ folgt
+
+$$
+U_{a_{avg}}=\frac{T_{ein}}{T}\cdot U_1=a\cdot U_1
+$$
+
+Der Schalter $S$ stellt einen Halbleiter dar, der abschaltbar sein muss. Die Schaltung hat die Eigenschaften
+
+-   Selbstgeführt bzw. zwangskommutiert
+
+-   Abwertsteller $U_{2_{avg}}<U_1$
+
+-   Halbleiter wird als Schalter betrieben, wodurch dieser praktisch keine Verlustleistung aufweist ($u\approx0\rightarrow p_v\approx0$, $i=0\rightarrow p_v=0$)
+
+-    Hoher Wirkungsgrad
+
+## Ungesteuerter Netzgeführter Gleichrichter
+
+Die Ausgansspannung $U_d$ (*direct*) steht im festen Verhältnis zur Eingangsspannung $U_N$, ist also *ungesteuert*.
+
+![](images/01_GleichrichterUngesteuert.png)
+
+Die Ausgangsspannung ist gegeben mit
+
+$$
+U_{d_{avg}}=\frac{2}{\pi}\hat{U}=\frac{2\sqrt2}{\pi}U_{RMS}\approx0.9\cdot U_{RMS}
+$$
+
+## Gesteuerter Netzgeführter Gleichrichter
