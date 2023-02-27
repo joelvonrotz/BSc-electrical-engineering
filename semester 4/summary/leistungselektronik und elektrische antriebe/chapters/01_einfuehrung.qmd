@@ -24,7 +24,7 @@ Der Schalter $S$ stellt einen Halbleiter dar, der abschaltbar sein muss. Die Sch
 
 -   Halbleiter wird als Schalter betrieben, wodurch dieser praktisch keine Verlustleistung aufweist ($u\approx0\rightarrow p_v\approx0$, $i=0\rightarrow p_v=0$)
 
--    Hoher Wirkungsgrad
+-   Hoher Wirkungsgrad
 
 ## Ungesteuerter Netzgeführter Gleichrichter
 
@@ -39,3 +39,13 @@ U_{d_{avg}}=\frac{2}{\pi}\hat{U}=\frac{2\sqrt2}{\pi}U_{RMS}\approx0.9\cdot U_{RM
 $$
 
 ## Gesteuerter Netzgeführter Gleichrichter
+
+Werden anstelle Dioden *Thyristoren* eingesetzt, erhält man einen *gesteuerten* Gleichrichter.
+
+![](images/01_GleichrichterGesteuert.png)
+
+Die Ausgangspannung ist nun zusätzlich abhängig vom Steuerwinkel $\alpha$
+
+$$
+U_{d}(\alpha) = \frac{1+\cos{\alpha}}{\pi}\hat{U}=\frac{2}{\pi}\sqrt{2}\cdot U_{RMS}\frac{1+\cos{\alpha}}{2}\approx 0.9\cdot U_{RMS}\frac{1+\cos{\alpha}}{2}
+$$

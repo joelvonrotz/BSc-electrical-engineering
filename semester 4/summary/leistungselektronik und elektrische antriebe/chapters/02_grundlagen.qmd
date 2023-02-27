@@ -1,1 +1,96 @@
 # Grundlagen
+
+## Mechanik
+
++-------------------------+----------------------------------------------------------+---------------------------------------------------------------+-----------------------------------------------------------------------------------+
+| Translatorisch          |                                                          | Rotatorisch                                                   |                                                                                   |
++=========================+==========================================================+===============================================================+===================================================================================+
+| Weg                     | $s$ $[m]$                                                | Winkel                                                        | $\varphi$ $[1]$                                                                   |
++-------------------------+----------------------------------------------------------+---------------------------------------------------------------+-----------------------------------------------------------------------------------+
+| Geschwindikeit          | $v=\frac{ds}{dt}\space [\frac{m}{s}]$                    | Kreisfrequenz                                                 | $\omega=\frac{d\varphi}{dt}\space [\frac{1}{s}]$                                  |
+|                         |                                                          |                                                               |                                                                                   |
+|                         | $v=r\cdot\omega\space[\frac{m}{s}]$                      |                                                               | $\omega=2\pi\frac{n\space [\frac{1}{min}]}{60\space [\frac{s}{min}]}\space [rad]$ |
++-------------------------+----------------------------------------------------------+---------------------------------------------------------------+-----------------------------------------------------------------------------------+
+| Beschleunigung          | $a=\frac{dv}{dt}=\frac{d^2}{dt^2}\space [\frac{m}{s^2}]$ | Winkelbeschleunigung                                          | $\dot{\omega}=\frac{d\omega}{dt}=\frac{d^2\varphi}{dt^2}\space[\frac{1}{s^2}]$    |
++-------------------------+----------------------------------------------------------+---------------------------------------------------------------+-----------------------------------------------------------------------------------+
+| Masse                   | $m\space [kg]$                                           | Trägheitsmoment                                               | $J\space [kg\cdot m^2]$                                                           |
++-------------------------+----------------------------------------------------------+---------------------------------------------------------------+-----------------------------------------------------------------------------------+
+| Kraft                   | $F=m\cdot a\space [N]$                                   | Drehmoment                                                    | $M=J\cdot\dot{\omega}\space [Nm]$                                                 |
+|                         |                                                          |                                                               |                                                                                   |
+|                         |                                                          |                                                               | $M=F\cdot r_\perp\space [Nm]$                                                     |
++-------------------------+----------------------------------------------------------+---------------------------------------------------------------+-----------------------------------------------------------------------------------+
+| Impuls                  | $B=m\cdot v\space[\frac{kg\cdot m}{s}]$                  | Drall                                                         | $D=J\cdot\omega\space [\frac{kg\cdot m^2}{s}]$                                    |
++-------------------------+----------------------------------------------------------+---------------------------------------------------------------+-----------------------------------------------------------------------------------+
+| Leistung                | $P=F\cdot v\space [W]$                                   | Leistung                                                      | $P=M\cdot\omega\space [W]$                                                        |
++-------------------------+----------------------------------------------------------+---------------------------------------------------------------+-----------------------------------------------------------------------------------+
+| Energie                 | $W=\int{p(t)\cdot dt}\space [Ws]$                        | Energie                                                       | $W=\int{p(t)\cdot dt}\space [Ws]$                                                 |
++-------------------------+----------------------------------------------------------+---------------------------------------------------------------+-----------------------------------------------------------------------------------+
+| kin. Energie            | $W_{kin}=\frac{mv^2}{2}\space [Ws]$                      | kin. Energie                                                  | $W_{kin}=\frac{J\omega^2}{2}\space [Ws]$                                          |
++-------------------------+----------------------------------------------------------+---------------------------------------------------------------+-----------------------------------------------------------------------------------+
+| pot. Energie            | $W_{pot}=\int{F(s)\cdot ds}\space [Ws]$                  | pot. Energie                                                  | $W_{pot}=\int{M(\varphi)\cdot d\varphi}\space [Ws]$                               |
+|                         |                                                          |                                                               |                                                                                   |
+|                         | $W_{pot}=m\cdot g\cdot h\space [Ws]$                     |                                                               |                                                                                   |
++-------------------------+----------------------------------------------------------+---------------------------------------------------------------+-----------------------------------------------------------------------------------+
+| Zentrifugalkraft        | $F=\frac{mv^2}{r}\space [N]$                             | Zentrifugalkraft                                              | $F=mr\omega^2\space [N]$                                                          |
++-------------------------+----------------------------------------------------------+---------------------------------------------------------------+-----------------------------------------------------------------------------------+
+|                         |                                                          |                                                               |                                                                                   |
++-------------------------+----------------------------------------------------------+---------------------------------------------------------------+-----------------------------------------------------------------------------------+
+| **Trägheitsmoment** $J$ | Vollzylinder                                             | $J=\frac{m}{2}r^2=\frac{\pi l\rho}{2}r^4$                     |                                                                                   |
++-------------------------+----------------------------------------------------------+---------------------------------------------------------------+-----------------------------------------------------------------------------------+
+|                         | Hohlzylinder                                             | $J=\frac{m}{2}(r_a^2+r_i^2)=\frac{\pi l\rho}{2}(r_a^2-r_i^4)$ |                                                                                   |
++-------------------------+----------------------------------------------------------+---------------------------------------------------------------+-----------------------------------------------------------------------------------+
+|                         | Zylindermantel ($\delta<<r$)                             | $J=\frac{m}{4}(2r-\delta)^2=2\pi l\rho r^3\delta$             |                                                                                   |
++-------------------------+----------------------------------------------------------+---------------------------------------------------------------+-----------------------------------------------------------------------------------+
+|                         | Kugel                                                    | $J=\frac{2m}{5}r^2=\frac{8}{15}\pi\rho r^5$                   |                                                                                   |
++-------------------------+----------------------------------------------------------+---------------------------------------------------------------+-----------------------------------------------------------------------------------+
+
+## Wirkungskette elektrischer Maschinen
+
+Bei rotatorischer Bewegung steht die DIfferenz zwischen *Derhmoment* $M_{masch}$, das die Maschine abgibt und das *Lastmoment* $M_{last}$ zur *Winkelbeschleunigung* $\dot{\omega}$ zur Verfügung
+
+![](images/01_WIrkungskette.png)
+
+Es kommen zudem *stabile* und *instabile* Arbeitspunkte vor. **Stabil** sind sie, wenn bei sinkender drehzahl das Moment steigt und so wieder beschleunigen kann, sonst andersrum. So "regelt" sich das System ein stück weit selbst
+
+![](images/01_Arbeitspunkte.png)
+
+## Elektromechanische Energieumwandlung
+
+Wird ein stromdurchflossener Leiter in die Nähe eines Magneten gebracht, so wirkt auf jedes Längenelement des Leiters eine Kraft, die senkrecht auf dem Längenelement steht. Ihre Grösse ist dem Strom im Leiterproportional.
+
+![](images/01_LorentzKraft.png)
+
+Die Kraft $F$ die auf einen Leiter wirkt ist abhängig vom Längenelement $l$ (länge des Leiters im Magnetfeld) des Stroms $i$.
+
+$$
+\overrightarrow{F}=l(\overrightarrow{i}\times\overrightarrow{B})
+$$
+
+Steht der Leiter im Rotor senkrecht zum Magnetfeld so folgt
+
+$$
+F=liB
+$$
+
+### Durchflutungsgesetz
+
+Das Durchflutungsgesetz verbindet die Ursache der Magnetfelds, die Durchflutung $\theta$, mit deren Wirkung , der magnetischen Feldstärke $H$.
+
+![](images/01_Eisenkern.png)
+
+|                                        |                                                                                                         |
+|----------------------------------------|---------------------------------------------------------------------------------------------------------|
+| Durchflutung $[A]$                     | $\theta=\oint\overrightarrow{H}\cdot d\overrightarrow{s}=H\cdot l_{Fe}=\sum{I}=N\cdot I$                |
+| Magnetische Feldstärke $[\frac{A}{m}]$ | $H=\frac{N\cdot I}{l_{Fe}}$                                                                             |
+| Magnetische Flussdichte $[T]$          | $B=\mu_0\mu_rH$ oder Magnetisierungskennlinie                                                           |
+| Permeabilität $[\frac{Vs}{Am}]$        | $\mu_0=4\pi 10^{-7}\frac{Vs}{Am}$                                                                       |
+| relative Permeabilität $[\space]$      | $\mu_r$ ist Materialabhängig                                                                            |
+| Magnetischer Fluss $[Vs];[Wb]$         | $\phi=B\cdot A_{Fe}$                                                                                    |
+| Induzierte Spannung $[V]$              | $u=N\frac{d\phi}{dt}=\underbrace{\mu_0\mu_r\frac{A_{Fe}}{l_{Fe}}N^2}_{L}\frac{d}{dt}i=\frac{d}{dt}\Psi$ |
+| Flussverkettung $[Vs];[Wb]$            | $\Psi=N\phi=Li$                                                                                         |
+| Induktivität $[H]$                     | $L=\frac{N^2A_{Fe}\mu_0\mu_r}{l_{Fe}}$                                                                  |
+|                                        |                                                                                                         |
+
+Werden grosse Induktivitätswerte benötigt, wird mit ferromagnetischem Material gearbeitet. Dabei müssen Sättigungseffekte beachtet werden (B-H-Kennlinie)
+
+![](images/01_Magnetisierung.png)
