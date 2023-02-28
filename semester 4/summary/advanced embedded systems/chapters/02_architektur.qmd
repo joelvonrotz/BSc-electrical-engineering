@@ -1,1 +1,41 @@
+# Systeme
+
+## Transformierende Systeme
+
+Verarbeitet ein Eingabesignal (*Input*) und gibt ein Ausgabesignal (*Output*) aus. Wichtige [Charakteristiken]{.underline} sind **Verarbeitungsqualität** (effiziente Datenverarbeitung), **Durchsatz** (kleine Latenz zwischen In- und Output), **optimierte Systemlast** (ein System, welches für die Aufgabe ausgelegt ist ; nicht überdimensioniert) und **optimierter Speicherverbrauch** (wenig Speicher bedeutet meistens auch langsames System, daher muss Speicher effizient gebraucht werden).
+
+[Beispiele]{.underline}: Verschlüsselung, Router, Noise Canceling, MP3/MPEG En-/Decoder
+
+![](images/transform_system.png){fig-align="center" width="10cm" height="3.4cm"}
+
+## Reaktive Systeme
+
+Ein Reaktives System reagiert auf gemessene Werte, also von [externen]{.underline} Events. Das System muss eine **kurze Reaktionszeit** garantieren, da meistens solche Systeme für Notfallsituationen verwendet werden. Ebenfalls werden diese für **Regelkreise** verwendet und sind typisch **Echtzeitsysteme**.
+
+[Beispiele:]{.underline} Airbag, Roll-Over Detection, ABS, Brake Assistance, Engine Control, Motorsteuerung
+
+![](images/reactive_system.png){fig-align="center" width="10cm"}
+
+## Interaktive Systeme
+
+Interaktive Systeme werden von Benutzer interagiert. Sie haben eine **hohe Systemlast**, da zum Beispiel die Interaktion einer Benutzeroberfläche ausgewertet werden muss. Damit ein Benutzer mit dem System interagiert, muss es ein **optimiertes HMI** (Human-Machine-Interface) sein und eine **'kurze' Antwortzeit**.
+
+[Beispiele:]{.underline}
+
+![](images/interactive_system.png){fig-align="center" width="10cm"}
+
+::: callout-note
+## Kombiniertes System
+
+Ein kombiniertes System ist, wär hätte es gedacht, eine Kombination von den erwähnten Systemen und anderen. Zum Beispiel kann ein Smartphone ein kombiniertes System ist, da es aus einem interaktiven Teilsystem für Homescreen- & App-Interaktionen, transformierendes Teilsystem für Audio-Decodierung für Musikhören und weiteren kleineren Teilsystemen.
+:::
+
 # Architektur
+
+## Systemaufbau
+
+## Systemwahl
+
+## Rechnerarchitektur: von Neumann
+
+## Rechnerarchitektur: Hardvard
