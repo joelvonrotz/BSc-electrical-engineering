@@ -1,0 +1,28 @@
+# MCUXpresso
+
+## Semihosting
+
+Um Semihosting zu aktivieren (falls es schon nicht ist), muss die *Library* des Projektes geändert werden.
+
+`aktuelles Projekt` $\rightarrow$ `Project Settings` $\rightarrow$ auf `Libraries` Rechtsklick machen $\rightarrow$ `Edit Libraries`
+
+Alle Optionen mit *semihost* können ausgewählt werden.
+
+![](images/project_libraries_semihost.png){fig-align="center" width="12cm"}
+
+### Unterschied *none*, *nohost* and *semihost*
+
+-   **Semihosting** implementiert alle Funktionen, inklusive *File I/O*. *File I/O* wird über den Debugger weitergeleitet und auf dem Hostsystem ausgeführt. Zum Beispiel verwenden printf/scanf das Konsolenfenster des Debuggers und fread/fwrite arbeiten mit Dateien auf dem Hostsystem.
+-   **Nohost** implementiert String- und Speicher-Handling Funktionen und ein paar *File*-basierten I/O Funktionen. Es wird davon ausgegangen, dass es kein Debugging Host existiert.
+-   **None** hat den kleinsten Speicherplatzbedarf. Es schließt Low-Level-Funktionen für alle *File*-basierten I/O und einige String- und Speicherverarbeitungsfunktionen aus.
+
+## DWT
+
+Der MK22FN512VLH12 (oder allgemein Cortex-M4) verfügt über ein DWT-Unit (**D**ata **W**atchpoint and **T**race), welches die Anzahl abgelaufenen Zyklen angibt und die Delta-Zyklen zwischen zwei Breakpoints.
+
+`cycles` gibt die Anzahl abgelaufenen Zyklen\
+`cycleDelta` gibt die Anzahl Zyklen zwischen zwei Breakpoints
+
+Folgendes Beispiel zeigt die Anzahl Zyklen, welche für `printf` verwendet wurde.
+
+![](images/debug_dwt.png){fig-align="center" width="12cm"}

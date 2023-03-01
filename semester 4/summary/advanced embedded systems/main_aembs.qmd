@@ -78,4 +78,6 @@ highlight-style: github
 
 {{< include chapters/11_grafik.qmd >}}
 
+{{< include chapters/mcuxpresso.qmd >}}
+
 {{< include chapters/questions.qmd >}}

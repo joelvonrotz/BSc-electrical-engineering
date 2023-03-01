@@ -6,7 +6,7 @@ Verarbeitet ein Eingabesignal (*Input*) und gibt ein Ausgabesignal (*Output*) au
 
 [Beispiele]{.underline}: Verschlüsselung, Router, Noise Canceling, MP3/MPEG En-/Decoder
 
-![](images/transform_system.png){fig-align="center" width="10cm" height="3.4cm"}
+![](images/transform_system.png){fig-align="center" width="10cm"}
 
 ## Reaktive Systeme
 
@@ -20,19 +20,29 @@ Ein Reaktives System reagiert auf gemessene Werte, also von [externen]{.underlin
 
 Interaktive Systeme werden von Benutzer interagiert. Sie haben eine **hohe Systemlast**, da zum Beispiel die Interaktion einer Benutzeroberfläche ausgewertet werden muss. Damit ein Benutzer mit dem System interagiert, muss es ein **optimiertes HMI** (Human-Machine-Interface) sein und eine **'kurze' Antwortzeit**.
 
-[Beispiele:]{.underline}
+[Beispiele:]{.underline} Ticket-Automat, Taschenrechner, Smart-Phone, Fernsehbedienung
 
 ![](images/interactive_system.png){fig-align="center" width="10cm"}
 
-::: callout-note
+
 ## Kombiniertes System
 
 Ein kombiniertes System ist, wär hätte es gedacht, eine Kombination von den erwähnten Systemen und anderen. Zum Beispiel kann ein Smartphone ein kombiniertes System ist, da es aus einem interaktiven Teilsystem für Homescreen- & App-Interaktionen, transformierendes Teilsystem für Audio-Decodierung für Musikhören und weiteren kleineren Teilsystemen.
-:::
+
 
 # Architektur
 
 ## Systemaufbau
+
+Der Systemaufbau beschreibt die stufenweise Interaktion mit Systemen. Solche Systeme können in Produktionslinien aufgefunden werden, wo die einzelnen Produktionstationen Teil eines ganzen Produktionssystems sind.
+
+![](images/systemaufbau.png){width="12cm"}
+
+0.  **Plant** -- Produktionsperipherien wie Roboterarm oder Pressanlage
+1.  **$\mu$C** -- Ansteuerung der Peripherien
+2.  **Supervisory Computers** -- Computer Teil der Station (Anwendung der Produktionssoftware)
+3.  **Coordinating Computers** --
+4.  **Computer Center** --
 
 ## Systemwahl
 
