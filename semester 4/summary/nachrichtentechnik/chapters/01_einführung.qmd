@@ -25,7 +25,7 @@ Durch Zusammenführen mehrerer Grundelemente entsteht ein Kommunikationsnetz, an
 Infolge physikalischer Eigenaschaften (endliche Bandbreite, Rauschen/Störungen) hat jeder Übertragungskanal eine begrenzte Kapazität für Informationsübertragung. Die *Kapazität* $C$ hängt von der verfügbaren *Bandbreite* $B$ und dem Verhältnis zwischen *Signalleistung* $S$ und *Rauschleistung* $N$ *(externer Einfluss)* ab.
 
 $$
-C = B\cdot log_2\left(1+\frac{S}{N}\right) [bps]
+C = B\cdot log_2\left(1+\frac{S}{N}\right)\qquad [bps]
 $$
 
 ![Informationsquader](images/01_Informationsquader.png)
@@ -65,7 +65,7 @@ Störungen dringen zu einem grossen Teil auf dem Übertragungsweg ein.
 Um die Qualität einer Übertragung zu quantifizieren wird der sogenannte *Störabstand* (**S**ignal to **N**oise **R**ation) berechnet
 
 $$
-SNR=10\cdot\log_{10}\left(\frac{S\space[P]}{N\space[P]}\right)\space[dB]
+SNR=10\cdot\log_{10}\left(\frac{S\space[W]}{N\space[W]}\right)\qquad[dB]
 $$
 
 Bei digitaler Übertragung wird die *Bitfehlerrate* (**B**it **E**rror **R**atio) oder die *Bitfehlerwarscheinlikeit* $P_e$ angegeben, welche die Wahrscheinlichkeit angibt, dass ein Zustand falsch detektiert wird.
@@ -125,19 +125,27 @@ Die *Latenz* beschreibt in einem Kommunikationsnetz die Einflüsse einer *Übert
 Die gesamte Verzögerungszeit $T_{delay}$ besteht aus drei Anteilen
 
 $$
-T_{delay}=T_a+T_ü+T_v
+T_{delay}=T_a+T_{\ddot{u}}+T_v
 $$
+
+```{=latex}
+\begin{conditions}
+  T_a & Ausbreitungsverzögerung (\textit{propagation delay}) \\
+  T_{\ddot{u}} & Übertragungsverzögerung (\textit{transmission delay}) \\
+  T_v & Verarbeitungsverzögerung (\textit{process delay}) \\
+\end{conditions}
+```
 
 Ausbreitungsverzögerung *propagation delay*
 
 $$
-T_a=\frac{Entfernung\space [m]}{Ausbreitungsgeschwindigkeit\space[\frac{m}{s}]}[s]
+T_a=\frac{Entfernung\space [m]}{Ausbreitungsgeschwindigkeit\space[\frac{m}{s}]}\qquad[s]
 $$
 
 Übertragungsverzögerung *transmission delay*
 
 $$
-T_ü=\frac{Paketgrösse\space[byte]}{Datenrate\space[\frac{bytes}{s}]}[s]
+T_{\ddot{u}}=\frac{Paketgrösse\space[byte]}{Datenrate\space[\frac{bytes}{s}]}\qquad[s]
 $$
 
 Die Verarbeitungsverzögerung *process delay* $T_v$ ist vom Verarbeitungssystem abhängig und beschreibt z. B. eine Prozesszeit.

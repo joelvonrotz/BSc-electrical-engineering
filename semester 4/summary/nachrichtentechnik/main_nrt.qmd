@@ -41,7 +41,11 @@ highlight-style: github
 <!-- [Chapters] -->
 
 {{< include chapters/01_einführung.qmd >}}
+
 {{< include chapters/02_signalanalyse.qmd >}}
+
 {{< include chapters/03_uebertragung_filterung.qmd >}}
+
 {{< include chapters/04_modulation.qmd >}}
+
 {{< include chapters/05_emv.qmd >}}
