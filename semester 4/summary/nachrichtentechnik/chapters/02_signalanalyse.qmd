@@ -1,1 +1,224 @@
 # Signalanalyse
+
+Die Spektralanalyse ist einer der wichtigsten Methoden der Signalanalyse in der Kommunikationstechnik und basiert auf der Fourier Reihenentwicklung und der Fourier Transformation. Sie erlaubt im Frequenzbereich die Behandlung von ganzen Signalklassen mit ähnlichen Eigenschaften gegenüber der individuellen Analyse jedes einzelnen Signals im Zeitbereich.
+
+![](images/02_Signalanalyse.png)
+
+## Deterministische und Zufallssignale
+
+Signale können entweder *deterministisch* mit mathematischen Funktionen beschrieben werden oder sie liegen als *Zufallssignale* vor und nehmen zu jedem Zeitpunkt einen zufälligen Wert an, der einer Gauss-verteilung folgt.
+
+### Harmonische Schwingung
+
+Kosinusschwingung als reelle Zeitfunktion
+
+$$
+s(t)=A\cos(2\pi ft+\varphi)
+$$
+
+![](images/02_HarmonischeSchwingung.png)
+
+$$
++A\sin(\omega t)=+A\cos(\omega t-90°)=+A\cos\left(\omega t -\frac{\pi}{2}\right)
+$$
+
+$$
+-A\cos(\omega t)=+A\cos(\omega t\pm 180°)=+A\cos(\omega t\pm\pi)
+$$
+
+### Rechteckpuls
+
+$$
+\Pi(t)=
+\begin{cases}
+   1,\qquad|t|<\frac12\\
+   0,\qquad\text{sonst}
+\end{cases}
+$$
+
+![](images/02_Einheitsrechteckimpuls.png)
+
+### Zufallssignal
+
+Zufallssignale nehmen zu jedem Zeitpunkt zufällige Werte an und können daher nicht vollständig mathematisch beschrieben werden. Man kann aber für diese Signalklasse statistische Grössen wie eine Wahrscheinlichkeitsdichtefunktion $p(u)$, den Erwartungswert $m_u$ und die Standardabweichung $s_u$ als beschreibende Grössen ermitteln
+
+![](images/02_Rauschen.png)
+
+## Komplexe Zeigernotation
+
+Signale (auch Reellwertige) können einfacher anhand der *komplexen Zeigernotation* beschrieben werden
+
+$$
+S(t)=\underbrace{A\cos(\omega_0 t+\varphi)}_{\text{reelle Schwingung}}\pm\underbrace{jA\sin(\omega_0 t+\varphi)}_{\text{Erweiterung}}=\underbrace{Ae^{\pm j(\omega_0 t+\varphi)}}_{\text{komplexer Zeiger}}
+$$
+
+Es gilt trotz Erweiterung immernoch
+
+$$
+s(t)=Re\left[Ae^{\pm j(\omega_0 t+\varphi)}\right]=A\cos(\omega_0 t+\varphi)
+$$
+
+Aus dieser Zeigernotation kann direkt das **Amplituden- und Phasenspektrum** als **einseitiges Linienspektrum** abgetragen werden
+
+![Zeigerdiagramm, Amplituden- und Phasenspektrum](images/02_AmpUndPhasenSpektrum.png)
+
+### Zweiseitige Spektrumsdarstellung
+
+Eine weitere Darstellung ist das **zweiseitige Linienspektrum**, wobei über die komplexe Konjugation das Ganze, komplexe Signal reelwertig gehalten wird
+
+$$
+s(t)=\underbrace{\frac{A}{2}e^{j(\omega_0 t+\varphi)}}_{\text{Gegenuhrzeigersinn}}=\underbrace{\frac{A}{2}e^{-j(\omega_0 t+\varphi)}}_{\text{Uhrzeigersinn}}=A\cos(\omega_0 t+\varphi)
+$$
+
+da sich die Komplexen Teile aufheben. Da das *Amplitudenspektrum* stehts den Betrag anzeigt, werden negative Werte stehts mit einer *Phasenverschiebung* um $\pi$ aufgetragen.
+
+-   Amplitudendiagramm ist *symmetrisch*
+
+-   Phasendiagramm ist *punktsymmetrisch*
+
+![Konjugiert komplexe Zeiger und zweiseitiges Linienspektrum](images/02_AmpUndPhasenSpektrumZweiseitig.png)
+
+## Periodische Signale
+
+Harmonische Schwingungen und Zeiger gehören zu der allgemeinen Klasse der periodischen Signale, mit der Eigenschaft
+
+$$
+s(t\pm mT_0)=s(t)\qquad -\infty<t<+\infty\qquad\text{Mit }m=1,2,3,...
+$$
+
+Die Signalform ändert sich also nicht bei einer Verschiebung um $m$.
+
+### Mittlere Leistung
+
+*Mittelwert* $\bar{s}$
+
+$$
+\bar{s}=\frac{1}{T_0}\int_{t_0}^{t_0+T_0}{s(t)dt}
+$$
+
+Die *Mittlere **normierte** Leistung* beschreibt die Leistung bezogen auf $1\Omega$
+
+$$
+P=\frac{1}{T_0}\int_{t_0}^{t_0+T_0}{|s(t)|^2dt}
+$$
+
+Entspricht die Leistung $0<P<\infty$ so spricht man von einem *periodischen Leistungssignal*.
+
+## $sinc$-Funktion
+
+Zur Bestimmung der Fourier-Koeffizienten $c_n$ erhält man oft das Integral
+
+$$
+\frac{1}{T}\int_{-\frac{T}{2}}^{+\frac{T}{2}}{e^{-j\pi ft}dt}
+=-\frac{1}{j2\pi fT}(e^{-j\pi fT}-e^{j\pi fT})
+$$
+
+was durch die geometrische Beziehung $(e^{j\theta}-e^{-j\theta})/(j2)=sin(\theta)$ zur $sinc$-Funktion führt
+
+$$
+si(\pi fT)=\frac{sin(\pi fT)}{\pi fT}\qquad\overbrace{=}^{x=fT}\qquad sinc(x)=\frac{sin(\pi x)}{\pi x}=
+\begin{cases}
+   1,\qquad x=0\\
+   0,\qquad x=\pm1,\pm2,...
+\end{cases}
+$$
+
+![](images/02_sinc.png)
+
+## Komplexe Fourier Reihe *(perodisch)*
+
+Ein periodisches Signal $s(t)$ kann mit der *komplexen Fourier Reihenentwicklung* in eine zweiseitige Spektrumsdarstellung gewandelt werden. DIe komplexe Fourier Riehe für ein periodisches Leistungssignal der Periode $T_0=\frac{1}{f_0}$ lautet
+
+$$
+s(t)=\sum_{n=-\infty}^{\infty}{c_ne^{jn\omega_0t}}\qquad n=0,\pm1,\pm2,...
+$$
+
+Die komplexen Koeffizienten $c_n$ lauten
+
+$$
+c_n=\frac{1}{T_0}\int_{t_0}^{t_0+T_0}{s(t)e^{-jn\omega_0t}dt}
+$$
+
+Der Betrag $|c_n|$ repräsentiert die Amplitude und das Argument $\angle c_n$ entspricht der Phase. Es gilt:
+
+-   Alle Frequenzen sind ganzzahlige Vielfache der Grundfrequenz $\omega_0$
+
+-   Die Gleichstromkomponente $c_0$ entspricht $\bar{s}$
+
+-   Ist $s(t)$ reell, so besitzt das zweiseitige *Amplitudenspektrum* $|c_n|$ eine **gerade Symmetrie**
+
+-   Ist $s(t)$ reell, so besitzt das zweiseitige *Phasenspektrum* $\angle c_n$ eine **ungerade Sysmmetrie**
+
+### Parseval'sches Leistungstheorem
+
+Die mittlere, normierte Leistung eines periodischen Signals kann im Zeitbereich oder im Frequenzbereich bestimmt werden
+
+$$
+P=\frac{1}{T_0}\int_{t_0}^{t_0+T_0}{|s(t)|^2dt}=\sum_{n=-\infty}^{\infty}{|c_n|^2}
+$$
+
+## Nichtperiodische Energiesignale
+
+## ![Nichtperiodische Signale](images/02_NichtPeriodisch.png)
+
+Die *normierte Signalenergie* $E$ beschreibt die Energie eines Signals über einen Widerstand von $1\Omega$
+
+$$
+E=\int_{-\infty}^{\infty}{|s(t)|^2dt}
+$$
+
+::: callout-caution
+## Energiesignal
+
+Ist die Energie *endlich*, also $0<E<\infty$ so handelt es sich um ein **nichtperiodisches Energiesignal**.
+
+Auch Signal die vermeintlich undendlich lange andauern können endlich sein, z. B.:
+
+![](images/02_Entladekurve.png)
+
+Die Funktion wird zwar Mathematisch nie $0$, die Energie ist jedoch Endlich *(Kondensator hat nicht unendlich Energie)*
+:::
+
+## Fourier Transformation *(nicht periodisch)*
+
+Mit der Fourier Transformation werden nicht periodische Signale in ihre Frequenzbestandteile aufgeteilt und man erhält ein **Kontinuierliches Dichtespektrum**. Die Fourier Transformation ist definiert durch
+
+$$
+S(f)=\int_{-\infty}^{\infty}{s(t)e^{-j\omega t}dt}\qquad\text{mit }\omega=2\pi f
+$$
+
+Die Rücktransformation gelingt durch die inverse Fourier Transformation
+
+$$
+s(t)=\int_{-\infty}^{\infty}{S(f)e^{-j\omega t}dt}\qquad\text{mit }\omega=2\pi f
+$$
+
+Für die komplexe Funktion $S(f)$ der Fourier Transformation gelten die *spektralen Eigenschaften*
+
+-   Das *Amplitudendichtespektrum* entspricht $|S(f)|$
+
+-   Das *Phasendichtespektrum* entspricht $\angle S(f)$
+
+-   Der Funktionionswert $S(f)\big|_{f=0}$ entspricht der Nettofläche von $s(t)$
+
+-   Ist $s(t)$ reell, so besitzt das *Amplitudenspektrum* $|c_n|$ eine **gerade Symmetrie**
+
+-   Ist $s(t)$ reell, so besitzt das *Phasenspektrum* $\angle c_n$ eine **ungerade Sysmmetrie**
+
+### Parseval'sches Energietheorem
+
+Die Signalenergie im Zeitbereich wie auch im Grequenzbereich entspricht demseben Wert, die Beiden Darstellungen beinhalten also diselben Informationen
+
+$$
+E=\int_{-\infty}^{\infty}{|s(t)|^2dt}=\int_{-\infty}^{\infty}{|S(f|^2df}
+$$
+
+## Logarithmische Darstellung
+
+Das Amplitudenspektrum wird oft in der y-Achse logarithmisch dargestellt
+
+$$
+A_{dB}=20\log_{10}\left(\frac{A_{V}}{A_{Ref}}\right)
+$$
+
+als Bezugswert $A_{Ref}$ wird oft der Effektivwert des Signals oder die Amplitude der Grundschwingung verwendet.
