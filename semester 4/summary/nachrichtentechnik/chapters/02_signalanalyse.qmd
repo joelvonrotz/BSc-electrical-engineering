@@ -1,1 +1,79 @@
 # Signalanalyse
+
+Die Spektralanalyse ist einer der wichtigsten Methoden der Signalanalyse in der Kommunikationstechnik und basiert auf der Fourier Reihenentwicklung und der Fourier Transformation. Sie erlaubt im Frequenzbereich die Behandlung von ganzen Signalklassen mit ähnlichen Eigenschaften gegenüber der individuellen Analyse jedes einzelnen Signals im Zeitbereich.
+
+![](images/02_Signalanalyse.png)
+
+## Deterministische und Zufallssignale
+
+Signale können entweder *deterministisch* mit mathematischen Funktionen beschrieben werden oder sie liegen als *Zufallssignale* vor und nehmen zu jedem Zeitpunkt einen zufälligen Wert an, der einer Gauss-verteilung folgt.
+
+### Harmonische Schwingung
+
+Kosinusschwingung als reelle Zeitfunktion
+
+$$
+s(t)=A\cos(2\pi ft+\varphi)
+$$
+
+![](images/02_HarmonischeSchwingung.png)
+
+$$
++A\sin(\omega t)=+A\cos(\omega t-90°)=+A\cos\left(\omega t -\frac{\pi}{2}\right)
+$$
+
+$$
+-A\cos(\omega t)=+A\cos(\omega t\pm 180°)=+A\cos(\omega t\pm\pi)
+$$
+
+### Rechteckpuls
+
+$$
+\Pi(t)=
+\begin{cases}
+   1,\qquad|t|<\frac12\\
+   0,\qquad\text{sonst}
+\end{cases}
+$$
+
+![](images/02_Einheitsrechteckimpuls.png)
+
+### Zufallssignal
+
+Zufallssignale nehmen zu jedem Zeitpunkt zufällige Werte an und können daher nicht vollständig mathematisch beschrieben werden. Man kann aber für diese Signalklasse statistische Grössen wie eine Wahrscheinlichkeitsdichtefunktion $p(u)$, den Erwartungswert $m_u$ und die Standardabweichung $s_u$ als beschreibende Grössen ermitteln
+
+![](images/02_Rauschen.png)
+
+## Komplexe Zeigernotation
+
+Signale (auch Reellwertige) können einfacher anhand der *komplexen Zeigernotation* beschrieben werden
+
+$$
+S(t)=\underbrace{A\cos(\omega_0 t+\varphi)}_{\text{reelle Schwingung}}\pm\underbrace{jA\sin(\omega_0 t+\varphi)}_{\text{Erweiterung}}=\underbrace{Ae^{\pm j(\omega_0 t+\varphi)}}_{\text{komplexer Zeiger}}
+$$
+
+Es gilt trotz Erweiterung immernoch
+
+$$
+s(t)=Re\left[Ae^{\pm j(\omega_0 t+\varphi)}\right]=A\cos(\omega_0 t+\varphi)
+$$
+
+Aus dieser Zeigernotation kann direkt das **Amplituden- und Phasenspektrum** als **einseitiges Linienspektrum** abgetragen werden
+
+![Zeigerdiagramm, Amplituden- und Phasenspektrum](images/02_AmpUndPhasenSpektrum.png)
+
+### Zweiseitige Spektrumsdarstellung
+
+Eine weitere Darstellung ist das **zweiseitige Linienspektrum**, wobei über die komplexe Konjugation das Ganze, komplexe Signal reelwertig gehalten wird
+
+$$
+s(t)=\underbrace{\frac{A}{2}e^{j(\omega_0 t+\varphi)}}_{\text{Gegenuhrzeigersinn}}=\underbrace{\frac{A}{2}e^{-j(\omega_0 t+\varphi)}}_{\text{Uhrzeigersinn}}=A\cos(\omega_0 t+\varphi)
+$$
+
+da sich die Komplexen Teile aufheben. Da das *Amplitudenspektrum* stehts den Betrag anzeigt, werden negative Werte stehts mit einer *Phasenverschiebung* um $\pi$ aufgetragen.
+
+-   Amplitudendiagramm ist *symmetrisch*
+
+-   Phasendiagramm ist *punktsymmetrisch*
+
+![Konjugiert komplexe Zeiger und zweiseitiges Linienspektrum](images/02_AmpUndPhasenSpektrumZweiseitig.png)
