@@ -1,5 +1,6 @@
 ---
-title: "Zusammenfassung Advanced Embedded Systems"
+title: "Advanced Embedded Systems"
+subtitle: "Zusammenfassung"
 author: "Joel von Rotz & Andreas Ming"
 date: now
 

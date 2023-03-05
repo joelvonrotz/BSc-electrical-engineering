@@ -36,7 +36,7 @@ Ein kombiniertes System ist, wär hätte es gedacht, eine Kombination von den er
 
 Der Systemaufbau beschreibt die stufenweise Interaktion mit Systemen. Solche Systeme können in Produktionslinien aufgefunden werden, wo die einzelnen Produktionstationen Teil eines ganzen Produktionssystems sind.
 
-![](images/systemaufbau.png){width="12cm"}
+![](images/systemaufbau.png){fig-align="center" width="12cm"}
 
 0.  **Plant** -- Produktionsperipherien wie Roboterarm oder Pressanlage
 1.  **$\mu$C** -- Ansteuerung der Peripherien

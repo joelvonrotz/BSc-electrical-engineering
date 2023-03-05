@@ -86,11 +86,11 @@ CMSIS-DAP ist ein standardisiertes Kommunikationsprotokoll für Debug-Zwecken. D
 
 1.  Nenne drei gute Beispiele eines transformierenden Systems.
 
-MP3/MPEG De-/Encodierung, Verschlüsselung, Noise Canceling.
+MP3/MPEG De-/Encodierung, Verschlüsselung, Noise Canceling, Quarto $\rightarrow$ Latex
 
 2.  Nenne drei gute Beispiele eines reaktiven Systems.
 
-ABS, Roll-Over-Detection, Regelkreis eines positiongesteuerten Motors
+ABS, Roll-Over-Detection, Regelkreis eines positiongesteuerten Motors, PID-Regler, Regelkreis
 
 3.  Nenne drei gute Beispiele eines interaktiven Systems.
 
@@ -100,55 +100,67 @@ Ticketautomat, Selfscan-Gerät, Taschenrechner
 
 Reaktive Systeme sind typisch Echtzeitsysteme und reagieren auf externe Events. Transformierende Systeme verarbeiten alles, was am Input anliegt und geben es verarbeitet am Output aus.
 
+reaktiv $\rightarrow$ closed loop ; transformativ $\rightarrow$ open loop
+
 5.  Beschreibe ein gutes Beispiel eines transformierenden Systems, welches über einen Eingabestrom und zwei Ausgabeströme verfügt.
+
+Soundkarte $\rightarrow$ MP3 Decodierung gibt Stereo-Sound aus
 
 6.  Gibt es ein Beispiel eines Embedded Systems ohne Benutzerschnittstelle?
 
-7.  Zu welcher System Klasse gehört ein 'Embedded System'?
+Ein elektronischer Regelkreis, automatisiertes System (Abpackmaschine)
 
-8.  Viele Systeme sind eine Kombination von transformierenden, reaktiven und interaktiven Systemen. Bestimme diese am Beipsiel eines Smartphones
+7.  [Zu welcher System Klasse gehört ein 'Embedded System'?]{.underline}
+
+Abhängig von Anwendungszweck, aber kann grundlegend alle Systeme annehmen.
+
+8.  [Viele Systeme sind eine Kombination von transformierenden, reaktiven und interaktiven Systemen. Bestimme diese am Beispiel eines Smartphones]{.underline}
 
 *Interaktiv*: Homescreen- & App-Bedienung
 
-*Reaktiv*:
+*Reaktiv*: Helligkeitssensor für automatische Bildschirmhelligkeit
 
-*Transformativ*:
+*Transformativ*: Telefongespräche (Digital zu Analog)
 
-9.  Wieso ist die Verarbeitungsqualität für transformierende Systeme so wichtig?
+9.  [Wieso ist die Verarbeitungsqualität für transformierende Systeme so wichtig?]{.underline}
 
-test
+Damit der Informationsverlust gering gehalten werden kann.
 
-10. Wieso sind transformierende Systeme typischerweise optimiert für eine optimale Systemausnutzung?
+10. [Wieso sind transformierende Systeme typischerweise optimiert für eine optimale Systemausnutzung?]{.underline}
 
-test
+Transformierte Systeme sind meist für eine spezifische Aufgabe ausgelegt/optimiert, da die Systemlast bekannt (kann als "Worst-Case" betrachtet).
 
-11. Interaktive Systeme sind typischerweise optimiert für eine schnelle Antwortzeit. überlege typische Antwortzeiten für interaktive Systeme geben: Wovon hängen diese ab?
+11. [Interaktive Systeme sind typischerweise optimiert für eine schnelle Antwortzeit. überlege typische Antwortzeiten für interaktive Systeme geben: Wovon hängen diese ab?]{.underline}
 
-test
+Die Antwortzeit ist abhängig von der Applikation/Funktion. Die Antwortzeit muss ein bisschen schneller sein, als eine Person eine "Langsamkeit" wahrnehmen kann.
 
 12. Was bedeutet 'Verarbeitungsqualität' bei einem Audio Encoder System?
 
-Das genügend Informationen in die Encodierung einberechnet werden, bzw. dass man die Audio-Qualität nicht verliert.
+Das genügend Informationen in die Encodierung einberechnet werden, bzw. dass man die Audio-Qualität/Information (Spektrum) nicht verliert.
 
-13. Klassifiziere die folgenden Systeme nach reaktiv, interaktiv und transformativ: Digital-Uhr, Airbag, Polizei-Radar, Feuer Alarmsystem, Geldautomat, Tankanzeige im Flugzeug.
+13. [Klassifiziere die folgenden Systeme nach reaktiv, interaktiv und transformativ: Digital-Uhr, Airbag, Polizei-Radar, Feuer Alarmsystem, Geldautomat, Tankanzeige im Flugzeug.]{.underline}
 
-*Interaktiv*: Geldautomat, Tankanzeige im Flugzeug
+*Interaktiv*: Geldautomat
 
-*Reaktiv*: Airbag, Polizei-Radar, Feuer Alarmsystem
+*Reaktiv*: Airbag, Polizei-Radar(kasten; wartet auf zu schnelles Fahrzeug), Feuer Alarmsystem (wartet auf zu viel Rauch), Tankanzeige im Flugzeug
 
-*Transformativ*: Tankanzeige im Flugzeug
+*Transformativ*: Tankanzeige im Flugzeug, Digital-Uhr, Polizei-Radar (Laserpistole; Geschwindigkeitsmessung wird zu Foti tranformiert)
 
-14. Nenne einige Systeme, welche keinen Computer oder Mikroprozessor verwenden.
+14. [Nenne einige Systeme, welche keinen Computer oder Mikroprozessor verwenden.]{.underline}
 
-test
+*transformativ*: Widerstand (Strom zu Wärme & Potentialunterschied), Velo
 
-15. Mit mehr Speicher können Systeme oft schneller rechnen. Probiere Beispiele dazu zu finden.
+*reaktiv*: Mimose (Pflanze),
 
-test
+*interaktiv*: Lebewesen
+
+15. [Mit mehr Speicher können Systeme oft schneller rechnen. Probiere Beispiele dazu zu finden.]{.underline}
+
+Kamera mit Serieauslöser (Bufferspeicher), Lookup-Tables
 
 ### Rechner
 
-1.  Ist ein Intel basiertes Notebook eher eine von Neumann oder Harvard Architektur?
+1.  [Ist ein Intel basiertes Notebook eher eine von Neumann oder Harvard Architektur?]{.underline}
 
 test
 

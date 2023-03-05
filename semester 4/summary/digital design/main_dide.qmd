@@ -1,5 +1,6 @@
 ---
-title: "Zusammenfassung Digital Design"
+# Subtitle is added in before-body & config.tex in header
+title: "Digital Design"
 author: "Joel von Rotz & Andreas Ming"
 date: now
 
