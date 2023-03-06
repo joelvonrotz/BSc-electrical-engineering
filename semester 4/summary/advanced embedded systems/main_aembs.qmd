@@ -26,6 +26,7 @@ geometry:
 - "left=25mm"
 - "right=25mm"
 papersize: a4
+fontenc: T1
 fontsize: 10pt
 
 code-block-border-left: false
