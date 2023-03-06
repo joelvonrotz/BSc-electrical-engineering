@@ -1,0 +1,64 @@
+# Einführung
+
+## Rückkopplung
+
+*Rückkopplung* beschreibt eine Anordnung, bei welcher zwei oder mehr dynamische Systeme Systeme untereinander so verbunden sind, dass sie sich [gegenseitig]{.underline} beeinflussen.
+
+![](images/closed_loop.png){width="8cm"}
+
+![](images/open-loop.png){width="8cm"}
+
+Wird das Rückkopplungssignals des geschlossenen Kreises vom Eingangssignal entfernt, also die Leitung wird aufgebrochen, wird aus dem Kreis ein *offener* Kreis.
+
+::: callout-caution
+**Geschlossene** Kreise sind schwieriger zum Berechnen und zum Untersuchen, da diese ein rückgekoppeltes Signal (mit dem Eingangssignal kombinierend) Teil des Eingangssignals zum System besitzen. **Offene** Kreise haben kein rückgekoppeltes Signal.
+:::
+
+## Mit- und Gegenkopplung
+
+Beide beschriebenden Systeme arbeiten nach dem Prinzip der *Gegenkopplung*
+
+## Steuerung (Feed[forward]{.underline} Control)
+
+![](images/steuerung.png){width="8cm"}
+
+## Regelung (Feed[back]{.underline} Control)
+
+![](images/regelung.png){width="8cm"}
+
+Ziel eines Reglers ist die Angleichung einer Regelgrösse $y$ an eine Führungsgrösse $r$. Hauptmerkmal des Reglers ist die Rückkopplung und die Fehlergrösse $e$. Das System versucht die Fehlergrösse möglichst auf $0$ zu behalten, was $r = y$ bedeutet, also die Ist-Grösse entspricht der Soll-Grösse.
+
+![](images/definition_regelung.png){width="8cm"}
+
+```{=latex}
+\begin{conditions}
+ r & Führungsgrösse (Soll-Wert) \\
+ e & Regelfehler \\
+ u & Stellgrösse \\
+ y & Regelgrösse (Ist-Wert) \\
+ v & Störgrösse
+\end{conditions}
+```
+::: callout-note
+## Merkmale einer Regelung
+
+Folgende Merkmale **muss** eine Regelung aufweisen. Liegt eines nicht vor, so handelt es sich nicht um eine Regelung.
+
+1.  Erfassung (Messen) der Regelgrösse
+2.  Vergleich von Regel- und Führungsgrösse
+3.  Geschlossener Wirkungskreis
+:::
+
+```{=latex}
+\begin{align*}
+y = R \cdot P \cdot e = R \cdot P\ (r-y)= R \cdot P \cdot r - R \cdot P \cdot y \\
+y + R \cdot P \cdot y = R \cdot P \cdot r\quad \Rightarrow\quad\frac{y}{r}=\frac{R\cdot P}{1+R\cdot P} \stackrel{!}{=} \underline{1}
+\end{align*}
+```
+### Eigenschaften
+
+-   **Robustheit** --
+-   **Dynamik** --
+-   **Modularität** --
+-   **Genauigkeit** --
+-   **Herauserforderungen** --

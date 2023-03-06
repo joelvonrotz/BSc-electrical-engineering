@@ -2,7 +2,7 @@
 \usepackage{multicol}
 \usepackage[dvipsnames]{xcolor}
 \definecolor{darkgreen}{HTML}{014f32}
-\usepackage[german]{babel}
+
 
 \usepackage{fontawesome5}
 \setlength\columnsep{20pt}
@@ -31,4 +31,9 @@
 
 \usepackage{lmodern}
 \renewcommand{\familydefault}{\sfdefault}
-\usepackage{cmbright}
+\usepackage{cmbright} % install fontspec, hfbright & cm-super
+
+
+% adjust toc spacing
+\usepackage[titles]{tocloft}
+\renewcommand\cftsecafterpnum{\vskip3pt}
