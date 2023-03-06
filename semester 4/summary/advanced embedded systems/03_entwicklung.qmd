@@ -1,0 +1,96 @@
+# Entwicklung
+
+## Prozess
+
+### Produktzyklus
+
+Der Produktzyklus zeigt den [idealen]{.underline} Verlauf einer Produktentstehung. Ideal, weil es in der Realität anders ist. Es werden gewisse Schritte wiederholt, da zum Beispiel die Idee zu früh ist, also die Konsumenten noch nicht bereit sind umzusteigen oder das Produkt zu kaufen.
+
+![Produktzyklus](images/product_cycle.png){width="10cm" fig-align="center"}
+
+- **Idea** -- Wie kann Problem (z.B. verlorene Gegenstände wieder finden) gelöst werden? $\rightarrow$ Ideen sammeln
+- **Concept** -- Wie sollte das Produkt ungefähr aussehen und wie könnte es man bedienen? $\rightarrow$ Fokus auf Form und vereinzelte Teilfunktionen
+- **Analysis** -- Was für bestehene Lösungen gibts es und wie könnte man es mit anderen Systemen kombinieren?
+- **Design** -- Wie sollte das Produkt funktionieren? Wie sieht das Produkt aus? $\rightarrow$ Genauere Beschreibungen
+- **Development** -- Entwicklung und Testen einer Hardware & Firmware mit der Funktionalität.
+- **Deployment** -- Verteilung in die Verkaufsstellen/-läden, etc.
+- **Support** -- Rücknahme, Reparatur, Austausch Komponenten (z.B. Batterie), Software Updates, etc.
+- **Upgrade** -- Verbesserungen bestehender Hardware
+- **Retirement** -- Abkündigung des Produktes, Gratis Rücknahme und Recycling von zurückgegeben Geräten.
+
+### Wasserfall Modell
+
+Das *Wasserfall*-Modell fokusiert sich auf die Entwicklung des Produktes. In diesem Modell werden die fünf Hauptschritte nacheinander abgearbeitet und sind daher so aufgebaut, der nächste Schritt auf den Informationen des vorherigen basiert.
+
+::: {.callout-warning}
+Das Modell ist problematisch, wenn die Anforderungen nicht klar sind oder man ein Neulands-Projekt macht. Es wird daher meistens in Kombination mit anderen Modellen/Systemen verwendet. 
+:::
+
+![](./images/waterfall_modell.png){width="10cm" fig-align="center"}
+
+- **Requirements** -- die Anforderungen werden möglichst komplett erfasst und dokumentiert
+  - Resultat: *Product Requirement Document*
+- **Design** -- Ein Lösungsvorschlag wird erstellt, um die Anforderungen zu erfüllen, inklusive einer Zeitplannung.
+  - Resultat: Modelle, Block Diagramme, Schemas, Klassen, Zeitplan
+- **Implementation** -- Die Umsetung des Designs (Hardware, Firmware, etc.)
+- **Test** -- Die Anforderungen werden mit systematischen Tests am Produkt überprüft und allenfalls korrigiert. 
+- **Release** -- Produkt wird installiert (*Operations* oder Betrieb), gewartet und nötigenfalls repariert.
+
+::: {.callout-tip}
+Da die zukünftigen Schritte immer von Informationen von ihren vorherigen Schritten abhängen, ist man gezwungen, eine gute Dokumentation zu führen.
+:::
+
+`\textcolor{OliveGreen}{\textbf{Vorteil}}`{=latex}:
+
+- Dokumentation wird genügend gut geführt
+- einfach & skalierbar
+
+`'\textcolor{BrickRed}{\textbf{Nachteile}}'`{=latex}:
+
+- Kunde erhält das Produkt erst am Ende
+
+### V-Modell
+
+Das V-Modell versucht das Wasserfall-Modell zu reparieren und verläuft vom **Grossen zum Kleinen** und wieder zurück. Die rechte Seite ist jedem Prozess auf der linken Seite eine Qualitätssicherung gegenübergestellt (*Unit Test*, *Integration Test*, *System Test*).
+
+![](./images/v_modell.png){width="10cm" fig-align="center"}
+
+Der linke Teil wird *Realisierungsphase* genannt, im unteren Teil ist die Entwicklung (Source Code, Layout,...) und der rechte Teil ist die *Testphase*. Insbesondere ist wichtig, dass jede [Verifikation]{.underline} auf der [linken]{.underline} Seite mit einer [Validierung]{.underline} auf der [rechten]{.underline} Seite gegenübergestellt wird.
+
+[Anwendungsgebiet]{.underline}: Fokus auf 'Sicherheit' und 'Zuverlässigkeit', wie etwa Raumfahrt oder Automobilbau.
+
+`\textcolor{OliveGreen}{\textbf{Vorteil}}`{=latex}:
+
+- Jedem Prozess wird eine Qualitätssicherung gegenübergestellt
+
+`'\textcolor{BrickRed}{\textbf{Nachteile}}'`{=latex}:
+
+- Kunde erhält das Produkt erst am Ende
+
+
+### Agile Modell
+
+Der Fokus bei diesem Modell ist das Feedback. Da in den anderen Modellen der Kunde erst am Schluss das Produkt erhält, kann es sein, dass der Kunde während der Entwicklung kleinere Anpassungen möchte.
+
+![](./images/agile_modell.png){width="10cm" fig-align="center"}
+
+Die Phasen des Prozess werden mehrfach für ein Projekt durchschritten, bis es entweder das Budget aufgebraucht hat oder der Kunde mit dem Produkt zufrieden ist.
+
+- **Requirement** -- Anforderungen werden gesammelt und [priorisiert]{.underline} für die nächste Phase.
+- **Design** -- Erstellung der Lösungsmöglichkeiten für die Anforderungen (Skizzen oder bereits Design-Dokumente). Meistens werden **einzelne Anforderungen** schrittweise geprüft.
+- **Develop** -- Realisierung des Designs mit einem normalen Entwicklungsprozess.
+- **Test** -- Mittels Unit- und System-Tests werden die Anforderungen verifiziert. Es [sagt]{.underline} aber [nicht aus]{.underline}, [ob]{.underline} der [Kunde es brauchbar findet]{.underline}.
+- **Release** -- Das Produkt wird internen oder externen Benutzer zur Benutzung ausgestellt.
+- **Feedback** -- Rückmeldungen zum Produkt: was funktioniert, was nicht, was soll geändert werden, was verbessert, etc.
+
+`\textcolor{OliveGreen}{\textbf{Vorteil}}`{=latex}:
+
+- Kommunikation mit Kunde wird gefördert
+- Missverständnisse können früher geklärt werden
+- viele schnelle Iterationen
+
+`\textcolor{BrickRed}{\textbf{Nachteile}}`{=latex}:
+
+- keine klare Dokumentationsschritte, da man nicht weiss ob etwas in das Endprodukt schlussendlich integriert wird.
+
+## Werkzeuge

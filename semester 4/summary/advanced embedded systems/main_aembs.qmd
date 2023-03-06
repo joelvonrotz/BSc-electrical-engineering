@@ -1,6 +1,5 @@
 ---
 title: "Advanced Embedded Systems"
-subtitle: "Zusammenfassung"
 author: "Joel von Rotz & Andreas Ming"
 date: now
 
@@ -58,28 +57,28 @@ highlight-style: github
 ```
 <!-- [Chapters] -->
 
-{{< include chapters/01_einfuehrung.qmd >}}
+{{< include 01_einfuehrung.qmd >}}
 
-{{< include chapters/02_architektur.qmd >}}
+{{< include 02_architektur.qmd >}}
 
-{{< include chapters/03_entwicklung.qmd >}}
+{{< include 03_entwicklung.qmd >}}
 
-{{< include chapters/04_firmware.qmd >}}
+{{< include 04_firmware.qmd >}}
 
-{{< include chapters/05_rtos.qmd >}}
+{{< include 05_rtos.qmd >}}
 
-{{< include chapters/06_kernel.qmd >}}
+{{< include 06_kernel.qmd >}}
 
-{{< include chapters/07_sync.qmd >}}
+{{< include 07_sync.qmd >}}
 
-{{< include chapters/08_nachrichten.qmd >}}
+{{< include 08_nachrichten.qmd >}}
 
-{{< include chapters/09_parallel.qmd >}}
+{{< include 09_parallel.qmd >}}
 
-{{< include chapters/10_benutzer.qmd >}}
+{{< include 10_benutzer.qmd >}}
 
-{{< include chapters/11_grafik.qmd >}}
+{{< include 11_grafik.qmd >}}
 
-{{< include chapters/mcuxpresso.qmd >}}
+{{< include 12_mcuxpresso.qmd >}}
 
-{{< include chapters/questions.qmd >}}
+{{< include 13_questions.qmd >}}
