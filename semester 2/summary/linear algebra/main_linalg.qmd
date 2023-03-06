@@ -1,6 +1,6 @@
 ---
 title: "Zusammenfassung Linear Algebra"
-author: "Joel & a good friend"
+author: "Joel von Rotz & Andreas Ming"
 date: "10.06.2022"
 
 format:
@@ -8,6 +8,7 @@ format:
     include-in-header:
       - config.tex
     keep-tex: true
+    output-file: "s2_linear_algebra"
 geometry: 
 - "top=15mm"
 - "bottom=25mm"
@@ -15,6 +16,9 @@ geometry:
 - "right=15mm"
 papersize: a4paper
 fontsize: 10pt
+fontenc: T1
+
+documentclass: article
 
 toc: true
 
@@ -73,7 +77,7 @@ $$
 
 ![](images/winkel.png){height="4cm"}
 
-Beim Berechnen des Winkels zwischen zwei Vektoren 
+Beim Berechnen des Winkels zwischen zwei Vektoren
 
 $$
 \varphi = \arccos{\frac{x\bullet y}{\Vert x \Vert \cdot \Vert y \Vert}}
@@ -81,12 +85,13 @@ $$
 
 Es gilt:
 
-- $\overrightarrow{a} \bullet \overrightarrow{b} > 0\quad\text{wenn}\quad{\varphi}<\frac{\pi}{2}$
+-   $\overrightarrow{a} \bullet \overrightarrow{b} > 0\quad\text{wenn}\quad{\varphi}<\frac{\pi}{2}$
 
-- $\overrightarrow{a} \bullet \overrightarrow{b} < 0\quad\text{wenn}\quad{\varphi}>\frac{\pi}{2}$
+-   $\overrightarrow{a} \bullet \overrightarrow{b} < 0\quad\text{wenn}\quad{\varphi}>\frac{\pi}{2}$
 
 ::: callout-important
 ### Definition Orthogonalität
+
 Sind zwei Vektoren *orthogonal*/*senkrecht* zueinander, ergibt das Skalarprodukt
 
 $$
@@ -108,7 +113,7 @@ $$
 $$
 :::
 
-## Orthogonale Projektion
+## Orthogonale Projektion {#orthogonale-projektion}
 
 ![](images/orthogonale_projektion.png){height="3cm"}
 
@@ -149,6 +154,7 @@ a_{\textcolor{red}{\textbf{x}}} \cdot b_{\textcolor{OliveGreen}{\textbf{y}}} - a
 $$
 
 Der Betrag des Vektors $\overrightarrow{c}$ entspricht der Fläche, welche $\overrightarrow{a}$ & $\overrightarrow{b}$ aufspannen.
+
 $$
 \vert\overrightarrow{c}\vert = \vert{\overrightarrow{a} \times \overrightarrow{b}\vert} = \vert\overrightarrow{a}\vert \cdot \vert\overrightarrow{b}\vert \cdot \sin(\varphi)
 $$
@@ -232,10 +238,7 @@ Die Matrizen heissen *Koeffizientenmatrix*, bzw. *erweitere Koeffizientenmatrix*
 
 ![](images/visual_infinite_solutions.png){height="2cm"}
 
-```{=latex}
-\vfill\null
-\columnbreak
-```
+
 
 ### "Zu viele" Gleichungen
 
@@ -259,6 +262,11 @@ $$
 
 nicht auf eine unwahre Aussage hindeutet. In diesem Fall wäre [$t_2 = 0$]{.underline}.
 :::
+
+```{=latex}
+\vfill\null
+\columnbreak
+```
 
 # Matrix
 
@@ -292,10 +300,7 @@ a_{\textcolor{red}{Z}1} & \cdots & a_{\textcolor{red}{Z}\textcolor{OliveGreen}{S
 $$
 :::
 
-```{=latex}
-\vfill\null
-\columnbreak
-```
+
 
 ## Homogenes Gleichungssystem
 
@@ -397,10 +402,7 @@ $$
 $$
 :::
 
-```{=latex}
-\vfill\null
-\columnbreak
-```
+
 
 ## Matrixmultiplikation
 
@@ -423,9 +425,7 @@ $$
 
 $$
 A \cdot B \Rightarrow (m \times \textcolor{red}{n})\cdot (\textcolor{red}{n}\times p) = (m\times p)
-$$
-![](images/matrixmul.png)
-
+$$ ![](images/matrixmul.png)
 :::
 
 ::: callout-warning
@@ -451,16 +451,12 @@ $$
 wobei $A \in \mathbb{R}^{m\times n}$ und $x \in \mathbb{R}^n$ der Vektor der Unbekannten ist.
 
 Die allgemeine Lösung des Homogenen Systems:
+
 $$
 x = x_h = t_1\cdot v_1 + \cdots + t_n \cdot v_n \quad \text{mit} \quad t_1,\ldots, t_n \in \mathbb{R}
 $$
 
 Ein homogenes LGS hat stets die triviale Lösung $x = 0 \in \mathbb{R}^n$.
-
-```{=latex}
-\vfill\null
-\columnbreak
-```
 
 ### Inhomogene LGS
 
@@ -471,6 +467,7 @@ A \cdot x = A \cdot ( x_p + x_h )= b
 $$
 
 Die allgemeine Lösung des Inhomogenen Systems:
+
 $$
 x = x_p + t_1\cdot v_1 + \cdots + t_n \cdot v_n \quad \text{mit} \quad t_1,\ldots, t_n \in \mathbb{R}
 $$
@@ -501,35 +498,35 @@ Ansonsten heisst die Matrix $A$ [singulär]{.underline}!
 Eine Matrix $A$ ist invertierbar, wenn $\det{A}\neq0$. $\det{A} = 0$ wäre ähnlich wie eine "Divison durch 0".
 :::
 
-```{=latex}
-\vfill\null
-\columnbreak
-```
+
 
 ::: callout-tip
 ### Vorgehen Berechnung inverse Matrix z.B. $A\cdot X=I_2$
 
-1. Die gegebene Matrix $A\in\mathbb{R}^n$ links neben die Einheitsmatrix $I_n$ schreiben:
+1.  Die gegebene Matrix $A\in\mathbb{R}^n$ links neben die Einheitsmatrix $I_n$ schreiben:
+
 $$
 \begin{bmatrix}[c|c] A & I_n\end{bmatrix}
 $$
 
-2. Durch Zeilenoperationen die Linke Seite $A$ in Treppenform überführen
-3. Wenn links eine Spalte [kein]{.underline} Pivot-Element besitzt, ist $A$ **nicht invertierbar**
-4. Die linke Seite hat im anderen Fall eine obere Dreiecksgestalt, mit allen Einträgen auf der Haupteinträge **ungleich Null**.
-5. Weitere Zeilenoperationen machen und die linke Seite in die Einheitsmatrix überführen.
+2.  Durch Zeilenoperationen die Linke Seite $A$ in Treppenform überführen
+
+3.  Wenn links eine Spalte [kein]{.underline} Pivot-Element besitzt, ist $A$ **nicht invertierbar**
+
+4.  Die linke Seite hat im anderen Fall eine obere Dreiecksgestalt, mit allen Einträgen auf der Haupteinträge **ungleich Null**.
+
+5.  Weitere Zeilenoperationen machen und die linke Seite in die Einheitsmatrix überführen.
 
 $$
 \rightarrow\begin{bmatrix}[c|c] I_n & \tilde{A} \end{bmatrix}
 $$
 
-6. Matrix auf rechter Seite entspricht der inversen Matrix $A^{-1} = \tilde{A}$.
+6.  Matrix auf rechter Seite entspricht der inversen Matrix $A^{-1} = \tilde{A}$.
 :::
 
 `\vspace{2mm}`{=latex}
 
 ::: callout-note
-
 ### Beispiel
 
 $$
@@ -560,10 +557,7 @@ $$
 -   $(A^T)^{-1} = (A^{-1})^T$
 :::
 
-```{=latex}
-\vfill\null
-\columnbreak
-```
+
 
 ### Inverse einer $(2\times2)-$Matrix
 
@@ -593,6 +587,11 @@ $$
 $$
 \det U = (u_{11}\cdot u_{22}\cdot \ldots \cdot u_{nn})
 $$
+
+```{=latex}
+\vfill\null
+\columnbreak
+```
 
 ### Eigenschaften
 
@@ -654,13 +653,13 @@ Die Vektoren, welche $U$ aufspannen werden *Basen* genannt!
 ::: callout-tip
 ### Vorgehen Test, ob $v \in U \subseteq \mathbb{R}^n$ ist
 
-1. Lösen des linearen Gleichungssystems
+1.  Lösen des linearen Gleichungssystems
 
 $$
 \begin{bmatrix}[ccc|c] v_1 & \cdots & v_k & v\end{bmatrix}
 $$
 
-2. Ist das System **konsistent**, so gilt $v\in U$, sonst $v \notin U$.
+2.  Ist das System **konsistent**, so gilt $v\in U$, sonst $v \notin U$.
 :::
 
 ## Geometrische, implizite & explizite Darstellung
@@ -690,7 +689,7 @@ $$
 U = \text{span}\left(\begin{bmatrix} 1 \\ 0\end{bmatrix}, \begin{bmatrix} 0 \\ 1\end{bmatrix}\right) = \begin{bmatrix} 1 \\ 0\end{bmatrix} \cdot t_1 + \begin{bmatrix} 0 \\ 1\end{bmatrix} \cdot t_2
 $$
 
-### Geometrische 
+### Geometrische
 
 Die geometrische Darstellung ist, wie der Name bereits beschreibt, die Visualisierung des Unterraums in einem vorstellbaren Bereich ($\mathbb{R}^1,\mathbb{R}^2,\mathbb{R}^3$)
 
@@ -708,10 +707,7 @@ Wird eine Ebene in $\mathbb{R}^{3}$ aufgespannt von drei Vektoren $v_1, v_2, v_3
 
 Die Lineare Unabhängigkeit einer Matrix kann mit den Ermitteln der Treppenform der Matrix geprüft werden.
 
-```{=latex}
-\vfill\null
-\columnbreak
-```
+
 
 ::: callout-tip
 ### Vorgehen
@@ -723,6 +719,11 @@ Test der Vektoren $v_1,\ldots, v_k \in \mathbb{R}^{n}$ auf lineare Unabhängigke
 3.  Ist in einer Spalte kein Pivot vorhanden, so sind die Vektoren linear abhänging.
 4.  Haben alle Spalten einen Pivot, sind die Vektoren linear unabhängig.
 :::
+
+```{=latex}
+\vfill\null
+\columnbreak
+```
 
 ## Basis und Koordinaten
 
@@ -781,14 +782,14 @@ Durch das bestimmen der Lösungsmenge einer Matrix können die Basen der entspre
 ::: callout-tip
 ### Vorgehen
 
-1. Aufschreiben der $(n \times m)$-Matrix mit den Spaltenvektoren
+1.  Aufschreiben der $(n \times m)$-Matrix mit den Spaltenvektoren
 
 $$
 A = \begin{bmatrix}v_1 & \cdots & v_k\end{bmatrix}
 $$
 
-2. Überführen von $A$ in eine Treppenform via Zeilenumformung
-3. Wenn $j_1,\ldots,j_p$ die Spalten mit Pivot-Element sind, dann bilden die Vektoren
+2.  Überführen von $A$ in eine Treppenform via Zeilenumformung
+3.  Wenn $j_1,\ldots,j_p$ die Spalten mit Pivot-Element sind, dann bilden die Vektoren
 
 $$
 v_{j_1},\ldots,v_{j_p}\quad\text{eine Basis von }U
@@ -797,14 +798,9 @@ $$
 **Wichtig!** Es werden die **ursprünglichen** Vektoren, nicht die der Treppenform, genommen.
 :::
 
-```{=latex}
-\newpage
-```
-
 ## Affine Unterräume
 
 ![](images/affiner_unterraum.png)
-
 
 ::: callout-note
 ### Definition
@@ -840,15 +836,11 @@ Die *Parameterdarstellung* von $A$ ist
 $$
 A = \{v + t_1v_1+\cdots+t_nv_n\:|\:t_1,\ldots,t_n\in \mathnormal{R}\}
 $$
-
 :::
 
-```{=latex}
-\vfill\null
-\columnbreak
-```
 
-# Lineare Abbildung
+
+# Lineare Abbildung {#lineare-abbildung}
 
 Eine Abbildung ist in anderen Worte eine Funktion mit Matrizen. Diese Abbildungen können zum Beispiel Vektoren auf einer Ebene rotieren, vergrössern oder verkleinern.
 
@@ -897,10 +889,7 @@ $$
 L(x) = \begin{bmatrix}a_1 & a_2\end{bmatrix} \begin{bmatrix}x_1 \\ x_2\end{bmatrix} = Ax
 $$
 
-```{=latex}
-\vfill\null
-\columnbreak
-```
+
 
 ::: callout-tip
 ### Vorgehen Matrix bzgl. anderen Basen
@@ -944,10 +933,7 @@ $$
 F(v) = L(v) + w \quad \text{für alle} \quad v\in\mathbb{R}^n
 $$
 
-```{=latex}
-\vfill\null
-\columnbreak
-```
+
 
 ::: callout-tip
 ### Vorgehen
@@ -991,7 +977,6 @@ Bei der Projektion kann keine inverse Abbildungen ermittelt werden.
 $$
 P( \overrightarrow{v} ) = \frac{\overrightarrow{u}\cdot \overrightarrow{v}}{\vert \overrightarrow{u} \vert^2}\cdot \overrightarrow{u}
 $$
-
 
 ::: callout-note
 ### Orthogonale Zerlegung bezüglich einer Gerade
@@ -1049,10 +1034,7 @@ $$
 $$
 :::
 
-```{=latex}
-\vfill\null
-\columnbreak
-```
+
 
 ### Bild (engl. Image)
 
@@ -1060,7 +1042,7 @@ $$
 \text{im}(L) = \{L(v)\ |\ v\in\mathbb{R}^n\}
 $$
 
-- Sind $a_1,\ldots,a_n$ die Spalten von $A$, so ist
+-   Sind $a_1,\ldots,a_n$ die Spalten von $A$, so ist
 
 $$
 \text{im}(A) = \text{span}(a_1,\ldots,a_n)
@@ -1178,10 +1160,7 @@ $$
 ist ein linearer Unterraum von V. Er heisst *Eigenraum* von $L$ zum Eigenwert $\lambda$.
 :::
 
-```{=latex}
-\vfill\null
-\columnbreak
-```
+
 
 ### Bestimmung von Eigenwerten & -vektoren
 
@@ -1231,11 +1210,6 @@ $v \in U_{\lambda_i}$ ist der Eigenvektor (oder mehrere).
 
 ## Diagonalisierbarkeit
 
-::: callout-important
-### Eigenwerte
-
-:::
-
 ::: callout-note
 ### Definition
 
@@ -1244,7 +1218,6 @@ Eine quadratische $(n\times n)$-Matrix $A$ heisst *diagonalisierbar*, wenn es ei
 $$
 v_1,\ldots,v_n \in \mathbb{R}^n\ \text{Basis mit}\ Av_i = \lambda_i v_i\quad\text{für}\quad 1\leq i \leq n
 $$
-
 :::
 
 Ist eine Matrix diagonalisierbar, kann die **Diagonalmatrix** $D$ zusammengestellt werden:
@@ -1320,7 +1293,6 @@ Eine *Metrik* $d$ auf einer Menge $M$ ist eine Funktion, die jedem Paar von Elem
 4.  $d(x,y) \leq d(x,z) + d(z,y)$ (Dreiecksungleichung)
 :::
 
-
 ## Orthonormalbasen
 
 ::: callout-note
@@ -1343,13 +1315,11 @@ $$
 
 2.  Eine Menge $\{v_1,\ldots,v_k\}$ von Vektoren heisst *ortho**normal***, wenn
 
-**ortho**normal $\rightarrow$ orthogonal
-$$
+**ortho**normal $\rightarrow$ orthogonal $$
 v_i \bullet v_j = 0\quad\text{für alle}\quad 1 \leq i, j \leq k\quad\text{mit }i\neq j
 $$
 
-ortho**normal** $\rightarrow$ normiert
-$$
+ortho**normal** $\rightarrow$ normiert $$
 \Vert v_i \Vert = 1\quad\text{für alle}\quad 1 \leq i \leq k
 $$
 :::
@@ -1373,17 +1343,16 @@ Orthonormalbasen können mit dem Gram-Schmidt Verfahren aufgebaut werden.
 
 1.  Normierung: $v_1 = w_1 / \Vert w_1 \Vert$
 2.  Für $i \in \{2,\ldots,n\}$ nimm an, dass $v_1,\ldots,v_{i-1}$ bereits konstruiert ist
-3.  Projektion des Vektors auf die normierten ONB-Vektoren
-$$
-v_i' = w_i - \textcolor{red}{(}(w_i \bullet v_1)v_1 - \cdots - (w_i \bullet v_{i-1})v_{i-1}\textcolor{red}{)}
-$$
+3.  Projektion des Vektors auf die normierten ONB-Vektoren $$
+    v_i' = w_i - \textcolor{red}{(}(w_i \bullet v_1)v_1 - \cdots - (w_i \bullet v_{i-1})v_{i-1}\textcolor{red}{)}
+    $$
 4.  Normierung: $v_i = v_i'/\Vert v_i' \Vert$
-5. Dies wird für alle benötigten Vektoren im ONB wiederholt.
+5.  Dies wird für alle benötigten Vektoren im ONB wiederholt.
 
 Die Funktion in $\textcolor{red}{(}\cdots\textcolor{red}{)}$ berechnet den Projektionsvektor $\overrightarrow{p}$. Durch die Projektion auf allen bereits normierten Vektoren, wird die Orthogonalität untereinander aufgestellt.
 :::
 
-## Spektralsatz
+## Spektralsatz {#spektralsatz}
 
 ::: callout-note
 ### Orthogonale Matrizen
@@ -1401,10 +1370,7 @@ $\rightarrow$ Eigenvektoren einzeln normieren!
 Solche Matrizen werden *orthogonal* genannt (nicht *ortho[normal]{.underline}*)
 :::
 
-```{=latex}
-\vfill\null
-\columnbreak
-```
+
 
 ::: callout-note
 ### Spektralsatz
@@ -1461,9 +1427,9 @@ $\rightarrow$ Diagonalmatrix $D$ beinhaltet die Eigenwerte
 
 Sei $A$ eine $(\textcolor{OliveGreen}{\textcolor{blue}{m}}\times\textcolor{red}{n})$. Dann existieren Matrizen
 
--  **ONB** $U \in \mathbb{R}^{\textcolor{OliveGreen}{\textcolor{blue}{m}}\times\textcolor{OliveGreen}{\textcolor{blue}{m}}}$ mit Spaltenvektoren $u_i$
--  **ONB** $V \in \mathbb{R}^{\textcolor{red}{n}\times\textcolor{red}{n}}$ mit Spaltenvektoren $v_i$
--  $\Sigma\in \mathbb{R}^{\textcolor{OliveGreen}{\textcolor{blue}{m}}\times\textcolor{red}{n}}$ ist die *Singulärwertmatrix* von $A$ mit Einträgen
+-   **ONB** $U \in \mathbb{R}^{\textcolor{OliveGreen}{\textcolor{blue}{m}}\times\textcolor{OliveGreen}{\textcolor{blue}{m}}}$ mit Spaltenvektoren $u_i$
+-   **ONB** $V \in \mathbb{R}^{\textcolor{red}{n}\times\textcolor{red}{n}}$ mit Spaltenvektoren $v_i$
+-   $\Sigma\in \mathbb{R}^{\textcolor{OliveGreen}{\textcolor{blue}{m}}\times\textcolor{red}{n}}$ ist die *Singulärwertmatrix* von $A$ mit Einträgen
 
 $$
 \Sigma_{ij} = \left\{
@@ -1508,7 +1474,6 @@ $$
 \end{bmatrix}
 $$
 
-
 ### Singulärwert-Gleichung
 
 Mit der *Singulärwert-Gleichung* werden die Vektoren für die *Links-Singulärmatrix* $U$ berechnet. Falls zu wenig $\sigma_i$ für die Matrix, wird die Singulärwert-Gleichung als homogen betrachtet (Warum? keine Ahnung).
@@ -1531,8 +1496,7 @@ Damit kann dann $U$ zusammengesetzt werden:
 
 $$
 U = \begin{bmatrix}u_1 & \cdots & u_n\end{bmatrix}
-$$
-`\newpage`{=latex}
+$$ `\newpage`{=latex}
 
 # Python \faPython
 
@@ -1561,7 +1525,7 @@ pizza[1:4]    # get item Nr.2 & 3
 
 Der Befehl `np.linspace(...)` erzeugt eine Liste, welche gleichmässige Abstände zu den Einträgen erzeugt.
 
-```python
+``` python
 x = np.linspace(start=1, stop=10, num=4)
 array([ 1., 4., 7., 10.])
 ```
@@ -1570,7 +1534,7 @@ array([ 1., 4., 7., 10.])
 
 Der Befehl `np.arange(...)` erzeugt eine Liste, welche vom `start`-Wert in `step` Schritten bis **vor** dem `stop`-Wert geht.
 
-```python
+``` python
 y = np.arange(start=1, stop=7, step=.6)
 array([1. , 1.6, 2.2, 2.8, 3.4, 4. , 4.6, 
        5.2, 5.8, 6.4])
@@ -1604,7 +1568,7 @@ print(object)
 
 Für Linear Algebra können zwei Bibliotheken verwendet werden:
 
-```python
+``` python
 import numpy as np
 from scipy import linalg
 ```
@@ -1629,16 +1593,15 @@ $$
 
 `.shape` gibt das Format der Matrix `(<Zeilen>,<Spalten>)`, nach dem Ansatz von "Zeilen zuerst, Spalten Später".
 
-```python
+``` python
 B.shape # Output: (3, 2)
 ```
 
 `.size` Gibt die Anzahl Elemente der Matrix aus.
 
-```python
+``` python
 B.size # Output: 6
 ```
-
 
 ### Matrixtypen
 
@@ -1730,7 +1693,7 @@ OUT: array([[6],
 
 ![](images/code_chunk_of_matrix_over.png){height="3.5cm"}
 
-```python
+``` python
 IN:  F[:3,2:]
 OUT: array([[3],
             [6],
@@ -1739,7 +1702,7 @@ OUT: array([[3],
 
 ![](images/code_column_over.png){height="3cm"}
 
-```python
+``` python
 IN:  F[:2,:]
 OUT: array([[1, 2, 3],
             [4, 5, 6]])
@@ -1913,8 +1876,8 @@ $$
 ::: callout-caution
 ### Nicht Vergessen!
 
-- $\det{A} = 0 \Rightarrow$ Nicht invertierbar!
-- $\det{A} \neq 0 \Rightarrow$ Invertierbar!
+-   $\det{A} = 0 \Rightarrow$ Nicht invertierbar!
+-   $\det{A} \neq 0 \Rightarrow$ Invertierbar!
 :::
 
 ## Eigenwerte und -vektoren
@@ -1938,14 +1901,13 @@ ev, S = np.linalg.eig(B)
 
 Ist die Matrix nicht diagonalisierbar, so liefert Python linear abhängige Eigenvektoren zurück.
 
-```python
+``` python
 IN:  C = np.array([[1,1], [-1,3]])
 IN:  np.linalg.eig(C)
 OUT: (array([2.00000002, 1.99999998]),
       array([[ 0.70710677, -0.70710679],
              [ 0.70710679, -0.70710677]]))
 ```
-
 :::
 
 ## Normen, Skalarprodukt und das Gram-Schmidt-Verfahren
@@ -1966,7 +1928,7 @@ np.linalg.norm(<array>,<norm>)
 
 *Nur folgendes verwenden*
 
-```python
+``` python
 <vector>.T@<vector>
 ```
 
@@ -1999,7 +1961,6 @@ Q,R = np.linalg.qr(A)
 -   `Q` $\rightarrow$ Orthonormale Vektoren $v_1,\ldots,v_n$
 -   `R` $\rightarrow$ Koordinaten der ursprünglichen Vektoren $w_1,\ldots,w_n$
 
-
 ## Singulärwertzerlegung
 
 ``` python
@@ -2010,7 +1971,6 @@ U, sigma, V_T = np.linalg.svd(A)
 `sigma` beinhaltet nur die Singulärwerte, nicht die Matrix!
 
 `sigma` $= \left\{\sigma_1,\ldots,\sigma_n\right\}$
-
 :::
 
 ## Lineare Gleichungssysteme
@@ -2043,19 +2003,15 @@ Diese Funktion gibt Fehlermeldungen aus, wenn...
 
 Dieses Gleichungssystem kann auch mit der inversen Matrix berechnet werden:
 
-```python
+``` python
 x = np.linalg.inv(A)@b
 ```
 
-```{=latex}
-\vfill\null
-\columnbreak
-```
+
 
 ### Fall: Matrix ist singulär
 
 Wenn die Determinante einer Matrix (z.B. $A$) $\det{A} = 0$ ist, dann kann `np.linalg.solve(...)` nicht gebraucht werden. Es wird die Funktion `np.linalg.lstsq()` bzw. `scipy.linalg.lstsq()` verwendet (`lstsq` $\rightarrow$ least-squares solution)
-
 
 ::: callout-important
 Die Lösung von `np.linalg.lstsq()` bzw. `scipy.linalg.lstsq()` immer überprüfen, da es möglich sein kann, dass die gegebene Lösung eigentlich gar keine Lösungist.
@@ -2073,9 +2029,9 @@ Hat ein lineares Gleichungssystem $Ax = b$ [keine Lösung]{.underline}, so wird 
 
 ## Kern
 
-Der Kern einer Matrix wird mit dem Befehl 
+Der Kern einer Matrix wird mit dem Befehl
 
-```python
+``` python
 np.linalg.null_space(A)
 # bzw. 
 linalg.null_space(A)
@@ -2083,7 +2039,7 @@ linalg.null_space(A)
 
 berechnet.
 
-## Rang 
+## Rang
 
 ::: callout-note
 Ein lineares Gleichungssystem $Ax = b$ ist genau dann konsistent, wenn
@@ -2093,9 +2049,9 @@ $$
 $$
 :::
 
-Der Rang wird mit dem Befehl 
+Der Rang wird mit dem Befehl
 
-```python
+``` python
 np.linalg.matrix_rank(A)
 ```
 
@@ -2105,10 +2061,7 @@ berechnet (`scipy` besitzt diese Funktion **nicht**)
 
 `\vspace{1cm}`{=latex}
 
-
-
-`\begin{multicols}{2}`{=latex}
-![](images/meme.jpg)
+`\begin{multicols}{2}`{=latex} ![](images/meme.jpg)
 
 ![](images/meme2.jpg)
 
