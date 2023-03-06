@@ -1,0 +1,4 @@
+# Glossar
+
+-   *SISO* -- **S**ingle **I**nput **S**ingle **O**utput
+-   *MIMO* -- **M**ultiple **I**nput **M**ultiple **O**utput

@@ -1,0 +1,11 @@
+# Dynamik
+
+::: callout-note
+## Stabilität
+
+*stabil*, falls alle Zustände (unterschiedliche Anfangspositionen) in der Nähe der Gleichgewichtslage $x_e$ zu Lösungen führen.
+
+*asymptotisch stabil*, falls alle Zustände in der Nähe von $x_e$ nach langer Zeit ($t \rightarrow \infty$) in $x_e$ enden.
+
+*instabil*, falls der Zustand nie eine Gleichgewichtslage erreicht.
+:::

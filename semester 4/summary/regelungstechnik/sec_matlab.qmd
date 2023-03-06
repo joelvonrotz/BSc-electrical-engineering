@@ -1,0 +1,100 @@
+# MATLAB
+
+## Vektoren
+
+Vektoren werden mit `[…]` deklariert. Elemente werden Spaltenweise mit einem Leerschlag `' '` eingeteilt und mit einem Semikolon `;` Reihenweise geteilt.
+
+::: callout-note
+#### Grösse `size`
+
+Mit `size` kann die Grösse einer Variable ermittelt werden. `size` gibt als Resultat ein 1x2 Vektor zurück ($\begin{bmatrix}\text{Rows} & \text{Columns}\end{bmatrix}$)
+
+``` matlab
+>> a = 1
+>> size(a)
+     1     1  % rows, columns
+```
+:::
+
+``` matlab
+a = 1
+```
+
+$$
+\begin{bmatrix}
+1
+\end{bmatrix}\qquad \text{oder einfach}\qquad 1 
+$$
+
+Die `size`-Funktion gibt auch bei einzelnen Werte eine Grösse aus, nämlich $\begin{bmatrix}1 & 1\end{bmatrix}$
+
+``` matlab
+b = [1 2 3] % Linienvektor
+```
+
+$$
+\begin{bmatrix}
+1 & 2 & 3
+\end{bmatrix}
+$$
+
+``` matlab
+c = [2;3;4] % Spaltenvektor
+```
+
+$$
+\begin{bmatrix}
+2 \\ 3 \\ 4
+\end{bmatrix}
+$$
+
+### Slicing
+
+Mit *Slicing* kann ein Teil einer Matrix **kopiert** werden und einer anderen Variable zugewiesen werden.
+
+``` matlab
+<matrix>(<rowStart>:<rowEnd>,<colStart>:<colEnd>)
+```
+
+## Plotting
+
+::: callout-note
+## Figure-Separierung
+
+Mit `figure(n)` können mehrere Plot-Befehle in eigene Figuren geladen werden.
+:::
+
+### XY-Graph
+
+``` matlab
+figure(1);
+t = 0:0.5:10;
+y = sin(t);
+
+plot(t,y);
+xlim([-0.5 10.5]);
+ylim([-1.1 1.1]);
+```
+
+![](images/plot_simple.png)
+
+### XYY-Graph
+
+Mit `yyaxis` kann die Y-Achse beim selben Plot mit `left` & `right` gewechselt werden.
+
+``` matlab
+figure(1);
+t = 0:0.5:10;
+
+yyaxis left;
+plot(t, sin(t));
+xlim([-0.5 10.5]);
+ylim([-1.1 1.1]);
+
+yyaxis right;
+plot(t, 20*cos(t));
+xlim([-0.5 10.5]);
+ylim([-20.5 20.5]);
+```
+
+![](images/plotyy.png)
