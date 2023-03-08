@@ -252,11 +252,14 @@ Kamera mit Serieauslöser (Bufferspeicher), Lookup-Tables
 
 1.  [Was ist der Unterschied zwischen Verifikation und Validierung? Erläutere es mit einem Beispiel.]{.underline}
 
-`\textcolor{red}{\textbf{No answer here!}}`{=latex}
+*Verifikation* hat ihre Anwendung im internen Produktionsprozess und prüft, ob ein Produkt den Spezifikation entspricht (*are you building the right thing*). *Validation* prüft, ob die letztendliche Anwendbarkeit funktioniert, also dem geplanten Zweck dienlich ist (*are you building the right thing*).
 
-2.  [Erkläre den Unterschied zwischen Unit Test, Integration Test und System Test?]{.underline}
+[Beispiel]{.underline}: Defibrillator gibt 3000V für 3 Millisekunden aus, um ein Herz wieder in den normalen Rhythmus zu bringen. In der Situation, dass der **Defibrillator 3000V für 3ms** ausgibt, **aber** das **Herz fehlschlägt**, ist die [Verifizierung erfolgreich]{.underline}, aber die [Validation fehlgeschlagen]{.underline}.
 
-`\textcolor{red}{\textbf{No answer here!}}`{=latex}
+
+2.  [Erkläre den Unterschied zwischen *Unit Test*, *Integration Test* und *System Test*?]{.underline}
+
+*Unit Tests* überprüfen einzelne Module, *Integration Tests* überprüfen die Kombination von Modulen und *System Tests* überprüfen das gesamte System. 
 
 3.  [Wieso geht die Phase der Ausserbetriebnahme eines Produktes oft vergessen? Was sind mögliche Konsequenzen?]{.underline}
 
