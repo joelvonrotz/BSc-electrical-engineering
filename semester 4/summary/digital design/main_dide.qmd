@@ -9,11 +9,12 @@ lang: de
 # [RENDER CONFIGURATION] ==============================
 format:
   pdf:
-    keep-tex: true
+    keep-tex: false
     include-in-header:
       - config.tex
     template-partials:
       - before-body.tex
+    output-file: "s4_digital_design"
 
 source:
   github: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
@@ -58,6 +59,7 @@ highlight-style: github
 
 <!-- [Chapters] -->
 
-{{< include chapters/vhdl.qmd >}}
+{{< include sec_vhdl.qmd >}}
+{{< include sec_vivado.qmd >}}
 
 `\end{multicols}`{=latex}
