@@ -252,57 +252,64 @@ Kamera mit Serieauslöser (Bufferspeicher), Lookup-Tables
 
 1.  [Was ist der Unterschied zwischen Verifikation und Validierung? Erläutere es mit einem Beispiel.]{.underline}
 
-`\textcolor{red}{\textbf{No answer here!}}`{=latex}
+Verifikation entspricht dem Überprüfen von spezifischen Anforderungen. Validierung beschreibt den Prozess der Überprüfung der Kundenbedürfnisse.
+
+Ein Beispiel, das den Unterschied zwischen Verifikation und Validierung verdeutlicht, ist die Entwicklung einer Website für einen Online-Shop. Die Verifikation würde sicherstellen, dass die Website den technischen Anforderungen entspricht, die für ihre korrekte Funktionsweise erforderlich sind. Dazu gehören Dinge wie das Testen von Links, die Überprüfung der Formulareingaben und die Sicherstellung, dass die Datenbank korrekt funktioniert. Wenn die Website all diese Tests besteht, gilt sie als verifiziert.
+
+Die Validierung hingegen würde sicherstellen, dass die Website den Kundenbedürfnissen entspricht. Dies beinhaltet die Überprüfung, ob die Website leicht navigierbar ist, ob sie ein gutes Benutzererlebnis bietet, ob die Zahlungsmethoden für den Kunden bequem sind und ob das Design ansprechend ist. Wenn die Website diese Anforderungen erfüllt und eine positive Nutzererfahrung bietet, gilt sie als validiert.
 
 2.  [Erkläre den Unterschied zwischen Unit Test, Integration Test und System Test?]{.underline}
 
-`\textcolor{red}{\textbf{No answer here!}}`{=latex}
+Ein *Unit-Test* überprüft die Funktionialität von einzelnen Funktionen (Units), entspricht also dem untersten Test-Level des V-Modells. Der *Integration-Test* überprüft die einzelnen Units im Zusammenspiel, also Integriert. Der *System-Test* schlussendlich überprüft das gesamte System.
 
 3.  [Wieso geht die Phase der Ausserbetriebnahme eines Produktes oft vergessen? Was sind mögliche Konsequenzen?]{.underline}
 
-`\textcolor{red}{\textbf{No answer here!}}`{=latex}
+Weil, dies Kosten verursacht, ohne einen direkten benefit zu erhalten.
 
 4.  [Das Wasserfall Modell wird oft als 'schlecht' dargestellt? Ist das berechtigt?]{.underline}
 
-`\textcolor{red}{\textbf{No answer here!}}`{=latex}
+Ändernde Anforderungen sind nur sehr schwer zu implementieren und auch bei einem Fehler ist der Schritt zurück sehr gross.
 
 5.  [Welche grundlegenden Vorteile führt das V Modell gegenüber dem Wasserfall Modell ein?]{.underline}
 
-`\textcolor{red}{\textbf{No answer here!}}`{=latex}
+Das *V-Modell* verfügt über eine kleinere Granularität und hat den Fokus auf Tests. So erhält man mehr Sicherheit, dass die einzelnen Stufen richtig implementiert wurden.
 
 6.  [Welche Anforderungen stellt das Agile Modell an das Entwicklungsteam?]{.underline}
 
-`\textcolor{red}{\textbf{No answer here!}}`{=latex}
+Gute Kommunikation und Abschprachen.
 
 7.  [Unter welcher Annahme wird das Agile Modell nur einmal durchlaufen?]{.underline}
 
-`\textcolor{red}{\textbf{No answer here!}}`{=latex}
+Das alles beim ersten mal nach Kundenwünschen implementiert wurde.
 
 8.  [Wieso braucht es beim Agile Modell ein Backlog?]{.underline}
 
-`\textcolor{red}{\textbf{No answer here!}}`{=latex}
+Übersicht über noch offene Arbeiten.
 
 ### Werkzeuge
 
 1.  [Was versteht man unter einem Refactoring und was ist das Ziel davon?]{.underline}
 
-`\textcolor{red}{\textbf{No answer here!}}`{=latex}
+Bei einem Refactoring wird etwas neu umgeschrieben oder ge¨andert, ohne die eigentliche Funktionalit¨at zu ¨andern. Ein Refactoring hat h¨aufig eine Verbesserung von Lesbarkeit und
+Wartbarkeit als Ziel.
 
 2.  [Was ist der Unterschied zwischen Coverage und Profiling?]{.underline}
 
-`\textcolor{red}{\textbf{No answer here!}}`{=latex}
+Die *Coverage* zeichnet die Testabdeckung auf. Bei dieser Instrumentation wird aufgezeichnet, welche Code Zeilen wie oft ausgeführt wurden.
+
+Das *Profiling* zeichnet periodisch die Position des Programmpointers auf um Rückschlüsse darauf zu ziehen, wo sich das Programm am meisten aufhält.
 
 3.  [Was ist der grosse Vorteil von statischen Analyse Werkzeugen gegenüber den dynamischen?]{.underline}
 
-`\textcolor{red}{\textbf{No answer here!}}`{=latex}
+Die *statische Analyse* kann on the fly geschehen (z.B. in der IDE) und gibt so Informationen währen man das Programm schreibt.
 
 4.  [Welcher Vorteil ergibt eine Commit Phase mit einem VCS?]{.underline}
 
-`\textcolor{red}{\textbf{No answer here!}}`{=latex}
+Falls meine Änderung einen Fehler hervorruft, kann ich auf einen Commit zuvor zurücksetzten. Zudem kann ich auch Tage später noch sehen, was ich zu diesem Zeitpunkt implementiert habe.
 
 5.  [Gib ein Beispiel, wo es schwierig ist eine 100% Coverage zu erreichen?]{.underline}
 
-`\textcolor{red}{\textbf{No answer here!}}`{=latex}
+Zum Beispiel Error-Routinen, wenn das Programm nie in einen Error fällt.
 
 ## SW04 Firmware
 
