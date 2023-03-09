@@ -13,6 +13,7 @@ format:
       - config.tex
     template-partials:
       - before-body.tex
+    output-file: "s4_nachrichtentechnik"
 
 source:
   github: "https://github.com/joelvonrotz/bachelor-electrical-engineering/tree/main/semester%204/summary/nachrichtentechnik"

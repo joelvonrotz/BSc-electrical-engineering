@@ -1,10 +1,14 @@
 # To Do für Zusammenfassung
 
-## SW01 Einführung
-- [ ] Fragen
+## SW01
 
-## SW02 Architektur
-- [ ] Fragen
+## SW02 
+- [ ] (Auto-/Kreuz-)Korrelation
+  - [ ] innere Ähnlichkeit
+  - [ ] äussere Ähnlichkeit
+  - [ ] Kohärenzzeit $\tau$
+  - [ ] Apertureffekt
+
 
 ## SW03 Entwicklung
 - [ ] Fragen
