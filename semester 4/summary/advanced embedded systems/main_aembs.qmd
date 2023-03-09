@@ -8,11 +8,12 @@ lang: de
 # [RENDER CONFIGURATION] ==============================
 format:
   pdf:
-    keep-tex: true
+    keep-tex: false
     include-in-header:
       - config.tex
     template-partials:
       - before-body.tex
+    output-file: "s4_advanced_embedded_systems"
 
 source:
   github: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"

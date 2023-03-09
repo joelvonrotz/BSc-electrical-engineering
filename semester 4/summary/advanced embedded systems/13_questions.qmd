@@ -252,13 +252,12 @@ Kamera mit Serieauslöser (Bufferspeicher), Lookup-Tables
 
 1.  [Was ist der Unterschied zwischen Verifikation und Validierung? Erläutere es mit einem Beispiel.]{.underline}
 
-Verifikation entspricht dem Überprüfen von spezifischen Anforderungen. Validierung beschreibt den Prozess der Überprüfung der Kundenbedürfnisse.
+*Verifikation* hat ihre Anwendung im internen Produktionsprozess und prüft, ob ein Produkt den Spezifikation entspricht (*are you building the right thing*). *Validation* prüft, ob die letztendliche Anwendbarkeit funktioniert, also dem geplanten Zweck dienlich ist (*are you building the right thing*).
 
-Ein Beispiel, das den Unterschied zwischen Verifikation und Validierung verdeutlicht, ist die Entwicklung einer Website für einen Online-Shop. Die Verifikation würde sicherstellen, dass die Website den technischen Anforderungen entspricht, die für ihre korrekte Funktionsweise erforderlich sind. Dazu gehören Dinge wie das Testen von Links, die Überprüfung der Formulareingaben und die Sicherstellung, dass die Datenbank korrekt funktioniert. Wenn die Website all diese Tests besteht, gilt sie als verifiziert.
+[Beispiel]{.underline}: Defibrillator gibt 3000V für 3 Millisekunden aus, um ein Herz wieder in den normalen Rhythmus zu bringen. In der Situation, dass der **Defibrillator 3000V für 3ms** ausgibt, **aber** das **Herz fehlschlägt**, ist die [Verifizierung erfolgreich]{.underline}, aber die [Validation fehlgeschlagen]{.underline}.
 
-Die Validierung hingegen würde sicherstellen, dass die Website den Kundenbedürfnissen entspricht. Dies beinhaltet die Überprüfung, ob die Website leicht navigierbar ist, ob sie ein gutes Benutzererlebnis bietet, ob die Zahlungsmethoden für den Kunden bequem sind und ob das Design ansprechend ist. Wenn die Website diese Anforderungen erfüllt und eine positive Nutzererfahrung bietet, gilt sie als validiert.
 
-2.  [Erkläre den Unterschied zwischen Unit Test, Integration Test und System Test?]{.underline}
+2.  [Erkläre den Unterschied zwischen *Unit Test*, *Integration Test* und *System Test*?]{.underline}
 
 Ein *Unit-Test* überprüft die Funktionialität von einzelnen Funktionen (Units), entspricht also dem untersten Test-Level des V-Modells. Der *Integration-Test* überprüft die einzelnen Units im Zusammenspiel, also Integriert. Der *System-Test* schlussendlich überprüft das gesamte System.
 
