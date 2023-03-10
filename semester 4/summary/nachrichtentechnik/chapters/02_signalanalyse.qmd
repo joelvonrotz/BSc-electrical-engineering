@@ -222,3 +222,155 @@ A_{dB}=20\log_{10}\left(\frac{A_{V}}{A_{Ref}}\right)
 $$
 
 als Bezugswert $A_{Ref}$ wird oft der Effektivwert des Signals oder die Amplitude der Grundschwingung verwendet.
+
+## Korrelation
+
+### Autokorrelation
+
+Die *Autokorrelation* macht Angaben über den inneren Zusammenhang einer Funktion $s(t)$. Dies gilt für ein *periodisches Leistungssignal*
+
+$$
+k_{11}(t)=E[s_1(t-\tau)\cdot s_1(t)]=\lim_{T\rightarrow \infty}{\frac{1}{T}\int_0^T{s_1(t-\tau)s_1(t)dt}}
+$$
+
+und für ein *Energiesignal*
+
+$$
+k_{11}(\tau)=\int_{-\infty}^{\infty}{s_1(t-\tau)s_1(t)dt}
+$$
+
+Im **Frequenzbereich** erhalten wir die Autokorrelationen eines *periodischesn Leistungssignals* durch
+
+$$
+k_{11}=\lim_{T\rightarrow\infty}{\frac{1}{T}\int_0^T{S_1(f)S_1^*(f)df}}
+$$
+
+und eines *Energiesignals* über
+
+$$
+k_{11}(\tau)=\int_{-\infty}^{\infty}{S_1(f)S_1^*(f)df}
+$$
+
+![Blockdiagramm einer Autokorrelation](images/02_Autokorrelation.png)
+
+Es gelten die folgenden Eigenschaften:
+
+-   *AK* ist gerade: $k_{11}(\tau)=k_{11}(-\tau)$
+
+-   $\lim_{\tau\rightarrow\infty}k_{11}(\tau)=0$
+
+-   Bei $\tau=0$ erhält man die normierte Leistung (o. Energie): $k_{11}(\tau=0)=s_1(t)^2=s_{eff}^2$
+
+-   Das Maximum liegt bei $\tau=0$
+
+-   Für periodische Signale $s(t)$ liegt die gleiche Periodendauer wie bei $k_{11}(\tau)$ vor
+
+#### Kohärenzzeit
+
+Der Bereich von $\tau$, in dem $k_{11}\ne 0$ ist, wird als *Kohärenzzeit* bezeichnet.
+
+![](images/02_Koh%C3%A4renzzeit.png)
+
+Die Kohärenzzeit eines sehr fluktiativen (*= grosse Bandbreite*) Signals ist sehr kurz, während diese bei einem langsamen Signal (*= keline Bandbreite*) eher lang ist. Es gilt also
+
+$$
+\text{Kohärenzzeit}\propto \frac{1}{\text{Bandbreite}}
+$$
+
+### Kreuzkorrelation
+
+Die *Kreuzkorrelation* macht Angaben über den Zusammenhang zweier Signale $s_1(t)$ und $s_2(t)$. Dabei kann man herausfinden, ob zwei Signale miteinander verwandt sind und gemeinsame Merkmale enthalten. Zudem kann man erkennen ob zwei Signale in Abhängikeit einer zeitlichen Verschiebung zueinander stehen. Dies gilt für *periodische Leistungssignale*
+
+$$
+k_{12}(t)=E[s_1(t-\tau)\cdot s_2(t)]=\lim_{T\rightarrow \infty}{\frac{1}{T}\int_0^T{s_1(t-\tau)s_2(t)dt}}
+$$
+
+und für ein *Energiesignal*
+
+$$
+k_{12}(\tau)=\int_{-\infty}^{\infty}{s_1(t-\tau)s_2(t)dt}
+$$ Es gelten die folgenden Eigenschaften:
+
+-   *KK* ist gerade: $k_{12}(\tau)=k_{21}(-\tau)$
+
+-   $\lim_{\tau\rightarrow\infty}k_{12}(\tau)=0$
+
+-   Das Maximum liegt bei $\tau=\tau_0$
+
+![](images/02_Kreuzkorrelation.png)
+
+## Signalabtastung und Rekonstruktion
+
+### Idealer Abtastprozess
+
+Der Abtastprozess kann als Multiplikation eines analogen Eingangssignals mit einer periodischen Serie von Einheitsimpulsen betrachtet werden
+
+$$
+x(t)=x(t)\sum_{k=-\infty}^{\infty}{\delta(t-kT_s)}
+$$
+
+Was eine Faltung im Frequenzbereich mit einem Impulskamm zur Folge hat
+
+$$
+X_s(f)=X(f)*\left[f_s\sum_{k=-\infty}^{\infty}{\delta(f-kf_s)}\right]=f_s\sum_{k=-\infty}^{\infty}{X(f-kf_s)}
+$$
+
+Was einer periodischen Fortsetzung des Spektrums zur Folge hat
+
+![](images/02_IdealeAbtastung.png)
+
+Es sind also Entsprechende Kopien des Spektrums (*Alias*) bei den ganzzahligen Vielfachen der *Abtastfrequenz* $f_s$ zu sehen. Die unverzerrte Rückgewinnung über ein Tiefpassfilter ist nur möglich, wenn das Abtasttheorem, bzw. die *Nyquist-Rate* eingehalten wird
+
+$$
+f_{s_{min}}>2f_{Singal_{max}}
+$$
+
+Ein idealer Tiefpass mit einer Verstärkung $K$, einer Verzögerungszeit $t_d$ und einer Bandbreite $B$ hat eine Übertragungsfunktion von
+
+$$
+H_{TP}(f)=K\space \Pi\left(\frac{f}{2B}\right)e^{-j\omega t_d}
+$$
+
+![](images/02_IdealerTiefpass.png)
+
+### Analoge Vorfilter
+
+Das analoge Vorfilter (*anti-aliasing* Filter) verhindert das Kopien eines Störignals (Ausserhalb der Grenzfrequenz) in den Nutzbereich fallen.
+
+![](images/02_AntiAliasing.png)
+
+Realisierbare FIlter sind nicht ideal. Die korrekte Auslegung des Filters hängt von verschiedenen Gesichtspunkten ab:
+
+-   Gewünschte Signalbreite (Grenzfrequenz für den Durchlassbereich $f_g$)
+
+-   Abtastfrequenz $f_s$
+
+-   Gewünschte minimale Sperrdämpfung für Spiegelfrequenzen ($f_{sb}=f_s-f_g$)
+
+-   Anforderungen bezüglich Signalverzerrung durch das Filter
+
+### Reale Abtastung - PAM Signal
+
+Reale Abtastungen erfolgen durch die *Sample&Hold*-Technik, so erhält man eine Flat-Top-Abtastung. Dadurch erzeugt man die Zeitfunktion
+
+$$
+x_p(t)=x(t)\sum_{k=-\infty}^{\infty}{p(t-kT_s)}
+$$
+
+![](images/02_FlatTop.png)
+
+Dies induziert einen *Apertureffekt*, bei welchem eine Dämpfung der höheren Frequenzkomponenten des Signalspektrums
+
+![](images/02_ApertureEffekt.png)
+
+### Abtastung von Bandpasssignalen
+
+Besitzt ein Signal ein bandbegrenztes Spektrum mit der Bandbreite $B$ und der maximalen oberen Signalfrequenz $f_{Signal_{max}}$, so kann es mit der Frequenz
+
+$$
+f_{Sample}=\frac{2 f_{Signal_{max}}}{m}
+$$
+
+abgetastet werden, ohne das es zu Spektrumsüberlappungen kommt. $m$ ist die grösste Zahl, die das Verhältnis $\frac{f_{Signal_{max}}}{B}$ nicht übersteigt.
+
+![](images/02_BandpassAbtastung.png)
