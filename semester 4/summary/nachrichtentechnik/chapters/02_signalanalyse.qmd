@@ -159,7 +159,7 @@ $$
 
 ## Nichtperiodische Energiesignale
 
-## ![Nichtperiodische Signale](images/02_NichtPeriodisch.png)
+![Nichtperiodische Signale](images/02_NichtPeriodisch.png)
 
 Die *normierte Signalenergie* $E$ beschreibt die Energie eines Signals über einen Widerstand von $1\Omega$
 
