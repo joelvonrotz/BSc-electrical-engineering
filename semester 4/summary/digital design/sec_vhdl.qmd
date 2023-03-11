@@ -4,17 +4,13 @@
 **V**ery High Speed Integrated Circuit **H**ardware **D**escription **L**anguage ist einer Hardwarebeschreibung und [keine]{.underline} Programmiersprache.
 :::
 
-## Designflow
+## Entwicklung
+
+### Designflow
 
 ![](images/vhdl_fpga_designflow.png)
 
-### VHDL
-
-### Goldenes Model
-
-### Simulation
-
-## Struktur Datei
+### Struktur Datei
 
 ```vhdl
 -- File: MyComponent.vhd
@@ -33,31 +29,22 @@ architecture ...
 -- Funktion (Innenleben) der Komponente
 ```
 
-### Entity
+## Synthesis & Simulation
 
-Eine Entity beschreibt den Komponenten für äusserliche Zugriffe. Es wird nur die Struktur des Komponents bekannt gegeben, aber nicht den Inhalt des Komponenten.
+::: {.callout-important}
+### Synthesis vs. Implementation
 
-```vhdl
-entity MyComponent is
-  port ( a_pi, b_pi : in std_logic;
-        -- Input Ports
-        c_po : out std_logic
-        -- Output Port
-        --x_pio : inout std_logic
-        -- Bidirektionaler Port
-       );
-  constant c_max_cnt : integer := 20_000;
-end MyComponent;
-```
-
-- `ports` definiert die Anschlüsse (Pins)
-- `constants` beschreibt Konstanten
-
-::: {.callout-note}
-Alles was in der Entity bekannt ist (inkl. Libraries), ist auch in der zugehörigen Architecture bekannt.
+- *Synthesis* generiert die Netlist des VHDL-Codes und beschreibt.
+- *Implementation* wendet die Contraints an und sorgt für die Hardware-Implementierung.
 :::
 
-### Architekture
+
+
+### Transactions
+
+### Propagation Delay
+
+## Architektur
 
 Architecture beschreibt die Implementation oder das Innenleben des Komponents. Darin wird beschrieben, wie die deklarierten Signalen miteinander interagieren.
 
@@ -81,6 +68,64 @@ end a1;
 Der Name `rtl` wird verwendet, um grundlegende Logik-Komponenten zu definieren, wie zum Beispiel *OR*, *XOR*, *AND*, etc. `struct` beinhaltet eine Kombination/Anwendung von `rtl`-Komponenten.
 :::
 
+
+## Entity
+
+Eine Entity beschreibt den Komponenten für äusserliche Zugriffe. Es wird nur die Struktur des Komponents bekannt gegeben, aber nicht den Inhalt des Komponenten.
+
+```vhdl
+entity MyComponent is
+  port ( a_pi, b_pi : in std_logic;
+        -- Input Ports
+        c_po : out std_logic
+        -- Output Port
+        --x_pio : inout std_logic
+        -- Bidirektionaler Port
+       );
+  constant c_max_cnt : integer := 20_000;
+end MyComponent;
+```
+::: {.callout-note}
+Alles was in der Entity bekannt ist (inkl. Libraries), ist auch in der zugehörigen Architecture bekannt.
+:::
+
+## Components
+
+## Prozesse/Sequentielle Statements
+
+```vhdl
+-- process sensitivity list
+P1: process (i1, i2, i3)
+
+-- local variable (only known in P1)
+variable v_tmp : std_logic;
+begin
+  v_tmp := ’0’;
+  if i1 = ’1’ and i2 = ’0’ then v_tmp := ’1’; end if;
+  o1 <= v_tmp and i3;
+-- process P1 drives signal o1
+  o2 <= v_tmp xor i3;
+-- process P1 drives signal o2
+end process P1;
+```
+
+![](images/process.png)
+
+Folgend sind *Process Statements* in Kurzschreibweise
+- Concurrent Signal Assignments
+- Selected Signal Assignment
+- Conditional Signal Assignment
+
+### Concurrent Signal Assignments
+
+### Selected Signal Assignments `case`
+
+### Conditional Signal Assignments `when/else`
+
+### Sensitivity List
+
+Prozesse werden mit Hilfe einer *Sensitivity List* auf ausgewählte Signale [sensitiv]{.underline} gemacht. 
+
 ## Grundlegende Konzepte
 
 ### Ports & Signale
@@ -98,37 +143,6 @@ Folgendes Beispiel beschreibt einen Inverter:
 ```vhdl
 Inv_Out <= not Inv_In;
 ```
-
-### Conditional Signal Assignment `when/else`
-
-### Selected Signal Assignment `case`
-
-## Prozesse/Sequentielle Statements
-
-```vhdl
--- process sensitivity list
-P1: process (i1, i2, i3)
--- local variable (only known in P1)
-variable v_tmp : std_logic;
-begin
-  v_tmp := ’0’;
-  if i1 = ’1’ and i2 = ’0’ then v_tmp := ’1’; end if;
-  o1 <= v_tmp and i3;
--- process P1 drives signal o1
-  o2 <= v_tmp xor i3;
--- process P1 drives signal o2
-end process P1;
-```
-
-![](images/process.png)
-
-::: {.callout-note}
-#### Hello World
-
-:::
-
-### Sensitivity List
-
 
 
 # VHDL Syntax

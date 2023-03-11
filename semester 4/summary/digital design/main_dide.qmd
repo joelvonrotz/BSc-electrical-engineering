@@ -24,10 +24,10 @@ pdf-engine: pdflatex
 geometry: 
 - "top=25mm"
 - "bottom=25mm"
-- "left=25mm"
-- "right=25mm"
+- "left=15mm"
+- "right=15mm"
 papersize: a4
-fontsize: 10pt
+fontsize: 9pt
 
 code-block-border-left: false
 code-block-bg: "#f7f7f7"
@@ -45,17 +45,18 @@ highlight-style: github
 \ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[
   colback={shadecolor},
   boxrule=0pt,
-  left=0pt,
-  right=0pt,
-  top=0pt,
-  bottom=0pt,
+  left=3pt,
+  right=3pt,
+  top=3pt,
+  bottom=3pt,
   frame hidden,
   enhanced,
   breakable
 ]}{\end{tcolorbox}}\fi
-```
 
-`\begin{multicols}{2}`{=latex}
+\pagebreak
+\begin{multicols}{2}
+```
 
 <!-- [Chapters] -->
 
