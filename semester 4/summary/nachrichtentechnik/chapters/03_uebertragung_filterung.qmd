@@ -1,1 +1,224 @@
 # Signalübertragung und Filterung
+
+## Leitergebundene Übertragung
+
+Es wird hier vorallem vom LTI-Filterkanal gesprochen, und die Störungen die vom Kanal selbst kommen
+
+![](images/01_Wiedergabetreue.png)
+
+Die Beschreibung der Übertragungseigenschaften erfolgt im Zeitbereich mithilfe der *Impulsantwort* $h(t)$ und im Frequenzbereich mit dem *komplexen Frequenzgang* $H(f)$. Diese werde folgendermassen ermittelt
+
+![](images/03_uebtertragungsfunktion.png)
+
+Die Ermittlung der Impulsantwort $h(t)$ mittels *Periodischer Zufallssequenz* $s(t)$ erhält man mittels Korrelationsverfahren
+
+![](images/03_Korrelationsverfahren.png)
+
+### Pegelberechnung
+
+Bei einer verzerrungsfreien Übertragung ist die Ausgangsleistung $P_y$ proportional zur Eingangsleistung $P_x$ , die *Dämpfung* entspricht
+
+$$
+a=\frac{P_x}{P_y}\qquad\text{bzw.}\qquad a_{dB}=10\space\log_{10}(a)
+$$
+
+Können nicht beide Leistungen gleichzeitig bestimmt werden, so wird mit Referenzgrössen gearbeitet
+
+| Referenz                   | Formel                                                                                              | Einheit             |
+|-------------------|----------------------------------|-------------------|
+| $P_{Ref}=1mW$              | $P_{dB}=10\space\log_{10}\left(\frac{P}{1mW}\right)$                                                | $dBm$               |
+| $P_{Ref}=1W$               | $P_{dB}=10\space\log_{10}\left(\frac{P}{1W}\right)$                                                 | $dBW$               |
+| $U_{Ref}=1V$               | $U_{dB}=20\space\log_{10}\left(\frac{P}{1V}\right)+10\space\log_{10}\left(\frac{R_{Ref}}{R}\right)$ | $dBV$               |
+| $E_{Ref}=1\frac{\mu V}{m}$ | $E_{dB}=20\space\log_{10}\left(\frac{P}{1\frac{\mu V}{m}}\right)$                                   | $dB\frac{\mu V}{m}$ |
+
+### Filtersysteme
+
+Niederfrequent haben Analoge LC-FIlter sehr lange eine dominierende Rolle, wobei dieselben Methoden der Filtersynthese auch auf modernere Filtertechnologien angewendet werden können. Für verschiedene Einsatzbereiche gibt es *verschiedene Filtertechnologien*, wobei auch *Digitale Filter* bis ca. 100MHz analoge Filter nachbilden können, mit dem VOrteil, dass diese anschliessend noch anpassbar sind
+
+![](images/03_Filtertechnologien.png)
+
+Desweiteren gibt es verschiedene Filterklasifizierungen, welche folgende **ideale Amplitudengänge** aufweisen
+
+![](images/03_Filterklasifizierungen.png)
+
+#### Reale Filter - Spezifikation
+
+Reale Filter können keine sauberen 1/0-Übergänge realisieren, wonach Filter mit der *Filtermaske* definiert werden
+
+![Filtermaske eines Tiefpassfilters](images/03_Filtermaske.png)
+
+Zur definition von Filtern gibt es verschiedene Approximationsverfahren
+
+![Aproximationsverfahren für Filterordnung $n=5$ und $A\_{max}=3dB$](images/03_Approximationsverfahren.png)
+
+### Leitergebundene Übertragung
+
+Zur bestimmung ob ein Leiter mit der klassichen Schaltungstheorie oder mit Phänomenen der elektromagnetischen welle betrachtet werden muss, wird der Begriff der elektrischen Länge verwendet
+
+![](images/03_ElektrischeLange.png)
+
+Wobei die Wellenlänge $\lambda$ über die Geschwindigkeit $v$ der Signalwelle *(max* $v_0=3\cdot10^8\frac{m}{s}$*)* im Übertragungsmedium mit der Frequenz $f$ verbunden definiert ist durch
+
+$$
+\lambda=\frac{c}{f}
+$$
+
+Längshomogene Zweidrahtleitungen aus metallischen Leitern können als Zweitorkette modeliert werden
+
+![](images/03_Zweitorkette.png)
+
+Wird dabei die Weglänge $\Delta z=\frac{1}{n}$ betrachtet so kann angenommen werden, dass die Längsinduktivität $\Delta L$ und die Parallelkapazität $\Delta C$ gleichförmig über die Länge $\Delta z$ verteilt sind. Diese werden in diesem Modell als **Leitungsbeläge** ausgedrückt
+
+$$
+L'=\frac{\Delta L}{\Delta z}\qquad\text{und}\qquad C'=\frac{\Delta C}{\Delta z}
+$$
+
+Werden desweiteren ohmsche Verluste und dielektrische Verluste dargestellt, so erhält man das Ersatzschaltbild einer Leitung
+
+![](images/03_Leitung.png)
+
+Durch den Grenzwertübergang $\Delta z\rightarrow 0$ erhält man die **Telegraphengleichung**
+
+$$
+\frac{dI(z)}{dz}=-U(z)(G'+j\omega C')\qquad\text{und}\qquad\frac{dU(z)}{dz}=-I(z)(R'+j\omega L')
+$$
+
+Durch gegenseitiges einsetzten erhält man die **Wellengleichung**
+
+$$
+\frac{d^2I(z)}{dz^2}=\gamma^2I(z)\qquad\text{und}\qquad\frac{d^2U(z)}{dz^2}=\gamma^2U(z)
+$$
+
+mit der **komplexen Ausbreitungskonstante**
+
+$$
+\gamma=\alpha+j\beta=\sqrt{(R'+j\omega L')(G'+j\omega C')}
+$$
+
+Die allgemeinen Lösungen der Wellengelichungen lauten *(*$_V$ *vorwärts laufend,* $_R$ *rückwärts laufend)*
+
+$$
+U(z,t)=(U_Ve^{-\gamma z}+U_Re^{\gamma z})e^{j\omega t}
+$$
+
+$$
+I(z,t)=(I_Ve^{-\gamma z}+I_Re^{\gamma z})e^{j\omega t}
+$$
+
+Die Wellenfront bewegt sich mit der Ausbreitungsgeschwindigkeit
+
+$$
+v=\frac{2\pi f}{\beta}
+$$
+
+Umrechnung der Spannungsreduktion von *Neper* $Np$ in *Dezibel* $dB$ erfolgt durch
+
+$$
+\alpha_{\frac{dB}{m}}=10\log_{10}(r)\alpha_{\frac{Np}{m}}=8.686\alpha_{\frac{Np}{m}}
+$$
+
+Die Welle hat also eine exponentiel abfallende Form
+
+![](images/03_ged%C3%A4mpfteSchwinung.png)
+
+#### Charakteristische Leitungsimpedanz $Z_0$
+
+$$
+Z_0=\frac{U(z,t)}{I(z,t)}=\sqrt{\frac{Z'}{Y'}}=\sqrt{\frac{R'+j\omega L'}{G'+j\omega C'}}
+$$
+
+#### Leistungsfluss
+
+Die Elektrische Leistung in der *Vorwärtswelle* wird mit den Effektivwerten berechnet
+
+$$
+P_v=\frac{U_VI_V^*}{2}=\frac{|U_V|^2}{2Z_0}
+$$
+
+Für die *Rückwertswelle* wechselt das Vorzeichen der charakteristischen Impedanz und somit die Richtung des Leistungsflusses
+
+$$
+P_R=\frac{U_RI_R^*}{2}=-\frac{|U_R|^2}{2Z_0}
+$$
+
+#### Leitergeometrien
+
+Verschiedene Leitergometrien führen zu unterschiedlichen Impedanzen und Belägen
+
+![](images/03_leiterimpedanzen.png)
+
+Wobei der Oberflächenwiderstand allgmein als
+
+$$
+R_S=\sqrt{\frac{\pi\mu_{Leiter}f}{\sigma_{Leiter}}}
+$$
+
+definiert ist. Die unterschiedlichen Belagsgrössen sind abhänig von der Leitergeometrie
+
+![](images/03_Belagsgroessen.png)
+
+#### Reflexionen an der Last
+
+Entspricht die *Lastimpedanz* $Z_L$ nicht der Leitungsimpedanz $Z_0$ so entsteht eine **Stosswelle** am Übergang. Es kommt zu einer (Teil-)Reflexion der vorlaufenden Signalwelle. Es wird eine neue rücklaufende Signalwelle erzeugt.
+
+![](images/03_Reflexion.png)
+
+Das Verhältnis der Vor- und Rücklaufenden Amplituden bildet den **Reflexionskoeffizient**
+
+$$
+\Gamma_{z=\ell}=\frac{Z_L-Z_0}{Z_L+Z_0}=\frac{U_R}{U_V}=-\frac{I_R}{I_V}
+$$
+
+Der Wertebereich von $\Gamma$ liegt innerhalb des Einheitskreises der komplexen Ebene
+
+![](images/03_Reflexionskoeffizient.png)
+
+Die resultierende Spannung und Strom auf der Leitung ist die Überlagerung von vor- und rücklaufenden Signalwellen
+
+$$
+U(z)=U_V\cdot e^{-\gamma z}+U_Re^{-\gamma(\ell-z)}=U_V\cdot e^{-\gamma z}(1+\Gamma_Le^{-2\gamma(\ell-z)})
+$$
+
+$$
+I(z)=I_V\cdot e^{-\gamma z}+I_Re^{-\gamma(\ell-z)}=\frac{U_V\cdot e^{-\gamma z}}{Z_0}(1+\Gamma_Le^{-2\gamma(\ell-z)})
+$$
+
+Der Reflexionskoeffizient entlang der Leitung entspricht
+
+$$
+\Gamma(z)=\Gamma_L e^{-2\gamma(\ell-z)}
+$$
+
+Die Impedanz auf der Leitung an einem beliebigen Punkt $z$ entspricht
+
+$$
+Z(z)=\frac{U(z)}{I(z)}=Z_0\frac{Z_L+Z_0\tanh(\gamma(\ell-z))}{Z_0+Z_L\tanh(\gamma(\ell-z))}
+$$
+
+und bei einer verlustlosen Leitung
+
+$$
+Z(z)=\frac{U(z)}{I(z)}=Z_0\frac{Z_L+jZ_0\tan(\beta(\ell-z))}{Z_0+jZ_L\tan(\beta(\ell-z))}
+$$
+
+Die Überlagerungen der vor- und rücklaufenden Welle bildet örtliche Maxima und minima, was zu einer stehenden Welle führt. Der Welligkeitsfaktor ist definiert durch
+
+$$
+s=\frac{\hat{U}_{max}}{\hat{U}_{min}}=\frac{|U_V|+|U_R|}{|U_V|-|U_R|}=\frac{1+|\Gamma|}{1-|\Gamma|}
+$$
+
+Die Rückflussdämpfung bezeichnet wie viel das rücklaufende Signal gegenüber dem vorlaufenden gedämpft ist
+
+$$
+a=-\log_{10}(|\Gamma|^2)
+$$
+
+Die Überlagerungen führen zu einer Hüllkurve
+
+![](images/03_H%C3%BCllkurve.png)
+
+Die maximale Wirkleistungsübertragung von der Leitung zur Last kann nur erreicht werden, wenn $Z_0$ und $Z_L$ reel und gleich gross sind, ansonsten gilt
+
+$$
+P_L=P_V(1-|\Gamma|^2)
+$$
