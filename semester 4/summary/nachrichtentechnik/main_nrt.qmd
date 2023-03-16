@@ -4,6 +4,8 @@ author: "Joel von Rotz & Andreas Ming"
 date: now
 
 lang: de
+classoption: 
+- german
 
 # [RENDER CONFIGURATION] ==============================
 format:

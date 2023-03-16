@@ -139,13 +139,13 @@ $$
 Ausbreitungsverzögerung *propagation delay*
 
 $$
-T_a=\frac{Entfernung\space [m]}{Ausbreitungsgeschwindigkeit\space[\frac{m}{s}]}\qquad[s]
+T_a=\frac{\text{Entfernung}\space [m]}{\text{Ausbreitungsgeschwindigkeit}\space[\frac{m}{s}]}\qquad[s]
 $$
 
 Übertragungsverzögerung *transmission delay*
 
 $$
-T_{\ddot{u}}=\frac{Paketgrösse\space[byte]}{Datenrate\space[\frac{bytes}{s}]}\qquad[s]
+T_{\ddot{u}}=\frac{\text{Paketgrösse}\space[byte]}{\text{Datenrate}\space[\frac{bytes}{s}]}\qquad[s]
 $$
 
 Die Verarbeitungsverzögerung *process delay* $T_v$ ist vom Verarbeitungssystem abhängig und beschreibt z. B. eine Prozesszeit.

@@ -1,6 +1,4 @@
-# Signalübertragung und Filterung
-
-## Leitergebundene Übertragung
+# Leitergebundene Signalübertragung & -Filterung
 
 Es wird hier vorallem vom LTI-Filterkanal gesprochen, und die Störungen die vom Kanal selbst kommen
 
@@ -14,7 +12,7 @@ Die Ermittlung der Impulsantwort $h(t)$ mittels *Periodischer Zufallssequenz* $s
 
 ![](images/03_Korrelationsverfahren.png)
 
-### Pegelberechnung
+## Pegelberechnung
 
 Bei einer verzerrungsfreien Übertragung ist die Ausgangsleistung $P_y$ proportional zur Eingangsleistung $P_x$ , die *Dämpfung* entspricht
 
@@ -31,7 +29,7 @@ Können nicht beide Leistungen gleichzeitig bestimmt werden, so wird mit Referen
 | $U_{Ref}=1V$               | $U_{dB}=20\space\log_{10}\left(\frac{P}{1V}\right)+10\space\log_{10}\left(\frac{R_{Ref}}{R}\right)$ | $dBV$               |
 | $E_{Ref}=1\frac{\mu V}{m}$ | $E_{dB}=20\space\log_{10}\left(\frac{P}{1\frac{\mu V}{m}}\right)$                                   | $dB\frac{\mu V}{m}$ |
 
-### Filtersysteme
+## Filtersysteme
 
 Niederfrequent haben Analoge LC-FIlter sehr lange eine dominierende Rolle, wobei dieselben Methoden der Filtersynthese auch auf modernere Filtertechnologien angewendet werden können. Für verschiedene Einsatzbereiche gibt es *verschiedene Filtertechnologien*, wobei auch *Digitale Filter* bis ca. 100MHz analoge Filter nachbilden können, mit dem VOrteil, dass diese anschliessend noch anpassbar sind
 
@@ -41,7 +39,7 @@ Desweiteren gibt es verschiedene Filterklasifizierungen, welche folgende **ideal
 
 ![](images/03_Filterklasifizierungen.png)
 
-#### Reale Filter - Spezifikation
+### Reale Filter - Spezifikation
 
 Reale Filter können keine sauberen 1/0-Übergänge realisieren, wonach Filter mit der *Filtermaske* definiert werden
 
@@ -51,7 +49,7 @@ Zur definition von Filtern gibt es verschiedene Approximationsverfahren
 
 ![Aproximationsverfahren für Filterordnung $n=5$ und $A\_{max}=3dB$](images/03_Approximationsverfahren.png)
 
-### Leitergebundene Übertragung
+## Leitergebundene Übertragung
 
 Zur bestimmung ob ein Leiter mit der klassichen Schaltungstheorie oder mit Phänomenen der elektromagnetischen welle betrachtet werden muss, wird der Begriff der elektrischen Länge verwendet
 
@@ -60,22 +58,22 @@ Zur bestimmung ob ein Leiter mit der klassichen Schaltungstheorie oder mit Phän
 Wobei die Wellenlänge $\lambda$ über die Geschwindigkeit $v$ der Signalwelle *(max* $v_0=3\cdot10^8\frac{m}{s}$*)* im Übertragungsmedium mit der Frequenz $f$ verbunden definiert ist durch
 
 $$
-\lambda=\frac{c}{f}
+\lambda=\frac{c}{f}\ [m]
 $$
 
 Längshomogene Zweidrahtleitungen aus metallischen Leitern können als Zweitorkette modeliert werden
 
-![](images/03_Zweitorkette.png)
+![](images/03_Zweitorkette.png){fig-align="center" width="14cm"}
 
 Wird dabei die Weglänge $\Delta z=\frac{1}{n}$ betrachtet so kann angenommen werden, dass die Längsinduktivität $\Delta L$ und die Parallelkapazität $\Delta C$ gleichförmig über die Länge $\Delta z$ verteilt sind. Diese werden in diesem Modell als **Leitungsbeläge** ausgedrückt
 
 $$
-L'=\frac{\Delta L}{\Delta z}\qquad\text{und}\qquad C'=\frac{\Delta C}{\Delta z}
+L'=\frac{\Delta L}{\Delta z}=\frac{L_l}{l}\ \left[\frac{H}{m}\right]\qquad\text{und}\qquad C'=\frac{\Delta C}{\Delta z}=\frac{C_l}{l}\ \left[\frac{F}{m}\right]
 $$
 
 Werden desweiteren ohmsche Verluste und dielektrische Verluste dargestellt, so erhält man das Ersatzschaltbild einer Leitung
 
-![](images/03_Leitung.png)
+![](images/03_Leitung.png){fig-align="center" width="15cm" height="4.3cm"}
 
 Durch den Grenzwertübergang $\Delta z\rightarrow 0$ erhält man die **Telegraphengleichung**
 
@@ -95,6 +93,14 @@ $$
 \gamma=\alpha+j\beta=\sqrt{(R'+j\omega L')(G'+j\omega C')}
 $$
 
+```{=latex}
+\begin{conditions}
+  \alpha & Dämpfungsbelag in $\left[\tfrac{Neper}{m}\right]$ (\textit{Neper} ist ein altes Dämpfungsmass) \\
+  \beta & Phasenbelag in $\tfrac{rad}{m}$
+\end{conditions}
+```
+$\beta$ kann als Positionsabhängige Phasenverschiebung betrachtet werden.
+
 Die allgemeinen Lösungen der Wellengelichungen lauten *(*$_V$ *vorwärts laufend,* $_R$ *rückwärts laufend)*
 
 $$
@@ -105,29 +111,40 @@ $$
 I(z,t)=(I_Ve^{-\gamma z}+I_Re^{\gamma z})e^{j\omega t}
 $$
 
-Die Wellenfront bewegt sich mit der Ausbreitungsgeschwindigkeit
+Die Wellenfront bewegt sich mit der Ausbreitungsgeschwindigkeit (*propagation velocity*):
 
 $$
-v=\frac{2\pi f}{\beta}
+v=\frac{2\pi f}{\beta} = \frac{\omega}{\beta}
 $$
 
+$$
+\text{Freiraum}:\ \lambda_0=\frac{v}{f}=\frac{c_0}{f} \qquad \text{Material}:\ \lambda = \frac{v}{f}
+$$
+
+```{=latex}
+\begin{conditions}
+  c_0,\,c & Lichtgeschwindigkeit ($299'792'458 \tfrac{m}{s}$)
+\end{conditions}
+```
 Umrechnung der Spannungsreduktion von *Neper* $Np$ in *Dezibel* $dB$ erfolgt durch
 
 $$
-\alpha_{\frac{dB}{m}}=10\log_{10}(r)\alpha_{\frac{Np}{m}}=8.686\alpha_{\frac{Np}{m}}
+\alpha_{dB/m}=10\cdot\log_{10}(r)\cdot\alpha_{Np/m}=20\cdot log_{10}(e)
+\cdot\alpha_{Np/m}
+=8.686\cdot\alpha_{Np/m}
 $$
 
 Die Welle hat also eine exponentiel abfallende Form
 
-![](images/03_ged%C3%A4mpfteSchwinung.png)
+![](images/03_ged%C3%A4mpfteSchwinung.png){fig-align="center" width="12cm"}
 
-#### Charakteristische Leitungsimpedanz $Z_0$
+### Charakteristische Leitungsimpedanz $Z_0$
 
 $$
 Z_0=\frac{U(z,t)}{I(z,t)}=\sqrt{\frac{Z'}{Y'}}=\sqrt{\frac{R'+j\omega L'}{G'+j\omega C'}}
 $$
 
-#### Leistungsfluss
+### Leistungsfluss
 
 Die Elektrische Leistung in der *Vorwärtswelle* wird mit den Effektivwerten berechnet
 
@@ -141,7 +158,7 @@ $$
 P_R=\frac{U_RI_R^*}{2}=-\frac{|U_R|^2}{2Z_0}
 $$
 
-#### Leitergeometrien
+### Leitergeometrien
 
 Verschiedene Leitergometrien führen zu unterschiedlichen Impedanzen und Belägen
 
@@ -157,11 +174,11 @@ definiert ist. Die unterschiedlichen Belagsgrössen sind abhänig von der Leiter
 
 ![](images/03_Belagsgroessen.png)
 
-#### Reflexionen an der Last
+### Reflexionen an der Last
 
 Entspricht die *Lastimpedanz* $Z_L$ nicht der Leitungsimpedanz $Z_0$ so entsteht eine **Stosswelle** am Übergang. Es kommt zu einer (Teil-)Reflexion der vorlaufenden Signalwelle. Es wird eine neue rücklaufende Signalwelle erzeugt.
 
-![](images/03_Reflexion.png)
+![](images/03_Reflexion.png){width="14cm"}
 
 Das Verhältnis der Vor- und Rücklaufenden Amplituden bildet den **Reflexionskoeffizient**
 
@@ -169,9 +186,24 @@ $$
 \Gamma_{z=\ell}=\frac{Z_L-Z_0}{Z_L+Z_0}=\frac{U_R}{U_V}=-\frac{I_R}{I_V}
 $$
 
+```{=latex}
+\begin{conditions}
+  \Gamma_{z=l} & Reflexionskoeffizient $\rightarrow$ je näher an Null, desto besser.
+\end{conditions}
+```
+::: {.callout-note appearance="simple"}
+## Spezialfälle $Z_L$
+
+-   $Z_L = 0\Omega\ \Rightarrow\ \Gamma=-1\quad\rightarrow\quad U_{ZL}=0,\, I_{ZL}=2\cdot I_V$
+
+-   $Z_L=\infty\ \Rightarrow\ \Gamma=+1\quad\rightarrow\quad U_{ZL}=2\cdot U_V,\, I_{ZL}=0$
+
+-   $Z_L=Z_0\ \Rightarrow\ \Gamma=0\quad\rightarrow\quad U_{ZL}=U_V,\, I_{ZL}=I_V$
+:::
+
 Der Wertebereich von $\Gamma$ liegt innerhalb des Einheitskreises der komplexen Ebene
 
-![](images/03_Reflexionskoeffizient.png)
+![](images/03_Reflexionskoeffizient.png){fig-align="center" width="9cm"}
 
 Die resultierende Spannung und Strom auf der Leitung ist die Überlagerung von vor- und rücklaufenden Signalwellen
 
@@ -195,13 +227,15 @@ $$
 Z(z)=\frac{U(z)}{I(z)}=Z_0\frac{Z_L+Z_0\tanh(\gamma(\ell-z))}{Z_0+Z_L\tanh(\gamma(\ell-z))}
 $$
 
-und bei einer verlustlosen Leitung
+und bei einer [verlustlosen]{.underline} Leitung
 
 $$
 Z(z)=\frac{U(z)}{I(z)}=Z_0\frac{Z_L+jZ_0\tan(\beta(\ell-z))}{Z_0+jZ_L\tan(\beta(\ell-z))}
 $$
 
-Die Überlagerungen der vor- und rücklaufenden Welle bildet örtliche Maxima und minima, was zu einer stehenden Welle führt. Der Welligkeitsfaktor ist definiert durch
+### Welligkeitsfaktor
+
+Die Überlagerungen der vor- und rücklaufenden Welle bildet örtliche Maxima und Minima, was zu einer stehenden Welle führt. Der Welligkeitsfaktor ist definiert durch
 
 $$
 s=\frac{\hat{U}_{max}}{\hat{U}_{min}}=\frac{|U_V|+|U_R|}{|U_V|-|U_R|}=\frac{1+|\Gamma|}{1-|\Gamma|}
@@ -217,8 +251,62 @@ Die Überlagerungen führen zu einer Hüllkurve
 
 ![](images/03_H%C3%BCllkurve.png)
 
-Die maximale Wirkleistungsübertragung von der Leitung zur Last kann nur erreicht werden, wenn $Z_0$ und $Z_L$ reel und gleich gross sind, ansonsten gilt
-
 $$
 P_L=P_V(1-|\Gamma|^2)
+$$ {#eq-test}
+
+::: callout-important
+## Maximale Wirkleistungsübertragung
+
+Die maximale Wirkleistungsübertragung von der Leitung zur Last kann nur erreicht werden, wenn $Z_0$ und $Z_L$ reell und gleich gross sind.
+:::
+
+### Ausgleichsvorgang an einer Stossstelle
+
+Die Verzögerung durch die Phasengeschwindigkeit des Leiters führt zu einem *verspäteten* Signalverlauf am anderen Ende des Leiters, dies wird mit der Laufzeit $t_d$ dargestellt:
+
 $$
+t_d = \frac{l}{v}=\frac{\beta\cdot l}{\omega}
+$$
+
+Hat es unterschiedliche Impedanzen (Leiter-, Innen-, Lastimpedanz), kann es zu einem *Einschwingen* des Signales führen. Grund dafür sind die Reflektionen des Leiters, welches Stücke des Signals hin und her reflektiert, bis es den entsprechenden Wert erreicht.
+
+![](images/03_Ausgleichsvorgang.png){fig-align="center" width="12cm"}
+
+`\begin{multicols}{2}`{=latex}
+
+Beide Enden des Leiters haben je einen Reflexionskoeffizienten: $\Gamma_1$ für den Anfang des [Leiters]{.underline} (aus Sicht der Quelle) und $\Gamma_2$ für das Ende.
+
+$$
+\Gamma_1 = \frac{R_Q-Z_0}{R_Q+Z_0} \qquad \Gamma_2 = \frac{R_L-Z_0}{R_L+Z_0}
+$$
+
+Die Spannungen $u_1(t)$ & $u_2(t)$ an den beiden Enden des Leiters entsprechen der Aufsummierungen der Reflexionsspannungen.
+
+$$
+u_1(t)=\sum U_i \qquad u_2(t)=\sum U_i
+$$
+
+Zu Beginn wird das Signal von $U_Q=1\text{V}$ angelegt, dauert es $1\cdot t_d$ bis die Spannung $U_{V_0}$ das Ende des Leiters erreicht.
+
+$$
+U_{V_0} = U_Q \cdot \frac{Z_0}{R_Q+Z_0}
+$$
+
+Da die Leiter- & Lastimpedanz unterschiedlich ist, wird das Signal mit dem Faktor $e^{-\gamma\cdot l}\cdot \Gamma_2$, wobei in diesem Beispiel mit $\gamma=0$ gerechnet wird.
+
+$$
+U_{R_1}=U_{V_0}\cdot e^{-\gamma\cdot l}\cdot \Gamma_2
+$$
+
+Wird zum Zeitpunkt $1\cdot t_d$ die Spannung $u_2(t)$ mit einem Oszilloskop gemessen, misst man $u_2(t_d)=U_{V_0}+U_{R_1}=\tfrac{4}{3}\text{V}$. Da auch die Innen- & Leiterimpedanz unterschiedlich sind, reflektiert das Signal mit dem Faktor $e^{-\gamma\cdot i}\cdot \Gamma_2$ zurück. Dies wiederholt sich, bis die Spannung eingeschwungen ist.
+
+$$
+U_{V_2}=U_{R_1}\cdot e^{-\gamma\cdot l}\cdot \Gamma_1
+$$
+
+`\end{multicols}`{=latex}
+
+![](images/03_ausgleichsvorgang_u2.png){#fig-ausgleichsvorgang-u2 fig-align="center" width="8cm"}
+
+# Drahtlose Signalübertragung & -Filterung
