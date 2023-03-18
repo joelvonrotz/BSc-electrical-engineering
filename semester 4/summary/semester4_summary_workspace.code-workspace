@@ -1,0 +1,20 @@
+{
+	"folders": [
+		{
+			"path": "digital design"
+		},
+		{
+			"path": "advanced embedded systems"
+		},
+		{
+			"path": "leistungselektronik und elektrische antriebe"
+		},
+		{
+			"path": "nachrichtentechnik"
+		},
+		{
+			"path": "regelungstechnik"
+		}
+	],
+	"settings": {}
+}
