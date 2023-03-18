@@ -310,3 +310,31 @@ $$
 ![](images/03_ausgleichsvorgang_u2.png){#fig-ausgleichsvorgang-u2 fig-align="center" width="8cm"}
 
 # Drahtlose Signalübertragung & -Filterung
+
+![Spektrumsbereich](images/04_Spektrumsbereich.png)
+
+Es gibt verschiedene Ausbreitungsarten, welche zum Teil auch vom Spektrum abhängen
+
+-   *Bodenwelle* breitet sich entlang der "Materialgrenze" Luft-Boden aus
+
+-   *Direktverbindung* (auch *Line-of-Sight* oder *free space propagation*) im nicht ionisierenden Bereich der Atmosphäre
+
+-   *Raumwelle* erfolgt durch die Reflektion am ionisierten Bereich der Atmosphäre, ab ca. **100MHz** durchdringen Wellen die Ionosphäre
+
+    ![](images/04_AusbreitungVonRadiowellen.png)
+
+## Linkbudget
+
+Beim Entwurf eines Übertragungssystems interessiert primär die Leistung $P_{Rx}$ am Empfängereingang. Diese ist jedoch abhängig von den Verlusten und Gewinnen der Sender, Kabel, Antennen.
+
+![](images/04_DrahtloseUebertragung.png)
+
+Die Leistung am Empfänger kann also erhöht werden durch...
+
+-   Sendeleistung $P_{Tx}$ erhöhen
+
+-   Verluste der Zubringerkabel minimieren
+
+-   Reflexionen an den Übergängen minimieren
+
+-   Sende- bzw. Empfangsgewinne $G_t$ und $G_r$ vergrössern
