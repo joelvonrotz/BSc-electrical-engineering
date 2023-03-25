@@ -338,3 +338,41 @@ Die Leistung am Empfänger kann also erhöht werden durch...
 -   Reflexionen an den Übergängen minimieren
 
 -   Sende- bzw. Empfangsgewinne $G_t$ und $G_r$ vergrössern
+
+## Empirische Kanalmodell
+
+$$
+L_M = \left(4\pi \frac{d_0}{\lambda}\right)^2\cdot \left(\frac{r}{d_0}\right)^\gamma \qquad \text{oder}\qquad L_{MdB}=32.4+20\cdot\log_{10}(f_{[GHz]})+10\cdot\gamma\cdot\log_{10}(r_{r[m]})
+$$
+
+```{=latex}
+\begin{conditions}
+  \gamma & Parameter des Modells \\
+  
+\end{conditions}
+```
+| Umfeld                                               | $\gamma$ Bereich |
+|------------------------------------------------------|:----------------:|
+| Makrozellen im Stadtbereich (Zellradius 0.5-3 km)    |    3.7 - 6.5     |
+| Mikrozellen iln Stadtbereich (Zellradien 0.1-0.5 km) |    2.7 - 3.5     |
+| Bürogebäude, gleiches Stockwerk                      |    1.6 - 3.5     |
+| Bürogebäude, mehrere Stockwerke                      |      2 - 6       |
+| Einkaufszentren                                      |    1.8 - 2.2     |
+| Firmengelände                                        |    1.6 - 3.3     |
+| Einfamilienhaus                                      |        3         |
+| Ideale Freiraumdämpfung                              |        2         |
+| Modell mit Bodenreflexion                            |        4         |
+
+## Zeitvarianter Mehrwegkanal
+
+[Rayleigh Fading Kanal]{.underline}:
+
+$$
+p_{u^2}(x)=\frac{1}{\overline{P}_r}\cdot e^{-\frac{x}{\overline{P}_r}}
+$$
+
+Wahrscheinlichkeit $P$ für das Unterschreiten einer Signalleistung $S_{min}$:
+
+$$
+P[u^2<S_{min}]=\int_0^{S_{min}}p_{u^2}(x)\ dx = \int_0^{S_{min}}\frac{1}{\overline{P}_r}\cdot e^{-\frac{x}{\overline{P}_r}}\ dx
+$$

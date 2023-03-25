@@ -1,1 +1,15 @@
 # Modulation
+
+## Blockdiagramm eines Kommunikationssystems
+
+## Basisbandmodulator
+
+## Klassische binäre Leitungscodes
+
+-   *Non Return to Zero* (NRZ) Code
+-   Bi-Phase, Manchester Code, (10-Mbit/s-Ethernet)
+-   Delay Modulation (DM), Miller Code
+-   Alternate Mark Inversion (AMI), modifizierter AMI-Code bei ISDN, ($S_0$-Bus)
+-   High Density Bipolar (HDB-3), Telefonie, PCM30 Bündel
+
+![](images/04_Signalverlaufe_einiger_Leitungscodes.png){fig-align="center" width="12cm"}
