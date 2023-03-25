@@ -339,40 +339,132 @@ Die Leistung am Empfänger kann also erhöht werden durch...
 
 -   Sende- bzw. Empfangsgewinne $G_t$ und $G_r$ vergrössern
 
-## Empirische Kanalmodell
+Die Empfangsleistung $P_{Rx}$ muss dabei genügend gross sein, damit das Signal mit einer guten Qualität am Empfängereingang vorliegt. Für eine bessere Übersicht für einen *Systementwurf* wird ein Linkbudget aufgestellt
+
+![Linkbudget einer Blutooth Verbindung *(2.45 GHz)*](images/04_Linkbudget.png)
+
+## Anntenne
+
+### Fernfeld Kriterien
+
+Das Feld einer Antenne kann konzeptionell in ein **Nahfeld** und ein **Fernfeld** aufgeteilt werden. Das *Nahfeld* kann nochmals in ein **reaktives** *Nahfeld* und ein **strahlendes** *Nahfeld* unterteilt werden.
+
+![](images/04_Fernfeld.png)
+
+Im **Fernfeld** erscheint jede Antenne als *Punktstrahler*, die Kugelform kann jedoch vernachlässigt werden und man nimmt für die Ausbreitung eine *ebene Wellenfront* an. Als **Fernfeld** gilt der bereich ausserhalb $R_2$ nach
 
 $$
-L_M = \left(4\pi \frac{d_0}{\lambda}\right)^2\cdot \left(\frac{r}{d_0}\right)^\gamma \qquad \text{oder}\qquad L_{MdB}=32.4+20\cdot\log_{10}(f_{[GHz]})+10\cdot\gamma\cdot\log_{10}(r_{r[m]})
+R_2=\frac{2D^2}{\lambda}\qquad\text{oder}\qquad R_2=1.6\lambda
 $$
 
-```{=latex}
-\begin{conditions}
-  \gamma & Parameter des Modells \\
-  
-\end{conditions}
-```
-| Umfeld                                               | $\gamma$ Bereich |
-|------------------------------------------------------|:----------------:|
-| Makrozellen im Stadtbereich (Zellradius 0.5-3 km)    |    3.7 - 6.5     |
-| Mikrozellen iln Stadtbereich (Zellradien 0.1-0.5 km) |    2.7 - 3.5     |
-| Bürogebäude, gleiches Stockwerk                      |    1.6 - 3.5     |
-| Bürogebäude, mehrere Stockwerke                      |      2 - 6       |
-| Einkaufszentren                                      |    1.8 - 2.2     |
-| Firmengelände                                        |    1.6 - 3.3     |
-| Einfamilienhaus                                      |        3         |
-| Ideale Freiraumdämpfung                              |        2         |
-| Modell mit Bodenreflexion                            |        4         |
+mit $D$ als grösstes Antennenmass.
 
-## Zeitvarianter Mehrwegkanal
-
-[Rayleigh Fading Kanal]{.underline}:
+Der Übergangsbereich des **strahlenden** *Nahfeldes* hat die untere Grenze $R_1$ mit
 
 $$
-p_{u^2}(x)=\frac{1}{\overline{P}_r}\cdot e^{-\frac{x}{\overline{P}_r}}
+R_1\approx 0.62\sqrt{\frac{D^3}{\lambda}}
 $$
 
-Wahrscheinlichkeit $P$ für das Unterschreiten einer Signalleistung $S_{min}$:
+### Antennenimpedanz
+
+Antennen können Allgemein als Impedanzwandler zwischen dem Übertrager *(Schaltungstheorie)* $Z_0$ und der Luft *(Feldtheorie)* $Z_w=\frac{E}{H}\approx 377\Omega$ angesehen werden.
+
+![](images/04_Impedanzwandler.png)
+
+Die Antennenimpedanz $Z_{ant}$ hängt direkt von der Antennengeometrie ab und kann als Ersatzschaltung dargestellt werden
+
+![](images/04_ErsatzschaltungImpedanz.png)
+
+Die Wichtigsten Eigenschaften sind hierbei
+
+-   $Z_{ant}$ Antennenimpedanz und Anpassung
+
+<!-- -->
+
+-   $R_\Omega$ stellt die ohm'schen Verluste der Antennestruktur dar
+
+-   $R_{rad}$ entspricht der abgestrahlten *Wirkleistung*
+
+-   $X_{ant}$ ist der Blindwiderstand, der vom *reaktiven* Nahfeld beeinflusst werden kann
+
+-   $D$ Richtwirkung *(nicht* $D$ *als Antennenmass)*
+
+-   $G$ Antennengewinn
+
+-   Polarisation
+
+-   $B$ Bandbreite
+
+Die **Strahlungseffizienz** $\eta$ ist definiert durch
 
 $$
-P[u^2<S_{min}]=\int_0^{S_{min}}p_{u^2}(x)\ dx = \int_0^{S_{min}}\frac{1}{\overline{P}_r}\cdot e^{-\frac{x}{\overline{P}_r}}\ dx
+\eta=\frac{R_{rad}}{R_\Omega+R_{rad}}
 $$
+
+Wodurch auf den Antennengewinn $G$ geschlossen werden kann
+
+$$
+G=D\cdot\eta
+$$
+
+Die abgegebene Leistung $P_{ant}$ hängt direkt von der Anpassung von Zubringerkabel und Antenne ab
+
+$$
+P_{ant}=P_t(1-|\Gamma|^2)\qquad\text{mit}\qquad\Gamma=\frac{Z_{ant}-Z_0}{Z_{ant}+Z_0}
+$$
+
+Die Reflexion beträgt dabei
+
+$$
+\Gamma_{dB}=10\log_{10}{(|\Gamma|^2}
+$$
+
+Die *relative Bandbreite* $B_r$ ist gegeben durch die Mittenfrequenz $f_0$ und die Bandbreite $B$ bei $xx\space dB$
+
+$$
+B_r=\frac{B}{f_0}
+$$
+
+![](images/04_RelativeBandbreite.png)
+
+Für einen effizienten Betrieb wird die Antenne bei Resonanz, also $X_{ant}=0$, betrieben. Bei einem **Dipol** wird dies das erste mal bei einer Länge $\ell=\frac{\lambda}{2}$ erreicht und wiederholt sich bei *ganzzahligen Vielfachen* von $\frac{\lambda}{2}$.
+
+![](images/04_ResonanceAntenna.png)
+
+### Richtcharakteristik
+
+Die Abstrahlcharakteristik wird mit zwei- und dreidimensionalen Diagrammen beschrieben. Der **isotrope Strahler** ist eine *(hypothetisch)* verlustlose Antenne die gleichmässig in alle Richtungen abstrahlt, wobei man im Abstand $r$ die winkelunabhängige Leistungsdichte $S_{iso}$ erhält
+
+$$
+S_{iso}=\frac{P_{ant}}{4\pi r^2}
+$$
+
+![Antennengewinn für einen isotropen Strahler und eine gerichtete Antenne](images/04_IsotropGerichtet.png)
+
+Die Richtwirkung $D$ beträgt beim *isotropen Strahler* $1$. Bei einer *dipol-Antenne* gilt $D=1.64$. Allgemein wird die Richtwirkung über die maximale Leistungsdichte $S(\theta,\varphi)_{max}$ einer gerichteten Antenne bestimmt
+
+$$
+D=\frac{S(\theta,\varphi)_{max}}{S_{iso}}\approx\frac{32400}{\theta°_{-3dB}\space\varphi°_{-3dB}}
+$$
+
+![](images/04_Richtdiagramm.png)
+
+und der daraus schliessende Antennegewinn $G$ ist
+
+$$
+G=D\space\eta
+$$
+
+### Effektiv abgestrahlte Leistung
+
+Die *Equivalent Isotropically Radiated Power* $EIRP$ beschreibt, dass bei $1kW$ Leistung an einem *isotropischen Strahler* die Feldstärke $H$ in $1km$ Entfernung $173\frac{mV}{m}$ beträgt.
+
+Die *Effektive Radiated Power* $ERP$ beschreibt, dass bei $1kW$ Leistung an einem vertikalen *Referenzdipol* die Feldstärke $H$ in $1km$ Entfernung $222\frac{mV}{m}$ beträgt.
+
+Die beiden Grössen haben den direkten Zusammenhang
+
+$$
+ERP=0.61\space EIRP\qquad\text{oder}\qquad ERP_{dBi}=EIRP_{dBi}-2.2dB
+$$
+
+## Verfügbare Leistung am Empfangsort
