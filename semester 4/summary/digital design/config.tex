@@ -50,8 +50,9 @@
 \usepackage{array}
 
 \newenvironment{conditions}
-  {\par\vspace{\abovedisplayskip}\noindent\begin{tabular}{>{$}l<{$} @{${}:{}$} l}}
-  {\end{tabular}\par\vspace{\belowdisplayskip}}
+  {\par\vspace{\abovedisplayskip}\noindent
+   \tabularx{\columnwidth}{>{$}l<{$} @{${}:{}$} >{\raggedright\arraybackslash}X}}
+  {\endtabularx\par\vspace{\belowdisplayskip}}
   
 % Used for pandoc code block generations.
 % Introduces breaklines for overflowing code blocks, by defining the Highlighting environment with breakline & symbol.

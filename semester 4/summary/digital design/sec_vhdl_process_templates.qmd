@@ -1,0 +1,37 @@
+# Prozess Templates
+
+::: callout-note
+Der Inhalt der Prozess-Templates wird in den `=>CUSTOM` gekennzeichneten Abschnitten geschrieben.
+:::
+
+## positive getriggertes D-FlipFlop
+
+### Mit asynchronem Reset
+
+``` vhdl
+-- mit asynchronem Reset
+process (rst, clk)
+-- Deklarationen => CUSTOM
+begin
+  if rst = ’1’ then
+    -- asynchr. Reset => CUSTOM
+    Q <= ’0’;
+  elsif rising_edge(clk) then
+    -- getaktete Logik => CUSTOM
+    Q <= D;
+  end if;
+end process;
+```
+
+### Ohne Reset
+
+``` vhdl
+process (clk)
+-- Deklarationen => CUSTOM
+begin
+  if rising_edge(clk) then
+    -- getaktete Logik => CUSTOM
+    Q <= D;
+  end if;
+end process;
+```

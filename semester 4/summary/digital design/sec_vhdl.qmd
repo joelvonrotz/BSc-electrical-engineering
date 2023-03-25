@@ -1,6 +1,6 @@
 # VHDL
 
-::: {.callout-note}
+::: callout-note
 **V**ery High Speed Integrated Circuit **H**ardware **D**escription **L**anguage ist einer Hardwarebeschreibung und [keine]{.underline} Programmiersprache.
 :::
 
@@ -8,11 +8,11 @@
 
 ### Designflow
 
-![](images/vhdl_fpga_designflow.png)
+![](images/vhdl_fpga_designflow.png){width="14cm"}
 
 ### Struktur Datei
 
-```vhdl
+``` vhdl
 -- File: MyComponent.vhd
 -- Author: myself
 -- Date: yesterday
@@ -31,14 +31,12 @@ architecture ...
 
 ## Synthesis & Simulation
 
-::: {.callout-important}
+::: callout-important
 ### Synthesis vs. Implementation
 
-- *Synthesis* generiert die Netlist des VHDL-Codes und beschreibt.
-- *Implementation* wendet die Contraints an und sorgt für die Hardware-Implementierung.
+-   *Synthesis* generiert die Netlist des VHDL-Codes und beschreibt.
+-   *Implementation* wendet die Contraints an und sorgt für die Hardware-Implementierung.
 :::
-
-
 
 ### Transactions
 
@@ -48,7 +46,7 @@ architecture ...
 
 Architecture beschreibt die Implementation oder das Innenleben des Komponents. Darin wird beschrieben, wie die deklarierten Signalen miteinander interagieren.
 
-```vhdl
+``` vhdl
 architecture a1 of MyComponent is
   -- Deklarationen (Signale, Komponenten)
   signal tmp : std_logic;
@@ -59,21 +57,20 @@ begin
 end a1;
 ```
 
-- Der **Deklarationsteil** startet [vor]{.underline} dem `begin`
-- Der **Implementierungsteil** startet nach `begin` und endet vor `end`
+-   Der **Deklarationsteil** startet [vor]{.underline} dem `begin`
+-   Der **Implementierungsteil** startet nach `begin` und endet vor `end`
 
-::: {.callout-note}
+::: callout-note
 #### `rtl` & `struct`
 
 Der Name `rtl` wird verwendet, um grundlegende Logik-Komponenten zu definieren, wie zum Beispiel *OR*, *XOR*, *AND*, etc. `struct` beinhaltet eine Kombination/Anwendung von `rtl`-Komponenten.
 :::
 
-
 ## Entity
 
 Eine Entity beschreibt den Komponenten für äusserliche Zugriffe. Es wird nur die Struktur des Komponents bekannt gegeben, aber nicht den Inhalt des Komponenten.
 
-```vhdl
+``` vhdl
 entity MyComponent is
   port ( a_pi, b_pi : in std_logic;
         -- Input Ports
@@ -85,15 +82,39 @@ entity MyComponent is
   constant c_max_cnt : integer := 20_000;
 end MyComponent;
 ```
-::: {.callout-note}
+
+::: callout-note
 Alles was in der Entity bekannt ist (inkl. Libraries), ist auch in der zugehörigen Architecture bekannt.
 :::
 
 ## Components
 
-## Prozesse/Sequentielle Statements
+## Kombinatorische Logik
 
-```vhdl
+Folgend sind *Process Statements* in Kurzschreibweise - Concurrent Signal Assignments - Selected Signal Assignment - Conditional Signal Assignment
+
+::: callout-important
+## Process Statements
+
+Alle Signal Assignments ausserhalb von `process` (Concurrent-, Selected-, Conditional-Signal Assignment) sind **Process Statements** in Kurzschreibform!
+
+``` vhdl
+sig <= not sig; -- Process Statement
+stud <= happy     when mep >= C else
+        satisfied when mep >= E else
+        sad;    -- Process Statement
+```
+:::
+
+### Concurrent Signal Assignments
+
+### Selected Signal Assignments `case`
+
+### Conditional Signal Assignments `when/else`
+
+## Prozesse/Sequential Statements
+
+``` vhdl
 -- process sensitivity list
 P1: process (i1, i2, i3)
 
@@ -109,22 +130,9 @@ begin
 end process P1;
 ```
 
-![](images/process.png)
-
-Folgend sind *Process Statements* in Kurzschreibweise
-- Concurrent Signal Assignments
-- Selected Signal Assignment
-- Conditional Signal Assignment
-
-### Concurrent Signal Assignments
-
-### Selected Signal Assignments `case`
-
-### Conditional Signal Assignments `when/else`
-
 ### Sensitivity List
 
-Prozesse werden mit Hilfe einer *Sensitivity List* auf ausgewählte Signale [sensitiv]{.underline} gemacht. 
+Prozesse werden mit Hilfe einer *Sensitivity List* auf ausgewählte Signale [sensitiv]{.underline} gemacht.
 
 ## Grundlegende Konzepte
 
@@ -133,21 +141,20 @@ Prozesse werden mit Hilfe einer *Sensitivity List* auf ausgewählte Signale [sen
 Port sind die Anschlüsse eines Komponents und Signale sind Komponent-interne Signale, welche von aussen nicht zugreifbar sind.
 
 <!-- TODO -->
+
 `std_logic`, `std_ulogic`, `std_logic_vector(a downto b)`
 
 ### Treiber `<=`
 
-Der Treiber `<=` beschreibt, dass das linke Signal vom rechten Signal angetrieben wird.
-Folgendes Beispiel beschreibt einen Inverter:
+Der Treiber `<=` beschreibt, dass das linke Signal vom rechten Signal angetrieben wird. Folgendes Beispiel beschreibt einen Inverter:
 
-```vhdl
+``` vhdl
 Inv_Out <= not Inv_In;
 ```
 
-
 # VHDL Syntax
 
-```vhdl
+``` vhdl
 y <= (0 => '0', 1 => '0', 2 => '0', 3 => '0');
 y <= (others => '0');
 y <= "0000";
@@ -155,14 +162,14 @@ y <= "0000";
 
 Conditional Signal Assignment
 
-```vhdl
+``` vhdl
 y <= x when en = '1' else "0000";
 y <= x when en = '1' else (others => '0');
 ```
 
 Prozess Statement with sequential loop-Statement
 
-```vhdl
+``` vhdl
 process(x,en)
 begin
   for k in 3 downto 0 loop

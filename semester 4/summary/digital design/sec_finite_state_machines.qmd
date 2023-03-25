@@ -1,0 +1,119 @@
+# Finite State Machines (FSM)
+
+::: callout-note
+## Allgemeine Definition ZSM
+
+```{=latex}
+\begin{align*}
+o[k] = g(i[k], s[k]) \\
+s[k+1] = f(i[k], s[k])
+\end{align*}
+
+\begin{conditions}
+  k & diskrete Zeit mit $t = k\cdot T_{CLK}$, $k=0$ entspricht Reset-Zeitpunkt \\
+  s & Zustand des Systems mit $s\in S =\{S_0,S_1,\dots S_N\}$ \\
+  i & Input des Systems mit $i\in I =\{I_0,I_1,\dots I_M\}$ \\
+  o & Output des Systems mit $o\in O =\{O_0,O_1,\dots, O_K\}$ \\
+  g & Output Funktion, berechnet aktuellen Output des Systems \\
+  f & Next-State Funktion, berechnet nächsten Zustand des Systems
+\end{conditions}
+```
+:::
+
+## FSM-Typ: Mealy
+
+![](images/fsm_mealy.png){fig-align="center" width="5cm"}
+
+```{=latex}
+\begin{align*}
+o[k] = g(i[k], s[k]) \\
+s[k+1] = f(i[k], s[k])
+\end{align*}
+```
+Beim *Mealy* werden die Ausgänge [beim Zustandswechsel]{.underline} geändert.
+
+## FSM-Typ: Moore
+
+![](images/fsm_moore.png){fig-align="center" width="6.9cm"}
+
+```{=latex}
+\begin{align*}
+o[k] = g(s[k]) \\
+s[k+1] = f(i[k], s[k])
+\end{align*}
+```
+Beim *Moore* werden die Ausgänge [im Zustand]{.underline} geändert.
+
+::: callout-caution
+## Unterschied Mealy- & Moore-Outputs
+
+Eine Mealy-FSM ändert den Ausgang [beim]{.underline} Zustandswechsels, was einen [*0-Delay*]{.underline} einführt. Eine Moore-FSM verändert den Ausgang [im]{.underline} Zustand, was einen [*1-Delay*]{.underline} einführt.
+
+![Mealy](images/fsm_output_delay_mealy.png){fig-align="center" width="8cm" height="3.2cm"}
+
+![Moore](images/fsm_output_delay_moore.png){fig-align="center" width="8cm" height="3.3cm"}
+:::
+
+## FSM-Typ: Medvedev
+
+*Medvedev* hat eine ähnlichen Aufbau wie *Moore*, wobei der Ausgang direkt dem Zustandswert entspricht und keine zwischen Konvertierung gemacht wird.
+
+```{=latex}
+\begin{align*}
+o[k] = s[k] \\
+s[k+1] = f(i[k], s[k])
+\end{align*}
+```
+## Parasitäre Zustände
+
+Jedes weitere Zustands-Flip-Flop erweitert die Anzahl Faktoren um den Faktor 2 ($S = 2^N$). Ungebrauchte Zustände werden *parasitäre Zustände* genannt.
+
+$$
+n_{para}=2^N - S \qquad n_{para}\big\rvert_{S=3,N=2}=2^2-3=1
+$$
+
+```{=latex}
+\begin{conditions}
+  N & Anzahl Flip-Flops \\
+  S & Anzahl verwendete Zustände
+\end{conditions}
+```
+## State Encoding
+
+```{=latex}
+\begin{center}
+\begin{tabularx}{\linewidth}{|l|c|c|}
+\hline
+\textbf{Zustand}                          & \multicolumn{1}{l|}{\textbf{Binär}} & \multicolumn{1}{l|}{\textbf{One-Hot}} \\ \hline
+$S_0$                                     & \texttt{00}                         & \texttt{001} \\ \hline
+$S_1$                                     & \texttt{01}                         & \texttt{010} \\ \hline
+$S_2$                                     & \texttt{10}                         & \texttt{100} \\ \hline
+\textcolor{BrickRed}{Parasitäre Zustände} & \textcolor{BrickRed}{\texttt{11}}   & \textcolor{BrickRed}{\texttt{000}}, 
+                                                                                  \textcolor{BrickRed}{\texttt{011}}, 
+                                                                                  \textcolor{BrickRed}{\texttt{111}}, 
+                                                                                  \textcolor{BrickRed}{\texttt{110}}, 
+                                                                                  \textcolor{BrickRed}{\texttt{101}} \\ \hline
+
+\end{tabularx}
+\end{center}
+```
+
+### Binär
+
+### One-Hot
+
+## Goldene Regeln der (FSM) Implementierung
+
+-   Memoryless Process (kombinatorische Logik)
+
+    -   Alle Eingangssignale der FSM und der aktuelle Zustand müssen in der *sensitivity list* aufgeführt werden.
+
+    -   [Jedem]{.underline} Ausgangssignal muss für [jede]{.underline} mögliche Kombination von Eingangswerten (inkl. parasitäre Input-Symbole) ein Wert zugewiesen werden. **Keine Zuweisung bedeutet sequentielles Verhalten (Speicher)!**
+
+    -   Parasitäre Zustände sollten mittels `others` abgefangen werden.
+
+-   Memorizing Process (sequentielle Logik)
+
+    -   Ausser Clock und (asynchronem) Reset dürfen [keine]{.underline} Signale in die *sensitivity list* aufgenommen werden.
+
+    -   Das den Zustand repräsentierende Signal muss einen Reset-Wert erhalten.
