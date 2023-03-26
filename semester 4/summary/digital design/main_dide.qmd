@@ -17,7 +17,7 @@ format:
     output-file: "s4_digital_design"
 
 source:
-  github: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+  github: "https://github.com/joelvonrotz/bachelor-electrical-engineering/tree/main/semester%204/summary/digital%20design"
 
 pdf-engine: pdflatex
 # [DOCUMENT CONFIGURATION] ============================
@@ -31,6 +31,7 @@ fontsize: 9pt
 
 code-block-border-left: false
 code-block-bg: "#f7f7f7"
+code-annotations: below
 
 fig-pos: H
 
