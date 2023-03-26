@@ -343,7 +343,7 @@ Die Empfangsleistung $P_{Rx}$ muss dabei genügend gross sein, damit das Signal 
 
 ![Linkbudget einer Blutooth Verbindung *(2.45 GHz)*](images/04_Linkbudget.png)
 
-## Anntenne
+## Antenne
 
 ### Fernfeld Kriterien
 
@@ -377,23 +377,7 @@ Die Antennenimpedanz $Z_{ant}$ hängt direkt von der Antennengeometrie ab und ka
 
 Die Wichtigsten Eigenschaften sind hierbei
 
--   $Z_{ant}$ Antennenimpedanz und Anpassung
-
-<!-- -->
-
--   $R_\Omega$ stellt die ohm'schen Verluste der Antennestruktur dar
-
--   $R_{rad}$ entspricht der abgestrahlten *Wirkleistung*
-
--   $X_{ant}$ ist der Blindwiderstand, der vom *reaktiven* Nahfeld beeinflusst werden kann
-
--   $D$ Richtwirkung *(nicht* $D$ *als Antennenmass)*
-
--   $G$ Antennengewinn
-
--   Polarisation
-
--   $B$ Bandbreite
+`\begin{multicols}{2}`{=latex}
 
 Die **Strahlungseffizienz** $\eta$ ist definiert durch
 
@@ -424,6 +408,26 @@ Die *relative Bandbreite* $B_r$ ist gegeben durch die Mittenfrequenz $f_0$ und d
 $$
 B_r=\frac{B}{f_0}
 $$
+
+`\columnbreak`{=latex}
+
+$Z_{ant}$ Antennenimpedanz und Anpassung
+
+$R_\Omega$ stellt die ohm'schen Verluste der Antennestruktur dar
+
+$R_{rad}$ entspricht der abgestrahlten *Wirkleistung*
+
+$X_{ant}$ ist der Blindwiderstand, der vom *reaktiven* Nahfeld beeinflusst werden kann
+
+$D$ Richtwirkung *(nicht* $D$ *als Antennenmass)*
+
+$G$ Antennengewinn
+
+Polarisation
+
+$B$ Bandbreite
+
+`\end{multicols}`{=latex}
 
 ![](images/04_RelativeBandbreite.png)
 
@@ -467,4 +471,150 @@ $$
 ERP=0.61\space EIRP\qquad\text{oder}\qquad ERP_{dBi}=EIRP_{dBi}-2.2dB
 $$
 
+### Feldpolarisation
+
+Die Polarisation des elektromagnetischen Feldes entspricht der Swingungsebene des E-Feld-Vektors
+
+![](images/04_Polarisation.png)
+
+Wenn die Polarisation des Feldes nicht mit der Empfängerantenne übereinstimmt, so treten *Polarisationsverluste* $L_p$ im Bezug auf die *Polarisationsrichtung* $\vec{e}_E$ und der *Polarisation der Antenne* $\vec{e}_{ant}$ auf
+
+$$
+L_p=\frac{1}{|\vec{e}_E\cdot\vec{e}_{ant}|^2}
+$$
+
+Diese können grob nach folgendem Schema, wobei *RHC* (*R*ight *H*and *C*ircular), *LHC* (*L*eft *H*and *C*ircular), *V*ertical und *H*orizontal gilt. Zudem gelten die $3\space dB^*$ für alle Kombinationen zwichen linearer und zirkularer Polarisation.
+
+![Polarisationsversluste zwischen entsprechenden Polarisationen](images/04_PolarisationsVerluste.png)
+
 ## Verfügbare Leistung am Empfangsort
+
+`\begin{multicols}{2}`{=latex}
+
+Die verfügbare Leistung $P_r$ ist proportional zur effektiv wirksamen Apertur $A_e$
+
+$$
+P_r=S_r(\theta,\varphi)\space A_e=\frac{E^2}{Z_w}A_e=H^2Z_wA_e
+$$
+
+Effektive Apertur der Empfangsantenne
+
+$$
+A_e=G\frac{\lambda^2}{4\pi}
+$$
+
+Antennenfaktor
+
+$$
+AF=\frac{E}{U}=\frac{9.73}{\lambda\sqrt{G}}
+$$
+
+`\columnbreak`{=latex}
+
+$S_r$: Strahlungsleistungsdichte $\left[\frac{W}{m^2}\right]$
+
+$E$: Effektivwert el. Feldstärke $\left[\frac{V}{m}\right]$
+
+$H$: Effektivwert magn. Feldstärke $\left[\frac{A}{m}\right]$
+
+$Z_w$: Wellenimpedanz *(Luft:* $377\Omega$ *)*
+
+$A_e$: Effektive Aperture $[m^2]$
+
+$G$: Antennengewinn
+
+$E$: Elektrische Feldstärke $\left[\frac{V}{m}\right]$
+
+$AF$: Antennenfaktor $\left[\frac{1}{m}\right]$
+
+$U$: Signalspannung am Antennenanschluss $[V]$
+
+$\lambda$: Wellenlänge
+
+`\end{multicols}`{=latex}
+
+![](images/04_EffektiveAperture.png)
+
+## Ausbreitungsverluste einer Funkstrecke
+
+### Freiraummodell
+
+Die **Freiraumdämpfung** $L_fs$ *(Free Space Path Loss)* gilt bei Sichtverbindung, Die EM-Welle wird nicht beeinflusst (idealer Funkkanal).
+
+`\begin{multicols}{2}`{=latex}
+
+$$
+L_{fs}=\frac{P_t}{P_r}=\frac{P_t}{S_rA_e}=\left(\frac{4\pi r}{\lambda}\right)^2
+$$
+
+$$
+L_{fs}[dB]=32.4+20\log_{10}{(f[MHz])}+20\log_{10}{(r[km])}
+$$
+
+`\columnbreak`{=latex}
+
+$L_{fs}$: Freiraumdämpfung
+
+$P_t$: Sendeleistung
+
+$S_r$: Strahlungsdichte am Empfangsort
+
+$A_e$: Effektive Apertur *(isotroper Strahler)*
+
+$r$: Distanz
+
+$\lambda$: Wellenlänge
+
+`\end{multicols}`{=latex}
+
+### Empirisches Kanalmodell
+
+Empirisches Modell für Ausbreitungsverluste *(Power Law Propagation Regime)* ohne direkte Sichtverbindung. Parameter $\lambda$ des Modells wird mit Hilfe einer Regression aus Messwerten bestimmt oder es werden Typische Werte (siehe Tabelle) angenommen. Die Referenzdistanz $d_0$ ergibt sich mit der Kalibrierung des Messaufbaus, z.B. $d_0=1m$
+
+$$
+L_M=\left(4\pi\frac{d_0}{\lambda}\right)^2\left(\frac{r}{d_0}\right)^\lambda
+\qquad\text{oder}\qquad
+L_M[dB]=32.4+20\log_{10}{(f[GHz])}+10\lambda\log_{10}{(r[m])}
+$$
+
+| Umfeld                                               | $\gamma$ Bereich |
+|------------------------------------------------------|:----------------:|
+| Makrozellen im Stadtbereich (Zellradius 0.5-3 km)    |    3.7 - 6.5     |
+| Mikrozellen iln Stadtbereich (Zellradien 0.1-0.5 km) |    2.7 - 3.5     |
+| Bürogebäude, gleiches Stockwerk                      |    1.6 - 3.5     |
+| Bürogebäude, mehrere Stockwerke                      |      2 - 6       |
+| Einkaufszentren                                      |    1.8 - 2.2     |
+| Firmengelände                                        |    1.6 - 3.3     |
+| Einfamilienhaus                                      |        3         |
+| Ideale Freiraumdämpfung                              |        2         |
+| Modell mit Bodenreflexion                            |        4         |
+
+Real gesehen spielen jedoch noch viele weitere Faktoren eine Rolle
+
+![](images/04_RealDaempfung.png)
+
+### Zeitvarianter Mehrwegkanal
+
+Starke Signalschwankungen im Bereich einiger Wellenlängen, welche durch die Mehrwegausbreitung zustande kommen, nenn man **Rayleigh Fading Propagation Regime**. Man erhält für die *Signalspannung* $u(t)$ am Empfänger eine Rayleigh Verteilung mit
+
+$$
+p(u)=\frac{1}{\bar{P_r}}e^{-\frac{u}{\bar{P_r}}}\text{ , }u\geq0\space\space\text{und}\space\space\bar{P_r}=2\sigma^2
+$$
+
+Mit der Mittleren Empfangsleistung $\bar{P_r}$ des Signals, welche die Ausbreitungsverluste und die Abschattungsverluste beinhaltet. Die Leistungsverteilung folgt
+
+$$
+p_{u^2}(x)=\frac{1}{\bar{P_r}}e^{-\frac{x}{\bar{P_r}}}\text{ , }x\geq0\
+$$
+
+Die Wahrscheinlichkeit für das *Unterschreiten einer minimalen Signalleistung* $S_{min}$
+
+$$
+P[u^2<S_{min}]=\int_0^{S_{min}}{p_{u^2}(x)dx}
+$$
+
+Komplementär dazu die *Versorgungswahrscheinlichkeit*
+
+$$
+P[u^2\geq S_{min}]=1-P[u^2<S_{min}]
+$$
