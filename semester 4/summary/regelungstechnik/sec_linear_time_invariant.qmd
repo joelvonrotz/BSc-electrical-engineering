@@ -1,0 +1,47 @@
+# Linearität & Zeitinvarianzen
+
+## Adjunkte $\text{adj}(A)$
+
+$$
+\text{adj}(A)=
+$$
+
+## LTI-Systeme
+
+### Überlagerungsprinzip
+
+::: callout-important
+## Definition
+
+Wenn $y_1(t)$ die Antwort auf $u_1(t)$ ist und $y_2(t)$ die Antwort auf $u_2(t)$ ist, so ist $y_1(t) + y_2(t)$ die Antwort auf $u_1(t) + u_2(t)$.
+
+![](images/%C3%BCberlagerungsprinzip.png){fig-align="center"}
+:::
+
+### Verstärkungsprinzip
+
+::: callout-important
+## Definition
+
+Wenn $y(t)$ die Antwort auf $u(t)$ ist, $\alpha\cdot y(t)$ ist die Antwort auf $\alpha\cdot u(t)$.
+
+![](images/verst%C3%A4rkungsprinzip.png){fig-align="center"}
+:::
+
+## Linearisierung
+
+::: callout-tip
+## Vorgehen Linearisieren
+
+(\@) Differentialgleichung gleich $0$ setzen $f(\cdots)=0$
+
+$$
+M\cdot \frac{d^2h}{dt^2}+\alpha\frac{dh}{dt}+k\cdot h^3 - M\cdot g=0\quad \rightarrow\quad f(\ddot{h}, \dot{h}, h) = 0
+$$
+
+(\@) In Linearisierungsgleichung einsetzten
+
+$$
+\left.\frac{\delta f}{\delta \ddot{h}}\right\rvert_{h=\overline{h}}
+$$
+:::

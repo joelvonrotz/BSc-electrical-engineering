@@ -34,7 +34,7 @@ Ziel eines Reglers ist die Angleichung einer Regelgrösse $y$ an eine Führungsg
 \begin{conditions}
  r & Führungsgrösse (Soll-Wert) \\
  e & Regelfehler \\
- u & Stellgrösse \\
+ u & Stell-/Steuergrösse \\
  y & Regelgrösse (Ist-Wert) \\
  v & Störgrösse
 \end{conditions}
