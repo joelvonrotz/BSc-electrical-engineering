@@ -537,6 +537,10 @@ $\lambda$: Wellenlänge
 
 ## Ausbreitungsverluste einer Funkstrecke
 
+::: callout-important
+Folgende Betrachtungen gelten nur im **Fernfeld**
+:::
+
 ### Freiraummodell
 
 Die **Freiraumdämpfung** $L_fs$ *(Free Space Path Loss)* gilt bei Sichtverbindung, Die EM-Welle wird nicht beeinflusst (idealer Funkkanal).

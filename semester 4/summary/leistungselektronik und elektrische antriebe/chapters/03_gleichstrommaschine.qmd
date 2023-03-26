@@ -1,1 +1,11 @@
 # Gleichstrommaschine
+
+## Aufbau
+
+Durch die *Erregerwicklung* fliesst der *Erregerstrom*, welcher ein magnetisches Feld erzeugt, das den Luftspalt und den Rotor durchdringt. Bei permamenterregten Gleichstrommaschinen wird das Feld mit einem Permanentmagnet erzeugt
+
+![](images/03_GLeichstrommaschineQuerschnitt.png)
+
+Die Wicklungen sind dabei so auf den Rotor gewickelt, dass ein kontinuierlicher Stromkreis über mehrere Windungen zustande kommt
+
+![](images/03_Abgewickelt.png)
