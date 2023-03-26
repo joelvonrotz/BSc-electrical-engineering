@@ -256,7 +256,6 @@ Kamera mit Serieauslöser (Bufferspeicher), Lookup-Tables
 
 [Beispiel]{.underline}: Defibrillator gibt 3000V für 3 Millisekunden aus, um ein Herz wieder in den normalen Rhythmus zu bringen. In der Situation, dass der **Defibrillator 3000V für 3ms** ausgibt, **aber** das **Herz fehlschlägt**, ist die [Verifizierung erfolgreich]{.underline}, aber die [Validation fehlgeschlagen]{.underline}.
 
-
 2.  [Erkläre den Unterschied zwischen *Unit Test*, *Integration Test* und *System Test*?]{.underline}
 
 Ein *Unit-Test* überprüft die Funktionialität von einzelnen Funktionen (Units), entspricht also dem untersten Test-Level des V-Modells. Der *Integration-Test* überprüft die einzelnen Units im Zusammenspiel, also Integriert. Der *System-Test* schlussendlich überprüft das gesamte System.
@@ -289,8 +288,7 @@ Das alles beim ersten mal nach Kundenwünschen implementiert wurde.
 
 1.  [Was versteht man unter einem Refactoring und was ist das Ziel davon?]{.underline}
 
-Bei einem Refactoring wird etwas neu umgeschrieben oder ge¨andert, ohne die eigentliche Funktionalit¨at zu ¨andern. Ein Refactoring hat h¨aufig eine Verbesserung von Lesbarkeit und
-Wartbarkeit als Ziel.
+Bei einem Refactoring wird etwas neu umgeschrieben oder geändert, ohne die eigentliche Funktionalität zu ändern. Ein Refactoring hat häufig eine Verbesserung von Lesbarkeit und Wartbarkeit als Ziel.
 
 2.  [Was ist der Unterschied zwischen Coverage und Profiling?]{.underline}
 
@@ -314,9 +312,169 @@ Zum Beispiel Error-Routinen, wenn das Programm nie in einen Error fällt.
 
 ### Architektur
 
+1.  Welche Aufgaben hat ein *Device Driver*?
+
+Ein *Device Driver* ist eine Hardware-Abstraktion und übernimmt die Hardware-Konfigurierung, -Ansteuerung, etc.
+
+2.  Was versteht man unter *Latenz*?
+
+Verzögerung bei Versenden von Informationen, bei Verarbeitungen...
+
+3. Wieso darf man möglicherweise im Event Loop Modell nicht alle Arbeit im Interrupt machen?
+
+Damit man keine grossen Unterbrüche/Latenz entstehen, wenn ein Task zu lange zum Verarbeiten hat. Meistens wird mit einem Flag gearbeitet, welcher dann im Hauptprozess den Task ausführt.
+
+4. Welche Funktionen stellt die Standard Library der Programmiersprache C zur Verfügung?
+
+`\textcolor{red}{\textbf{No answer here!}}`{=latex}
+
+5. Wie kann beim Event Loop Modell die Latenz oder Ausführungszeit in den Interrupts minimiert werden?
+
+`\textcolor{red}{\textbf{No answer here!}}`{=latex}
+
+6. Wieso ist eine gute Hardware Abstraktion wichtig für eine Firmware?
+
+`\textcolor{red}{\textbf{No answer here!}}`{=latex}
+
+7. Wieso spricht man von Firmware und nicht von Software im Bereich von Embedded Systems?
+
+`\textcolor{red}{\textbf{No answer here!}}`{=latex}
+
+8. Was ist wohl der Grund, dass Middleware so heisst und nicht anders?
+
+`\textcolor{red}{\textbf{No answer here!}}`{=latex}
+
+9. Welche Funktionalität bietet CMSIS-DSP und was ist der Vorteil gegenüber der Standard Library?
+
+`\textcolor{red}{\textbf{No answer here!}}`{=latex}
+
+10. Welche Herausforderungen stellen sich beim Super Loop wenn man neue Jobs hinzufügt? Was wären Lösungsmöglichkeiten?
+
+`\textcolor{red}{\textbf{No answer here!}}`{=latex}
+
+11. Wie kann man beim Super Loop Modell auch in einen stromsparenden Modus gehen?
+
+`\textcolor{red}{\textbf{No answer here!}}`{=latex}
+
+12. Anstatt dass man vor dem Starten des Betriebssystem in einem Embedded System alle Tasks erstellt, kann man dies euch in einem einzelnen Startup Task machen? Diskutiere Vor- und Nacheile.
+
+`\textcolor{red}{\textbf{No answer here!}}`{=latex}
+
+13. Was ist mit Quasi-Gleichzeitig in einem System gemeint?
+
+`\textcolor{red}{\textbf{No answer here!}}`{=latex}
+
+14. Welches fundamentale Prinzip wird durch Setter und Getter realisiert?
+
+`\textcolor{red}{\textbf{No answer here!}}`{=latex}
+
+15. Nenne eine typische Anwendung für einen Super Loop?
+
+`\textcolor{red}{\textbf{No answer here!}}`{=latex}
+
+16. Nenne eine typische Anwendung für einen Event Loop?
+
+`\textcolor{red}{\textbf{No answer here!}}`{=latex}
+
+17. Nenne eine typische Anwendung für ein Embedded OS?
+
+`\textcolor{red}{\textbf{No answer here!}}`{=latex}
+
+18. Beschreibe die Aufgabe des Dispatcher im Event-Loop Modell? Wieso braucht es den und was genau macht dieser?
+
+`\textcolor{red}{\textbf{No answer here!}}`{=latex}
+
 ### Module
 
+1. Auf welche verschiedene Arten kann man einen Software oder Hardware Treiber konfigurieren?
+
+`\textcolor{red}{\textbf{No answer here!}}`{=latex}
+
+2. [Was meint man damit, dass in C nur ein Namespace existiert? Was bedeutet dies? Welche Lösungsmöglichkeiten gibt es?]{.underline}
+
+Ein Namespace wird als *Scope-Wechsel* verwendet, wobei C nur ein Hauptnamespace hat. In C++ können Namespaces verwendet werden, falls es mehrere Funktionen mit der gleichen Signatur und Funktionsnamen hat. Damit können die Funktionen unterschieden werden.
+
+3. Erkläre das Konzept der Kapselung anhand eines Treibers für eine UART.
+
+`\textcolor{red}{\textbf{No answer here!}}`{=latex}
+
+4. Erkläre das Konzept der Abstraktion anhand eines Treibers für eine UART.
+
+`\textcolor{red}{\textbf{No answer here!}}`{=latex}
+
+5. Welches grosse Problem tritt auf, wenn eine Schnittstelle nicht selfcontained ist?
+
+`\textcolor{red}{\textbf{No answer here!}}`{=latex}
+
+6. Inwiefern realisiert ein Device Handle einen objektorientierten Ansatz?
+
+`\textcolor{red}{\textbf{No answer here!}}`{=latex}
+
+7. Wir haben einen Ansatz mittels GetDefaultConfiguration() in der Programmiersprache C angeschaut: was ist die Alternative davon in der OOP Welt?
+
+`\textcolor{red}{\textbf{No answer here!}}`{=latex}
+
 ### Bibliotheken
+
+1. Finde heraus: welche Dateierweiterung haben vor-kompilierte Bibliotheken bei der GNU Toolchain? Für was steht die Erweiterung?
+
+`\textcolor{red}{\textbf{No answer here!}}`{=latex}
+
+2. Was könnte der Grund oder die Gründe sein, dass die GNU Standard Bibliotheken ohne Debug Information installiert sind?
+
+`\textcolor{red}{\textbf{No answer here!}}`{=latex}
+
+3. Was ist der Grund dafür, dass der Startup Code die main() Routine nicht direkt aufruft?
+
+`\textcolor{red}{\textbf{No answer here!}}`{=latex}
+
+4. Wieso ruft der Compiler Runtime Routinen auf, anstatt die nötigen Instruktionen direkt in der übersetzten Anwendung zu platzieren?
+
+`\textcolor{red}{\textbf{No answer here!}}`{=latex}
+
+5. Obwohl die Standard Library einen eigenen Startup Code hat, wird dieser oft nicht benutzt. Wieso?
+
+`\textcolor{red}{\textbf{No answer here!}}`{=latex}
+
+6. Probiere die GNU newlib in der MCUXpresso Installation zu lokalisieren. Wo ist diese installiert? (Hinweis: libc.a)
+
+`\textcolor{red}{\textbf{No answer here!}}`{=latex}
+
+7. Bei der nohost Variante sind die Stubs leer implementiert und machen gar nichts. Was ist der Sinn davon?
+
+`\textcolor{red}{\textbf{No answer here!}}`{=latex}
+
+8. Verglichen mit newlib verbraucht newlib-nano für printf() Ausgaben weniger Speicher, ist aber auch viel langsamer. Wieso?
+
+`\textcolor{red}{\textbf{No answer here!}}`{=latex}
+
+9. Standard Library Headers soll man mit <...> inkludieren. Was ist der Grund dafür?
+
+`\textcolor{red}{\textbf{No answer here!}}`{=latex}
+
+10. Man hat die Wahl zwischen der Verwendung von `glibc`, `newlib`, `newlibnano` oder einer proprietären Bibliothek wie RedLib. Welche verwenden man, mit welcher Begründung?
+
+`\textcolor{red}{\textbf{No answer here!}}`{=latex}
+
+11. Wenn man eine Bibliothek als Archive bekommt, bedeutet das auf jeden Fall dass man nur auf Assembly Code Stufe ohne zusätzliche Informationen debuggen muss? Begründe die Antwort.
+
+`\textcolor{red}{\textbf{No answer here!}}`{=latex}
+
+12. Probiere mindestens drei verschiedene Runtime Funktionen (Namen) im Code zu finden. Hinweis: Assembly Code anschauen, gute Gelegenheiten sind Operationen mit double oder Zuweisungen von double zu int.
+
+`\textcolor{red}{\textbf{No answer here!}}`{=latex}
+
+13. Was brauchen man mit einer C++ Anwendung: newlib oder newlib-nano?
+
+`\textcolor{red}{\textbf{No answer here!}}`{=latex}
+
+14. CMSIS-Core stellt auch eine Startup Routine zur Verfügung. Wie heisst diese?
+
+`\textcolor{red}{\textbf{No answer here!}}`{=latex}
+
+15. Mit CMSIS-Core kann man die Interrupts der CPU ein- und ausschalten. Finde die zwei Funktionen? Hinweis: cmsis gcc.h
+
+`\textcolor{red}{\textbf{No answer here!}}`{=latex}
 
 ## SW05 RTOS
 

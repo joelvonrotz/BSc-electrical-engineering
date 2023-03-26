@@ -1,1 +1,67 @@
-# **R**eal **T**ime **O**perating **S**ystem
+# Echtzeit
+
+Echtzeit wie wir es (durchschnittlich) betrachten unterscheidet sich grundsätzlich mit der technischen Echtzeit. Echtzeit für uns beschreibt im Bezug zur Raum-Zeit-Kontinuum eine Kontinuität und Gleichzeitigkeit, was im technischen Sinne nicht möglich ist.
+
+Technische Echtzeit fokussiert sich auf die Rechtzeitigkeit und Richtigkeit. Das richtige Resultat muss zur richtigen Zeit rechtzeitig produziert werden.
+
+::: callout-important
+## Definition Echtzeitsystem
+
+Ein Computer ist als Echtzeitsystem klassifiziert, wenn er auf externe Ereignisse in der echten Welt reagieren kann: mit dem richtigen Resultat, zur richtigen Zeit, unabhängig der Systemlast, auf eine deterministische und vorhersehbare Weise.
+:::
+
+Da ein Rechner nicht unendlich viele Prozesse gleichzeitig laufen kann, entsteht eine **Systemlast** basierend auf **\# gleichzeitige Events & Tasks**, **Intervall**, **Reaktionszeit**, **Verarbeitungszeit**. Je höher die Last, desto unzuverlässiger ist das System im Bezug zur Echtzeit-Anforderung.
+
+::: callout-important
+## Attribute Echtzeitsystem
+
+-   **Rechtzeitigkeit** für alle Stufen: *Eingabe* $\Rightarrow$ *Verarbeitung* $\Rightarrow$ *Ausgabe*
+
+-   **absolute** und **relative** Rechtzeitigkeit
+
+    -   **Absolut**: Einschalten der Bewässerung jeden Tag um 05:30 am Morgen, $\pm$ 1 Minu**Relativ**: Nachdem ein trockener Boden festgestellt wurde, soll in der darauffolgenden Nacht um 22:00 Uhr die Bewässerung einschalten, $\pm$ 5 Minuten. Nach Einschaltung, schaltet die Bewässerung nach 30 Minuten, ($\pm$ 10s) automatisch aus.
+:::
+
+## Harte und Weiche Echtzeit
+
+Ein **hartes** Echtzeit-System ist extrem zeitkritisch. Wird die Zeitbedingung in einem Zeitbereich verpasst, so gilt bei
+
+![](images/paste-1.png){fig-align="center" width="10cm"}
+
+# FreeRTOS
+
+## Kernel API
+
+### Scheduler starten
+
+``` c
+void vTaskStartScheduler(void);
+```
+
+### Scheduler beenden
+
+``` c
+void vTaskEndScheduler(void);
+```
+
+### Kernel/Scheduler anhalten
+
+``` c
+void vTaskSuspendAll(void);
+```
+
+### Kernel/Scheduler fortsetzen
+
+``` c
+portBASE_TYPE xTaskResumeAll(void);
+```
+
+-   `pdTRUE`
+
+-   `pdFALSE`
+
+### Kontext Switch forcieren
+
+``` c
+#define taskYIELD() portYIELD()
+```
