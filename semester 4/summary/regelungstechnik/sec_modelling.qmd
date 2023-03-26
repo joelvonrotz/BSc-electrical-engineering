@@ -1,16 +1,20 @@
 # Modellierung
 
+## Zustandsraum
+
 ## Störverhalten
 
 Das Störverhalten beschreibt den Einfluss der Störgrössen $v$ auf die Regelgrösse $y$ bei einer konstanten Führungsgrösse $r$. Ein gutes Störverhalten minimiert diese Einflüsse, wobei das letzendliche Verhalten des Systems abhängig auf das Zielsystem ist.
 
-[Zum Beispiel]{.underline}
+[Beispiel]{.underline}
 
 -   Eine Beigemaschine darf keine Überschwingungen in der Regelgrösse haben, da dies zu einer Überbiegung führt, was ein *no-go* ist.
 -   Eine Saune kann sich dies eher noch erlauben, da eine Überschwingung nur einen kleinen Einfluss auf die Systemqualität hat.
 
 ::: callout-note
 ## Merkmale
+
+Die Störgrösse verfügt über vier Merkmale, welche für jedes System betrachtet soll:
 
 -   **Stabilität** --
 -   **Statischer Fehler / stationäre Genauigkeit** --
@@ -20,4 +24,9 @@ Das Störverhalten beschreibt den Einfluss der Störgrössen $v$ auf die Regelgr
 
 ## Führungsverhalten
 
+Das Führungsverhalten beschreibt den Einfluss der Führungs-/Sollgrösse $r$ auf die Regel-/Istgrösse $y$ bei (idealerweise) einer konstanten Störungsgrösse $e$. Ein gutes Führungsverhalten minimiert die Ausschwingungen und Trägheit der Regelgrösse zur Führungsgrösse.
+
 ## Vorsteuerung
+
+## Stationären Zustand (steady state)
+

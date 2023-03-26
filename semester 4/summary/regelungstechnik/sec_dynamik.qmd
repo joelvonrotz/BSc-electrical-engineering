@@ -1,11 +1,19 @@
 # Dynamik
 
-::: callout-note
 ## Stabilität
 
-*stabil*, falls alle Zustände (unterschiedliche Anfangspositionen) in der Nähe der Gleichgewichtslage $x_e$ zu Lösungen führen.
+Die Stabilität eines Systems wird in drei Zustände unterschieden:
 
-*asymptotisch stabil*, falls alle Zustände in der Nähe von $x_e$ nach langer Zeit ($t \rightarrow \infty$) in $x_e$ enden.
+`\vspace{0.3cm}`{=latex}
 
-*instabil*, falls der Zustand nie eine Gleichgewichtslage erreicht.
+**stabil**, falls alle Zustände (unterschiedliche Anfangspositionen) in der Nähe der Gleichgewichtslage $x_e$ zu Lösungen führen. **asymptotisch stabil**, falls alle Zustände in der Nähe von $x_e$ nach langer Zeit ($t \rightarrow \infty$) in $x_e$ enden. **instabil**, falls der Zustand nie eine Gleichgewichtslage erreicht.
+
+`\vspace{0.3cm}`{=latex}
+
+::: callout-note
+### Beispiel
+
+Das Pendel, welches die gesamte Rotationsachse ($360°$, rundherum) ausnützen kann, hat zwei Gleichgewichtslagen. Eine Lage ist wenn die Pendelmasse nach oben gerichtet ist und eine andere wenn die Masse nach unten gerichtet ist.
+
+Wird das Pendel in diese beiden Lage gelegt, ist das System **stabil**. Wird es nach links oder nach rechts gerichtet losgelassen, dauert es eine Weile bis es die eine Gleichgewichtslage erreicht, dies nennt man **asymptotisch stabil**. Würde es einen Zustand geben, wo das Pendel nie "still steht", nennt man dies **instabil**.
 :::

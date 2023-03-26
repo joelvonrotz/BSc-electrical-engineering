@@ -1,0 +1,64 @@
+\usepackage{amssymb, amsmath}
+\numberwithin{equation}{section}
+
+\usepackage[utf8]{inputenc}
+\usepackage{lastpage} % counts all the pages, used in footer
+\usepackage{hyperref}
+
+% Flexible Multicolumn Option
+\usepackage{multicol}
+\setlength\columnsep{20pt}
+
+% Package for enabling colors (colorful output)
+\usepackage[dvipsnames]{xcolor}
+\definecolor{darkgreen}{HTML}{014f32}
+
+% Icons - http://mirrors.ctan.org/fonts/fontawesome5/doc/fontawesome5.pdf
+\usepackage{fontawesome5}
+
+% removes spacing in display math
+\usepackage[nodisplayskipstretch]{setspace}
+
+\usepackage{tabularx}
+
+% Font Configuration
+\usepackage{lmodern}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{cmbright}
+\usepackage[scaled=0.85]{inconsolata}
+
+% 
+\usepackage{fancyhdr}
+
+\renewcommand{\headrulewidth}{1pt}
+\renewcommand{\footrulewidth}{1pt}
+
+\pagestyle{fancy}
+\fancyhead{} % clear all header fields
+\makeatletter
+\fancyhead[R]{\@title\ - Zusammenfassung}
+\makeatother
+\fancyhead[L]{HSLU T\&A}
+\fancyfoot{} % clear all footer fields
+\fancyfoot[C]{\thepage\ / \pageref{LastPage}}
+\fancyfoot[R]{DIDE}
+\fancyfoot[L]{\today}
+
+% introduces conditions environment to create nice equation parameter descriptions
+\usepackage{array}
+
+\newenvironment{conditions}
+  {\par\vspace{\abovedisplayskip}\noindent\begin{tabular}{>{$}l<{$} @{${}:{}$} l}}
+  {\end{tabular}\par\vspace{\belowdisplayskip}}
+  
+
+% Used for pandoc code block generations.
+% Introduces breaklines for overflowing code blocks, by defining the Highlighting environment with breakline & symbol.
+% Don't know what commandchars does :)
+\usepackage{fvextra}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{
+  breaklines=true,
+  breakanywhere=true,
+  breaksymbolleft={\textcolor{gray}{\scriptsize\ensuremath\hookrightarrow}},
+  commandchars=\\\{\}
+}

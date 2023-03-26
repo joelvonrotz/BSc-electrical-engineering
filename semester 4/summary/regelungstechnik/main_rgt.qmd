@@ -8,12 +8,14 @@ lang: de
 # [RENDER CONFIGURATION] ==============================
 format:
   pdf:
-    keep-tex: false
+    keep-tex: true
+    classoption: german
     include-in-header:
       - config/config.tex
     template-partials:
       - config/before-body.tex
     output-file: "s4_regelungstechnik"
+    fontenc: T1
 
 source:
   github: "https://github.com/joelvonrotz/bachelor-electrical-engineering/tree/main/semester%204/summary/regelungstechnik"
@@ -37,8 +39,6 @@ number-sections: true
 number-depth: 3
 pagenumbering: none
 highlight-style: github
-
-callout-appearance: simple
 ---
 
 \newpage
@@ -57,12 +57,17 @@ callout-appearance: simple
   breakable
 ]}{\end{tcolorbox}}\fi
 ```
-
 `\begin{multicols}{2}`{=latex}
 
 <!-- insert -->
 
 {{< include sec_regulator.qmd >}}
+
+{{< include sec_modelling.qmd >}}
+
+{{< include sec_dynamik.qmd >}}
+
+{{< include sec_linear_time_invariant.qmd >}}
 
 {{< include sec_matlab.qmd >}}
 

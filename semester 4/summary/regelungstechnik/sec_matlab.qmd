@@ -2,10 +2,14 @@
 
 ## Vektoren
 
-Vektoren werden mit `[…]` deklariert. Elemente werden Spaltenweise mit einem Leerschlag `' '` eingeteilt und mit einem Semikolon `;` Reihenweise geteilt.
+Vektoren werden mit `[…]` deklariert. Elemente werden Spaltenweise mit einem Leerschlag `' '` oder Komma `,` eingeteilt und mit einem Semikolon `;` Reihenweise geteilt.
+
+```matlab
+data = [1,2,3;4,5,6;7,8,9]; % same as [1 2 3;4 5 6;7 8 9];
+```
 
 ::: callout-note
-#### Grösse `size`
+### Grösse `size`
 
 Mit `size` kann die Grösse einer Variable ermittelt werden. `size` gibt als Resultat ein 1x2 Vektor zurück ($\begin{bmatrix}\text{Rows} & \text{Columns}\end{bmatrix}$)
 
@@ -48,6 +52,7 @@ $$
 \end{bmatrix}
 $$
 
+::: {.callout-tip}
 ### Slicing
 
 Mit *Slicing* kann ein Teil einer Matrix **kopiert** werden und einer anderen Variable zugewiesen werden.
@@ -55,6 +60,9 @@ Mit *Slicing* kann ein Teil einer Matrix **kopiert** werden und einer anderen Va
 ``` matlab
 <matrix>(<rowStart>:<rowEnd>,<colStart>:<colEnd>)
 ```
+
+:::
+
 
 ## Plotting
 
