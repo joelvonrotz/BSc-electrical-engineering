@@ -47,6 +47,7 @@ highlight-style: github
 % keep this to have smaller code blocks
 \ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[
   colback={shadecolor},
+  code={\singlespacing},
   boxrule=0pt,
   left=3pt,
   right=3pt,

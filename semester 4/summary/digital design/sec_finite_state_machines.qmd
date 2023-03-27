@@ -58,7 +58,7 @@ Eine Mealy-FSM ändert den Ausgang [beim]{.underline} Zustandswechsels, was eine
 
 ## FSM-Typ: Medvedev
 
-*Medvedev* hat eine ähnlichen Aufbau wie *Moore*, wobei der Ausgang direkt dem Zustandswert entspricht und keine zwischen Konvertierung gemacht wird.
+*Medvedev* hat eine ähnlichen Aufbau wie *Moore*, wobei der Ausgang direkt dem Zustandswert entspricht und keine Zwischen-Konvertierung gemacht wird.
 
 ```{=latex}
 \begin{align*}
@@ -86,6 +86,7 @@ $$
   S & Anzahl verwendete Zustände
 \end{conditions}
 ```
+
 ## State Encoding
 
 Zustände können auf verschiedene Arten dargestellt werden, bekannte Varianten sind *binär* und *One Hot*.
@@ -107,6 +108,7 @@ $S_2$                                     & \texttt{10}                         
 \end{tabularx}
 \end{center}
 ```
+
 ::: callout-warning
 ## Parasitäre Zustände
 
