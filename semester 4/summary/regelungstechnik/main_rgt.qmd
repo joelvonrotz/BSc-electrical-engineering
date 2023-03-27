@@ -29,6 +29,8 @@ geometry:
 - "right=15mm"
 papersize: a4
 fontsize: 10pt
+classoption: 
+- german
 
 code-block-border-left: false
 code-block-bg: "#f7f7f7"
@@ -69,10 +71,14 @@ highlight-style: github
 
 {{< include sec_linear_time_invariant.qmd >}}
 
+{{< include sec_grundelemente.qmd >}}
+
 {{< include sec_matlab.qmd >}}
 
 {{< include sec_simulink.qmd >}}
 
 `\end{multicols}`{=latex}
+
+---
 
 {{< include sec_glossar.qmd >}}

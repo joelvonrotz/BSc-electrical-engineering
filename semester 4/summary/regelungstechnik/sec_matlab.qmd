@@ -4,7 +4,7 @@
 
 Vektoren werden mit `[…]` deklariert. Elemente werden Spaltenweise mit einem Leerschlag `' '` oder Komma `,` eingeteilt und mit einem Semikolon `;` Reihenweise geteilt.
 
-```matlab
+``` matlab
 data = [1,2,3;4,5,6;7,8,9]; % same as [1 2 3;4 5 6;7 8 9];
 ```
 
@@ -52,7 +52,7 @@ $$
 \end{bmatrix}
 $$
 
-::: {.callout-tip}
+::: callout-tip
 ### Slicing
 
 Mit *Slicing* kann ein Teil einer Matrix **kopiert** werden und einer anderen Variable zugewiesen werden.
@@ -60,9 +60,7 @@ Mit *Slicing* kann ein Teil einer Matrix **kopiert** werden und einer anderen Va
 ``` matlab
 <matrix>(<rowStart>:<rowEnd>,<colStart>:<colEnd>)
 ```
-
 :::
-
 
 ## Plotting
 
@@ -106,3 +104,73 @@ ylim([-20.5 20.5]);
 ```
 
 ![](images/plotyy.png)
+
+## Transferfunktion `tf(…)`
+
+Mit dem Befehl `tf(...)` kann eine Transferfunktion deklariert werden mit Zähler- und Nenner-Zeilenvektoren.
+
+``` matlab
+sys = tf(numerator,denominator);
+```
+
+Die Transferfunktion kann in anderen Funktion wiederverwendet werden, wie zum Beispiel `step` oder `bode`. Folgende Beispiele sind mit der `sys`-Transferfunktion (folgende Gleichung) gemacht.
+
+$$
+G_{\text{sys}}(s) = \frac{4}{s^2+s+10}
+$$
+
+``` matlab
+sys = tf(4,[1 2 10]);
+```
+
+### Bode-Diagramm
+
+``` matlab
+bode(sys,{0.1,100}); % or bode(sys);
+% grid on; to enable Grid in Plot
+```
+
+![](images/matlab_BodePlotResponse.png)
+
+### Nyquist-Diagramm
+
+``` matlab
+nyquist(sys)
+```
+
+![](images/matlab_NyquistPlotResponse.png.png)
+
+### Sprungantwort `step(…)`
+
+Mit `step(…)` kann eine Transferfunktion mit der Sprungfunktion $\sigma$ verwendet werden. Damit
+
+``` matlab
+step(sys);
+```
+
+![](images/matlab_StepResponsePlot.png)
+
+### Impulsantwort `impulse(…)`
+
+Mit `impulse(…)` kann die Impulsantwort der Transferfunktion ausgegeben werden.
+
+``` matlab
+impulse(sys);
+```
+
+![](images/matlab_ImpulseResponsePlot.png)
+
+## Zustandsraumdarstellung `ss(…)`
+
+Mit `ss(…)` können vier Matrizen $A, B,C,D$ zu einer Zustandsraumdarstellung zusammengeführt werden.
+
+``` matlab
+A = [0 1;-5 -2];
+B = [0;3];
+C = [0 1];
+D = 0;
+Ts = 0.25;
+sys = ss(A,B,C,D,Ts);
+```
+
+Es kann ebenfalls `bode`, `nyquist`, `step`, etc. angewendet werden, da die ZRD eine andere Darstellung der Übertragungsfunktion ist.

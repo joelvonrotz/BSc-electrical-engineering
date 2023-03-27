@@ -1,0 +1,37 @@
+# Grundelemente
+
+## Elementare Glieder
+
+```{=latex}
+\begin{align*}
+G(s)=\frac{b_0\cdot s^m+b_1\cdot s^{m-1}+\cdots+b_m}{s^n+a_1\cdot s^{n-1}+\cdots+a_n} \\
+= b_0\cdot (s+z_1)\cdot(s+z_2)\cdots(s+z_m)\cdot\frac{1}{s+p_1}\cdot\frac{1}{s+p_2}\cdots\frac{1}{s+p_n}
+\end{align*}
+
+\begin{conditions}
+  m & Nullstellen $z_{1\dots m}$ \\
+  n & Polstellen $p_{1\dots m}$ \\
+\end{conditions}
+```
+### Elementare Funktionen
+
+Mit Parametern $k,a,\zeta,\omega_0,\tau \in \mathbb{R}$
+
+```{=latex}
+\begin{conditions}
+  G(s)=k                                         & konstanter Faktor \\
+  G(s)=s + a                                     & einfache reelle Nullstelle \\
+  G(s)=s^2+2\zeta\omega_0 s+\omega_o^2           & konj. komplexe Nullstellen ($\zeta \leq 1$) \\
+  G(s)=\frac{1}{s+a}                             & einfacher reller Pol \\
+  G(s)=\frac{1}{s^2+2\zeta\omega_0 s+\omega_o^2} & konj. komplexe Pole ($\zeta\leq 1$) \\
+  G(s)=e^{-s\tau}                                & Totzeitglied $\tau > 0$ \\
+\end{conditions}
+```
+Die zugehörigen Nullstellen
+
+$$
+\lambda = \left\{ \begin{matrix}
+-a & \text{einfach reell} \\
+-\zeta\omega_0 \pm \omega_0 \sqrt{\zeta^2-1} & konj. komplex
+\end{matrix}\right.
+$$
