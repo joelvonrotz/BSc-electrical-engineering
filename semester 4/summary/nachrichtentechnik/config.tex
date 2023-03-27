@@ -62,3 +62,14 @@
   breaksymbolleft={\textcolor{gray}{\scriptsize\ensuremath\hookrightarrow}},
   commandchars=\\\{\}
 }
+
+
+
+\let\paragraph\oldparagraph
+\let\subparagraph\oldsubparagraph
+
+\usepackage{xhfill}
+\usepackage[explicit]{titlesec}
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}\par}
+
+\titleformat{\section}[block]{\bfseries\Large}{\thetitle.}{3mm}{#1\space\xrfill[0.6ex]{1pt}}
