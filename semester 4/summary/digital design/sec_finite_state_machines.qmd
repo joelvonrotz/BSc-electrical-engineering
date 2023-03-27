@@ -1,5 +1,7 @@
 # Finite State Machines (FSM)
 
+Eine Zustandsmaschine beschreibt ein System in diskreten Zuständen. In **VHDL** wird für Mealy- & Moore-Automaten jeweils ein [*memoryless*]{.underline} und ein [*memorizing*]{.underline} Prozess verwendet. Der [*memoryless*]{.underline} Prozess verarbeitet die Zustandswechsel und die Ausgänge (wobei dies Abhängig vom FSM-Typ ist). Der [*memorizing*]{.underline} Prozess ist für die Zustands-Zurücksetzung und -zuweisung zuständig.
+
 ::: callout-note
 ## Allgemeine Definition ZSM
 
@@ -22,7 +24,7 @@ s[k+1] = f(i[k], s[k])
 
 ## FSM-Typ: Mealy
 
-![](images/fsm_mealy.png){fig-align="center" width="5cm"}
+![](images/fsm_mealy.png){fig-align="center" width="4cm"}
 
 ```{=latex}
 \begin{align*}
@@ -34,7 +36,7 @@ Beim *Mealy* werden die Ausgänge [beim Zustandswechsel]{.underline} geändert.
 
 ## FSM-Typ: Moore
 
-![](images/fsm_moore.png){fig-align="center" width="6.9cm"}
+![](images/fsm_moore.png){fig-align="center" width="5.5cm"}
 
 ```{=latex}
 \begin{align*}
@@ -72,6 +74,12 @@ $$
 n_{para}=2^N - S \qquad n_{para}\big\rvert_{S=3,N=2}=2^2-3=1
 $$
 
+Folgende Formel kann die Anzahl benötigten Flip-Flops berechnen
+
+$$
+N = \left\lceil \log_2(S) \right\rceil = \left\lceil \frac{\log(S)}{\log(2)} \right\rceil \qquad N\big\rvert_{S=3}=\left\lceil\log_2(5)\right\rceil = 3
+$$
+
 ```{=latex}
 \begin{conditions}
   N & Anzahl Flip-Flops \\
@@ -79,6 +87,8 @@ $$
 \end{conditions}
 ```
 ## State Encoding
+
+Zustände können auf verschiedene Arten dargestellt werden, bekannte Varianten sind *binär* und *One Hot*.
 
 ```{=latex}
 \begin{center}
@@ -97,10 +107,25 @@ $S_2$                                     & \texttt{10}                         
 \end{tabularx}
 \end{center}
 ```
+::: callout-warning
+## Parasitäre Zustände
+
+Alle **ungebrauchten** Zustände sind *parasitäre Zustände*!
+:::
 
 ### Binär
 
+Meistverwendetes Format ist *binär*, da es **kompakt** und **einfach erweiterbar** ist.
+
+-   $S_0\ \rightarrow$ `0000`
+
+-   $S_1\ \rightarrow$ `0001`
+
+-   $S_2\ \rightarrow$ `0010`
+
 ### One-Hot
+
+Bei *One-Hot* ist **ein Bit** *high* und **alle anderen Bits** *low* oder in anderen Worten, nur ein Bit ist aktiv.
 
 ## Goldene Regeln der (FSM) Implementierung
 

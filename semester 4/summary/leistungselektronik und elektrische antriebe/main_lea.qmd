@@ -40,4 +40,26 @@ highlight-style: github
 
 <!-- [Chapters] -->
 
-{{< include chapters/01_einfuehrung.qmd >}} {{< include chapters/02_grundlagen.qmd >}} {{< include chapters/03_gleichstrommaschine.qmd >}} {{< include chapters/04_gleichstromsteller.qmd >}} {{< include chapters/05_fremdgeführt_gleichrichter.qmd >}} {{< include chapters/06_leistungshalbleiter.qmd >}} {{< include chapters/07_transformatoren.qmd >}} {{< include chapters/08_drehfeldmaschinen.qmd >}} {{< include chapters/09_synchronmaschine.qmd >}} {{< include chapters/10_asynchronmaschine.qmd >}} {{< include chapters/11_selbstgeführter_wechselrichter.qmd >}} {{< include chapters/12_umrichter.qmd >}}
+{{< include chapters/01_einfuehrung.qmd >}}
+
+{{< include chapters/02_grundlagen.qmd >}}
+
+{{< include chapters/03_gleichstrommaschine.qmd >}}
+
+{{< include chapters/04_gleichstromsteller.qmd >}}
+
+{{< include chapters/05_fremdgeführt_gleichrichter.qmd >}}
+
+{{< include chapters/06_leistungshalbleiter.qmd >}}
+
+{{< include chapters/07_transformatoren.qmd >}}
+
+{{< include chapters/08_drehfeldmaschinen.qmd >}}
+
+{{< include chapters/09_synchronmaschine.qmd >}}
+
+{{< include chapters/10_asynchronmaschine.qmd >}}
+
+{{< include chapters/11_selbstgeführter_wechselrichter.qmd >}}
+
+{{< include chapters/12_umrichter.qmd >}}

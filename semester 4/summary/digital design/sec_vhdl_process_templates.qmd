@@ -4,7 +4,7 @@
 Der Inhalt der Prozess-Templates wird in den `=>CUSTOM` gekennzeichneten Abschnitten geschrieben.
 :::
 
-## positive getriggertes D-FlipFlop
+## Positive Getriggertes D-FlipFlop
 
 ### Mit asynchronem Reset
 
@@ -35,3 +35,104 @@ begin
   end if;
 end process;
 ```
+
+## Finite State Machine
+
+### Mealy
+
+``` vhdl
+type state is (S0, S1, S2);
+signal c_st, n_st : state;
+
+p_seq: process (rst, clk) -- <1>
+begin
+  if rst = ’1’ then
+    c_st <= S0;
+  elsif rising_edge(clk) then
+    c_st <= n_st;
+  end if;
+end process;
+
+p_com: process (i, c_st) -- <2>
+begin
+  -- default assignments
+  n_st <= c_st; -- remain in current state
+  o <= ’1’; -- most frequent value
+  -- specific assignments
+  case c_st is
+    when S0 =>
+      if i = "00" then
+        o <= ’0’; 
+        n_st <= S1;
+      end if;
+    when S1 =>
+      if i = "00" then
+        n_st <= S2;
+      elsif i = "10" then
+        n_st <= S0;
+      end if;
+    when S2 =>
+      if i = "10" then
+        o <= ’0’;
+        n_st <= S0;
+      elsif i = "11" then
+        n_st <= S1;
+      end if;
+  when others =>
+    -- handle parasitic states
+    n_st <= S0; 
+  end case;
+end process;
+```
+
+1.  [*Memorizing*]{.underline} (sequentielle Logik)
+2.  [*Memoryless*]{.underline} (kombinatorische Logik)
+
+### Moore
+
+``` vhdl
+type state is (S0, S1, S2);
+signal c_st, n_st : state;
+
+p_seq: process (rst, clk) -- <1>
+begin
+  if rst = ’1’ then
+    c_st <= S0;
+  elsif rising_edge(clk) then
+    c_st <= n_st;
+  end if;
+end process;
+
+p_com: process (i, c_st) -- <2>
+begin
+  -- default assignments
+  n_st <= c_st; -- remain in current state
+  o <= ’1’; -- most frequent value
+  -- specific assignments
+  case c_st is
+    when S0 =>
+      if i = "00" then
+        n_st <= S1;
+      end if;
+    when S1 =>
+      if i = "00" then
+        n_st <= S2;
+      elsif i = "10" then
+        n_st <= S0;
+      end if;
+      o <= ’0’; -- uncondit. output assignment
+    when S2 =>
+      if i = "10" then
+        n_st <= S0;
+      elsif i = "11" then
+        n_st <= S1;
+      end if;
+    when others =>
+      -- handle parasitic states
+      n_st <= S0;
+  end case;
+end process;
+```
+
+1.  [*Memorizing*]{.underline} (sequentielle Logik)
+2.  [*Memoryless*]{.underline} (kombinatorische Logik)
