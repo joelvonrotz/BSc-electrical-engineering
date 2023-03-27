@@ -16,7 +16,7 @@ format:
     output-file: "s4_advanced_embedded_systems"
 
 source:
-  github: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+  github: "https://github.com/joelvonrotz/bachelor-electrical-engineering/tree/main/semester%204/summary/advanced%20embedded%20systems"
 
 pdf-engine: pdflatex
 # [DOCUMENT CONFIGURATION] ============================
@@ -28,6 +28,7 @@ geometry:
 papersize: a4
 fontenc: T1
 fontsize: 10pt
+classoption: [german]
 
 code-block-border-left: false
 code-block-bg: "#f7f7f7"

@@ -1,1 +1,65 @@
 # Kernel
+
+## FreeRTOS Interrupts
+
+*FreeRTOS* benötigt zwei Interrupts:
+
+-   `SysTick` oder irgendein Timer Interrupt
+
+-   Software Interrupts
+
+    -   `SVCall` - sofortige Ausführung
+
+    -   `PendableSrvReq` - führt aus, sobald möglich (daher *pendable*)
+
+::: callout-note
+### Wer bearbeitet welche Interrupts?
+
+Dies ist **Port-abhängig** und daher nicht definitiv, ausser das FreeRTOS mindestens die zwei nötigen Interrupts von vorher behandelt.
+
+Im Port für die AEMBS-Mikrocontroller behandelt das OS nur die beiden Interrupts, die anderen sind unter Kontrolle von der Anwendung.
+:::
+
+## Hardware Stack
+
+Bei Programmstart wird mit dem **MSP** gearbeitet, welcher für **Interrupts** und **Exception Handling** zuständig ist. Wird der Scheduler gestartet werden für **Tasks** der PSP verwendet.
+
+**Vorteil** davon ist, dass die **Stacks separat** sind und somit kann der Task nicht in den Hauptstack hinein*pfuschen*.
+
+## Critical Sections
+
+Standardmässig verwendet das FreeRTOS [keine]{.underline} Critical Sections für seine Datenstrukturen. Das (De)aktivieren von Interrupts benötigt Zeit und kann je nach dem kritische Verzögerungen einführen.
+
+::: callout-tip
+## Facts
+
+-   Interrupts bleiben eingeschaltet
+
+-   Effizienz und weniger Interrupt Latenz
+
+-   RTOS API mit FromISR Suffix benutzten Critical Sections
+:::
+
+## `PRIMASK` & `BASEPRI` 
+
+Diese Register werden für Interrupt-Disable/Enable in FreeRTOS verwendet, damit logischerweise die Interrupts aktiviert und deaktiviert werden können.
+
+**`PRIMASK`** -- 1-Bit Register, welches bei `1` die Ausführung der Interrupts im ISR deaktiviert. `0` aktiviert die Ausführung wieder.
+
+**`BASEPRI`** -- Ein [nicht-null]{.underline} Wert, welcher einer Aufwärtsmaskierung von Interrupts angibt, welche deaktiviert werden. `0` ist die höchste Priorität und kann nicht deaktiviert werden, daher ein [nicht-null]{.underline} Wert.
+
+![](images/basepri_mask.png){fig-align="center" width="6cm"}
+
+::: callout-important
+## LPC845 & TinyK22
+
+Der LPC845 (Cortex M0+) verfügt über kein `BASEPRI` und deaktiviert daher bei einem Interrupt-Disable/Enable alle Interrupts. Der TinyK22 (Cortex M4F) verfügt über ein `BASEPRI`-Register.
+:::
+
+::: callout-note
+## Atomic Operation
+
+Verfügt der MCU über *Atomic Operations* (1-Zyklus Operationen von anderen Threads oder von Aussen betrachtet), werden gewisse Critical Sections wegdefiniert (z.B. bei `TICK_TYPE`).
+:::
+
+![](images/paste-2.png){fig-align="center" width="11cm"}
