@@ -170,7 +170,7 @@ $$
 R_S=\sqrt{\frac{\pi\mu_{Leiter}f}{\sigma_{Leiter}}}
 $$
 
-definiert ist. Die unterschiedlichen Belagsgrössen sind abhänig von der Leitergeometrie
+definiert ist. Die unterschiedlichen Belagsgrössen sind abhängig von der Leitergeometrie
 
 ![](images/03_Belagsgroessen.png)
 
@@ -287,7 +287,7 @@ $$
 u_1(t)=\sum U_i \qquad u_2(t)=\sum U_i
 $$
 
-Zu Beginn wird das Signal von $U_Q=1\text{V}$ angelegt, dauert es $1\cdot t_d$ bis die Spannung $U_{V_0}$ das Ende des Leiters erreicht.
+Zu Beginn wird das Signal von $U_Q=1\text{V}$ angelegt und es dauert $1\cdot t_d$ bis die Spannung $U_{V_0}$ das Ende des Leiters erreicht.
 
 $$
 U_{V_0} = U_Q \cdot \frac{Z_0}{R_Q+Z_0}
@@ -307,7 +307,9 @@ $$
 
 `\end{multicols}`{=latex}
 
-![](images/03_ausgleichsvorgang_u2.png){#fig-ausgleichsvorgang-u2 fig-align="center" width="8cm"}
+Folgend zeigt eine "Messung" von $u_2(t)$ mit folgenden Widerstandswerten: $R_Q=0\Omega,\, Z_0=50\Omega,\, R_L=100\Omega,\, l=1\text{m},\, v=0.5c_0$
+
+![Ausgleichsvorgang $u_2(t)$](images/03_ausgleichsvorgang_u2.png){#fig-ausgleichsvorgang fig-align="center" width="8cm"}
 
 # Drahtlose Signalübertragung & -Filterung
 

@@ -1,5 +1,5 @@
 ---
-title: "Zusammenfassung Nachrichtentechnik"
+title: "Nachrichtentechnik"
 author: "Joel von Rotz & Andreas Ming"
 date: now
 
@@ -29,6 +29,7 @@ geometry:
 - "right=25mm"
 papersize: a4
 fontsize: 10pt
+fig-pos: H
 
 code-block-border-left: false
 code-block-bg: "#f7f7f7"
