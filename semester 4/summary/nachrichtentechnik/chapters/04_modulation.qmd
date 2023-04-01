@@ -4,6 +4,44 @@
 
 ## Basisbandmodulator
 
+`\begin{multicols}{2}`{=latex}
+
+Digitales Symbol, `\textcolor{NavyBlue}{Zahl}`{=latex}
+
+$$
+\{0,\ 1\}
+$$
+
+Bitdauer
+
+$$
+T_b\ [\text{s}]
+$$
+
+Bitrate
+
+$$
+r_b=\frac{1}{T_b}\ \left[\frac{\text{bit}}{\text{1}}\right]
+$$
+
+Physikalisches Symbol, `\textcolor{NavyBlue}{Puls}`{=latex}
+
+![](images/05_basisbandmodulator_puls.png){width="5cm"}
+
+Symboldauer
+
+$$
+T_s\ [\text{s}]
+$$
+
+Symbolrate 
+
+$$
+r_s = \frac{1}{T_s}\ [\text{baud}]
+$$
+
+`\end{multicols}`{=latex}
+
 ## Klassische binäre Leitungscodes
 
 -   *Non Return to Zero* (NRZ) Code
