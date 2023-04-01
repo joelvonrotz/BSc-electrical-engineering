@@ -4,13 +4,10 @@
 
 *FreeRTOS* benötigt zwei Interrupts:
 
--   `SysTick` oder irgendein Timer Interrupt
-
--   Software Interrupts
-
-    -   `SVCall` - sofortige Ausführung
-
-    -   `PendableSrvReq` - führt aus, sobald möglich (daher *pendable*)
+- `SysTick` oder irgendein Timer Interrupt
+- Software Interrupts
+    - `SVCall` - sofortige Ausführung
+    - `PendableSrvReq` - führt aus, sobald möglich (daher *pendable*)
 
 ::: callout-note
 ### Wer bearbeitet welche Interrupts?
@@ -40,7 +37,7 @@ Standardmässig verwendet das FreeRTOS [keine]{.underline} Critical Sections fü
 -   RTOS API mit FromISR Suffix benutzten Critical Sections
 :::
 
-## `PRIMASK` & `BASEPRI` 
+## `PRIMASK` & `BASEPRI`
 
 Diese Register werden für Interrupt-Disable/Enable in FreeRTOS verwendet, damit logischerweise die Interrupts aktiviert und deaktiviert werden können.
 

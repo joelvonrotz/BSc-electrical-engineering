@@ -123,7 +123,7 @@ $$
 sys = tf(4,[1 2 10]);
 ```
 
-### Bode-Diagramm
+### Bode-Diagramm `bode`
 
 ``` matlab
 bode(sys,{0.1,100}); % or bode(sys);
@@ -132,7 +132,7 @@ bode(sys,{0.1,100}); % or bode(sys);
 
 ![](images/matlab_BodePlotResponse.png)
 
-### Nyquist-Diagramm
+### Nyquist-Diagramm `nyquist`
 
 ``` matlab
 nyquist(sys)
@@ -140,7 +140,7 @@ nyquist(sys)
 
 ![](images/matlab_NyquistPlotResponse.png.png)
 
-### Sprungantwort `step(…)`
+### Sprungantwort `step`
 
 Mit `step(…)` kann eine Transferfunktion mit der Sprungfunktion $\sigma$ verwendet werden. Damit
 
@@ -150,7 +150,7 @@ step(sys);
 
 ![](images/matlab_StepResponsePlot.png)
 
-### Impulsantwort `impulse(…)`
+### Impulsantwort `impulse`
 
 Mit `impulse(…)` kann die Impulsantwort der Transferfunktion ausgegeben werden.
 
@@ -160,7 +160,22 @@ impulse(sys);
 
 ![](images/matlab_ImpulseResponsePlot.png)
 
-## Zustandsraumdarstellung `ss(…)`
+### Pol-Nullstellen-Diagramm `pzmap`
+
+``` matlab
+pzmap(sys);
+ylim([-4 4]); xlim([-1.2 0]);
+```
+
+![](images/matlab_PoleZeroMap.png)
+
+::: callout-caution
+## MATLAB Zauber
+
+Damit die Pol- und Nullstellen erkennbar sind, muss eventuell mit den Darstellungsgrenzen gespielt werden.
+:::
+
+## Zustandsraumdarstellung `ss()`
 
 Mit `ss(…)` können vier Matrizen $A, B,C,D$ zu einer Zustandsraumdarstellung zusammengeführt werden.
 

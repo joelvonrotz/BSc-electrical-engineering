@@ -79,6 +79,4 @@ highlight-style: github
 
 `\end{multicols}`{=latex}
 
----
-
 {{< include sec_glossar.qmd >}}
