@@ -2,5 +2,25 @@
   "[quarto]": {
     "editor.snippetSuggestions": "inline"
   },
-  "quarto.visualEditor.spellingDictionary": "de_DE"
+  "quarto.visualEditor.spellingDictionary": "de_DE",
+  "todohighlight.keywords": [
+    {
+      "text": " NOTE ",
+      "border": "2px solid #6C8EBF",
+      "borderRadius": "4px",
+      "fontWeight": "bold",
+      "color": "black",
+      "isWholeLine": false,
+      "backgroundColor": "#DAE8FC"
+    },
+    {
+      "text": " TODO ",
+      "border": "2px solid #B85450",
+      "borderRadius": "4px",
+      "fontWeight": "bold",
+      "color": "black",
+      "isWholeLine": false,
+      "backgroundColor": "#F8CECC"
+    }
+  ],
 }
