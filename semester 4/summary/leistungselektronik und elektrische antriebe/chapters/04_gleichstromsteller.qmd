@@ -1,1 +1,130 @@
 # Gleichstromsteller
+
+Gleichstromsteller haben die Aufgabe, eine Gleichspannung $U_1$ in eine gegenüber $U_1$ höhere oder tiefere Gleichspannung $U_2$ umzuwandeln
+
+![](images/04_DC-Steller_Ungeregelt.png)
+
+Die Eingangsspannung $U_1$ wird oft mit einem ungesteuerten Gleichrichter erzeugt, folgt also alfälligen Netzspannungsschwankungen. Die Ausgangsspannung $U_2$ kann durch einen Regelkreis auf den gewünschten Wert eingestellt werden
+
+![](images/04_DC-Steller_Geregelt.png)
+
+Folgende Gleichstromsteller sind hauptsächlich im Einsatz
+
++--------------------------------+--------------------------------+--------------------------+
+| Tiefsetz- oder Abwärtssteller  | step-down (**buck**) converter | $U_2<U_1$                |
++--------------------------------+--------------------------------+--------------------------+
+| Hochsetz- oder Aufwärtssteller | step-up (**boost**) converter  | $U_2>U_1$                |
++--------------------------------+--------------------------------+--------------------------+
+| Hochsetz-Tiefsetz-Steller /\   | buck-boos converter /\         | $U_2<U_1$ oder $U_2>U_1$ |
+| Vierquadrantensteller          | full bridge converter          |                          |
++--------------------------------+--------------------------------+--------------------------+
+| Durchfluss- und Sperrwandler   |                                | integrierter Trafo       |
++--------------------------------+--------------------------------+--------------------------+
+
+## Abwärtsteller
+
+![](images/04_Chopper.png)
+
+Durch Regelmässigers ein- und ausschalten von $S$, lässt sich über die Impulsdauer der Mittelwert ($AV=\text{average}$) der Ausgangsspannung $U_2$ einstellen
+
+$$
+U_{2_{AV}}=\frac{1}{T}\int_{0}^{T_{ein}}{u_2(t)dt}=\frac{T_{ein}}{T}U_1 = aU_1 \qquad\text{mit}\space a=\frac{T_{ein}}{T}
+$$
+
+Unter der Annahme, dass der Steller verlustfrei arbeitet, gilt
+
+$$
+P_1=U_1I_{1_{AV}}
+$$
+
+$$
+P_2=U_{2_{AV}}I_{2_{AV}}=aU_1I_{2_{AV}}
+$$
+
+Und damit
+
+$$
+I_{1_{AV}}=aI_{2_{AV}}
+$$
+
+Wir erhalten also folgende Strom- / Spannungsverläufe im stationären Betrieb
+
+![](images/04_ChopperWaveform.png)
+
+### Standard DC-Last
+
+![](images/04_ChopperDC-Last.png)
+
+Da der Mittelwert der Spannung über $L$ im stationären Betrieb null sein muss, gilt
+
+$$
+U_{2_{AV}}=R\cdot I_{2_{AV}}+U_0\qquad\text{bzw.}\qquad I_{2_{AV}}=\frac{U_{2_{AV}}-U_0}{R}
+$$
+
+Allgemein gilt
+
+$$
+u_2=L\cdot\frac{di}{dt}+R\cdot i+U_0
+$$
+
+### Nicht idealer Stromverlauf
+
+Bei einer hohen Induktivität, wird der Strom $I_2(t)$ gut geglättet. Ist die Induktivität jedoch nicht sehr hoch oder die Taktfrequenz nicht deutlich kleiner als die Zeitkonstante $\tau=\frac{L}{R}$ , setzt sich der Stromverlauf aus Auschnitten von $e$-Funktionen zusammen
+
+![](images/04_e-Functions.png)
+
+### Glättungskondensator
+
+Wird die Quelle mit einem Glättungskondensator ausgestattet, wird dieser mit unten dargestelltem Strom belastet
+
+![](images/04_Gl%C3%A4ttungskondensator.png)
+
+### Arbeitspunkteinstellung
+
+Bei Erhöhung des Aussteuerungsgrades $a$, stellt sich ein neuer stabiler Arbeitspunkt ein
+
+![](images/04_AP-Einstellung.png)
+
+### Lückbetrieb
+
+Im Lückbetrieb wird $i_2(t)$ periodisch null. Das ist der Fall, wenn der **Strommittelwert kleiner als der halbe Stromrippel** ist. Die Ausgangsspannung wird bei Vorhandensein einer genügend grossen Kapazität parallel zum Lastwiderstand höher und abhängig vom Laststrom
+
+![](images/04_Lueckbetrieb.png)
+
+### Toleranzbandsteuerung
+
+Die Toleranzbandsteuerung beschreibt ein Prinzip, das ohne Pulsdauer- und Pulsfrequenzsteuerung auskommt. Der Schalter $S$ wird dann geschlossen, wenn der Strom nach unten aus dem Toleranzband läuft und geöffnet, wenn der Strom die obere Gernze des Toleranzbandes überschreitet.
+
+![](images/04_Toleranzband.png)
+
+## Aufwärtssteller
+
+![](images/04_Boost.png)
+
+Durch Regelmässigers ein- und ausschalten von $S$, lässt sich über die Impulsdauer der Mittelwert ($AV=\text{average}$) der Ausgangsspannung $U_2$ einstellen
+
+$$U_{2_{AV}}=U_1\frac{1}{1-a}\qquad \text{mit}\space a=\frac{T_{ein}}{T}$$ Unter der Annahme, dass der Steller verlustfrei arbeitet, gilt
+
+$$
+I_{2_{AV}}=I_{1_{AV}}(1-a)
+$$
+
+## Vierquadrantensteller
+
+Der Vierquadrantensteller (engl. Full Bridge DC-DC Converter) ist ein selbstgeführter Wechselrichter, kann aber auch als DC-Steller eingesetzt werden
+
+![](images/04_Vierquadrantensteller.png)
+
+## Gleichstromsteller mit GTO
+
+Bei gebrauch realer Halbleiter, müssen diese geschützt werden. Wird Ein GTO (Gate Turn Off Thyristor) eingesetzt, so müssen Strom- und Spannungssteilheit durch Entlastungsnetzwerke begrenzt werden
+
+![](images/04_GTO_Chopper.png)
+
+**Stromsteilheitsbegrenzung beim Einschalten**
+
+Zur Begrenzung des Einschaltstroms wird manchmal eine zusätzliche Induktivität $L_B$ benötigt, wenn die vorhandene Leitungsinduktivität $L_\sigma$ nicht ausreicht. $L_B$ muss jedoch mit einem Freilaufkreis ($D_{FL}$, $R_{FL}$) versehen werden, um Probleme beim Abschalten zu vermeiden. Zusammen bilden $L_B$, $D_{FL}$ und $R_{FL}$ das Einschaltentlastungsnetzwerk.
+
+**Spannungssteilheitsbegrenzung beim Abschalten**
+
+Die Spannungssteilheit beim Abschalten muss begrenzt werden, um Abschaltverluste zu minimieren und ungewolltes Wiedereinschalten zu vermeiden. Dazu wird ein Ausschaltentlastungsnetzwerk verwendet, bestehend aus einem Kondensator $C_B$, einem Widerstand $R_B$ und einem Bypass-Widerstand $D_B$. Die Komponenten sollten nah am GTO platziert werden und eine schnell schaltende Diode sowie einen induktivitätsarmen Kondensator enthalten. Der "Snubber" genannte Vorgang reduziert auch schädliche Überspannungen für den Halbleiter. $C_B$ sollte jedoch nicht zu gross sein, um den Schaltvorgang nicht unnötig zu verlangsamen.
