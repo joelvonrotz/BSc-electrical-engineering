@@ -123,7 +123,7 @@ $$
 
 ```{=latex}
 \begin{conditions}
-  c_0,\,c & Lichtgeschwindigkeit ($299'792'458 \tfrac{m}{s}$)
+  c_0,\,c & Lichtgeschwindigkeit ($299'792'458 \tfrac{m}{s}$ oder $3\cdot10^8\frac{m}{s}$)
 \end{conditions}
 ```
 Umrechnung der Spannungsreduktion von *Neper* $Np$ in *Dezibel* $dB$ erfolgt durch
@@ -353,7 +353,7 @@ Das Feld einer Antenne kann konzeptionell in ein **Nahfeld** und ein **Fernfeld*
 
 ![](images/04_Fernfeld.png)
 
-Im **Fernfeld** erscheint jede Antenne als *Punktstrahler*, die Kugelform kann jedoch vernachlässigt werden und man nimmt für die Ausbreitung eine *ebene Wellenfront* an. Als **Fernfeld** gilt der bereich ausserhalb $R_2$ nach
+Im **Fernfeld** erscheint jede Antenne als *Punktstrahler*, die Kugelform kann jedoch vernachlässigt werden und man nimmt für die Ausbreitung eine *ebene Wellenfront* an. Als **Fernfeld** gilt der bereich ausserhalb $R_2$, mit **dem Grösseren Wert von**
 
 $$
 R_2=\frac{2D^2}{\lambda}\qquad\text{oder}\qquad R_2=1.6\lambda
@@ -447,10 +447,10 @@ $$
 
 ![Antennengewinn für einen isotropen Strahler und eine gerichtete Antenne](images/04_IsotropGerichtet.png)
 
-Die Richtwirkung $D$ beträgt beim *isotropen Strahler* $1$. Bei einer *dipol-Antenne* gilt $D=1.64$. Allgemein wird die Richtwirkung über die maximale Leistungsdichte $S(\theta,\varphi)_{max}$ einer gerichteten Antenne bestimmt
+Die Richtwirkung $D$ beträgt beim *isotropen Strahler* $1$. Bei einer *dipol-Antenne* gilt $D=1.64$. Allgemein wird die Richtwirkung über die maximale Leistungsdichte $S(\theta,\varphi)_{max}$ einer gerichteten Antenne bestimmt (wobei $\Delta\theta°_{-3dB}$ und $\Delta\varphi°_{-3dB}$ den Öffnungswinkel in der Horizontalen- bzw. Vertikalen-Ebene beschreiben)
 
 $$
-D=\frac{S(\theta,\varphi)_{max}}{S_{iso}}\approx\frac{32400}{\theta°_{-3dB}\space\varphi°_{-3dB}}
+D=\frac{S(\theta,\varphi)_{max}}{S_{iso}}\approx\frac{32400}{\Delta\theta°_{-3dB}\space\Delta\varphi°_{-3dB}}
 $$
 
 ![](images/04_Richtdiagramm.png)
@@ -465,7 +465,15 @@ $$
 
 Die *Equivalent Isotropically Radiated Power* $EIRP$ beschreibt, dass bei $1kW$ Leistung an einem *isotropischen Strahler* die Feldstärke $H$ in $1km$ Entfernung $173\frac{mV}{m}$ beträgt.
 
+$$
+EIRP = P_{ant}G_i
+$$
+
 Die *Effektive Radiated Power* $ERP$ beschreibt, dass bei $1kW$ Leistung an einem vertikalen *Referenzdipol* die Feldstärke $H$ in $1km$ Entfernung $222\frac{mV}{m}$ beträgt.
+
+$$
+ERP=P_{ant}G_d
+$$
 
 Die beiden Grössen haben den direkten Zusammenhang
 
@@ -575,12 +583,12 @@ $\lambda$: Wellenlänge
 
 ### Empirisches Kanalmodell
 
-Empirisches Modell für Ausbreitungsverluste *(Power Law Propagation Regime)* ohne direkte Sichtverbindung. Parameter $\lambda$ des Modells wird mit Hilfe einer Regression aus Messwerten bestimmt oder es werden Typische Werte (siehe Tabelle) angenommen. Die Referenzdistanz $d_0$ ergibt sich mit der Kalibrierung des Messaufbaus, z.B. $d_0=1m$
+Empirisches Modell für Ausbreitungsverluste *(Power Law Propagation Regime)* ohne direkte Sichtverbindung. Parameter $\gamma$ des Modells wird mit Hilfe einer Regression aus Messwerten bestimmt oder es werden Typische Werte (siehe Tabelle) angenommen. Die Referenzdistanz $d_0$ ergibt sich mit der Kalibrierung des Messaufbaus, z.B. $d_0=1m$
 
 $$
-L_M=\left(4\pi\frac{d_0}{\lambda}\right)^2\left(\frac{r}{d_0}\right)^\lambda
+L_M=\left(4\pi\frac{d_0}{\gamma}\right)^2\left(\frac{r}{d_0}\right)^\gamma
 \qquad\text{oder}\qquad
-L_M[dB]=32.4+20\log_{10}{(f[GHz])}+10\lambda\log_{10}{(r[m])}
+L_M[dB]=32.4+20\log_{10}{(f[GHz])}+10\gamma\log_{10}{(r[m])}
 $$
 
 | Umfeld                                               | $\gamma$ Bereich |
