@@ -1,0 +1,51 @@
+---
+# Subtitle is added in before-body & config.tex in header
+title: "LED-Lauflicht"
+author: "Joel von Rotz"
+date: now
+
+lang: de
+
+# [RENDER CONFIGURATION] ==============================
+format:
+  pdf:
+    keep-tex: false
+    include-in-header:
+      - config.tex
+    template-partials:
+      - before-body.tex
+    output-file: "docu"
+
+pdf-engine: pdflatex
+# [DOCUMENT CONFIGURATION] ============================
+geometry: 
+- "top=25mm"
+- "bottom=25mm"
+- "left=15mm"
+- "right=15mm"
+papersize: a4
+fontsize: 10pt
+
+fig-pos: H
+
+toc: false
+number-sections: false
+pagenumbering: none
+---
+
+# Zustandsdiagramm FSM
+
+![](images/paste-2.png){fig-align="center" width="7cm"}
+
+# RTL-Schema *led_display*
+
+![](images/paste-1.png){fig-align="center" width="14cm"}
+
+# Aufstellung der Register
+
+| Entity        | Anzahl FF |
+|---------------|:---------:|
+| `led_control` |    47     |
+| `led_display` |     9     |
+
+: {tbl-colwidths="\[20,15\]"}
