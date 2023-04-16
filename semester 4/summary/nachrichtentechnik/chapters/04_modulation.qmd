@@ -97,3 +97,34 @@ $$
 mit Pulsamplitude $A$ und Pulsbreite $\tau$. Die Qualität ist proportional zur übertragenen AC-Signalleistung, die von der Kanalbandbreite abhängt
 
 ![](images/05_Kanalbandbreitenbegrenzung.png)
+
+## Angepasste Pulsformen
+
+Um Pulse mit besseren spektralen Eigenschaften zu erhalten, wird der Rechteckpuls (1) angepasst. Die Optimalen spektralen Eigenschaften besitzt ein $sinc$-Puls, welcher eine Bandbreite von $T$ aufweist, jedoch einen unendlichen Puls darstellt.
+
+Zur Entschärfung der zeitlichen Überlappungen wird der **Raised Cosine**-Puls verwendet
+
+![](images/05_Pulsformen.png)
+
+Der Impuls hat die Form
+
+$$
+p(t)=A\space\text{sinc}(r_bt)\cdot\frac{\cos{(2\pi\beta t)}}{1-(4\beta t)^2}
+$$
+
+$\beta$ hängt direkt von der Datenrate $r_b$, zur einfacheren Handhabung wird der *roll-off*-Faktor $\alpha$ in Prozent
+
+$$
+\alpha=\frac{2\beta}{r_b}100\%
+$$
+
+Im Frequenzbereich beschreibt der Puls ein Spektrumsverlauf mit $\cos^2$-förmige Flanke
+
+$$
+P(f)=
+\begin{cases}
+\frac{1}{r_b}\hfill |f|\le\frac{r_b}{2}-\beta\\
+\frac{1}{r_b}\cos^2\left(\frac{\pi}{4\beta}(|f|-\frac{r_b}{2}+\beta)\right)\qquad\hfill\frac{r_b}{2}-\beta<|f|<\frac{r_b}{2}+\beta\\
+0\hfill |f|\ge\frac{r_b}{2}+\beta
+\end{cases}
+$$
