@@ -43,9 +43,31 @@ pagenumbering: none
 
 # Aufstellung der Register
 
-| Entity        | Anzahl FF |
-|---------------|:---------:|
-| `led_control` |    47     |
-| `led_display` |     9     |
+Register entnommen via `get_cells -hier -filter {PRIMITIVE_TYPE =~ FLOP*}` in der *Tcl Console*.
 
-: {tbl-colwidths="\[20,15\]"}
+| Entity                | Register Namen        |     Anzahl FF     |
+|-----------------------|-----------------------|:-----------------:|
+| `rst_sync`            |                       |       **5**       |
+|                       | `rst_sr`              |         4         |
+|                       | `rst_po`              |         1         |
+| 2 $\times$ `sync_deb` |                       | 2 $\times$ **27** |
+|                       | `sync_r1`             |         1         |
+|                       | `sync_r2`             |         1         |
+|                       | `deb_out` / `deb_po`  |         1         |
+|                       | `deb_cnt`             |        24         |
+| 3 $\times$ `sync`     |                       | 3 $\times$ **2**  |
+|                       | `sync_tmp`            |         1         |
+|                       | `sync_po`             |         1         |
+| `led_control`         |                       |      **47**       |
+|                       | `c_st_int`            |         3         |
+|                       | `com_cnt`             |        27         |
+|                       | `end_tme`             |        12         |
+|                       | `faster_seq`          |         2         |
+|                       | `slower_seq`          |         2         |
+|                       | `shift_po`            |         1         |
+| `led_display`         |                       |       **9**       |
+|                       | `led_s` / `pattern_s` |         8         |
+|                       | `direction_s`         |         1         |
+|                       | **Total**             |      **121**      |
+
+: {tbl-colwidths="\[20,20,15\]"}
