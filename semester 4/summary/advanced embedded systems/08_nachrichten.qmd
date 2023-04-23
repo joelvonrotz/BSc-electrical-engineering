@@ -1,1 +1,13 @@
 # Nachrichten
+
+Grosse Systeme werden meist modularisiert und aufgeteilt. Die Teile des Systems können nur miteinander über Daten- & Nachrichtenaustausch kommunizieren (Interprozesskommunikation). In FreeRTOS werden dafür *Queues* & *Timer* verwendet.
+
+::: callout-important
+## Direct Task Notification
+
+Falls Queues nicht verwendet werden, kann die *Direct Task Notification* verwendet werden $\rightarrow$ [Direkte Kommunikation zwischen Tasks]{.underline} & [Interrupt zu einem Task]{.underline} möglich
+:::
+
+## Queues
+
+## Timer

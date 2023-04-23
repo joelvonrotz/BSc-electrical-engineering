@@ -1,0 +1,9 @@
+# Festkomma-Arithmetik
+
+$$
+0 \leq\sum^{W-1}_{k=0}b_k\cdot 2^{k-F} \leq 2^{W-F} - 2^{-F}
+$$
+
+$$
+-2^{W-F-1}\leq -b_{W-1}\cdot2^{W-F-1}+ \sum^{W-2}_{k=0}b_k\cdot 2^{k-F}\leq 2^{W-F-1}-2^{-F}
+$$

@@ -31,7 +31,6 @@ fontsize: 9pt
 
 code-block-border-left: false
 code-block-bg: "#f7f7f7"
-code-annotations: below
 
 fig-pos: H
 

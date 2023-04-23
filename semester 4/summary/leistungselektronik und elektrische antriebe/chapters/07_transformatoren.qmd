@@ -1,1 +1,7 @@
 # Transformatoren
+
+## Parameterbestimmung
+
+### Leerlaufversuch
+
+Trafo wird [primärseitig]{.underline} gespiesen und [sekundärseitig]{.underline} [offen]{.underline} gelassen.

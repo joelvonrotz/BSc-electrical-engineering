@@ -1,5 +1,5 @@
 ---
-title: "Zusammenfassung Leistungselektronik und Elektrische Antriebe"
+title: "Leistungselektronik & Elektrische Antriebe"
 author: "Joel von Rotz & Andreas Ming"
 date: now
 
@@ -30,6 +30,7 @@ fontsize: 10pt
 code-block-border-left: false
 code-block-bg: "#f7f7f7"
 
+fig-pos: H
 toc: true
 toc-depth: 3
 number-sections: true

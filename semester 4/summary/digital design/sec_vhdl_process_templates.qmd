@@ -1,4 +1,4 @@
-# Prozess Templates
+# Vorlagen
 
 ::: callout-note
 Der Inhalt der Prozess-Templates wird in den `=>CUSTOM` gekennzeichneten Abschnitten geschrieben.
@@ -94,7 +94,7 @@ end process;
 type state is (S0, S1, S2);
 signal c_st, n_st : state;
 
-p_seq: process (rst, clk) -- <1>
+p_seq: process (rst, clk)                       -- <1>
 begin
   if rst = ’1’ then
     c_st <= S0;
@@ -103,7 +103,7 @@ begin
   end if;
 end process;
 
-p_com: process (i, c_st) -- <2>
+p_com: process (i, c_st)                        -- <2>
 begin
   -- default assignments
   n_st <= c_st; -- remain in current state

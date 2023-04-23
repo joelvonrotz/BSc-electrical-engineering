@@ -175,6 +175,16 @@ ylim([-4 4]); xlim([-1.2 0]);
 Damit die Pol- und Nullstellen erkennbar sind, muss eventuell mit den Darstellungsgrenzen gespielt werden.
 :::
 
+## Margin `margin(tf)`
+
+Mit dem Befehl `margin(tf)` kann das Bode-Diagramm
+
+``` vhdl
+margin(tf(1,[1 2 1 0]))
+```
+
+![](images/PlotGainAndPhaseMarginsOfTransferFunctionExample_01.png)
+
 ## Zustandsraumdarstellung `ss()`
 
 Mit `ss(…)` können vier Matrizen $A, B,C,D$ zu einer Zustandsraumdarstellung zusammengeführt werden.

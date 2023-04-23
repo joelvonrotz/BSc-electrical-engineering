@@ -8,7 +8,7 @@
 
 ### Designflow
 
-![](images/vhdl_fpga_designflow.png){width="14cm"}
+![](images/vhdl_fpga_designflow.png)
 
 ### Struktur Datei
 
