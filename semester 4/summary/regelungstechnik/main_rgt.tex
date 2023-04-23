@@ -291,7 +291,7 @@
 
 \title{Regelungstechnik}
 \author{Joel von Rotz}
-\date{2023-03-27}
+\date{2023-04-23}
 
 \begin{document}
  % [START] title
@@ -328,7 +328,7 @@
 
 
 % fix missing code background
-\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[colback={shadecolor}, boxrule=0pt, frame hidden, enhanced, breakable]}{\end{tcolorbox}}\fi\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[frame hidden, borderline west={3pt}{0pt}{shadecolor}, enhanced, colback={codebgcolor}, boxrule=0pt, sharp corners, breakable]}{\end{tcolorbox}}\fi
+\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[colback={shadecolor}, boxrule=0pt, frame hidden, enhanced, breakable]}{\end{tcolorbox}}\fi\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[enhanced, sharp corners, colback={codebgcolor}, frame hidden, breakable, borderline west={3pt}{0pt}{shadecolor}, boxrule=0pt]}{\end{tcolorbox}}\fi
 
 \renewcommand*\contentsname{Inhaltsverzeichnis}
 {
@@ -371,7 +371,7 @@ Wird das Rückkopplungssignals des geschlossenen Kreises vom
 Eingangssignal entfernt, also die Leitung wird aufgebrochen, wird aus
 dem Kreis ein \emph{offener} Kreis.
 
-\begin{tcolorbox}[enhanced jigsaw, rightrule=.15mm, colback=white, arc=.35mm, colbacktitle=quarto-callout-caution-color!10!white, bottomrule=.15mm, colframe=quarto-callout-caution-color-frame, leftrule=.75mm, coltitle=black, breakable, titlerule=0mm, toptitle=1mm, bottomtitle=1mm, opacityback=0, title=\textcolor{quarto-callout-caution-color}{\faFire}\hspace{0.5em}{Vorsicht}, toprule=.15mm, left=2mm, opacitybacktitle=0.6]
+\begin{tcolorbox}[enhanced jigsaw, rightrule=.15mm, toprule=.15mm, leftrule=.75mm, opacityback=0, title=\textcolor{quarto-callout-caution-color}{\faFire}\hspace{0.5em}{Vorsicht}, opacitybacktitle=0.6, colback=white, arc=.35mm, bottomrule=.15mm, colframe=quarto-callout-caution-color-frame, coltitle=black, bottomtitle=1mm, left=2mm, toptitle=1mm, breakable, titlerule=0mm, colbacktitle=quarto-callout-caution-color!10!white]
 
 \textbf{Geschlossene} Kreise sind schwieriger zum Berechnen und zum
 Untersuchen, da diese ein rückgekoppeltes Signal (mit dem Eingangssignal
@@ -414,7 +414,7 @@ entspricht der Soll-Grösse.
  v & Störgrösse
 \end{conditions}
 
-\begin{tcolorbox}[enhanced jigsaw, rightrule=.15mm, colback=white, arc=.35mm, colbacktitle=quarto-callout-note-color!10!white, bottomrule=.15mm, colframe=quarto-callout-note-color-frame, leftrule=.75mm, coltitle=black, breakable, titlerule=0mm, toptitle=1mm, bottomtitle=1mm, opacityback=0, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Merkmale einer Regelung}, toprule=.15mm, left=2mm, opacitybacktitle=0.6]
+\begin{tcolorbox}[enhanced jigsaw, rightrule=.15mm, toprule=.15mm, leftrule=.75mm, opacityback=0, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Merkmale einer Regelung}, opacitybacktitle=0.6, colback=white, arc=.35mm, bottomrule=.15mm, colframe=quarto-callout-note-color-frame, coltitle=black, bottomtitle=1mm, left=2mm, toptitle=1mm, breakable, titlerule=0mm, colbacktitle=quarto-callout-note-color!10!white]
 
 Folgende Merkmale \textbf{muss} eine Regelung aufweisen. Liegt eines
 nicht vor, so handelt es sich nicht um eine Regelung.
@@ -480,7 +480,7 @@ Verhalten des Systems abhängig auf das Zielsystem ist.
   nur einen kleinen Einfluss auf die Systemqualität hat.
 \end{itemize}
 
-\begin{tcolorbox}[enhanced jigsaw, rightrule=.15mm, colback=white, arc=.35mm, colbacktitle=quarto-callout-note-color!10!white, bottomrule=.15mm, colframe=quarto-callout-note-color-frame, leftrule=.75mm, coltitle=black, breakable, titlerule=0mm, toptitle=1mm, bottomtitle=1mm, opacityback=0, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Merkmale}, toprule=.15mm, left=2mm, opacitybacktitle=0.6]
+\begin{tcolorbox}[enhanced jigsaw, rightrule=.15mm, toprule=.15mm, leftrule=.75mm, opacityback=0, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Merkmale}, opacitybacktitle=0.6, colback=white, arc=.35mm, bottomrule=.15mm, colframe=quarto-callout-note-color-frame, coltitle=black, bottomtitle=1mm, left=2mm, toptitle=1mm, breakable, titlerule=0mm, colbacktitle=quarto-callout-note-color!10!white]
 
 Die Störgrösse verfügt über vier Merkmale, welche für jedes System
 betrachtet soll:
@@ -533,7 +533,7 @@ Gleichgewichtslage erreicht.
 
 \vspace{0.3cm}
 
-\begin{tcolorbox}[enhanced jigsaw, rightrule=.15mm, colback=white, arc=.35mm, colbacktitle=quarto-callout-note-color!10!white, bottomrule=.15mm, colframe=quarto-callout-note-color-frame, leftrule=.75mm, coltitle=black, breakable, titlerule=0mm, toptitle=1mm, bottomtitle=1mm, opacityback=0, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Beispiel}, toprule=.15mm, left=2mm, opacitybacktitle=0.6]
+\begin{tcolorbox}[enhanced jigsaw, rightrule=.15mm, toprule=.15mm, leftrule=.75mm, opacityback=0, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Beispiel}, opacitybacktitle=0.6, colback=white, arc=.35mm, bottomrule=.15mm, colframe=quarto-callout-note-color-frame, coltitle=black, bottomtitle=1mm, left=2mm, toptitle=1mm, breakable, titlerule=0mm, colbacktitle=quarto-callout-note-color!10!white]
 
 Das Pendel, welches die gesamte Rotationsachse (\(360°\), rundherum)
 ausnützen kann, hat zwei Gleichgewichtslagen. Eine Lage ist wenn die
@@ -567,7 +567,7 @@ Zeitinvarianzen}\label{linearituxe4t-zeitinvarianzen}}
 \hypertarget{uxfcberlagerungsprinzip}{%
 \subsubsection{Überlagerungsprinzip}\label{uxfcberlagerungsprinzip}}
 
-\begin{tcolorbox}[enhanced jigsaw, rightrule=.15mm, colback=white, arc=.35mm, colbacktitle=quarto-callout-important-color!10!white, bottomrule=.15mm, colframe=quarto-callout-important-color-frame, leftrule=.75mm, coltitle=black, breakable, titlerule=0mm, toptitle=1mm, bottomtitle=1mm, opacityback=0, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Definition}, toprule=.15mm, left=2mm, opacitybacktitle=0.6]
+\begin{tcolorbox}[enhanced jigsaw, rightrule=.15mm, toprule=.15mm, leftrule=.75mm, opacityback=0, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Definition}, opacitybacktitle=0.6, colback=white, arc=.35mm, bottomrule=.15mm, colframe=quarto-callout-important-color-frame, coltitle=black, bottomtitle=1mm, left=2mm, toptitle=1mm, breakable, titlerule=0mm, colbacktitle=quarto-callout-important-color!10!white]
 
 Wenn \(y_1(t)\) die Antwort auf \(u_1(t)\) ist und \(y_2(t)\) die
 Antwort auf \(u_2(t)\) ist, so ist \(y_1(t) + y_2(t)\) die Antwort auf
@@ -586,7 +586,7 @@ Antwort auf \(u_2(t)\) ist, so ist \(y_1(t) + y_2(t)\) die Antwort auf
 \hypertarget{verstuxe4rkungsprinzip}{%
 \subsubsection{Verstärkungsprinzip}\label{verstuxe4rkungsprinzip}}
 
-\begin{tcolorbox}[enhanced jigsaw, rightrule=.15mm, colback=white, arc=.35mm, colbacktitle=quarto-callout-important-color!10!white, bottomrule=.15mm, colframe=quarto-callout-important-color-frame, leftrule=.75mm, coltitle=black, breakable, titlerule=0mm, toptitle=1mm, bottomtitle=1mm, opacityback=0, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Definition}, toprule=.15mm, left=2mm, opacitybacktitle=0.6]
+\begin{tcolorbox}[enhanced jigsaw, rightrule=.15mm, toprule=.15mm, leftrule=.75mm, opacityback=0, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Definition}, opacitybacktitle=0.6, colback=white, arc=.35mm, bottomrule=.15mm, colframe=quarto-callout-important-color-frame, coltitle=black, bottomtitle=1mm, left=2mm, toptitle=1mm, breakable, titlerule=0mm, colbacktitle=quarto-callout-important-color!10!white]
 
 Wenn \(y(t)\) die Antwort auf \(u(t)\) ist, \(\alpha\cdot y(t)\) ist die
 Antwort auf \(\alpha\cdot u(t)\).
@@ -604,7 +604,7 @@ Antwort auf \(\alpha\cdot u(t)\).
 \hypertarget{linearisierung}{%
 \subsection{Linearisierung}\label{linearisierung}}
 
-\begin{tcolorbox}[enhanced jigsaw, rightrule=.15mm, colback=white, arc=.35mm, colbacktitle=quarto-callout-tip-color!10!white, bottomrule=.15mm, colframe=quarto-callout-tip-color-frame, leftrule=.75mm, coltitle=black, breakable, titlerule=0mm, toptitle=1mm, bottomtitle=1mm, opacityback=0, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Vorgehen Linearisieren}, toprule=.15mm, left=2mm, opacitybacktitle=0.6]
+\begin{tcolorbox}[enhanced jigsaw, rightrule=.15mm, toprule=.15mm, leftrule=.75mm, opacityback=0, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Vorgehen Linearisieren}, opacitybacktitle=0.6, colback=white, arc=.35mm, bottomrule=.15mm, colframe=quarto-callout-tip-color-frame, coltitle=black, bottomtitle=1mm, left=2mm, toptitle=1mm, breakable, titlerule=0mm, colbacktitle=quarto-callout-tip-color!10!white]
 
 (@) Differentialgleichung gleich \(0\) setzen \(f(\cdots)=0\)
 
@@ -659,6 +659,122 @@ Die zugehörigen Nullstellen
 \end{matrix}\right.
 \]
 
+\hypertarget{pid-regler}{%
+\section{PID-Regler}\label{pid-regler}}
+
+\begin{figure}
+
+{\centering \includegraphics[width=6cm,height=\textheight]{images/pid_regler/pid_graph.png}
+
+}
+
+\end{figure}
+
+Die Aufgabe eines Reglers besteht darin, ausgehen von einem Regelfehler
+\(e\) zum Zeitpunkt \(t\) eine Stellgrösse \(u\) so zu bestimmen, dass
+der Fehler in absehbarer Zeit reduziert wird.
+
+\begin{tcolorbox}[enhanced jigsaw, rightrule=.15mm, toprule=.15mm, leftrule=.75mm, opacityback=0, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Verhalten Regler}, opacitybacktitle=0.6, colback=white, arc=.35mm, bottomrule=.15mm, colframe=quarto-callout-note-color-frame, coltitle=black, bottomtitle=1mm, left=2mm, toptitle=1mm, breakable, titlerule=0mm, colbacktitle=quarto-callout-note-color!10!white]
+
+Grössere Fehler sollten zu grösseren Stellgrössen führen und kleinere
+Fehler zu kleineren Stellgrössen.
+
+\end{tcolorbox}
+
+\hypertarget{k_p}{%
+\subsection{\texorpdfstring{\textcolor{BrickRed}{Proportional}
+\(k_p\)}{ k\_p}}\label{k_p}}
+
+P-Anteil verstärkt den Regelfehler \(e\) um die
+\emph{Proportionalverstärkung} \(k_p\).
+
+\[
+u = k_p (r-y)=k_p\cdot e
+\]
+
+\begin{tcolorbox}[enhanced jigsaw, rightrule=.15mm, toprule=.15mm, leftrule=.75mm, opacityback=0, title=\textcolor{quarto-callout-warning-color}{\faExclamationTriangle}\hspace{0.5em}{P-Regler}, opacitybacktitle=0.6, colback=white, arc=.35mm, bottomrule=.15mm, colframe=quarto-callout-warning-color-frame, coltitle=black, bottomtitle=1mm, left=2mm, toptitle=1mm, breakable, titlerule=0mm, colbacktitle=quarto-callout-warning-color!10!white]
+
+\(e=0\) ist mit einem P-Regler nicht möglich. Unter Annahme eines
+stabilen Regelkreises:
+
+\[
+G_{er}=\frac{1}{1+P\cdot C}=\frac{1}{1+P\cdot k_p}
+\]
+
+\[
+G_{er}(0)=\frac{1}{1+P(0)\cdot C(0)}=\frac{1}{1+P(0)\cdot k_p}
+\]
+
+\end{tcolorbox}
+
+\begin{tcolorbox}[enhanced jigsaw, rightrule=.15mm, toprule=.15mm, leftrule=.75mm, opacityback=0, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Proportionalband}, opacitybacktitle=0.6, colback=white, arc=.35mm, bottomrule=.15mm, colframe=quarto-callout-important-color-frame, coltitle=black, bottomtitle=1mm, left=2mm, toptitle=1mm, breakable, titlerule=0mm, colbacktitle=quarto-callout-important-color!10!white]
+
+\[
+u = \left\{
+\begin{array}{cl}
+u_{max} & \text{falls } e \geq e_{max} \\
+k_p\cdot e & \text{falls } e_{min} < e < e_{max} \\
+u_{min} & \text{falls } e \geq e_{min}
+\end{array}
+\right.
+\]
+
+mit
+
+\[
+e_{min}=\frac{u_{min}}{k_p} \qquad e_{max}=\frac{u_{max}}{k_p}
+\]
+
+\end{tcolorbox}
+
+\begin{tcolorbox}[enhanced jigsaw, rightrule=.15mm, toprule=.15mm, leftrule=.75mm, opacityback=0, title=\textcolor{quarto-callout-caution-color}{\faFire}\hspace{0.5em}{Permanentes Stellsignal \(u\)}, opacitybacktitle=0.6, colback=white, arc=.35mm, bottomrule=.15mm, colframe=quarto-callout-caution-color-frame, coltitle=black, bottomtitle=1mm, left=2mm, toptitle=1mm, breakable, titlerule=0mm, colbacktitle=quarto-callout-caution-color!10!white]
+
+Wird ein permanentes Stellsignal \(u\) benötigt, so gilt für den
+P-Regler einen bestimmten Fehler \(e \neq 0\).
+
+\end{tcolorbox}
+
+\hypertarget{k_it_i}{%
+\subsection{\texorpdfstring{\textcolor{NavyBlue}{Integral}
+\(k_i/T_i\)}{ k\_i/T\_i}}\label{k_it_i}}
+
+Mit dem I-Anteil werden \emph{vergangene} Fehler mitberechnet
+\(\rightarrow\) stationäre Fehler des P-Anteils wird wegkorrigiert.
+
+\[
+u = k_i\cdot\int_0^t e(\tau)\ {\text{d}\tau}
+\]
+
+Die Stellgrösse wird dadurch solange geregelt, bis der Regelfehler
+\(e=0\) wird.
+
+\hypertarget{k_dt_d}{%
+\subsection{\texorpdfstring{\textcolor{OliveGreen}{Proportional}
+\(k_d/T_d\)}{ k\_d/T\_d}}\label{k_dt_d}}
+
+\[
+e(t+T_d)\approx e(t)+T_d \frac{\text{d}e}{\text{d}t}
+\]
+
+\[
+u = k_d \frac{\text{d}e}{\text{d}t}
+\]
+
+\hypertarget{uxfcbertragungsfunktion}{%
+\subsection{Übertragungsfunktion}\label{uxfcbertragungsfunktion}}
+
+\[
+C(s)=k_p\left(1+\frac{k_i}{s}+k_d\cdot s\right)=k_p\left(1+\frac{1}{T_i\cdot s}+T_d\cdot s\right)
+\]
+
+\begin{tcolorbox}[enhanced jigsaw, rightrule=.15mm, toprule=.15mm, leftrule=.75mm, opacityback=0, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Wichtig}, opacitybacktitle=0.6, colback=white, arc=.35mm, bottomrule=.15mm, colframe=quarto-callout-important-color-frame, coltitle=black, bottomtitle=1mm, left=2mm, toptitle=1mm, breakable, titlerule=0mm, colbacktitle=quarto-callout-important-color!10!white]
+
+Diese Beschreibung ist nur eine \ul{idealisierte} Repräsentation, welche
+für das Verständnis des System hilfreich ist. Im \ul{praktischen}
+Einsatz sind Modifikationen notwendig.
+
+\end{tcolorbox}
+
 \hypertarget{matlab}{%
 \section{MATLAB}\label{matlab}}
 
@@ -676,7 +792,7 @@ eingeteilt und mit einem Semikolon \texttt{;} Reihenweise geteilt.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{tcolorbox}[enhanced jigsaw, rightrule=.15mm, colback=white, arc=.35mm, colbacktitle=quarto-callout-note-color!10!white, bottomrule=.15mm, colframe=quarto-callout-note-color-frame, leftrule=.75mm, coltitle=black, breakable, titlerule=0mm, toptitle=1mm, bottomtitle=1mm, opacityback=0, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Grösse \texttt{size}}, toprule=.15mm, left=2mm, opacitybacktitle=0.6]
+\begin{tcolorbox}[enhanced jigsaw, rightrule=.15mm, toprule=.15mm, leftrule=.75mm, opacityback=0, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Grösse \texttt{size}}, opacitybacktitle=0.6, colback=white, arc=.35mm, bottomrule=.15mm, colframe=quarto-callout-note-color-frame, coltitle=black, bottomtitle=1mm, left=2mm, toptitle=1mm, breakable, titlerule=0mm, colbacktitle=quarto-callout-note-color!10!white]
 
 Mit \texttt{size} kann die Grösse einer Variable ermittelt werden.
 \texttt{size} gibt als Resultat ein 1x2 Vektor zurück
@@ -731,7 +847,7 @@ aus, nämlich \(\begin{bmatrix}1 & 1\end{bmatrix}\)
 \end{bmatrix}
 \]
 
-\begin{tcolorbox}[enhanced jigsaw, rightrule=.15mm, colback=white, arc=.35mm, colbacktitle=quarto-callout-tip-color!10!white, bottomrule=.15mm, colframe=quarto-callout-tip-color-frame, leftrule=.75mm, coltitle=black, breakable, titlerule=0mm, toptitle=1mm, bottomtitle=1mm, opacityback=0, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Slicing}, toprule=.15mm, left=2mm, opacitybacktitle=0.6]
+\begin{tcolorbox}[enhanced jigsaw, rightrule=.15mm, toprule=.15mm, leftrule=.75mm, opacityback=0, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Slicing}, opacitybacktitle=0.6, colback=white, arc=.35mm, bottomrule=.15mm, colframe=quarto-callout-tip-color-frame, coltitle=black, bottomtitle=1mm, left=2mm, toptitle=1mm, breakable, titlerule=0mm, colbacktitle=quarto-callout-tip-color!10!white]
 
 Mit \emph{Slicing} kann ein Teil einer Matrix \textbf{kopiert} werden
 und einer anderen Variable zugewiesen werden.
@@ -747,7 +863,7 @@ und einer anderen Variable zugewiesen werden.
 \hypertarget{plotting}{%
 \subsection{Plotting}\label{plotting}}
 
-\begin{tcolorbox}[enhanced jigsaw, rightrule=.15mm, colback=white, arc=.35mm, colbacktitle=quarto-callout-note-color!10!white, bottomrule=.15mm, colframe=quarto-callout-note-color-frame, leftrule=.75mm, coltitle=black, breakable, titlerule=0mm, toptitle=1mm, bottomtitle=1mm, opacityback=0, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Figure-Separierung}, toprule=.15mm, left=2mm, opacitybacktitle=0.6]
+\begin{tcolorbox}[enhanced jigsaw, rightrule=.15mm, toprule=.15mm, leftrule=.75mm, opacityback=0, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Figure-Separierung}, opacitybacktitle=0.6, colback=white, arc=.35mm, bottomrule=.15mm, colframe=quarto-callout-note-color-frame, coltitle=black, bottomtitle=1mm, left=2mm, toptitle=1mm, breakable, titlerule=0mm, colbacktitle=quarto-callout-note-color!10!white]
 
 Mit \texttt{figure(n)} können mehrere Plot-Befehle in eigene Figuren
 geladen werden.
@@ -823,8 +939,9 @@ G_{\text{sys}}(s) = \frac{4}{s^2+s+10}
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{bode-diagramm}{%
-\subsubsection{Bode-Diagramm}\label{bode-diagramm}}
+\hypertarget{bode-diagramm-bode}{%
+\subsubsection{\texorpdfstring{Bode-Diagramm
+\texttt{bode}}{Bode-Diagramm bode}}\label{bode-diagramm-bode}}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -835,8 +952,9 @@ G_{\text{sys}}(s) = \frac{4}{s^2+s+10}
 
 \includegraphics{images/matlab_BodePlotResponse.png}
 
-\hypertarget{nyquist-diagramm}{%
-\subsubsection{Nyquist-Diagramm}\label{nyquist-diagramm}}
+\hypertarget{nyquist-diagramm-nyquist}{%
+\subsubsection{\texorpdfstring{Nyquist-Diagramm
+\texttt{nyquist}}{Nyquist-Diagramm nyquist}}\label{nyquist-diagramm-nyquist}}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -848,7 +966,7 @@ G_{\text{sys}}(s) = \frac{4}{s^2+s+10}
 
 \hypertarget{sprungantwort-step}{%
 \subsubsection{\texorpdfstring{Sprungantwort
-\texttt{step(…)}}{Sprungantwort step(\ldots)}}\label{sprungantwort-step}}
+\texttt{step}}{Sprungantwort step}}\label{sprungantwort-step}}
 
 Mit \texttt{step(…)} kann eine Transferfunktion mit der Sprungfunktion
 \(\sigma\) verwendet werden. Damit
@@ -863,7 +981,7 @@ Mit \texttt{step(…)} kann eine Transferfunktion mit der Sprungfunktion
 
 \hypertarget{impulsantwort-impulse}{%
 \subsubsection{\texorpdfstring{Impulsantwort
-\texttt{impulse(…)}}{Impulsantwort impulse(\ldots)}}\label{impulsantwort-impulse}}
+\texttt{impulse}}{Impulsantwort impulse}}\label{impulsantwort-impulse}}
 
 Mit \texttt{impulse(…)} kann die Impulsantwort der Transferfunktion
 ausgegeben werden.
@@ -876,9 +994,43 @@ ausgegeben werden.
 
 \includegraphics{images/matlab_ImpulseResponsePlot.png}
 
+\hypertarget{pol-nullstellen-diagramm-pzmap}{%
+\subsubsection{\texorpdfstring{Pol-Nullstellen-Diagramm
+\texttt{pzmap}}{Pol-Nullstellen-Diagramm pzmap}}\label{pol-nullstellen-diagramm-pzmap}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\VariableTok{pzmap}\NormalTok{(}\VariableTok{sys}\NormalTok{)}\OperatorTok{;}
+\VariableTok{ylim}\NormalTok{([}\OperatorTok{{-}}\FloatTok{4} \FloatTok{4}\NormalTok{])}\OperatorTok{;} \VariableTok{xlim}\NormalTok{([}\OperatorTok{{-}}\FloatTok{1.2} \FloatTok{0}\NormalTok{])}\OperatorTok{;}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{images/matlab_PoleZeroMap.png}
+
+\begin{tcolorbox}[enhanced jigsaw, rightrule=.15mm, toprule=.15mm, leftrule=.75mm, opacityback=0, title=\textcolor{quarto-callout-caution-color}{\faFire}\hspace{0.5em}{MATLAB Zauber}, opacitybacktitle=0.6, colback=white, arc=.35mm, bottomrule=.15mm, colframe=quarto-callout-caution-color-frame, coltitle=black, bottomtitle=1mm, left=2mm, toptitle=1mm, breakable, titlerule=0mm, colbacktitle=quarto-callout-caution-color!10!white]
+
+Damit die Pol- und Nullstellen erkennbar sind, muss eventuell mit den
+Darstellungsgrenzen gespielt werden.
+
+\end{tcolorbox}
+
+\hypertarget{margin-margintf}{%
+\subsection{\texorpdfstring{Margin
+\texttt{margin(tf)}}{Margin margin(tf)}}\label{margin-margintf}}
+
+Mit dem Befehl \texttt{margin(tf)} kann das Bode-Diagramm
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{margin(tf(}\DecValTok{1}\OtherTok{,[}\DecValTok{1} \DecValTok{2} \DecValTok{1} \DecValTok{0}\OtherTok{]}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{images/PlotGainAndPhaseMarginsOfTransferFunctionExample_01.png}
+
 \hypertarget{zustandsraumdarstellung-ss}{%
 \subsection{\texorpdfstring{Zustandsraumdarstellung
-\texttt{ss(…)}}{Zustandsraumdarstellung ss(\ldots)}}\label{zustandsraumdarstellung-ss}}
+\texttt{ss()}}{Zustandsraumdarstellung ss()}}\label{zustandsraumdarstellung-ss}}
 
 Mit \texttt{ss(…)} können vier Matrizen \(A, B,C,D\) zu einer
 Zustandsraumdarstellung zusammengeführt werden.
@@ -902,8 +1054,6 @@ angewendet werden, da die ZRD eine andere Darstellung der
 \section{Simulink}\label{simulink}}
 
 \end{multicols}
-
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
 \hypertarget{glossar}{%
 \section{Glossar}\label{glossar}}

@@ -1,0 +1,91 @@
+# PID-Regler
+
+![](images/pid_regler%5Cpid_graph.png){fig-align="center" width="6cm"}
+
+Die Aufgabe eines Reglers besteht darin, ausgehen von einem Regelfehler $e$ zum Zeitpunkt $t$ eine Stellgrösse $u$ so zu bestimmen, dass der Fehler in absehbarer Zeit reduziert wird.
+
+::: callout-note
+## Verhalten Regler
+
+Grössere Fehler sollten zu grösseren Stellgrössen führen und kleinere Fehler zu kleineren Stellgrössen.
+:::
+
+## `\textcolor{BrickRed}{Proportional}`{=latex} $k_p$
+
+P-Anteil verstärkt den Regelfehler $e$ um die *Proportionalverstärkung* $k_p$.
+
+$$
+u = k_p (r-y)=k_p\cdot e
+$$
+
+::: callout-warning
+## P-Regler
+
+$e=0$ ist mit einem P-Regler nicht möglich. Unter Annahme eines stabilen Regelkreises:
+
+$$
+G_{er}=\frac{1}{1+P\cdot C}=\frac{1}{1+P\cdot k_p}
+$$
+
+entsteht ein bleibender Fehler von:
+
+$$
+G_{er}(0)=\frac{1}{1+P(0)\cdot C(0)}=\frac{1}{1+P(0)\cdot k_p}
+$$
+:::
+
+::: callout-important
+## Proportionalband
+
+$$
+u = \left\{
+\begin{array}{cl}
+u_{max} & \text{falls } e \geq e_{max} \\
+k_p\cdot e & \text{falls } e_{min} < e < e_{max} \\
+u_{min} & \text{falls } e \geq e_{min}
+\end{array}
+\right.
+$$
+
+mit
+
+$$
+e_{min}=\frac{u_{min}}{k_p} \qquad e_{max}=\frac{u_{max}}{k_p}
+$$
+:::
+
+::: callout-caution
+## Permanentes Stellsignal $u$
+
+Wird ein permanentes Stellsignal $u$ benötigt, so gilt für den P-Regler einen bestimmten Fehler $e \neq 0$.
+:::
+
+## `\textcolor{NavyBlue}{Integral}`{=latex} $k_i/T_i$
+
+Mit dem I-Anteil werden *vergangene* Fehler mitberechnet $\rightarrow$ stationäre Fehler des P-Anteils wird wegkorrigiert.
+
+$$
+u = k_i\cdot\int_0^t e(\tau)\ {\text{d}\tau}
+$$
+
+Die Stellgrösse wird dadurch solange geregelt, bis der Regelfehler $e=0$ wird.
+
+## `\textcolor{OliveGreen}{Proportional}`{=latex} $k_d/T_d$
+
+$$
+e(t+T_d)\approx e(t)+T_d \frac{\text{d}e}{\text{d}t}
+$$
+
+$$
+u = k_d \frac{\text{d}e}{\text{d}t}
+$$
+
+## Übertragungsfunktion
+
+$$
+C(s)=k_p\left(1+\frac{k_i}{s}+k_d\cdot s\right)=k_p\left(1+\frac{1}{T_i\cdot s}+T_d\cdot s\right)
+$$
+
+::: callout-important
+Diese Beschreibung ist nur eine [idealisierte]{.underline} Repräsentation, welche für das Verständnis des System hilfreich ist. Im [praktischen]{.underline} Einsatz sind Modifikationen notwendig.
+:::
