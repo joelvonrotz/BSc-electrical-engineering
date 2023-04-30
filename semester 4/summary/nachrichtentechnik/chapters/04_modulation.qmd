@@ -20,7 +20,29 @@ Das Informationssignal als binärer Datenstrom wird als Leitungscode in einer Pu
 
 ![](images/04_Signalverlaufe_einiger_Leitungscodes.png){fig-align="center" width="12cm"}
 
-## Basisbandmodulator
+## Basisbandmodulation
+
+Übertragung im Basisband lässt Frequenzkomponenten von $0\text{ Hz}$ bis zu einer oberen Grenzfrequenz $f_g$ zu $\rightarrow$ [Tiefpass Charakteristik]{.underline}.
+
+::: {.callout-note}
+### Informationssignal Typ
+
+Wenn das Informationssignal in analoger oder digitaler Form vorliegt, werden unterschiedliche Implementierungskonzepte angewendet.
+:::
+
+### Bandbreitenbegrenzung
+
+Eine informationstragende Pulssequenz *stellt ein Zufallssignal dar*. die mittlere normierte spektrale Leistungsdichte einer Serie von polaren Rechteckpulsen für $n$ Datenbits entspricht
+
+$$
+G(f)=\frac{nA^2\tau^2sinc^2(f\tau)}{n\tau}=A^2\tau sinc^2(f\tau)\qquad\left[\frac{V^2}{Hz}\right]
+$$
+
+mit Pulsamplitude $A$ und Pulsbreite $\tau$. Die Qualität ist proportional zur übertragenen AC-Signalleistung, die von der Kanalbandbreite abhängt
+
+![](images/05_Kanalbandbreitenbegrenzung.png)
+
+### Basisbandmodulator
 
 `\begin{multicols}{2}`{=latex}
 
@@ -42,13 +64,11 @@ $$
 r_b=\frac{1}{T_b}\ \left[\frac{\text{bit}}{\text{1}}\right]
 $$
 
-Bsp.
+[Beispiel]{.underline}
 
--   Binär: $T_b=T_S$
-
--   2 Bit pro Symbol: $2T_b=T_S$
-
--   m Bit pro Symbol: $mT_b=T_S$
+- Binär: $T_b=T_S$
+- 2 Bit pro Symbol: $2T_b=T_S$
+- m Bit pro Symbol: $mT_b=T_S$
 
 \columnbreak
 
@@ -68,15 +88,20 @@ $$
 r_s = \frac{1}{T_s}\ [\text{baud}]
 $$
 
-Bsp.
+[Beispiel]{.underline}
 
--   Amplitudenstufen: $2^1=2$
+- Amplitudenstufen: $2^1=2$
+- Amplitudenstufen: $2^2=4$
+- Amplitudenstufen: $2^m$
 
--   Amplitudenstufen: $2^2=4$
-
--   Amplitudenstufen: $2^m$
+::: callout-tip
+Bit- und Datenrate ist zu unterscheiden, da eine Bitrate die
+:::
 
 `\end{multicols}`{=latex}
+
+
+
 
 ::: callout-note
 ## Fundamentaler Zusammenhang
@@ -86,17 +111,7 @@ $\text{Pulsdauer}\cdot\text{Bandbreite}\approx\text{konstant}$
 Es gilt also: je **kürzer** der Puls, desto **breiter** die Bandbreite
 :::
 
-### Bandbreitenbegrenzung
 
-Eine informationstragende Pulssequenz *stellt ein Zufallssignal dar*. die mittlere normierte spektrale Leistungsdichte einer Serie von polaren Rechteckpulsen für $n$ Datenbits entspricht
-
-$$
-G(f)=\frac{nA^2\tau^2sinc^2(f\tau)}{n\tau}=A^2\tau sinc^2(f\tau)\qquad\left[\frac{V^2}{Hz}\right]
-$$
-
-mit Pulsamplitude $A$ und Pulsbreite $\tau$. Die Qualität ist proportional zur übertragenen AC-Signalleistung, die von der Kanalbandbreite abhängt
-
-![](images/05_Kanalbandbreitenbegrenzung.png)
 
 ## Angepasste Pulsformen
 

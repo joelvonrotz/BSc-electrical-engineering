@@ -8,7 +8,7 @@ lang: de
 # [RENDER CONFIGURATION] ==============================
 format:
   pdf:
-    keep-tex: false
+    keep-tex: true
     include-in-header:
       - config.tex
     template-partials:
@@ -84,3 +84,5 @@ highlight-style: github
 {{< include 12_mcuxpresso.qmd >}}
 
 {{< include 13_questions.qmd >}}
+
+{{< include 14_misc.qmd >}}

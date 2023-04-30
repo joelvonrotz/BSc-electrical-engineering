@@ -9,7 +9,7 @@ lang: de
 # [RENDER CONFIGURATION] ==============================
 format:
   pdf:
-    keep-tex: false
+    keep-tex: true
     include-in-header:
       - config.tex
     template-partials:
@@ -32,7 +32,7 @@ fontsize: 9pt
 code-block-border-left: false
 code-block-bg: "#f7f7f7"
 
-fig-pos: H
+fig-pos: "H"
 
 toc: true
 toc-depth: 3

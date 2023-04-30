@@ -6,4 +6,4 @@
 
 ## Cortex M0/M0+ (LPC845)
 
-![](images/vector_table_cortex_m4.png)
+![](images/vector_table_cortex_m0.png)

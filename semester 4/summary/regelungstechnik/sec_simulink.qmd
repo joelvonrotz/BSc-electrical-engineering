@@ -1,1 +1,7 @@
 # Simulink
+
+::: callout-note
+## Warum Simulink?
+
+In MATLAB können Übertragungsfunktionen berechnet werden und Regelkreise simuliert werden. Warum trotzdem Simulink verwenden?
+:::

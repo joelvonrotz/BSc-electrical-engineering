@@ -1,1 +1,43 @@
 # Parallelität
+
+## Reentrancy
+
+### Dis-/Enable Interrupts
+
+::: callout-warning
+## Nachteil
+:::
+
+### Critical Sections
+
+``` c
+#define CriticalVariable() \
+  uint8_t cpuSR /* <1> */
+```
+1. definiert lokale Variable `cpuSR` für Sicherung des aktuellen Interrupt-Zustandes
+
+``` c
+#define EnterCritical()      \
+  do {                       \
+    __asm (                  \
+      "mrs   r0, PRIMASK \n" \ /* <1> */
+      "cpsid i           \n" \ /* <2> */
+      "strb r0, cpuSR    \n" \ /* <3> */
+    );                       \
+  } while(0)
+```
+1. `PRIMASK` wird in `R0` abgespeichert
+2. Interrupts deaktivieren
+3. `R0` in `cpuSR` abspeichern
+
+``` c
+#define ExitCritical()    \
+  do {                    \
+    __asm(                \
+      "ldrb r0, cpuSR \n" \ /* <1> */
+      "msr PRIMASK,r0 \n" \ /* <2> */
+    );                    \
+  } while(0)
+```
+1. Inhalt von `cpuSR` in `R0` laden
+2. `R0` nach `PRIMASK` kopieren.

@@ -1,5 +1,7 @@
 # PID-Regler
 
+![](images/pid_regler%5CPID-Controller-Graph-1906105412.png){fig-align="center" width="7cm"}
+
 ![](images/pid_regler%5Cpid_graph.png){fig-align="center" width="6cm"}
 
 Die Aufgabe eines Reglers besteht darin, ausgehen von einem Regelfehler $e$ zum Zeitpunkt $t$ eine Stellgrösse $u$ so zu bestimmen, dass der Fehler in absehbarer Zeit reduziert wird.
@@ -62,7 +64,7 @@ Wird ein permanentes Stellsignal $u$ benötigt, so gilt für den P-Regler einen 
 
 ## `\textcolor{NavyBlue}{Integral}`{=latex} $k_i/T_i$
 
-Mit dem I-Anteil werden *vergangene* Fehler mitberechnet $\rightarrow$ stationäre Fehler des P-Anteils wird wegkorrigiert.
+Mit dem I-Anteil werden *vergangene* Fehler mitberechnet $\rightarrow$ stationäre Fehler des P-Anteils wird korrigiert.
 
 $$
 u = k_i\cdot\int_0^t e(\tau)\ {\text{d}\tau}
@@ -72,13 +74,17 @@ Die Stellgrösse wird dadurch solange geregelt, bis der Regelfehler $e=0$ wird.
 
 ## `\textcolor{OliveGreen}{Proportional}`{=latex} $k_d/T_d$
 
-$$
-e(t+T_d)\approx e(t)+T_d \frac{\text{d}e}{\text{d}t}
-$$
+Der D-Anteil reagiert auf *zukünftige* Fehler, indem die Steigung mit einem Verstärkungsfaktor $k_d$ verstärkt wird.
 
 $$
-u = k_d \frac{\text{d}e}{\text{d}t}
+e(t+T_d)\approx e(t)+T_d \frac{\text{d}e}{\text{d}t} \qquad u = k_d \frac{\text{d}e}{\text{d}t}
 $$
+
+::: callout-important
+## Limitierung der D-Verstärkung
+
+**Grund**: Für träge Prozess führt eine sprungartige Veränderung (z.B. Sprungantwort oder Dirac-Impuls) zu einem sprungartigen Regelfehler $e(t)\approx \sigma$.
+:::
 
 ## Übertragungsfunktion
 
@@ -89,3 +95,11 @@ $$
 ::: callout-important
 Diese Beschreibung ist nur eine [idealisierte]{.underline} Repräsentation, welche für das Verständnis des System hilfreich ist. Im [praktischen]{.underline} Einsatz sind Modifikationen notwendig.
 :::
+
+## Auslegung
+
+### Anhand Bodediagramm
+
+### Anhand von Einstellregeln
+
+## Stellgrössen-Sättigung
