@@ -100,6 +100,56 @@ Diese Beschreibung ist nur eine [idealisierte]{.underline} Repräsentation, welc
 
 ### Anhand Bodediagramm
 
+Diese Auslegung fokussiert anhand des **offenen** Kreises ($L=C\cdot P$) des Regelkreises.
+
+$$
+C(s) = k_i \frac{(1+s\ T_1)(1+s\ T_2)}{s} = k_p \frac{(1+s\ T_i)(1+s\ T_d)}{s\cdot T_i}
+$$
+
+[Zielgrössen]{.underline}: Durchtrittsfrequenz $\omega_{gc}$, die Phasenreserve $\varphi_m$ und allenfalls Amplitudenreserve $g_m$.
+
+::: callout-tip
+## Vorgehen
+
+Prozess: $P(s)=\frac{10}{(1+s)^2}$ mit Ziel $\omega_{gc}\geq 10 \frac{rad}{s}$, $\varphi_m\geq 50°$.
+
+1.  P-Regler für Erreichung von $\omega_{gc}$. Mit $\lvert k_p\cdot P(j\omega_{gc})\rvert = 1$ (Nyquist-Kriterium) folgt:
+
+$$
+k_p = \frac{1}{\left\lvert\frac{10}{1+10j}\right\rvert} = \frac{(\sqrt{1^2+10^2})^2}{10}=10.1
+$$
+
+$$
+\textcolor{BrickRed}{C(s)}=k_p=10.1
+$$
+
+2.  PI-Regler für Reduktion der zusätzlichen Phasensenkung im Bereich von $\omega_{gc}$
+
+$$
+\textcolor{NavyBlue}{C(s)} = k_i\cdot\frac{(1+s\cdot T_1)}{s} = \frac{10\cdot(1+s)}{s}
+$$
+
+1.  PID-Regler für genügend Phasenabhebung im Bereich von $\omega_{gc}$
+
+$$
+\begin{split}
+\textcolor{OliveGreen}{C(s)} &= k_i\cdot\frac{(1+s\cdot T_1)(1+s\cdot T_2)}{s} \\ &= 10\cdot\frac{(1+s)(1+0.1s)}{s}
+\end{split}
+$$
+
+4.  Kontrolle von resultiernden Durchtrittsfrequenz $\omega_{gc}'$ und damit ergebenden Phasenreserve $\varphi_m$.
+
+![](images/pid_regler%5Causlegung_bodediagramm.png){fig-align="center"}
+:::
+
 ### Anhand von Einstellregeln
 
 ## Stellgrössen-Sättigung
+
+::: callout-warning
+## Sättigungseffekt
+:::
+
+### Windup & Anti-Windup
+
+*Windup* entsteht durch
