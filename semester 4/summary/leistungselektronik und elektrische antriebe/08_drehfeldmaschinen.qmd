@@ -1,0 +1,26 @@
+# Drehfeldmaschinen
+
+
+
+`\begin{multicols}{2}`{=latex}
+
+::: callout-note
+## Drehfeldmaschinen
+
+-   Synchronmaschine (SM)
+-   Asynchronmaschine (ASM)
+:::
+
+```{=latex}
+\vfill\null
+\columnbreak
+```
+
+::: callout-note
+## Kollektormotoren
+
+-   Gleichstrommaschine (GM)
+-   Universalmotor
+:::
+
+`\end{multicols}`{=latex}
