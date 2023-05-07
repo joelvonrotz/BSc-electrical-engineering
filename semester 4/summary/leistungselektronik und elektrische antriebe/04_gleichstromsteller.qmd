@@ -10,6 +10,7 @@ Die Eingangsspannung $U_1$ wird oft mit einem ungesteuerten Gleichrichter erzeug
 
 Folgende Gleichstromsteller sind hauptsächlich im Einsatz
 
+
 +--------------------------------+--------------------------------+--------------------------+
 | Tiefsetz- oder Abwärtssteller  | step-down (**buck**) converter | $U_2<U_1$                |
 +--------------------------------+--------------------------------+--------------------------+
@@ -20,6 +21,7 @@ Folgende Gleichstromsteller sind hauptsächlich im Einsatz
 +--------------------------------+--------------------------------+--------------------------+
 | Durchfluss- und Sperrwandler   |                                | integrierter Trafo       |
 +--------------------------------+--------------------------------+--------------------------+
+
 
 ## Abwärtsteller
 

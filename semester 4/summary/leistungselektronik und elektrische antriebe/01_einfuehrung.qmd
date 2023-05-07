@@ -19,11 +19,8 @@ $$
 Der Schalter $S$ stellt einen Halbleiter dar, der abschaltbar sein muss. Die Schaltung hat die Eigenschaften
 
 -   Selbstgeführt bzw. zwangskommutiert
-
 -   Abwertsteller $U_{2_{avg}}<U_1$
-
 -   Halbleiter wird als Schalter betrieben, wodurch dieser praktisch keine Verlustleistung aufweist ($u\approx0\rightarrow p_v\approx0$, $i=0\rightarrow p_v=0$)
-
 -   Hoher Wirkungsgrad
 
 ## Ungesteuerter Netzgeführter Gleichrichter
@@ -47,5 +44,8 @@ Werden anstelle Dioden *Thyristoren* eingesetzt, erhält man einen *gesteuerten*
 Die Ausgangspannung ist nun zusätzlich abhängig vom Steuerwinkel $\alpha$
 
 $$
-U_{d}(\alpha) = \frac{1+\cos{\alpha}}{\pi}\hat{U}=\frac{2}{\pi}\sqrt{2}\cdot U_{RMS}\frac{1+\cos{\alpha}}{2}\approx 0.9\cdot U_{RMS}\frac{1+\cos{\alpha}}{2}
+\begin{split}
+U_{d}(\alpha) &= \frac{1+\cos{\alpha}}{\pi}\hat{U}=\frac{2}{\pi}\sqrt{2}\cdot U_{RMS}\frac{1+\cos{\alpha}}{2}\\
+&\approx 0.9\cdot U_{RMS}\frac{1+\cos{\alpha}}{2}
+\end{split}
 $$

@@ -22,8 +22,8 @@ pdf-engine: pdflatex
 geometry: 
 - "top=25mm"
 - "bottom=25mm"
-- "left=25mm"
-- "right=25mm"
+- "left=10mm"
+- "right=10mm"
 papersize: a4
 fontsize: 10pt
 
@@ -41,26 +41,26 @@ highlight-style: github
 
 <!-- [Chapters] -->
 
-{{< include chapters/01_einfuehrung.qmd >}}
+{{< include 01_einfuehrung.qmd >}}
 
-{{< include chapters/02_grundlagen.qmd >}}
+{{< include 02_grundlagen.qmd >}}
 
-{{< include chapters/03_gleichstrommaschine.qmd >}}
+{{< include 03_gleichstrommaschine.qmd >}}
 
-{{< include chapters/04_gleichstromsteller.qmd >}}
+{{< include 04_gleichstromsteller.qmd >}}
 
-{{< include chapters/05_fremdgeführt_gleichrichter.qmd >}}
+{{< include 05_fremdgeführt_gleichrichter.qmd >}}
 
-{{< include chapters/06_leistungshalbleiter.qmd >}}
+{{< include 06_leistungshalbleiter.qmd >}}
 
-{{< include chapters/07_transformatoren.qmd >}}
+{{< include 07_transformatoren.qmd >}}
 
-{{< include chapters/08_drehfeldmaschinen.qmd >}}
+{{< include 08_drehfeldmaschinen.qmd >}}
 
-{{< include chapters/09_synchronmaschine.qmd >}}
+{{< include 09_synchronmaschine.qmd >}}
 
-{{< include chapters/10_asynchronmaschine.qmd >}}
+{{< include 10_asynchronmaschine.qmd >}}
 
-{{< include chapters/11_selbstgeführter_wechselrichter.qmd >}}
+{{< include 11_selbstgeführter_wechselrichter.qmd >}}
 
-{{< include chapters/12_umrichter.qmd >}}
+{{< include 12_umrichter.qmd >}}
