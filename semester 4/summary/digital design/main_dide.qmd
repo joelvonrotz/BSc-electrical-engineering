@@ -67,5 +67,6 @@ highlight-style: github
 {{< include sec_vivado.qmd >}}
 {{< include sec_finite_state_machines.qmd >}}
 {{< include sec_vhdl_process_templates.qmd >}}
+{{< include sec_libraries.qmd >}}
 
 `\end{multicols}`{=latex}
