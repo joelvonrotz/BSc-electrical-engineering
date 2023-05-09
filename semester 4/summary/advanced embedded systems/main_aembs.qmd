@@ -58,6 +58,7 @@ highlight-style: github
 ]}{\end{tcolorbox}}\fi
 ```
 <!-- [Chapters] -->
+`\begin{multicols}{2}`{=latex}
 
 {{< include 01_einfuehrung.qmd >}}
 
@@ -80,6 +81,8 @@ highlight-style: github
 {{< include 10_benutzer.qmd >}}
 
 {{< include 11_grafik.qmd >}}
+
+`\end{multicols}`{=latex}
 
 {{< include 12_mcuxpresso.qmd >}}
 

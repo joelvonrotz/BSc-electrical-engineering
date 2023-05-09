@@ -1,1 +1,5 @@
 # Grafik
+
+## Model View Controller (MVC)
+
+![](images/grafik%5Cmvc_konzept.png){fig-align="center" width="5cm"}
