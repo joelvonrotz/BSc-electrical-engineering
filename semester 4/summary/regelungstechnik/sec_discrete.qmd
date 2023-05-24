@@ -1,0 +1,10 @@
+# Diskretisierung
+
+Digitalrechner arbeiten zeitdiskret $\leftrightarrow$ Prozesse sind von zeitkontinuierlicher Natur
+
+::: callout-note
+## Perspektiven für Entwurf zeitdiskrete Regler
+
+1.  *Prozess*:
+2.  *Regler*:
+:::

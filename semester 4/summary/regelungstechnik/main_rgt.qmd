@@ -75,6 +75,8 @@ highlight-style: github
 
 {{< include sec_pid_regler.qmd >}}
 
+{{< include sec_discrete.qmd >}}
+
 {{< include sec_matlab.qmd >}}
 
 {{< include sec_simulink.qmd >}}
