@@ -1,14 +1,13 @@
 ---
 title: "Advanced Embedded Systems"
 author: "Joel von Rotz & Andreas Ming"
-date: now
+date: "23.05.2023"
 
 lang: de
 
 # [RENDER CONFIGURATION] ==============================
 format:
   pdf:
-    keep-tex: true
     include-in-header:
       - config.tex
     template-partials:
@@ -23,8 +22,8 @@ pdf-engine: pdflatex
 geometry: 
 - "top=25mm"
 - "bottom=25mm"
-- "left=25mm"
-- "right=25mm"
+- "left=10mm"
+- "right=10mm"
 papersize: a4
 fontenc: T1
 fontsize: 10pt
@@ -59,30 +58,14 @@ highlight-style: github
 ```
 <!-- [Chapters] -->
 
-{{< include 01_einfuehrung.qmd >}}
+`\begin{multicols}{2}`{=latex}
 
-{{< include 02_architektur.qmd >}}
+{{< include sec_development.qmd >}}
 
-{{< include 03_entwicklung.qmd >}}
+{{< include sec_microcontroller.qmd >}}
 
-{{< include 04_firmware.qmd >}}
+{{< include sec_freertos.qmd >}}
 
-{{< include 05_rtos.qmd >}}
+{{< include sec_c_concepts.qmd >}}
 
-{{< include 06_kernel.qmd >}}
-
-{{< include 07_sync.qmd >}}
-
-{{< include 08_nachrichten.qmd >}}
-
-{{< include 09_parallel.qmd >}}
-
-{{< include 10_benutzer.qmd >}}
-
-{{< include 11_grafik.qmd >}}
-
-{{< include 12_mcuxpresso.qmd >}}
-
-{{< include 13_questions.qmd >}}
-
-{{< include 14_misc.qmd >}}
+`\end{multicols}`{=latex}

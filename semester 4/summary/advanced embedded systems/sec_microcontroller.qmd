@@ -1,0 +1,13 @@
+# Systeme
+
+::: callout-important
+## Was ist ein *embedded* System?
+
+Ein Rechner (CPU, MCU, etc.) integriert in ein System. Für eine [Aufgabe/Zweck optimiert]{.underline} und meistens **kein** normaler Computer! Meistens von aussen nicht direkt zugreifbar, anders als beim Computer.
+
+Anwendung: Echtzeitsystem, Wetterstation, Steuerung für Roboterarm, etc.
+:::
+
+# Mikrocontroller
+
+## ARM Cortex Familie

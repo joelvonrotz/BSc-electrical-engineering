@@ -1,0 +1,27 @@
+# Entwicklung
+
+## Entwicklungsumgebung
+
+## Cross-Development
+
+*Cross-Development* bedeutet die Entwicklung einer Firmware auf einem **Host** für einen **Target**. Grund dafür ist, dass das *embedded* Target nicht genügend Ressourcen (CPU Leistung, Speicher) für die direkte Entwicklung hat.
+
+::: callout-note
+## Target & Host
+
+**Target** (wofür): Zielsystem, für das man entwickelt.
+
+**Host** (womit): bezeichnet die Umgebung , auf der man die Entwicklung vornimmt.
+:::
+
+### Integrated Development Environment
+
+![](images/01_intro_crossdevelopment.png)
+
+**Toolchain**: Kollektion von Tools wie Compiler, Linker, Debugger, etc. $\rightarrow$ einzelne Werkzeuge zum Zusammensetzen der Firmware
+
+**Build Environment**: Steuert die Toolchain und den Übersetzungsvorgang $\rightarrow$ *make*, *Makefiles*
+
+**IDE**: "Fancy Editor", beinhaltet Tools für bessere Produktivität $\rightarrow$ Intellisense, Workspace, Projekt
+
+## Eclipse (Open Source IDE)
