@@ -68,4 +68,7 @@ highlight-style: github
 
 {{< include sec_c_concepts.qmd >}}
 
+`\center`{=latex}
+![](images/aembs_meme.png){width="8.5cm"}
+
 `\end{multicols}`{=latex}
