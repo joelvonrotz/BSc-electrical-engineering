@@ -1,0 +1,33 @@
+# FreeRTOS
+
+## Echtzeit
+
+::: callout-important
+## Was ist Echtzeit?
+:::
+
+## FreeRTOS & Interrupts
+
+## Kernel
+
+## Task
+
+### IDLE-Task
+
+## Timer
+
+### afd
+
+![](images/timer%5Ctimer_overview.png)
+
+::: callout-caution
+## Timer Service Daemon
+
+Mit `configUSE_TIMERS` wird die Timer-Funktionen aktiviert und aktiviert automatisch die *Timer Service Daemon*
+:::
+
+## Queue
+
+## Semaphore & Mutex
+
+## Prioritäten

@@ -1,0 +1,14 @@
+# C
+
+## Konzepte
+
+### Synchronisation - Realtime
+
+### Synchronisation - Gadfly
+
+### Synchronisation - Interrupt
+
+
+
+## Bibliotheken
+
