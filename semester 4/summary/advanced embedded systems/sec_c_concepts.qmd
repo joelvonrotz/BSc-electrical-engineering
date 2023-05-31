@@ -1,14 +1,37 @@
-# C
+# C - Konzepte
 
-## Konzepte
+## Synchronisation {#sec-synchronisation}
 
-### Synchronisation - Realtime
+### Realtime
 
-### Synchronisation - Gadfly
+### Gadfly / Polling
 
-### Synchronisation - Interrupt
+*Gadfly* Sync überprüft [periodisch]{.underline} einen Zustand und fährt erst dann weiter, wenn die Bedingung erfüllt ist.
 
+``` cpp
+void read(void) {
+  for (size_t i = 0; i < sizeof(buffer); i++) {
+    while (!PORTB.B0) { /* reading 0: no hole */
+      /* while there is no hole , wait for rising edge */
+    }
+    buffer[i] = PORTA;
+    /* in the hole: read data */
+    while (PORTB.B0) {
+      /* reading 1: we have a hole */
+      /* get out of hole , wait for falling edge */
+    }
+  }
+}
+```
 
+\textcolor{OliveGreen}{\textbf{+}} Benötigt keine unnötige Rechenzeit ;
 
-## Bibliotheken
+\textcolor{BrickRed}{\textbf{-}} Benötigt keine unnötige Rechenzeit
 
+### Interrupt {#sec}
+
+![](images/freertos\interrupt_sync_realtime.png)
+
+**Signalisierung** $\rightarrow$ **Zustand sichern** $\rightarrow$ **Verzweigung** $\rightarrow$ **Rettung benutzter Register** $\rightarrow$ **ISR Programm** $\rightarrow$ **Exit ISR** $\rightarrow$ **Rückkehr zum unterbrochenen Programm**
+
+# C - Bibliotheken

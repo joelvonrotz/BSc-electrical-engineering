@@ -4,9 +4,25 @@
 
 ::: callout-important
 ## Was ist Echtzeit?
+
+> Ein Computer ist als Echtzeitsystem klassifiziert, wenn er auf externe Ereignisse in der echten Welt reagieren kann: mit dem richtigen Resultat, zur richtigen Zeit, unabhängig der Systemlast, auf eine deterministische und vorhersehbare Weise.
+
+`\textcolor{BurntOrange}{\textbf{!}}`{=latex}
 :::
 
-## FreeRTOS & Interrupts
+-   **Absolute** Rechtzeitigkeit -- [Absoluter]{.underline} Zeitpunkt (z.B. jeden Tag [05:30]{.underline} $\pm$ 1 Minute)
+-   **Relative** Rechtzeitigkeit -- Relative Zeit nach [Ereignis]{.underline} (z.B. 5 Minuten $\pm$ [nach Einschalten]{.underline} wieder ausschalten)
+
+### Harte & Weiche Echtzeit
+
+![](images/freertos\hard_soft_realtime.png)
+
+-   **Harte** Echtzeit (links) -- Zeitbedingung einhalten (innerhalb Zeitfenster $w$). ***Beispiel*** Airbag soll 20ms nach Aufpralldetektion ausgelöst werden.
+-   **Weiche** Echtzeit (rechts) -- Immer noch in Ordnung, wenn Zeitbedingung [nicht]{.underline} eingehalten. ***Beispiel*** Video Encoder wiedergibt mit Framerate 25 F/s. Framerate darf nicht unter 10 F/s sein und in 10% der Zeit Framerate unter 25 F/s $\rightarrow$ System ist immer noch als korrekt angesehen.
+
+## FreeRTOS
+
+## Interrupts
 
 ## Kernel
 

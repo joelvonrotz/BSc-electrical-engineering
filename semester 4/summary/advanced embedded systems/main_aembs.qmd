@@ -34,10 +34,10 @@ code-block-bg: "#f7f7f7"
 
 toc: true
 toc-depth: 3
-number-sections: true
-number-depth: 3
+number-sections: false
 pagenumbering: none
 highlight-style: github
+hyphenate: true
 ---
 
 ```{=latex}
