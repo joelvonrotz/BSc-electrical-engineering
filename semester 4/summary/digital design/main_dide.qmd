@@ -14,10 +14,6 @@ format:
     output-file: "s4_digital_design"
     latex-output-dir: "latex"
 
-filters:
-   - latex-environment
-environments: [minipage]
-
 source:
   github: "https://github.com/joelvonrotz/bachelor-electrical-engineering/tree/main/semester%204/summary/digital%20design"
 
