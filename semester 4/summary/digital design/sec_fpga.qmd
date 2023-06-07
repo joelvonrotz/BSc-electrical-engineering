@@ -1,4 +1,63 @@
 # FPGA
 
-## LUT6
+::: callout-important
+## Warum FPGA?
 
+FPGA steht für ***F**ield **P**rogrammable **G**ate **A**rray* und ist die am weitesten verbreite Art von "programmierbarer" Logik.
+
+Gegenüber einem anwendungsspezifischen Chip (ASIC) bieten FPGA:
+
+\textcolor{OliveGreen}{\textbf{+}} höherer Flexibilität ; kürzere Entwicklungszeit ; geringer Entwicklungskosten
+
+\textcolor{BrickRed}{\textbf{-}} im höhere Frequenzbereich $\rightarrow$ Um mitzuhalten sind Synchronisationen nötig, was zu Signal-Latenzen einführt.
+
+Verfügt über:
+
+-   Parralelität $\rightarrow$ beschleunigte Verarbeitung
+-   Flexible Zuweisungen von Signalen & Pin-Funktionalitäten
+-   Deterministische Durchlaufzeiten von Signalen (z.B. 0cc, 2cc)
+-   Können mehrere Prozessoren beinhalten $\rightarrow$ erhöhter Integrationsgrad
+:::
+
+\textcolor{BurntOrange}{\textbf{!}} **FPGAs werden meist für extreme Bedingungen verwendet (z.B.** $4000\ Op/\mu s$) \textcolor{BurntOrange}{\textbf{!}}
+
+## Technologie
+
+### Layout
+
+![](images/fpga_layout.png)
+
+-   **Slice**: 4 Funktionsgeneratoren (4$\times$LUT6) + 8 FFs
+
+![](images/lut6_design.png){fig-align="center" width="6cm"}
+
+### Routing Ressourcen
+
+Hierarchisches Routing mit verschiedenen langen Verbindungen **;** Sechs-Transistor-Kreuzungspunkt **;** Routing-Delay $\geq 70\%$ Gesamt-Delay **;** Spezielles low-skew Netze für regionale/globale Clocksignale
+
+![](images/switch_matrix_routing.png){fig-align="center" width="6cm"}
+
+# Iterative Schritte des FPGA-Designs
+
+1.  **Spezifikation**
+    -   Erstellen/Verstehen von Funktions- und Testspezifikation. Vorgaben zum strukturellen Aufbau des Designs.
+2.  **Architektur-Entwurf**
+    -   Schaltung wird in Blockdiagramm festhalten $\rightarrow$ Ableiten von Ports, Wortbreiten, Codierung
+    -   Je nach Komplexität Erstellung von Prozess-Dokumentation und/oder RTL-Schemas
+    -   Zustandsdiagramm der FSMs
+3.  **VHDL Implementierung**
+    -   Verwendung von VHDL-Templates für synchrone Logik
+    -   VHDL-Code kommentieren
+4.  **Design Constraints**
+    -   in `.xdc`-File *Top-Level Ports Location* & *Clock Period* Constraints setzen.
+5.  **Probe-Synthese**
+    -   VHDL-Code überarbeiten bis keine Warnungen $\rightarrow$ *Found latch for signal...*, *...signals missing in the process sensitivity list...*, ...*signals form a combinational loop...*
+    -   Konsistenz-Check anhand Vergleich selbst gezählte #FF und Synthese-#FF
+6.  **Simulation**
+    -   Erstellen einer VHDL-Testbench und Simulation des Designs (MUT) gemäss Spezifikation
+    -   Testbench mit automatischem Vergleich von Ist & Soll ist für komplexere Designs gut
+7.  **FPGA Implementierung**
+    -   *Run Implementation* ausführen für *Technology-Optimizations* & *Place&Route*
+    -   Falls Timinganalyse Fehler $\rightarrow$ Architektur überprüfen
+8.  **HW-Test**
+    -   Bitstream auf HW gemäss Spezifikationen testen.

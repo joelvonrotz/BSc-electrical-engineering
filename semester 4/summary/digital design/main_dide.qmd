@@ -1,26 +1,30 @@
 ---
-# Subtitle is added in before-body & config.tex in header
-title: "Digital Design"
-author: "Joel von Rotz & Andreas Ming"
-date: now
-
-lang: de
-
 # [RENDER CONFIGURATION] ==============================
+
 format:
   pdf:
+    pdf-engine: pdflatex
     keep-tex: true
     include-in-header:
       - config.tex
+      - _two-column-longtable.tex
+      - text: "\\usepackage[german]{babel}"
     template-partials:
       - before-body.tex
     output-file: "s4_digital_design"
+    latex-output-dir: "latex"
+
+filters:
+   - latex-environment
+environments: [minipage]
 
 source:
   github: "https://github.com/joelvonrotz/bachelor-electrical-engineering/tree/main/semester%204/summary/digital%20design"
 
-pdf-engine: pdflatex
-# [DOCUMENT CONFIGURATION] ============================
+# [INFORMATION] ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+title: "Digital Design"
+author: "Joel von Rotz"
+
 geometry: 
 - "top=25mm"
 - "bottom=25mm"
@@ -36,7 +40,7 @@ fig-pos: "H"
 
 toc: true
 toc-depth: 3
-number-sections: true
+number-sections: false
 number-depth: 3
 pagenumbering: none
 highlight-style: github
@@ -58,12 +62,16 @@ highlight-style: github
 ]}{\end{tcolorbox}}\fi
 
 \pagebreak
-\begin{multicols}{2}
 ```
 
 <!-- [Chapters] -->
 
+ 
+`\begin{multicols}{2}`{=latex}
+
+{{< include sec_fpga.qmd >}}
 {{< include sec_vhdl.qmd >}}
+{{< include sec_fixed_point_arithmetic.qmd >}}
 {{< include sec_vivado.qmd >}}
 {{< include sec_finite_state_machines.qmd >}}
 {{< include sec_vhdl_process_templates.qmd >}}

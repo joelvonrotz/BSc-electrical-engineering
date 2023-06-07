@@ -1,8 +1,16 @@
 # VHDL
 
-::: callout-note
-**V**ery High Speed Integrated Circuit **H**ardware **D**escription **L**anguage ist einer Hardwarebeschreibung und [keine]{.underline} Programmiersprache.
+::: callout-important
+## VHDL?
+
+VHDL steht für ***V**ery High Speed Integrated Circuit **H**ardware **D**escription **L**anguage*, klingt schnell und ist es auch. Diese Sprache dient für die Hardwarebeschreibung von FPGAs, insbesondere wie die "Logikfläche" konfiguriert wird, und ist [keine]{.underline} Programmiersprache.
 :::
+
+## Einordnung VHDL als HDL
+
+![](images/paste-1.png)
+
+HW-nahes Design ermöglicht: \textcolor{OliveGreen}{\textbf{+}} kleinere, schnellere, energie-effizientere Schaltungen als ESL-Design \textcolor{BrickRed}{\textbf{-}} auf Kosten der Entwicklungszeit.
 
 ## Entwicklung
 
@@ -10,55 +18,238 @@
 
 ![](images/vhdl_fpga_designflow.png)
 
-### Struktur Datei
+## Simulation
+
+::: callout-caution
+### Problem
+
+Wie kann Parallelität auf einem sequentiell arbeitenden Computer simuliert werden? $\rightarrow$ Event Queue & Transactions
+:::
+
+![](images/paste-3.png)
+
+![](images/paste-4.png){width="7cm"}
+
+### Event Driven Simulation
+
+1.  Vorrücken der Simulationszeit zur nächsten Transaktion in der Event Queue.
+2.  Setzt alle zu aktualisierenden Signale auf den mit der aktuellen Transaktion verbundenen Wert.
+3.  Arbeitet alle Prozesse ab, die auf Signale sensitiv, deren Wert sich durch die aktuelle Transaktion geändert hat. Signalzuweisungen werden als zukünftige Transaktionen in die Event Queue abgelegt.
+
+::: callout-important
+-   Events werden durch die Signaländerung generiert, [nicht]{.underline} die Transaktionen!
+-   Nicht alle Transaktionen führen zu einem Event
+:::
+
+### Signale & Variablen
+
+-   Variable Assignment `:=` $\rightarrow$ unabhängig von Simulation, [Effekt ist sofort]{.underline}
+-   Signal Assignment `<=` $\rightarrow$ Effekt nach `after` ([nur]{.underline} Simulation) oder bei keiner Verzögerung nach Simulationszyklus ($\delta$-Delay ; Sim. & Synth)
 
 ``` vhdl
--- File: MyComponent.vhd
--- Author: myself
--- Date: yesterday
+sigA <= '1', -- <1>
+        '0' after 1 ms,
+        'Z' after 10 ms;
+sigB <= '1'; -- <2>
+```
 
-library ...
--- Library einbinden
-use ...
--- Packages aus Library bekanntgeben
+1.  Effekt nach `after` ([nur]{.underline} Simulation)
+2.  Bei keiner Verzögerung (Synthese & Simulation)$\rightarrow$ Transaction für nächsten Simulationszyklus geplant ($\delta$-Delay)
 
+### Propagation Delay
+
+## Sprachelemente
+
+### Bezeichner
+
+z.B. Signaldeklaration oder Port-Variable
+
+-   Gross-/kleinschreibung wird nicht unterschieden $\rightarrow$ [nicht]{.underline} case-sensitiv
+
+``` vhdl
+signal some_signal, some_other_signal, result : integer ;
+
+ReSULT <= SOME_SIGNAL + sOME_oTHer_SIGNal;
+```
+
+-   Namen können beliebig lang sein
+-   Keine Spezialzeichen ausser `_` $\rightarrow$ nicht am Anfang & Ende + nicht verdoppelt
+
+### Signalzuweisung / Treiber
+
+Mit dem *Treiber* `<=` werden Signale von der rechten Seite ausgewertet und auf das Signal auf der linken Seite zugewiesen.
+
+``` vhdl
+Inv_Out <= not Inv_In; -- Inverter: Das Signal Inv_In "treibt" Signal Inv_Out
+```
+
+::: callout-caution
+### Kontext
+
+Je nachdem wo `<=` verwendet wird, hat es eine andere Bedeutung $\rightarrow$ in einem `if`-Statement wird es als kleiner-gleich angesehen ; bei Signalen als Treiber.
+:::
+
+### Kommentare
+
+Mit `--` werden Kommentare begonnen $\rightarrow$ [single line]{.underline} comments!
+
+``` vhdl
+-- Das hier ist ein Kommentar
+Hier aber nicht mehr :(
+```
+
+## Komponenten
+
+### `.vhd`-Dateistruktur
+
+VHDL-Code wird meistens in `.vhd` Dateien geschrieben.
+
+``` vhdl
+-- Header Commment (Author, Date, Filename, etc.)
+library ... -- Library einbinden
+use ... -- Packages aus Library bekanntgeben
 entity ...
 -- Schnittstelle der Komponente gegen aussen
-
 architecture ...
 -- Funktion (Innenleben) der Komponente
 ```
 
-## Synthesis & Simulation
+### Entity {#sec-entity}
 
-::: callout-important
-### Synthesis vs. Implementation
+Eine Entity beschreibt den Komponenten für äusserliche Zugriffe $\rightarrow$ nur [Struktur des Komponents]{.underline} bekannt, aber [nicht]{.underline} den [Inhalt]{.underline}.
 
--   *Synthesis* generiert die Netlist des VHDL-Codes und beschreibt.
--   *Implementation* wendet die Contraints an und sorgt für die Hardware-Implementierung.
+``` vhdl
+entity MyComponent is
+  generic( -- <1>
+    y : integer := 20; 
+    z : integer
+  );
+  port ( -- <2>
+    a_pi, b_pi : in    std_logic; -- Input
+    c_po       : out   std_logic; -- Output     
+    --x_pio    : inout std_logic  -- Bidirectional
+  );   
+  constant c_max_cnt : integer := 20_000; -- <3>
+end MyComponent;
+```
+
+1.  Analog zu `#define` in C $\rightarrow$ werden während Kompilation eingefügt!
+2.  Signal Deklarationen $\rightarrow$ **müssen** bei Instanziierung des Komponenten im übergeordneten Design verdrahtet werden!
+3.  Konstanten können mit Generics interagieren (Wert ausrechnen und an Konstante zuweisen) $\rightarrow$ während Laufzeit [nicht]{.underline} veränderbar!
+
+::: callout-warning
+### Sichtbarkeit
+
+-   Alles was in der Entity bekannt ist (inkl. Libraries), ist auch in der zugehörigen Architecture bekannt.
+-   Alles was in der Architecture bekannt ist, ist [nicht]{.underline} in der Entity bekannt.
 :::
 
-### Transactions
+### Generics
 
-### Propagation Delay
+> Analog zu C Preprocessor Direktive `#define`
 
-## Architektur
+Mit `generic` können Komponenten angepasst/parametrisiert werden $\rightarrow$ Komponent muss daher mit diesen Generics implementiert werden.
+
+Im Gegensatz zu Konstanten kann Wert [ausserhalb]{.underline} definiert werden.
+
+Beim Testen sollten mit Generic-Parametern die Randwerte verifiziert werden (*Corner-Case* Testing).
+
+``` vhdl
+entity NAND_gate is
+  generic(
+    IW : integer := 2 -- input width, def. 2
+  );
+  port(
+    InP  : in std_logic_vector(IW-1 downto 0);
+    OutP : out std_logic;
+  );
+end NAND_gate;
+```
+
+``` vhdl
+component NAND_gate is
+  generic(IW : integer := 3);
+  port(
+    InP : in std_logic_vector(IW-1 downto 0);
+    OutP : out std_logic;  
+  );
+end component NAND_gate;
+
+...
+
+I1 : NAND_gate
+port map (
+  InP => In1,
+  OutP => O1
+);
+
+I2 : NAND_gate
+generic map (
+  IW => 8
+) -- note no semicolon
+port map (
+  InP => In1,
+  OutP => O1
+);
+...
+```
+
+### Loop & Generate Statements
+
+Bei Implementierung von Komponenten mit Generic-Parametern werden häufig `loop` oder `generate` verwendet.
+
+``` vhdl
+-- architecture using loop statement
+architecture A_loop of NAND_gate is
+begin
+  P_nand: process(InP)
+    variable tmp : std_logic;
+  begin
+    tmp := InP(0);
+    for i in 1 to IW-1 loop
+      tmp := tmp and InP(i);
+    end loop;
+    OutP <= not tmp;
+  end process;
+end A_loop;
+
+-- the same is achieved with generate statements
+architecture A_gen of NAND_gate is
+signal tmp : std_logic_vector(IW-1 downto 0);
+begin
+  tmp(0) <= Inp(0);
+  tree: for i in 1 to IW-1 generate
+    tmp(i) <= tmp(i-1) and Inp(i);
+    invert: if i = IW-1 generate -- <1>
+      Outp <= not tmp(i);
+    end generate;
+  end generate;
+end A_gen;
+```
+
+1.  `generate`-Statements können auch in *if*-Form verwendet werden (zum Ein- oder Ausschalten von Code-Blöcken.
+
+### Ports
+
+Die Richtung der Ports werden mit `in`, `out` und `inout` bezeichnet.
+
+### Architektur
 
 Architecture beschreibt die Implementation oder das Innenleben des Komponents. Darin wird beschrieben, wie die deklarierten Signalen miteinander interagieren.
 
 ``` vhdl
-architecture a1 of MyComponent is
+architecture a1 of MyComponent is -- <1>
   -- Deklarationen (Signale, Komponenten)
-  signal tmp : std_logic;
+  signal tmp : std_logic; -- <2>
 begin
-  -- Implementierung
-  tmp  <= a_pi or b_pi;
+  tmp  <= a_pi or b_pi; -- <3>
   c_po <= tmp;
 end a1;
 ```
 
--   Der **Deklarationsteil** startet [vor]{.underline} dem `begin`
--   Der **Implementierungsteil** startet nach `begin` und endet vor `end`
+1.  Siehe @sec-entity
+2.  **Deklarationen** (für Signale & Komponenten)
+3.  **Implementierung**
 
 ::: callout-note
 #### `rtl` & `struct`
@@ -66,114 +257,374 @@ end a1;
 Der Name `rtl` wird verwendet, um grundlegende Logik-Komponenten zu definieren, wie zum Beispiel *OR*, *XOR*, *AND*, etc. `struct` beinhaltet eine Kombination/Anwendung von `rtl`-Komponenten.
 :::
 
-## Entity
+### Benutzung bestehender VHDL-Komponenten
 
-Eine Entity beschreibt den Komponenten für äusserliche Zugriffe. Es wird nur die Struktur des Komponents bekannt gegeben, aber nicht den Inhalt des Komponenten.
+![](images/example_component_usage.png){fig-align="center" width="7cm" height="3.7cm"}
 
 ``` vhdl
-entity MyComponent is
-  port ( a_pi, b_pi : in std_logic;
-        -- Input Ports
-        c_po : out std_logic
-        -- Output Port
-        --x_pio : inout std_logic
-        -- Bidirektionaler Port
-       );
-  constant c_max_cnt : integer := 20_000;
-end MyComponent;
+entity top is
+  port (
+    c_po : out std_logic;
+  );
+end top;
+
+architecture struct of top is
+  signal a,b : std_logic;
+  component MyComponent is -- <1>
+    port (
+      a_pi, b_pi : in  std_logic;
+      c_po       : out std_logic;
+    );
+  end component MyComponent;
+begin
+
+  Inst1: MyComponent -- <2>
+  port map ( a_pi => a, -- <3>
+             b_pi => b,
+             c_po => c_po
+            ); -- <4>
+end struct;
+```
+
+1.  Deklaration der Komponente im Deklarationsteil $\rightarrow$ [Name der entsprechenden Entity]{.underline}!
+2.  Instanzierung eines Komponenten
+3.  Signale/Ports werden verbunden
+4.  Kein Endzeichen!
+
+## Datentypen
+
++----------------------------------------+-------------------------------------------------+
+| Synthese & Simulation                  | Nur Simulation                                  |
++========================================+=================================================+
+| `std_logic`, `std_ulogic` (IEEE 1164)\ | `real`, `time`, `character`, `file` (IEEE 1076) |
+| `signed`, `unsigned` (IEEE 1176.3)\    |                                                 |
+| `integer` (IEEE1076)\                  |                                                 |
+| `type` (IEEE 1076 userdefined)         |                                                 |
++----------------------------------------+-------------------------------------------------+
+
+: {tbl-colwidths="\[50,50\]"}
+
+### Integer
+
+``` vhdl
+signal my_int : integer range -128 to 127;
+```
+
+-   Repräsentiert Bereich $-2^{31}\ldots2^{31}-1$
+-   \textcolor{BrickRed}{\textbf{!!!}} Wertebereich einschränken (Konsistenzcheck für Simulation)
+-   Zahlen Darstellungen
+
+``` vhdl
+my_int <=    61;      -- Dezimal (Defailt)
+my_int <= 10#61#;     -- dezimal
+my_int <=  2#111101#; -- binär
+my_int <=  8#75#;     -- octal
+my_int <= 16#3D#;     -- hexadezimal
+```
+
+### Subtypes
+
+gleiche Operationen wie Grundtype, einfach bestimmte Teilmenge (z.B. `natural`, `positive`)
+
+``` vhdl
+subtype t_day is integer range 1 to 31;
+signal day : t_day;
+```
+
+### Array
+
+Gruppierung von Elementen gleichen Types
+
+```         
+type t_byte is array (7 downto 0) of std_logic;
+signal byte: t_byte; -- same as below
+signal byte : std_logic_vector(7 downto 0);
 ```
 
 ::: callout-note
-Alles was in der Entity bekannt ist (inkl. Libraries), ist auch in der zugehörigen Architecture bekannt.
-:::
+#### Attributes `A'<atr>(N)`
 
-## Components
+``` vhd
+type t_arr is array(2 to 4, 15 downto 0) of std_logic;
+signal A : t_arr;
 
-## Kombinatorische Logik
-
-Folgend sind *Process Statements* in Kurzschreibweise - Concurrent Signal Assignments - Selected Signal Assignment - Conditional Signal Assignment
-
-::: callout-important
-## Process Statements
-
-Alle Signal Assignments ausserhalb von `process` (Concurrent-, Selected-, Conditional-Signal Assignment) sind **Process Statements** in Kurzschreibform!
-
-``` vhdl
-sig <= not sig; -- Process Statement
-stud <= happy     when mep >= C else
-        satisfied when mep >= E else
-        sad;    -- Process Statement
+A'left(1)          -- 2
+A'right(2)         -- 0
+A'high(2)          -- 15
+A'low(2)           -- 0
+A'range(1)         -- 2 to 4
+A'reverse_range(2) -- 0 to 15
+A'length(1)        -- 3
+A'ascending(2)     -- false
+A'element          -- std_logic
 ```
 :::
 
-### Concurrent Signal Assignments
+::: callout-note
+#### Aggregates
 
-### Selected Signal Assignments `case`
-
-### Conditional Signal Assignments `when/else`
-
-## Prozesse/Sequential Statements
+Array Aggregates werden verwendet, um Arrays mit konstanten Werten einzusetzen.
 
 ``` vhdl
--- process sensitivity list
-P1: process (i1, i2, i3)
+type t_map is array(1 to 4) of std_logic; -- <1>
+constant c_map : t_map := (1 => 'Z', 2 | 3 => '0', others => 1'); -- <2>
+```
 
--- local variable (only known in P1)
-variable v_tmp : std_logic;
+1.  Positions-Zuordnung
+2.  Werte-Zuordnung
+
+\textcolor{BrickRed}{Zuordnungen dürfen nicht gemischt werden!}
+:::
+
+### Record
+
+Gruppierung von Elementen unterschiedlichen Types
+
+``` vhdl
+type t_date is record
+  day  : t_day;
+  year : positive;
+end record;
+```
+
+### Signed/Unsigned (IEEE 1076.3)
+
+Binärzahlen in Form von 2er-Komplement, bzw. vorzeichenlosen Binär-Arrays.
+
+#### Umwandlungstabelle
+
+![](images/paste-5.png){fig-align="center" width="8cm"}
+
+### IEEE `std_logic_1164`
+
+Datentypen: `std_logic` & `std_ulogic`
+
+::: callout-note
+### Warum `std_logic_1164`?
+
+In Standard-VHDL gibt es zwei binäre Datentypen: `bit` (`0`,`1`) und `boolean` (`false`, `true`) $\rightarrow$ entspricht aber nicht realen digitalen Signalen!
+:::
+
+![](images/paste-2.png){fig-align="center" width="2.8cm"}
+
++----------------+-------------------------+----------------------+
+| State          | Bedeutung               | Bereich              |
++:==============:+:========================+======================+
+| `'U'`          | Uninitialized (--)      | Simulation           |
++----------------+-------------------------+----------------------+
+| `'X'`          | Forcing Unknown (S1,S3) | Simulation           |
++----------------+-------------------------+----------------------+
+| `'0'`          | Forcing Low (S3)        | Synthese, Simulation |
++----------------+-------------------------+----------------------+
+| `'1'`          | Forcing High (S1)       | Synthese, Simulation |
++----------------+-------------------------+----------------------+
+| `'Z'`          | High Impedanz (--)      | Synthese, Simulation |
++----------------+-------------------------+----------------------+
+| `'W'`          | Weak Unknown ()         | Simulation           |
++----------------+-------------------------+----------------------+
+| `'L'`          | Weak Low (S4)           | Simulation           |
++----------------+-------------------------+----------------------+
+| `'H'`          | Weak High (S2)          | Simulation           |
++----------------+-------------------------+----------------------+
+| `'-'`          | Don't Care              | Simulation           |
++----------------+-------------------------+----------------------+
+
+\textsubscript{-- bedeutet alle Schalter offen}
+
+::: callout-caution
+`\texttt{std\_\textcolor{BrickRed}{u}logic}`{=latex} steht für `\textcolor{BrickRed}{\textit{u}}`{=latex}*nresolved* $\rightarrow$ Signal kann nur von einem Prozess geändert werden!
+
+------------------------------------------------------------------------
+
+`std_logic` ist *resolved* und kann von mehreren Prozessen geändert werden. Zustände werden mit der *Resolution Table* aufgelöst.
+
+Wird dies gemacht, Simulation möglich, aber [keine]{.underline} Synthetisierung!
+:::
+
+### Real (Simulationstype)
+
+$\rightarrow$ Wertebereich ist Hersteller-spezifisch
+
+``` vhdl
+signal float : real;
+float <= 73_000.0;
+float <= 7.3E4;
+float <= 73000; -- <1>
+```
+
+1.  Fehler, da `730000` eine Ganzzahl ist
+
+### Time (Simulationstyp)
+
+$\rightarrow$ einziger vordefinierter physikalischer Datentyp
+
+``` vhdl
+type time is range –2147483647 to 2147483647
+  units fs;
+    ps = 1000 fs;
+    ns = 1000 ps;
+    us = 1000 ns;
+    ms = 1000 us;
+    sec = 1000 ms;
+    min = 60 sec;
+    hr = 60 min;
+  end units;
+
+signal t : time
+t <= now + 2.5 sec; -- <1>
+```
+
+1.  `now` liefert aktuelle Simulationszeit
+
+## Prozesse
+
+::: callout-important
+### Parallelität
+
+In VHDL wird das Verhalten digitaler HW durch parallele Prozesse beschrieben die gleichzeitig ausgeführt werden und über Signale miteinander kommunizieren.
+:::
+
+``` vhdl
+P1: process (i1, i2, i3) -- <1>
+variable v_tmp : std_logic; -- <2>
 begin
   v_tmp := ’0’;
   if i1 = ’1’ and i2 = ’0’ then v_tmp := ’1’; end if;
-  o1 <= v_tmp and i3;
--- process P1 drives signal o1
-  o2 <= v_tmp xor i3;
--- process P1 drives signal o2
+  o1 <= v_tmp and i3; -- <3>
+  o2 <= v_tmp xor i3; -- <3>
 end process P1;
 ```
 
+1.  Prozess mit *Sensitivity List* & Spitznamen
+2.  Lokale Variablen (Scope innerhalb P1)
+3.  Prozess P1 treibt Signale `o1` & `o2`
+
+::: callout-note
 ### Sensitivity List
 
-Prozesse werden mit Hilfe einer *Sensitivity List* auf ausgewählte Signale [sensitiv]{.underline} gemacht.
+Prozesse können mit Hilfe einer *Sensitivity List* auf ausgewählte Signale [sensitiv]{.underline} gemacht werden $\rightarrow$ Prozess reagiert nur auf diese Signale!
 
-## Grundlegende Konzepte
+\textcolor{BrickRed}{\textbf{!}} Prozesse müssen nicht auf alle ihre Inputsignale sensitiv sein! \textcolor{BrickRed}{\textbf{!}}
+:::
 
-### Ports & Signale
+::: callout-caution
+In synthetisierbaren VHDL Code darf [jedes Signal nur von einem Prozess getrieben werden]{.underline}.
 
-Port sind die Anschlüsse eines Komponents und Signale sind Komponent-interne Signale, welche von aussen nicht zugreifbar sind.
+Tristate-Leitungen können simuliert werden, aber [nicht synthetisiert]{.underline}.
+:::
 
-<!-- TODO -->
-
-`std_logic`, `std_ulogic`, `std_logic_vector(a downto b)`
-
-### Treiber `<=`
-
-Der Treiber `<=` beschreibt, dass das linke Signal vom rechten Signal angetrieben wird. Folgendes Beispiel beschreibt einen Inverter:
+### Arten von Prozessen
 
 ``` vhdl
-Inv_Out <= not Inv_In;
-```
-
-# VHDL Syntax
-
-``` vhdl
-y <= (0 => '0', 1 => '0', 2 => '0', 3 => '0');
-y <= (others => '0');
-y <= "0000";
-```
-
-Conditional Signal Assignment
-
-``` vhdl
-y <= x when en = '1' else "0000";
-y <= x when en = '1' else (others => '0');
-```
-
-Prozess Statement with sequential loop-Statement
-
-``` vhdl
-process(x,en)
+sigA <= not sigB -- <1>
+stud <= happy     when mep >= C else -- <2> 
+        satisfied when mep >= E else
+        sad;
+with season select -- <3>
+holiday <= seaside when summer,
+           skiing when winter | spring,
+           none when others;
+process -- <4>
 begin
-  for k in 3 downto 0 loop
-    y(k) <= x(k) and en;
-  end loop;
 end process;
 ```
+
+1.  Concurrent Signal Assignment (komb.)
+2.  Conditional Signal Assignment (komb.)
+3.  Selected Signal Assignment (komb.)
+4.  Process Statement (komb./seq.)
+
+![](images/process_types.png){width="7.5cm"}
+
+### `wait` (nur für Simulation)
+
+Mit dem Keyword `wait` kann ein Prozess pausiert und/oder sensitiv gemacht werden. **NUR FÜR SIMULATION!**
+
+``` vhdl
+wait;           -- infinite loop
+wait on s1, s2; -- wait on event from s1 or s2
+wait until s1 = '1'; -- wait until condition is fulfilled
+wait for 1 ms; -- wait stated time
+```
+
++------------------------------+-----------------------+
+| [Nur]{.underline} Simulation | Simulation & Synthese |
+|                              |                       |
+| ``` vhdl                     | ``` vhdl              |
+| process                      | process(sigA)         |
+| begin                        | begin                 |
+|   sigB <= sigA;              |   sigB <= sigA;       |
+|   wait on sigA;              | end process;          |
+| end process;                 | ```                   |
+| ```                          |                       |
++------------------------------+-----------------------+
+
+: {tbl-colwidths="\[50,50\]"}
+
+## Process Statement
+
+::: callout-important
+Ein Process Statement ist parallel nach aussen und sequentiell im Inneren.
+
+Alle Signal Assignments ausserhalb von `process` (Concurrent-, Selected-, Conditional-Signal Assignment) sind [Process Statements in Kurzschreibform]{.underline}!
+:::
+
+### Sequential Statements
+
+Innerhalb eines Process sind alle Statements [sequential statements]{.underline}
+
++--------------------------------------+---------------+
+| (sequential) signal assignment       | `<=`          |
++--------------------------------------+---------------+
+| variable assignment                  | `:=`          |
++--------------------------------------+---------------+
+| `if`, `case`, `for`, `loop`, `while` | \-            |
++--------------------------------------+---------------+
+| **nur für Simulation:\               | \-            |
+| **`wait`, `assert`, `report`         |               |
++--------------------------------------+---------------+
+
+Folgend ist beides identisch!
+
+``` vhdl
+stud <= happy     when mep >= C else
+        satisfied when mep >= E else
+        sad;
+
+P1: process (mep)
+begin
+  if mep >= C then
+    stud <= happy;
+  elsif mep >= E then
+    stud <= satisfied;
+  else
+    stud <= sad;
+  end if;
+end process P1;
+```
+
+# Schaltungssynthese
+
+## Synthese
+
+1.  Synthese übersetzt VHDL-Modell in eine RTL-Becshreibung aus Registern und kombinatorischen Blöcken
+2.  Erzeugung von Netlist $\rightarrow$ Verbindungen von Elementen (Primitives), welche in den Slices verfügbar sind.
+
+## Implementation
+
+1.  **Initialize** $\rightarrow$ Einbindung Constraints & Netlist ins Design
+2.  **Optimzie** $\rightarrow$ Packt Primitives der synth. Netlist in Slices, Versuch Gatterkomb. zu vereinfachen (Reduktion HW)
+3.  **Place** $\rightarrow$ Zuweisung der Slices auf CLBs (configurable logic blocks) auf dem FPGA, Zuordnung IO aus Constraints
+4.  **Route** $\rightarrow$ Definiert Verbindungen zwischen CLB & IO
+5.  **Static Timing Analysis** $\rightarrow$ Überprüfung des Designs mit den Timing Constraints.
+
+::: callout-important
+### Synthesis vs. Implementation
+
+-   *Synthesis* generiert die Netlist des VHDL-Codes und beschreibt die Zusammensetzung
+-   *Implementation* wendet die Contraints an und sorgt für die Hardware-Implementierung
+:::
+
+### Bitstream
+
+Die Bitstream-Generierung erzeugt das FPGA-Konfigurationsfile ('kompilierte Datei').

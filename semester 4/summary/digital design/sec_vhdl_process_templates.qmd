@@ -9,32 +9,35 @@ Der Inhalt der Prozess-Templates wird in den `=>CUSTOM` gekennzeichneten Abschni
 ### Mit asynchronem Reset
 
 ``` vhdl
--- mit asynchronem Reset
-process (rst, clk)
--- Deklarationen => CUSTOM
+process (rst, clk) -- !!!
+-- <1>
 begin
   if rst = ’1’ then
-    -- asynchr. Reset => CUSTOM
-    Q <= ’0’;
+    Q <= ’0’; -- <2>
   elsif rising_edge(clk) then
-    -- getaktete Logik => CUSTOM
-    Q <= D;
+    Q <= D; -- <3>
   end if;
 end process;
 ```
+
+1.  Deklarationen
+2.  Asynchroner Reset
+3.  Getaktete Logik
 
 ### Ohne Reset
 
 ``` vhdl
-process (clk)
--- Deklarationen => CUSTOM
+process (clk) -- !!!
+  -- <1>
 begin
   if rising_edge(clk) then
-    -- getaktete Logik => CUSTOM
-    Q <= D;
+    Q <= D; -- <2>
   end if;
 end process;
 ```
+
+1.  Deklarationen
+2.  Getaktete Logik
 
 ## Finite State Machine
 
@@ -136,3 +139,76 @@ end process;
 
 1.  [*Memorizing*]{.underline} (sequentielle Logik)
 2.  [*Memoryless*]{.underline} (kombinatorische Logik)
+
+## Synchronisation
+
+### einfach
+
+![](images/paste-8.png){fig-align="center" width="5cm"}
+
+``` vhdl
+process (rst, clk)
+begin
+  if rst = ’1’ then
+    sync <= "00";
+  elsif rising_edge(clk) then
+    sync(0) <= async;
+    sync(1) <= sync(0);
+  end if;
+end process;
+```
+
+### mit Flankenerkennung
+
+![](images/paste-9.png){fig-align="center" width="8cm"}
+
+``` vhdl
+enb <= sync(1) and not sync(2);
+
+process (rst, clk)
+begin
+  if rst = ’1’ then
+    sync <= "000";
+  elsif rising_edge(clk) then
+    sync(0) <= async;
+    sync(1) <= sync(0);
+    sync(2) <= sync(1);
+  end if;
+end process;
+```
+
+## Entprellen
+
+### durch Blanking
+
+``` vhdl
+deb_sig : process(clk)
+begin
+  if rising_edge(clk) then
+    if deb_cnt = 0 then
+      if (sig /= debncd_sig) then
+        deb_cnt <= c_blank_time;
+        debncd_sig <= sig;
+      end if;
+    elsif deb_cnt > 0 then
+      deb_cnt <= deb_cnt -1;
+    end if;
+  end if;
+end process;
+```
+
+### durch Unterabtastung
+
+``` vhdl
+deb_sig : process(clk)
+begin
+  if rising_edge(clk) then
+    deb_cnt <= (others => '0');
+    if(deb_cnt = c_blank_time) then
+      debncd_sig <= sig;
+    else
+      deb_cnt <= deb_cnt + 1;
+    end if;
+  end if;
+end process;
+```

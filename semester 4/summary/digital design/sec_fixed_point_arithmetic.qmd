@@ -1,9 +1,181 @@
-# Festkomma-Arithmetik
+# Fest-/ und Gleitkomma-Arithmetik
+
+## Festkomma
+
+![](images/paste-13.png)
 
 $$
-0 \leq\sum^{W-1}_{k=0}b_k\cdot 2^{k-F} \leq 2^{W-F} - 2^{-F}
+W \geq F \geq 0
+$$
+
+```{=latex}
+\begin{conditions}
+  W & Gesamtgrösse $[Bit]$ \\
+  F & Nachkomma-Bits $[Bit]$
+\end{conditions}
+```
+::: callout-important
+### Vorzeichenlose Zahlen (`unsigned`)
+
+$$
+0 \leq\sum^{W-1}_{k=0}b_k\cdot 2^{k-F} \leq \underbrace{2^{W-F} - 2^{-F}}_{2^{-F}\cdot(2^W-1)}
+$$
+:::
+
+::: callout-important
+### Zahlen mit Vorzeichen (`signed`)
+
+$$
+\begin{array}{l}
+-2^{W-F-1}\leq
+\\-b_{W-1}\cdot2^{W-F-1}+ \sum^{W-2}_{k=0}b_k\cdot 2^{k-F}\leq \\\underbrace{2^{W-F-1}-2^{-F}}_{2^{-F}\cdot(2^{W-1} - 1)}
+\end{array}
+$$
+:::
+
+Die Auflösung $R$ ist im Festkomma-Format im Gegensatz zu Gleitkomma über den gesamten Wertebereich konstant. Es beschreibt wie *gross* ein Bit ist.
+
+$$
+R = 2^{-F} \quad\rightarrow\quad R\rvert_{F=8} = 2^{-8}\approx 0.00391
+$$
+
+::: callout-tip
+### Bereich ausrechnen
+
+#### [unsigned]{.underline}
+
+$$       
+\min = 0\ ;\ \max = R\cdot (2^{W}-1)                 
 $$
 
 $$
--2^{W-F-1}\leq -b_{W-1}\cdot2^{W-F-1}+ \sum^{W-2}_{k=0}b_k\cdot 2^{k-F}\leq 2^{W-F-1}-2^{-F}
+\text{Range} = \mathbf{[}0,\,R\cdot(2^W)\mathbf{)}
 $$
+
+[Beispiel]{.underline} $W = 4$, $F = 3$
+
+$$
+\left.
+\begin{array}{ll}
+\min:&\texttt{0.000} = 0 \\
+\max:&\texttt{1.111} = 1.875
+\end{array}\right\}
+\Rightarrow \mathbf{[}0,\,2\mathbf{)}
+$$
+
+#### [signed]{.underline}
+
+$$             
+\text{min} = -R\cdot (2^{W-1})\ ;\ \text{max} = R\cdot (2^{W-1}-1) 
+$$
+
+$$
+\text{Range} = \mathbf{[}-R\cdot 2^{W-1},\,R\cdot 2^{W-1}\mathbf{)}
+$$
+
+[Beispiel]{.underline} $W = 4$, $F = 3$
+
+$$
+\left.
+\begin{array}{ll}
+\min: &\texttt{1.000} = -1 \\
+\max: &\texttt{0.111} = 0.875
+\end{array}
+\right\}
+\Rightarrow \mathbf{[}-1,\,1\mathbf{)}
+$$
+:::
+
+### Addition
+
+![](images/paste-14.png)
+
+*Sign-Extension* bei A wird verwendet, falls das Carry-Bit benötigt wird.
+
+``` vhdl
+S <= ('0' & A & "00") + B; -- <1>
+S <= (A(A'left) & A & "00") + B; -- <2>
+```
+
+1.  Sign-Extension $=0$ falls [unsigned]{.underline} Arithmetik
+2.  Sign-Extension $= MSB$ falls [signed]{.underline} Arithmetik
+
+$$
+W_{S} = \max(F_A,F_B)+\max(W_A-F_A,W_B-F_B)+1
+$$
+
+$$
+F_S = \max(F_A,F_B)
+$$
+
+### Multiplikation
+
+![](images/paste-15.png)
+
+[Kein Zero-Padding]{.underline} oder [Sign-Extension]{.underline} nötig.
+
+$$
+\texttt{P'length} = \texttt{A'length} + \texttt{B'length}
+$$
+
+$$
+W_P = W_A + W_B
+$$
+
+$$
+F_P = F_A + F_B
+$$
+
+::: callout-caution
+## Division vermeiden
+
+Eine Multiplikation verläuft schneller als eine Division und sollte in allen möglichen Fällen vermieden werden!
+:::
+
+# Gleitkomma
+
+![](images/gleitkomma_zahl.png)
+
+Zusätzlich werden $E$ Bits von $W$ Bits verwendet, um die Lage des Binärpunktes zu kodieren und $M = W-E$ Bits für die Auflösung verwendet.
+
+$$
+D = (-1)^{s}\cdot \underbrace{(1+m\cdot2^{-M})}_{1+x^{-1}+x^{-2}+x^{-3}+\cdots}\cdot 2^{(e - b)}
+$$
+
+$$
+b = 2^{E-1}-1
+$$
+
+```{=tex}
+\begin{conditions}
+  s & Vorzeichebit (\textit{Sign}) \\
+  m & vorzeichenloser Wert der Mantisse $M$ \\
+  e & vorzeichenloser Wert des Exponenten $E$ \\
+  b & Wert des Exponenten-Bias \\
+
+\end{conditions}
+```
+[Beispiel]{.underline}
+
+$$
+\begin{array}{l}
+\underline{b} = 2^{E-1}-1 = 2^{8-1}-1=\underline{127} \\
+\underline{D} = (-1)^1\cdot(1+\cdot2^{-3}+2^{-8}+2^{-10})\cdot 2^{131-127}=\underline{-18.078125}
+\end{array}
+$$
+
+::: callout-caution
+## Von FK zu GK
+
+Das Festkomma-Format (FK) kann mit einer gegebenen Anzahl $W$ Bits
+
+-   die Auflösung (absoluter Fehler) mit $F=W$ optimieren
+
+    `.XXXX`
+
+-   den darstellbaren Wertebereich mit $F=0$ optimieren
+
+    `XXXX.`
+
+-   aber [nicht beides gleichzeitig]{.underline}! $\Rightarrow$ Daher GK
+:::

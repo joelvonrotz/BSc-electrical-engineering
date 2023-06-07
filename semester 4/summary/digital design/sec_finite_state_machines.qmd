@@ -1,16 +1,151 @@
+# Synchrone Logik
+
+::: callout-note
+## Warum synchrones Design?
+
+[synchrones Design]{.underline}: **Eine** worst-case Timing-Analyse
+
+$$
+max(T_{Delay})<T_{CLK}\pm T_{skew}
+$$
+
+![](images/synchronouse_design_timing_circuit.png){fig-align="center"}
+
+\textcolor{OliveGreen}{\textbf{+}} Keinen Einfluss von Hazards, ungültige Zwischenwerte, etc.
+
+\textcolor{OliveGreen}{\textbf{+}} Signale vor Speicherung [stabil]{.underline}
+
+\textcolor{OliveGreen}{\textbf{+}} Deterministisches Verhalten unabhängig von Gate-level Details
+
+\textcolor{OliveGreen}{\textbf{+}} Systematisches Design/Test/Debug mit etablierten Methoden & Tools
+
+\textcolor{BrickRed}{\textbf{-}} Max. Verarbeitungsgeschwindigkeit durch [Verzögerungszeit des längsten Pfades]{.underline} definiert.
+
+\textcolor{BrickRed}{\textbf{-}} Evtl. höherer Energieverbrauch und EMV-Probleme durch CLK-Signal
+
+[asynchrones Design]{.underline}: $\infty\textbf{-viele}$ Timing Analysen
+
+![](images/paste-6.png)
+:::
+
+## Synchronisation & Entprellung
+
+### Metastabilität
+
+![](images/paste-7.png)
+
+$\rightarrow$ Durch Verletzung der Hold-/Setup-Zeit kann ein Speicherelemnt in den Metastabilen Zustand geraten ([unbestimmter Ausgang]{.underline}) $\Rightarrow$ Kann durch Synchronisation reduziert werden!
+
+::: callout-tip
+## Mean Time Between Failure
+
+Zeit $t_{meta\_res}$ beschreibt die Zeit, bis von der Metastabilität wieder ein definierten Wert angenommen wird.$\rightarrow$ Je kleiner, desto besser!
+
+$$
+t_{meta\_res}<t_{allowed}=\frac{1}{f_{clk}}-t_{pd}-t_{su}
+$$ $t_{MTBF}$ beschreibt die Wahrscheinlichkeit, dass die obere Bedingung nicht erfüllt ist $\rightarrow$ Je kleiner desto besser!
+
+$$
+t_{MTBF} = \frac{e^{K_2\cdot \left(\frac{1}{f_{clk}}-t_{pd}-t_{su}\right)}}{K_1\cdot f_{clk}\cdot f_{d}}
+$$
+
+Grösstenteils ist die $t_MTBF$ abhängig von der Clockfrequenz!
+
+```{=latex}
+\begin{conditions}
+  K_1     & Prozess-Konstante $[s]$ \\
+  K_2     & Prozess-Konstante $[Hz]$ \\
+  t_pd    & Propagation delay \\
+  t_su    & Setup-Zeit \\
+  f_d     & durchschnittliche Frequenz des asynchronen Datensignals \\
+  f_{clk} & Clockfrequenz
+\end{conditions}
+```
+:::
+
+## Reset Synchronisierung
+
+::: callout-note
+## Synchroner Reset
+
+Synchronisierung wie für binäre Datensignale.
+
+`\textcolor{OliveGreen}{\textbf{+}}`{=latex} Geringer LUT-Verbrauch durch logische Kombination von Daten/Reset `\textcolor{OliveGreen}{\textbf{-}}`{=latex} Nur funktionstüchtig wenn Clock-Signal aktiv
+:::
+
+::: callout-note
+## Asynchroner Reset
+
+Spezielle Synchronisierung damit alle FFs im gleichen cc freigegeben werden.
+
+`\textcolor{OliveGreen}{\textbf{+}}`{=latex} Geringer LUT-Verbrauch `\textcolor{OliveGreen}{\textbf{-}}`{=latex} Höherer LUT-Verbrauch, keine logischen Kombinationen von Daten/Reset möglich
+:::
+
+![](images/paste-10.png)
+
+``` vhdl
+sync_rst: process(clk_pi, rst_pi)
+begin
+  if rst_pi = '1' then
+    rst_sr <= (others => '1');
+    rst_po <= '1';
+  elsif rising_edge(clk_pi) then
+    rst_sr(0)          <= '0';
+    rst_sr(3 downto 1) <= rst_sr(2 downto 0);
+    rst_po             <= rst_sr(3);          
+  end if;
+end process;
+```
+
+## Entprellen
+
+### durch Blanking
+
+![](images/paste-11.png)
+
+-   [Kontaktsignal]{.underline} wird [möglichst schnell abgetastet]{.underline}, um Signaländerungen auszuwerten.
+-   [Geplante Aktion sofort]{.underline} beim Drücken bzw. Loslassen ausgeführt werden!
+
+\textcolor{BrickRed}{\textbf{-}} Es muss $T_{Blank}$ gewartet werden bis nächste Auswertung
+
+### durch Unterabtastung
+
+![](images/paste-12.png)
+
+-   Kontaktsignal wird langsam abgetastet
+-   $T_{Sample} > T_{Prell}$
+
+\textcolor{BrickRed}{\textbf{worst-case}} geplante Aktion erst zwei volle Abtastperioden nach Schalterereignis ausgeführt
+
+## Drehgeber-Signale (Quadratur-Signale)
+
+![](images/encoder_diagram.png){fig-align="center" width="7.3cm"}
+
+Die Reihenfolge des Auftretens der 4 Eingangskombination bestimmt die aktuelle Drehrichtung.
+
 # Finite State Machines (FSM)
+
+Oder auch *getaktete/synchrone/sequentielle Logik*
+
+::: callout-note
+## Warum FSM?
+
+Jede (komplexe) digitale Schaltung benötigt ein "Gedächtnis" um Zustände zu speichern.
+:::
 
 Eine Zustandsmaschine beschreibt ein System in diskreten Zuständen. In **VHDL** wird für Mealy- & Moore-Automaten jeweils ein [*memoryless*]{.underline} und ein [*memorizing*]{.underline} Prozess verwendet. Der [*memoryless*]{.underline} Prozess verarbeitet die Zustandswechsel und die Ausgänge (wobei dies Abhängig vom FSM-Typ ist). Der [*memorizing*]{.underline} Prozess ist für die Zustands-Zurücksetzung und -zuweisung zuständig.
 
 ::: callout-note
 ## Allgemeine Definition ZSM
 
-```{=latex}
-\begin{align*}
-o[k] = g(i[k], s[k]) \\
-s[k+1] = f(i[k], s[k])
-\end{align*}
+$$
+\begin{split}
+o[k] &= g(i[k], s[k]) \\
+s[k+1] &= f(i[k], s[k])
+\end{split}
+$$
 
+```{=latex}
 \begin{conditions}
   k & diskrete Zeit mit $t = k\cdot T_{CLK}$, $k=0$ entspricht Reset-Zeitpunkt \\
   s & Zustand des Systems mit $s\in S =\{S_0,S_1,\dots S_N\}$ \\
@@ -24,26 +159,28 @@ s[k+1] = f(i[k], s[k])
 
 ## FSM-Typ: Mealy
 
-![](images/fsm_mealy.png){fig-align="center" width="4cm"}
+![](images/fsm_mealy.png)
 
-```{=latex}
-\begin{align*}
-o[k] = g(i[k], s[k]) \\
-s[k+1] = f(i[k], s[k])
-\end{align*}
-```
+$$
+\begin{split}
+o[k] &= g(i[k], s[k]) \\
+s[k+1] &= f(i[k], s[k])
+\end{split}
+$$
+
 Beim *Mealy* werden die Ausgänge [beim Zustandswechsel]{.underline} geändert.
 
 ## FSM-Typ: Moore
 
-![](images/fsm_moore.png){fig-align="center" width="5.5cm"}
+![](images/fsm_moore.png)
 
-```{=latex}
-\begin{align*}
-o[k] = g(s[k]) \\
-s[k+1] = f(i[k], s[k])
-\end{align*}
-```
+$$
+\begin{split}
+o[k] &= g(s[k]) \\
+s[k+1] &= f(i[k], s[k])
+\end{split}
+$$
+
 Beim *Moore* werden die Ausgänge [im Zustand]{.underline} geändert.
 
 ::: callout-caution
@@ -60,12 +197,13 @@ Eine Mealy-FSM ändert den Ausgang [beim]{.underline} Zustandswechsels, was eine
 
 *Medvedev* hat eine ähnlichen Aufbau wie *Moore*, wobei der Ausgang direkt dem Zustandswert entspricht und keine Zwischen-Konvertierung gemacht wird.
 
-```{=latex}
-\begin{align*}
-o[k] = s[k] \\
-s[k+1] = f(i[k], s[k])
-\end{align*}
-```
+$$
+\begin{split}
+o[k] &= s[k] \\
+s[k+1] &= f(i[k], s[k])
+\end{split}
+$$
+
 ## Parasitäre Zustände
 
 Jedes weitere Zustands-Flip-Flop erweitert die Anzahl Faktoren um den Faktor 2 ($S = 2^N$). Ungebrauchte Zustände werden *parasitäre Zustände* genannt.
@@ -86,28 +224,18 @@ $$
   S & Anzahl verwendete Zustände
 \end{conditions}
 ```
-
 ## State Encoding
 
 Zustände können auf verschiedene Arten dargestellt werden, bekannte Varianten sind *binär* und *One Hot*.
 
-```{=latex}
-\begin{center}
-\begin{tabularx}{\linewidth}{|l|c|c|}
-\hline
-\textbf{Zustand}                          & \multicolumn{1}{l|}{\textbf{Binär}} & \multicolumn{1}{l|}{\textbf{One-Hot}} \\ \hline
-$S_0$                                     & \texttt{00}                         & \texttt{001} \\ \hline
-$S_1$                                     & \texttt{01}                         & \texttt{010} \\ \hline
-$S_2$                                     & \texttt{10}                         & \texttt{100} \\ \hline
-\textcolor{BrickRed}{Parasitäre Zustände} & \textcolor{BrickRed}{\texttt{11}}   & \textcolor{BrickRed}{\texttt{000}}, 
-                                                                                  \textcolor{BrickRed}{\texttt{011}}, 
-                                                                                  \textcolor{BrickRed}{\texttt{111}}, 
-                                                                                  \textcolor{BrickRed}{\texttt{110}}, 
-                                                                                  \textcolor{BrickRed}{\texttt{101}} \\ \hline
+|                  Zustand                  |               Binär               |                                          One-Hot                                           |
+|:-----------------:|:-----------------:|:--------------------------------:|
+|                   $S_0$                   |               `00`                |                                           `001`                                            |
+|                   $S_1$                   |               `01`                |                                           `010`                                            |
+|                   $S_2$                   |               `10`                |                                           `100`                                            |
+| \textcolor{BrickRed}{Parasitäre Zustände} | \textcolor{BrickRed}{\texttt{11}} | \textcolor{BrickRed}{\texttt{000}, \texttt{011}, \texttt{111}, \texttt{110}, \texttt{101}} |
 
-\end{tabularx}
-\end{center}
-```
+: {tbl-colwidths="\[20,30,30\]"}
 
 ::: callout-warning
 ## Parasitäre Zustände
@@ -131,16 +259,20 @@ Bei *One-Hot* ist **ein Bit** *high* und **alle anderen Bits** *low* oder in and
 
 ## Goldene Regeln der (FSM) Implementierung
 
--   Memoryless Process (kombinatorische Logik)
+### Memoryless Process (kombinatorische Logik)
 
-    -   Alle Eingangssignale der FSM und der aktuelle Zustand müssen in der *sensitivity list* aufgeführt werden.
+-   Alle Eingangssignale der FSM und der aktuelle Zustand müssen in der *sensitivity list* aufgeführt werden.
+-   [Jedem]{.underline} Ausgangssignal muss für [jede]{.underline} mögliche Kombination von Eingangswerten (inkl. parasitäre Input-Symbole) ein Wert zugewiesen werden. **Keine Zuweisung bedeutet sequentielles Verhalten (Speicher)!**
+-   Parasitäre Zustände sollten mittels `others` abgefangen werden.
 
-    -   [Jedem]{.underline} Ausgangssignal muss für [jede]{.underline} mögliche Kombination von Eingangswerten (inkl. parasitäre Input-Symbole) ein Wert zugewiesen werden. **Keine Zuweisung bedeutet sequentielles Verhalten (Speicher)!**
+### Memorizing Process (sequentielle Logik)
 
-    -   Parasitäre Zustände sollten mittels `others` abgefangen werden.
+-   Ausser Clock und (asynchronem) Reset dürfen [keine]{.underline} Signale in die *sensitivity list* aufgenommen werden.
 
--   Memorizing Process (sequentielle Logik)
+-   Das den Zustand repräsentierende Signal muss einen Reset-Wert erhalten.
 
-    -   Ausser Clock und (asynchronem) Reset dürfen [keine]{.underline} Signale in die *sensitivity list* aufgenommen werden.
+::: callout-warning
+## Latches
 
-    -   Das den Zustand repräsentierende Signal muss einen Reset-Wert erhalten.
+Latch-Warnungen bei der Synthese deuten gut auf eine Missachtung der Regeln.
+:::
