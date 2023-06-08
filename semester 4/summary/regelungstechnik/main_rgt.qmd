@@ -3,15 +3,14 @@ title: "Regelungstechnik"
 author: "Joel von Rotz"
 date: "25.04.2023"
 
-lang: de
-
 # [RENDER CONFIGURATION] ==============================
 format:
   pdf:
     keep-tex: true
-    classoption: german
     include-in-header:
       - config/config.tex
+      - config/_two-column-longtable.tex
+      - text: "\\usepackage[ngerman]{babel}"
     template-partials:
       - config/before-body.tex
     output-file: "s4_regelungstechnik"
@@ -29,8 +28,6 @@ geometry:
 - "right=15mm"
 papersize: a4
 fontsize: 10pt
-classoption: 
-- german
 
 code-block-border-left: false
 code-block-bg: "#f7f7f7"
@@ -41,6 +38,7 @@ number-sections: true
 number-depth: 3
 pagenumbering: none
 highlight-style: github
+
 ---
 
 \newpage
@@ -59,10 +57,17 @@ highlight-style: github
   breakable
 ]}{\end{tcolorbox}}\fi
 ```
+
 `\begin{multicols}{2}`{=latex}
 
 <!-- insert -->
 
+
+<!-- Beinhaltet:
+   - Regelkreis (SW01)
+     - Was ist ein Regelkreis?
+     - Begriffe, Struktur, Aufbau
+   -  -->
 {{< include sec_regulator.qmd >}}
 
 {{< include sec_modelling.qmd >}}
@@ -80,6 +85,8 @@ highlight-style: github
 {{< include sec_matlab.qmd >}}
 
 {{< include sec_simulink.qmd >}}
+
+{{< include sec_process_types.qmd >}}
 
 `\end{multicols}`{=latex}
 

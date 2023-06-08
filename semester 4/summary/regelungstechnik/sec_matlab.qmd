@@ -204,3 +204,14 @@ sys = ss(A,B,C,D,Ts);
 ```
 
 Es kann ebenfalls `bode`, `nyquist`, `step`, etc. angewendet werden, da die ZRD eine andere Darstellung der Übertragungsfunktion ist.
+
+## Reglersimulator `Sisotool(tf(...))`
+
+Mit `sisotool` kann ein Regler *C* basierend auf einem Prozess *P* ausgelegt werdne.
+
+```matlab
+P = tf(...);
+sisotool(P); % Der Prozess wird angegeben
+```
+
+- 

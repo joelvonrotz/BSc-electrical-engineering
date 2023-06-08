@@ -1,10 +1,42 @@
 # Modellierung
 
-## Zustandsraum
+## Zustandsraum Darstellung
 
+### Autonomes, zeitinvariantes System
+
+![](images/modelling\autonome_system.png){width="5cm" height="1.1cm"}
+
+$$
+\dot{x}=f(x)
+$$
+
+### Allgemeine Systeme
+
+![](images/modelling\general_system.png){width="5cm" height="2cm"}
+
+$$
+\dot{x}=f(x,u)\qquad y=h(x,u)
+$$
+
+### Lineares Zustandsraummodell
+
+![](images/modelling\linear_system_general.png)
+
+$$
+\dot{x}=\left(\begin{matrix} x_1' \\ x_2' \end{matrix}\right)=Ax+Bu \qquad y = Cx + Du
+$$
+
+```{=latex}
+\begin{conditions}
+  A & beschreibt Dynamik \\
+  B & beschreibt Steuereinfluss \\
+  C & beschreibt Messung \\
+  D & beschreibt Durchgriff
+\end{conditions}
+```
 ## Störverhalten
 
-Das Störverhalten beschreibt den Einfluss der Störgrössen $v$ auf die Regelgrösse $y$ bei einer konstanten Führungsgrösse $r$. Ein gutes Störverhalten minimiert diese Einflüsse, wobei das letzendliche Verhalten des Systems abhängig auf das Zielsystem ist.
+Das Störverhalten beschreibt den Einfluss der Störgrössen $v$ auf die Regelgrösse $y$ bei einer konstanten Führungsgrösse $r$. Ein gutes Störverhalten minimiert diese Einflüsse, wobei das letztendliche Verhalten des Systems abhängig auf das Zielsystem ist.
 
 [Beispiel]{.underline}
 
@@ -29,4 +61,3 @@ Das Führungsverhalten beschreibt den Einfluss der Führungs-/Sollgrösse $r$ au
 ## Vorsteuerung
 
 ## Stationären Zustand (steady state)
-
