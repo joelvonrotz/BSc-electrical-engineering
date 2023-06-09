@@ -1,0 +1,107 @@
+# PWM-D/A
+
+Mit dem PWM-Verfahren (+TP-Filter) kann aus einem Digitalwert ein Analogsignal erzeugt werden. Ein Referenzcounter dimensioniert auf $N$-Bits zählt hoch und ab einem Schwellwert wird das PWM-Signal von High auf Low gezogen:
+
+1.  Ref-Counter $n_{cnt} < d_{in}\rightarrow$ `pwm_out` [high]{.underline}
+2.  Ref-Counter $n_{cnt} \cancel{<} d_{in}\rightarrow$ `pwm_out` [low]{.underline}
+
+![](images/paste-16.png)
+
+$$
+f_{DAC} = \frac{f_{CNT}}{2^N-1} = \frac{f_{CLK}}{P\cdot (2^N-1)}
+$$
+
+$$
+D=\frac{d_{in}}{2^N-1}\cdot 100\%
+$$
+
+```{=latex}
+\begin{conditions}
+  f_{DAC} & Frequenz des PWM-Signals \\
+  f_{CNT} & Frequenz einzelnes PWM-Bit \\
+  P       & PWM-Prescaler \\
+  N       & PWM-Auflösung in Bits \\
+  D       & Tastgrad \\
+  d_{in}  & Inputwert
+\end{conditions}
+```
+![](images/pwm_diagramm.png){width="5cm"}
+
+# Packages
+
+In Packages sammelt man Deklarationen, die an mehreren Orten verwendet werden. Selbstdefinierte Typen, welche in Ports verwendet werden, **müssen** in Packages definiert werden. Packages mit Subprogramms **erfordern** immer eine Implementation.
+
+``` vhdl
+package my_pkg is -- <1>
+  type mix_rec is record
+    element1: std_logic;
+    element2: natural;
+  end record;
+  constant const_1: natural := 7;
+  function f1(a,b:mix_rec) return std_logic;
+end my_pkg;
+
+package body my_pkg is -- <2>
+  function f1(a,b:mix_rec) return std_logic is -- <3>
+  begin
+    return a.element1 or b.element1;
+  end f1;
+end my_pkg;
+```
+
+1.  Package Deklaration
+2.  Package Implementation
+3.  Implementation der Funktion `f1`
+
+## Libraries & Use Clause
+
+-   Design Units (Entity, Architecture, Package) sind in Libraries organisiert.
+-   Default-Bibliothek ist `work` $\rightarrow$ Eigene Bibliotheken in *Vivado* kann über *Source File Properties* des gewünschten Packages eingestellt/erstellt werden
+-   Deklarationen können auf zwei Arten zugegriffen werden
+
+``` vhdl
+library myLib; -- <1>
+use myLib.my_pkg.mix_rec; -- <2>
+use myLib.my_pkg.all; -- <3>
+
+entity E1 is -- <4>
+  port(
+    I : in  myLib.my_pkg.mix_rec;
+    O : out myLib.my_pkg.mix_rec);
+end E1;
+
+entity E2 is -- <5>
+  port(
+    I : in mix_rec;
+    O : out mix_rec);
+end E2;
+```
+
+1.  nicht `work`-Libraries müssen mit `library` geladen werden!
+2.  laden von spezifischen Deklarationen
+3.  alle Deklarationen eines Packages laden
+4.  Zugriff ohne `use` (direkt)
+5.  Zugriff mit `use` (angenehm)
+
+## Liste von Packages
+
+### Synthetisierbare Bibliotheken
+
+### `ieee.std_logic_1164`
+
+``` vhdl
+library ieee;
+use ieee.std_logic_1164.all;
+```
+
+``` vhdl
+library ieee;
+use ieee.numeric_std.all;
+```
+
+### Nicht-Synthetisierbare Bibliotheken
+
+``` vhdl
+library ieee;
+use ieee.math_real.all;
+```

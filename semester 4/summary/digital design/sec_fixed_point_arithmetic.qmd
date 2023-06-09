@@ -152,20 +152,30 @@ $$
   m & vorzeichenloser Wert der Mantisse $M$ \\
   e & vorzeichenloser Wert des Exponenten $E$ \\
   b & Wert des Exponenten-Bias \\
-
 \end{conditions}
 ```
-[Beispiel]{.underline}
+[Beispiel (open)]{.underline}
 
 $$
-\begin{array}{l}
-\underline{b} = 2^{E-1}-1 = 2^{8-1}-1=\underline{127} \\
-\underline{D} = (-1)^1\cdot(1+\cdot2^{-3}+2^{-8}+2^{-10})\cdot 2^{131-127}=\underline{-18.078125}
-\end{array}
+\underline{b} = 2^{E-1}-1 = 2^{8-1}-1=\underline{127}
 $$
+
+$$
+\begin{split}
+\underline{D} &= (-1)^1\cdot(1+\cdot2^{-3}+2^{-8}+2^{-10})\cdot 2^{131-127} \\
+&=\underline{-18.078125}
+\end{split}
+$$
+
+| IEEE-754 | Name              | $W$ | $E$ | $M$ |  $\min/\max$   |
+|----------|-------------------|:---:|:---:|:---:|:--------------:|
+| 2008     | binary16 (half)   | 16  |  5  | 10  |  $10^{\pm5}$   |
+| 1985     | binary32 (single) | 32  |  8  | 23  |  $10^{\pm38}$  |
+| 1985     | binary64 (double) | 64  | 11  | 52  | $10^{\pm308}$  |
+| 2008     | binary128 (quad)  | 128 | 15  | 112 | $10^{\pm4932}$ |
 
 ::: callout-caution
-## Von FK zu GK
+## Fest- und Gleitkomma
 
 Das Festkomma-Format (FK) kann mit einer gegebenen Anzahl $W$ Bits
 
@@ -177,5 +187,5 @@ Das Festkomma-Format (FK) kann mit einer gegebenen Anzahl $W$ Bits
 
     `XXXX.`
 
--   aber [nicht beides gleichzeitig]{.underline}! $\Rightarrow$ Daher GK
+-   aber [nicht beides gleichzeitig]{.underline}! $\Rightarrow$ Daher Gleitkomma
 :::

@@ -12,6 +12,11 @@ VHDL steht für ***V**ery High Speed Integrated Circuit **H**ardware **D**escrip
 
 HW-nahes Design ermöglicht: \textcolor{OliveGreen}{\textbf{+}} kleinere, schnellere, energie-effizientere Schaltungen als ESL-Design \textcolor{BrickRed}{\textbf{-}} auf Kosten der Entwicklungszeit.
 
+```{=latex}
+\vfill\null
+\columnbreak
+```
+
 ## Entwicklung
 
 ### Designflow
@@ -56,7 +61,10 @@ sigB <= '1'; -- <2>
 1.  Effekt nach `after` ([nur]{.underline} Simulation)
 2.  Bei keiner Verzögerung (Synthese & Simulation)$\rightarrow$ Transaction für nächsten Simulationszyklus geplant ($\delta$-Delay)
 
-### Propagation Delay
+```{=latex}
+\vfill\null
+\columnbreak
+```
 
 ## Sprachelemente
 
@@ -192,6 +200,11 @@ port map (
   OutP => O1
 );
 ...
+```
+
+```{=latex}
+\vfill\null
+\columnbreak
 ```
 
 ### Loop & Generate Statements
@@ -344,6 +357,8 @@ signal byte : std_logic_vector(7 downto 0);
 ::: callout-note
 #### Attributes `A'<atr>(N)`
 
+Mit den Attributes eines Arrays können verschiedene Informationen entnommen werden, welche während der Synthetisierung eingefügt werden (analog zu C Preprozessoren).
+
 ``` vhd
 type t_arr is array(2 to 4, 15 downto 0) of std_logic;
 signal A : t_arr;
@@ -389,7 +404,16 @@ end record;
 
 ### Signed/Unsigned (IEEE 1076.3)
 
-Binärzahlen in Form von 2er-Komplement, bzw. vorzeichenlosen Binär-Arrays.
+Binärzahlen in Form von 2er-Komplement, bzw. vorzeichenlosen Binär-Arrays
+
+::: callout-important
+#### Unterschied Signed/Unsigned und Integer
+
+`integer` ist ein Skalar-Typ und fest in VHDL eingebaut. Obwohl der Typ der Zahlenbereich einer 32-Bit 2er-Komplementzahl hat, hat es keine Tool-interne Darstellung (z.B. MSB ist nicht prüfbar).
+
+`unsigned/signed` sind definiert im Package `numeric_std` und haben eine genau definierte Darstellung, als Array von `std_logic` bits mit bekannten Definierung von MSB & LSB.
+
+:::
 
 #### Umwandlungstabelle
 
@@ -398,6 +422,7 @@ Binärzahlen in Form von 2er-Komplement, bzw. vorzeichenlosen Binär-Arrays.
 ### IEEE `std_logic_1164`
 
 Datentypen: `std_logic` & `std_ulogic`
+
 
 ::: callout-note
 ### Warum `std_logic_1164`?
@@ -475,6 +500,11 @@ t <= now + 2.5 sec; -- <1>
 ```
 
 1.  `now` liefert aktuelle Simulationszeit
+
+```{=latex}
+\vfill\null
+\columnbreak
+```
 
 ## Prozesse
 
@@ -628,3 +658,118 @@ end process P1;
 ### Bitstream
 
 Die Bitstream-Generierung erzeugt das FPGA-Konfigurationsfile ('kompilierte Datei').
+
+## Speichermodellierung
+
+Adressierbare ROM & RAM können im FPGA aufgebaut werden aus: Slice-Logik (LUTs, FF), speziellen Makrozellen (BRAM) und Konfigurations-RAM (Distributed Memory).
+
+-   RAMs im FPGA sind immer getaktete/synchrone Speicher
+-   ROMs können auch kombinatorisch sein falls keine Latenz besteht
+-   Nur kleine Speicher sollte man in *behavioural* VHDL beschreiben
+
+### kombinatorisch ROM
+
+``` vhdl
+library IEEE;
+use IEEE.STD_LOGIC_1164.all;
+use IEEE.Numeric_Std.all;
+
+entity crom is
+  generic(
+    AW : integer := 3; DW : integer := 8);
+  port (
+    addr : in
+    std_logic_vector(AW-1 downto 0);
+    Dout : out std_logic_vector(DW-1 downto 0)
+  );
+end entity crom;
+
+architecture Behav of crom is
+  type t_rom is array (0 to 2**AW-1) of
+  std_logic_vector(DW-1 downto 0);
+  constant rom : t_rom := (X"1A", X"1B", X"1C", X"1D",
+                           X"2A", X"2B", X"2C", X"2D");
+begin
+  Dout <= rom(to_integer(unsigned(addr)));
+end architecture Behav;
+```
+
+$$
+C = 2^{AW}\cdot DC = 2^{10}\cdot \underbrace{x}_{[\text{kBit}]}
+$$
+
+```{=latex}
+\begin{conditions}
+  C & Speicherkapazität in $[Bits]$ oder $[kBits]$\\
+  AW & Adresswortbreite \\
+  DW & Datenwortbreite
+\end{conditions}
+```
+
+[Beispiel ROM]{.underline}
+
+$$
+\begin{array}{l}
+C_{ROM} = 2^3\cdot 8 = 64 \text{ Bits} \\
+\rightarrow \#FF = 0\text{ (da asynchron)}
+\end{array}
+$$
+
+
+### Synchrones ROM "Write before Read"
+
+::: callout-important
+## WBR & RBW
+
+Bei *Write-Before-Read* wird zuerst geschrieben und dann das Beschriebene gelesen.
+
+Bei *Read-Before-Write* wird zuerst die Speicherstelle ausgelesen und erst dann die Stelle überschrieben.
+
+![](images/ram_read_write_modes.png){width="6cm"}
+
+Folgendes RTL-Schema beschreibt ein WBR & RBW Speicher (WBR ohne Grün, RBW mit Grün).
+
+![](images/paste-17.png)
+:::
+
+``` vhdl
+entity sram is
+  generic(
+    AW : integer := 4; DW : integer := 8);
+  port (
+    clk  : in std_logic;
+    we   : in std_logic;
+    addr : in std_logic_vector(AW-1 downto 0);
+    Din  : in std_logic_vector(DW-1 downto 0);
+    Dout : out std_logic_vector(DW-1 downto 0)
+  );
+end entity sram;
+
+architecture Behav of sram is
+  type t_ram is array (0 to 2**AW-1) of
+    std_logic_vector(DW-1 downto 0);
+  signal ram : t_ram;
+  signal r_addr : std_logic_vector(AW-1 downto 0);
+begin
+  P_ram: process(clk)
+  begin
+    if rising_edge(clk) then
+      if we = ’1’ then
+        ram(to_integer(unsigned(addr))) <= Din;
+      end if;
+      r_addr <= addr;
+    end if;
+  end process;
+
+  Dout <= ram(to_integer(unsigned(r_addr)));
+end architecture Behav;
+```
+
+[Beispiel RAM]{.underline}
+
+$$
+\begin{array}{l}
+C_{RAM} = 2^4\cdot 8 = 128 \text{ Bits} \\
+\rightarrow \#FF = \underbrace{4}_{\text{AW}} + \underbrace{128}_{\text{Speicher}} = 132\text{ FF}
+\end{array}
+$$

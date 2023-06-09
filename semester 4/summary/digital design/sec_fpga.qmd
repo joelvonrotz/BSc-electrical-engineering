@@ -27,7 +27,13 @@ Verfügt über:
 
 ![](images/fpga_layout.png)
 
+-   **Logic Cell**: Mass zum Vergleich von FPGAs verschiedenere Familien/Hersteller
+-   **Configurable Logic Block**: Enthält 2 slices
 -   **Slice**: 4 Funktionsgeneratoren (4$\times$LUT6) + 8 FFs
+-   **Distributed RAM**: Konfigurationsspeicher einiger Slices ist als Datenspeicher nutzbar
+-   **Block RAM** statische dual-port RAMs in Blöcken zu 18/36Kbit
+-   **DSP48 Slice**: Multiply-Accumulate und Arithmetic-Logic Unit (DSP ALU)
+-   **CMT**: Clock Management Tile (clock synthesis, phase shift, PLL)
 
 ![](images/lut6_design.png){fig-align="center" width="6cm"}
 
@@ -36,6 +42,81 @@ Verfügt über:
 Hierarchisches Routing mit verschiedenen langen Verbindungen **;** Sechs-Transistor-Kreuzungspunkt **;** Routing-Delay $\geq 70\%$ Gesamt-Delay **;** Spezielles low-skew Netze für regionale/globale Clocksignale
 
 ![](images/switch_matrix_routing.png){fig-align="center" width="6cm"}
+
+# Integrated Logic Analyzer (ILA)
+
+ILAs werden meist für In-System-Debugging von FPGA-Designs verwendet (z.B. bei aufwendigen Schaltungen oder fehlenden Inpusignal-Spezifikationen).
+
+-   ILA werden zusammen mit dem **D**esign-**u**nder-**T**est synthetisiert $\rightarrow$ genügend Ressourcen verfügbar
+-   ILA beeinflusst als Messmittel das Messobjekt $\rightarrow$ befolgen ILA & DuT die Regeln des synchronen Designs, ist dies akzeptabel.
+
+$$
+T_{win} = N_{S}\cdot T_{Clk}
+$$
+
+$$
+C_{SB} \geq N_s\cdot W_s
+$$
+
+```{=latex}
+\begin{conditions}
+  T_{win} & beobachtbares Zeitfenster \\
+  N_S     & Anzahl zu speichernde Samples \\
+  C_{SB}  & Speicherkapazität des Sample Buffers \\
+  W_S     & Gesamtwortbreite aller zu anal. Signale
+\end{conditions}
+```
+::: callout-tip
+## Verfügbare BRAM-Blöcke
+
+Der Sample Buffer wird mit Block-RAM-Blöcken zusammengesetzt.
+
+Das FPGA-Board hat zwei Begrenzungen: [totaler Speicher]{.underline} ist [36KBit]{.underline} und [Maximale Anzahl Blöcke]{.underline} sind [60 Blöcke]{.underline}.
+
+![](images/fpga_bram_blocks.png)
+:::
+
+[Beispiel]{.underline}
+
+4 PWM Zyklen einer RGB-LED (Counter + Output) $\rightarrow N_R=2$, $N_G=3$, $N_B = 4$, $T_{DAC} = 100\mu s$
+
+$$
+\left.
+W_S =\ \begin{array}{ll}
+R: & 1+2 \\
+G: & 1+3 \\
+B: & 1+4
+\end{array}
+\right\} = 12 + \textcolor{BrickRed}{\mathbf{1}} = 13
+$$
+
+$\textcolor{BrickRed}{\mathbf{1}}$: immer da, irgendeine Info
+
+$$
+T_{win}=4\cdot T_{DAC}=400\mu s
+$$
+
+$$
+N_S \geq T_{win}\div T_{CLK} = 50000 \rightarrow 64K
+$$
+
+![](images/bram_block_example.png){width="6cm" height="3.3cm"}
+
+## Kurzanleitnung
+
+1.  *Run Synthesis + Open Synthesized Design*
+2.  Debug-Signale auswählen
+    1.  Netlist Window $\rightarrow$ *Mark Debug*
+    2.  Schematic Window $\rightarrow$ *Mark Debug*
+    3.  Tcl-Console `set_property MARK_DEBUG true [<signals>]`
+3.  Signale mit Debug verbinden
+    -   *Tools* $\rightarrow$ *Setup Debug*
+    -   Tiefe Sample Buffer ($N_S$)
+    -   *Capture Control* + *Advanced Trigger* wählen
+4.  Save Constraints + existing Constriant File
+5.  *Run Implementation + Generate Bitstream*
+    1.  Target beschreiben
+    2.  ILA GUI öffnet sich
 
 # Iterative Schritte des FPGA-Designs
 

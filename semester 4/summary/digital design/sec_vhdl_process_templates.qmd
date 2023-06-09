@@ -179,7 +179,7 @@ end process;
 
 ## Entprellen
 
-### durch Blanking
+### durch Blanking & Unterabtastung
 
 ``` vhdl
 deb_sig : process(clk)
@@ -203,11 +203,11 @@ end process;
 deb_sig : process(clk)
 begin
   if rising_edge(clk) then
-    deb_cnt <= (others => '0');
-    if(deb_cnt = c_blank_time) then
-      debncd_sig <= sig;
-    else
+    if deb_cnt < c_sample_time then
       deb_cnt <= deb_cnt + 1;
+    else
+      debncd_sig <= sig;
+      deb_cnt <= (others => '0');
     end if;
   end if;
 end process;

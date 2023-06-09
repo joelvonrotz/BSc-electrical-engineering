@@ -24,8 +24,8 @@ author: "Joel von Rotz"
 geometry: 
 - "top=25mm"
 - "bottom=25mm"
-- "left=15mm"
-- "right=15mm"
+- "left=10mm"
+- "right=10mm"
 papersize: a4
 fontsize: 9pt
 
@@ -59,18 +59,35 @@ highlight-style: github
 
 \pagebreak
 ```
-
 <!-- [Chapters] -->
 
- 
 `\begin{multicols}{2}`{=latex}
 
 {{< include sec_fpga.qmd >}}
+
 {{< include sec_vhdl.qmd >}}
-{{< include sec_fixed_point_arithmetic.qmd >}}
-{{< include sec_vivado.qmd >}}
+
 {{< include sec_finite_state_machines.qmd >}}
+
+{{< include sec_fixed_point_arithmetic.qmd >}}
+
+{{< include sec_libraries_and_others.qmd >}}
+
+{{< include sec_vivado.qmd >}}
+
+```{=latex}
+\vfill\null
+\columnbreak
+```
+
 {{< include sec_vhdl_process_templates.qmd >}}
-{{< include sec_libraries.qmd >}}
+
+\newpage
+
+![](images/th-1357161762.jpg)
+
+![](images/vktzbnteslj41-4294383263.jpg)
+
+![](images/pewh6yrhfmp91.png)
 
 `\end{multicols}`{=latex}
