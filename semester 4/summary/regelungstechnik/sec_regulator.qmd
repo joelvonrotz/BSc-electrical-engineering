@@ -4,37 +4,115 @@ Feed[back]{.underline} Control
 
 Ziel eines Reglers ist die Angleichung einer Regelgrösse $y$ an eine Führungsgrösse $r$, sodass idealerweise $y=r$.
 
-![](images/definition_regelung.png){fig-align="center" width="8cm"}
-
 ```{=latex}
-\begin{conditions}
-  r & Führungsgrösse (Soll-Wert) \\
-  e & Regelfehler \\
-  u & Stell-/Steuergrösse \\
-  y & Regelgrösse (Ist-Wert) \\
-  v & Störgrösse
-\end{conditions}
+\begin{center}
+  \begin{tikzpicture}
+    \fill[green!50!black!20] (-3,2) circle (0.2);
+    \fill[blue!50!black!20] (2.5,2) circle (0.2);
+    \node[above=1.5mm] at (2.5,2) {\textcolor{blue!50!black!90}{\textbf{1}}};
+    \node[above=1.5mm] at (-3,2) {\textcolor{green!50!black!90}{\textbf{2}}};
+    
+    \node[box, minimum height=0.8cm, inner sep=5pt] (regBox) at (-1.5,2) {Regler $C$};
+    \node[box, minimum height=0.8cm, inner sep=5pt] (procBox) at (1,2) {Prozess $P$};
+    
+    \node[sum] (sumPoint) at (-3,2) {+};
+    \node (startNode) at (-4,2) {};
+    \node[dot] (endDot) at (2.5,2) {};
+    \node(endPoint) at (3.5,2) {};
+    
+    
+    \draw[->] (startNode) -- node[above]{$r$} (sumPoint);
+    \draw[->] (sumPoint) -- node[above]{$e$} (regBox);
+    \draw[->] (regBox) -- node[above]{$u$} (procBox);
+    \draw (procBox) -- (endDot);
+    \draw[->] (endDot) -- node[above]{$y$} (endPoint);
+    \draw[->] (endDot) -- (2.5,0.5) -- (-3,0.5) -- node[above left]{$-$} (sumPoint);
+    \node (interferencePoint) at (1,3) {};
+    \draw[->] (interferencePoint) -- node[above=2mm]{$v$} (procBox);
+    
+    \draw[->, orange!80!black!90, line width=1pt] (0.25,1.5) .. controls (1.25,0.5) and (-1.75,0.5) .. node[above]{\textbf{3}} (-0.75,1.5);
+  
+  \end{tikzpicture}
+\end{center}
 ```
+
 ::: callout-tip
 ## Merkmale einer Regelung
 
-Folgende Merkmale **muss** eine Regelung aufweisen. Liegt eines nicht vor, so handelt es sich nicht um eine Regelung.
+Folgende Merkmale **muss** eine Regelung aufweisen, ansonsten ist es keine Regelung.
 
-1.  Erfassung (Messen) der Regelgrösse
-2.  Vergleich von Regel- und Führungsgrösse
-3.  Geschlossener Wirkungskreis
+`\vspace*{2mm}`{=latex}
+
+`\hspace*{2mm}\textcolor{blue!50!black!90}{  \textbf{1}}`{=latex}. Erfassung (Messen) der Regelgrösse\
+`\hspace*{2mm}\textcolor{green!50!black!90}{  \textbf{2}}`{=latex}. Vergleich von Regel- und Führungsgrösse\
+`\hspace*{2mm}\textcolor{orange!80!black!90}{  \textbf{3}}`{=latex}. Geschlossener Wirkungskreis
 :::
 
-$$
-\begin{split}
-y &= C\cdot P\cdot e = CP (r-y) \\
-y+CP\cdot y &= CP\cdot r \\
-\end{split}
-$$
+## Sensitivitätsfunktionen
+
+```{=latex}
+\begin{center}
+  \begin{tikzpicture}
+
+    \node[box, minimum height=0.8cm, minimum width=0.8cm, inner sep=5pt] (regBox) at (-1.75,2) {$C$};
+    \node[box, minimum height=0.8cm, minimum width=0.8cm, inner sep=5pt] (procBox) at (0.75,2) {$P$};
+
+    \node[sum] (sumPoint) at (-3,2) {+};
+    \node (startNode) at (-4,2) {};
+    \node[dot] (endDot) at (2.5,2) {};
+    \node(endPoint) at (3.5,2) {};
+    \node[sum] (sumCP) at (-0.5,2) {+};
+    \node[sum] (sumPY) at (2,2) {+};
+    \node (intWPoint) at (2,3) {};
+    \node (intVPoint) at (-0.5,3) {};
+
+
+    \draw[->] (startNode) -- node[above]{$r$} (sumPoint);
+    \draw[->] (sumPoint) -- node[above]{$e$} (regBox);
+    \draw[->] (regBox) -- node[above]{$u$} (sumCP);
+    \draw[->] (sumCP) -- node[above]{$\mu$} (procBox);
+    \draw[->] (procBox) -- (sumPY);
+    \draw     (sumPY) -- (endDot);
+    \draw[->] (endDot) -- node[above]{$y$} (endPoint);
+    \draw[->] (endDot) -- (2.5,1) -- (-3,1) -- node[above left]{$-$} (sumPoint);
+
+    \draw[->] (intVPoint) -- node[above=3mm]{$v$} (sumCP);
+    \draw[->] (intWPoint) -- node[above=3mm]{$w$} (sumPY);
+  \end{tikzpicture}
+\end{center}
+```
+
+### 'Gang of Four'
+
+Das Verhalten der Regelung kann durch die folgenden vier Sensitivitätsfunktionen beschrieben werden.
+
+
+`\underline{\footnotesize{Sensitivity Function}}`{=latex}
 
 $$
-\frac{y}{r} =\frac{PC}{1+PC}\stackrel{!}{=} \underline{1}
+G_{er} = S = \frac1{1+PC} 
 $$
+
+`\underline{\footnotesize{Load Sensitivity Function}}`{=latex}
+
+$$
+G_{vy} = PS = \frac1{1+PC} 
+$$
+
+
+`\underline{\footnotesize{Complementary Sensitivity Function}}`{=latex}
+
+$$
+G_{yr} = T = \frac1{1+PC} \stackrel{!}{=} \underline{1}
+$$
+
+`\underline{\footnotesize{Noise Sensitivity Function}}`{=latex}
+
+$$
+G_{ur} = CS = \frac{C}{1+PC} 
+$$
+
+
 
 ## Rückkopplung
 

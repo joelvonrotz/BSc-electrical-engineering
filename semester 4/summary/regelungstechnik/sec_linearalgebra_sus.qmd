@@ -72,7 +72,3 @@ falls $x(0^+)$ existiert
 $$
 x[0]=\lim_{z\rightarrow\infty}X(z)
 $$
-
-$$
-
-$$
