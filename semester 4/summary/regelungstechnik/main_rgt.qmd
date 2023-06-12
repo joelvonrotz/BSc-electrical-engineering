@@ -39,6 +39,7 @@ number-depth: 3
 pagenumbering: none
 highlight-style: github
 
+fig-pos: "H"
 ---
 
 \newpage
@@ -68,6 +69,9 @@ highlight-style: github
      - Was ist ein Regelkreis?
      - Begriffe, Struktur, Aufbau
    -  -->
+
+{{< include sec_linearalgebra.qmd >}}
+
 {{< include sec_regulator.qmd >}}
 
 {{< include sec_modelling.qmd >}}
@@ -75,6 +79,8 @@ highlight-style: github
 {{< include sec_dynamik.qmd >}}
 
 {{< include sec_linear_time_invariant.qmd >}}
+
+{{< include sec_hurwitz_nyquist.qmd >}}
 
 {{< include sec_grundelemente.qmd >}}
 
@@ -87,6 +93,34 @@ highlight-style: github
 {{< include sec_simulink.qmd >}}
 
 {{< include sec_process_types.qmd >}}
+
+{{< include sec_guides.qmd >}}
+
+# Übertragungsfunktion
+
+::: callout-important
+Egal welche Methode verwendet wird um die Übertragungsfunktion herzuleiten, es wird immer die gleiche Funktion ergeben.
+
+:::
+
+## Harmonische Anregung linearer Systeme
+
+Eingangssignal $u$:
+$$
+u=\cos(\omega t)=\frac12(e^{+j\omega t}+e^{-j\omega t})
+$$
+
+$$
+y(t)=\underbrace{C\textcolor{BrickRed}{e^{At}}(x(0)-(sI-A)^{-1}B)}_{\text{transient } y_t} + \underbrace{\overbrace{(C(sI-A)^{-1}B+D)}^{\text{Übertragungsfunktion}} e^{st}}_{\text{stationär } y_s}
+$$
+
+::: callout-note
+
+Ist $A$ stabil, so geht transiente Anteil $y_t$ asymptotisch gegen Null.
+Der stationäre Anteil bleibt übrig und entspricht der Übertragungsfunktion
+
+:::
+
 
 `\end{multicols}`{=latex}
 

@@ -1,9 +1,42 @@
 \usepackage{amssymb, amsmath}
+
+\makeatletter
+\renewcommand*\env@matrix[1][\arraystretch]{%
+  \edef\arraystretch{#1}%
+  \hskip -\arraycolsep
+  \let\@ifnextchar\new@ifnextchar
+  \array{*\c@MaxMatrixCols c}}
+\makeatother
+
+
 \numberwithin{equation}{section}
 
 \usepackage[utf8]{inputenc}
 \usepackage{lastpage} % counts all the pages, used in footer
 \usepackage{hyperref}
+
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta}
+
+% TIKS TEMPLATES
+\tikzset{
+dot/.style = {circle, fill, minimum size=#1,
+              inner sep=0pt, outer sep=0pt},
+dot/.default = 4pt % size of the circle diameter 
+}
+\tikzset{
+sum/.style = {circle, draw=black, inner sep=-0.5pt}
+}
+
+\tikzset{
+box/.style = {rectangle, draw=black, minimum width = #1},
+box/.default = 1cm, % size of the circle diameter 
+}
+
+
+
+
+\usepackage{gensymb}
 
 % Flexible Multicolumn Option
 \usepackage{multicol}

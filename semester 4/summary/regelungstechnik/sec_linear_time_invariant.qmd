@@ -8,38 +8,149 @@ $$
 
 ## LTI-Systeme
 
-### Überlagerungsprinzip
-
 ::: callout-important
-## Definition
+## Anforderung
+
+Alle Kriterien *Zeitinvarianz*, *Verstärkungs* und *Überlagerungsprinzip* müssen für LTI-System gelten.
+:::
+
+::: callout-tip
+## Tipp
+
+[Zustands-]{.underline}, [Ein-]{.underline} oder [Ausgangsgrössen]{.underline} in nichtlinearen Operationen ( $\cdot^2,\sin,\ln\ldots$) in Differenzialgleichung deuten auf ein **nicht lineares** System.
+
+$$ \begin{array}{ll} y=\textcolor{BrickRed}{e^{-t}}\cdot\dot{u}+1 & \rightarrow \text{zeitvariant}\\ y=\int^t_0u(\tau)d\tau & \rightarrow \textcolor{OliveGreen}{\text{zeitinvariant}}\\ y=\dot{u}+1 & \rightarrow \textcolor{OliveGreen}{\text{zeitinvariant}}\\ y=\ddot{y}-\textcolor{BrickRed}{u} \cdot\dot{y} & \rightarrow \text{nicht linear} \\ y={\sqrt{u^2+\textcolor{BrickRed}1}} & \rightarrow \text{nicht linear} \\ y=2\cdot u + 4 & \rightarrow \textcolor{OliveGreen}{\text{linear}} \end{array} $$
+:::
+
+### Zeitinvarianz
+
+System ist *zeitinvariant*, falls dessen Wirkungsweise [nicht]{.underline} von der Zeit $t$ abhängig ist. Das heisst, das System
+
+$$ y(t) = H\{x(t)\} $$
+
+liefert auf ein Signal $x(t)$ mit einer Verzögerung $a>0$ ebenfalls ein verzögertes Ausgangssignal
+
+$$ y(t+a)=H\{x(t+a)\} $$
+
+### Linearität
+
+Ein System ist *linear*, falls das Verstärkungs- [und]{.underline} Überlagerungsprinzip gelten.
+
+#### Überlagerungsprinzip
 
 Wenn $y_1(t)$ die Antwort auf $u_1(t)$ ist und $y_2(t)$ die Antwort auf $u_2(t)$ ist, so ist $y_1(t) + y_2(t)$ die Antwort auf $u_1(t) + u_2(t)$.
 
 ![](images/%C3%BCberlagerungsprinzip.png){fig-align="center"}
-:::
 
-### Verstärkungsprinzip
-
-::: callout-important
-## Definition
+#### Verstärkungsprinzip
 
 Wenn $y(t)$ die Antwort auf $u(t)$ ist, $\alpha\cdot y(t)$ ist die Antwort auf $\alpha\cdot u(t)$.
 
 ![](images/verst%C3%A4rkungsprinzip.png){fig-align="center"}
-:::
 
 ## Linearisierung
 
+::: callout-important
+## Stabilität Linearisierung
+
+Ist das *linearisiterte* System asymptotisch stabil, so ist das *nicht-lineare* System in der Umgebung der Gleichgewichtslage ebenfalls asymptotisch stabil.
+:::
+
+### Zustandsraumdarstellung
+
+```{=latex}
+\begin{tikzpicture}
+
+\node (ueStart) at (-1,0) {};
+\node (uStart) at (-1,-2) {};
+\node (yEnd) at (6,-2) {};
+\node[dot] (uDot) at (0,0) {};
+\node[box] (nonlinearBox) at (2.5,0) {$\begin{matrix}\frac{dx}{dt} = f(x_e,u_e) = 0 \\y_e=h(x_e,u_e)\end{matrix}$};
+\node[sum] (sumWY)  at (5,-2) {+};
+\node[sum] (sumUUe) at (0,-2) {+};
+\node[box] (linearBox) at (2.5,-2) {$\begin{matrix}\frac{dz}{dt} = Az+Bv \\w = Cz + Dv\end{matrix}$};
+\draw  (ueStart) -- node[above left]{$u_e$} (uDot);
+\draw[-{>[scale=1.5]}] (uDot) -- (nonlinearBox);
+\draw[-{>[scale=1.5]}] (uDot) -- node[below=0.55cm, left]{$-$} (sumUUe);
+\draw[-{>[scale=1.5]}] (uStart) -- node[above left]{$u$} (sumUUe);
+\draw[-{>[scale=1.5]}] (sumUUe) -- node[above]{$v$} (linearBox);
+\draw[-{>[scale=1.5]}] (nonlinearBox) -| node[above left]{$y_e$} node[below=1.5cm, left]{$+$} (sumWY);
+\draw[-{>[scale=1.5]}] (linearBox) -- node[above]{$w$} (sumWY);
+\draw[-{>[scale=1.5]}] (sumWY) -- node[right=0.3cm]{$y$} (yEnd);
+\end{tikzpicture}
+```
+![](images/paste-3.png)
+
+Ein nicht-lineares System:
+
+$$
+\frac{dx}{dt}=f(x,u)\qquad y=h(x,u)
+$$
+
+kann an einem Arbeitspunkt mit folgenden Gleichungen
+
+$$
+A=\frac{\partial f}{\partial x}\biggr\rvert_{(x_e,u_e)}=
+\begin{bmatrix}
+\frac{\partial \textcolor{NavyBlue}{f_1}}{\partial \textcolor{BurntOrange}{x_1}} &
+\frac{\partial \textcolor{NavyBlue}{f_1}}{\partial x_2} \\[0.8em]
+\frac{\partial f_2}{\partial \textcolor{BurntOrange}{x_1}} &
+\frac{\partial f_2}{\partial x_2}
+\end{bmatrix}
+\quad B = \frac{\partial f}{\partial u}\biggr\rvert_{(x_e,u_e)} = \begin{bmatrix}
+\frac{\partial f_1}{\partial u} \\[0.8em]
+\frac{\partial f_2}{\partial u}
+\end{bmatrix}
+$$
+
+$$
+C=\frac{\partial h}{\partial x}\biggr\rvert_{(x_e,u_e)}=\begin{bmatrix}
+\frac{\partial h}{\partial x_1} & \frac{\partial h}{\partial x_2}
+\end{bmatrix}
+\quad D=\frac{\partial h}{\partial u}\biggr\rvert_{(x_e,u_e)}
+$$
+
+ergibt die Linearisierung
+
+$$
+\frac{dz}{dt}=Az+Bv\qquad w=Cz+Dv
+$$
+
+mit $z=x-x_e$, $v=u-u_e$ und $w=y-y_e$ mit $y_e=h(x_e,u_e)$.
+
+### Differentialgleichung
+
 ::: callout-tip
-## Vorgehen Linearisieren
-
-(\@) Differentialgleichung gleich $0$ setzen $f(\cdots)=0$
+#### Vorgehen
 
 $$
-M\cdot \frac{d^2h}{dt^2}+\alpha\frac{dh}{dt}+k\cdot h^3 - M\cdot g=0\quad \rightarrow\quad f(\ddot{h}, \dot{h}, h) = 0
+M\cdot \frac{d^2h}{dt^2}+\alpha\frac{dh}{dt}+k\cdot h^3 = M\cdot g-k\cdot h^3
 $$
 
-(\@) In Linearisierungsgleichung einsetzten
+1.  Differentialgleichung gleich $0$ setzen $f(\cdots)=F(\cdots)=0$
+
+$$
+\underbrace{M\cdot \frac{d^2h}{dt^2}+\alpha\frac{dh}{dt}+k\cdot h^3 - M\cdot g}_{F(y^{(n)},\ldots,y,u^{(m)},\ldots,u)}=0
+$$
+
+$$
+\rightarrow\quad f(\ddot{h}, \dot{h}, h)= 0
+$$
+
+2.  Arbeitspunkt/stationärer Zustand berechnen ($h^{(n>0)}=0$)
+
+$\overline{h}=h_0=\sqrt[3]{\frac{M\cdot g}{k}}$
+
+3.  Deltagrössendefinieren
+
+$$
+\begin{array}{l}
+\Delta h = h-\overline{h} \\
+\Delta 
+\end{array}
+$$
+
+3.  In Linearisierungsgleichung einsetzten
 
 $$
 \left.\frac{\delta f}{\delta \ddot{h}}\right\rvert_{h=\overline{h}}

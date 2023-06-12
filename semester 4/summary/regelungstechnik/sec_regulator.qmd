@@ -2,9 +2,7 @@
 
 Feed[back]{.underline} Control
 
-![](images/basics\regulator.png){fig-align="center" width="7cm"}
-
-Ziel eines Reglers ist die Angleichung einer Regelgrösse $y$ an eine Führungsgrösse $r$. Hauptmerkmal des Reglers ist die Rückkopplung und die Fehlergrösse $e$. Das System versucht die Fehlergrösse möglichst auf $0$ zu behalten, was $r = y$ bedeutet, also die Ist-Grösse entspricht der Soll-Grösse.
+Ziel eines Reglers ist die Angleichung einer Regelgrösse $y$ an eine Führungsgrösse $r$, sodass idealerweise $y=r$.
 
 ![](images/definition_regelung.png){fig-align="center" width="8cm"}
 
@@ -44,12 +42,10 @@ $$
 
 ![](images/basics/closed_open.png){width="8cm"}
 
-Wird das Rückkopplungssignals des geschlossenen Kreises vom Eingangssignal entfernt, also die Leitung wird aufgebrochen, wird aus dem Kreis ein *offener* Kreis.
-
 ::: callout-caution
-**Geschlossene** Kreise sind schwieriger zum Berechnen und zum Untersuchen, da diese ein rückgekoppeltes Signal (mit dem Eingangssignal kombinierend) Teil des Eingangssignals zum System besitzen.
+**Geschlossene** Kreise $\rightarrow$ schwieriger zum Berechnen und zum Untersuchen, da diese ein rückgekoppeltes Signal (mit dem Eingangssignal kombinierend) Teil des Eingangssignals zum System besitzen.
 
-**Offene** Kreise haben kein rückgekoppeltes Signal.
+**Offene** Kreise $\rightarrow$ [kein]{.underline} rückgekoppeltes Signal.
 :::
 
 ## Eigenschaften

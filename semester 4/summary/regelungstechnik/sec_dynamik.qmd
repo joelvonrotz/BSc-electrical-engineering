@@ -1,19 +1,100 @@
 # Dynamik
 
+## Lösen von Differential Gleichungen
+
+::: callout-important
+## Lösung einer Differentialgleichung
+
+$$
+x(t_0)=x_0\quad\frac{dx(t)}{dt}=F(x(t))
+$$
+:::
+
+## Gleichgewichtslage
+
+Eine Gleichgewichtslage ist ein Zustand in dem das System [stabil]{.underline} ist. Dies ist auch bekannt als *stationäres* Verhalten und weist [keine]{.underline} Veränderungen auf mit der Zeit.
+
+$x_e$ ist eine Gleichgewichtslage des dynamischen Systems $\frac{dx}{dt}=F(x)$ falls:
+
+$$
+F(x_e)=0 \rightarrow \frac{dx}{dt}\biggr\rvert_{x_e}=0
+$$
+
 ## Stabilität
 
-Die Stabilität eines Systems wird in drei Zustände unterschieden:
+::: callout-note
+## Stabilität (allgemein)
 
-`\vspace{0.3cm}`{=latex}
+Die Stabilität ist in drei Zustände eingeteilt.
 
-**stabil**, falls alle Zustände (unterschiedliche Anfangspositionen) in der Nähe der Gleichgewichtslage $x_e$ zu Lösungen führen. **asymptotisch stabil**, falls alle Zustände in der Nähe von $x_e$ nach langer Zeit ($t \rightarrow \infty$) in $x_e$ enden. **instabil**, falls der Zustand nie eine Gleichgewichtslage erreicht.
+-   **stabil**, falls alle Zustände (unterschiedliche Anfangspositionen) in der Nähe der Gleichgewichtslage $x_e$ zu Lösungen führen.
+-   **asymptotisch stabil**, falls alle Zustände in der Nähe von $x_e$ nach langer Zeit ($t \rightarrow \infty$) in $x_e$ enden.
+-   **instabil**, falls der Zustand nie eine Gleichgewichtslage erreicht.
 
-`\vspace{0.3cm}`{=latex}
+Stabilität ist im Allgemeinen eine *lokale* Eigenschaft innerhalb eines Bereiches des Zustandsraums!
+:::
+
+[Beispiel - Pendel]{.underline}
+
+Das Pendel, welches die gesamte Rotationsachse ($360\degree$, rundherum) ausnützen kann, hat zwei Gleichgewichtslagen:
+
+-   **stabile** Position oben
+-   **asymptotische stabile** Positionen, welche immer nach unten gehen.
+
+![](images/dynamik\stationary_point.png){fig-align="center" width="6cm"}
+
+### Stabilität linearer Systeme
+
+```{=latex}
+\begin{center}\begin{tikzpicture}
+
+% x-Axis nodes
+\node (xStart) at (-3,0) {};
+\node (xEnd) at (3,0) {};
+
+% y-Axis nodes
+\node (yStart) at (0,-2.5) {};
+\node (yEnd) at (0,2.5) {};
+
+% Coloured Areas
+\fill[green!50!orange!20] (-2.5,2) -- (-2.5,-2) -- (0,-2) -- (0,2) -- (-2.5,2);
+\fill[red!50!orange!20] (2.5,2) -- (2.5,-2) -- (0,-2) -- (0,2) -- (2.5,2);
+
+% Axis Arrows + Descriptions
+\draw[-latex] (xStart) -- node[right = 2.75cm]{Re$(s)$} (xEnd);
+\draw[-latex] (yStart) -- node[above = 2.3cm]{Im$(s)$} (yEnd);
+
+% Area Descriptions
+\node at (-1.25,1) {stabil};
+\node at (1.25,1) {instabil};
+\end{tikzpicture}\end{center}
+```
+Polstellen eines linearen Systems ($\frac{dx}{dt}=Ax$ & $x(0)=x_0$) können mit dem *charakteristischen Polynoms* berechnet werden.
 
 ::: callout-note
-### Beispiel
+## charakteristisches Polynom
 
-Das Pendel, welches die gesamte Rotationsachse ($360°$, rundherum) ausnützen kann, hat zwei Gleichgewichtslagen. Eine Lage ist wenn die Pendelmasse nach oben gerichtet ist und eine andere wenn die Masse nach unten gerichtet ist.
+Die Nullstellen von $\lambda$ werden mit der Dynamik-Matrix $A$ berechnet.
 
-Wird das Pendel in diese beiden Lage gelegt, ist das System **stabil**. Wird es nach links oder nach rechts gerichtet losgelassen, dauert es eine Weile bis es die eine Gleichgewichtslage erreicht, dies nennt man **asymptotisch stabil**. Würde es einen Zustand geben, wo das Pendel nie "still steht", nennt man dies **instabil**.
+$$
+\lambda(A) := \{s \in \mathbb{C} :  \det(sI-A)=0\}
+$$
 :::
+
+::: callout-caution
+## Gültigkeit
+
+Stabilität linearer Systeme ist [nur von]{.underline} $A$ [abhängig]{.underline}, nicht vom Anfangswert $x_0$. Dies gilt Global!
+:::
+
+# Testfunktion Sprungantwort
+
+$$
+y(t)=Ce^{At}x(0)+\int^t_0Ce^{A(t-\tau)}Bu(\tau)d\tau+Du(t)
+$$
+
+$$
+y(t)=\underbrace{CA^{-1}e^{At}B}_{\text{zeitabhängig}}\underbrace{-CA^{-1}B+D}_{\text{konstant}}\qquad t>0
+$$
+
+System strebt gegen Wert wenn A [asymptotisch stabil]{.underline} ist.

@@ -1,0 +1,13 @@
+# Anleitungen / Vorgehen
+
+## Modellierung dynamischer Systeme
+
+1. Festlegung der Systemgrenzen sowie der Ein-/ Ausgangsgrössen.
+2. Identifikation der relevanten Energiespeicher und der zugehörigen ’Füllstandsgrössen’.
+3. Formulierung der Bilanzgleichungen für die Energiespeicher.
+   $$
+   \frac{d}{dt}\text{Füllstand} = \sum{\text{Zufluss}}-\sum{\text{Abfluss}}
+   $$
+4. Formulierung der Ausgleichsströme zwischen den einzelnen Energiespeichern.
+1. Identifikation der Systemparameter anhand von Spezifikationen oder Experimenten.
+1. Validierung des Modells durch Experimente. Je nach Resultat Iteration des Verfahrens.

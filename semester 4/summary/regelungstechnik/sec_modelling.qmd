@@ -1,29 +1,100 @@
 # Modellierung
 
-## Zustandsraum Darstellung
+::: callout-important
+## Vereinfachung
+
+Modelle repräsentieren immer eine Vereinfachung des eigentlichen Systems und fokusiert daher immer auf ein Teil des Systems.
+
+[Beispiel]{.underline} Die Modellierung des Tempomats konzentriert sich mehr auf die Geschwindigkeit des Fahrzeugs als auf die Auswirkungen eines Atombombeneinschlags auf das Fahrzeug.
+:::
+
+## Zustandsraumdarstellung
+
+Die Zustandsraumdarstellung erlaubt ein Einblick in das Verhalten eines dynamischen Systems. Anhand eines *Zeitdiagrammes* und *Phasenporträit* kann das System *visualisiert* werden. Man gibt Startkonditionen an und kann über das Phasenporträit den zeitlichen Verlauf verfolgen.
+
+![](images/state_space\quiver.png){fig-align="center" width="5.7cm"}
+
+![](images/state_space\time.png){fig-align="center" width="6.3cm"}
 
 ### Autonomes, zeitinvariantes System
 
-![](images/modelling\autonome_system.png){width="5cm" height="1.1cm"}
+```{=latex}
+\begin{center}
+  \begin{tikzpicture}
+    \node[rectangle, draw=black, minimum width = 2cm] (a) at (0,0) {$\frac{dx}{dt} = f(x)$};
+    \node (b) at (2,0) {};
+    \draw[->] (a) -- node [above] {$x$} (b);
+  \end{tikzpicture}
+\end{center}
+```
+$$
+\frac{dx}{dt}=f(x)
+$$
 
-$$
-\dot{x}=f(x)
-$$
+Autonome Systeme berücksichtigen äusserliche Beeinflussungen [nicht]{.underline} und sind ausschliesslich vom Anfangszustand abhängig.
 
 ### Allgemeine Systeme
 
-![](images/modelling\general_system.png){width="5cm" height="2cm"}
+```{=latex}
+\begin{center}\begin{tikzpicture}
 
+\node[rectangle, draw=black, minimum width = 2cm] (a) at (0,0) {
+$
+\begin{matrix}
+\frac{dx}{dt} = f(x,u) \\
+y=h(x,u)
+\end{matrix}
+$
+};
+\node (b) at (2,0) {};
+\node (c) at (-2,0) {};
+
+\draw[->] (a) -- node [above] {$y$} (b);
+\draw[->] (c) -- node [above] {$u$} (a);
+
+\end{tikzpicture}\end{center}
+```
 $$
-\dot{x}=f(x,u)\qquad y=h(x,u)
+\frac{dx}{dt}=f(x,u)\qquad y=h(x,u)
 $$
 
 ### Lineares Zustandsraummodell
 
-![](images/modelling\linear_system_general.png)
+Viele der Systeme können an ein zeitinvariantes und lineares System (LTI-System) angenähert werden.
 
+```{=latex}
+\begin{center}\begin{tikzpicture}[scale=0.8]
+
+
+
+\node (entry) at (-1,0) {$u$};
+\node[rectangle, draw=black, minimum width=1cm] (integ) at (3.25,0) {$\int{dt}$};
+\node[circle, draw=black] (circA) at (3.25,-1) {\textcolor{NavyBlue}{\textbf{A}}};
+\node[circle, draw=black] (circB) at (1,0) {\textcolor{BurntOrange}{\textbf{B}}};
+\node[sum] (add)   at (2,0) {+};
+\node[sum] (add2) at (6.5,0) {+};
+\node[circle, draw=black] (circC) at (5.5,0) {\textcolor{BrickRed}{\textbf{C}}};
+\node[circle, draw=black] (circD) at (3.25,1) {\textcolor{OliveGreen}{\textbf{D}}};
+\node [dot] (v2) at (4.5,0) {};
+\node [dot] (v3) at (0,0) {};
+\node (end) at (7.5,0) {$y$};
+
+
+\draw [->] (integ) edge node [above]{$x$} (v2);
+\draw [->] (v2) edge (circC);
+\draw [->] (add) edge node[above]{$\dot{x}$} (integ);
+\draw [->] (circB) edge (add);
+\draw [->] (entry) edge (circB);
+\draw [->] (circA) -| (add);
+\draw [->] (v2) |- (circA);
+\draw [->] (v3) |- (circD);
+\draw [->] (circD) -| (add2);
+\draw [->] (circC) -- (add2);
+\draw [->] (add2) -- (end);
+\end{tikzpicture}\end{center}
+```
 $$
-\dot{x}=\left(\begin{matrix} x_1' \\ x_2' \end{matrix}\right)=Ax+Bu \qquad y = Cx + Du
+\frac{dx}{dt}=\left(\begin{matrix} \dot{x}_1 \\ \dot{x}_2 \end{matrix}\right)=\textcolor{NavyBlue}{\mathbf{A}}x+\textcolor{BurntOrange}{\mathbf{B}}u \qquad y = \textcolor{BrickRed}{\mathbf{C}}x + \textcolor{OliveGreen}{\mathbf{D}}u
 $$
 
 ```{=latex}
@@ -34,30 +105,102 @@ $$
   D & beschreibt Durchgriff
 \end{conditions}
 ```
+## Übertragungsfunktion
+
+Die Übertragungsfunktion (oder Transferfunktion) beschreibt die Beziehung zwischen Ein- und Ausgangsgrösse.
+
+$$
+G_{AE}(s)=\frac{A(s)}{E(s)}
+$$
+
+```{=latex}
+\begin{conditions}
+  A & \textbf{A}usgangssignal \\
+  E & \textbf{E}ingangssignal
+\end{conditions}
+```
+## Führungsverhalten
+
+Das Führungsverhalten beschreibt die Beziehung zwischen der Führungsgrösse und der Regelgrösse (sogenannter *Soll-Ist*-Vergleich).
+
+### Merkmale
+
+Das Führungsverhalten verfügt über vier Merkmale, welche für jedes System betrachtet soll:
+
+-   **Stabilität**
+-   **Statischer Fehler /** **stationäre Genauigkeit**
+-   **Überschwingen**
+-   **Schnelles Erreichen des stationären Wertes**
+
+Folgendes Beispiel ist eine Sauna:
+
+![](images/block_diagramm_sauna.png)
+
+**Gutes Führungsverhalten**
+
+![](images/fuhrungsverhalten\gutes_verhalten.png)
+
+**Instabilität**
+
+![](images/fuhrungsverhalten\instabil.png)
+
+**Statischer Fehler /** **stationäre Ungenauigkeit**
+
+![](images/fuhrungsverhalten\stationary.png)
+
+**Überschwingen**
+
+![](images/fuhrungsverhalten\uberschwingung.png)
+
+**Langsames Erreichen des neuen stationären Wertes**
+
+![](images/fuhrungsverhalten\slow.png)
+
 ## Störverhalten
 
-Das Störverhalten beschreibt den Einfluss der Störgrössen $v$ auf die Regelgrösse $y$ bei einer konstanten Führungsgrösse $r$. Ein gutes Störverhalten minimiert diese Einflüsse, wobei das letztendliche Verhalten des Systems abhängig auf das Zielsystem ist.
+Das Störverhalten beschreibt den Einfluss der Störgrössen $v$ auf die Regelgrösse $y$ bei einer konstanten Führungsgrösse $r$. Ein gutes Störverhalten minimiert diese Einflüsse, wobei die Definition von "gut" abhängig vom entsprechenden System ist.
+
+$$
+G_{er}(s)=\frac{E(s)}{R(s)}
+$$
 
 [Beispiel]{.underline}
 
--   Eine Beigemaschine darf keine Überschwingungen in der Regelgrösse haben, da dies zu einer Überbiegung führt, was ein *no-go* ist.
 -   Eine Saune kann sich dies eher noch erlauben, da eine Überschwingung nur einen kleinen Einfluss auf die Systemqualität hat.
 
-::: callout-note
-## Merkmale
+### Merkmale
 
-Die Störgrösse verfügt über vier Merkmale, welche für jedes System betrachtet soll:
+Das Störverhlaten verfügt ebenfalls über vier Merkmale, welche für jedes System betrachtet soll:
 
--   **Stabilität** --
--   **Statischer Fehler / stationäre Genauigkeit** --
--   **Überschwingen** --
--   **Schnelles Erreichen des stationären Wertes** --
-:::
+-   **Stabilität**
+-   **Statischer Fehler /** **stationäre Genauigkeit**
+-   **Überschwingen**
+-   **Schnelles Erreichen des stationären Wertes**.
 
-## Führungsverhalten
+**Gutes Störverhalten**
 
-Das Führungsverhalten beschreibt den Einfluss der Führungs-/Sollgrösse $r$ auf die Regel-/Istgrösse $y$ bei (idealerweise) einer konstanten Störungsgrösse $e$. Ein gutes Führungsverhalten minimiert die Ausschwingungen und Trägheit der Regelgrösse zur Führungsgrösse.
+![](images/storverhalten\gutes_verhalten.png)
+
+\textsuperscript{rot: Sollwert}
+
+**Instabilität**
+
+![](images/storverhalten\storverhalten_stability.png)
+
+**Stationärer Fehler / Ungenauigkeit**
+
+![](images/storverhalten\storverhalten_stationary.png)
+
+**Überschwingen**
+
+![](images/storverhalten\uber_unterschwingung.png)
+
+**Langsames Erreichen des stationären Wertes**
+
+![](images/storverhalten\slow.png)
 
 ## Vorsteuerung
 
-## Stationären Zustand (steady state)
+Mit einer Vorsteuerung kann die Regelungszeit gekürzt werden (kleinerer Fehler zum Auskorrigieren).
+
+![](images/paste-1.png)

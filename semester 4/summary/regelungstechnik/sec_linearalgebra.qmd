@@ -1,0 +1,78 @@
+# Linear Algebra Kurzfassung
+
+## Determinante
+
+### 2 $\times$ 2-Matrix
+
+$$
+\det(A)=\begin{vmatrix} \textcolor{BurntOrange}{a} & b \\c & \textcolor{BurntOrange}{d}\end{vmatrix} ={\textcolor{BurntOrange}{ad}-bc}
+$$
+
+### 3 $\times$ 3-Matrix
+
+$$
+\det(A)=\begin{vmatrix} a & b & c \\ d & e & f \\ g & h & i \end{vmatrix} = aei+bfg+dhc-ceg-bdi-afh
+$$
+
+## Inverse Matrix
+
+$$
+A^{-1}=\frac{\text{adj}(A)}{\det(A)}
+$$
+
+### 2 $\times$ 2-Matrix
+
+$$
+A^{-1}=
+\begin{bmatrix} 
+\textcolor{BurntOrange}{a} & b \\
+c & \textcolor{BrickRed}{d}
+\end{bmatrix}^{-1} =
+\frac1{\textcolor{BurntOrange}{a}\textcolor{BrickRed}{d}-bc}\cdot
+\begin{bmatrix}
+\textcolor{BrickRed}{d} & -b \\
+-c & \textcolor{BurntOrange}{a}
+\end{bmatrix}
+$$
+
+### 3 $\times$ 3-Matrix
+
+# Signal & System Kurzfassung
+
+## Endwertsatz
+
+### Laplace
+
+$$
+\lim_{t\rightarrow\infty}x(t)=\lim_{s\rightarrow0} s\cdot X(s)
+$$
+
+falls $\lim_{t\rightarrow\infty} x(t)$ existiert
+
+### Z-Transformation
+
+$$
+\lim_{k\rightarrow\infty}x[k]=\lim_{z\rightarrow1}(z-1)X(z)
+$$
+
+falls $X(z)$ nur Pole mit $\lvert z\rvert < 1$ oder bei $z=1$
+
+## Anfangswertsatz
+
+### Laplace
+
+$$
+x(0^+)=\lim_{s\rightarrow\infty}s\cdot X(s)
+$$
+
+falls $x(0^+)$ existiert
+
+### Z-Transformation
+
+$$
+x[0]=\lim_{z\rightarrow\infty}X(z)
+$$
+
+$$
+
+$$
