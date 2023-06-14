@@ -40,6 +40,11 @@ number-sections: false
 number-depth: 3
 pagenumbering: none
 highlight-style: github
+
+crossref:
+  fig-title: Abbildung      # (default is "Figure")
+  tbl-title: Tabelle        # (default is "Table")
+  ref-hyperlink: true       # (default is true)
 ---
 
 ```{=latex}
@@ -79,7 +84,6 @@ highlight-style: github
 \vfill\null
 \columnbreak
 ```
-
 {{< include sec_vhdl_process_templates.qmd >}}
 
 \newpage

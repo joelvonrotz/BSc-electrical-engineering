@@ -3,14 +3,18 @@
 ::: callout-important
 ## VHDL?
 
-VHDL steht für ***V**ery High Speed Integrated Circuit **H**ardware **D**escription **L**anguage*, klingt schnell und ist es auch. Diese Sprache dient für die Hardwarebeschreibung von FPGAs, insbesondere wie die "Logikfläche" konfiguriert wird, und ist [keine]{.underline} Programmiersprache.
+VHDL steht für ***V**ery High Speed Integrated Circuit **H**ardware **D**escription **L**anguage*, klingt schnell und ist es auch. Diese Sprache dient für die Hardwarebeschreibung von FPGAs, insbesondere wie die "Logikfläche" konfiguriert wird, und ist [keine]{.underline} Programmiersprache, es handelt sich um eine Designsprache.
 :::
 
 ## Einordnung VHDL als HDL
 
 ![](images/paste-1.png)
 
-HW-nahes Design ermöglicht: \textcolor{OliveGreen}{\textbf{+}} kleinere, schnellere, energie-effizientere Schaltungen als ESL-Design \textcolor{BrickRed}{\textbf{-}} auf Kosten der Entwicklungszeit.
+HW-nahes Design ermöglicht: 
+
+\textcolor{OliveGreen}{\textbf{+}} kleinere, schnellere, energie-effizientere Schaltungen als ESL-Design 
+
+\textcolor{BrickRed}{\textbf{-}} auf Kosten der Entwicklungszeit.
 
 ```{=latex}
 \vfill\null
@@ -21,7 +25,30 @@ HW-nahes Design ermöglicht: \textcolor{OliveGreen}{\textbf{+}} kleinere, schnel
 
 ### Designflow
 
-![](images/vhdl_fpga_designflow.png)
+1.  **Spezifikation**
+    -   Erstellen/Verstehen von Funktions- und Testspezifikation. Vorgaben zum strukturellen Aufbau des Designs.
+2.  **Architektur-Entwurf**
+    -   Schaltung wird in Blockdiagramm festhalten $\rightarrow$ Ableiten von Ports, Wortbreiten, Codierung
+    -   Je nach Komplexität Erstellung von Prozess-Dokumentation und/oder RTL-Schemas
+    -   Zustandsdiagramm der FSMs
+3.  **VHDL Implementierung**
+    -   Verwendung von VHDL-Templates für synchrone Logik
+    -   VHDL-Code kommentieren
+4.  **Design Constraints**
+    -   in `.xdc`-File *Top-Level Ports Location* & *Clock Period* Constraints setzen.
+5.  **Probe-Synthese**
+    -   VHDL-Code überarbeiten bis keine Warnungen $\rightarrow$ *Found latch for signal...*, *...signals missing in the process sensitivity list...*, ...*signals form a combinational loop...*
+    -   Konsistenz-Check anhand Vergleich selbst gezählte #FF und Synthese-#FF
+6.  **Simulation**
+    -   Erstellen einer VHDL-Testbench und Simulation des Designs (MUT) gemäss Spezifikation
+    -   Testbench mit automatischem Vergleich von Ist & Soll ist für komplexere Designs gut
+7.  **FPGA Implementierung**
+    -   *Run Implementation* ausführen für *Technology-Optimizations* & *Place&Route*
+    -   Falls Timinganalyse Fehler $\rightarrow$ Architektur überprüfen
+8.  **HW-Test**
+    -   Bitstream auf HW gemäss Spezifikationen testen.
+
+![](images/Workflow.png)
 
 ## Simulation
 
@@ -39,11 +66,11 @@ Wie kann Parallelität auf einem sequentiell arbeitenden Computer simuliert werd
 
 1.  Vorrücken der Simulationszeit zur nächsten Transaktion in der Event Queue.
 2.  Setzt alle zu aktualisierenden Signale auf den mit der aktuellen Transaktion verbundenen Wert.
-3.  Arbeitet alle Prozesse ab, die auf Signale sensitiv, deren Wert sich durch die aktuelle Transaktion geändert hat. Signalzuweisungen werden als zukünftige Transaktionen in die Event Queue abgelegt.
+3.  Arbeitet alle Prozesse ab, die auf Signale sensitiv sind, deren Wert sich durch die aktuelle Transaktion geändert hat. Signalzuweisungen werden als zukünftige Transaktionen in die Event Queue abgelegt.
 
 ::: callout-important
 -   Events werden durch die Signaländerung generiert, [nicht]{.underline} die Transaktionen!
--   Nicht alle Transaktionen führen zu einem Event
+-   Nicht alle Transaktionen führen zu einem Event *(Sensitivity List)*
 :::
 
 ### Signale & Variablen
@@ -52,10 +79,13 @@ Wie kann Parallelität auf einem sequentiell arbeitenden Computer simuliert werd
 -   Signal Assignment `<=` $\rightarrow$ Effekt nach `after` ([nur]{.underline} Simulation) oder bei keiner Verzögerung nach Simulationszyklus ($\delta$-Delay ; Sim. & Synth)
 
 ``` vhdl
-sigA <= '1', -- <1>
+-- <1> simulation only
+sigA <= '1',
         '0' after 1 ms,
         'Z' after 10 ms;
-sigB <= '1'; -- <2>
+
+-- <2> simulation & synthesis
+sigB <= '1';
 ```
 
 1.  Effekt nach `after` ([nur]{.underline} Simulation)
@@ -75,7 +105,7 @@ z.B. Signaldeklaration oder Port-Variable
 -   Gross-/kleinschreibung wird nicht unterschieden $\rightarrow$ [nicht]{.underline} case-sensitiv
 
 ``` vhdl
-signal some_signal, some_other_signal, result : integer ;
+signal some_signal, some_other_signal, result : integer;
 
 ReSULT <= SOME_SIGNAL + sOME_oTHer_SIGNal;
 ```
@@ -83,7 +113,7 @@ ReSULT <= SOME_SIGNAL + sOME_oTHer_SIGNal;
 -   Namen können beliebig lang sein
 -   Keine Spezialzeichen ausser `_` $\rightarrow$ nicht am Anfang & Ende + nicht verdoppelt
 
-### Signalzuweisung / Treiber
+### Signalzuweisung / Treiber `<=`
 
 Mit dem *Treiber* `<=` werden Signale von der rechten Seite ausgewertet und auf das Signal auf der linken Seite zugewiesen.
 
@@ -122,9 +152,9 @@ architecture ...
 -- Funktion (Innenleben) der Komponente
 ```
 
-### Entity {#sec-entity}
+### Entity{#sec-entity}
 
-Eine Entity beschreibt den Komponenten für äusserliche Zugriffe $\rightarrow$ nur [Struktur des Komponents]{.underline} bekannt, aber [nicht]{.underline} den [Inhalt]{.underline}.
+Eine Entity beschreibt den Komponenten für äusserliche Zugriffe $\rightarrow$ nur [Struktur der Komponente]{.underline} bekannt, aber [nicht]{.underline} deren [Inhalt]{.underline}.
 
 ``` vhdl
 entity MyComponent is
@@ -141,7 +171,7 @@ entity MyComponent is
 end MyComponent;
 ```
 
-1.  Analog zu `#define` in C $\rightarrow$ werden während Kompilation eingefügt!
+1.  Analog zu `#define` in C $\rightarrow$ werden während Kompilation eingefügt! "Ko"
 2.  Signal Deklarationen $\rightarrow$ **müssen** bei Instanziierung des Komponenten im übergeordneten Design verdrahtet werden!
 3.  Konstanten können mit Generics interagieren (Wert ausrechnen und an Konstante zuweisen) $\rightarrow$ während Laufzeit [nicht]{.underline} veränderbar!
 
@@ -162,6 +192,8 @@ Im Gegensatz zu Konstanten kann Wert [ausserhalb]{.underline} definiert werden.
 
 Beim Testen sollten mit Generic-Parametern die Randwerte verifiziert werden (*Corner-Case* Testing).
 
+**Beschreibung der Komponente**
+
 ``` vhdl
 entity NAND_gate is
   generic(
@@ -174,17 +206,20 @@ entity NAND_gate is
 end NAND_gate;
 ```
 
+**Verwendung der Komponente**
+
 ``` vhdl
+architecture rtl of top is
+
 component NAND_gate is
-  generic(IW : integer := 3);
+  generic(IW : integer := 3);   -- default
   port(
     InP : in std_logic_vector(IW-1 downto 0);
     OutP : out std_logic;  
   );
 end component NAND_gate;
 
-...
-
+begin
 I1 : NAND_gate
 port map (
   InP => In1,
@@ -193,13 +228,14 @@ port map (
 
 I2 : NAND_gate
 generic map (
-  IW => 8
+  IW => 8     -- Instance 2 has 8 inputs
 ) -- note no semicolon
 port map (
   InP => In1,
   OutP => O1
 );
-...
+
+end logic;
 ```
 
 ```{=latex}
@@ -304,6 +340,23 @@ end struct;
 3.  Signale/Ports werden verbunden
 4.  Kein Endzeichen!
 
+Es gibt allerdings eine Kurzschreibweise die angewendet werden kann, wenn sich die Komponente im *selben Verzeichnis* befindet
+
+``` vhdl
+architecture struct of top is
+  -- external module
+  use work.MyComponent;
+
+begin
+  Inst1: entity work.MyComponent
+    port map(
+      a_pi => a,
+      b_pi => b,
+      c_po => c_po
+    );
+end struct;
+```
+
 ## Datentypen
 
 +----------------------------------------+-------------------------------------------------+
@@ -328,11 +381,25 @@ signal my_int : integer range -128 to 127;
 -   Zahlen Darstellungen
 
 ``` vhdl
-my_int <=    61;      -- Dezimal (Defailt)
+my_int <=    61;      -- Dezimal (Default)
 my_int <= 10#61#;     -- dezimal
 my_int <=  2#111101#; -- binär
 my_int <=  8#75#;     -- octal
 my_int <= 16#3D#;     -- hexadezimal
+```
+
+### Aufzählungstypen
+
+Aufzählungstypen sind wie `enum` in C, wobei die Repräsentierung hinter den Aufzählunstypen nicht bekannt ist.
+
+::: callout-warning
+# Reservierte Wörter
+Für Aufzählungstypen dürfen keine reservierten Wörter verwendet werden. Im folgenden Beispiel wäre also `port` keine möglicher Wein, da dies ein reserviertes Wort ist.
+:::
+
+``` vhdl
+type wine is (white, rose, red);
+signal beverage : wine := red;  -- initialization
 ```
 
 ### Subtypes
@@ -350,7 +417,7 @@ Gruppierung von Elementen gleichen Types
 
 ```         
 type t_byte is array (7 downto 0) of std_logic;
-signal byte: t_byte; -- same as below
+signal byte : t_byte; -- same as below
 signal byte : std_logic_vector(7 downto 0);
 ```
 
@@ -360,6 +427,7 @@ signal byte : std_logic_vector(7 downto 0);
 Mit den Attributes eines Arrays können verschiedene Informationen entnommen werden, welche während der Synthetisierung eingefügt werden (analog zu C Preprozessoren).
 
 ``` vhd
+-- Initialise array(1. Dim, 2. Dim)
 type t_arr is array(2 to 4, 15 downto 0) of std_logic;
 signal A : t_arr;
 
@@ -381,14 +449,19 @@ A'element          -- std_logic
 Array Aggregates werden verwendet, um Arrays mit konstanten Werten einzusetzen.
 
 ``` vhdl
-type t_map is array(1 to 4) of std_logic; -- <1>
-constant c_map : t_map := (1 => 'Z', 2 | 3 => '0', others => 1'); -- <2>
+type t_map is array(1 to 4) of std_logic;
+-- positional association
+constant c_map : t_map := ('Z', '0', '0', '1');
+-- named association
+constant c_map : t_map := (1=>'Z', 2=>'0', 3=>'0', 4=>'1');
+constant c_map : t_map := (1=>'Z', 2|3=>'0', others =>'1');
 ```
 
-1.  Positions-Zuordnung
-2.  Werte-Zuordnung
-
 \textcolor{BrickRed}{Zuordnungen dürfen nicht gemischt werden!}
+``` vhdl
+-- !ERROR!
+constant c_map : t_map := ('1', 2=>'0', others => '1')
+```
 :::
 
 ### Record
@@ -464,6 +537,8 @@ In Standard-VHDL gibt es zwei binäre Datentypen: `bit` (`0`,`1`) und `boolean` 
 `std_logic` ist *resolved* und kann von mehreren Prozessen geändert werden. Zustände werden mit der *Resolution Table* aufgelöst.
 
 Wird dies gemacht, Simulation möglich, aber [keine]{.underline} Synthetisierung!
+
+![](images/ResolutionTable.png)
 :::
 
 ### Real (Simulationstype)

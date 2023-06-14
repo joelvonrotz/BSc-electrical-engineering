@@ -9,14 +9,15 @@ Gegenüber einem anwendungsspezifischen Chip (ASIC) bieten FPGA:
 
 \textcolor{OliveGreen}{\textbf{+}} höherer Flexibilität ; kürzere Entwicklungszeit ; geringer Entwicklungskosten
 
-\textcolor{BrickRed}{\textbf{-}} im höhere Frequenzbereich $\rightarrow$ Um mitzuhalten sind Synchronisationen nötig, was zu Signal-Latenzen einführt.
+\textcolor{BrickRed}{\textbf{-}} im höhere Frequenzbereich $\rightarrow$ Um mitzuhalten sind Synchronisationen nötig, was zu Signal-Latenzen führt.
 
 Verfügt über:
 
--   Parralelität $\rightarrow$ beschleunigte Verarbeitung
+-   Parrallelität $\rightarrow$ beschleunigte Verarbeitung
 -   Flexible Zuweisungen von Signalen & Pin-Funktionalitäten
 -   Deterministische Durchlaufzeiten von Signalen (z.B. 0cc, 2cc)
 -   Können mehrere Prozessoren beinhalten $\rightarrow$ erhöhter Integrationsgrad
+-   Custom Peripherie für Mikrocontroller
 :::
 
 \textcolor{BurntOrange}{\textbf{!}} **FPGAs werden meist für extreme Bedingungen verwendet (z.B.** $4000\ Op/\mu s$) \textcolor{BurntOrange}{\textbf{!}}
@@ -28,7 +29,7 @@ Verfügt über:
 ![](images/fpga_layout.png)
 
 -   **Logic Cell**: Mass zum Vergleich von FPGAs verschiedenere Familien/Hersteller
--   **Configurable Logic Block**: Enthält 2 slices
+-   **Configurable Logic Block** (CLB): Enthält 2 slices
 -   **Slice**: 4 Funktionsgeneratoren (4$\times$LUT6) + 8 FFs
 -   **Distributed RAM**: Konfigurationsspeicher einiger Slices ist als Datenspeicher nutzbar
 -   **Block RAM** statische dual-port RAMs in Blöcken zu 18/36Kbit
@@ -36,6 +37,8 @@ Verfügt über:
 -   **CMT**: Clock Management Tile (clock synthesis, phase shift, PLL)
 
 ![](images/lut6_design.png){fig-align="center" width="6cm"}
+
+![](images/LUT6_LogicTable.png){fig-align="center" width="6cm"}
 
 ### Routing Ressourcen
 
@@ -45,7 +48,7 @@ Hierarchisches Routing mit verschiedenen langen Verbindungen **;** Sechs-Transis
 
 # Integrated Logic Analyzer (ILA)
 
-ILAs werden meist für In-System-Debugging von FPGA-Designs verwendet (z.B. bei aufwendigen Schaltungen oder fehlenden Inpusignal-Spezifikationen).
+ILAs werden meist für In-System-Debugging von FPGA-Designs verwendet (z.B. bei aufwendigen Schaltungen oder fehlenden Inputsignal-Spezifikationen).
 
 -   ILA werden zusammen mit dem **D**esign-**u**nder-**T**est synthetisiert $\rightarrow$ genügend Ressourcen verfügbar
 -   ILA beeinflusst als Messmittel das Messobjekt $\rightarrow$ befolgen ILA & DuT die Regeln des synchronen Designs, ist dies akzeptabel.
@@ -55,15 +58,22 @@ T_{win} = N_{S}\cdot T_{Clk}
 $$
 
 $$
-C_{SB} \geq N_s\cdot W_s
+C_{SB} \geq N_S\cdot W_S
 $$
+
+$$
+W_S = S + \textcolor{BrickRed}{\mathbf{1}}
+$$
+
+$\textcolor{BrickRed}{\mathbf{1}}$: immer da, evtl. Trigger
 
 ```{=latex}
 \begin{conditions}
   T_{win} & beobachtbares Zeitfenster \\
   N_S     & Anzahl zu speichernde Samples \\
   C_{SB}  & Speicherkapazität des Sample Buffers \\
-  W_S     & Gesamtwortbreite aller zu anal. Signale
+  W_S     & Gesamtwortbreite aller zu anal. Signale \\
+  S       & Anzahl zu analysierende Signale
 \end{conditions}
 ```
 ::: callout-tip
@@ -71,7 +81,7 @@ $$
 
 Der Sample Buffer wird mit Block-RAM-Blöcken zusammengesetzt.
 
-Das FPGA-Board hat zwei Begrenzungen: [totaler Speicher]{.underline} ist [36KBit]{.underline} und [Maximale Anzahl Blöcke]{.underline} sind [60 Blöcke]{.underline}.
+Das FPGA-Board Zybo hat zwei Begrenzungen: [totaler Speicher]{.underline} ist [36KBit]{.underline} und [Maximale Anzahl Blöcke]{.underline} sind [60 Blöcke]{.underline}.
 
 ![](images/fpga_bram_blocks.png)
 :::
@@ -90,7 +100,7 @@ B: & 1+4
 \right\} = 12 + \textcolor{BrickRed}{\mathbf{1}} = 13
 $$
 
-$\textcolor{BrickRed}{\mathbf{1}}$: immer da, irgendeine Info
+$\textcolor{BrickRed}{\mathbf{1}}$: immer da, evtl. Trigger
 
 $$
 T_{win}=4\cdot T_{DAC}=400\mu s
@@ -113,32 +123,7 @@ $$
     -   *Tools* $\rightarrow$ *Setup Debug*
     -   Tiefe Sample Buffer ($N_S$)
     -   *Capture Control* + *Advanced Trigger* wählen
-4.  Save Constraints + existing Constriant File
+4.  Save Constraints + existing Constraint File
 5.  *Run Implementation + Generate Bitstream*
     1.  Target beschreiben
     2.  ILA GUI öffnet sich
-
-# Iterative Schritte des FPGA-Designs
-
-1.  **Spezifikation**
-    -   Erstellen/Verstehen von Funktions- und Testspezifikation. Vorgaben zum strukturellen Aufbau des Designs.
-2.  **Architektur-Entwurf**
-    -   Schaltung wird in Blockdiagramm festhalten $\rightarrow$ Ableiten von Ports, Wortbreiten, Codierung
-    -   Je nach Komplexität Erstellung von Prozess-Dokumentation und/oder RTL-Schemas
-    -   Zustandsdiagramm der FSMs
-3.  **VHDL Implementierung**
-    -   Verwendung von VHDL-Templates für synchrone Logik
-    -   VHDL-Code kommentieren
-4.  **Design Constraints**
-    -   in `.xdc`-File *Top-Level Ports Location* & *Clock Period* Constraints setzen.
-5.  **Probe-Synthese**
-    -   VHDL-Code überarbeiten bis keine Warnungen $\rightarrow$ *Found latch for signal...*, *...signals missing in the process sensitivity list...*, ...*signals form a combinational loop...*
-    -   Konsistenz-Check anhand Vergleich selbst gezählte #FF und Synthese-#FF
-6.  **Simulation**
-    -   Erstellen einer VHDL-Testbench und Simulation des Designs (MUT) gemäss Spezifikation
-    -   Testbench mit automatischem Vergleich von Ist & Soll ist für komplexere Designs gut
-7.  **FPGA Implementierung**
-    -   *Run Implementation* ausführen für *Technology-Optimizations* & *Place&Route*
-    -   Falls Timinganalyse Fehler $\rightarrow$ Architektur überprüfen
-8.  **HW-Test**
-    -   Bitstream auf HW gemäss Spezifikationen testen.
