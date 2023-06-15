@@ -1,11 +1,5 @@
 # Linearität & Zeitinvarianzen
 
-## Adjunkte $\text{adj}(A)$
-
-$$
-\text{adj}(A)=
-$$
-
 ## LTI-Systeme
 
 ::: callout-important
@@ -50,12 +44,6 @@ Wenn $y(t)$ die Antwort auf $u(t)$ ist, $\alpha\cdot y(t)$ ist die Antwort auf $
 
 ## Linearisierung
 
-::: callout-important
-## Stabilität Linearisierung
-
-Ist das *linearisiterte* System asymptotisch stabil, so ist das *nicht-lineare* System in der Umgebung der Gleichgewichtslage ebenfalls asymptotisch stabil.
-:::
-
 ### Zustandsraumdarstellung
 
 ```{=latex}
@@ -87,7 +75,13 @@ $$
 \frac{dx}{dt}=f(x,u)\qquad y=h(x,u)
 $$
 
-kann an einem Arbeitspunkt mit folgenden Gleichungen
+kann an einem Arbeitspunkt linearisiert werden. Anhand eines Arbeitspunktes wird die Tangente mit folgender Gleichung berechnet.
+
+$$
+f(x,u)\approx f(x_e,u_e)+\frac{\partial{f}}{\partial{x}}\biggr\rvert_{(x_e,u_e)} \cdot(x-x_e)+\frac{\partial{f}}{\partial{u}}\biggr\rvert_{(x_e,u_e)} \cdot(u-u_e)
+$$
+
+Das nicht-lineare System kann als Zustandsraum-Darstellung linearisiert werden. Folgende Gleichungen
 
 $$
 A=\frac{\partial f}{\partial x}\biggr\rvert_{(x_e,u_e)}=
@@ -110,7 +104,7 @@ C=\frac{\partial h}{\partial x}\biggr\rvert_{(x_e,u_e)}=\begin{bmatrix}
 \quad D=\frac{\partial h}{\partial u}\biggr\rvert_{(x_e,u_e)}
 $$
 
-ergibt die Linearisierung
+ergeben die Linearisierung.
 
 $$
 \frac{dz}{dt}=Az+Bv\qquad w=Cz+Dv
@@ -119,6 +113,25 @@ $$
 mit $z=x-x_e$, $v=u-u_e$ und $w=y-y_e$ mit $y_e=h(x_e,u_e)$.
 
 ### Differentialgleichung
+
+$$
+F(y^{(n)},\ldots,\dot{y},y,u^{(m)},\ldots,\dot{u},u)=0\quad\text{mit } m\leq n
+$$
+
+$$
+\begin{split} 
+&\frac{\partial{F}}{\partial{y^{(n)}}}\biggr\rvert_{(y_e,u_e)} z^{(n)}+ 
+ \cdots+ 
+ \frac{\partial{F}}{\partial{\dot{y}}}\biggr\rvert_{(y_e,u_e)} \dot{z}+ 
+ \frac{\partial{F}}{\partial{y^{(n)}}}\biggr\rvert_{(y_e,u_e)} z\ + \\
+&\frac{\partial{F}}{\partial{u^{(m)}}}\biggr\rvert_{(y_e,u_e)} v^{(m)}+
+ \cdots+ 
+ \frac{\partial{F}}{\partial{\dot{y}}}\biggr\rvert_{(y_e,u_e)} \dot{v}+
+ \frac{\partial{F}}{\partial{y^{(n)}}}\biggr\rvert_{(y_e,u_e)} v = 0 
+\end{split}
+$$
+
+mit $z=y-y_e$ & $v=u-u_e$.
 
 ::: callout-tip
 #### Vorgehen

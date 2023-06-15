@@ -1,4 +1,4 @@
-# Anleitungen / Vorgehen
+# `\faFile*[regular]`{=latex} Anleitungen / Vorgehen
 
 ## Modellierung dynamischer Systeme
 
@@ -9,5 +9,24 @@
    \frac{d}{dt}\text{Füllstand} = \sum{\text{Zufluss}}-\sum{\text{Abfluss}}
    $$
 4. Formulierung der Ausgleichsströme zwischen den einzelnen Energiespeichern.
-1. Identifikation der Systemparameter anhand von Spezifikationen oder Experimenten.
-1. Validierung des Modells durch Experimente. Je nach Resultat Iteration des Verfahrens.
+5. Identifikation der Systemparameter anhand von Spezifikationen oder Experimenten.
+6. Validierung des Modells durch Experimente. Je nach Resultat Iteration des Verfahrens.
+
+## Stabilitätsbestimmung
+
+1. Offener Kreis bilden $L=PC$
+2. Nyquist/Ortskurve zeichenen `nyquist(L)`{.matlab}
+3. Bodediagramm zeichnen `margin(L), bode(L)`{.matlab}
+4. Stabilitätsbedingung anhand Nyquist-Kriterium prüfen
+
+## Parameter Identifikation
+
+1. Hypothese über die Modellstruktur (Naturgesetze oder Black Box).
+   [Beispiel]{.underline}
+   $$
+   G(s)=\frac{Y(s)}{U(s)}=\frac{bs}{s^2+a_1s+a_2}
+   $$
+2. *Gute* Anregung (Impuls, Sprung, Rampe,...) auswählen und Experiment durchführen
+3. Messdaten $y(k)$ speichern
+4. Mit $(u(k), y(k))$ die Parameter $(b, a_1, a_2)$ bestimmen
+5. Modell & Parameter validieren (wenn nicht gut, zurück zu Punkt 1 mit neuem Modell)

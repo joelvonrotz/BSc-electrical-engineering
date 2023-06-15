@@ -1,0 +1,284 @@
+# Systeme
+
+## Grundlegende Systeme
+
+### Regler System
+
+```{=latex}
+\begin{center}
+  \begin{tikzpicture}
+  % Boxes
+    \node[box, minimum height=0.8cm, inner sep=5pt] (regBox) at (-1.5,2) {Regler $C$};
+    \node[box, minimum height=0.8cm, inner sep=5pt] (procBox) at (1,2) {Prozess $P$};
+
+  % Node
+    \node[sum] (sumPoint) at (-3,2) {+};
+    \node (startNode) at (-4,2) {};
+    \node[dot] (endDot) at (2.5,2) {};
+    \node(endPoint) at (3.5,2) {};
+    \node (interferencePoint) at (1,3) {};
+
+  % Lines
+    \draw[->] (startNode) -- node[above]{$r$} (sumPoint);
+    \draw[->] (sumPoint) -- node[above]{$e$} (regBox);
+    \draw[->] (regBox) -- node[above]{$u$} (procBox);
+    \draw (procBox) -- (endDot);
+    \draw[->] (endDot) -- node[above]{$y$} (endPoint);
+    \draw[->] (endDot) -- (2.5,1) -- (-3,1) -- node[above left]{$-$} (sumPoint);
+    \draw[->] (interferencePoint) -- node[above=2mm]{$v$} (procBox);
+  \end{tikzpicture}
+\end{center}
+
+\begin{conditions}
+  r & Führungsgrösse (Soll-Wert) \\
+  e & Regelfehler \\
+  u & Stell-/Steuergrösse \\
+  y & Regelgrösse (Ist-Wert) \\
+  v & Störgrösse
+\end{conditions}
+```
+*Rückkopplung* beschreibt eine Anordnung, bei welcher zwei oder mehr dynamische Systeme Systeme untereinander so verbunden sind, dass sie sich gegenseitig beeinflussen.
+
+### Geschlossenes System
+
+```{=latex}
+\begin{center}
+  \begin{tikzpicture}
+  % Boxes
+    \node[box, minimum height=0.8cm, inner sep=5pt] (regBox) at (-1.5,2) {Regler $C$};
+    \node[box, minimum height=0.8cm, inner sep=5pt] (procBox) at (1,2) {Prozess $P$};
+
+  % Node
+    \node[dot] (endDot) at (2.5,2) {};
+    \node(endPoint) at (3.5,2) {};
+
+  % Lines
+    \draw[-{>[scale=1.5]}] (regBox) -- (procBox);
+    \draw (procBox) -- (endDot);
+    \draw[-{>[scale=1.5]}] (endDot) -- (endPoint);
+    \draw[-{>[scale=1.5]}] (endDot) -- (2.5,1) -- (-3,1) -- (-3,2) -- (regBox);
+  \end{tikzpicture}
+\end{center}
+```
+Schwieriger zum Berechnen und zum Untersuchen, da diese ein rückgekoppeltes Signal (mit dem Eingangssignal kombinierend) Teil des Eingangssignals zum System besitzen.
+
+### Offenes System
+
+```{=latex}
+\begin{center}
+  \begin{tikzpicture}
+  % Boxes
+    \node[box, minimum height=0.8cm, inner sep=5pt] (regBox) at (-1.5,2) {Regler $C$};
+    \node[box, minimum height=0.8cm, inner sep=5pt] (procBox) at (1,2) {Prozess $P$};
+
+  % Node
+    \node(endPoint) at (3,2) {};
+    \node(startPoint) at (-3.5,2) {};
+
+  % Lines
+    \draw[-{>[scale=1.5]}] (regBox) -- (procBox);
+    \draw[-{>[scale=1.5]}] (procBox) -- (endPoint);
+    \draw[-{>[scale=1.5]}] (startPoint) -- (regBox);
+  \end{tikzpicture}
+\end{center}
+```
+`\underline{\footnotesize{Schleifenübertragungsfunktion}}`{=latex}
+
+$$
+L(s) = C(s)\cdot P(s)
+$$
+
+[Kein]{.underline} rückgekoppeltes Signal. Wird für Stabilitätsbestimmung und Anpassungen verwendet.
+
+## Minimalphasiges System
+
+Liegen [keine]{.underline} Pole oder Nullstellen in der [rechten Halbebene]{.underline}, so spricht man von **minimalphasigen Systeme**. Amplituden- und Phasengang stehen in einer direkten Beziehung zueinander. Es gilt **nur bei minimalphasigen Systemen**:
+
+$$
+\angle{G}\approx\frac{\pi}{2}\cdot\frac{d{\log\lvert G\rvert}}{d{\log{\omega}}}
+$$
+
+Pro $20\text{dB}$ Steigung oder Abfall beträgt die Phasenverschiebung $+90\degree$, respektive $-90\degree$.
+
+## Blockdiagrammalgebra
+
+### Verkettung
+
+```{=latex}
+\begin{center}
+\begin{tikzpicture}
+    \node[box=0.8cm, minimum height=0.8cm] (sysG1) at (0,0) {$G_1$};
+    \node[box=0.8cm, minimum height=0.8cm](sysG2) at (1.5,0) {$G_2$};
+    \node[box=0.8cm, minimum height=0.8cm] (sysG12) at (0.75,-1) {$G_1G_2$};
+    \node(start) at (-1.5,0) {};
+    \node(end) at (3,0) {};
+    \node(start2) at (-1,-1) {};
+    \node(end2) at (2.5,-1) {};
+    \draw[->]  (start2) edge node[above]{$u$} (sysG12);
+    \draw[->]  (sysG12) edge node[above]{$y$} (end2);
+    
+    \draw[->]  (start) edge node[above]{$u$} (sysG1);
+    \draw[->]  (sysG1) edge (sysG2);
+    \draw[->]  (sysG2) edge node[above]{$y$}  (end);
+    
+\end{tikzpicture}
+\end{center}
+```
+$$
+y = G_2 ( G_1 \cdot u) = (G_1G_2)\cdot u
+$$
+
+### Parallel
+
+```{=latex}
+\begin{center}
+\begin{tikzpicture}
+    \node[box=0.8cm, minimum height=0.8cm] (sysG1) at (1,1.5) {$G_1$};
+    \node[box=0.8cm, minimum height=0.8cm] (sysG2) at (1,0) {$G_2$};
+    \node[box=0.8cm, minimum height=0.8cm] (sysG12) at (1,-1) {$G_1+G_2$};
+    \node[dot] (dotStart) at (0,0.75) {};
+    \node[sum] (sumEnd) at (2,0.75) {+};
+    \node(start) at (-1.,0.75) {};
+    \node(end) at (3,0.75) {};
+    \node(start2) at (-1,-1) {};
+    \node(end2) at (3,-1) {};
+    \draw[->] (start2) edge node[above]{$u$} (sysG12);
+    \draw[->] (sysG12) edge node[above]{$y$} (end2);
+    
+    \draw     (start) edge node[above]{$u$} (dotStart);
+    \draw[->] (dotStart) |- (sysG1);
+    \draw[->] (dotStart) |- (sysG2);
+    \draw[->] (sysG1) -| (sumEnd);
+    \draw[->] (sysG2) -| (sumEnd);
+    \draw[->] (sumEnd) edge node[above]{$y$}  (end);
+    
+\end{tikzpicture}
+\end{center}
+```
+$$
+y = G_1\cdot u + G_1 \cdot u = (G_1 + G_2)\cdot u
+$$
+
+### Rückkopplung
+
+```{=latex}
+\begin{center}
+\begin{tikzpicture}
+    \node[sum] (sumStart) at (0,1) {$+$};
+    \node[box=0.8cm, minimum height=0.8cm] (sysG) at (1.5,1) {$G$};
+    \node[box=0.8cm, minimum height=0.8cm] (sysG12) at (1.25,-1) {$\frac{G}{1+G}$};
+    \node(start) at (-1,1) {};
+    \node(end) at (3.5,1) {};
+    \node[dot] (endDot) at (2.5,1) {};
+    \node(start2) at (-0.5,-1) {};
+    \node(end2) at (3,-1) {};
+    
+    \draw[->]  (start2) edge node[above]{$r$} (sysG12);
+    \draw[->]  (sysG12) edge node[above]{$y$} (end2);
+    
+    \draw[->]  (start) edge node[above]{$r$} (sumStart);
+    \draw[->]  (sumStart) edge node[above]{$e$} (sysG);
+    \draw      (sysG) edge (endDot);
+    \draw[->]  (endDot) edge node[above]{$y$}  (end);
+    
+\draw[->] (endDot) -- (2.5,0) -- (0,0) -- node[above left]{$-$} (sumStart);
+\end{tikzpicture}
+\end{center}
+```
+$$
+\begin{split}
+y &= G\cdot e = G(r-y)\\
+(1+G)\cdot y &= G\cdot r \\
+y &= \underbrace{\frac{G}{1+G}}_{G_{yr}} \cdot r\\
+\end{split}
+$$
+
+### Regel von Mason
+
+$$
+G_{ij} = \frac{\sum_k P_k\cdot\Delta_k}{\Delta}
+$$
+
+$$
+\begin{split}
+P_k &= \text{Vorwärtspfad } k\\
+\Delta = 1 &- \small{\Sigma\text{ aller Loops}} \\
+           &+ \small{\Sigma\text{ aller Produkte 2er Loops, die sich nicht berühren}} \\
+           &- \small{\Sigma\text{ aller Produkte 3er Loops, die sich nicht berühren}} \\
+           &+ \cdots \\
+\Delta_k = 1 &- \small{\Sigma\text{ aller Loops, die $P_k$ nicht berühren}} \\
+             &+ \small{\Sigma\text{ aller Produkte 2er Loops, die $P_k$ \& sich nicht berühren}} \\
+             &- \small{\Sigma\text{ aller Produkte 3er Loops, die $P_k$ \& sich nicht berühren}} \\
+             &+ \cdots \\
+\end{split}
+$$
+
+[Beispiel]{.underline}
+
+![](images/paste-9.png)
+
+![](images/paste-10.png)
+
+$P_1 = ABCD \quad \Delta_1 = 1-0\quad P_2 = ABD \quad \Delta_2=1-0$
+
+$\Delta=A-((-BCF)+CDE+((-B)(-D)(CEF))$
+
+$$
+G_{uy}=\frac{ABD(1+C)}{A+BCF-CDE-BCDEF}
+$$
+
+## Identifikation
+
+Unter dem Begriff der *Identifikation* versteht man die Bestimmung eines Modells aus einer vorgegebenen Klasse von Modellen, anhand der Ein-/Ausgangsgrössen, so, dass dieses möglichst gleichwertig dem getesteten System ist.
+
+`\underline{\footnotesize{...welche Klasse}}`{=latex} -- Ausgehend von einem LTI-System sind der Grad von Zähler- und Nennerpolynom festzulegen. Zudem sidn allfällige Totzeiten zu berücksichtigen.
+
+`\underline{\footnotesize{...welche Eingangssignale}}`{=latex} -- Das zu testende System muss hinreichend mit einem Signal angeregt werden $\rightarrow$ Diracstösse, Sprungfunktionen, Rampen und harmonische Funktionen
+
+`\underline{\footnotesize{...was meint 'gleichwertig'}}`{=latex} -- Da Ein- & Ausgangsgrössen beobachtet werden, kann $y$ des zu testenden Systems und $\hat{y}$ des zu vergleichenden Modell verglichen werden. Mit dem resultierenden Fehler $\epsilon = y - \hat{y}$ können Grenzen festgelegt werden.
+
+`\underline{\footnotesize{...wie kann ein Modell gefunden werden}}`{=latex} -- Trial & Error mit Sprungantwort und Bodediagramm.
+
+### Methode der kleinsten Quadrate
+
+Mit dieser Methode können Parameter anhand Messwerten bestummen werden.
+
+$$
+\begin{array}{r}
+\underbrace{y[k]+a_1y[k-1]+a_2y[k-2]+\cdots+a_ny[k-n]}_{A(z^{-1})y}\\
+= \underbrace{b_1u[k-1]+\cdots+b_nu[k-n]}_{B(z^{-1})u}
+\end{array}
+$$
+
+$$
+\beta^T=\begin{pmatrix}
+a_1 & a_2 & \cdots & a_n & b_1 & b_2 & \cdots & b_n
+\end{pmatrix}
+$$
+
+$$
+\epsilon = A(z^{-1})y-B(z^{-1})u = \underbrace{y}_{Gemessen}-\underbrace{\Phi\beta}_{\text{Modell}}
+$$
+
+$$
+y = \begin{pmatrix}
+  y[n+1]\\
+  y[n+2]\\
+  \vdots\\
+  y[n+N]
+\end{pmatrix}
+$$
+
+$$
+\small{
+\Phi = \begin{pmatrix}
+-y[n] & -y[n-1] & \cdots & -y[1] & u[n] & u[n-1] & \cdots & u[1] \\[1mm]
+-y[n+1] & -y[n] & \cdots & -y[2] & u[n+1] & u[n] & \cdots & u[2] \\[1mm]
+\vdots &  &   & \vdots & \vdots &   &   & \vdots \\[1mm]
+-y[N+n-1] & -y[N+n-2] & \cdots & -y[N] & u[N+n-1] & u[N+n-2] & \cdots & u[N] \\
+\end{pmatrix}}
+$$
+
+$$
+\hat{\beta} = (\Phi^T\Phi)^{-1}\Phi^Ty
+$$

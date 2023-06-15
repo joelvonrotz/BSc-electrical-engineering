@@ -2,6 +2,7 @@
 title: "Regelungstechnik"
 author: "Joel von Rotz"
 date: "25.04.2023"
+language: _language-de.yml
 
 # [RENDER CONFIGURATION] ==============================
 format:
@@ -10,7 +11,7 @@ format:
     include-in-header:
       - config/config.tex
       - config/_two-column-longtable.tex
-      - text: "\\usepackage[ngerman]{babel}"
+      - text: "\\usepackage[nswissgerman]{babel}"
     template-partials:
       - config/before-body.tex
     output-file: "s4_regelungstechnik"
@@ -56,111 +57,20 @@ fig-pos: "H"
   breakable
 ]}{\end{tcolorbox}}\fi
 ```
-
 `\begin{multicols}{2}`{=latex}
 
 <!-- insert -->
 
-
+```{=html}
 <!-- Beinhaltet:
    - Regelkreis (SW01)
      - Was ist ein Regelkreis?
      - Begriffe, Struktur, Aufbau
    -  -->
-
-
+```
 {{< include sec_linearalgebra_sus.qmd >}}
 
-# Systeme
-
-## Grundlegende Systeme
-
-### Regler System
-
-```{=latex}
-\begin{center}
-  \begin{tikzpicture}
-  % Boxes
-    \node[box, minimum height=0.8cm, inner sep=5pt] (regBox) at (-1.5,2) {Regler $C$};
-    \node[box, minimum height=0.8cm, inner sep=5pt] (procBox) at (1,2) {Prozess $P$};
-
-  % Node
-    \node[sum] (sumPoint) at (-3,2) {+};
-    \node (startNode) at (-4,2) {};
-    \node[dot] (endDot) at (2.5,2) {};
-    \node(endPoint) at (3.5,2) {};
-    \node (interferencePoint) at (1,3) {};
-
-  % Lines
-    \draw[->] (startNode) -- node[above]{$r$} (sumPoint);
-    \draw[->] (sumPoint) -- node[above]{$e$} (regBox);
-    \draw[->] (regBox) -- node[above]{$u$} (procBox);
-    \draw (procBox) -- (endDot);
-    \draw[->] (endDot) -- node[above]{$y$} (endPoint);
-    \draw[->] (endDot) -- (2.5,1) -- (-3,1) -- node[above left]{$-$} (sumPoint);
-    \draw[->] (interferencePoint) -- node[above=2mm]{$v$} (procBox);
-  \end{tikzpicture}
-\end{center}
-
-\begin{conditions}
-  r & Führungsgrösse (Soll-Wert) \\
-  e & Regelfehler \\
-  u & Stell-/Steuergrösse \\
-  y & Regelgrösse (Ist-Wert) \\
-  v & Störgrösse
-\end{conditions}
-```
-
-### Geschlossenes System
-
-```{=latex}
-\begin{center}
-  \begin{tikzpicture}
-  % Boxes
-    \node[box, minimum height=0.8cm, inner sep=5pt] (regBox) at (-1.5,2) {Regler $C$};
-    \node[box, minimum height=0.8cm, inner sep=5pt] (procBox) at (1,2) {Prozess $P$};
-
-  % Node
-    \node[dot] (endDot) at (2.5,2) {};
-    \node(endPoint) at (3.5,2) {};
-
-  % Lines
-    \draw[-{>[scale=1.5]}] (regBox) -- (procBox);
-    \draw (procBox) -- (endDot);
-    \draw[-{>[scale=1.5]}] (endDot) -- (endPoint);
-    \draw[-{>[scale=1.5]}] (endDot) -- (2.5,1) -- (-3,1) -- (-3,2) -- (regBox);
-  \end{tikzpicture}
-\end{center}
-```
-
-Schwieriger zum Berechnen und zum Untersuchen, da diese ein rückgekoppeltes Signal (mit dem Eingangssignal kombinierend) Teil des Eingangssignals zum System besitzen.
-
-### Offenes System
-
-```{=latex}
-\begin{center}
-  \begin{tikzpicture}
-  % Boxes
-    \node[box, minimum height=0.8cm, inner sep=5pt] (regBox) at (-1.5,2) {Regler $C$};
-    \node[box, minimum height=0.8cm, inner sep=5pt] (procBox) at (1,2) {Prozess $P$};
-
-  % Node
-    \node(endPoint) at (3,2) {};
-    \node(startPoint) at (-3.5,2) {};
-
-  % Lines
-    \draw[-{>[scale=1.5]}] (regBox) -- (procBox);
-    \draw[-{>[scale=1.5]}] (procBox) -- (endPoint);
-    \draw[-{>[scale=1.5]}] (startPoint) -- (regBox);
-  \end{tikzpicture}
-\end{center}
-```
-
-$$
-L(s) = C(s)\cdot P(s)
-$$
-
-[Kein]{.underline} rückgekoppeltes Signal. Wird für Stabilitätsbestimmung und Anpassungen verwendet.
+{{< include sec_systems.qmd >}}
 
 {{< include sec_regulator.qmd >}}
 
@@ -172,7 +82,7 @@ $$
 
 {{< include sec_hurwitz_nyquist.qmd >}}
 
-{{< include sec_grundelemente.qmd >}}
+{{< include sec_ubertragungselemente.qmd >}}
 
 {{< include sec_pid_regler.qmd >}}
 
@@ -182,7 +92,6 @@ $$
 
 {{< include sec_simulink.qmd >}}
 
-{{< include sec_process_types.qmd >}}
 
 {{< include sec_guides.qmd >}}
 
@@ -190,12 +99,12 @@ $$
 
 ::: callout-important
 Egal welche Methode verwendet wird um die Übertragungsfunktion herzuleiten, es wird immer die gleiche Funktion ergeben.
-
 :::
 
 ## Harmonische Anregung linearer Systeme
 
 Eingangssignal $u$:
+
 $$
 u=\cos(\omega t)=\frac12(e^{+j\omega t}+e^{-j\omega t})
 $$
@@ -205,12 +114,14 @@ y(t)=\underbrace{C\textcolor{BrickRed}{e^{At}}(x(0)-(sI-A)^{-1}B)}_{\text{transi
 $$
 
 ::: callout-note
-
-Ist $A$ stabil, so geht transiente Anteil $y_t$ asymptotisch gegen Null.
-Der stationäre Anteil bleibt übrig und entspricht der Übertragungsfunktion
-
+Ist $A$ stabil, so geht transiente Anteil $y_t$ asymptotisch gegen Null. Der stationäre Anteil bleibt übrig und entspricht der Übertragungsfunktion
 :::
 
+\newpage
+
+![](images/rgt_meme.jpg)
+
+$\rightarrow$ [Project Pigeon](https://en.wikipedia.org/wiki/Project_Pigeon)
 
 `\end{multicols}`{=latex}
 

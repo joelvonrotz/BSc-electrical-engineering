@@ -35,7 +35,6 @@ Ziel eines Reglers ist die Angleichung einer Regelgrösse $y$ an eine Führungsg
   \end{tikzpicture}
 \end{center}
 ```
-
 ::: callout-tip
 ## Merkmale einer Regelung
 
@@ -81,11 +80,9 @@ Folgende Merkmale **muss** eine Regelung aufweisen, ansonsten ist es keine Regel
   \end{tikzpicture}
 \end{center}
 ```
-
 ### 'Gang of Four'
 
 Das Verhalten der Regelung kann durch die folgenden vier Sensitivitätsfunktionen beschrieben werden.
-
 
 `\underline{\footnotesize{Sensitivity Function}}`{=latex}
 
@@ -99,7 +96,6 @@ $$
 G_{vy} = PS = \frac1{1+PC} 
 $$
 
-
 `\underline{\footnotesize{Complementary Sensitivity Function}}`{=latex}
 
 $$
@@ -112,19 +108,58 @@ $$
 G_{ur} = CS = \frac{C}{1+PC} 
 $$
 
+Wahrer Fehler
 
+## Anforderungen
 
-## Rückkopplung
+### Stabilität
 
-*Rückkopplung* beschreibt eine Anordnung, bei welcher zwei oder mehr dynamische Systeme Systeme untereinander so verbunden sind, dass sie sich [gegenseitig]{.underline} beeinflussen.
+![](images/paste-11.png){fig-align="center" width="4cm" height="3.5cm"}
 
-![](images/basics/closed_open.png){width="8cm"}
+-   binäres Kriterium und [zwingend zu erfüllen]{.underline}
+-   Für lineare Systeme gilt dies **global**, egal welcher AP
+-   Die Stabilität kann anhand des Polnullstellendiagramms beurteilt und mit Hurwitz & Nyquist untersucht werden
 
-::: callout-caution
-**Geschlossene** Kreise $\rightarrow$ schwieriger zum Berechnen und zum Untersuchen, da diese ein rückgekoppeltes Signal (mit dem Eingangssignal kombinierend) Teil des Eingangssignals zum System besitzen.
+### Stationäre Genauigkeit
 
-**Offene** Kreise $\rightarrow$ [kein]{.underline} rückgekoppeltes Signal.
-:::
+![](images/paste-12.png){fig-align="center" width="4cm" height="3.5cm"}
+
+-   Beschreibt bleibender Fehler, nach Abklingung der transienten Vorgänge
+
+-   Gutes Mass ist stationärer Regelfehler $e$
+
+    $$
+    e = \frac1{1+PC}r+\frac{-P}{1+PC}v+\frac{-1}{1+PC}w
+    $$
+
+$$
+e_{stationär}=\small\frac{1}{1+PC}\biggr\rvert_{s=0}\cdot r_0+\small\frac{-P}{1+PC}\biggr\rvert_{s=0}\cdot v_0+\small\frac{-1}{1+PC}\biggr\rvert_{s=0}\cdot w_0
+$$
+
+### Schnelligkeit
+
+![](images/paste-13.png){fig-align="center" width="4cm"}
+
+-   Für Charakterisierung des dynamischen Verhaltens wird **Gesamtregelkreis** betrachtet in Bezug auf Führungsgrösse
+
+    $$
+    y = \frac{PC}{1+PC}r
+    $$
+
+-   Als Kriterium dient die Grenzfrequenz $\omega_g \rightarrow$ Beschreibt ab wann das Verhalten deutlich degradiert ($\omega_g<\omega$)
+
+    $$
+    \omega_g: \lvert L(s) \rvert_{s=j\omega_g}\approx 1
+    $$
+
+![](images/paste-15.png)
+
+### Dämpfung
+
+![](images/paste-14.png){fig-align="center" width="4cm"}
+
+-   Unterdrückung von schwingenden Signalteilen, welche Anzeichen von Instabilität sind
+-   Gutes Mass ist die Phasenlage im Bereich von $\omega_g$
 
 ## Eigenschaften
 
@@ -175,7 +210,7 @@ Mit Regelung können unerwünschte Störeinflüsse ausgeglichen werden $\rightar
 
 Ein Konzept einer hohen Genauigkeit ist, mittels Regelung wird ein bestimmten und wohldefinierten Arbeitspunkt ausgeregelt und dabei aufgewendete Stellgrösse als Messgrösse des Sensors interpretiert dies.
 
-$\rightarrow$ Beispiel: Seismographgen, sehr präzise Waagen
+[Beispiel]{.underline}: Seismographgen, sehr präzise Waagen
 :::
 
 ### Herauserforderungen

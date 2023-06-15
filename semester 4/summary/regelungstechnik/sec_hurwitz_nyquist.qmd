@@ -16,8 +16,8 @@ $$
 \begin{conditions}
   \textcolor{BrickRed}{n_C} & Zähler (\textit{numerator}) des Reglers $C$\\
   \textcolor{BrickRed}{d_C} & Nenner (\textit{divider}) des Reglers $C$\\
-  \textcolor{BrickRed}{n_P} & Zähler (\textit{numerator}) des Prozess $P$\\
-  \textcolor{BrickRed}{d_P} & Nenner (\textit{divider}) des Prozess $P$
+  \textcolor{NavyBlue}{n_P} & Zähler (\textit{numerator}) des Prozess $P$\\
+  \textcolor{NavyBlue}{d_P} & Nenner (\textit{divider}) des Prozess $P$
 \end{conditions}
 ```
 $$
@@ -38,12 +38,14 @@ H=\begin{bmatrix}
 \end{bmatrix} \in \mathbb{R}^{n\times n}
 $$
 
-$$
-\det H_n = 
-$$
-
 ::: callout-tip
-Bei $n\leq 2$ genügt die Bedingung, dass alle Koeffizienten positiv sein müssen.
+-   Bei $n\leq 2$ genügt die Bedingung, dass alle Koeffizienten positiv sein müssen.
+-   $\det H_n = a_n \cdot \det H_{n-1}$ -- Wird nicht immer verwendet (nur bei Spalte Wert unten rechts, Rest der Spalte 0).
+-   Fehlt ein Koeffizient oder ist dieser negativ, so ist die Bedingung nicht erfüllt
+
+$$
+s^3+2s^2+10\rightarrow\text{instabil, da } 0\cdot s
+$$
 :::
 
 ::: callout-caution
@@ -52,4 +54,170 @@ Bei $n\leq 2$ genügt die Bedingung, dass alle Koeffizienten positiv sein müsse
 Das Hurwitz-Kriterium beschreibt keine *Robustheit* der Stabilität und erlangt keine Einsicht, wie der Regler $C=\frac{n_c}{d_c}$ gewählt werden sollte.
 :::
 
+[Beispiel]{.underline}
+
+$\lambda = {8s^4}+{2}s^3+s^2+3s+2 = a_0s^4+a_1s^3+\cdots+a_4$
+
+$$
+H = \begin{bmatrix}
+2 & 3 & 0 \\
+8 & 1 & 2 \\
+0 & 2 & 3 \\
+\end{bmatrix}
+$$
+
+$$
+\begin{array}{l}
+\det H_1 = 2 > 0\quad \textcolor{OliveGreen}{\checkmark}\\
+\det H_2 = 2 - 24 = -22 > 0\quad \textcolor{BrickRed}{\large\times}\\
+\end{array}
+$$
+
 # Nyquist
+
+Wenn $L(s)=-1$, so kann eine stationäre Schwingung eingestellt werden!
+
+```{=latex}
+\begin{center}
+  \begin{tikzpicture}
+    \node[box, minimum height=0.8cm, minimum width=0.8cm, inner sep=5pt] (procBox) at (0,2) {$-PC$};
+
+    \node(endB) at (-2.5,2) {B};
+    \node(startA) at (-1.5,2) {A};
+    \draw[->] (startA) -- (procBox);
+    \draw[->]  (procBox) -- (1,2) -- (1,1) -- (-3.5,1) -- (-3.5,2) -- (endB);
+\end{tikzpicture}
+\end{center}
+```
+$$
+B=-P(s)C(s)\cdot A\quad \Rightarrow\quad \underline{P(s)C(s) = -1}
+$$
+
+## Allgemein
+
+### Variante Winkeländerung
+
+![](images/paste-4.png)
+
+$$
+\Delta\phi=a\frac{\pi}{2}+r\pi\,\hat{=}\,a\cdot90\degree+r\cdot180\degree
+$$
+
+```{=latex}
+\begin{conditions}
+  a & Anzahl Pole \underline{auf} der $Im$-Achse\\
+  r & Anzahl Pole \underline{rechts} der $Im$-Achse
+\end{conditions}
+```
+Nur bei $\Delta\phi\geq0\degree$ ist der *geschlossene* Kreis **stabil**.
+
+::: callout-important
+## Offen stabile Systeme
+
+Systeme, welche offen stabil sind, müssen der Bedinung $\Delta\phi=0$ genügen.
+
+Das Kriterium ist ebenfalls anwendbar, wenn die Ortskurve experimentell ermittelt wurde.
+:::
+
+::: callout-note
+## Totzeit
+
+Die Bedingung gilt auch für Systeme mit Totzeit
+:::
+
+### Variante Umläufe
+
+Das System $G_{yr}$ ist stabil wenn $P=U$
+
+```{=latex}
+\begin{conditions}
+  P & Anzahl instabiler Polstellen von $L(s)$ \\
+  U & Anzahl Umläufe der Nyquist-Kurve $L(j\omega)$ mit $\omega\in [-\infty,\infty]$ um den Punkt $(-1,0)$ im \underline{Gegenuhr}zeigersinn
+\end{conditions}
+```
+[Beispiel]{.underline}
+
+$$
+L(s)=\frac{9(s+2)(s+4)}{(s-2)(s+3)(s-4)}
+$$
+
+![](images/paste-5.png)
+
+$\rightarrow\ P=U=2: \textcolor{OliveGreen}{\text{stabil}}$
+
+$$ 
+L(s)=\frac{18(s-1)(s+4)}{(s-2)(s+3)(s-4)}
+$$
+
+![](images/paste-6.png)
+
+$\rightarrow P=2,U=1:\textcolor{BrickRed}{\text{instabil}}$
+
+## Einfaches Kriterium
+
+### Variante Links liegen
+
+Für Systeme mit maximal zwei instabilen Polen im Ursprung (aber keinen weiteren instabilen Polen) genügt die Bedingung, dass der Punkt $(-1,0)$ *links liegen gelassen* wird, wenn entlang der Ortskurve $\omega : 0 \rightarrow \infty$ verfahren wird.
+
+### Variante Umläufe
+
+Das System $G_{yr}$ ist stabil, wenn die Nyquist Kurve $L(j\omega)$ mit $\omega\in [0,\infty]$ den Punkt $(-1,0)$ **nicht** umläuft.
+
+## Stabilitätsreserve / Robustheit
+
+![](images/paste-7.png){width="6cm"}
+
+![](images/paste-8.png){width="6cm"}
+
+### Phasenreserve $\varphi_m$
+
+Eintritt in den Einheitskreis $\rightarrow$ *gain crossover*
+
+$$
+\omega_{gc} : \lvert L(j\omega_{gc})\rvert = 1
+$$
+
+Abstand zu $-1$ wird mit Phasenreserve $\varphi_m$ ausgedrückt
+
+$$
+\varphi_m = 180\degree+\angle L(j\omega_{gc})
+$$
+
+$\rightarrow$ kann im Bodediagramm abgelesen werden
+
+### Amplitudenreserve $g_m$
+
+Überschreiten der negativen $Re$-Achse $\rightarrow$ *phase crossover*
+
+$$
+\omega_{pc} : \angle L(j\omega_{gc})= -180\degree
+$$
+
+Abstand zu $-1$ wird durch die Amplitudenreserve $g_m$ ausgedrückt.
+
+$$
+g_m = \frac1{\lvert L(j\omega_{pc})\rvert}
+$$
+
+Wird die Achse nicht überschritten, so ist $g_m\rightarrow\infty$
+
+$\rightarrow$ kann im Bodediagramm abgelesen werden
+
+### Stabilitätsreserve $s_m$
+
+Minimaler Abstand zu $-1$
+
+$\rightarrow$ Kann nur aus Ortskurve abgelesen werden
+
+### Praxiswerte
+
+Folgende Werte dienen als *Boilerplate* für die Reglerauslegung
+
+$$
+\begin{array}{l}
+\varphi_m \approx 30\degree - 60\degree\\
+g_m \approx 2-5 \\
+s_m \approx 0.5 - 0.8 \\
+\omega_{gc} \approx\frac1{\tau}: \tau\text{ von Sprungantwort}
+\end{array}
+$$

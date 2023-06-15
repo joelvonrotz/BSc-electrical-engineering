@@ -5,7 +5,9 @@
 
 Modelle repräsentieren immer eine Vereinfachung des eigentlichen Systems und fokusiert daher immer auf ein Teil des Systems.
 
-[Beispiel]{.underline} Die Modellierung des Tempomats konzentriert sich mehr auf die Geschwindigkeit des Fahrzeugs als auf die Auswirkungen eines Atombombeneinschlags auf das Fahrzeug.
+`\vspace{2mm}`{=latex}
+
+[Beispiel]{.underline}: Die Modellierung des Tempomats konzentriert sich mehr auf die Geschwindigkeit des Fahrzeugs als auf die Auswirkungen eines Atombombeneinschlags auf das Fahrzeug.
 :::
 
 ## Zustandsraumdarstellung
@@ -164,9 +166,7 @@ $$
 G_{er}(s)=\frac{E(s)}{R(s)}
 $$
 
-[Beispiel]{.underline}
-
--   Eine Saune kann sich dies eher noch erlauben, da eine Überschwingung nur einen kleinen Einfluss auf die Systemqualität hat.
+[Beispiel]{.underline}: Eine Saune kann sich dies eher noch erlauben, da eine Überschwingung nur einen kleinen Einfluss auf die Systemqualität hat.
 
 ### Merkmale
 

@@ -23,7 +23,7 @@ $$
 ## Stabilität
 
 ::: callout-note
-## Stabilität (allgemein)
+### Stabilität (allgemein)
 
 Die Stabilität ist in drei Zustände eingeteilt.
 
@@ -34,12 +34,10 @@ Die Stabilität ist in drei Zustände eingeteilt.
 Stabilität ist im Allgemeinen eine *lokale* Eigenschaft innerhalb eines Bereiches des Zustandsraums!
 :::
 
-[Beispiel - Pendel]{.underline}
-
-Das Pendel, welches die gesamte Rotationsachse ($360\degree$, rundherum) ausnützen kann, hat zwei Gleichgewichtslagen:
+[Beispiel]{.underline}: Ein Pendel, welches die gesamte Rotationsachse ($360\degree$, rundherum) ausnützen kann, hat zwei Gleichgewichtslagen:
 
 -   **stabile** Position oben
--   **asymptotische stabile** Positionen, welche immer nach unten gehen.
+-   **asymptotische stabile** Positionen, welche immer nach unten verlaufen.
 
 ![](images/dynamik\stationary_point.png){fig-align="center" width="6cm"}
 
@@ -87,14 +85,22 @@ $$
 Stabilität linearer Systeme ist [nur von]{.underline} $A$ [abhängig]{.underline}, nicht vom Anfangswert $x_0$. Dies gilt Global!
 :::
 
+### Stabilität Linearisierung
+
+Ist das linearisiterte System asymptotisch stabil, so ist das nicht-lineare System in der **Umgebung der Gleichgewichtslage** ebenfalls asymptotisch stabil.
+
 # Testfunktion Sprungantwort
+
+Anhand folgender Funktion kann die Sprungantwort eines Systems angegeben werden.
 
 $$
 y(t)=Ce^{At}x(0)+\int^t_0Ce^{A(t-\tau)}Bu(\tau)d\tau+Du(t)
 $$
 
+Die Antwort setzt aus einem *zeitabhängigen* und einem *konstanten* Teil zusammen.
+
 $$
 y(t)=\underbrace{CA^{-1}e^{At}B}_{\text{zeitabhängig}}\underbrace{-CA^{-1}B+D}_{\text{konstant}}\qquad t>0
 $$
 
-System strebt gegen Wert wenn A [asymptotisch stabil]{.underline} ist.
+Das System strebt gegen Wert wenn A [asymptotisch stabil]{.underline} ist $\rightarrow$ der *zeitabhängige* Teil strebt, falls A asymptotisch stabil ist, der Gleichtgewichtslage $x=0$ zu. Der *konstante* Teil entspricht dem Wert bei $\omega\rightarrow 0$ und damit der *Gleichspannungsverstärkung*.

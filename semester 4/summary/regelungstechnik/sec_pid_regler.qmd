@@ -4,7 +4,30 @@
 
 ![](images/pid_regler%5Cpid_graph.png){fig-align="center" width="6cm"}
 
-Die Aufgabe eines Reglers besteht darin, ausgehen von einem Regelfehler $e$ zum Zeitpunkt $t$ eine Stellgrösse $u$ so zu bestimmen, dass der Fehler in absehbarer Zeit reduziert wird.
+```{=latex}
+\begin{center}
+  \begin{tikzpicture}
+
+    \node[box, minimum height=0.8cm, minimum width=1.5cm, inner sep=5pt] (procP) at (0,1) {$k_p$};
+    \node[box, minimum height=0.8cm, minimum width=1.5cm, inner sep=5pt] (procI) at (0,0) {$k_i\int dt$};
+    \node[box, minimum height=0.8cm, minimum width=1.5cm, inner sep=5pt] (procD) at (0,-1) {$k_d \frac{d}{dt}$};
+
+    \node[dot](startDot) at (-1.5,0) {};
+    \node[sum](endSum) at (1.5,0) {+};
+\node(start) at (-2.5,0) {$e$};
+\node(end) at (2.5,0) {$u$};
+\draw  (start) edge (startDot);
+\draw[->]  (startDot) |- (procP);
+\draw[->]  (startDot) -- (procI);
+\draw[->]  (startDot) |- (procD);
+\draw[->]  (procD) -| (endSum);
+\draw[->]  (procI) -- (endSum);
+\draw[->]  (procP) -| (endSum);
+\draw[->] (endSum) edge (end);
+\end{tikzpicture}
+\end{center}
+```
+Die Aufgabe eines Reglers besteht darin, ausgehend von einem Regelfehler $e$ zum Zeitpunkt $t$ eine Stellgrösse $u$ so zu bestimmen, dass der Fehler in absehbarer Zeit reduziert wird.
 
 ::: callout-note
 ## Verhalten Regler
@@ -17,7 +40,7 @@ Grössere Fehler sollten zu grösseren Stellgrössen führen und kleinere Fehler
 P-Anteil verstärkt den Regelfehler $e$ um die *Proportionalverstärkung* $k_p$.
 
 $$
-u = k_p (r-y)=k_p\cdot e
+C(s) = k_p \qquad u = k_p\cdot e
 $$
 
 ::: callout-warning
@@ -34,6 +57,14 @@ entsteht ein bleibender Fehler von:
 $$
 G_{er}(0)=\frac{1}{1+P(0)\cdot C(0)}=\frac{1}{1+P(0)\cdot k_p}
 $$
+
+Dies kann mit einer Vorsteuerung korrigiert werden, was aber Störeinflüsse [nicht]{.underline} ausschliesst:
+
+$$
+u(t) = k_p\cdot e(t) + u_{ff} = k_p\cdot e(t)+\frac{r}{P(0)}
+$$
+
+Besser ist ein PI-Regler
 :::
 
 ::: callout-important
@@ -62,17 +93,17 @@ $$
 Wird ein permanentes Stellsignal $u$ benötigt, so gilt für den P-Regler einen bestimmten Fehler $e \neq 0$.
 :::
 
-## `\textcolor{NavyBlue}{Integral}`{=latex} $k_i/T_i$
+## `\textcolor{NavyBlue}{Integral}`{=latex} $k_i,T_i$
 
 Mit dem I-Anteil werden *vergangene* Fehler mitberechnet $\rightarrow$ stationäre Fehler des P-Anteils wird korrigiert.
 
 $$
-u = k_i\cdot\int_0^t e(\tau)\ {\text{d}\tau}
+C_{PI}=K_P\cdot\left(1+\frac1{T_i s}\right)\qquad u = k_i\cdot\int_0^t e(\tau)\ {\text{d}\tau}
 $$
 
 Die Stellgrösse wird dadurch solange geregelt, bis der Regelfehler $e=0$ wird.
 
-## `\textcolor{OliveGreen}{Proportional}`{=latex} $k_d/T_d$
+## `\textcolor{OliveGreen}{Differential}`{=latex} $k_d,T_d$
 
 Der D-Anteil reagiert auf *zukünftige* Fehler, indem die Steigung mit einem Verstärkungsfaktor $k_d$ verstärkt wird.
 
@@ -80,27 +111,139 @@ $$
 e(t+T_d)\approx e(t)+T_d \frac{\text{d}e}{\text{d}t} \qquad u = k_d \frac{\text{d}e}{\text{d}t}
 $$
 
-::: callout-important
-## Limitierung der D-Verstärkung
+### Filter D-Anteil
 
-**Grund**: Für träge Prozess führt eine sprungartige Veränderung (z.B. Sprungantwort oder Dirac-Impuls) zu einem sprungartigen Regelfehler $e(t)\approx \sigma$.
-:::
+**Grund**: Für träge Prozess (z.B. mit Totzeit) führt eine sprungartige Veränderung (z.B. Sprungantwort oder Dirac-Impuls) zu einem sprungartigen Regelfehler $e(t)\approx \sigma$. Der D-Anteil wird daher mit einem Tiefpass-Filter erweitert.
 
+```{=latex}
+\begin{center}
+  \begin{tikzpicture}
+
+    \node[box, minimum height=0.6cm, minimum width=0.8cm, inner sep=5pt] (procP) at (-1.5,0) {$k_p$};
+    \node[box, minimum height=0.6cm, minimum width=0.8cm, inner sep=5pt] (procTP) at (0.5,-1) {$\small\frac{1}{1+sT_d}$};
+    
+    \node[dot] (startDot) at (-0.5,0) {};
+    \node[sum](endSum) at (1.5,0) {+};
+\node(start) at (-2.5,0) {$e$};
+\node(end) at (2.5,0) {$u$};
+\draw[->]   (start) edge (procP);
+\draw[->] (endSum) edge (end);
+\draw  (procP) edge (startDot);
+\draw[->]  (startDot) edge (endSum);
+\draw[->]  (startDot) |- (procTP);
+\draw[->]  (procTP) -| node[left = 2mm, above=4mm]{$-$}(endSum);
+
+
+% variant 2
+%   \node[box, minimum height=0.6cm, minimum width=0.8cm, inner sep=5pt] (procP2) at (-1.5,-2) {$k_p$};
+%    \node[box, minimum height=0.6cm, minimum width=0.8cm, inner sep=5pt] (procTP2) at (0.5,-3) {$\small\frac{1}{1+sT_i}$};
+    
+%   \node[dot] (startDot2) at (1.5,-2) {};
+%   \node[sum] (endSum2) at (-0.5,-2) {+};
+%\node(start2) at (-2.5,-2) {$e$};
+%\node(end2) at (2.5,-2) {$u$};
+%\draw [->] (start2) edge (procP2);
+%\draw [->] (procP2) edge (endSum2);
+%\draw [->] (procTP2) -| (endSum2);
+%\draw      (endSum2) |- (startDot2);
+%\draw [->] (startDot2) |- (procTP2);
+%\draw [->] (startDot2) edge (end2);
+\end{tikzpicture}
+\end{center}
+```
+Für tiefe Frequenzen ($\lvert s\rvert\ll\frac1{T_d}$) wird $G_{ue}\approx k_p T_ds$ und hohe Frequenzen wird $G_{ue}\approx k_p$ (limitiert durch $k_p$)
+
+$$
+C_{D}(s)= k_p\frac{T_d\cdot s}{1+s\cdot T_d} = \frac{k_d\cdot s}{1+s\cdot T_d}
+$$
+
+Anders dargestellt:
+
+```{=latex}
+\begin{center}
+  \begin{tikzpicture}
+
+    \node[box, minimum height=0.8cm, minimum width=0.8cm, inner sep=5pt] (procP) at (-2,0) {$k_d$};
+    \node[box, minimum height=0.8cm, minimum width=0.8cm, inner sep=5pt] (procTP) at (0,0) {$\small\frac{s}{1+sT_d}$};
+    
+    
+\node(start) at (-3.25,0) {$e$};
+\node(end) at (1.5,0) {$u$};
+\draw[->]   (start) edge (procP);
+\draw[->]  (procP) edge (procTP);
+\draw[->]  (procTP) edge (end);
+
+
+\end{tikzpicture}
+\end{center}
+```
 ## Übertragungsfunktion
 
 $$
-C(s)=k_p\left(1+\frac{k_i}{s}+k_d\cdot s\right)=k_p\left(1+\frac{1}{T_i\cdot s}+T_d\cdot s\right)
+\begin{split}
+C(s) & =k_p\left(1+\frac1{T_i\cdot s}+T_d\cdot s\right)=k_p\cdot\frac{(1+sT_1)(1+sT_2)}{T_i\cdot s} \\
+&= \underbrace{k_p\cdot e}_{\textcolor{BrickRed}{\text{P}}}+\underbrace{\frac{k_p}{T_i}\int_0^te(\tau)d\tau}_{\textcolor{NavyBlue}{\text{I}}}+\underbrace{k_p\cdot T_d\frac{de}{dt}}_{{\textcolor{OliveGreen}{\text{D}}}}
+\end{split}
 $$
 
+```{=latex}
+\begin{conditions}
+  k_p & Reglerverstärkung \\
+  T_i=\sfrac{k_p}{k_i} & Nachstellzeit \\
+  T_d=\sfrac{k_d}{k_o} & Vorhaltzeit
+\end{conditions}
+```
 ::: callout-important
 Diese Beschreibung ist nur eine [idealisierte]{.underline} Repräsentation, welche für das Verständnis des System hilfreich ist. Im [praktischen]{.underline} Einsatz sind Modifikationen notwendig.
 :::
 
-## Auslegung
+## Auslegung anhand...
 
-### Anhand Bodediagramm
+### ...Modelle geringer Ordnung
 
-Diese Auslegung fokussiert anhand des **offenen** Kreises ($L=C\cdot P$) des Regelkreises.
+#### Approximation 0-er Ordnung
+
+![](images/paste-31.png)
+
+Für einen statischen Prozess $K=P(0)$ und einen I-Regler wird $L=PC=K\cdot\frac{k_i}{s}$:
+
+$$
+G_{yr}=\frac{K\cdot k_i}{s+K\cdot k_i}=\frac1{1+s\cdot T_{cl}}
+$$
+
+$$
+k_i = \frac{1}{T_{cl}\cdot K}=\frac1{T_{cl}\cdot P(0)}
+$$
+
+::: callout-caution
+## mittlere Verzögerungszeit
+
+Die Auslegung bedingt, dass der Prozess gut durch eine Konstante beschrieben werden kann. Ein vernünftiges Kriterium dafür ist die Bedingung:
+
+$$
+T_{cl}>T_{ar}\qquad T_{ar}=-\frac{P'(0)}{P(0)}
+$$
+
+```{=latex}
+\begin{conditions}
+  T_{ar} & mittlere Verzögerungszeit \\
+  T_{cl} & Zeitkonstante des geschlossenen Kreises
+\end{conditions}
+```
+$T_{ar}$ beschreibt die Zeit, bis die Sprungantwort des Systems sich gesetzt hat.
+:::
+
+#### Approximation 1-ter Ordnung
+
+Näherung erster Ordnung kann folgendes Modell gewählt werden.
+
+$$
+P\approx P(0)+P'(0)s\approx \frac{P(0)}{1+sT_{ar}}
+$$
+
+### ...Bodediagramm
+
+Diese Auslegung wird mit dem **offenen** Regelkreis gemacht.
 
 $$
 C(s) = k_i \frac{(1+s\ T_1)(1+s\ T_2)}{s} = k_p \frac{(1+s\ T_i)(1+s\ T_d)}{s\cdot T_i}
@@ -142,14 +285,52 @@ $$
 ![](images/pid_regler%5Causlegung_bodediagramm.png){fig-align="center"}
 :::
 
-### Anhand von Einstellregeln
+### ...Einstellregeln im Zeitbereich
+
+![](images/paste-25.png){fig-align="center" width="6cm"}
+
+| Typ |      $k_p$       |    $T_i$     |     $T_d$      |
+|:---:|:----------------:|:------------:|:--------------:|
+|  P  |  $\sfrac{1}{a}$  |      \-      |       \-       |
+| PI  | $\sfrac{0.9}{a}$ | $3\cdot\tau$ |       \-       |
+| PID | $\sfrac{1.2}{a}$ | $2\cdot\tau$ | $0.5\cdot\tau$ |
+
+### ...Einstellregeln im Frequenzbereich
+
+Verstärkung $k$ erhöhen, bis sich eine anhaltende Schwingung einstellt. Regelparameter anhand kritischer Verstärkung $k_c$ & Periodendauer $T_c$ ermitteln.
+
+![](images/paste-26.png){fig-align="center" width="6cm"}
+
+| Typ |     $k_p$      |     $T_i$      |      $T_d$       |
+|:---:|:--------------:|:--------------:|:----------------:|
+|  P  | $0.5\cdot k_c$ |       \-       |        \-        |
+| PI  | $0.4\cdot k_c$ | $0.8\cdot T_c$ |        \-        |
+| PID | $0.6\cdot k_c$ | $0.5\cdot T_c$ | $0.125\cdot T_c$ |
 
 ## Stellgrössen-Sättigung
 
+In Realität kann der Regler nur einen (hoffentlich bewusst) begrenzten Stell-Bereich ausgeben. Dies wird die *Stellgrössen-Sättigung* genannt.
+
 ::: callout-warning
 ## Sättigungseffekt
+
+Arbeitet der Regelkreis in der Sättigung, so ist dieser faktisch unterbrochen -- *das System arbeitet als offener Kreis*, solange in der Aktor im gesättigtem Zustand ist.
 :::
 
 ### Windup & Anti-Windup
 
-*Windup* entsteht durch
+Enthält der Regelkreis einen I-Anteil und ist der Aktor im gesättigten Zustand, so lädt sich der I-Anteil mit einem $\neq0$-Regelfehler auf. Dies bezeichnet man als **Windup**. Erholt sich der Aktor, muss der I-Anteil abgebaut werden.
+
+![](images/paste-27.png){fig-align="center" width="6.5cm" height="3.4cm"}
+
+![](images/paste-28.png){fig-align="center" width="8cm" height="2.6cm"}
+
+Mit *Anti-Windup* wird der exzessive Anteil mit einem invertierten Vorzeichen an den Integrator zurückgeführt und somit der Windup klein gehalten. Die *Erholzeit* nach einer Stellgrössensättigung kann deutlich verkürzt werden.
+
+![](images/paste-30.png){fig-align="center" width="6.5cm"}
+
+![](images/paste-29.png){fig-align="center" width="8cm" height="3.5cm"}
+
+$$
+k_t \approx 10 k_i
+$$

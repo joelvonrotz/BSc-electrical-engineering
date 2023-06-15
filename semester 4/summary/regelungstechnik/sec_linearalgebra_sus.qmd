@@ -11,7 +11,7 @@ $$
 ### 3 $\times$ 3-Matrix
 
 $$
-\det(A)=\begin{vmatrix} a & b & c \\ d & e & f \\ g & h & i \end{vmatrix} = aei+bfg+dhc-ceg-bdi-afh
+\det(A)=\begin{vmatrix} \textcolor{BurntOrange}{a} & \textcolor{NavyBlue}{b} & \textcolor{OliveGreen}{c} \\ \textcolor{OliveGreen}{d} & \textcolor{BurntOrange}{e} & \textcolor{NavyBlue}{f} \\ \textcolor{NavyBlue}{g} & \textcolor{OliveGreen}{h} & \textcolor{BurntOrange}{i} \end{vmatrix} = \textcolor{BurntOrange}{aei}+\textcolor{NavyBlue}{bfg}+\textcolor{OliveGreen}{cdh}-ceg-bdi-afh
 $$
 
 ## Inverse Matrix
@@ -36,6 +36,18 @@ c & \textcolor{BrickRed}{d}
 $$
 
 ### 3 $\times$ 3-Matrix
+
+$$
+A^{-1}=
+\begin{bmatrix} 
+a & b & c \\ d & e & f \\ g & h & i
+\end{bmatrix}^{-1} = \frac1{\det A} \cdot
+\begin{bmatrix}
+\small{ei-fh} & \small{ch-bi} & \small{bf-ce} \\
+\small{fg-di} & \small{ai-cg} & \small{cd-af} \\
+\small{dh-eg} & \small{bg-ah} & \small{ae-bd}
+\end{bmatrix}
+$$
 
 # Signal & System Kurzfassung
 
@@ -72,3 +84,13 @@ falls $x(0^+)$ existiert
 $$
 x[0]=\lim_{z\rightarrow\infty}X(z)
 $$
+
+## Transformationen
+
+### Laplace
+
+![](images/paste-17.png)
+
+### Z-Transformation
+
+![](images/paste-18.png)

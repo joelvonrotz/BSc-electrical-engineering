@@ -38,6 +38,8 @@ box/.default = 1cm, % size of the circle diameter
 
 \usepackage{gensymb}
 
+\usepackage{xfrac}
+
 % Flexible Multicolumn Option
 \usepackage{multicol}
 \setlength\columnsep{20pt}
@@ -69,7 +71,7 @@ box/.default = 1cm, % size of the circle diameter
 \pagestyle{fancy}
 \fancyhead{} % clear all header fields
 \makeatletter
-\fancyhead[R]{\@title\ - Zusammenfassung}
+\fancyhead[R]{\@title}
 \makeatother
 \fancyhead[L]{HSLU T\&A}
 \fancyfoot{} % clear all footer fields
@@ -106,3 +108,6 @@ box/.default = 1cm, % size of the circle diameter
 \renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}\par}
 
 \titleformat{\section}[block]{\bfseries\Large}{\thetitle.}{3mm}{#1\space\xrfill[0.6ex]{1pt}}
+
+
+\usepackage{pdfpages}
