@@ -1,17 +1,17 @@
 # FreeRTOS
 
+*FreeRTOS* ist ein open source Echtzeit-Betriebsystem für Embedded Systems. Zu Beginn war FreeRTOS unter der GNU Public License (GPL) (GNU Lesser Public License (LPGL)) Lizenz erhältlich, was eine Nutzung in kommerziellen Projekten trotz GPL ermöglichte. Nach Amazons Übernahme wurde die Lizenz zur MIT-Lizenz.
+
 ## Echtzeit
 
 ::: callout-important
 ## Was ist Echtzeit?
 
-> Ein Computer ist als Echtzeitsystem klassifiziert, wenn er auf externe Ereignisse in der echten Welt reagieren kann: mit dem richtigen Resultat, zur richtigen Zeit, unabhängig der Systemlast, auf eine deterministische und vorhersehbare Weise.
-
-`\textcolor{BurntOrange}{\textbf{!}}`{=latex}
+Ein Computer ist als Echtzeitsystem klassifiziert, wenn er auf externe Ereignisse in der **echten** Welt reagieren kann: mit dem **richtigen Resultat**, zur **richtigen Zeit**, unabhängig der Systemlast, auf eine deterministische und vorhersehbare Weise.
 :::
 
 -   **Absolute** Rechtzeitigkeit -- [Absoluter]{.underline} Zeitpunkt (z.B. jeden Tag [05:30]{.underline} $\pm$ 1 Minute)
--   **Relative** Rechtzeitigkeit -- Relative Zeit nach [Ereignis]{.underline} (z.B. 5 Minuten $\pm$ [nach Einschalten]{.underline} wieder ausschalten)
+-   **Relative** Rechtzeitigkeit -- Relative Zeit nach [Ereignis]{.underline} (z.B. 5 Minuten ($\pm$ 10s) [nach Einschalten]{.underline} wieder ausschalten)
 
 ### Harte & Weiche Echtzeit
 
@@ -20,19 +20,344 @@
 -   **Harte** Echtzeit (links) -- Zeitbedingung einhalten (innerhalb Zeitfenster $w$). ***Beispiel*** Airbag soll 20ms nach Aufpralldetektion ausgelöst werden.
 -   **Weiche** Echtzeit (rechts) -- Immer noch in Ordnung, wenn Zeitbedingung [nicht]{.underline} eingehalten. ***Beispiel*** Video Encoder wiedergibt mit Framerate 25 F/s. Framerate darf nicht unter 10 F/s sein und in 10% der Zeit Framerate unter 25 F/s $\rightarrow$ System ist immer noch als korrekt angesehen.
 
-## FreeRTOS
+### Periodische Echtzeit
 
-## Interrupts
+Echtzeitsystem müssen das richtige Resultat zur richtigen Zeit liefern.
+
+Realität alles parallel $\rightarrow$ Computer/Recheneinheit arbeitet seriell $\rightarrow$ *quasi-parallel* mehrere Dinge erledigen
+
+Folgendes Beispiel zeigt eine Mögichkeit:
+
+``` cpp
+for (;;) {
+  if (time ==530) { /* start at 05:30 am */
+    StartIrrigation (); /* turn relay on */
+  }
+  if (time >530 && time <535) {
+    /* irrigate from 05:30 am to 05:35 am */
+    /* control the water pump , needs to 
+       be called every 10 ms: */
+    ControlIrrigation ();
+    /* wait 5 ms (additional 5 ms will be added) */
+    WaitMs (5);
+  }
+  MeasureHumidity ();
+  /* needs to be called every 5 ms */
+  WaitMs (5);
+  if (time ==535) { /* stop at 05:35 am */
+    StopIrrigation (); /* turn relay off */
+  }
+}
+```
+
+## Architektur
+
+### Philosophie
+
+::: callout-important
+## Preemptives & Kooperatives Scheduling
+
+**Preemptive** -- Es läuft immer der Task mit der höchsten Priorität. Tasks mit der gleichen Priorität teilen sich die Rechenzeit (fully preemptive with [round robin time slicing]{.underline}).
+
+**Kooperative** -- Ein Kontext Switch findet nur statt, wenn ein Task blockiert oder explizit ein Yield aufruft. Ein 'Yield' ist die Aufforderung an den Kernel, einen Kontext Wechsel vorzunehmen.
+:::
+
+::: callout-important
+## Benötigte Interrupts
+
+Damit das Betriebssystem korrekt läuft, werden zwei Interrupts benötigt:
+
+**Tick Interrupt** -- periodischer Interrupt, welcher einen Kontext Switch (Preemption) (`SysTick`)
+
+**Software Interrupt** -- Interrupt, welcher vom Kernel oder von der Anwendung ausgelöst werden kann (`SVCall`, `PendableSrvReq)`
+:::
+
+### Block Diagramm
+
+![](images/paste-9.png)
+
+Implementiert...
+
+-   `FreeRTOSConfig.h` -- ...Makros zur Konfiguration des Betriebssystems
+-   `croutine` -- ...Co-Routinen sind Mini-Threads, welche den Stackspeicher untereinander teilen
+-   `event_groups` -- ... *Event Flags* zur Signalisation von Events
+-   `list` -- ... die Listenverwaltung für z.B. wartende Objekte
+-   `queue` -- ... Queues, Mutex, Semaphore
+-   `timer` -- ... den Software Timer
+-   `task` -- ... den Scheduler
+-   `heap` -- ... Speicherverwaltung des Heap Speichers zur Bereitstellung des Stackspeichers für die Tasks
+-   *Port* -- ... spezifischen und Architektur-abhängigen Teil des Betriebsystems
 
 ## Kernel
 
-## Task
+### einfache API
+
+#### vTaskStartScheduler()
+
+``` cpp
+void vTaskStartScheduler(void); // <1>
+void vTaskEndScheduler(void); // <2>
+```
+
+1.  Setzt den Scheulder von *Init* in den *Running* Zustand
+2.  Beendet den Scheduler und springt zum Aufruf von `vTaskStartScheduler`
+
+::: callout-caution
+##### vTaskEndScheduler
+
+Wird der Scheduler beendet, werden `setjmp()` und `longjmp()` verwendet, was nicht in jedem Port implementiert ist.
+:::
+
+#### vTaskSuspendAll()
+
+``` cpp
+void vTaskSuspendAll(void);
+```
+
+Versetzt den Kernel von *active* in den *suspended* Zustand $\rightarrow$ Interrupts sind noch aktiv, aber der Tick Interrupt löst keinen Kontext Switch mehr aus.
+
+\textcolor{BrickRed}{\textbf{!}} Kann mehrfach / verschachtelt werden
+
+#### vTaskResumeAll()
+
+``` cpp
+portBASE_TYPE vTaskResumeAll(void);
+```
+
+`pdTRUE` -- Kernel *suspended* $\rightarrow$ *active\
+*`pdFALSE` -- Kernel *suspended*, da `vTaskSuspendAll` mehrmals aufgerufen wurde.
+
+#### taskENTER CRITICAL(), taskEXIT CRITICAL()
+
+``` cpp
+void taskENTER_CRITICAL (void);
+void taskEXIT_CRITICAL (void);
+
+void vPortEnterCritical (void) {
+  portDISABLE_INTERRUPTS ();
+  uxCriticalNesting ++;
+}
+
+void vPortExitCritical (void) {
+  uxCriticalNesting --;
+  if ( uxCriticalNesting == 0) {
+    portENABLE_INTERRUPTS ();
+  }
+}
+```
+
+::: callout-caution
+##### Keine FreeRTOS API in Critical Sections
+
+Innerhalb einer Critical Section sollten keine FreeRTOS API Aufrufe getätigt werden.
+:::
+
+#### taskDISABLE INTERRUPTS(), taskENABLE INTERRUPTS()
+
+``` cpp
+#define taskDISABLE_INTERRUPTS () \
+  portDISABLE_INTERRUPTS ()
+#define portDISABLE_INTERRUPTS () \
+  portSET_INTERRUPT_MASK ()
+#define portSET_INTERRUPT_MASK () \
+  __asm volatile("cpsid i") /* M0+ */
+#define portCLEAR_INTERRUPT_MASK () \
+  __asm volatile("cpsie i") /* M0+ */
+```
+
+::: callout-caution
+##### Interrupts Cortex M0+ & M4
+
+Cortex M4 besitzt ein `BASEPRI`-Register, welches Interrupts ab dem gegeben Wert deaktiviert.
+
+Cortex M0+ hat dies nicht und **deaktiviert daher alle Interrupts**.
+:::
+
+#### taskYIELD()
+
+``` cpp
+#define taskYIELD() portYIELD()
+```
+
+Um einen Kontext Switch in einem Task auszulösen, kann `taskYIELD()`verwendet werden. Dies ist auch im *kooperativen* Modus möglich.
+
+::: callout-tip
+##### Priorität
+
+Wenn ge*yielded* wird,
+
+1.  wird entweder ein Task im *Ready* Zustand mit der höchsten Priortät
+2.  oder wenn der Task selbst der höchste ist, gleich wieder zu ihm zurück.
+:::
+
+### Kontext Wechsel
+
+Ein Kontextwechsel kann nur stattfinden, wenn der Scheduler oder das Betriebssystem läuft:
+
+1.  via Tick-Interrupt $\rightarrow$ Time Slicing oder Preemption ; synchrones Scheduling
+2.  via Anwendung (*SysCall*) $\rightarrow$ indirektes/asynchrones Scheduling, z.B. durch Senden einer Meldung ein dringlicher Task aktiviert
+3.  via Anwendung direkt $\rightarrow$ Yield
+
+## Interrupts
+
+### Priorität FreeRTOS -- Cortex-M
+
+![](images/freertos\priority_scaling_cortex_freertos.png){fig-align="center" width="5cm"}
+
+### ARM Cortex-M Interrupts
+
+![](images/paste-14.png)
+
+::: callout-note
+### 1
+:::
+
+### BASEPRI (Cortex M4)
+
+![](images/basepri_mask.png){fig-align="center" width="5cm"}
+
+## Task (*Threads*)
+
+``` cpp
+static void MyTask(void *params) {
+  (void)params; // <1>
+    for (;;) {
+    /* do the work here ... */
+    } /* for */
+  /* never return */
+}
+```
+
+1.  *Ignore value of params* -- Unterdrückt Compiler-Warnung
+
+::: callout-important
+### Task-States
+
+![](images/freertos\task_states.png){fig-align="center" width="7.5cm"}
+:::
+
+### API
+
+#### xTaskCreate
+
+``` cpp
+BaseType_t res;
+TaskHandle_t taskHndl;
+
+res = xTaskCreate (BlinkyTask , /*function*/
+  "Blinky", /* Kernel awareness name */
+  500/ sizeof( StackType_t ), /* stack */
+  (void *)NULL , /* task parameter */
+  tskIDLE_PRIORITY +1, /* priority */
+  &taskHndl /* handle */
+);
+if (res != pdPASS) {
+  /* error handling here */
+}
+```
+
+#### vTaskDelay()
+
+![](images/paste-12.png){fig-align="center" width="7cm" height="1.3cm"}
+
+``` cpp
+static void BlinkyTask(void * param ) {
+  for (;;) {
+    LED_Neg ();
+    vTaskDelay( pdMS_TO_TICKS (5));
+  }
+}
+```
+
+#### vTaskDelayUntil()
+
+![](images/paste-13.png){fig-align="center" width="7cm" height="1.3cm"}
+
+``` cpp
+static void BlinkyTask(void * pvParameters ) {
+  TickType_t xLastWakeTime = xTaskGetTickCount ();
+  for (;;) {
+    LED_Neg ();
+    vTaskDelayUntil (&xLastWakeTime , pdMS_TO_TICKS (5));
+  }
+}
+```
+
+#### vTaskSuspend()
+
+``` cpp
+void vTaskSuspend ( TaskHandle_t xTaskToSuspend );
+vTaskSuspend(NULL); \\ <1>
+vTaskSuspend(blinkyTaskHandle); \\ <2>
+```
+
+1.  suspendiert den Task selber
+2.  suspendiert einen anderen Task
+
+#### vTaskResume()
+
+``` cpp
+void vTaskResume(TaskHandle_t xTaskToResume);
+```
+
+Aktiviert den suspendierten Task.
+
+### Preemptive Priority Scheduling
+
+![](images/paste-10.png){fig-align="center"}
+
+``` cpp
+#define configUSE_PREEMPTION (1) // <1>
+#define configUSE_PREEMPTION (0) // <2>
+```
+
+1.  *Preemptive*: Der Scheduler kann Rechenzeit von einem laufenden Task wegnehmen.
+2.  *Cooperative*: Der Task behält die CPU oder Rechenzeit, bis er selber die Kontrolle an den Scheduler abgibt.
+
+### Time Slicing
+
+![](images/paste-11.png){fig-align="center" width="6cm" height="1.4cm"}
+
+``` cpp
+#define  configUSE_TIME_SLICING (1) //default
+```
+
+Sind mehrere Task mit der gleichen Priorität im *Ready* Zustand, so wird die Rechenzeit für jeden Task aufgeteilt und die Tasks im *round-robin* Stil abgearbeitet.
+
+### Suicide Task
+
+``` cpp
+static void SuicideTask (void *params) {
+  (void)params; 
+  /* ... do the work here ... */
+  vTaskDelete(NULL); /* killing myself */
+  /* won ’t get here as I’m dead ;-) */
+}
+```
 
 ### IDLE-Task
 
-## Timer
+Wird der Scheduler mit `vTaskStartScheduler()` gestartet, wird zusätzlich der `IDLE`-Task aktiviert mit der Priorität `tskIDLE_PRIORITY` (tiefste [Task]{.underline} Priorität) und einem Stackspeicher von `configMINIMAL_STACK_SIZE`.
 
-### afd
+Dieser dient als Ausläufer, falls keine anderen Tasks *Ready* sind.
+
+::: callout-important
+#### Idle Hook
+
+Der IDLE Task führt den *Idle Hook* auf, welche von der Anwendung definierte Aufgaben übernehmen kann $\rightarrow$ z.B. *Low Power Modus*
+:::
+
+::: callout-note
+#### Idle Yielding
+
+``` cpp
+#define configIDLE_SHOULD_YIELD
+```
+
+Bestimmt bei einem preemptiven Scheduler, ob IDLE Task gleich Kontrolle die Kontrolle übergibt.
+:::
+
+## Timer
 
 ![](images/timer%5Ctimer_overview.png)
 
@@ -45,5 +370,13 @@ Mit `configUSE_TIMERS` wird die Timer-Funktionen aktiviert und aktiviert automat
 ## Queue
 
 ## Semaphore & Mutex
+
+::: callout-important
+### Unterschied Semaphore & Mutex
+
+Beide sind sehr ähnlich, ausser folgendes: Mutex hat Priority Inheritance,
+:::
+
+### Counting Semaphore
 
 ## Prioritäten

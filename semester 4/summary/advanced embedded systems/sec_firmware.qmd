@@ -1,0 +1,271 @@
+# Firmware
+
+::: callout-note
+## Firmware versus Software
+
+Firmware...
+
+-   wird direkt auf das Gerät einprogrammiert
+-   wenig veränderbar / ist firm (höhö)
+-   hat höhere Qualitätsanforderung $\rightarrow$ Aufwand ist hoch für Änderungen
+:::
+
+## Architektur
+
+![](images/paste-3.png){fig-align="center" width="8cm"}
+
+Das Schichtenmodell stellt die Beziehung der Hard- & Firmware anhand Schichten und Modulen dar $\rightarrow$ Modulare Ansicht
+
+Die **Interaktion zwischen HW & FW** verläuft über die **Device Drivers** (Gerätetreiber), welche die Ansteuerungen von Peripherien repräsentiert. Ein Treiber-Modul deckt meistens eine Art von Peripherie ab.
+
+**Bibliotheken** erlauben die Wiederverwendbarkeit von Software
+
+**Middleware** sind anwendungsneutrale Progammteile oder Programme (z.B. Datenbanken, Betriebssysteme oder Kommunikations-Stacks etwa für USB oder TCP/IP).
+
+::: callout-important
+### Hardware-Abstraktion
+
+Durch Verwendung von Gerätetreiber um auf die Hardware zuzugreifen, erhält man eine *Hardware-Abstraktion*. Diese macht die [Software unabhängiger von]{.underline} der [Hardware]{.underline}.
+:::
+
+### Laufzeitmodelle
+
+Beschreibt wie eine Firmware ausgeführt wird.
+
+[**Super Loop**]{.underline}
+
+![](images/paste-4.png){fig-align="center" width="8cm"}
+
+``` cpp
+void main(void) {
+  InitHardware();
+  InitDriver();
+  for(;;) {
+    DoJob1();
+    DoJob2();
+    /*...*/
+    DoJobN():
+  }
+}
+```
+
+\textcolor{OliveGreen}{\textbf{$+$}} Sehr einfach und gut wartbar\
+\textcolor{BrickRed}{\textbf{$-$}} Jobs können länger dauern und somit andere Jobs **verzögern** $\rightarrow$ Latenz
+
+Alternative wäre eine Finite State Machine (FSM):
+
+``` cpp
+for(;;) {
+  DoJob1_part1();
+  DoJob2();
+  DoJob1_part2();
+  DoJob3();
+  DoJob1_part3();
+  /*...*/
+  DoJobN():
+}
+```
+
+\textcolor{OliveGreen}{\textbf{$+$}} Latenz zwischen Jobs kann reduziert werden
+
+[**Loop mit Events**]{.underline}
+
+![](images/paste-5.png){fig-align="center" width="8cm"}
+
+Endlosschleife wird mit einem *ereignisgesteuerten* Loop realisiert. Jobs werden via Hardware-Ereignisse veranlasst und direkt in Interrupts gemacht, oder über Queues oder einen anderen Benachrichtigungsmechanismus dem *Dispatcher* übergeben.
+
+Mit FSM kann die Latenzen von Events & Interrupts klein gehalten werden.
+
+``` cpp
+void ButtonInterrupt (void) { // <1>
+  QueueEvent( Button_Pressed ); // <2>
+}
+
+void main(void) {
+  InitHardware ();
+  InitDriversAndInterrupts ();
+  for (;;) {
+    GoToSleep (); /* wait for event */
+    ProcessQueues (); // <3>
+  }
+}
+```
+
+1.  Interrupt wird kurz gehalten
+2.  Event wird in die Queue gegeben
+3.  Queue wird verarbeitet
+
+\textcolor{OliveGreen}{\textbf{$+$}} `Main`-Loop kann in einen stromsparenden Modus gehen und später durch Interrupts/Events aufgeweckt werden $\rightarrow$ Spart Energie und Rechenleistung\
+\textcolor{BrickRed}{\textbf{$-$}} Interrupts müssen klein gehalten werden\
+\textcolor{BurntOrange}{\textbf{!}} Eine Mischform mit beiden Systemen ist möglich
+
+[**Betriebssystem / RTOS**]{.underline}
+
+![](images/paste-6.png){fig-align="center" width="8cm"}
+
+Mit einem *Betriebssystem* werden Tasks *entkoppelt* und laufen in eigenen *Threads*, welche *quasi-gleichzeitig* ausgeführt werden. Dies erlaubt eine einfacher Erweiterung von neuen Funktionen.
+
+``` cpp
+void mainTask(void) {
+  CreateTask(sensorTask);
+  CreateTask(otherTask);
+  /* ... */
+  for (;;) {
+    /* do work */
+  }
+}
+
+void main(void) {
+  InitHardware ();
+  InitDriversAndInterrupts ();
+  CreateTask(mainTask);
+  StartOS (); // <1>
+}
+```
+
+1.  blockierende Funktion (daher kein `while`-Loop)
+
+\textcolor{OliveGreen}{\textbf{$+$}} Skalierbarkeit\
+\textcolor{BrickRed}{\textbf{$-$}} Benötigt viel Ressourcen/Speicher\
+\textcolor{BrickRed}{\textbf{$-$}} Aufwand\
+\textcolor{BrickRed}{\textbf{$-$}} Deadlocks
+
+## Module (Baublöcke)
+
+Ziel der Modularisierung ist die Wiederverwendbarkeit bestehender Funktionen/Gerätetreiber, damit schneller neue Anwendungen und Produkte entwickelt werden können.
+
+::: callout-caution
+Eine *Wiederverwendung* ist nur möglich mit einer guten *Modularisierung*.
+:::
+
+### Anforderung
+
+1.  [Interface]{.underline}\
+    Schnittstelle sollte einfach anzuwenden, erweiterbar und verständlich sein.
+
+    Abstraktion mit HW & SW
+
+2.  [Synchronisation]{.underline}\
+    *Synchron*: Polling oder Gadfly
+
+    *Asynchron*: Hardware Interrupts oder mit Events oder Callbacks
+
+3.  [Organisation]{.underline}\
+    Die Quelltexte sollten einfach organisiert sein $\rightarrow$ Aufteilung in einzelne Dateien
+
+4.  [Konfiguration]{.underline}\
+    Konfigurierbarkeit erlaubt es Hardware Schnittstellen oder Bibliotheken einzustellen oder anzupassen
+
+### Schnittstelle (`.h`/`.hpp`)
+
+1.  [Abstraktion]{.underline}\
+    Schnittstelle beschreibt **was** gemacht wird $\rightarrow$ Implementation wird nicht preisgegeben, aber dafür **Funktionalität**
+2.  [Kapselung]{.underline}\
+    Daten können **indirekt** geändert oder abgefragt werden $\rightarrow$ *Setter* & *Getter*
+
+::: callout-caution
+### Data Hiding
+
+Nicht alle Informationen sollten sichtbar sein $\rightarrow$ nur Nötigtes preisgeben!
+:::
+
+3.  [In sich geschlossen]{.underline}\
+    Self-contained $\rightarrow$ Schnittstelle beinhaltet alles, was nötig ist.
+
+::: callout-important
+### Refactoring
+
+Neu umgeschrieben oder geändert, ohne die eigentliche Funktionalität zu ändern $\rightarrow$ Verbesserung von Lesbarkeit und Wartbarkeit.
+:::
+
+### Device Konfigurieren & Erstellen
+
+`\footnotesize{\em{Device Hangle}, \em{Device Konfiguration}, \em{Device Erstellen}, \em{void pointer}}\normalsize`{=latex}
+
+Analog zu C++ mit Klassen & Objekten gibt es in C **Device Handles**. Diese Handles werden zur **Identifikation/Unterscheidung** von Schnittstellen gleicher Art verwendet (z.B. `uart0`, `uart1`, ...).
+
+Meistens sind Device Handle sind generische `void`-Zeiger, welche auf eine Speicherstelle mit den Informationen zeigt.
+
+``` cpp
+typedef void *LED_Device_t;
+void LED_On(LED_Device_t led);
+```
+
+Mit Konfiguration-`struct` können bei der Initialisierung zusätzliche Einstellungen gemacht werden.
+
+``` cpp
+typedef struct {...} LED_Config_t;
+void LED_GetConfig(LED_Config_t *config); // <1>
+LED_Device_t LED_Init(LED_Config_t *config); // <2>
+LED_Device_t LED_DeInit(LED_Device_t led); // <3>
+```
+
+1.  Initialisierung Konfiguration $\rightarrow$ Defaultwerte zuweisen
+2.  Erstellung *Device Handle* $\rightarrow$ Speicher allozieren & konfigurieren
+3.  Deinitalisierung des Device $\rightarrow$ Speicher freigeben & `handle = NULL`
+
+\textcolor{OliveGreen}{\textbf{$+$}} Funktionen & Konfiguration können einfach hinzugefügt werden\
+\textcolor{BrickRed}{\textbf{$-$}} Speicherhandling :(
+
+## Bibliotheken
+
+| Include       | Inhalt                                   |
+|---------------|------------------------------------------|
+| `<asset.h>`   | `assert`-Makro                           |
+| `<math.h>`    | Mathe: `sin()`, `cos()`, ...             |
+| `<setjmp.h>`  | Sprung: `setjmp()`, `longjmp()`          |
+| `<stdarg.h>`  | Variable Argumente: `va_start()`, ...    |
+| `<stdlib.h>`  | Diverses: `malloc()`, `free()`, ...      |
+| `<stdio.h>`   | Ein-/Ausgabe: `printf()`, `scanf()`, ... |
+| `<string.h>`  | String-Operationen: `strcpy()`, ...      |
+| `<stdbool.h>` | Typ `bool`                               |
+| `<stdint.h>`  | Integer Typen: `int32_t`, ...            |
+
+::: callout-warning
+### Klein aber Klein
+
+Embedded Systems sind oft funktionsumfänglich limitiert, daher sind oft Lokalisierung `<locale.h>` oder Zeitverwaltung `<time.h>` nicht unterstützt.
+:::
+
+### Archiv & Quelltexte
+
+![](images/library_archive_source.png){fig-align="center" width="7cm"}
+
+#### Quelltexte
+
+\textcolor{OliveGreen}{\textbf{$+$}}: **Bibliotheken** in **Quelltextformat**, wie z.B. *Open Source* Biblios, dass diese **konfiguriert** werden können **;** Direkte Integration **;** höchste Transparenz\
+\textcolor{BrickRed}{\textbf{$-$}}: benötigt Zeit um vollständig kompiliert **;** grosse Einarbeitungszeit
+
+#### Archiv
+
+\textcolor{OliveGreen}{\textbf{$+$}}: Keine Kompilierung nötig **;** weniger falsches machbar\
+\textcolor{BrickRed}{\textbf{$-$}}: Bibliothek muss zum System & Compiler passen **;** keine Transparenz **;** keine Konfigurierbarkeit **;** Einfluss auf Debugging (keine Debug Informationen)
+
+### Startup Code
+
+![](images/paste-8.png)
+
+Der Startup Code ruft normalerweise `main()` *nicht* direkt auf, sondern über eine spezielle Initialisierungsfunktion wie `_start()` (wobei die Funktion Hersteller-abhängig) oder `__libc_init_array()` für C++.
+
+### Runtime Library
+
+*Runtime* Routinen sind vorgefertigte Programm-Snippets, um Operationen durch Software zu ermöglichen, welche in der Hardware nicht unterstützt werden. Beispiel sind Float-Operationen auf einem Controller ohne FPU.
+
+$\rightarrow$ [C-Laufzeitroutinen](https://learn.microsoft.com/de-de/cpp/c-runtime-library/run-time-routines-by-category?view=msvc-170)
+
+### Standard-Bibliotheken
+
+-   **GNU Lib** `glibc`: Vollständige Bibliothek und GNU GPL Lizenz, deshalb für Embedded nicht verwendet
+-   **Newlib** `newlib`: Embedded-optimierte Standard Bibliothek
+-   **Newlib-nano** `newlib-nano`: auf Grösse optimiert gegenüber `newlib`. Oft langsamer, dafür sehr kleiner Speicherverbrauch
+-   **Proprietäre** Bibliotheken wie `RedLib`
+
+::: callout-note
+## Semihosting
+
+*Semihosting* dient zur Verwendung von IO- und File-Funktionalität wie `printf()` oder `fopen()` mit einem Mikrocontroller, wobei alle diese Operationen auf dem Host ausgeführt werden.
+
+-   **none**: keine Callbacks implementiert $\rightarrow$ Anwendungspezifisch
+-   **nohost**: Callbacks sind leer implementiert
+-   **semihost**: Callbacks nutzen Semihosting
+:::

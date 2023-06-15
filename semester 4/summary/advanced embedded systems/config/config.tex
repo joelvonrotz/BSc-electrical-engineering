@@ -1,9 +1,44 @@
 \usepackage{amssymb, amsmath}
+
+\makeatletter
+\renewcommand*\env@matrix[1][\arraystretch]{%
+  \edef\arraystretch{#1}%
+  \hskip -\arraycolsep
+  \let\@ifnextchar\new@ifnextchar
+  \array{*\c@MaxMatrixCols c}}
+\makeatother
+
+
 \numberwithin{equation}{section}
 
 \usepackage[utf8]{inputenc}
 \usepackage{lastpage} % counts all the pages, used in footer
 \usepackage{hyperref}
+
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta}
+
+% TIKS TEMPLATES
+\tikzset{
+dot/.style = {circle, fill, minimum size=#1,
+              inner sep=0pt, outer sep=0pt},
+dot/.default = 4pt % size of the circle diameter 
+}
+\tikzset{
+sum/.style = {circle, draw=black, inner sep=-0.5pt}
+}
+
+\tikzset{
+box/.style = {rectangle, draw=black, minimum width = #1},
+box/.default = 1cm, % size of the circle diameter 
+}
+
+
+
+
+\usepackage{gensymb}
+
+\usepackage{xfrac}
 
 % Flexible Multicolumn Option
 \usepackage{multicol}
@@ -16,18 +51,16 @@
 % Icons - http://mirrors.ctan.org/fonts/fontawesome5/doc/fontawesome5.pdf
 \usepackage{fontawesome5}
 
-
-\usepackage{tabularx}
-\renewcommand\tabularxcolumn[1]{m{#1}} % vertically center content
-
-
+% removes spacing in display math
 \usepackage[nodisplayskipstretch]{setspace}
 
+\usepackage{tabularx}
+
 % Font Configuration
-\usepackage{microtype}
+\usepackage{lmodern}
 \renewcommand{\familydefault}{\sfdefault}
 \usepackage{cmbright}
-\usepackage[scaled=0.85]{beramono}
+\usepackage[scaled=0.9]{inconsolata}
 
 % 
 \usepackage{fancyhdr}
@@ -38,12 +71,12 @@
 \pagestyle{fancy}
 \fancyhead{} % clear all header fields
 \makeatletter
-\fancyhead[R]{\@title}
+\fancyhead[R]{\@title -- Zusammenfassung}
 \makeatother
 \fancyhead[L]{HSLU T\&A}
 \fancyfoot{} % clear all footer fields
 \fancyfoot[C]{\thepage\ / \pageref{LastPage}}
-\fancyfoot[R]{AEMBS}
+\fancyfoot[R]{AMEBS}
 \fancyfoot[L]{\today}
 
 % introduces conditions environment to create nice equation parameter descriptions
@@ -52,16 +85,19 @@
 \newenvironment{conditions}
   {\par\vspace{\abovedisplayskip}\noindent\begin{tabular}{>{$}l<{$} @{${}:{}$} l}}
   {\end{tabular}\par\vspace{\belowdisplayskip}}
+  
 
 % Used for pandoc code block generations.
 % Introduces breaklines for overflowing code blocks, by defining the Highlighting environment with breakline & symbol.
 % Don't know what commandchars does :)
 \usepackage{fvextra}
 \DefineVerbatimEnvironment{Highlighting}{Verbatim}{
-  breaklines,
+  breaklines=true,
+  breakanywhere=true,
   breaksymbolleft={\textcolor{gray}{\scriptsize\ensuremath\hookrightarrow}},
   commandchars=\\\{\}
 }
+
 
 
 \let\paragraph\oldparagraph
@@ -72,3 +108,6 @@
 \renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}\par}
 
 \titleformat{\section}[block]{\bfseries\Large}{\thetitle.}{3mm}{#1\space\xrfill[0.6ex]{1pt}}
+
+
+\usepackage{pdfpages}

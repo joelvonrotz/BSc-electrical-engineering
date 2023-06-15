@@ -1,6 +1,6 @@
 # C - Konzepte
 
-## Synchronisation {#sec-synchronisation}
+## Synchronisation
 
 ### Realtime
 
@@ -24,14 +24,13 @@ void read(void) {
 }
 ```
 
-\textcolor{OliveGreen}{\textbf{+}} Benötigt keine unnötige Rechenzeit ;
+\textcolor{OliveGreen}{\textbf{+}} Benötigt keine unnötige Rechenzeit
 
 \textcolor{BrickRed}{\textbf{-}} Benötigt keine unnötige Rechenzeit
 
-### Interrupt {#sec}
+### Interrupt
 
 ![](images/freertos\interrupt_sync_realtime.png)
 
 **Signalisierung** $\rightarrow$ **Zustand sichern** $\rightarrow$ **Verzweigung** $\rightarrow$ **Rettung benutzter Register** $\rightarrow$ **ISR Programm** $\rightarrow$ **Exit ISR** $\rightarrow$ **Rückkehr zum unterbrochenen Programm**
 
-# C - Bibliotheken

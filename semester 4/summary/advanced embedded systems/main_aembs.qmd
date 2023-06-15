@@ -3,21 +3,23 @@ title: "Advanced Embedded Systems"
 author: "Joel von Rotz & Andreas Ming"
 date: "23.05.2023"
 
-lang: de
+language: _language-de.yml
 
 # [RENDER CONFIGURATION] ==============================
 format:
   pdf:
+    pdf-engine: pdflatex
     include-in-header:
-      - config.tex
+      - config/config.tex
+      - config/_two-column-longtable.tex
+      - text: "\\usepackage[nswissgerman]{babel}"
     template-partials:
-      - before-body.tex
+      - config/before-body.tex
     output-file: "s4_advanced_embedded_systems"
 
 source:
   github: "https://github.com/joelvonrotz/bachelor-electrical-engineering/tree/main/semester%204/summary/advanced%20embedded%20systems"
 
-pdf-engine: pdflatex
 # [DOCUMENT CONFIGURATION] ============================
 geometry: 
 - "top=25mm"
@@ -27,7 +29,6 @@ geometry:
 papersize: a4
 fontenc: T1
 fontsize: 10pt
-classoption: [german]
 
 code-block-border-left: false
 code-block-bg: "#f7f7f7"
@@ -37,12 +38,11 @@ toc-depth: 3
 number-sections: false
 pagenumbering: none
 highlight-style: github
-hyphenate: true
+fig-pos: "H"
+
 ---
 
 ```{=latex}
-\newpage
-
 % keep this to have smaller code blocks
 \ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[
   colback={shadecolor},
@@ -55,20 +55,15 @@ hyphenate: true
   enhanced,
   breakable
 ]}{\end{tcolorbox}}\fi
-```
-<!-- [Chapters] -->
-- [ ] FreeRTOS
-  - [ ] Task
-  - [ ] Scheduler
-  - [ ] Priority
-  - [ ] Interrupts
-  - [ ] Semaphore & Mutex
-  - [ ] Timer
-  - [ ] Queue
 
-`\begin{multicols}{2}`{=latex}
+\newpage
+
+\begin{multicols}{2}
+```
 
 {{< include sec_development.qmd >}}
+
+{{< include sec_firmware.qmd >}}
 
 {{< include sec_microcontroller.qmd >}}
 
@@ -76,7 +71,8 @@ hyphenate: true
 
 {{< include sec_c_concepts.qmd >}}
 
-`\center`{=latex}
-![](images/aembs_meme.png){width="8.5cm"}
+{{< include sec_user_experience.qmd >}}
+
+![](images/aembs_meme.png){width="8.5cm" fig-align="center"}
 
 `\end{multicols}`{=latex}
