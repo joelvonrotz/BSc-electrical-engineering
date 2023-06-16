@@ -689,7 +689,7 @@ Innerhalb eines Process sind alle Statements [sequential statements]{.underline}
 | **`wait`, `assert`, `report`         |               |
 +--------------------------------------+---------------+
 
-Folgend ist beides identisch!
+Folgende beschreibungen resultieren in der selben implementierungen auf dem FPGA.
 
 ``` vhdl
 stud <= happy     when mep >= C else
@@ -712,13 +712,13 @@ end process P1;
 
 ## Synthese
 
-1.  Synthese übersetzt VHDL-Modell in eine RTL-Becshreibung aus Registern und kombinatorischen Blöcken
+1.  Synthese übersetzt VHDL-Modell in eine RTL-Beschreibung aus Registern und kombinatorischen Blöcken
 2.  Erzeugung von Netlist $\rightarrow$ Verbindungen von Elementen (Primitives), welche in den Slices verfügbar sind.
 
 ## Implementation
 
 1.  **Initialize** $\rightarrow$ Einbindung Constraints & Netlist ins Design
-2.  **Optimzie** $\rightarrow$ Packt Primitives der synth. Netlist in Slices, Versuch Gatterkomb. zu vereinfachen (Reduktion HW)
+2.  **Optimize** $\rightarrow$ Packt Primitives der synth. Netlist in Slices, Versuch Gatterkomb. zu vereinfachen (Reduktion HW)
 3.  **Place** $\rightarrow$ Zuweisung der Slices auf CLBs (configurable logic blocks) auf dem FPGA, Zuordnung IO aus Constraints
 4.  **Route** $\rightarrow$ Definiert Verbindungen zwischen CLB & IO
 5.  **Static Timing Analysis** $\rightarrow$ Überprüfung des Designs mit den Timing Constraints.
@@ -770,7 +770,7 @@ end architecture Behav;
 ```
 
 $$
-C = 2^{AW}\cdot DC = 2^{10}\cdot \underbrace{x}_{[\text{kBit}]}
+C = 2^{AW}\cdot DW = 2^{10}\cdot \underbrace{x}_{[\text{kBit}]}
 $$
 
 ```{=latex}
@@ -802,9 +802,13 @@ Bei *Read-Before-Write* wird zuerst die Speicherstelle ausgelesen und erst dann 
 
 ![](images/ram_read_write_modes.png){width="6cm"}
 
-Folgendes RTL-Schema beschreibt ein WBR & RBW Speicher (WBR ohne Grün, RBW mit Grün).
+Folgende RTL-Schema beschreiben ein WBR & RBW Speicher mit 1cc oder 0cc Latenz.
 
-![](images/paste-17.png)
+![](images/RAM_WbR1.png)
+
+![](images/RAM_RbW1.png)
+
+![](images/RAM_RbW0.png)
 :::
 
 ``` vhdl

@@ -72,6 +72,9 @@ crossref:
 
 {{< include sec_vhdl.qmd >}}
 
+\vfill\null
+\columnbreak
+
 {{< include sec_finite_state_machines.qmd >}}
 
 {{< include sec_fixed_point_arithmetic.qmd >}}
