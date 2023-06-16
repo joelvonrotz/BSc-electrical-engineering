@@ -49,14 +49,14 @@ $$
 t_{MTBF} = \frac{e^{K_2\cdot \left(\frac{1}{f_{clk}}-t_{pd}-t_{su}\right)}}{K_1\cdot f_{clk}\cdot f_{d}}
 $$
 
-Grösstenteils ist die $t_MTBF$ abhängig von der Clockfrequenz!
+Grösstenteils ist die $t_{MTBF}$ abhängig von der Clockfrequenz!
 
 ```{=latex}
 \begin{conditions}
   K_1     & Prozess-Konstante $[s]$ \\
   K_2     & Prozess-Konstante $[Hz]$ \\
-  t_pd    & Propagation delay \\
-  t_su    & Setup-Zeit \\
+  t_{pd}  & Propagation delay \\
+  t_{su}  & Setup-Zeit \\
   f_d     & durchschnittliche Frequenz des asynchronen Datensignals \\
   f_{clk} & Clockfrequenz
 \end{conditions}
@@ -121,7 +121,7 @@ end process;
 
 ![](images/encoder_diagram.png){fig-align="center" width="7.3cm"}
 
-Die Reihenfolge des Auftretens der 4 Eingangskombination bestimmt die aktuelle Drehrichtung.
+Die Reihenfolge des Auftretens der 4 Eingangskombination bestimmt die aktuelle Drehrichtung. Eine sichere Decodierung ist z.B. mit einer Mealy-FSM mit 5 Zuständen möglich.
 
 # Finite State Machines (FSM)
 
@@ -168,7 +168,9 @@ s[k+1] &= f(i[k], s[k])
 \end{split}
 $$
 
-Beim *Mealy* werden die Ausgänge [beim Zustandswechsel]{.underline} geändert.
+Beim *Mealy* werden die Ausgänge [beim Zustandswechsel]{.underline} geändert. Es handelt sich also um einen *0-delay-enable-type*
+
+![Mealy](images/fsm_output_delay_mealy.png){fig-align="center" width="8cm" height="3.2cm"}
 
 ## FSM-Typ: Moore
 
@@ -181,17 +183,9 @@ s[k+1] &= f(i[k], s[k])
 \end{split}
 $$
 
-Beim *Moore* werden die Ausgänge [im Zustand]{.underline} geändert.
-
-::: callout-caution
-## Unterschied Mealy- & Moore-Outputs
-
-Eine Mealy-FSM ändert den Ausgang [beim]{.underline} Zustandswechsels, was einen [*0-Delay*]{.underline} einführt. Eine Moore-FSM verändert den Ausgang [im]{.underline} Zustand, was einen [*1-Delay*]{.underline} einführt.
-
-![Mealy](images/fsm_output_delay_mealy.png){fig-align="center" width="8cm" height="3.2cm"}
+Beim *Moore* werden die Ausgänge [im Zustand]{.underline} geändert. Es handelt sich also um einen *1-delay-state-type*
 
 ![Moore](images/fsm_output_delay_moore.png){fig-align="center" width="8cm" height="3.3cm"}
-:::
 
 ## FSM-Typ: Medvedev
 
@@ -215,12 +209,12 @@ $$
 Folgende Formel kann die Anzahl benötigten Flip-Flops berechnen
 
 $$
-N = \left\lceil \log_2(S) \right\rceil = \left\lceil \frac{\log(S)}{\log(2)} \right\rceil \qquad N\big\rvert_{S=3}=\left\lceil\log_2(5)\right\rceil = 3
+N = \left\lceil \log_2(S) \right\rceil = \left\lceil \frac{\ln(S)}{\ln(2)} \right\rceil \qquad N\big\rvert_{S=3}=\left\lceil\log_2(5)\right\rceil = 3
 $$
 
 ```{=latex}
 \begin{conditions}
-  N & Anzahl Flip-Flops \\
+  N & Anzahl Bits ($\widehat{=}$ Flip-Flops) \\
   S & Anzahl verwendete Zustände
 \end{conditions}
 ```
@@ -241,6 +235,13 @@ Zustände können auf verschiedene Arten dargestellt werden, bekannte Varianten 
 ## Parasitäre Zustände
 
 Alle **ungebrauchten** Zustände sind *parasitäre Zustände*!
+
+Parasitäre Zustände sind umbedingt abzufangen:
+
+``` vhdl
+when others => 
+  n_st <= s_hold;
+```
 :::
 
 ### Binär
