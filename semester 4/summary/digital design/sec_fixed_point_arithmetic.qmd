@@ -15,20 +15,20 @@ $$
 \end{conditions}
 ```
 ::: callout-important
-### Vorzeichenlose Zahlen (`unsigned`)
+### Vorzeichenlose Zahlen (`unsigned`) im Bereich
 
 $$
-0 \leq\sum^{W-1}_{k=0}b_k\cdot 2^{k-F} \leq \underbrace{2^{W-F} - 2^{-F}}_{2^{-F}\cdot(2^W-1)}
+0 \leq\sum^{W-1}_{k=0}b_k\cdot 2^{k-F} \leq 2^{W-F} - 2^{-F}
 $$
 :::
 
 ::: callout-important
-### Zahlen mit Vorzeichen (`signed`)
+### Zahlen mit Vorzeichen (`signed`) im Bereich
 
 $$
 \begin{array}{l}
 -2^{W-F-1}\leq
-\\-b_{W-1}\cdot2^{W-F-1}+ \sum^{W-2}_{k=0}b_k\cdot 2^{k-F}\leq \\\underbrace{2^{W-F-1}-2^{-F}}_{2^{-F}\cdot(2^{W-1} - 1)}
+\\-b_{W-1}\cdot2^{W-F-1}+ \sum^{W-2}_{k=0}b_k\cdot 2^{k-F}\leq \\ 2^{W-F-1}-2^{-F}
 \end{array}
 $$
 :::
@@ -112,7 +112,7 @@ $$
 
 ![](images/paste-15.png)
 
-[Kein Zero-Padding]{.underline} oder [Sign-Extension]{.underline} nötig.
+[Kein Zero-Padding]{.underline} oder [Sign-Extension]{.underline} nötig. Das Produkt hat stets genauso viele *gedachte* Vor-/Nachkomma-Stelle wie die Summe der Vor-/Nachkomma-Stellen beider Operanden.
 
 $$
 \texttt{P'length} = \texttt{A'length} + \texttt{B'length}
@@ -151,10 +151,10 @@ $$
   s & Vorzeichebit (\textit{Sign}) \\
   m & vorzeichenloser Wert der Mantisse $M$ \\
   e & vorzeichenloser Wert des Exponenten $E$ \\
-  b & Wert des Exponenten-Bias \\
+  b & Wert des Exponenten-Bias $b = 2^{E-1}-1$\\
 \end{conditions}
 ```
-[Beispiel (open)]{.underline}
+[Beispiel *von oben*:]{.underline}
 
 $$
 \underline{b} = 2^{E-1}-1 = 2^{8-1}-1=\underline{127}
@@ -188,4 +188,18 @@ Das Festkomma-Format (FK) kann mit einer gegebenen Anzahl $W$ Bits
     `XXXX.`
 
 -   aber [nicht beides gleichzeitig]{.underline}! $\Rightarrow$ Daher Gleitkomma
+:::
+
+::: callout-note
+## Auflösung und Fehler
+
+**Fix-Point**:
+
+- Auflösung über Wertebereich *gleich*
+- Fehler verändert sich
+
+**Floar-Point**:
+
+- Fehler über Wertebereich *gleich*
+- Auflösung verändert sich
 :::
