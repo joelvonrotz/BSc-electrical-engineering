@@ -3,7 +3,7 @@
 Mit dem PWM-Verfahren (+TP-Filter) kann aus einem Digitalwert ein Analogsignal erzeugt werden. Ein Referenzcounter dimensioniert auf $N$-Bits zählt hoch und ab einem Schwellwert wird das PWM-Signal von High auf Low gezogen:
 
 1.  Ref-Counter $n_{cnt} < d_{in}\rightarrow$ `pwm_out` [high]{.underline}
-2.  Ref-Counter $n_{cnt} \cancel{<} d_{in}\rightarrow$ `pwm_out` [low]{.underline}
+2.  Ref-Counter $n_{cnt} \geq d_{in}\rightarrow$ `pwm_out` [low]{.underline}
 
 ![](images/paste-16.png)
 
@@ -32,6 +32,7 @@ $$
 In Packages sammelt man Deklarationen, die an mehreren Orten verwendet werden. Selbstdefinierte Typen, welche in Ports verwendet werden, **müssen** in Packages definiert werden. Packages mit Subprogramms **erfordern** immer eine Implementation.
 
 ``` vhdl
+-- Package Declaration 
 package my_pkg is -- <1>
   type mix_rec is record
     element1: std_logic;
@@ -41,6 +42,7 @@ package my_pkg is -- <1>
   function f1(a,b:mix_rec) return std_logic;
 end my_pkg;
 
+-- Package Implementation
 package body my_pkg is -- <2>
   function f1(a,b:mix_rec) return std_logic is -- <3>
   begin
@@ -80,7 +82,7 @@ end E2;
 1.  nicht `work`-Libraries müssen mit `library` geladen werden!
 2.  laden von spezifischen Deklarationen
 3.  alle Deklarationen eines Packages laden
-4.  Zugriff ohne `use` (direkt)
+4.  Zugriff ohne `use` (direkt, ohne <2>&<3>)
 5.  Zugriff mit `use` (angenehm)
 
 ## Liste von Packages

@@ -72,8 +72,10 @@ crossref:
 
 {{< include sec_vhdl.qmd >}}
 
+```{=latex}
 \vfill\null
 \columnbreak
+```
 
 {{< include sec_finite_state_machines.qmd >}}
 

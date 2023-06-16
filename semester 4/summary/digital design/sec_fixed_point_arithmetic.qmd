@@ -198,7 +198,7 @@ Das Festkomma-Format (FK) kann mit einer gegebenen Anzahl $W$ Bits
 - Auflösung über Wertebereich *gleich*
 - Fehler verändert sich
 
-**Floar-Point**:
+**Float-Point**:
 
 - Fehler über Wertebereich *gleich*
 - Auflösung verändert sich

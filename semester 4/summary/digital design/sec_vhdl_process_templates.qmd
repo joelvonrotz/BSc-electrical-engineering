@@ -8,6 +8,8 @@ Der Inhalt der Prozess-Templates wird in den `=>CUSTOM` gekennzeichneten Abschni
 
 ### Mit asynchronem Reset
 
+![](images/paste-20.png){width="2.4cm" height="2cm"}
+
 ``` vhdl
 process (rst, clk) -- !!!
 -- <1>
@@ -26,6 +28,8 @@ end process;
 
 ### Ohne Reset
 
+![](images/paste-19.png){width="2.8cm"}
+
 ``` vhdl
 process (clk) -- !!!
   -- <1>
@@ -43,10 +47,14 @@ end process;
 
 ### Mealy
 
+![](images/fsm_mealy.png)
+
 ``` vhdl
+-- FSM initialization
 type state is (S0, S1, S2);
 signal c_st, n_st : state;
 
+-- memorizing process
 p_seq: process (rst, clk) -- <1>
 begin
   if rst = ’1’ then
@@ -56,6 +64,7 @@ begin
   end if;
 end process;
 
+-- memoryless process
 p_com: process (i, c_st) -- <2>
 begin
   -- default assignments
@@ -93,10 +102,14 @@ end process;
 
 ### Moore
 
+![](images/fsm_moore.png)
+
 ``` vhdl
+-- FSM initialization
 type state is (S0, S1, S2);
 signal c_st, n_st : state;
 
+-- memorizing process
 p_seq: process (rst, clk)                       -- <1>
 begin
   if rst = ’1’ then
@@ -106,6 +119,7 @@ begin
   end if;
 end process;
 
+-- memoryless process
 p_com: process (i, c_st)                        -- <2>
 begin
   -- default assignments
@@ -147,6 +161,10 @@ end process;
 ![](images/paste-8.png){fig-align="center" width="5cm"}
 
 ``` vhdl
+-- initialize sync signal
+signal sync: std_logic_vector(1 downto 0);
+
+-- synchronisation
 process (rst, clk)
 begin
   if rst = ’1’ then
@@ -163,8 +181,13 @@ end process;
 ![](images/paste-9.png){fig-align="center" width="8cm"}
 
 ``` vhdl
+-- initialize sync signal
+signal sync: std_logic_vector(2 downto 0);
+
+-- edge detection
 enb <= sync(1) and not sync(2);
 
+-- synchronisation
 process (rst, clk)
 begin
   if rst = ’1’ then
@@ -180,6 +203,8 @@ end process;
 ## Entprellen
 
 ### durch Blanking & Unterabtastung
+
+![](images/paste-11.png)
 
 ``` vhdl
 deb_sig : process(clk)
@@ -198,6 +223,8 @@ end process;
 ```
 
 ### durch Unterabtastung
+
+![](images/paste-12.png)
 
 ``` vhdl
 deb_sig : process(clk)
