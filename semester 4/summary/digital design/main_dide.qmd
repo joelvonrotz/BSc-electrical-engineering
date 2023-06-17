@@ -19,7 +19,7 @@ source:
 
 # [INFORMATION] ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 title: "Digital Design"
-author: "Joel von Rotz"
+author: "Joel von Rotz & Andreas Ming"
 
 geometry: 
 - "top=25mm"
