@@ -16,7 +16,7 @@
 
 Eine IDE besteht aus vier Hauptteilen: IDE spezifische Funktionen, die Build Enivronment, die (GNU-)Toolchain und die SDK des entsprechenden Targets.
 
-![](images/01_intro_crossdevelopment.png)
+![](images/01_intro_crossdevelopment.png){width="7cm"}
 
 **Toolchain**: Kollektion von Tools wie Compiler, Linker, Debugger, etc. $\rightarrow$ einzelne Werkzeuge zum Zusammensetzen der Firmware
 
@@ -30,9 +30,13 @@ Eine IDE besteht aus vier Hauptteilen: IDE spezifische Funktionen, die Build Eni
 
 Plugin-basierter Editor $\rightarrow$ deckt mehrere Programmiersprachen und Environments ab.
 
-\textcolor{OliveGreen}{\textbf{$+$}} Sehr modular (Plugin System), kann auf eigenen Workflow (ungefähr) angepasst werden ; als IDE vereinfacht die Entwicklung\
-\textcolor{BrickRed}{\textbf{$-$}} Eierlegende Wollmilchsau $\rightarrow$ kann zu viel als nötig ist (abhängig von Workflow und Funktionsumfang) ;
-
+```{=tex}
+\begin{itemize}
+  \item[\textcolor{OliveGreen}{\faPlus}] Sehr modular (Plugin System), kann auf eigenen Workflow (ungefähr) angepasst werden
+  \item[\textcolor{OliveGreen}{\faPlus}] als IDE vereinfacht die Entwicklung
+  \item[\textcolor{BrickRed}{\faMinus}] Benötigt unnötig Rechenzeit beim Warten
+\end{itemize}
+```
 ::: callout-note
 ## Geschichte
 
@@ -55,9 +59,108 @@ Pro IDE Version ein eigener Workspace $\rightarrow$ wegen Versionskonflikte
 
 ### Begriffe
 
-**Workspace** -- Arbeitsplatz, Kollektion von Projekten, Einstellungen und aktive Plugins
-
-**Views** -- Einzelne Module/Fenster (z.B. *Variables* oder *FreeRTOS Task View*)
-
+**Workspace** -- Arbeitsplatz, Kollektion von Projekten, Einstellungen und aktive Plugins\
+**Views** -- Einzelne Module/Fenster (z.B. *Variables* oder *FreeRTOS Task View*)\
 **Perspectives** -- vordefinierte Gruppe & Platzierung von Views (z.B. Debug, Develop,...)
 
+## File-Formate
+
+### Intel Hex Binary `.hex`
+
+Intel HEX besteht aus Zeilen mit ASCII-Text, welche von Newlines getrennt sind. Jede Textzeile enthält hexadezimale Zeichen, die mehrere Binärzahlen kodieren, welche Daten, Speicheradressen oder andere Werte darstellen können.
+
+### Archive Library `.a`
+
+Statische Bibliothek, welche während dem Linker-Prozess mit dem Programm kombiniert wird.
+
+### Disassembly `.dis`
+
+Die Disassembly beinhaltet Referenzen zum C-Programm in Bezug zu den Assembler-Befehlen.
+
+# Visualisierung
+
+``` cpp
+#define configUSE_TRACE_FACILITY
+```
+
+-   FreeRTOS Views in MCUXpresso
+-   Konsole-Ausgabe via `uxTaskGetSystemState`
+-   *Runtime Statistics* -- Konsole-Ausgabe bei Context Switch mit `configGENERATE_RUN_TIME_STATS`
+-   *Segger **R**eal **T**ime **T**ransfer* -- Datenausgabe während dem Betrieb
+-   FreeRTOS Trace Hooks
+-   Segger SystemView
+-   Percepio Tracealizer
+
+## MCUXpresso
+
+### Task List View
+
+Tasks werden bei xTaskCreate automatisch dem *Task List View* in MCUXpresso hinzugefügt, solange `configUSE_TRACE_FACILITY` gesetzt wurde.
+
+![](images/paste-15.png)
+
+### Queue List View
+
+Anzeige von **Queues**, **Semaphore** & **Mutex**
+
+``` cpp
+#define configQUEUE_REGISTRY_SIZE 10 // <1>
+```
+
+1.  Anzahl mögliche Registry-Enträge
+
+``` cpp
+static xQueueHandle SQUEUE_Queue ;
+Queue = xQueueCreate (SQUEUE_LENGTH , SQUEUE_ITEM_SIZE );
+if (Queue == NULL) {
+  for (;;) {} /* out of memory? */
+}
+vQueueAddToRegistry (Queue , "ShellQueue ");
+vQueueUnregisterQueue(Queue);
+```
+
+![](images/paste-16.png)
+
+## FreeRTOS Trace Hooks
+
+Damit FreeRTOS Daten senden kann, müssen die Hooks zuerst instrumentiert werden.
+
+``` cpp
+#define configUSE_TRACE_HOOKS // <1>
+```
+
+1.  defaults zu `configUSE_PERCEPIO_TRACE_HOOKS`
+
+## Segger System View
+
+``` cpp
+#define configUSE_SEGGER_SYSTEM_VIEWER_HOOKS (1)
+
+#if configUSE_SEGGER_SYSTEM_VIEWER_HOOKS // <1>
+  McuSystemView_Init();
+  SEGGER_SYSVIEW_Start();
+#endif
+
+#if configUSE_SEGGER_SYSTEM_VIEWER_HOOKS // <2>
+  SEGGER_SYSVIEW_PrintfTarget("button %d ; event %d\n", buttons, event);
+  SEGGER_SYSVIEW_WarnfTarget("button %d ; event %d\n", buttons, event);
+  SEGGER_SYSVIEW_ErrorfTarget("button %d ; event %d\n", buttons, event);
+#endif
+```
+
+1.  Initialisierung
+2.  Anwendung
+
+### Viewer Hooks
+
+``` cpp
+#if configUSE_SEGGER_SYSTEM_VIEWER_HOOKS
+  SEGGER_SYSVIEW_OnUserStart(unsigned MarkerId);
+  SEGGER_SYSVIEW_MarkStart(unsigned MarkerId);
+#endif
+
+#if configUSE_SEGGER_SYSTEM_VIEWER_HOOKS
+  SEGGER_SYSVIEW_OnUserStop(unsigned MarkerId);
+  SEGGER_SYSVIEW_MarkStop(unsigned MarkerId);
+#endif
+```

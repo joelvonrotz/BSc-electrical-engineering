@@ -49,9 +49,12 @@ void main(void) {
 }
 ```
 
-\textcolor{OliveGreen}{\textbf{$+$}} Sehr einfach und gut wartbar\
-\textcolor{BrickRed}{\textbf{$-$}} Jobs können länger dauern und somit andere Jobs **verzögern** $\rightarrow$ Latenz
-
+```{=latex}
+\begin{itemize}
+  \item[\textcolor{OliveGreen}{\faPlus}] Sehr einfach und gut wartbar
+  \item[\textcolor{BrickRed}{\faMinus}] Jobs können länger dauern und somit andere Jobs \textbf{verzögern} $\rightarrow$ Latenz
+\end{itemize}
+```
 Alternative wäre eine Finite State Machine (FSM):
 
 ``` cpp
@@ -66,8 +69,11 @@ for(;;) {
 }
 ```
 
-\textcolor{OliveGreen}{\textbf{$+$}} Latenz zwischen Jobs kann reduziert werden
-
+```{=tex}
+\begin{itemize}
+  \item[\textcolor{OliveGreen}{\faPlus}] Latenz zwischen Jobs kann reduziert werden
+\end{itemize}
+```
 [**Loop mit Events**]{.underline}
 
 ![](images/paste-5.png){fig-align="center" width="8cm"}
@@ -95,10 +101,13 @@ void main(void) {
 2.  Event wird in die Queue gegeben
 3.  Queue wird verarbeitet
 
-\textcolor{OliveGreen}{\textbf{$+$}} `Main`-Loop kann in einen stromsparenden Modus gehen und später durch Interrupts/Events aufgeweckt werden $\rightarrow$ Spart Energie und Rechenleistung\
-\textcolor{BrickRed}{\textbf{$-$}} Interrupts müssen klein gehalten werden\
-\textcolor{BurntOrange}{\textbf{!}} Eine Mischform mit beiden Systemen ist möglich
-
+```{=latex}
+\begin{itemize}
+  \item[\textcolor{OliveGreen}{\faPlus}] `Main`-Loop kann in einen stromsparenden Modus gehen und später durch Interrupts/Events aufgeweckt werden $\rightarrow$ Spart Energie und Rechenleistung
+  \item[\textcolor{BrickRed}{\faMinus}] Interrupts müssen klein gehalten werden
+  \item[\textcolor{BurntOrange}{\textbf{!}}] Eine Mischform mit beiden Systemen ist möglich
+\end{itemize}
+```
 [**Betriebssystem / RTOS**]{.underline}
 
 ![](images/paste-6.png){fig-align="center" width="8cm"}
@@ -125,11 +134,14 @@ void main(void) {
 
 1.  blockierende Funktion (daher kein `while`-Loop)
 
-\textcolor{OliveGreen}{\textbf{$+$}} Skalierbarkeit\
-\textcolor{BrickRed}{\textbf{$-$}} Benötigt viel Ressourcen/Speicher\
-\textcolor{BrickRed}{\textbf{$-$}} Aufwand\
-\textcolor{BrickRed}{\textbf{$-$}} Deadlocks
-
+```{=latex}
+\begin{itemize}
+  \item[\textcolor{OliveGreen}{\faPlus}] Skalierbarkeit
+  \item[\textcolor{BrickRed}{\faMinus}] Benötigt viel Ressourcen/Speicher
+  \item[\textcolor{BrickRed}{\faMinus}] Aufwand
+  \item[\textcolor{BrickRed}{\faMinus}] Deadlocks
+\end{itemize}
+```
 ## Module (Baublöcke)
 
 Ziel der Modularisierung ist die Wiederverwendbarkeit bestehender Funktionen/Gerätetreiber, damit schneller neue Anwendungen und Produkte entwickelt werden können.
@@ -180,7 +192,7 @@ Neu umgeschrieben oder geändert, ohne die eigentliche Funktionalität zu änder
 
 ### Device Konfigurieren & Erstellen
 
-`\footnotesize{\em{Device Hangle}, \em{Device Konfiguration}, \em{Device Erstellen}, \em{void pointer}}\normalsize`{=latex}
+`\footnotesize{\textit{Device Hangle}, \textit{Device Konfiguration}, \textit{Device Erstellen}, \textit{void pointer}}\normalsize`{=latex}
 
 Analog zu C++ mit Klassen & Objekten gibt es in C **Device Handles**. Diese Handles werden zur **Identifikation/Unterscheidung** von Schnittstellen gleicher Art verwendet (z.B. `uart0`, `uart1`, ...).
 
@@ -204,22 +216,23 @@ LED_Device_t LED_DeInit(LED_Device_t led); // <3>
 2.  Erstellung *Device Handle* $\rightarrow$ Speicher allozieren & konfigurieren
 3.  Deinitalisierung des Device $\rightarrow$ Speicher freigeben & `handle = NULL`
 
-\textcolor{OliveGreen}{\textbf{$+$}} Funktionen & Konfiguration können einfach hinzugefügt werden\
-\textcolor{BrickRed}{\textbf{$-$}} Speicherhandling :(
-
+```{=latex}
+\begin{itemize}
+\item[\textcolor{OliveGreen}{\faPlus}] Funktionen \& Konfiguration können einfach hinzugefügt werden
+\item[\textcolor{BrickRed}{\faMinus}] Speicherhandling :(
+\end{itemize}
+```
 ## Bibliotheken
 
-| Include       | Inhalt                                   |
-|---------------|------------------------------------------|
-| `<asset.h>`   | `assert`-Makro                           |
-| `<math.h>`    | Mathe: `sin()`, `cos()`, ...             |
-| `<setjmp.h>`  | Sprung: `setjmp()`, `longjmp()`          |
-| `<stdarg.h>`  | Variable Argumente: `va_start()`, ...    |
-| `<stdlib.h>`  | Diverses: `malloc()`, `free()`, ...      |
-| `<stdio.h>`   | Ein-/Ausgabe: `printf()`, `scanf()`, ... |
-| `<string.h>`  | String-Operationen: `strcpy()`, ...      |
-| `<stdbool.h>` | Typ `bool`                               |
-| `<stdint.h>`  | Integer Typen: `int32_t`, ...            |
+- `<asset.h>`  -- `\small`{=latex} `assert`-Makro                          `\normalsize`{=latex}
+- `<math.h>`   -- `\small`{=latex} Mathe: `sin()`, `cos()`, ...            `\normalsize`{=latex}
+- `<setjmp.h>` -- `\small`{=latex} Sprung: `setjmp()`, `longjmp()`         `\normalsize`{=latex}
+- `<stdarg.h>` -- `\small`{=latex} Variable Argumente: `va_start()`, ...   `\normalsize`{=latex}
+- `<stdlib.h>` -- `\small`{=latex} Diverses: `malloc()`, `free()`, ...     `\normalsize`{=latex}
+- `<stdio.h>`  -- `\small`{=latex} Ein-/Ausgabe: `printf()`, `scanf()`, ...`\normalsize`{=latex}
+- `<string.h>` -- `\small`{=latex} String-Operationen: `strcpy()`, ...     `\normalsize`{=latex}
+- `<stdbool.h>`-- `\small`{=latex} Typ `bool`                              `\normalsize`{=latex}
+- `<stdint.h>` -- `\small`{=latex} Integer Typen: `int32_t`, ...           `\normalsize`{=latex}
 
 ::: callout-warning
 ### Klein aber Klein
@@ -233,14 +246,26 @@ Embedded Systems sind oft funktionsumfänglich limitiert, daher sind oft Lokalis
 
 #### Quelltexte
 
-\textcolor{OliveGreen}{\textbf{$+$}}: **Bibliotheken** in **Quelltextformat**, wie z.B. *Open Source* Biblios, dass diese **konfiguriert** werden können **;** Direkte Integration **;** höchste Transparenz\
-\textcolor{BrickRed}{\textbf{$-$}}: benötigt Zeit um vollständig kompiliert **;** grosse Einarbeitungszeit
-
+```{=latex}
+\begin{itemize}
+\item[\textcolor{OliveGreen}{\faPlus}] \textbf{Bibliotheken} in  \textbf{Quelltextformat}, wie z.B. \textit{Open Source} Biblios, dass diese \textbf{konfiguriert} werden können
+\item[\textcolor{OliveGreen}{\faPlus}] Direkte Integration
+\item[\textcolor{OliveGreen}{\faPlus}] höchste Transparenz
+\item[\textcolor{BrickRed}{\faMinus}] benötigt Zeit um vollständig kompiliert
+\item[\textcolor{BrickRed}{\faMinus}] grosse Einarbeitungszeit
+\end{itemize}
+```
 #### Archiv
 
-\textcolor{OliveGreen}{\textbf{$+$}}: Keine Kompilierung nötig **;** weniger falsches machbar\
-\textcolor{BrickRed}{\textbf{$-$}}: Bibliothek muss zum System & Compiler passen **;** keine Transparenz **;** keine Konfigurierbarkeit **;** Einfluss auf Debugging (keine Debug Informationen)
-
+```{=latex}
+\begin{itemize}
+\item[\textcolor{OliveGreen}{\faPlus}] Keine Kompilierung nötig
+\item[\textcolor{OliveGreen}{\faPlus}] weniger falsches machbar
+\item[\textcolor{BrickRed}{\faMinus}] Bibliothek muss zum System \& Compiler passen
+\item[\textcolor{BrickRed}{\faMinus}] keine Transparenz \& keine Konfigurierbarkeit 
+\item[\textcolor{BrickRed}{\faMinus}] Einfluss auf Debugging (keine Debug Informationen)
+\end{itemize}
+```
 ### Startup Code
 
 ![](images/paste-8.png)

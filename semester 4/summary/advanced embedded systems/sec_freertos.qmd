@@ -4,6 +4,17 @@
 
 ## Echtzeit
 
+**das richtige Resultat** -- Die Verarbeitung der Eingabe und die folgende Ausgabe muss korrekt sein (keine Fehlalarme).\
+`\small`{=latex}*Ein Airbag sollte nur bei einem schweren Aufprall ausgelöst werden.*`\normalsize`{=latex}
+
+**Zur richtigen Zeit** -- Je nach System muss das Zeitfenster eingehalten werden.\
+`\small`{=latex}*Der Airbag hat ein enges Zeitfenster: nicht zu früh, wegen Massenbewegung, oder zu spät, um keine Verletzungen zu verursachen.*`\normalsize`{=latex}
+
+**Systemlast-Unabhängig** -- Egal was das System sonst tut, muss es das Richtige zur richtigen Zeit tun.\
+`\small`{=latex}*Wenn der Airbag-Computer mit* $n$ *Airbags zu tun hat, muss es trotzdem in den vorgegebenen Grenzen reagieren.*`\normalsize`{=latex}
+
+**Deterministische & vorhersehbare Weise** -- Das System muss unter gleichen Ausgangsbedingungen immer gleich reagieren und die Reaktionszeit muss berechenbar sein $\rightarrow$ zu Jedem Zeitpunk vorhersehbar & bekannt\
+
 ::: callout-important
 ## Was ist Echtzeit?
 
@@ -74,7 +85,7 @@ Damit das Betriebssystem korrekt läuft, werden zwei Interrupts benötigt:
 
 ### Block Diagramm
 
-![](images/paste-9.png)
+![](images/paste-9.png){width="7cm"}
 
 Implementiert...
 

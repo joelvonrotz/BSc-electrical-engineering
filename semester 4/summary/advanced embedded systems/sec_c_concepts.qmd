@@ -1,12 +1,91 @@
-# C - Konzepte
+# Konzepte
 
 ## Synchronisation
 
+Die Systeme müssen auf die reale Welt abgestimmt und synchronisiert werden. Die Zeit der realen Welt ist kontinuierlich, während die Computerzeit diskret ist. Um die Computer mit der realen Welt zu verbinden, müssen sie mit der Zeit der realen Welt synchronisiert werden.
+
+::: callout-caution
+### Timing
+
+Man darf Daten nicht schneller schicken, als diese von der Gegenseite angenommen werden können.
+:::
+
+### Kommunikation
+
+![](images/paste-17.png)
+
+```{=latex}
+\begin{itemize}
+\item[\circled{1}] Empfänger signalisiert Sender \textit{Ready}
+\item[\circled{2}] Sender darf nur senden, wenn Empfänger \textit{Ready}
+\item[\circled{3}] Empfänger muss wissen, wann Daten bereit
+\item[\circled{4}] Empfänger teilt Sender mit, dass Daten empfangen
+\item[\circled{5}] Sender bestätigt dies $\rightarrow$ neuer Zyklus
+\end{itemize}
+```
+::: callout-note
+### Handshaking
+
+Mit Handshaking können Kommunikationen *synchronisiert* werden.
+
+``` cpp
+void read(void) {
+  PORTB.DDR1 = 1; /* pin B1 -> output */
+  PORTB.B1 = 1; /* B1 initially high */
+    for(size_t i=0; i<sizeof(buffer); i++) {
+      /* initiate handshaking
+         with setting B1 low */
+
+      PORTB.B1 = 0; // <1>
+      while (! PORT.B0) {} // <2>
+      while(PORT.B0) {}
+      buffer[i] = PORTA;
+      PORTB.B1 = 1; // <3>
+  }
+}
+```
+
+1.  Handshake Start B1 $\rightarrow$ Low
+2.  Synchronisieren
+3.  Handshake Ende B2 $\rightarrow$ High
+:::
+
+::: callout-note
+## Handshake & Synchronisation
+
+**Handshaking** ist ein definiertes [Protokoll zwischen zwei Teilnehmern]{.underline} oder eine [Realisierung einer Synchronisation]{.underline}, während **Synchronisation** ein [Warten eines Prozesses oder Systems auf ein anderes]{.underline} ist, und [ein Konzept beschreibt]{.underline}.
+:::
+
 ### Realtime
 
+*Realtime* Sync wartet einfach eine fixe "echte" Zeit, ohne den Zustand des Gerätes zu prüfen.
+
+![](images/freertos\realtime_sync.png){fig-align="center" width="8cm"}
+
+``` cpp
+void read(void) {
+  for(size_t i=0; i<sizeof(buffer); i++) {
+    for(int j=0; j <10000; j++) {
+      /* wait some time */
+      __asm("nop");
+    }
+    buffer[i] = PORTA;
+  }
+}
+```
+
+```{=latex}
+\begin{itemize}
+  \item[\textcolor{OliveGreen}{\faPlus}] sehr simpel
+  \item[\textcolor{BrickRed}{\faMinus}] nicht Robust $\rightarrow$ Latenz von verschiedenen Prozessen (DMA, Speicherzugriff, Interrupts) hat starken Einfluss, Compiler-Optimierung kann die Bedinung ungültig machen
+  \item[\textcolor{BrickRed}{\faMinus}] Code macht während der Zeit gar nichts
+\end{itemize}
+```
 ### Gadfly / Polling
 
 *Gadfly* Sync überprüft [periodisch]{.underline} einen Zustand und fährt erst dann weiter, wenn die Bedingung erfüllt ist.
+
+![](images/freertos\gafly_sync.png){fig-align="center" width="8cm" height="1.8cm"}
 
 ``` cpp
 void read(void) {
@@ -14,8 +93,7 @@ void read(void) {
     while (!PORTB.B0) { /* reading 0: no hole */
       /* while there is no hole , wait for rising edge */
     }
-    buffer[i] = PORTA;
-    /* in the hole: read data */
+    buffer[i] = PORTA; /* in the hole: read data */
     while (PORTB.B0) {
       /* reading 1: we have a hole */
       /* get out of hole , wait for falling edge */
@@ -24,13 +102,65 @@ void read(void) {
 }
 ```
 
-\textcolor{OliveGreen}{\textbf{+}} Benötigt keine unnötige Rechenzeit
-
-\textcolor{BrickRed}{\textbf{-}} Benötigt keine unnötige Rechenzeit
-
+```{=latex}
+\begin{itemize}
+  \item[\textcolor{OliveGreen}{\faPlus}] reduzierte System Latenz
+  \item[\textcolor{OliveGreen}{\faPlus}] Daten gelesen, wenn verfügbar
+  \item[\textcolor{BrickRed}{\faMinus}] Benötigt unnötig Rechenzeit beim Warten
+\end{itemize}
+```
 ### Interrupt
 
-![](images/freertos\interrupt_sync_realtime.png)
+Prozess wird aufgeteilt in Interrupt-Routine und Hauptprogramm.
 
-**Signalisierung** $\rightarrow$ **Zustand sichern** $\rightarrow$ **Verzweigung** $\rightarrow$ **Rettung benutzter Register** $\rightarrow$ **ISR Programm** $\rightarrow$ **Exit ISR** $\rightarrow$ **Rückkehr zum unterbrochenen Programm**
+![](images/freertos\interrupt_sync_realtime.png){fig-align="center" width="8cm" height="1.4cm"}
 
+``` cpp
+volatile bool isrFlag = false;
+
+void GPIO_ISR(void) { // <1>
+  AcknowledgeInterrupt;
+  isrFlag = true;
+}
+
+void read(void) {
+  isrFlag = false;
+  ConfigureGPIO (rising_edge);
+  EnableInterrupt (gpio_isr);
+  for(size_t i=0; i<sizeof(buffer); i++) {
+    while (!isrFlag) {} // <2>
+    buffer[i] = PORTA;
+    isrFlag = false; // <3>
+  }
+}
+```
+
+1.  Steigender Flanken Interrupt für Sprocket
+2.  Synchronisation auf steigende Flanke
+3.  Vorbereitung für nächste Iteration
+
+```{=latex}
+\begin{itemize}
+  \item[\textcolor{OliveGreen}{\faPlus}] mehrere Prozess "gleichzeitig"
+  \item[\textcolor{BrickRed}{\faMinus}] "teurere" Implementation
+  \item[\textcolor{BurntOrange}{\textbf{!}}] ISR \textbf{muss} kurz gehalten sein
+  \item[\textcolor{BurntOrange}{\textbf{!}}] ISR-Prioritäten richtig setzen $\rightarrow$ Reduktion der \textit{Interrupt Latenz}
+\end{itemize}
+```
+![](images/freertos\interrupt_sync_table.png){fig-align="center" width="9cm"}
+
+**Signalisierung** -- Unterbrechung wird in der Hardware verarbeitet\
+Allfällige Instruktion im CPU wird unterbrochen, zurückgestellt oder abgeschlossen $\rightarrow$ Architektur & *Pipeline* abhängig
+
+**Zustand sichern** -- Programmzustand wird gesichert $\rightarrow$ PC, CPU Register, Prioritäten, etc. auf Stack (normalerweise)
+
+**Verzweigung** -- Hardware bestimmt wohin verzweigt werden soll $\rightarrow$ Passt PC, SP, R1...Rn, Prioritäten, etc. an
+
+**Rettung benutzter Register** -- Je nach Architektur: Teil der Register automatisch auf den Stack gelegt, anderer Teil muss manuell (falls ISR diese ändert). FPU wird oft separat verarbeitet
+
+**ISR Programm** -- Ausführung entsprechendes ISR-Programm\
+ISR bestätigen $\rightarrow$ nicht nochmals Programm ausgeführt wird beim Verlassen
+
+**Exit ISR** -- Rückgang-Operation um zum alten Zustand zurückzukehren.
+
+**Rückkehr zum unterbrochenen Programm** -- Sprung zum vorher unterbrochenen Programm

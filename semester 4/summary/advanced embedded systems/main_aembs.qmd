@@ -11,7 +11,6 @@ format:
     pdf-engine: pdflatex
     include-in-header:
       - config/config.tex
-      - config/_two-column-longtable.tex
       - text: "\\usepackage[nswissgerman]{babel}"
     template-partials:
       - config/before-body.tex
@@ -22,10 +21,10 @@ source:
 
 # [DOCUMENT CONFIGURATION] ============================
 geometry: 
-- "top=25mm"
-- "bottom=25mm"
-- "left=10mm"
-- "right=10mm"
+- "top=18mm"
+- "bottom=15mm"
+- "left=5mm"
+- "right=5mm"
 papersize: a4
 fontenc: T1
 fontsize: 10pt
@@ -38,11 +37,19 @@ toc-depth: 3
 number-sections: false
 pagenumbering: none
 highlight-style: github
-fig-pos: "H"
-
+fig-pos: H
+fig-align: center
 ---
 
+- [ ] Wer das ankreuzelt, ist der Kreuzelkönig und hat das Kreuzchen ankreuzen kreuzlig verdient!
+
+
+![](images/aembs_meme.png){width="7cm"}
+
+
 ```{=latex}
+\newpage
+
 % keep this to have smaller code blocks
 \ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[
   colback={shadecolor},
@@ -56,9 +63,7 @@ fig-pos: "H"
   breakable
 ]}{\end{tcolorbox}}\fi
 
-\newpage
-
-\begin{multicols}{2}
+\begin{multicols*}{2}
 ```
 
 {{< include sec_development.qmd >}}
@@ -73,6 +78,10 @@ fig-pos: "H"
 
 {{< include sec_user_experience.qmd >}}
 
-![](images/aembs_meme.png){width="8.5cm" fig-align="center"}
+```{=latex}
+\end{multicols*}
+```
 
-`\end{multicols}`{=latex}
+![](images/arm_overview.png)
+
+![](images/paste-22.png)

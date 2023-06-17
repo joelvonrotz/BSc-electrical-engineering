@@ -50,6 +50,111 @@ Ein kombiniertes System ist, wär hätte es gedacht, eine Kombination von den er
 
 [Beispiele:]{.underline} Smartphone $\rightarrow$ interaktives Teilsystem für Homescreen- & App-Interaktionen, transformierendes Teilsystem für Audio-Decodierung für Musikhören und weiteren kleineren Teilsystemen.
 
+# Architektur
+
+## Systemaufbau
+
+![](images/architecture\systemaufbau.png)
+
+```{=latex}
+\begin{itemize}
+  \item[\circled{4}] Production Scheduling (Planung \& Verwaltung einer Produktion)
+  \item[\circled{3}] Production Control (Kontrolle von mehreren Prod.-Anlagen)
+  \item[\circled{2}] Plant Supervisory (Kontrolle \& Überprüfung über stärkeren Rechner)
+  \item[\circled{1}] Direct Control (Mikrocontroller)
+  \item[\circled{0}] Field Level (Maschine, Pumpe, Roboter,$\ldots$)
+\end{itemize}
+```
 # Mikrocontroller
 
+## Rechnerarchitektur
+
+### von Neumann Architektur
+
+Gemeinsamer Speicher für Programm & Daten $\rightarrow$ einfacherer Aufbau, Speicher kann flexibel aufgeteilt werden und [universell genutzt]{.underline} werden, **aber** begrenzte Leistung, da CPU nur auf Daten *oder* Programm zugreifen kann.
+
+![](images/paste-18.png){fig-align="center" width="4.4cm" height="1.8cm"}
+
+### Harvard Architektur
+
+Separater Zugriff auf Daten- & Programmspeicher $\rightarrow$ höhere Geschwindigkeit und bessere Sicherheit durch Trennung, **aber** höhere Komplexität
+
+![](images/paste-19.png){fig-align="center" width="7cm" height="1.8cm"}
+
+### System on Chip (SoC)
+
+Ein Baustein der einen Rechner mit möglichst wenigen externen Komponenten realisiert $\rightarrow$ reduziert Platz, Anzahl Bausteine und Kosten, **aber** verschiedene Varianten (über 1000) existieren (nicht immer verfügbar), zusätzliche Bus-Leitungen nötig und Taktraten des CPUs wurden höher (\>1GHz), aber RAM-Speicher blieben unter 100MHz stehen.
+
+![](images/paste-20.png){fig-align="center" width="8.5cm"}
+
+![](images/paste-21.png){fig-align="center" width="7cm"}
+
+ADC/DAC & SRAM sind Kostentreiber!
+
+::: callout-important
+## Speicher sind teuer
+
+Speicher sind teuer und werden in gewissen Fällen sogar weggelassen, bzw. ein externer Speicher ist nötig.
+
+Es gibt Lösungen wie Flashless MCU, XiP (execute in Place), PoP (Package on Package), HyperFlash (ge*cache*ter, schnellerer Flash) und QSPI.
+:::
+
 ## ARM Cortex Familie
+
+::: callout-note
+## Übersicht ARM
+
+-   1990 ARM inc. $\Rightarrow$ 2016 gekauft von SoftBank $\Rightarrow$ 2022 geplatzter Kauf von Nvidia
+-   Joint Venture: Acorn Computer + Apple + VLSI Technology
+-   IP Schmiede $\Rightarrow$ STM, NXP, TI, Atmel, EM,...
+    -   stellt Unterlagen zur Verfügung, aber keine Hardware
+-   ARM Produkte: Cortex 32bit/64bit RISC
+:::
+
+```{=latex}
+\begin{description}
+  \item[ARM Cortex-A] \textbf{A}pplication
+  \item[ARM Cortex-R] \textbf{R}ealtime
+  \item[ARM Cortex-M] \textbf{M}icrocontroller
+\end{description}
+```
+### Übersicht
+
+$\Longrightarrow$ **Siehe letzte Seiten**
+
+![](images/arm_table.png){width="10cm"}
+
+## Vektor Tabelle
+
+### Cortex M4 (TinyK22)
+
+![](images/vector_table_cortex_m4.png)
+
+### Cortex M0/M0+ (LPC845)
+
+![](images/vector_table_cortex_m0.png)
+
+# Cycle Counter
+
+## MCULib
+
+``` cpp
+#include "cycles.h" // <1>
+
+CCOUNTER_START(); // <2>
+/* do stuff */
+CCOUNTER_STOP();
+```
+
+1.  Includierung
+2.  Anwendung
+
+![](images/paste-24.png){width="8cm" height="4.1cm"}
+
+## DWT
+
+**D**ata **W**atchpoint and **T**race Unit
+
+![](images/paste-23.png){fig-align="center" width="7cm"}
+
+Zählt totale Zyklen (`cycles`) und seit letztem Debug-Step/-Breakpoint (`cycleDelta`)
