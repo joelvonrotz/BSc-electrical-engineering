@@ -4,7 +4,6 @@
 format:
   pdf:
     pdf-engine: pdflatex
-    keep-tex: true
     include-in-header:
       - config.tex
       - _two-column-longtable.tex

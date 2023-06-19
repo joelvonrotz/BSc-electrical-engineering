@@ -168,7 +168,7 @@ s[k+1] &= f(i[k], s[k])
 \end{split}
 $$
 
-Beim *Mealy* werden die Ausgänge [beim Zustandswechsel]{.underline} geändert. Es handelt sich also um einen *0-delay-enable-type*
+Beim *Mealy* werden die [Ausgänge]{.underline} sowohl [vom aktuellen Zustand]{.underline} als auch von den [aktuellen Eingängen bestimmt]{.underline}. Es handelt sich daher um einen *0-delay-enable-type*
 
 ![Mealy](images/fsm_output_delay_mealy.png){fig-align="center" width="8cm" height="3.2cm"}
 
@@ -183,7 +183,7 @@ s[k+1] &= f(i[k], s[k])
 \end{split}
 $$
 
-Beim *Moore* werden die Ausgänge [im Zustand]{.underline} geändert. Es handelt sich also um einen *1-delay-state-type*
+Beim *Moore* werden die [Ausgänge vom aktuellen Zustand bestimmt]{.underline}. Es handelt sich daher um einen *1-delay-state-type*
 
 ![Moore](images/fsm_output_delay_moore.png){fig-align="center" width="8cm" height="3.3cm"}
 
