@@ -16,10 +16,7 @@ HW-nahes Design ermöglicht:
 
 \textcolor{BrickRed}{\textbf{-}} auf Kosten der Entwicklungszeit.
 
-```{=latex}
-\vfill\null
-\columnbreak
-```
+
 ## Entwicklung
 
 ### Designflow
@@ -90,10 +87,7 @@ sigB <= '1';
 1.  Effekt nach `after` ([nur]{.underline} Simulation)
 2.  Bei keiner Verzögerung (Synthese & Simulation)$\rightarrow$ Transaction für nächsten Simulationszyklus geplant ($\delta$-Delay)
 
-```{=latex}
-\vfill\null
-\columnbreak
-```
+
 ## Sprachelemente
 
 ### Bezeichner
@@ -236,10 +230,7 @@ port map (
 end logic;
 ```
 
-```{=latex}
-\vfill\null
-\columnbreak
-```
+
 ### Loop & Generate Statements
 
 Bei Implementierung von Komponenten mit Generic-Parametern werden häufig `loop` oder `generate` verwendet.
@@ -586,10 +577,7 @@ t <= now + 2.5 sec; -- <1>
 
 1.  `now` liefert aktuelle Simulationszeit
 
-```{=latex}
-\vfill\null
-\columnbreak
-```
+
 ## Prozesse
 
 ::: callout-important

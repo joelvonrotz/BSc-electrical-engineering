@@ -61,20 +61,14 @@ crossref:
   breakable
 ]}{\end{tcolorbox}}\fi
 
-\pagebreak
 ```
 <!-- [Chapters] -->
 
-`\begin{multicols}{2}`{=latex}
+`\begin{multicols*}{2}`{=latex}
 
 {{< include sec_fpga.qmd >}}
 
 {{< include sec_vhdl.qmd >}}
-
-```{=latex}
-\vfill\null
-\columnbreak
-```
 
 {{< include sec_finite_state_machines.qmd >}}
 
@@ -82,12 +76,11 @@ crossref:
 
 {{< include sec_libraries_and_others.qmd >}}
 
-{{< include sec_vivado.qmd >}}
-
 ```{=latex}
 \vfill\null
 \columnbreak
 ```
+
 {{< include sec_vhdl_process_templates.qmd >}}
 
 \newpage
@@ -98,4 +91,4 @@ crossref:
 
 ![](images/pewh6yrhfmp91.png)
 
-`\end{multicols}`{=latex}
+`\end{multicols*}`{=latex}

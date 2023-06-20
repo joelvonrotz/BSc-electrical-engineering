@@ -1,8 +1,6 @@
 # Vorlagen
 
-::: callout-note
 Der Inhalt der Prozess-Templates wird in den `=>CUSTOM` gekennzeichneten Abschnitten geschrieben.
-:::
 
 ## Positive Getriggertes D-FlipFlop
 

@@ -39,6 +39,12 @@ $$
 R = 2^{-F} \quad\rightarrow\quad R\rvert_{F=8} = 2^{-8}\approx 0.00391
 $$
 
+```{=latex}
+\vfill\null
+\columnbreak
+```
+
+
 ::: callout-tip
 ### Bereich ausrechnen
 
@@ -132,7 +138,7 @@ $$
 Eine Multiplikation verläuft schneller als eine Division und sollte in allen möglichen Fällen vermieden werden!
 :::
 
-# Gleitkomma
+## Gleitkomma
 
 ![](images/gleitkomma_zahl.png)
 
