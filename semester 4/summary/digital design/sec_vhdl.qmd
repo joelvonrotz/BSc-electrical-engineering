@@ -10,9 +10,9 @@ VHDL steht für ***V**ery High Speed Integrated Circuit **H**ardware **D**escrip
 
 ![](images/paste-1.png)
 
-HW-nahes Design ermöglicht: 
+HW-nahes Design ermöglicht:
 
-\textcolor{OliveGreen}{\textbf{+}} kleinere, schnellere, energie-effizientere Schaltungen als ESL-Design 
+\textcolor{OliveGreen}{\textbf{+}} kleinere, schnellere, energie-effizientere Schaltungen als ESL-Design
 
 \textcolor{BrickRed}{\textbf{-}} auf Kosten der Entwicklungszeit.
 
@@ -20,7 +20,6 @@ HW-nahes Design ermöglicht:
 \vfill\null
 \columnbreak
 ```
-
 ## Entwicklung
 
 ### Designflow
@@ -95,7 +94,6 @@ sigB <= '1';
 \vfill\null
 \columnbreak
 ```
-
 ## Sprachelemente
 
 ### Bezeichner
@@ -152,7 +150,7 @@ architecture ...
 -- Funktion (Innenleben) der Komponente
 ```
 
-### Entity{#sec-entity}
+### Entity {#sec-entity}
 
 Eine Entity beschreibt den Komponenten für äusserliche Zugriffe $\rightarrow$ nur [Struktur der Komponente]{.underline} bekannt, aber [nicht]{.underline} deren [Inhalt]{.underline}.
 
@@ -242,7 +240,6 @@ end logic;
 \vfill\null
 \columnbreak
 ```
-
 ### Loop & Generate Statements
 
 Bei Implementierung von Komponenten mit Generic-Parametern werden häufig `loop` oder `generate` verwendet.
@@ -394,6 +391,7 @@ Aufzählungstypen sind wie `enum` in C, wobei die Repräsentierung hinter den Au
 
 ::: callout-warning
 # Reservierte Wörter
+
 Für Aufzählungstypen dürfen keine reservierten Wörter verwendet werden. Im folgenden Beispiel wäre also `port` keine möglicher Wein, da dies ein reserviertes Wort ist.
 :::
 
@@ -458,11 +456,25 @@ constant c_map : t_map := (1=>'Z', 2|3=>'0', others =>'1');
 ```
 
 \textcolor{BrickRed}{Zuordnungen dürfen nicht gemischt werden!}
+
 ``` vhdl
 -- !ERROR!
 constant c_map : t_map := ('1', 2=>'0', others => '1')
 ```
 :::
+
+Die Indexierung von Arrays erfolgt analog zu C
+
+``` vhdl
+t_sync_arr is array(0 to 1) of std_logic_vector(3 downto 0);
+
+t_sync_arr(0);                  -- <1>
+t_sync_arr(1);                  -- <2>
+t_sync_arr(1)(2);               -- <3>
+t_sync_arr(1) <= t_sync_arr(0); -- <4>
+```
+
+![](images/paste-21.png){width="4.9cm"}
 
 ### Record
 
@@ -485,7 +497,6 @@ Binärzahlen in Form von 2er-Komplement, bzw. vorzeichenlosen Binär-Arrays
 `integer` ist ein Skalar-Typ und fest in VHDL eingebaut. Obwohl der Typ der Zahlenbereich einer 32-Bit 2er-Komplementzahl hat, hat es keine Tool-interne Darstellung (z.B. MSB ist nicht prüfbar).
 
 `unsigned/signed` sind definiert im Package `numeric_std` und haben eine genau definierte Darstellung, als Array von `std_logic` bits mit bekannten Definierung von MSB & LSB.
-
 :::
 
 #### Umwandlungstabelle
@@ -495,7 +506,6 @@ Binärzahlen in Form von 2er-Komplement, bzw. vorzeichenlosen Binär-Arrays
 ### IEEE `std_logic_1164`
 
 Datentypen: `std_logic` & `std_ulogic`
-
 
 ::: callout-note
 ### Warum `std_logic_1164`?
@@ -580,7 +590,6 @@ t <= now + 2.5 sec; -- <1>
 \vfill\null
 \columnbreak
 ```
-
 ## Prozesse
 
 ::: callout-important
@@ -736,6 +745,22 @@ Die Bitstream-Generierung erzeugt das FPGA-Konfigurationsfile ('kompilierte Date
 
 ## Speichermodellierung
 
+::: callout-tip
+## Speichergrössen
+
+$$
+1\text{ Kbit} = 2^{10}\text{ bit}
+$$
+
+$$
+1\text{ KByte} = 2^3\cdot2^{10}\text{ bit}
+$$
+
+$$
+1\text{ MByte}=2^3\cdot2^{20}\text{ bit}
+$$
+:::
+
 Adressierbare ROM & RAM können im FPGA aufgebaut werden aus: Slice-Logik (LUTs, FF), speziellen Makrozellen (BRAM) und Konfigurations-RAM (Distributed Memory).
 
 -   RAMs im FPGA sind immer getaktete/synchrone Speicher
@@ -780,7 +805,6 @@ $$
   DW & Datenwortbreite
 \end{conditions}
 ```
-
 [Beispiel ROM]{.underline}
 
 $$
@@ -789,7 +813,6 @@ C_{ROM} = 2^3\cdot 8 = 64 \text{ Bits} \\
 \rightarrow \#FF = 0\text{ (da asynchron)}
 \end{array}
 $$
-
 
 ### Synchrones ROM "Write before Read"
 
