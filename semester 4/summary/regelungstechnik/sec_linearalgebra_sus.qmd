@@ -51,6 +51,12 @@ $$
 
 # Signal & System Kurzfassung
 
+::: callout-important
+### Gültigkeit End- & Anfangswertsatz
+
+End- & Anfangswertsatz gilt nur bei stabilen Systemen.
+:::
+
 ## Endwertsatz
 
 ### Laplace
@@ -94,3 +100,14 @@ $$
 ### Z-Transformation
 
 ![](images/paste-18.png)
+
+# Euler Approximation
+
+![](images/paste-32.png){fig-align="center" width="6cm"}
+
+$$
+\begin{split}
+x(t+h) &\approx x(t) + h\frac{dx}{dt}=x(t)+h\cdot f(x(t),u(t)) \\
+x[k+1] &\approx x[k] + h\cdot f(x[k],u[k])
+\end{split}
+$$

@@ -37,8 +37,6 @@
   v & Störgrösse
 \end{conditions}
 ```
-*Rückkopplung* beschreibt eine Anordnung, bei welcher zwei oder mehr dynamische Systeme Systeme untereinander so verbunden sind, dass sie sich gegenseitig beeinflussen.
-
 ### Geschlossenes System
 
 ```{=latex}
@@ -60,8 +58,6 @@
   \end{tikzpicture}
 \end{center}
 ```
-Schwieriger zum Berechnen und zum Untersuchen, da diese ein rückgekoppeltes Signal (mit dem Eingangssignal kombinierend) Teil des Eingangssignals zum System besitzen.
-
 ### Offenes System
 
 ```{=latex}
@@ -82,13 +78,19 @@ Schwieriger zum Berechnen und zum Untersuchen, da diese ein rückgekoppeltes Sig
   \end{tikzpicture}
 \end{center}
 ```
-`\underline{\footnotesize{Schleifenübertragungsfunktion}}`{=latex}
+::: callout-important
+#### Schleifenübertragungsfunktion
 
 $$
 L(s) = C(s)\cdot P(s)
 $$
+:::
 
-[Kein]{.underline} rückgekoppeltes Signal. Wird für Stabilitätsbestimmung und Anpassungen verwendet.
+### Vorsteuerung
+
+Mit einer Vorsteuerung kann die Regelungszeit gekürzt werden (kleinerer Fehler zum Auskorrigieren).
+
+![](images/paste-1.png)
 
 ## Minimalphasiges System
 
@@ -229,8 +231,6 @@ $$
 
 ## Identifikation
 
-Unter dem Begriff der *Identifikation* versteht man die Bestimmung eines Modells aus einer vorgegebenen Klasse von Modellen, anhand der Ein-/Ausgangsgrössen, so, dass dieses möglichst gleichwertig dem getesteten System ist.
-
 `\underline{\footnotesize{...welche Klasse}}`{=latex} -- Ausgehend von einem LTI-System sind der Grad von Zähler- und Nennerpolynom festzulegen. Zudem sidn allfällige Totzeiten zu berücksichtigen.
 
 `\underline{\footnotesize{...welche Eingangssignale}}`{=latex} -- Das zu testende System muss hinreichend mit einem Signal angeregt werden $\rightarrow$ Diracstösse, Sprungfunktionen, Rampen und harmonische Funktionen
@@ -269,15 +269,7 @@ y = \begin{pmatrix}
 \end{pmatrix}
 $$
 
-$$
-\small{
-\Phi = \begin{pmatrix}
--y[n] & -y[n-1] & \cdots & -y[1] & u[n] & u[n-1] & \cdots & u[1] \\[1mm]
--y[n+1] & -y[n] & \cdots & -y[2] & u[n+1] & u[n] & \cdots & u[2] \\[1mm]
-\vdots &  &   & \vdots & \vdots &   &   & \vdots \\[1mm]
--y[N+n-1] & -y[N+n-2] & \cdots & -y[N] & u[N+n-1] & u[N+n-2] & \cdots & u[N] \\
-\end{pmatrix}}
-$$
+![](images/paste-36.png)
 
 $$
 \hat{\beta} = (\Phi^T\Phi)^{-1}\Phi^Ty

@@ -214,4 +214,8 @@ P = tf(...);
 sisotool(P); % Der Prozess wird angegeben
 ```
 
-- 
+## Weitere Befehle
+
+### `minreal`
+
+Kürzt doppelte Nullstellen heraus algebraisch -> reduzieren auf Minimalform

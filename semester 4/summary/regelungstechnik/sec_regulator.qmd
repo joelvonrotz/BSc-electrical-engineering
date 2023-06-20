@@ -90,6 +90,43 @@ $$
 G_{er} = S = \frac1{1+PC} 
 $$
 
+::: callout-note
+## Bedeutung
+
+Sensitivitäts-Übergangsfrequenz $\omega_{sc}$ kennzeichnet den Übergang von Dämpfung zur Verstärkung
+
+```{=latex}
+\begin{center}\begin{tikzpicture}
+
+\fill[green!50!orange!20]  (-3,1.5) rectangle (1,-1.5);
+\fill[red!50!orange!20,draw=black, dashed]  (-1,0) node (circle_center) {} circle (1);
+
+\node (circle_outer) at (-0.3115,0.7146) {};
+\draw[->,gray]  (circle_center.center) -- node[above,scale=0.8]{$1$} (circle_outer.center);
+
+
+% x-Axis 
+\node (xStart) at (-3,0) {};
+\node (xEnd) at (1,0) {};
+
+
+% y-Axis
+\node (yStart) at (0,-1.5) {};
+\node (yEnd) at (0,1.5) {};
+
+
+\draw[-latex] (xStart.center) -- node[above=0.2cm,right = 1.15cm,scale=0.8]{Re$(S)$} (xEnd.center);
+\draw[-latex] (yStart.center) -- node[above = 1.3cm,right=1,scale=0.8]{Im$(S)$} (yEnd.center);
+\end{tikzpicture}\end{center}
+```
+$$
+\begin{array}{ll}
+\lvert S(j\omega)\rvert < 1  & \textcolor{BrickRed}{\text{Dämpfung}} \\
+\lvert S(j\omega)\rvert > 1  & \textcolor{OliveGreen}{\text{Verstärkung}}
+\end{array}
+$$
+:::
+
 `\underline{\footnotesize{Load Sensitivity Function}}`{=latex}
 
 $$
@@ -107,8 +144,6 @@ $$
 $$
 G_{ur} = CS = \frac{C}{1+PC} 
 $$
-
-Wahrer Fehler
 
 ## Anforderungen
 

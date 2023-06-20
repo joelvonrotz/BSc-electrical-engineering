@@ -107,23 +107,47 @@ $$
   D & beschreibt Durchgriff
 \end{conditions}
 ```
-## Übertragungsfunktion
+# Übertragungsfunktion
 
-Die Übertragungsfunktion (oder Transferfunktion) beschreibt die Beziehung zwischen Ein- und Ausgangsgrösse.
+::: callout-important
+Egal welche Methode verwendet wird um die Übertragungsfunktion herzuleiten, es wird immer die gleiche Funktion ergeben.
+:::
 
 $$
 G_{AE}(s)=\frac{A(s)}{E(s)}
 $$
 
-```{=latex}
+```{=tex}
 \begin{conditions}
   A & \textbf{A}usgangssignal \\
   E & \textbf{E}ingangssignal
 \end{conditions}
 ```
+## Harmonische Anregung linearer Systeme
+
+Wird als Eingangssignal $u$
+
+$$
+u=\cos(\omega t)=\frac12(e^{+j\omega t}+e^{-j\omega t})
+$$
+
+gegeben, ergibt sich folgendes Ausgangssignal
+
+$$
+y(t)=\underbrace{C\textcolor{BrickRed}{e^{At}}(x(0)-(sI-A)^{-1}B)}_{\text{transient } y_t} + \underbrace{\overbrace{(C(sI-A)^{-1}B+D)}^{\text{Übertragungsfunktion}} e^{st}}_{\text{stationär } y_s}
+$$
+
+::: callout-note
+Ist $A$ stabil, so geht der transiente Anteil $y_t$ asymptotisch gegen Null. Der stationäre Anteil bleibt übrig und entspricht der Übertragungsfunktion.
+:::
+
 ## Führungsverhalten
 
-Das Führungsverhalten beschreibt die Beziehung zwischen der Führungsgrösse und der Regelgrösse (sogenannter *Soll-Ist*-Vergleich).
+![](images/paste-35.png){width="6cm"}
+
+$$
+G_{yr}=T=\frac{PC}{1+PC}\quad\text{und}\quad G_{ur}=CS=\frac{C}{1+PC}
+$$
 
 ### Merkmale
 
@@ -134,39 +158,51 @@ Das Führungsverhalten verfügt über vier Merkmale, welche für jedes System be
 -   **Überschwingen**
 -   **Schnelles Erreichen des stationären Wertes**
 
-Folgendes Beispiel ist eine Sauna:
-
-![](images/block_diagramm_sauna.png)
-
 **Gutes Führungsverhalten**
 
-![](images/fuhrungsverhalten\gutes_verhalten.png)
+![](images/fuhrungsverhalten\gutes_verhalten.png){width="6cm"}
 
 **Instabilität**
 
-![](images/fuhrungsverhalten\instabil.png)
+![](images/fuhrungsverhalten\instabil.png){width="6cm"}
 
 **Statischer Fehler /** **stationäre Ungenauigkeit**
 
-![](images/fuhrungsverhalten\stationary.png)
+![](images/fuhrungsverhalten\stationary.png){width="6cm"}
 
 **Überschwingen**
 
-![](images/fuhrungsverhalten\uberschwingung.png)
+![](images/fuhrungsverhalten\uberschwingung.png){width="6cm"}
 
 **Langsames Erreichen des neuen stationären Wertes**
 
-![](images/fuhrungsverhalten\slow.png)
+![](images/fuhrungsverhalten\slow.png){width="6cm"}
+
+### Bleibende Fehler bei langsam oder nicht ändernden Regelgrössen
+
+Der bleibende Fehler bei sich langsam oder nicht ändernden Führungssgrössen ergibt sich anhand des Verlaufs der Übertragungsfunktion bei tiefen Frequenzen.
+
+$$
+G_{yr}\approx 1-e_0-e_1\cdot s-e_2\cdot s^2 - \cdots
+$$
+
+$$
+e = e_0 \cdot r + e_1 \cdot \dot{r}+e_2\cdot \ddot{r}+\cdots
+$$
+
+![](images/paste-37.png){width="5cm" height="1.8cm"}
+
+::: callout-note
+## Stationärer Fehler
+
+Bei Rampe: $e_0 = 0\qquad$ Bei Parabel $e_0 = e_1 = 0$
+:::
 
 ## Störverhalten
-
-Das Störverhalten beschreibt den Einfluss der Störgrössen $v$ auf die Regelgrösse $y$ bei einer konstanten Führungsgrösse $r$. Ein gutes Störverhalten minimiert diese Einflüsse, wobei die Definition von "gut" abhängig vom entsprechenden System ist.
 
 $$
 G_{er}(s)=\frac{E(s)}{R(s)}
 $$
-
-[Beispiel]{.underline}: Eine Saune kann sich dies eher noch erlauben, da eine Überschwingung nur einen kleinen Einfluss auf die Systemqualität hat.
 
 ### Merkmale
 
@@ -179,28 +215,22 @@ Das Störverhlaten verfügt ebenfalls über vier Merkmale, welche für jedes Sys
 
 **Gutes Störverhalten**
 
-![](images/storverhalten\gutes_verhalten.png)
+![](images/storverhalten\gutes_verhalten.png){width="6cm"}
 
 \textsuperscript{rot: Sollwert}
 
 **Instabilität**
 
-![](images/storverhalten\storverhalten_stability.png)
+![](images/storverhalten\storverhalten_stability.png){width="6cm"}
 
 **Stationärer Fehler / Ungenauigkeit**
 
-![](images/storverhalten\storverhalten_stationary.png)
+![](images/storverhalten\storverhalten_stationary.png){width="6cm"}
 
 **Überschwingen**
 
-![](images/storverhalten\uber_unterschwingung.png)
+![](images/storverhalten\uber_unterschwingung.png){width="6cm"}
 
 **Langsames Erreichen des stationären Wertes**
 
-![](images/storverhalten\slow.png)
-
-## Vorsteuerung
-
-Mit einer Vorsteuerung kann die Regelungszeit gekürzt werden (kleinerer Fehler zum Auskorrigieren).
-
-![](images/paste-1.png)
+![](images/storverhalten\slow.png){width="6cm"}

@@ -1,0 +1,69 @@
+# Loop Shaping
+
+::: callout-important
+## Verlauf von $\lvert L\rvert$
+
+$$
+\begin{array}{ll}
+\omega < \omega_{gc} & \text{möglichst gross} \\
+\omega \approx \omega_{gc} & \text{möglichst flach} \\
+\omega > \omega_{gc} & \text{möglichst klein}
+\end{array}
+$$
+:::
+
+![](images/paste-38.png){width="6cm"}
+
+![](images/paste-39.png){width="6cm"}
+
+## Lag & Lead Kompensatoren
+
+$$
+C(s)=k\cdot \prod_i \left(\frac{s+a_i}{s+b_i}\right)
+$$
+
+Mit $a_i > 0, b_i > 0, k > 0$
+
+::: callout-note
+## PI-Regler & D-Anteil
+
+PI Regler $\rightarrow\ b = 0$
+
+D-Anteil mit Beschränkung $\rightarrow\ a = 0$
+:::
+
+### Lead ($a < b$)
+
+Verstärkung bei hohen Frequenzen + Phasenanhebung ($\max 90\degree$ pro Ordnung)
+
+![](images/paste-40.png){width="7cm"}
+
+### Lag ($a > b$)
+
+Verstärkung bei tiefen Frequenzen + Phasensenkung ($\max -90\degree$ pro Ordnung)
+
+![](images/paste-41.png){width="7cm"}
+
+## Grenzen des Loop-Shapings
+
+Der Beeinflussing des Systemverhalten durch Regelung sind bestimmte Grenzen gesetzt. Verhalten kann nicht uniform verbessert werden.
+
+::: callout-note
+## Bode's Integral
+
+Ist der geschlossene Regelkreis mit $L$ stabil und geht $sL(s)$ für $s\rightarrow\infty$ gegen null, dann ist
+
+$$
+\int_0^\infty \log\lvert S(j\omega)\rvert\ d\omega = \pi \sum p_k
+$$
+
+wobei $p_k$ die Pole in der [rechten]{.underline} Halbebene sind. Ist $L$ an sich stabil, so gilt
+
+$$
+\int_0^\infty\log\lvert S(j\omega)\rvert\ d\omega = 0
+$$
+:::
+
+**Alle Verbesserungen werden mit Verschlechterungen komplementiert.**
+
+![](images/paste-42.png)

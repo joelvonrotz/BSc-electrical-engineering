@@ -122,14 +122,3 @@ G(s)=\frac{s}{1+sT} \qquad \text{Gefilterter Differentiator}
 $$
 
 ![](images/paste-24.png)
-
-## Skizzieren von Bodediagramm
-
-Folgende Seite beschreiben die Skizziermöglichkeiten, wie ein System im Bodediagramm gezeichnet werden kann.
-
-```{=latex}
-\end{multicols}
-\newpage
-\includepdf[pages=6-13,fitpaper]{rgt-sw06.PDF}
-\begin{multicols}{2}
-```

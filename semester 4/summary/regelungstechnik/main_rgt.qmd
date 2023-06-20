@@ -23,10 +23,10 @@ source:
 pdf-engine: pdflatex
 # [DOCUMENT CONFIGURATION] ============================
 geometry: 
-- "top=25mm"
-- "bottom=25mm"
-- "left=15mm"
-- "right=15mm"
+- "top=18mm"
+- "bottom=15mm"
+- "left=5mm"
+- "right=5mm"
 papersize: a4
 fontsize: 10pt
 
@@ -39,9 +39,22 @@ pagenumbering: none
 highlight-style: github
 
 fig-pos: "H"
+fig-align: center
 ---
 
 \newpage
+
+::: callout-tip
+## Vorgehen MEP
+
+- Zuerst lösen, was man kann und nicht zu lange Zeit verlieren
+- 10 Minuten pro Aufgabe
+  - Gewisse Aufgaben brauchen mehr als 10 Minuten, andere weniger
+- Aufgaben sind meist einfacher als man denkt
+  - Es gibt verschiedene Lösungsansätze
+  - Annahmen treffen oder fragen, falls man unsicher ist
+- Wenn Zeit übrig, Lösung validieren
+:::
 
 ```{=latex}
 % keep this to have smaller code blocks
@@ -57,17 +70,16 @@ fig-pos: "H"
   breakable
 ]}{\end{tcolorbox}}\fi
 ```
-`\begin{multicols}{2}`{=latex}
+`\begin{multicols*}{2}`{=latex}
 
 <!-- insert -->
 
-```{=html}
-<!-- Beinhaltet:
-   - Regelkreis (SW01)
-     - Was ist ein Regelkreis?
-     - Begriffe, Struktur, Aufbau
-   -  -->
-```
+<!-- INHALT
+  - Zusammenfassung Linear Algebra, Sus & Euler Approximation
+  - Systemarten (geschlossen, offen, vorsteuerung)
+  - Prozess-Modellierung
+  - 
+ -->
 {{< include sec_linearalgebra_sus.qmd >}}
 
 {{< include sec_systems.qmd >}}
@@ -86,6 +98,8 @@ fig-pos: "H"
 
 {{< include sec_pid_regler.qmd >}}
 
+{{< include sec_loop_shaping.qmd >}}
+
 {{< include sec_discrete.qmd >}}
 
 {{< include sec_matlab.qmd >}}
@@ -95,27 +109,12 @@ fig-pos: "H"
 
 {{< include sec_guides.qmd >}}
 
-# Übertragungsfunktion
+# Anderes Zeug
 
-::: callout-important
-Egal welche Methode verwendet wird um die Übertragungsfunktion herzuleiten, es wird immer die gleiche Funktion ergeben.
-:::
-
-## Harmonische Anregung linearer Systeme
-
-Eingangssignal $u$:
-
+Betrag von Zeitverzögerungen sind immer $=1$, da die Phase keine Rolle spielt.
 $$
-u=\cos(\omega t)=\frac12(e^{+j\omega t}+e^{-j\omega t})
+|PC| = 1 \Rightarrow \lvert k \cdot e^{-0.2s} \frac{10}{s}\rvert
 $$
-
-$$
-y(t)=\underbrace{C\textcolor{BrickRed}{e^{At}}(x(0)-(sI-A)^{-1}B)}_{\text{transient } y_t} + \underbrace{\overbrace{(C(sI-A)^{-1}B+D)}^{\text{Übertragungsfunktion}} e^{st}}_{\text{stationär } y_s}
-$$
-
-::: callout-note
-Ist $A$ stabil, so geht transiente Anteil $y_t$ asymptotisch gegen Null. Der stationäre Anteil bleibt übrig und entspricht der Übertragungsfunktion
-:::
 
 \newpage
 
@@ -123,6 +122,8 @@ Ist $A$ stabil, so geht transiente Anteil $y_t$ asymptotisch gegen Null. Der sta
 
 $\rightarrow$ [Project Pigeon](https://en.wikipedia.org/wiki/Project_Pigeon)
 
-`\end{multicols}`{=latex}
+
+
+`\end{multicols*}`{=latex}
 
 {{< include sec_glossar.qmd >}}

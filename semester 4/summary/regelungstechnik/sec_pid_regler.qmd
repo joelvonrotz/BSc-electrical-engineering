@@ -154,7 +154,7 @@ $$
 Für tiefe Frequenzen ($\lvert s\rvert\ll\frac1{T_d}$) wird $G_{ue}\approx k_p T_ds$ und hohe Frequenzen wird $G_{ue}\approx k_p$ (limitiert durch $k_p$)
 
 $$
-C_{D}(s)= k_p\frac{T_d\cdot s}{1+s\cdot T_d} = \frac{k_d\cdot s}{1+s\cdot T_d}
+C_{D}(s)= k_p\frac{T_d\cdot s}{1+s\cdot T_d} = \frac{\overbrace{k_d\cdot s}^{\text{D-Anteil}}}{\underbrace{1+s\cdot T_d}_{\text{Filter}}}
 $$
 
 Anders dargestellt:

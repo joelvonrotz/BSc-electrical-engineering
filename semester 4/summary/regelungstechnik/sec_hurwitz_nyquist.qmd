@@ -1,6 +1,10 @@
 # Hurwitz-Kriterium
 
 ::: callout-important
+**GESCHLOSSENER** KREIS VERWENDEN!
+:::
+
+::: callout-important
 ## Hurwitz-Kriterium
 
 Die Polstellen-Gleichung $\lambda(s)$ mit $a_0>0$ hat dann, und nur dann, ausschliesslich Lösungen mit negativen reellen Teilen, falls alle Unterdeterminante der Hurwitz-Matrix positiv sind:
@@ -205,9 +209,17 @@ $\rightarrow$ kann im Bodediagramm abgelesen werden
 
 ### Stabilitätsreserve $s_m$
 
-Minimaler Abstand zu $-1$
+Kleinester Abstand zum Punkt $-1$
 
-$\rightarrow$ Kann nur aus Ortskurve abgelesen werden
+Der Wert kann von der Ortskurve abgelesen werden oder entspricht dem Maximum der Sensitivitätsfunktion $S$.
+
+$$
+\omega_{ms} = \underset{\omega}{\text{argmax}}\lvert S(j\omega)\rvert\qquad s_m = \frac1{\lvert S(j\omega_{ms})\rvert}=\frac1{g_{ms}}
+$$
+
+![](images/paste-33.png){width="6cm"}
+
+![](images/paste-34.png){width="6cm"}
 
 ### Praxiswerte
 

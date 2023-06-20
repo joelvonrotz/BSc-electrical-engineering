@@ -123,11 +123,11 @@ $$
 &\frac{\partial{F}}{\partial{y^{(n)}}}\biggr\rvert_{(y_e,u_e)} z^{(n)}+ 
  \cdots+ 
  \frac{\partial{F}}{\partial{\dot{y}}}\biggr\rvert_{(y_e,u_e)} \dot{z}+ 
- \frac{\partial{F}}{\partial{y^{(n)}}}\biggr\rvert_{(y_e,u_e)} z\ + \\
+ \frac{\partial{F}}{\partial{y}}\biggr\rvert_{(y_e,u_e)} z\ + \\
 &\frac{\partial{F}}{\partial{u^{(m)}}}\biggr\rvert_{(y_e,u_e)} v^{(m)}+
  \cdots+ 
- \frac{\partial{F}}{\partial{\dot{y}}}\biggr\rvert_{(y_e,u_e)} \dot{v}+
- \frac{\partial{F}}{\partial{y^{(n)}}}\biggr\rvert_{(y_e,u_e)} v = 0 
+ \frac{\partial{F}}{\partial{\dot{u}}}\biggr\rvert_{(y_e,u_e)} \dot{v}+
+ \frac{\partial{F}}{\partial{u}}\biggr\rvert_{(y_e,u_e)} v = 0 
 \end{split}
 $$
 
@@ -159,13 +159,19 @@ $\overline{h}=h_0=\sqrt[3]{\frac{M\cdot g}{k}}$
 $$
 \begin{array}{l}
 \Delta h = h-\overline{h} \\
-\Delta 
+\Delta \dot{h} = \dot{h} \\
+\Delta \ddot{h} = \ddot{h} \\
 \end{array}
 $$
 
 3.  In Linearisierungsgleichung einsetzten
 
 $$
-\left.\frac{\delta f}{\delta \ddot{h}}\right\rvert_{h=\overline{h}}
+\left.\frac{\partial f}{\partial \ddot{h}}\right\rvert_{h=\overline{h}} \cdot \Delta\ddot{h} + \left.\frac{\partial f}{\partial \dot{h}}\right\rvert_{h=\overline{h}} \cdot \Delta\dot{h} + \left.\frac{\partial f}{\partial h}\right\rvert_{h=\overline{h}} \cdot \Delta{h} = 0
 $$
+
+$$
+M\Delta \ddot{h} + \alpha \Delta \dot{h} + 3 k\overline{h}^2=0
+$$
+
 :::
