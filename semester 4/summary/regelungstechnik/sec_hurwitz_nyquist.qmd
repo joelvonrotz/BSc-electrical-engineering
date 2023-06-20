@@ -1,11 +1,11 @@
-# Hurwitz-Kriterium
+## Hurwitz-Kriterium
 
 ::: callout-important
 **GESCHLOSSENER** KREIS VERWENDEN!
 :::
 
 ::: callout-important
-## Hurwitz-Kriterium
+### Hurwitz-Kriterium
 
 Die Polstellen-Gleichung $\lambda(s)$ mit $a_0>0$ hat dann, und nur dann, ausschliesslich Lösungen mit negativen reellen Teilen, falls alle Unterdeterminante der Hurwitz-Matrix positiv sind:
 
@@ -53,7 +53,7 @@ $$
 :::
 
 ::: callout-caution
-## Was mit Hurwitz nicht möglich ist
+### Was mit Hurwitz nicht möglich ist
 
 Das Hurwitz-Kriterium beschreibt keine *Robustheit* der Stabilität und erlangt keine Einsicht, wie der Regler $C=\frac{n_c}{d_c}$ gewählt werden sollte.
 :::
@@ -77,7 +77,7 @@ $$
 \end{array}
 $$
 
-# Nyquist
+## Nyquist
 
 Wenn $L(s)=-1$, so kann eine stationäre Schwingung eingestellt werden!
 
@@ -97,9 +97,7 @@ $$
 B=-P(s)C(s)\cdot A\quad \Rightarrow\quad \underline{P(s)C(s) = -1}
 $$
 
-## Allgemein
-
-### Variante Winkeländerung
+### Allgemein -- Variante Winkeländerung
 
 ![](images/paste-4.png)
 
@@ -129,7 +127,7 @@ Das Kriterium ist ebenfalls anwendbar, wenn die Ortskurve experimentell ermittel
 Die Bedingung gilt auch für Systeme mit Totzeit
 :::
 
-### Variante Umläufe
+### Allgemein -- Variante Umläufe
 
 Das System $G_{yr}$ ist stabil wenn $P=U$
 
@@ -157,23 +155,22 @@ $$
 
 $\rightarrow P=2,U=1:\textcolor{BrickRed}{\text{instabil}}$
 
-## Einfaches Kriterium
 
-### Variante Links liegen
+### Einfach -- Variante Links liegen
 
 Für Systeme mit maximal zwei instabilen Polen im Ursprung (aber keinen weiteren instabilen Polen) genügt die Bedingung, dass der Punkt $(-1,0)$ *links liegen gelassen* wird, wenn entlang der Ortskurve $\omega : 0 \rightarrow \infty$ verfahren wird.
 
-### Variante Umläufe
+### Einfach -- Variante Umläufe
 
 Das System $G_{yr}$ ist stabil, wenn die Nyquist Kurve $L(j\omega)$ mit $\omega\in [0,\infty]$ den Punkt $(-1,0)$ **nicht** umläuft.
 
-## Stabilitätsreserve / Robustheit
+### Stabilitätsreserve / Robustheit
 
 ![](images/paste-7.png){width="6cm"}
 
 ![](images/paste-8.png){width="6cm"}
 
-### Phasenreserve $\varphi_m$
+####  Phasenreserve $\varphi_m$
 
 Eintritt in den Einheitskreis $\rightarrow$ *gain crossover*
 
@@ -189,7 +186,7 @@ $$
 
 $\rightarrow$ kann im Bodediagramm abgelesen werden
 
-### Amplitudenreserve $g_m$
+#### Amplitudenreserve $g_m$
 
 Überschreiten der negativen $Re$-Achse $\rightarrow$ *phase crossover*
 
@@ -207,7 +204,7 @@ Wird die Achse nicht überschritten, so ist $g_m\rightarrow\infty$
 
 $\rightarrow$ kann im Bodediagramm abgelesen werden
 
-### Stabilitätsreserve $s_m$
+#### Stabilitätsreserve $s_m$
 
 Kleinester Abstand zum Punkt $-1$
 
@@ -221,7 +218,8 @@ $$
 
 ![](images/paste-34.png){width="6cm"}
 
-### Praxiswerte
+::: callout-note
+#### Praxiswerte
 
 Folgende Werte dienen als *Boilerplate* für die Reglerauslegung
 
@@ -233,3 +231,4 @@ s_m \approx 0.5 - 0.8 \\
 \omega_{gc} \approx\frac1{\tau}: \tau\text{ von Sprungantwort}
 \end{array}
 $$
+:::

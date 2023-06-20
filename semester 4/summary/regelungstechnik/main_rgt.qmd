@@ -75,39 +75,83 @@ fig-align: center
 <!-- insert -->
 
 <!-- INHALT
-  - Zusammenfassung Linear Algebra, Sus & Euler Approximation
-  - Systemarten (geschlossen, offen, vorsteuerung)
-  - Prozess-Modellierung
-  - 
+  - INTRO - Zusammenfassung Linear Algebra, Sus & Euler Approximation
+  - SYSTEM
+  - DYNAMICS
+  - STABILITY
+  - PROCESSES
+  - REGULATOR
+    - P
+    - PI
+    - PD
+    - PID
+  - DISCRETISATION
+  - MATLAB
+    - MATLAB
+    - SIMULINK
+ -->
+
+<!-- [INTRO] 
+  Zusammenfassung Linear Algebra, Sus & Euler Approximation
  -->
 {{< include sec_linearalgebra_sus.qmd >}}
 
+<!-- [SYSTEM]
+  Verschiedene Arten von Systemen
+  Und Darstellungen (DGL, Zustandsraum)
+-->
 {{< include sec_systems.qmd >}}
 
-{{< include sec_regulator.qmd >}}
-
-{{< include sec_modelling.qmd >}}
-
+<!-- [DYNAMICS]
+  Gleichgewichtslage, Lösen von DLGs
+-->
 {{< include sec_dynamik.qmd >}}
+
+<!-- [STABILITY]
+  Verschiedene Arten von Stabilitätsprüfungen
+  -->
+{{< include sec_stability.qmd >}}
+
+<!-- [PROCESSES]
+  Grundlegende Art von Prozessen, Identifikation
+-->
+{{< include sec_process.qmd >}}
+
+<!-- [REGULATOR]
+  P-,PI-, PD-, PDT1-, PID-Regler
+-->
+{{< include sec_regulator.qmd >}}
+{{< include sec_pid_regler.qmd >}}
+
+
+<!-- [DESIGN] 
+  Entwurf, Auslegungen
+-->
+{{< include sec_loop_shaping.qmd >}}
+
+<!-- [DISCRETISATION] -->
+{{< include sec_discrete.qmd >}}
+
+
+<!-- [MATLAB] -->
+{{< include sec_matlab.qmd >}}
+
+<!-- [MISC] -->
+{{< include sec_guides.qmd >}}
+
+
+
 
 {{< include sec_linear_time_invariant.qmd >}}
 
-{{< include sec_hurwitz_nyquist.qmd >}}
 
 {{< include sec_ubertragungselemente.qmd >}}
 
-{{< include sec_pid_regler.qmd >}}
-
-{{< include sec_loop_shaping.qmd >}}
-
-{{< include sec_discrete.qmd >}}
-
-{{< include sec_matlab.qmd >}}
-
-{{< include sec_simulink.qmd >}}
 
 
-{{< include sec_guides.qmd >}}
+
+
+
 
 # Anderes Zeug
 

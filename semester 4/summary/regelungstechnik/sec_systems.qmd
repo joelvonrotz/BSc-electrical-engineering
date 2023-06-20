@@ -37,6 +37,7 @@
   v & Störgrösse
 \end{conditions}
 ```
+
 ### Geschlossenes System
 
 ```{=latex}
@@ -58,6 +59,7 @@
   \end{tikzpicture}
 \end{center}
 ```
+
 ### Offenes System
 
 ```{=latex}
@@ -101,6 +103,107 @@ $$
 $$
 
 Pro $20\text{dB}$ Steigung oder Abfall beträgt die Phasenverschiebung $+90\degree$, respektive $-90\degree$.
+
+## Führungsverhalten
+
+![](images/paste-35.png){width="6cm"}
+
+$$
+G_{yr}=T=\frac{PC}{1+PC}\quad\text{und}\quad G_{ur}=CS=\frac{C}{1+PC}
+$$
+
+### Merkmale
+
+Das Führungsverhalten verfügt über vier Merkmale, welche für jedes System betrachtet soll:
+
+-   **Stabilität**
+-   **Statischer Fehler /** **stationäre Genauigkeit**
+-   **Überschwingen**
+-   **Schnelles Erreichen des stationären Wertes**
+
+**Gutes Führungsverhalten**
+
+![](images/fuhrungsverhalten\gutes_verhalten.png){width="6cm"}
+
+**Instabilität**
+
+![](images/fuhrungsverhalten\instabil.png){width="6cm"}
+
+**Statischer Fehler /** **stationäre Ungenauigkeit**
+
+![](images/fuhrungsverhalten\stationary.png){width="6cm"}
+
+**Überschwingen**
+
+![](images/fuhrungsverhalten\uberschwingung.png){width="6cm"}
+
+**Langsames Erreichen des neuen stationären Wertes**
+
+![](images/fuhrungsverhalten\slow.png){width="6cm"}
+
+### Bleibende Fehler bei langsam oder nicht ändernden Regelgrössen
+
+Der bleibende Fehler bei sich langsam oder nicht ändernden Führungssgrössen ergibt sich anhand des Verlaufs der Übertragungsfunktion bei tiefen Frequenzen.
+
+$$
+G_{yr}\approx 1-e_0-e_1\cdot s-e_2\cdot s^2 - \cdots
+$$
+
+$$
+e = e_0 \cdot r + e_1 \cdot \dot{r}+e_2\cdot \ddot{r}+\cdots
+$$
+
+![](images/paste-37.png){width="5cm" height="1.8cm"}
+
+::: callout-note
+### Stationärer Fehler
+
+Bei Rampe: $e_0 = 0\qquad$ Bei Parabel $e_0 = e_1 = 0$
+:::
+
+
+## Störverhalten
+
+$$
+G_{er}(s)=\frac{E(s)}{R(s)}
+$$
+
+### Merkmale
+
+Das Störverhlaten verfügt ebenfalls über vier Merkmale, welche für jedes System betrachtet soll:
+
+-   **Stabilität**
+-   **Statischer Fehler /** **stationäre Genauigkeit**
+-   **Überschwingen**
+-   **Schnelles Erreichen des stationären Wertes**.
+
+**Gutes Störverhalten**
+
+![](images/storverhalten\gutes_verhalten.png){width="6cm"}
+
+\textsuperscript{rot: Sollwert}
+
+**Instabilität**
+
+![](images/storverhalten\storverhalten_stability.png){width="6cm"}
+
+**Stationärer Fehler / Ungenauigkeit**
+
+![](images/storverhalten\storverhalten_stationary.png){width="6cm"}
+
+**Überschwingen**
+
+![](images/storverhalten\uber_unterschwingung.png){width="6cm"}
+
+**Langsames Erreichen des stationären Wertes**
+
+![](images/storverhalten\slow.png){width="6cm"}
+
+
+<!--=================================================-->
+
+
+# Darstellungsarten
 
 ## Blockdiagrammalgebra
 
@@ -229,48 +332,119 @@ $$
 G_{uy}=\frac{ABD(1+C)}{A+BCF-CDE-BCDEF}
 $$
 
-## Identifikation
+## Zustandraumdarstellung
 
-`\underline{\footnotesize{...welche Klasse}}`{=latex} -- Ausgehend von einem LTI-System sind der Grad von Zähler- und Nennerpolynom festzulegen. Zudem sidn allfällige Totzeiten zu berücksichtigen.
+Die Zustandsraumdarstellung erlaubt ein Einblick in das Verhalten eines dynamischen Systems. Anhand eines *Zeitdiagrammes* und *Phasenporträit* kann das System *visualisiert* werden. Man gibt Startkonditionen an und kann über das Phasenporträit den zeitlichen Verlauf verfolgen.
 
-`\underline{\footnotesize{...welche Eingangssignale}}`{=latex} -- Das zu testende System muss hinreichend mit einem Signal angeregt werden $\rightarrow$ Diracstösse, Sprungfunktionen, Rampen und harmonische Funktionen
+![](images/state_space\quiver.png){fig-align="center" width="5.7cm"}
 
-`\underline{\footnotesize{...was meint 'gleichwertig'}}`{=latex} -- Da Ein- & Ausgangsgrössen beobachtet werden, kann $y$ des zu testenden Systems und $\hat{y}$ des zu vergleichenden Modell verglichen werden. Mit dem resultierenden Fehler $\epsilon = y - \hat{y}$ können Grenzen festgelegt werden.
+![](images/state_space\time.png){fig-align="center" width="6.3cm"}
 
-`\underline{\footnotesize{...wie kann ein Modell gefunden werden}}`{=latex} -- Trial & Error mit Sprungantwort und Bodediagramm.
+### Autonomes, zeitinvariantes System
 
-### Methode der kleinsten Quadrate
-
-Mit dieser Methode können Parameter anhand Messwerten bestummen werden.
-
-$$
-\begin{array}{r}
-\underbrace{y[k]+a_1y[k-1]+a_2y[k-2]+\cdots+a_ny[k-n]}_{A(z^{-1})y}\\
-= \underbrace{b_1u[k-1]+\cdots+b_nu[k-n]}_{B(z^{-1})u}
-\end{array}
-$$
-
-$$
-\beta^T=\begin{pmatrix}
-a_1 & a_2 & \cdots & a_n & b_1 & b_2 & \cdots & b_n
-\end{pmatrix}
-$$
+```{=latex}
+\begin{center}
+  \begin{tikzpicture}
+    \node[rectangle, draw=black, minimum width = 2cm] (a) at (0,0) {$\frac{dx}{dt} = f(x)$};
+    \node (b) at (2,0) {};
+    \draw[->] (a) -- node [above] {$x$} (b);
+  \end{tikzpicture}
+\end{center}
+```
 
 $$
-\epsilon = A(z^{-1})y-B(z^{-1})u = \underbrace{y}_{Gemessen}-\underbrace{\Phi\beta}_{\text{Modell}}
+\frac{dx}{dt}=f(x)
 $$
 
+Autonome Systeme berücksichtigen äusserliche Beeinflussungen [nicht]{.underline} und sind ausschliesslich vom Anfangszustand abhängig.
+
+### Allgemeine Systeme
+
+```{=latex}
+\begin{center}\begin{tikzpicture}
+
+\node[rectangle, draw=black, minimum width = 2cm] (a) at (0,0) {
+$
+\begin{matrix}
+\frac{dx}{dt} = f(x,u) \\
+y=h(x,u)
+\end{matrix}
+$
+};
+\node (b) at (2,0) {};
+\node (c) at (-2,0) {};
+
+\draw[->] (a) -- node [above] {$y$} (b);
+\draw[->] (c) -- node [above] {$u$} (a);
+
+\end{tikzpicture}\end{center}
+```
 $$
-y = \begin{pmatrix}
-  y[n+1]\\
-  y[n+2]\\
-  \vdots\\
-  y[n+N]
-\end{pmatrix}
+\frac{dx}{dt}=f(x,u)\qquad y=h(x,u)
 $$
 
-![](images/paste-36.png)
+### Lineares Zustandsraummodell
+
+Viele der Systeme können an ein zeitinvariantes und lineares System (LTI-System) angenähert werden.
+
+```{=latex}
+\begin{center}\begin{tikzpicture}[scale=0.8]
+
+
+
+\node (entry) at (-1,0) {$u$};
+\node[rectangle, draw=black, minimum width=1cm] (integ) at (3.25,0) {$\int{dt}$};
+\node[circle, draw=black] (circA) at (3.25,-1) {\textcolor{NavyBlue}{\textbf{A}}};
+\node[circle, draw=black] (circB) at (1,0) {\textcolor{BurntOrange}{\textbf{B}}};
+\node[sum] (add)   at (2,0) {+};
+\node[sum] (add2) at (6.5,0) {+};
+\node[circle, draw=black] (circC) at (5.5,0) {\textcolor{BrickRed}{\textbf{C}}};
+\node[circle, draw=black] (circD) at (3.25,1) {\textcolor{OliveGreen}{\textbf{D}}};
+\node [dot] (v2) at (4.5,0) {};
+\node [dot] (v3) at (0,0) {};
+\node (end) at (7.5,0) {$y$};
+
+
+\draw [->] (integ) edge node [above]{$x$} (v2);
+\draw [->] (v2) edge (circC);
+\draw [->] (add) edge node[above]{$\dot{x}$} (integ);
+\draw [->] (circB) edge (add);
+\draw [->] (entry) edge (circB);
+\draw [->] (circA) -| (add);
+\draw [->] (v2) |- (circA);
+\draw [->] (v3) |- (circD);
+\draw [->] (circD) -| (add2);
+\draw [->] (circC) -- (add2);
+\draw [->] (add2) -- (end);
+\end{tikzpicture}\end{center}
+```
+$$
+\frac{dx}{dt}=\left(\begin{matrix} \dot{x}_1 \\ \dot{x}_2 \end{matrix}\right)=\textcolor{NavyBlue}{\mathbf{A}}x+\textcolor{BurntOrange}{\mathbf{B}}u \qquad y = \textcolor{BrickRed}{\mathbf{C}}x + \textcolor{OliveGreen}{\mathbf{D}}u
+$$
+
+```{=latex}
+\begin{conditions}
+  A & beschreibt Dynamik \\
+  B & beschreibt Steuereinfluss \\
+  C & beschreibt Messung \\
+  D & beschreibt Durchgriff
+\end{conditions}
+```
+
+### Übertragungsfunktion
+
+Wird als Eingangssignal $u$
 
 $$
-\hat{\beta} = (\Phi^T\Phi)^{-1}\Phi^Ty
+u=\cos(\omega t)=\frac12(e^{+j\omega t}+e^{-j\omega t})
 $$
+
+gegeben, ergibt sich folgendes Ausgangssignal
+
+$$
+y(t)=\underbrace{C\textcolor{BrickRed}{e^{At}}(x(0)-(sI-A)^{-1}B)}_{\text{transient } y_t} + \underbrace{\overbrace{(C(sI-A)^{-1}B+D)}^{\text{Übertragungsfunktion}} e^{st}}_{\text{stationär } y_s}
+$$
+
+::: callout-note
+Ist $A$ stabil, so geht der transiente Anteil $y_t$ asymptotisch gegen Null. Der stationäre Anteil bleibt übrig und entspricht der Übertragungsfunktion.
+:::

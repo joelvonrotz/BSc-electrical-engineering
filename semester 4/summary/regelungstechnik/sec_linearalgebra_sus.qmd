@@ -1,26 +1,27 @@
-# Linear Algebra Kurzfassung
+# Kurzfassung
+## Linear Algebra
 
-## Determinante
+### Determinante
 
-### 2 $\times$ 2-Matrix
+#### 2 $\times$ 2-Matrix
 
 $$
 \det(A)=\begin{vmatrix} \textcolor{BurntOrange}{a} & b \\c & \textcolor{BurntOrange}{d}\end{vmatrix} ={\textcolor{BurntOrange}{ad}-bc}
 $$
 
-### 3 $\times$ 3-Matrix
+#### 3 $\times$ 3-Matrix
 
 $$
 \det(A)=\begin{vmatrix} \textcolor{BurntOrange}{a} & \textcolor{NavyBlue}{b} & \textcolor{OliveGreen}{c} \\ \textcolor{OliveGreen}{d} & \textcolor{BurntOrange}{e} & \textcolor{NavyBlue}{f} \\ \textcolor{NavyBlue}{g} & \textcolor{OliveGreen}{h} & \textcolor{BurntOrange}{i} \end{vmatrix} = \textcolor{BurntOrange}{aei}+\textcolor{NavyBlue}{bfg}+\textcolor{OliveGreen}{cdh}-ceg-bdi-afh
 $$
 
-## Inverse Matrix
+### Inverse Matrix
 
 $$
 A^{-1}=\frac{\text{adj}(A)}{\det(A)}
 $$
 
-### 2 $\times$ 2-Matrix
+#### 2 $\times$ 2-Matrix
 
 $$
 A^{-1}=
@@ -35,7 +36,7 @@ c & \textcolor{BrickRed}{d}
 \end{bmatrix}
 $$
 
-### 3 $\times$ 3-Matrix
+#### 3 $\times$ 3-Matrix
 
 $$
 A^{-1}=
@@ -49,17 +50,17 @@ a & b & c \\ d & e & f \\ g & h & i
 \end{bmatrix}
 $$
 
-# Signal & System Kurzfassung
+## Signal & System
 
 ::: callout-important
-### Gültigkeit End- & Anfangswertsatz
+#### Gültigkeit End- & Anfangswertsatz
 
 End- & Anfangswertsatz gilt nur bei stabilen Systemen.
 :::
 
-## Endwertsatz
+### Endwertsatz
 
-### Laplace
+#### Laplace
 
 $$
 \lim_{t\rightarrow\infty}x(t)=\lim_{s\rightarrow0} s\cdot X(s)
@@ -67,7 +68,7 @@ $$
 
 falls $\lim_{t\rightarrow\infty} x(t)$ existiert
 
-### Z-Transformation
+#### Z-Transformation
 
 $$
 \lim_{k\rightarrow\infty}x[k]=\lim_{z\rightarrow1}(z-1)X(z)
@@ -75,9 +76,9 @@ $$
 
 falls $X(z)$ nur Pole mit $\lvert z\rvert < 1$ oder bei $z=1$
 
-## Anfangswertsatz
+### Anfangswertsatz
 
-### Laplace
+#### Laplace
 
 $$
 x(0^+)=\lim_{s\rightarrow\infty}s\cdot X(s)
@@ -101,7 +102,7 @@ $$
 
 ![](images/paste-18.png)
 
-# Euler Approximation
+## Euler Approximation
 
 ![](images/paste-32.png){fig-align="center" width="6cm"}
 

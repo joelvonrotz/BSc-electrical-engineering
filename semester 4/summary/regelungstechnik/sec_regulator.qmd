@@ -160,12 +160,11 @@ $$
 ![](images/paste-12.png){fig-align="center" width="4cm" height="3.5cm"}
 
 -   Beschreibt bleibender Fehler, nach Abklingung der transienten Vorgänge
-
 -   Gutes Mass ist stationärer Regelfehler $e$
 
-    $$
-    e = \frac1{1+PC}r+\frac{-P}{1+PC}v+\frac{-1}{1+PC}w
-    $$
+$$
+e = \frac1{1+PC}r+\frac{-P}{1+PC}v+\frac{-1}{1+PC}w
+$$
 
 $$
 e_{stationär}=\small\frac{1}{1+PC}\biggr\rvert_{s=0}\cdot r_0+\small\frac{-P}{1+PC}\biggr\rvert_{s=0}\cdot v_0+\small\frac{-1}{1+PC}\biggr\rvert_{s=0}\cdot w_0

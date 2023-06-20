@@ -1,0 +1,70 @@
+# Prozess
+
+```{=latex}
+\begin{center}\begin{tikzpicture}
+\node[box, minimum height=0.8cm, inner sep=5pt] (procBox) at (0,2) {Prozess $P$};
+
+\node (start) at (-2,2) {};
+\node (end) at (2,2) {};
+\draw[->]  (start) edge (procBox);
+\draw[->]  (procBox) edge (end);
+\end{tikzpicture}\end{center}
+```
+
+## Modellierung
+
+::: callout-important
+## Vereinfachung
+
+Modelle repräsentieren immer eine Vereinfachung des eigentlichen Systems und fokusiert daher immer auf ein Teil des Systems.
+
+`\vspace{2mm}`{=latex}
+
+[Beispiel]{.underline}: Die Modellierung des Tempomats konzentriert sich mehr auf die Geschwindigkeit des Fahrzeugs als auf die Auswirkungen eines Atombombeneinschlags auf das Fahrzeug.
+:::
+
+## Identifikation
+
+`\underline{\footnotesize{...welche Klasse}}`{=latex} -- Ausgehend von einem LTI-System sind der Grad von Zähler- und Nennerpolynom festzulegen. Zudem sidn allfällige Totzeiten zu berücksichtigen.
+
+`\underline{\footnotesize{...welche Eingangssignale}}`{=latex} -- Das zu testende System muss hinreichend mit einem Signal angeregt werden $\rightarrow$ Diracstösse, Sprungfunktionen, Rampen und harmonische Funktionen
+
+`\underline{\footnotesize{...was meint 'gleichwertig'}}`{=latex} -- Da Ein- & Ausgangsgrössen beobachtet werden, kann $y$ des zu testenden Systems und $\hat{y}$ des zu vergleichenden Modell verglichen werden. Mit dem resultierenden Fehler $\epsilon = y - \hat{y}$ können Grenzen festgelegt werden.
+
+`\underline{\footnotesize{...wie kann ein Modell gefunden werden}}`{=latex} -- Trial & Error mit Sprungantwort und Bodediagramm.
+
+### Methode der kleinsten Quadrate
+
+Mit dieser Methode können Parameter anhand Messwerten bestummen werden.
+
+$$
+\begin{array}{r}
+\underbrace{y[k]+a_1y[k-1]+a_2y[k-2]+\cdots+a_ny[k-n]}_{A(z^{-1})y}\\
+= \underbrace{b_1u[k-1]+\cdots+b_nu[k-n]}_{B(z^{-1})u}
+\end{array}
+$$
+
+$$
+\beta^T=\begin{pmatrix}
+a_1 & a_2 & \cdots & a_n & b_1 & b_2 & \cdots & b_n
+\end{pmatrix}
+$$
+
+$$
+\epsilon = A(z^{-1})y-B(z^{-1})u = \underbrace{y}_{Gemessen}-\underbrace{\Phi\beta}_{\text{Modell}}
+$$
+
+$$
+y = \begin{pmatrix}
+  y[n+1]\\
+  y[n+2]\\
+  \vdots\\
+  y[n+N]
+\end{pmatrix}
+$$
+
+![](images/paste-36.png)
+
+$$
+\hat{\beta} = (\Phi^T\Phi)^{-1}\Phi^Ty
+$$

@@ -219,3 +219,4 @@ sisotool(P); % Der Prozess wird angegeben
 ### `minreal`
 
 Kürzt doppelte Nullstellen heraus algebraisch -> reduzieren auf Minimalform
+

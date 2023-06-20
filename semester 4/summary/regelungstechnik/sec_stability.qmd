@@ -1,0 +1,75 @@
+# Stabilität
+
+## Allgemein
+
+Die Stabilität ist in drei Zustände eingeteilt.
+
+-   **stabil**, falls alle Zustände in der Nähe der Gleichgewichtslage $x_e$ zu Lösungen führen.
+-   **asymptotisch stabil**, falls alle Zustände in der Nähe von $x_e$ nach langer Zeit ($t \rightarrow \infty$) in $x_e$ enden.
+-   **instabil**, falls der Zustand nie eine Gleichgewichtslage erreicht.
+
+Stabilität ist im Allgemeinen eine *lokale* Eigenschaft innerhalb eines Bereiches des Zustandsraums!
+
+::: callout-note
+### Beispiel
+
+Ein Pendel, welches die gesamte Rotationsachse ($360\degree$, rundherum) ausnützen kann, hat zwei Gleichgewichtslagen:
+
+-   **stabile** Position oben
+-   **asymptotische stabile** Positionen, welche immer nach unten verlaufen.
+
+![](images/dynamik\stationary_point.png){fig-align="center" width="6cm"}
+:::
+
+## Linearer Systeme
+
+```{=latex}
+\begin{center}\begin{tikzpicture}
+
+% x-Axis nodes
+\node (xStart) at (-3,0) {};
+\node (xEnd) at (3,0) {};
+
+% y-Axis nodes
+\node (yStart) at (0,-2.5) {};
+\node (yEnd) at (0,2.5) {};
+
+% Coloured Areas
+\fill[green!50!orange!20] (-2.5,2) -- (-2.5,-2) -- (0,-2) -- (0,2) -- (-2.5,2);
+\fill[red!50!orange!20] (2.5,2) -- (2.5,-2) -- (0,-2) -- (0,2) -- (2.5,2);
+
+% Axis Arrows + Descriptions
+\draw[-latex] (xStart) -- node[right = 2.75cm]{Re$(s)$} (xEnd);
+\draw[-latex] (yStart) -- node[above = 2.3cm]{Im$(s)$} (yEnd);
+
+% Area Descriptions
+\node at (-1.25,1) {stabil};
+\node at (1.25,1) {instabil};
+\end{tikzpicture}\end{center}
+```
+
+Polstellen eines linearen Systems ($\frac{dx}{dt}=Ax$ & $x(0)=x_0$) können mit dem *charakteristischen Polynoms* berechnet werden.
+
+::: callout-important
+### charakteristisches Polynom
+
+Die Nullstellen von $\lambda$ werden mit der Dynamik-Matrix $A$ berechnet. Diese entsprechen dem Nennerpolynom $C(sI-A)^{-1}
+
+$$
+\lambda(A) := \{s \in \mathbb{C} :  \det(sI-A)=0\}
+$$
+:::
+
+::: callout-caution
+### Gültigkeit
+
+Stabilität linearer Systeme ist [nur von]{.underline} $A$ [abhängig]{.underline}, nicht vom Anfangswert $x_0$. Dies gilt Global!
+
+Ebenfalls sind stabile lineare Systeme **global** gültig. 
+:::
+
+### Linearisierung
+
+Ist das linearisiterte System asymptotisch stabil, so ist das nicht-lineare System in der **Umgebung der Gleichgewichtslage** ebenfalls asymptotisch stabil.
+
+{{< include sec_hurwitz_nyquist.qmd >}}
