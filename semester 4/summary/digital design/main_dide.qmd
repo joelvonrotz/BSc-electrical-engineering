@@ -21,10 +21,10 @@ title: "Digital Design"
 author: "Joel von Rotz & Andreas Ming"
 
 geometry: 
-- "top=25mm"
-- "bottom=25mm"
-- "left=10mm"
-- "right=10mm"
+- "top=18mm"
+- "bottom=15mm"
+- "left=5mm"
+- "right=5mm"
 papersize: a4
 fontsize: 9pt
 
