@@ -171,9 +171,9 @@ Innerhalb einer Critical Section sollten keine FreeRTOS API Aufrufe getätigt we
 #define portDISABLE_INTERRUPTS () \
   portSET_INTERRUPT_MASK ()
 #define portSET_INTERRUPT_MASK () \
-  __asm volatile("cpsid i") /* M0+ */
+  __asm volatile("cpsid i") // M0+
 #define portCLEAR_INTERRUPT_MASK () \
-  __asm volatile("cpsie i") /* M0+ */
+  __asm volatile("cpsie i") // M0+
 ```
 
 ::: callout-caution
@@ -251,34 +251,40 @@ FreeRTOS verwendet 2-3 Interrupts: `SysTick` dient als Zeitbasis, `PendSV` für 
 
 ### ARM Cortex-M Interrupts
 
-![](images/paste-14.png)
+![](images/cortex_interrupt_span.png)
 
 ### Critical Sections
 
 ``` cpp
-#define portDISABLE_INTERRUPTS() portSET_INTERRUPT_MASK() // <1>
-#define portENABLE_INTERRUPTS() portCLEAR_INTERRUPT_MASK()
+#define portDISABLE_INTERRUPTS() \ 
+  portSET_INTERRUPT_MASK() // <1>
+#define portENABLE_INTERRUPTS() \
+  portCLEAR_INTERRUPT_MASK()
 
-#define portENTER_CRITICAL() vPortEnterCritical() // <2>
-#define portEXIT_CRITICAL() vPortExitCritical()
+#define portENTER_CRITICAL() \ 
+  vPortEnterCritical() // <2>
+#define portEXIT_CRITICAL() \
+  vPortExitCritical()
 
-#define taskENTER_CRITICAL() portENTER_CRITICAL() // <3>
-#define taskEXIT_CRITICAL() portEXIT_CRITICAL()
+#define taskENTER_CRITICAL() \ 
+  portENTER_CRITICAL() // <3>
+#define taskEXIT_CRITICAL() \
+  portEXIT_CRITICAL()
 ```
 
-1.  Nicht verschachtelbar
-2.  verschachtelbar
-3.  für Task Critical Sections
+1. Nicht verschachtelbar
+2. Verschachtelbar
+3. für Task Critical Sections
 
 Critical Sections dienen zum Blockieren von ISR, wenn etwas wichtiges gemacht werden muss (Beispiel: `vPortTickHandler` verwendet CS um den Tick sicher zu inkrementieren und die Task-Liste zu überprüfen).
 
 ``` cpp
-#define configLIBRARY_MAX_SYSCALL_INTERRUPT_PRIORITY (5) // <1>
+#define configLIBRARY_MAX_SYSCALL_INTERRUPT_PRIORITY (5)
 #define configMAX_SYSCALL_INTERRUPT_PRIORITY \
   (configLIBRARY_MAX_SYSCALL_INTERRUPT_PRIORITY<<(8-configPRIO_BITS))
 ```
 
-1.  M4 verwendet diesen Wert für das `BASEPRI`-Register
+-   M4 verwendet diesen Wert für das `BASEPRI`-Register
 
 ![](images/basepri_mask.png){fig-align="center" width="5cm"}
 
@@ -397,7 +403,7 @@ static void SuicideTask (void *params) {
   (void)params; 
   /* ... do the work here ... */
   vTaskDelete(NULL); /* killing myself */
-  /* won ’t get here as I’m dead ;-) */
+  /* won't get here as I'm dead ;-) */
 }
 ```
 
