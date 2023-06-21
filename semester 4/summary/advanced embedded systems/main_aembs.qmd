@@ -37,7 +37,7 @@ toc-depth: 3
 number-sections: false
 pagenumbering: none
 highlight-style: github
-fig-pos: H
+fig-pos: "H"
 fig-align: center
 ---
 
@@ -48,8 +48,6 @@ fig-align: center
 
 
 ```{=latex}
-\newpage
-
 % keep this to have smaller code blocks
 \ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[
   colback={shadecolor},
