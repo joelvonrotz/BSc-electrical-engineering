@@ -189,6 +189,8 @@ Beim *Moore* werden die [Ausgänge vom aktuellen Zustand bestimmt]{.underline}. 
 
 ## FSM-Typ: Medvedev
 
+![](images/paste-22.png)
+
 *Medvedev* hat eine ähnlichen Aufbau wie *Moore*, wobei der Ausgang direkt dem Zustandswert entspricht und keine Zwischen-Konvertierung gemacht wird.
 
 $$
