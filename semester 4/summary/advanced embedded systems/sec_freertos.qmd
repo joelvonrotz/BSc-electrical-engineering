@@ -256,20 +256,20 @@ FreeRTOS verwendet 2-3 Interrupts: `SysTick` dient als Zeitbasis, `PendSV` für 
 ### Critical Sections
 
 ``` cpp
-#define portDISABLE_INTERRUPTS() \ 
+#define portDISABLE_INTERRUPTS() \
   portSET_INTERRUPT_MASK() // <1>
 #define portENABLE_INTERRUPTS() \
-  portCLEAR_INTERRUPT_MASK()
+  portCLEAR_INTERRUPT_MASK() // <1>
 
-#define portENTER_CRITICAL() \ 
+#define portENTER_CRITICAL() \
   vPortEnterCritical() // <2>
 #define portEXIT_CRITICAL() \
-  vPortExitCritical()
+  vPortExitCritical() // <2>
 
-#define taskENTER_CRITICAL() \ 
+#define taskENTER_CRITICAL() \
   portENTER_CRITICAL() // <3>
 #define taskEXIT_CRITICAL() \
-  portEXIT_CRITICAL()
+  portEXIT_CRITICAL() // <3>
 ```
 
 1. Nicht verschachtelbar
