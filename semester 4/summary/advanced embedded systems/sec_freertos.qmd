@@ -101,7 +101,7 @@ Implementiert...
 
 ## Kernel
 
-### einfache API
+### API
 
 #### vTaskStartScheduler()
 
@@ -211,19 +211,74 @@ Ein Kontextwechsel kann nur stattfinden, wenn der Scheduler oder das Betriebssys
 
 ## Interrupts
 
-### Priorität FreeRTOS -- Cortex-M
-
 ![](images/freertos\priority_scaling_cortex_freertos.png){fig-align="center" width="5cm"}
+
+### ISR & FreeRTOS
+
+Aus Interrupt Service Routinen darf man nur OS Funktionen benutzen, welche mit `FromISR` enden. Diese sind **nicht blockierend**.
+
+``` cpp
+void vTimerISR(void) {
+  BaseType_t xHigherPriorityTaskWoken;
+  xHigherPriorityTaskWoken = pdFALSE;
+  xSemaphoreGiveFromISR(xSemaphore , &xHigherPriorityTaskWoken);
+  portYIELD_FROM_ISR(xHigherPriorityTaskWoken); // <1>
+}
+```
+
+1.  `xHigherPriorityTaskWoken=pdTRUE` $\rightarrow$ höher priorisierter Task wurde aktiviert
+
+![](images/interrupt_ISR_yielding.png){fig-align="center" width="8cm"}
+
+### Kernel Interrupt Priorität
+
+``` cpp
+#define configPRIO_BITS 4
+#define configLIBRARY_LOWEST_INTERRUPT_PRIORITY 15 // <1>
+#define configKERNEL_INTERRUPT_PRIORITY \
+  (configLIBRARY_LOWEST_INTERRUPT_PRIORITY<<(8-configPRIO_BITS))
+```
+
+1.  Die Interrupts `SysTick` & `PendSV` werden mit der angegeben Priorität konfiguriert, welche der **tiefsten** Dringlichkeit (15) entspricht.
+
+$\rightarrow$ Damit kein Einfluss auf Anwendungsspezifische Interrupts
+
+::: callout-important
+#### Anzahl Interrupts
+
+FreeRTOS verwendet 2-3 Interrupts: `SysTick` dient als Zeitbasis, `PendSV` für Kontext-Wechsel und `SVCall` auf dem Cortex-M3/4/7 um den Scheduler zu starten.
+:::
 
 ### ARM Cortex-M Interrupts
 
 ![](images/paste-14.png)
 
-::: callout-note
-### 1
-:::
+### Critical Sections
 
-### BASEPRI (Cortex M4)
+``` cpp
+#define portDISABLE_INTERRUPTS() portSET_INTERRUPT_MASK() // <1>
+#define portENABLE_INTERRUPTS() portCLEAR_INTERRUPT_MASK()
+
+#define portENTER_CRITICAL() vPortEnterCritical() // <2>
+#define portEXIT_CRITICAL() vPortExitCritical()
+
+#define taskENTER_CRITICAL() portENTER_CRITICAL() // <3>
+#define taskEXIT_CRITICAL() portEXIT_CRITICAL()
+```
+
+1.  Nicht verschachtelbar
+2.  verschachtelbar
+3.  für Task Critical Sections
+
+Critical Sections dienen zum Blockieren von ISR, wenn etwas wichtiges gemacht werden muss (Beispiel: `vPortTickHandler` verwendet CS um den Tick sicher zu inkrementieren und die Task-Liste zu überprüfen).
+
+``` cpp
+#define configLIBRARY_MAX_SYSCALL_INTERRUPT_PRIORITY (5) // <1>
+#define configMAX_SYSCALL_INTERRUPT_PRIORITY \
+  (configLIBRARY_MAX_SYSCALL_INTERRUPT_PRIORITY<<(8-configPRIO_BITS))
+```
+
+1.  M4 verwendet diesen Wert für das `BASEPRI`-Register
 
 ![](images/basepri_mask.png){fig-align="center" width="5cm"}
 
@@ -372,22 +427,121 @@ Bestimmt bei einem preemptiven Scheduler, ob IDLE Task gleich Kontrolle die Kont
 
 ![](images/timer%5Ctimer_overview.png)
 
-::: callout-caution
-## Timer Service Daemon
+``` cpp
+#define configUSE_TIMERS (1) // <1>
+#define configTIMER_QUEUE_LENGTH (3)
+#define configTIMER_TASK_PRIORITY \
+  (configMAX_PRIORITIES-1) // <2>
+#define configTIMER_TASK_STACK_DEPTH \
+  (configMINIMAL_STACK_SIZE)
+```
 
-Mit `configUSE_TIMERS` wird die Timer-Funktionen aktiviert und aktiviert automatisch die *Timer Service Daemon*
+1.  aktiviert Timer-Funktion und den *Timer Service Daemon*
+2.  Hohe Priorität
+
+### Erstellen
+
+``` cpp
+TimerHandle_t xTimerCreate(
+  const char *const pcTimerName,
+  const TickType_t xTimerPeriodInTicks,
+  const UBaseType_t uxAutoReload,
+  void *const pvTimerID,
+  TimerCallbackFunction_t pxCallbackFunction);
+```
+
+### Callback
+
+``` cpp
+static void vTimerCallback(xTimerHandle pxTimer) {
+  /* ... */
+}
+```
+
+### API
+
+``` cpp
+BaseType_t xTimerStart(TimerHandle_t xTimer, TickType_t xTicksToWait);
+BaseType_t xTimerStop(...);
+BaseType_t xTimerReset(...);
+BaseType_t xTimerDelete(...);
+```
+
+Diese Befehle werden in die *Timer-Queue* gegeben.
+
+::: callout-note
+## Interrupt
+
+Alle API-Funktionen stehen auch mit `FromISR` zur Verfügung.
 :::
+
+### Verwaltung
+
+``` cpp
+BaseType_t xTimerIsTimerActive(TimerHandle_t xTimer);
+BaseType_t xTimerChangePeriod(TimerHandle_t xTimer,
+  TickType_t xNewPeriod,
+  TickType_t xTicksToWait);
+TaskHandle_t xTimerGetTimerDaemonTaskHandle(void);
+```
 
 ## Queue
 
-## Semaphore & Mutex
+![](images/paste-25.png){width="7cm"}
+
+### Erstellen & Löschen
+
+![](images/paste-26.png){width="5cm"}
+
+``` cpp
+xQueueHandle xQueueCreate( // <1>
+  unsigned portBASE_TYPE uxQueueLength,
+  unsigned portBASE_TYPE uxItemSize
+);
+void vQueueDelete(xQueueHandle xQueue);
+```
+
+1.  \textcolor{BrickRed}{Device Handle auf NULL prüfen!}
+
+### Anschauen & Entfernen
+
+``` cpp
+BaseType_t xQueueReset(xQueueHandle xQueue);
+BaseType_t xQueuePeek( // <1>
+  xQueueHandle xQueue,
+  void * pvBuffer,
+  portTickType xTicksToWait // <2>
+);
+BaseType_t xQueueReceive(
+  xQueueHandle xQueue,
+  void * pvBuffer,
+  portTickType xTicksToWait
+);
+```
+
+1.  Entfernt Element nicht
+2.  mit `portMAX_DELAY` kann sehr lange gewartet werden (aber nicht unendlich lang!)
+
+### Hinzufügen
 
 ::: callout-important
-### Unterschied Semaphore & Mutex
-
-Beide sind sehr ähnlich, ausser folgendes: Mutex hat Priority Inheritance,
+Elemente werden *by value* in die Queue kopiert.
 :::
 
-### Counting Semaphore
+``` cpp
+BaseType_t xQueueSendToBack( // <1>
+  xQueueHandle xQueue,
+  const void * pvItemToQueue,
+  portTickType  xTicksToWait
+);
+BaseType_t xQueueSendToFront( // <2>
+  xQueueHandle xQueue,
+  const void * pvItemToQueue,
+  portTickType  xTicksToWait
+);
+```
 
-## Prioritäten
+1.  FIFO
+2.  LIFO
+
+Returnwerte: `pdTRUE`, `errQUEUE_FULL`

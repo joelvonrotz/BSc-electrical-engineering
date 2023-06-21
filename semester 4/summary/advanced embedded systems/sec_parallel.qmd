@@ -1,0 +1,173 @@
+# Parallelität
+
+## Reentrancy
+
+Jede Funktion, welche von einem unterbrechenden Prozess (ISR) verwendet wird, muss **reentrant** (wiedereintretbar) sein.
+
+![](images/paste-27.png){width="6cm"}
+
+-   Greifen zwei Prozesse (z.B. ISR & Haupt) lesend zu $\rightarrow$ kein Problem
+-   Einer liest, der andere schreibt oder beide schreiben $\rightarrow$ Problem
+
+### Interrupt (de-)aktivieren
+
+```{=latex}
+\begin{itemize}
+\item[\textcolor{OliveGreen}{\faPlus}] Einfach
+\item[\textcolor{BrickRed}{\faMinus}] Interrupt-Latenz
+\end{itemize}
+```
+### Critical Sections / Semaphore & Mutex
+
+``` c
+#define CriticalVariable() \
+  uint8_t cpuSR // <1>
+```
+
+1.  definiert lokale Variable `cpuSR` für Sicherung des aktuellen Interrupt-Zustandes
+
+``` c
+#define EnterCritical()      \
+  do {                       \
+    __asm (                  \
+      "mrs   r0, PRIMASK \n" \ // <1>
+      "cpsid i           \n" \ // <2>
+      "strb r0, cpuSR    \n" \ // <3>
+    );                       \
+  } while(0)
+```
+
+1.  `PRIMASK` wird in `R0` abgespeichert
+2.  Interrupts deaktivieren
+3.  `R0` in `cpuSR` abspeichern
+
+``` c
+#define ExitCritical()    \
+  do {                    \
+    __asm(                \
+      "ldrb r0, cpuSR \n" \ // <1>
+      "msr PRIMASK,r0 \n" \ // <2>
+    );                    \
+  } while(0)
+```
+
+1.  Inhalt von `cpuSR` in `R0` laden
+2.  `R0` nach `PRIMASK` kopieren.
+
+```{=latex}
+\begin{itemize}
+\item[\textcolor{OliveGreen}{\faPlus}] Kann verschachtelt werden
+\item[\textcolor{OliveGreen}{\faPlus}] \texttt{cpuSR} verhindert das vor ausgeschaltete Interrupts eingeschaltet werden (merkt sich vorheriger Status)
+\end{itemize}
+```
+## Priority Protokolle
+
+### Priority Inversion (Problem)
+
+![](images/paste-28.png){width="7cm" height="3.6cm"}
+
+-   PH wartet auf Lockfreigabe von PL, welcher von PM unterbrochen wurde $\rightarrow$ PM hat eine Art höhere Priorität als PL
+
+```{=latex}
+\begin{itemize}
+  \item[\textcolor{BrickRed}{\faMinus}] Prioritätsproblem
+\end{itemize}
+```
+### Priority Inheritance
+
+![](images/paste-29.png){width="8cm"}
+
+![](images/paste-30.png){width="8cm" height="4.2cm"}
+
+-   Tiefe Prio-Task mit Lock erhält temporär Priorität der höchsten Anfrage $\rightarrow$ Tasks dazwischen werden blockiert
+
+```{=latex}
+\begin{itemize}
+\item[\textcolor{OliveGreen}{\faPlus}] Löst das Problem der Priority Inheritance
+\item[\textcolor{BrickRed}{\faMinus}] mehr Rechenzeit
+\item[\textcolor{BrickRed}{\faMinus}] löst Deadlocks nicht
+\end{itemize}
+```
+### Deadlock
+
+![](images/paste-31.png){width="7cm" height="3.3cm"}
+
+$\rightarrow$ Lösung *Priority Ceiling*
+
+### Priority Ceiling
+
+![](images/paste-32.png)
+
+$S_0: H\quad S_1: M\quad S_2: M$
+
+Der *Ceiling-*Wert pro Ressource ist statisch und entspricht der höchsten Priorität eines Tasks, welche die Ressource nutzt.
+
+Regeln der *Priority Ceiling*
+
+1.  **Normales Scheduling** -- Solange ein Task $T_i$ nicht eine seiner Critical Sections betreten will, kann er einen Task mit tieferer Priorität unterbrechen
+2.  **Deadlock-Fix** -- Wenn ein Task $T_i$ versucht, eine seiner Critical Sections zu betreten wird er suspendiert ausser seine Priorität ist höher ($>$) als die Ceiling Priorität aller momentan von anderen Tasks als $T_i$ gehaltenen Semaphoren
+3.  **Priority Inheritance** -- Wenn ein Task $T_i$ deshalb seine Critical Section nicht betreten kann, dann blockiert der Task $T_j$, welche die Semaphore hält, den Task $T_i$. Dabei vererbt der Task Ti seine eigene Priorität an den Task $T_j$
+
+## Semaphore & Mutex
+
+Bei gemeinsamer Ressourcen-Nutzung von zwei verschiedenen Tasks.
+
+::: callout-important
+### Unterschied Semaphore & Mutex
+
+Beide sind sehr ähnlich, ausser dass Mutex über die *Priority Inheritance verfügt.*
+
+Ebenfalls können **Semaphoren** zur **Synchronisation** von Tasks verwendet werden (Skript s.200).
+:::
+
+::: callout-important
+## Queues ohne Daten
+
+Semaphoren & Mutex basieren auf der Queue API, da diese bereits **reentrant** sind. Die Länge dieser Queue entspricht `semSEMAPHORE_QUEUE_ITEM_LENGTH` (Grösse 0).
+:::
+
+### Semaphore
+
+Ein Semaphore kann freigegeben werden, muss aber nicht.
+
+``` cpp
+SemaphoreHandle_t xSemaphore;
+xSemaphore = xSemaphoreCreateBinary();
+if (xSemaphore == NULL) {
+/* Failed! Not enough heap memory? */
+} else {
+  /* The semaphore can now be used */
+  
+  /* give semaphore back */
+}
+```
+
+-   `xSemaphoreCreateBinary()`: erstellt eine Binäre Semaphore.
+-   `xSemaphoreCreateCounting()`: erstellt eine Counting Semaphore.
+-   `xSemaphoreTake()`: Einen Lock mit einer Binären oder Counting Semaphore anfordern.
+-   `xSemaphoreGive()`: Eine Binäre oder Counting Semaphore freigeben.
+-   `xSemaphoreDelete()`
+
+### Mutex
+
+Ein Mutex **muss** nach dem Nehmen irgendwann zurückgegeben werden!
+
+``` cpp
+#define configUSE_MUTEXES (1)
+#define configUSE_RECURSIVE_MUTEXES (1)
+```
+
+-   `xSemaphoreCreateMutex()`: erstellt ein Mutex
+-   `xSemaphoreCreateRecursiveMutex()`: erstellt ein rekursiven Mutex
+-   `xSemaphoreTakeRecursive()`, `xSemaphoreGiveRecursive`: **nur für rekursive Mutex**
+
+Ein Mutex ist wie ein Semaphore (einfach mit Priority Inheritance). Ein Mutex kann *normal* oder *rekursiv* sein*.*
+
+::: callout-note
+## Rekursive Mutex
+
+Ein **rekursiven** Mutex kann verschachtelt werden, bzw. mehrmals vom **selben** Task aufgerufen werden. Um den Mutex zurückzugeben, muss dieser genau so viele Male zurückgegeben werden, wie er genommen wurde.
+
+-   In den *`Recursive`*-Funktionen wird eine Mutex-Count Variable de-/inkrementiert
+-   Besonders nützlich, falls die aufgerufene Funktion rekursiv ist
+:::

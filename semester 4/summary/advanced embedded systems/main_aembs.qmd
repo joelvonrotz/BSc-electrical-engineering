@@ -74,6 +74,8 @@ fig-align: center
 
 {{< include sec_freertos.qmd >}}
 
+{{< include sec_parallel.qmd >}}
+
 {{< include sec_c_concepts.qmd >}}
 
 {{< include sec_user_experience.qmd >}}

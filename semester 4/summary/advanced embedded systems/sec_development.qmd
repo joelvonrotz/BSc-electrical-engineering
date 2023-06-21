@@ -111,11 +111,11 @@ Anzeige von **Queues**, **Semaphore** & **Mutex**
 
 ``` cpp
 static xQueueHandle SQUEUE_Queue ;
-Queue = xQueueCreate (SQUEUE_LENGTH , SQUEUE_ITEM_SIZE );
-if (Queue == NULL) {
-  for (;;) {} /* out of memory? */
+Queue = xQueueCreate(SQUEUE_LENGTH , SQUEUE_ITEM_SIZE);
+if(Queue == NULL) {
+  for(;;) {} /* out of memory? */
 }
-vQueueAddToRegistry (Queue , "ShellQueue ");
+vQueueAddToRegistry(Queue, "ShellQueue");
 vQueueUnregisterQueue(Queue);
 ```
 

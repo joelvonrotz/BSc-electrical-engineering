@@ -1,1 +1,66 @@
-# Benutzer
+# Benutzerschnittstellen
+
+## Hardware
+
+![](images/paste-33.png){width="7cm"}
+
+-   **Akustik** -- Kommunikation mit Audio
+    -   *Lautsprecher*, *Buzzer* für Ausgabe
+    -   *Mikrofon* für Eingabe
+-   **Optik** -- Kommunikation mit Licht
+    -   *LED, Display* für Ausgabe
+    -   *Kamera, Lichtsensor* für Eingabe
+-   **Berührung** -- Kommunikation via Elektromechanik
+    -   Taster, Schalter, Drehgeber, Tastaturen als Eingabe
+    -   Haptisches Feedback von den Eingaben
+-   **Composite** -- **C**omposite **U**ser **I**nterface
+    -   Kombination von mehreren verschiedenen Elementen oder Sensoren
+    -   Virtual/Augmented Reality, Touchscreens, etc.
+
+## Design Prozess
+
+![](images/paste-34.png){width="7cm"}
+
+-   **Kontext** -- Was soll gemacht werden? Was ist das Ziel? Umgebung? Benutzer?
+-   **Anforderungen** -- quantitative und qualitative Anforderungen
+-   **Produktion** -- Basierend auf den Anforderungen werden Modelle oder Skizzen erstellt, wie Benutzerinteraktion und Schnittstellen aussehen sollen.
+-   **Evaluation** -- Durch Benutzerbefragung Anforderungen evaluieren
+    -   Feedback wird wieder in den Kontext gebracht.
+
+### Überlegungen
+
+-   **Kosten** -- Wichtiger Faktor $\rightarrow$ Für welche Komponenten entscheidet man sich oder gibt es günstigere Alternativen?
+-   **Warnehmung** -- Subjektive Wahrnehmung und Akzeptanz des Benutzers $\rightarrow$ Wie ist die *Usability*?
+    -   Verschiedene (redundante) Schnittstellen erlauben dem Benutzer eine Wahl (z.B. Sprachsteuerung + Bedienpanel)
+-   **Zuverlässigkeit** -- Mechanik/Taster haben begrenzte Lebensdauer, optische Systeme sind anfällig für Staub, Wasser kann eindringen und Schaden anrichten.
+    -   Nach aussen gerichtete Schnittstellen sollten vor ESD geschützt werden
+-   **Andere** -- Wie sollte die Langzeitverfügbarkeit der gewählten Komponenten? Welche Benutzergruppen können das Produkt bedienen, welche nicht (Blindheit, Farbenblinde, Gehörlose)?
+
+# Grafik
+
+## Geschichte
+
+-   Konzept GUI in 1970er Jahren von *Xerox* entwickelt
+-   Bekannt wurde es durch *Apple* mit *Apple Lisa & Macintosh*
+-   Microsoft probierte es & schaffte es schlussendlich
+    -   erster Versuch: Windows 1.0 $\rightarrow$ kein Erfolg
+    -   *Windows 3.1* & *Windows for Workgroups* (Unterstützung für Netzwerke) brachte Erfolg
+-   Gleichzeitig innovative Ansätze wie *NeXTSTEP*
+
+## Model-View-Controller
+
+![](images/paste-38.png){width="5cm"}
+
+-   **Model** -- [zentrales Element des Patterns]{.underline}
+    -   enthält Datenstrukturen und die Daten
+    -   verwaltet die Daten gemäss den Regeln der Anwendung
+-   **View**
+    -   Repräsentation und Anzeige der Daten
+-   **Controller**
+    -   Reagiert und verarbeitet Benutzereingaben
+
+::: callout-tip
+## Vorteil
+
+Module können einfach ausgetauscht werden $\rightarrow$ bessere Portierbarkeit
+:::
