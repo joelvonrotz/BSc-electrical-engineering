@@ -1,8 +1,8 @@
-# Zusammenfassung Advanced Embedded Systems
+# Zusammenfassung Digital Design
 
 Seid gegrüsst, Werte Besucher & Interessierte
 
-Hier findet ihr die Quelldateien für die Zusammenfassung des HSLU Moduls AEMBS (*Advanced Embedded Systems*).
+Hier findet ihr die Quelldateien für die Zusammenfassung des HSLU Moduls DIDE (*Digital Design*).
 
 ## Anforderungen
 
