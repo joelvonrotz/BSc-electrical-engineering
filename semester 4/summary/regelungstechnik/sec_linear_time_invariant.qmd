@@ -152,7 +152,9 @@ $$
 
 2.  Arbeitspunkt/stationärer Zustand berechnen ($h^{(n>0)}=0$)
 
-$\overline{h}=h_0=\sqrt[3]{\frac{M\cdot g}{k}}$
+$$
+\overline{h}=h_0=\sqrt[3]{\frac{M\cdot g}{k}}
+$$
 
 3.  Deltagrössendefinieren
 
