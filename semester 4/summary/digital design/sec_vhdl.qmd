@@ -16,7 +16,6 @@ HW-nahes Design ermöglicht:
 
 \textcolor{BrickRed}{\textbf{-}} auf Kosten der Entwicklungszeit.
 
-
 ## Entwicklung
 
 ### Designflow
@@ -86,7 +85,6 @@ sigB <= '1';
 
 1.  Effekt nach `after` ([nur]{.underline} Simulation)
 2.  Bei keiner Verzögerung (Synthese & Simulation)$\rightarrow$ Transaction für nächsten Simulationszyklus geplant ($\delta$-Delay)
-
 
 ## Sprachelemente
 
@@ -229,7 +227,6 @@ port map (
 
 end logic;
 ```
-
 
 ### Loop & Generate Statements
 
@@ -465,7 +462,7 @@ t_sync_arr(1)(2);               -- <3>
 t_sync_arr(1) <= t_sync_arr(0); -- <4>
 ```
 
-![](images/paste-21.png){width="4.9cm"}
+![](images/paste-21.png){width="3cm"}
 
 ### Record
 
@@ -576,7 +573,6 @@ t <= now + 2.5 sec; -- <1>
 ```
 
 1.  `now` liefert aktuelle Simulationszeit
-
 
 ## Prozesse
 
