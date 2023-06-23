@@ -112,7 +112,7 @@ void main(void) {
 
 ![](images/paste-6.png){fig-align="center" width="8cm"}
 
-Mit einem *Betriebssystem* werden Tasks *entkoppelt* und laufen in eigenen *Threads*, welche *quasi-gleichzeitig* ausgeführt werden. Dies erlaubt eine einfacher Erweiterung von neuen Funktionen.
+Mit einem *Betriebssystem* werden Tasks *entkoppelt* und laufen in eigenen *Threads*, welche *quasi-gleichzeitig* ausgeführt werden. Dies erlaubt eine einfache Erweiterung durch neue Funktionen.
 
 ``` cpp
 void mainTask(void) {
@@ -178,7 +178,7 @@ Eine *Wiederverwendung* ist nur möglich mit einer guten *Modularisierung*.
 ::: callout-caution
 ### Data Hiding
 
-Nicht alle Informationen sollten sichtbar sein $\rightarrow$ nur Nötigtes preisgeben!
+Nicht alle Informationen sollten sichtbar sein $\rightarrow$ nur Nötigtes preisgeben! Uneingeschränkter Variablenzugriff ist zu vermeiden.
 :::
 
 3.  [In sich geschlossen]{.underline}\
@@ -187,19 +187,21 @@ Nicht alle Informationen sollten sichtbar sein $\rightarrow$ nur Nötigtes preis
 ::: callout-important
 ### Refactoring
 
-Neu umgeschrieben oder geändert, ohne die eigentliche Funktionalität zu ändern $\rightarrow$ Verbesserung von Lesbarkeit und Wartbarkeit.
+Neu umgeschrieben oder geändert, ohne die eigentliche Funktionalität zu ändern $\rightarrow$ Verbesserung von Lesbarkeit und Wartbarkeit. Sollte durch konsequente Implementation von Anfang an vermieden werden.
+
 :::
 
 ### Device Konfigurieren & Erstellen
 
-`\footnotesize{\textit{Device Hangle}, \textit{Device Konfiguration}, \textit{Device Erstellen}, \textit{void pointer}}\normalsize`{=latex}
+`\footnotesize{\textit{Device Handle}, \textit{Device Konfiguration}, \textit{Device Erstellen}, \textit{void pointer}}\normalsize`{=latex}
 
 Analog zu C++ mit Klassen & Objekten gibt es in C **Device Handles**. Diese Handles werden zur **Identifikation/Unterscheidung** von Schnittstellen gleicher Art verwendet (z.B. `uart0`, `uart1`, ...).
 
-Meistens sind Device Handle sind generische `void`-Zeiger, welche auf eine Speicherstelle mit den Informationen zeigt.
+Device Handle sind generische `void`-Zeiger, welche auf eine Speicherstelle mit den Informationen zeigt.
 
 ``` cpp
 typedef void *LED_Device_t;
+LED_Device_t led = NULL;
 void LED_On(LED_Device_t led);
 ```
 
@@ -207,14 +209,17 @@ Mit Konfiguration-`struct` können bei der Initialisierung zusätzliche Einstell
 
 ``` cpp
 typedef struct {...} LED_Config_t;
+LED_Config_t config = NULL;
 void LED_GetConfig(LED_Config_t *config); // <1>
-LED_Device_t LED_Init(LED_Config_t *config); // <2>
-LED_Device_t LED_DeInit(LED_Device_t led); // <3>
+config.color = BLUE; // <2>
+LED_Device_t LED_Init(LED_Config_t *config); // <3>
+LED_Device_t LED_DeInit(LED_Device_t led); // <4>
 ```
 
 1.  Initialisierung Konfiguration $\rightarrow$ Defaultwerte zuweisen
-2.  Erstellung *Device Handle* $\rightarrow$ Speicher allozieren & konfigurieren
-3.  Deinitalisierung des Device $\rightarrow$ Speicher freigeben & `handle = NULL`
+2.  Spezifizierung Konfiguration $\rightarrow$ Spezifische Werte zuweisen
+3.  Erstellung *Device Handle* $\rightarrow$ Speicher allozieren & konfigurieren
+4.  Deinitalisierung des Device $\rightarrow$ Speicher freigeben & `handle = NULL`
 
 ```{=latex}
 \begin{itemize}
@@ -225,7 +230,7 @@ LED_Device_t LED_DeInit(LED_Device_t led); // <3>
 ## Bibliotheken
 
 - `<asset.h>`  -- `\small`{=latex} `assert`-Makro                          `\normalsize`{=latex}
-- `<math.h>`   -- `\small`{=latex} Mathe: `sin()`, `cos()`, ...            `\normalsize`{=latex}
+- `<math.h>`   -- `\small`{=latex} Mathematik: `sin()`, `cos()`, ...       `\normalsize`{=latex}
 - `<setjmp.h>` -- `\small`{=latex} Sprung: `setjmp()`, `longjmp()`         `\normalsize`{=latex}
 - `<stdarg.h>` -- `\small`{=latex} Variable Argumente: `va_start()`, ...   `\normalsize`{=latex}
 - `<stdlib.h>` -- `\small`{=latex} Diverses: `malloc()`, `free()`, ...     `\normalsize`{=latex}

@@ -78,7 +78,7 @@ for (;;) {
 
 Damit das Betriebssystem korrekt läuft, werden zwei Interrupts benötigt:
 
-**Tick Interrupt** -- periodischer Interrupt, welcher einen Kontext Switch (Preemption) (`SysTick`)
+**Tick Interrupt** -- periodischer Interrupt, welcher einen Kontext Switch veranlasst (Preemption) (`SysTick`)
 
 **Software Interrupt** -- Interrupt, welcher vom Kernel oder von der Anwendung ausgelöst werden kann (`SVCall`, `PendableSrvReq)`
 :::
@@ -110,13 +110,16 @@ void vTaskStartScheduler(void); // <1>
 void vTaskEndScheduler(void); // <2>
 ```
 
-1.  Setzt den Scheulder von *Init* in den *Running* Zustand
+1.  Setzt den Scheduler von *Init* in den *Running* Zustand
 2.  Beendet den Scheduler und springt zum Aufruf von `vTaskStartScheduler`
 
 ::: callout-caution
 ##### vTaskEndScheduler
 
 Wird der Scheduler beendet, werden `setjmp()` und `longjmp()` verwendet, was nicht in jedem Port implementiert ist.
+
+Zudem werden die Ressourcen der Tasks nicht automatisch freigegeben!
+
 :::
 
 #### vTaskSuspendAll()
@@ -135,10 +138,12 @@ Versetzt den Kernel von *active* in den *suspended* Zustand $\rightarrow$ Interr
 portBASE_TYPE vTaskResumeAll(void);
 ```
 
-`pdTRUE` -- Kernel *suspended* $\rightarrow$ *active\
-*`pdFALSE` -- Kernel *suspended*, da `vTaskSuspendAll` mehrmals aufgerufen wurde.
+`pdTRUE` -- Kernel *resumed* $\rightarrow$ Kontext Switch veranlasst
+`pdFALSE` -- Kernel *suspended*, da `vTaskSuspendAll` mehrmals aufgerufen wurde.
 
-#### taskENTER CRITICAL(), taskEXIT CRITICAL()
+#### `taskENTER_CRITICAL()`, `taskEXIT_CRITICAL()`
+
+Um *Critical Section* mit dem Kernel zu erstellen, steht folgendes API zur Verfügung:
 
 ``` cpp
 void taskENTER_CRITICAL (void);
@@ -163,28 +168,25 @@ void vPortExitCritical (void) {
 Innerhalb einer Critical Section sollten keine FreeRTOS API Aufrufe getätigt werden.
 :::
 
-#### taskDISABLE INTERRUPTS(), taskENABLE INTERRUPTS()
+#### `taskDISABLE_INTERRUPTS()`, `taskENABLE_INTERRUPTS()`
+
+Folgendes API steht zum Ein- und Ausschalten von Interrupts zur Verfügung:
 
 ``` cpp
-#define taskDISABLE_INTERRUPTS () \
-  portDISABLE_INTERRUPTS ()
-#define portDISABLE_INTERRUPTS () \
-  portSET_INTERRUPT_MASK ()
-#define portSET_INTERRUPT_MASK () \
-  __asm volatile("cpsid i") // M0+
-#define portCLEAR_INTERRUPT_MASK () \
-  __asm volatile("cpsie i") // M0+
+void taskDISABLE_INTERRUPTS(void);
+void taskENABLE_INTERRUPTS(void);
 ```
 
 ::: callout-caution
 ##### Interrupts Cortex M0+ & M4
 
-Cortex M4 besitzt ein `BASEPRI`-Register, welches Interrupts ab dem gegeben Wert deaktiviert.
+- Cortex M4 besitzt ein `BASEPRI`-Register, welches Interrupts ab dem gegeben Wert deaktiviert.
 
-Cortex M0+ hat dies nicht und **deaktiviert daher alle Interrupts**.
+- Cortex M0+ hat dies nicht und *deaktiviert daher alle Interrupts* über `PRIMASK`.
+
 :::
 
-#### taskYIELD()
+#### `taskYIELD()`
 
 ``` cpp
 #define taskYIELD() portYIELD()
@@ -206,10 +208,12 @@ Wenn ge*yielded* wird,
 Ein Kontextwechsel kann nur stattfinden, wenn der Scheduler oder das Betriebssystem läuft:
 
 1.  via Tick-Interrupt $\rightarrow$ Time Slicing oder Preemption ; synchrones Scheduling
-2.  via Anwendung (*SysCall*) $\rightarrow$ indirektes/asynchrones Scheduling, z.B. durch Senden einer Meldung ein dringlicher Task aktiviert
+2.  via Anwendung (*Trap*, *SysCall*, *SystemCall*) $\rightarrow$ indirektes/asynchrones Scheduling, z.B. durch Senden einer Meldung wird ein dringlicher Task aktiviert
 3.  via Anwendung direkt $\rightarrow$ Yield
 
 ## Interrupts
+
+Prioritäten:
 
 ![](images/freertos\priority_scaling_cortex_freertos.png){fig-align="center" width="5cm"}
 
@@ -219,8 +223,7 @@ Aus Interrupt Service Routinen darf man nur OS Funktionen benutzen, welche mit `
 
 ``` cpp
 void vTimerISR(void) {
-  BaseType_t xHigherPriorityTaskWoken;
-  xHigherPriorityTaskWoken = pdFALSE;
+  BaseType_t xHigherPriorityTaskWoken = pdFALSE;
   xSemaphoreGiveFromISR(xSemaphore , &xHigherPriorityTaskWoken);
   portYIELD_FROM_ISR(xHigherPriorityTaskWoken); // <1>
 }
@@ -232,16 +235,14 @@ void vTimerISR(void) {
 
 ### Kernel Interrupt Priorität
 
+In FreeRTOS läuft der Kernel, und somit seine Interrupts, mit der tiefstmöglichen Interrupt Dringlichkeit $\rightarrow$ kein Einfluss auf Anwendungsspezifische Interrupts
+
 ``` cpp
 #define configPRIO_BITS 4
-#define configLIBRARY_LOWEST_INTERRUPT_PRIORITY 15 // <1>
+#define configLIBRARY_LOWEST_INTERRUPT_PRIORITY 15
 #define configKERNEL_INTERRUPT_PRIORITY \
   (configLIBRARY_LOWEST_INTERRUPT_PRIORITY<<(8-configPRIO_BITS))
 ```
-
-1.  Die Interrupts `SysTick` & `PendSV` werden mit der angegeben Priorität konfiguriert, welche der **tiefsten** Dringlichkeit (15) entspricht.
-
-$\rightarrow$ Damit kein Einfluss auf Anwendungsspezifische Interrupts
 
 ::: callout-important
 #### Anzahl Interrupts
@@ -251,7 +252,23 @@ FreeRTOS verwendet 2-3 Interrupts: `SysTick` dient als Zeitbasis, `PendSV` für 
 
 ### ARM Cortex-M Interrupts
 
+Immer wenn eine *Critical Section* erstellt wird (Roter Bereich), weird der Wert $0x80$ in das BASEPRI geschrieben und so die entsprechenden Interrupts ausgeschalten. Um die *Critical Section* möglichst kurz zu halten, wird in diesem Bereich nicht die eigentliche Funktion des Interrupts ausgeführt, sondern ein Task gescheduled, der diesen ausführt.
+
 ![](images/cortex_interrupt_span.png)
+
+::: callout-important
+
+Auf einem Cortex-M0 maskiert RTOS alle Interrupts für seine *Critical Sections*.
+
+Auf dem Cortex-M3/4/7 werden nur die Interrupts maskiert mit Priorität numerisch gleich oder grösser als
+
+``` cpp
+configMAX_SYSCALL_INTERRUPT_PRIORITY <prio>
+```
+
+Interrupts welche von der *Critical Section* nicht beeinflusst werden (Priorität numerisch kleiner `configMAX_SYSCALL_INTERRUPT_PRIORITY`), dürfen auch keine API-Aufrufe durchführen.
+
+:::
 
 ### Critical Sections
 
@@ -276,7 +293,7 @@ FreeRTOS verwendet 2-3 Interrupts: `SysTick` dient als Zeitbasis, `PendSV` für 
 2. Verschachtelbar
 3. für Task Critical Sections
 
-Critical Sections dienen zum Blockieren von ISR, wenn etwas wichtiges gemacht werden muss (Beispiel: `vPortTickHandler` verwendet CS um den Tick sicher zu inkrementieren und die Task-Liste zu überprüfen).
+*Critical Sections* dienen zum Blockieren von ISR, wenn etwas wichtiges gemacht werden muss (Beispiel: `vPortTickHandler` verwendet CS um den Tick sicher zu inkrementieren und die Task-Liste zu überprüfen).
 
 ``` cpp
 #define configLIBRARY_MAX_SYSCALL_INTERRUPT_PRIORITY (5)
@@ -317,11 +334,11 @@ BaseType_t res;
 TaskHandle_t taskHndl;
 
 res = xTaskCreate (BlinkyTask , /*function*/
-  "Blinky", /* Kernel awareness name */
-  500/ sizeof( StackType_t ), /* stack */
-  (void *)NULL , /* task parameter */
-  tskIDLE_PRIORITY +1, /* priority */
-  &taskHndl /* handle */
+  "Blinky",                     /* Kernel awareness name */
+  500/ sizeof( StackType_t ),   /* stack size */
+  (void *)NULL ,                /* task parameter */
+  tskIDLE_PRIORITY +1,          /* priority */
+  &taskHndl                     /* handle */
 );
 if (res != pdPASS) {
   /* error handling here */
@@ -359,8 +376,8 @@ static void BlinkyTask(void * pvParameters ) {
 
 ``` cpp
 void vTaskSuspend ( TaskHandle_t xTaskToSuspend );
-vTaskSuspend(NULL); \\ <1>
-vTaskSuspend(blinkyTaskHandle); \\ <2>
+vTaskSuspend(NULL); // <1>
+vTaskSuspend(blinkyTaskHandle); // <2>
 ```
 
 1.  suspendiert den Task selber
@@ -384,7 +401,7 @@ Aktiviert den suspendierten Task.
 ```
 
 1.  *Preemptive*: Der Scheduler kann Rechenzeit von einem laufenden Task wegnehmen.
-2.  *Cooperative*: Der Task behält die CPU oder Rechenzeit, bis er selber die Kontrolle an den Scheduler abgibt.
+2.  *Cooperative*: Der Task behält die CPU oder Rechenzeit, bis er selber die Kontrolle an den Scheduler abgibt *(`taskYIELD();`)*.
 
 ### Time Slicing
 
@@ -416,7 +433,7 @@ Dieser dient als Ausläufer, falls keine anderen Tasks *Ready* sind.
 ::: callout-important
 #### Idle Hook
 
-Der IDLE Task führt den *Idle Hook* auf, welche von der Anwendung definierte Aufgaben übernehmen kann $\rightarrow$ z.B. *Low Power Modus*
+Der IDLE Task führt den *Idle Hook* aus, welche von der Anwendung definierte Aufgaben übernehmen kann $\rightarrow$ z.B. *Low Power Modus*
 :::
 
 ::: callout-note
@@ -426,7 +443,7 @@ Der IDLE Task führt den *Idle Hook* auf, welche von der Anwendung definierte Au
 #define configIDLE_SHOULD_YIELD
 ```
 
-Bestimmt bei einem preemptiven Scheduler, ob IDLE Task gleich Kontrolle die Kontrolle übergibt.
+Bestimmt bei einem preemptiven Scheduler, ob IDLE Task gleich die Kontrolle übergibt.
 :::
 
 ## Timer
@@ -435,26 +452,32 @@ Bestimmt bei einem preemptiven Scheduler, ob IDLE Task gleich Kontrolle die Kont
 
 ``` cpp
 #define configUSE_TIMERS (1) // <1>
-#define configTIMER_QUEUE_LENGTH (3)
+#define configTIMER_QUEUE_LENGTH (3) // <2>
 #define configTIMER_TASK_PRIORITY \
-  (configMAX_PRIORITIES-1) // <2>
+  (configMAX_PRIORITIES-1) // <3>
 #define configTIMER_TASK_STACK_DEPTH \
   (configMINIMAL_STACK_SIZE)
 ```
 
 1.  aktiviert Timer-Funktion und den *Timer Service Daemon*
-2.  Hohe Priorität
+2.  Maximale Anzahl gleichzeitige Task Kommandos an den Timer Deamon
+3.  Hohe Priorität
 
 ### Erstellen
 
 ``` cpp
 TimerHandle_t xTimerCreate(
-  const char *const pcTimerName,
-  const TickType_t xTimerPeriodInTicks,
-  const UBaseType_t uxAutoReload,
-  void *const pvTimerID,
+  const char *const pcTimerName,  // <1>
+  const TickType_t xTimerPeriodInTicks, // <2>
+  const UBaseType_t uxAutoReload, // <3>
+  void *const pvTimerID, // <4>
   TimerCallbackFunction_t pxCallbackFunction);
 ```
+
+1.  Namen u.a. für Debugger
+2.  Periode in Ticks
+3.  `pdTrue` = Wiederkehrend, `pdFALSE` = One-Shot
+4.  Identifikation oder Zeiger auf Daten
 
 ### Callback
 
@@ -473,7 +496,7 @@ BaseType_t xTimerReset(...);
 BaseType_t xTimerDelete(...);
 ```
 
-Diese Befehle werden in die *Timer-Queue* gegeben.
+Diese Befehle werden in die *Timer-Queue* gegeben. `xTicksToWait` entspricht der Timeout-FUnktionalität, falls die Queue voll ist.
 
 ::: callout-note
 ## Interrupt
@@ -518,7 +541,7 @@ BaseType_t xQueuePeek( // <1>
   void * pvBuffer,
   portTickType xTicksToWait // <2>
 );
-BaseType_t xQueueReceive(
+BaseType_t xQueueReceive( // <3>
   xQueueHandle xQueue,
   void * pvBuffer,
   portTickType xTicksToWait
@@ -527,6 +550,7 @@ BaseType_t xQueueReceive(
 
 1.  Entfernt Element nicht
 2.  mit `portMAX_DELAY` kann sehr lange gewartet werden (aber nicht unendlich lang!)
+3.  `xQueueReceive` ist eine blockierende Funktion, es wird also darauf gewartet, dass ein Eintrag in die Queue gemacht wird.
 
 ### Hinzufügen
 
@@ -551,3 +575,23 @@ BaseType_t xQueueSendToFront( // <2>
 2.  LIFO
 
 Returnwerte: `pdTRUE`, `errQUEUE_FULL`
+
+### Queue Registry
+
+Zur identifikation beim Debugging, können Queues mit entsprechendem Namen in ein Registry registriert werden
+
+``` cpp
+
+#define configQUEUE_REGISTRY_SIZE <number>  // <1>
+
+void vQueueAddToRegistry( // <2>
+  QueueHandle_t xQueue,
+  const char *pcQueueName );
+void vQueueUnregisterQueue( // <3>
+  QueueHandle_t xQueue );
+
+```
+
+1.  Maximale Anzahl an Einträgen
+2.  Queue registrieren
+3.  Queue aus Register löschen

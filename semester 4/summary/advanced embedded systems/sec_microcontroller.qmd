@@ -83,7 +83,7 @@ Separater Zugriff auf Daten- & Programmspeicher $\rightarrow$ höhere Geschwindi
 
 ### System on Chip (SoC)
 
-Ein Baustein der einen Rechner mit möglichst wenigen externen Komponenten realisiert $\rightarrow$ reduziert Platz, Anzahl Bausteine und Kosten, **aber** verschiedene Varianten (über 1000) existieren (nicht immer verfügbar), zusätzliche Bus-Leitungen nötig und Taktraten des CPUs wurden höher (\>1GHz), aber RAM-Speicher blieben unter 100MHz stehen.
+Ein Baustein der einen Rechner mit möglichst wenigen externen Komponenten realisiert $\rightarrow$ reduziert Platz, Anzahl Bausteine und Kosten, **aber** verschiedene Varianten (über 1000) existieren (nicht immer verfügbar), zusätzliche Bus-Leitungen nötig und Taktraten des CPUs wurden höher (\>1GHz), aber diese der RAM-Speicher sind bei 100MHz stehengeblieben *(Unterschiedliche Fertigungsprozesse)*.
 
 ![](images/paste-20.png){fig-align="center" width="8.5cm"}
 
@@ -124,7 +124,7 @@ $\Longrightarrow$ **Siehe letzte Seiten**
 
 ![](images/arm_table.png){width="10cm"}
 
-## Vektor Tabelle
+## Interrupt Vektor Tabelle
 
 ### Cortex M4 (TinyK22)
 
@@ -133,6 +133,43 @@ $\Longrightarrow$ **Siehe letzte Seiten**
 ### Cortex M0/M0+ (LPC845)
 
 ![](images/vector_table_cortex_m0.png)
+
+## SysTick
+
+*SysTick* ist ein 24Bit Timer Interrupt, der von ARM als Zeitbasis für Betriebssysteme vorgesehen ist. Typische Zeiten sind Perioden von **10ms** oder **1ms**. Durch den Tick Interrupt erhält das OS eine Gelegenheit für einen Kontext Wechsel, falls im *preemptive* Modus.
+
+``` cpp
+void vPortTickHandler(void) {
+  portDISABLE_INTERRUPTS();     /* disable interrupts */
+  if (xTaskIncrementTick() != pdFALSE) {  /* increment tick count */
+    traceISR_EXIT_TO_SCHEDULER();
+    taskYIELD();
+  }
+  portENABLE_INTERRUPTS();      /* enable interrupts */
+}
+```
+
+::: callout-note
+## SysTick
+
+`xTaskIncrementTick()` gibt `pdTRUE` zurück, falls ein Kontext Wechsel stattfinden soll.
+
+Im non-preemtive Modus ist der Rückgabewert immer `pdFALSE`.
+:::
+
+## SVCall
+
+Der *SVC* *(SuperVisor Call)* ist von ARM dafür vorgesehen um OS Kernel oder Gerätetreiberfunktionen aufzurufen. Die `SVCall` Exception wird durch die `SVC <number>` Instruktion ausgelöst, welche über ein zusätzliches Argument *(Zahl)* verfügt.
+
+![](images/3-s2.0-B9781856179638000107-f07-15.jpg)
+
+Durch die übergebene Zahl kann eine spezifische Funktion im Kernel oder im Gerätetreiber aufgerufen werden *(System Trapping)*.
+
+::: callout-note
+## SVCall
+
+FreeRTOS nutzt kein *SystemTrapping*. FreeRTOS nutzt nur den Eintrag $0$ um den Scheduler zu starten.
+:::
 
 # Cycle Counter
 
