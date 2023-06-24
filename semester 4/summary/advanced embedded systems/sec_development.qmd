@@ -77,6 +77,12 @@ Statische Bibliothek, welche während dem Linker-Prozess mit dem Programm kombin
 
 Die Disassembly beinhaltet Referenzen zum C-Programm in Bezug zu den Assembler-Befehlen.
 
+
+```{=latex}
+\vfill\null
+\columnbreak
+```
+
 # Visualisierung
 
 ``` cpp

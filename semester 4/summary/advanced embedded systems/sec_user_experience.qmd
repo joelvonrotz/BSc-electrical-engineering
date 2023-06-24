@@ -36,6 +36,11 @@
     -   Nach aussen gerichtete Schnittstellen sollten vor ESD geschützt werden
 -   **Andere** -- Wie sollte die Langzeitverfügbarkeit der gewählten Komponenten? Welche Benutzergruppen können das Produkt bedienen, welche nicht (Blindheit, Farbenblinde, Gehörlose)?
 
+```{=latex}
+\vfill\null
+\columnbreak
+```
+
 # Grafik
 
 ## Geschichte

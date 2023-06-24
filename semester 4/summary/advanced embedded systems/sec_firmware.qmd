@@ -1,3 +1,8 @@
+```{=latex}
+\vfill\null
+\columnbreak
+```
+
 # Firmware
 
 ::: callout-note
