@@ -17,7 +17,7 @@ Jede Funktion, welche von einem unterbrechenden Prozess (ISR) verwendet wird, mu
 \item[\textcolor{BrickRed}{\faMinus}] Interrupt-Latenz
 \end{itemize}
 ```
-### Critical Sections / Semaphore & Mutex
+### Critical Sections
 
 ``` c
 #define CriticalVariable() \
@@ -60,13 +60,35 @@ Jede Funktion, welche von einem unterbrechenden Prozess (ISR) verwendet wird, mu
 \item[\textcolor{OliveGreen}{\faPlus}] \texttt{cpuSR} verhindert das vor ausgeschaltete Interrupts eingeschaltet werden (merkt sich vorheriger Status)
 \end{itemize}
 ```
+[Beispiel:]{.underline} *McuLib*
+
+``` cpp
+
+void doCounting(void) {
+  McuCriticalSection_CriticalVariable();  // uint8_t cpuSR
+
+  McuCriticalSection_EnterCritical();   // PRIMASK -> cpuSR
+  if (cntr < 100) cntr++;
+  print(cntr);
+  McuCriticalSection_ExitCritical();    // cpuSR -> PRIMASK
+}
+```
+
 ## Priority Protokolle
+
+Beim Zugriff *Lock* einer Ressource gilt: $$ 
+\text{Lock(): } ?_x \rightarrow L_x 
+$$ $$
+\text{Lock erhalten: } L_x
+$$ $$
+\text{Unlock(): } U_x
+$$
 
 ### Priority Inversion (Problem)
 
-![](images/paste-28.png){width="7cm" height="3.6cm"}
+PH wartet auf Lockfreigabe von PL, welcher von PM unterbrochen wurde $\rightarrow$ PM hat immernoch eine höhere Priorität als PL
 
--   PH wartet auf Lockfreigabe von PL, welcher von PM unterbrochen wurde $\rightarrow$ PM hat eine Art höhere Priorität als PL
+![](images/paste-28.png){width="7cm" height="3.6cm"}
 
 ```{=latex}
 \begin{itemize}
@@ -75,11 +97,13 @@ Jede Funktion, welche von einem unterbrechenden Prozess (ISR) verwendet wird, mu
 ```
 ### Priority Inheritance
 
+Die Priorität des Tasks, welcher den Lock zu erlangen versucht, vererbt seine Priorität an den Task, welcher den Lock hält. Sobald auf den Lock angefragt wird, wird die Priorität vererbt und der Höhere Task unterbrochen.
+
 ![](images/paste-29.png){width="8cm"}
 
-![](images/paste-30.png){width="8cm" height="4.2cm"}
+Bei einer **verschachtelung von Locks**, kann durch einen zweiten involvierten Lock die Priorität auch auf einen dritten Task vererbt werden.
 
--   Tiefe Prio-Task mit Lock erhält temporär Priorität der höchsten Anfrage $\rightarrow$ Tasks dazwischen werden blockiert
+![](images/paste-30.png){width="8cm" height="4.2cm"}
 
 ```{=latex}
 \begin{itemize}
@@ -88,6 +112,12 @@ Jede Funktion, welche von einem unterbrechenden Prozess (ISR) verwendet wird, mu
 \item[\textcolor{BrickRed}{\faMinus}] löst Deadlocks nicht
 \end{itemize}
 ```
+::: callout-tip
+# Rechenzeit
+
+Bei den meisten Betriebssystemen kann zwischen vererbenden und nicht vererbenden Locks gewählt werden, um die Rechenzeit zu optimieren.
+:::
+
 ### Deadlock
 
 ![](images/paste-31.png){width="7cm" height="3.3cm"}
@@ -135,11 +165,8 @@ SemaphoreHandle_t xSemaphore;
 xSemaphore = xSemaphoreCreateBinary();
 if (xSemaphore == NULL) {
 /* Failed! Not enough heap memory? */
-} else {
-  /* The semaphore can now be used */
-  
-  /* give semaphore back */
 }
+  /* The semaphore can now be used */
 ```
 
 -   `xSemaphoreCreateBinary()`: erstellt eine Binäre Semaphore.
@@ -147,6 +174,10 @@ if (xSemaphore == NULL) {
 -   `xSemaphoreTake()`: Einen Lock mit einer Binären oder Counting Semaphore anfordern.
 -   `xSemaphoreGive()`: Eine Binäre oder Counting Semaphore freigeben.
 -   `xSemaphoreDelete()`
+
+Dieses Beispiel einer Binären Semaphore zeigt, wie über ein Token benachrichtigungen an einen Task gesendet werden können. Hierbei muss die Semaphore vom Task nicht zurückgegeben werden.
+
+![](images/paste-14.png)
 
 ### Mutex
 

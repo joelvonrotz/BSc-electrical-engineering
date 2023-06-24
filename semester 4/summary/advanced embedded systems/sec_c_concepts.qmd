@@ -142,7 +142,7 @@ void read(void) {
 ```{=latex}
 \begin{itemize}
   \item[\textcolor{OliveGreen}{\faPlus}] mehrere Prozess "gleichzeitig"
-  \item[\textcolor{BrickRed}{\faMinus}] "teurere" Implementation
+  \item[\textcolor{BrickRed}{\faMinus}] "teurere"\ Implementation
   \item[\textcolor{BurntOrange}{\textbf{!}}] ISR \textbf{muss} kurz gehalten sein
   \item[\textcolor{BurntOrange}{\textbf{!}}] ISR-Prioritäten richtig setzen $\rightarrow$ Reduktion der \textit{Interrupt Latenz}
 \end{itemize}
