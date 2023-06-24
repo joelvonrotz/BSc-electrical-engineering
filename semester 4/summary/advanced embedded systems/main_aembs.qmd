@@ -41,11 +41,11 @@ fig-pos: "H"
 fig-align: center
 ---
 
-- [ ] Wer das ankreuzelt, ist der Kreuzelkönig und hat das Kreuzchen ankreuzen kreuzlig verdient!
-
+-   [ ] Wer das ankreuzelt, ist der Kreuzelkönig und hat das Kreuzchen ankreuzen kreuzlig verdient!
 
 ![](images/aembs_meme.png){width="7cm"}
 
+![](images/ErQ-nw9XIAAwVmU.jpeg){width="7.3cm" height="7.3cm"}
 
 ```{=latex}
 % keep this to have smaller code blocks
@@ -63,7 +63,6 @@ fig-align: center
 \pagebreak
 \begin{multicols*}{2}
 ```
-
 {{< include sec_development.qmd >}}
 
 {{< include sec_firmware.qmd >}}
@@ -81,7 +80,6 @@ fig-align: center
 ```{=latex}
 \end{multicols*}
 ```
-
 ![](images/arm_overview.png)
 
 ![](images/paste-22.png)
