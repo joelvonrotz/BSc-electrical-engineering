@@ -28,6 +28,7 @@ geometry:
 papersize: a4
 fontenc: T1
 fontsize: 10pt
+
 classoption: 
 - twocolumn
 

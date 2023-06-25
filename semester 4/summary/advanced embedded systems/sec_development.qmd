@@ -102,6 +102,10 @@ Tasks werden bei xTaskCreate automatisch dem *Task List View* in MCUXpresso hinz
 
 ### Queue List View
 
+::: callout-important
+Queues werden ohne Namen erstellt!
+:::
+
 Anzeige von **Queues**, **Semaphore** & **Mutex**
 
 ``` cpp
@@ -133,6 +137,21 @@ Damit FreeRTOS Daten senden kann, müssen die Hooks zuerst instrumentiert werden
 1.  defaults zu `configUSE_PERCEPIO_TRACE_HOOKS`
 
 ## Segger System View
+
+
+::: callout-note
+### Segger Real Time Transfer
+
+RTT speichert Daten in einen Buffer (blockierend oder
+nicht-blockierend) welche von der SEGGER Debug Schnittstelle abgerufen
+werden können. Dies funktioniert bidirektional. Semihosting verwendet ein
+ähnliches Prinzip, aber über die Standard I/O Schnittstelle.
+:::
+
+::: callout-important
+Diese Art von *Instrumentierung* beeinflusst die Ausführungszeit und Rechenzeit des Programms.
+Dabei werden Makros & Funktionen instrumentiert (z.B. `traceTASK_DELAY()` innerhalb von `vTaskDelay`).
+:::
 
 ``` cpp
 #define configUSE_SEGGER_SYSTEM_VIEWER_HOOKS (1)

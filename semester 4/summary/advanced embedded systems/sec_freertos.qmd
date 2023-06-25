@@ -311,9 +311,9 @@ Interrupts welche von der *Critical Section* nicht beeinflusst werden (Prioritä
 ``` cpp
 static void MyTask(void *params) {
   (void)params; // <1>
-    for (;;) {
-    /* do the work here ... */
-    } /* for */
+  for (;;) {
+  /* do the work here ... */
+  } /* for */
   /* never return */
 }
 ```
