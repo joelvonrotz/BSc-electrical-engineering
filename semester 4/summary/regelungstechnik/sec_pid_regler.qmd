@@ -251,6 +251,8 @@ $$
 
 ![](images/paste-25.png){fig-align="center" width="6cm"}
 
+#### Ziegler-Nichols-Tabelle (via Sprungantwort)
+
 | Typ |      $k_p$       |    $T_i$     |     $T_d$      |
 |:---:|:----------------:|:------------:|:--------------:|
 |  P  |  $\sfrac{1}{a}$  |      \-      |       \-       |
@@ -262,6 +264,8 @@ $$
 Verstärkung $k$ erhöhen, bis sich eine anhaltende Schwingung einstellt. Regelparameter anhand kritischer Verstärkung $k_c$ & Periodendauer $T_c$ ermitteln.
 
 ![](images/paste-26.png){fig-align="center" width="6cm"}
+
+#### Ziegler-Nichols-Tabelle (via Kritische Verstärkung)
 
 | Typ |     $k_p$      |     $T_i$      |      $T_d$       |
 |:---:|:--------------:|:--------------:|:----------------:|

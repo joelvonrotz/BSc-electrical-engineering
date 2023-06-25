@@ -1,9 +1,5 @@
 # Diskretisierung
 
-## PID-Regler
-
-
-
 ## Auslegung
 
 Digitalrechner arbeiten zeitdiskret $\leftrightarrow$ Prozesse sind von zeitkontinuierlicher Natur

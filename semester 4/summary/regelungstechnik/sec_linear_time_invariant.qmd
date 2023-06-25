@@ -136,11 +136,17 @@ mit $z=y-y_e$ & $v=u-u_e$.
 ::: callout-tip
 #### Vorgehen
 
+Beispiel mit Differentialgleichung
+
 $$
 M\cdot \frac{d^2h}{dt^2}+\alpha\frac{dh}{dt}+k\cdot h^3 = M\cdot g-k\cdot h^3
 $$
 
-1.  Differentialgleichung gleich $0$ setzen $f(\cdots)=F(\cdots)=0$
+`\small`{=latex}
+
+1.  Alle Elemente auf eine Seite bringen und Differentialgleichung gleich $0$ setzen $f(\cdots)=F(\cdots)=0$
+
+`\normalsize`{=latex}
 
 $$
 \underbrace{M\cdot \frac{d^2h}{dt^2}+\alpha\frac{dh}{dt}+k\cdot h^3 - M\cdot g}_{F(y^{(n)},\ldots,y,u^{(m)},\ldots,u)}=0
@@ -150,27 +156,45 @@ $$
 \rightarrow\quad f(\ddot{h}, \dot{h}, h)= 0
 $$
 
-2.  Arbeitspunkt/stationärer Zustand berechnen ($h^{(n>0)}=0$)
+`\small`{=latex}
+
+2.  Gleichgewichtslage bestimmen, Änderungsraten $=0\rightarrow h^{(n>0)}=0$
+
+`\normalsize`{=latex}
 
 $$
 \overline{h}=h_0=\sqrt[3]{\frac{M\cdot g}{k}}
 $$
 
-3.  Deltagrössendefinieren
+`\small`{=latex}
+
+3.  Deltagrössendefinieren $\overline{h}^{\ (n>0)}=0$
+`\normalsize`{=latex}
+
 
 $$
 \begin{array}{l}
 \Delta h = h-\overline{h} \\
-\Delta \dot{h} = \dot{h} \\
-\Delta \ddot{h} = \ddot{h} \\
+\Delta \dot{h} = \dot{h} - \dot{\overline{h}} = \dot{h}\\
+\Delta \ddot{h} = \ddot{h} - \ddot{\overline{h}} = \ddot{h} \\
 \end{array}
 $$
 
-3.  In Linearisierungsgleichung einsetzten
+`\small`{=latex}
+
+4.  Linearisierung machen (Ableiten, dann Gleichgewichtslage einsetzen!)
+
+`\normalsize`{=latex}
 
 $$
 \left.\frac{\partial f}{\partial \ddot{h}}\right\rvert_{h=\overline{h}} \cdot \Delta\ddot{h} + \left.\frac{\partial f}{\partial \dot{h}}\right\rvert_{h=\overline{h}} \cdot \Delta\dot{h} + \left.\frac{\partial f}{\partial h}\right\rvert_{h=\overline{h}} \cdot \Delta{h} = 0
 $$
+
+`\small`{=latex}
+
+5. linearisierte Differentialgleichung aufbauen
+
+`\normalsize`{=latex}
 
 $$
 M\Delta \ddot{h} + \alpha \Delta \dot{h} + 3 k\overline{h}^2=0

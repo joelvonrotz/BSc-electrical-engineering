@@ -1,6 +1,6 @@
 ## Hurwitz-Kriterium
 
-::: callout-important
+::: callout-caution
 **GESCHLOSSENER** KREIS VERWENDEN!
 :::
 
@@ -14,6 +14,10 @@ $\det H_n > 0$
 
 $$
 G_{yr}=\frac{\textcolor{NavyBlue}{P}\textcolor{BrickRed}{C}}{1+\textcolor{NavyBlue}{P}\textcolor{BrickRed}{C}}=\frac{\textcolor{NavyBlue}{n_P}\cdot\textcolor{BrickRed}{n_C}}{\textcolor{NavyBlue}{d_P}\cdot\textcolor{BrickRed}{d_C}+\textcolor{NavyBlue}{n_P}\cdot\textcolor{BrickRed}{n_C}}
+$$
+
+$$
+C = \frac{\textcolor{BrickRed}{n_C}}{\textcolor{BrickRed}{d_C}}\qquad P = \frac{\textcolor{NavyBlue}{n_P}}{\textcolor{NavyBlue}{d_P}}
 $$
 
 ```{=latex}
