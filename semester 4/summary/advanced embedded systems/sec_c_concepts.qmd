@@ -50,6 +50,8 @@ void read(void) {
 3.  Handshake Ende B2 $\rightarrow$ High
 :::
 
+\newpage
+
 ::: callout-note
 ## Handshake & Synchronisation
 

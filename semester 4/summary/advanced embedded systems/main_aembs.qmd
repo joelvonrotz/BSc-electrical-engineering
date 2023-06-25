@@ -28,6 +28,8 @@ geometry:
 papersize: a4
 fontenc: T1
 fontsize: 10pt
+classoption: 
+- twocolumn
 
 code-block-border-left: false
 code-block-bg: "#f7f7f7"
@@ -61,7 +63,7 @@ fig-align: center
   breakable
 ]}{\end{tcolorbox}}\fi
 \pagebreak
-\begin{multicols*}{2}
+%\begin{multicols}{2}
 ```
 {{< include sec_development.qmd >}}
 
@@ -78,7 +80,8 @@ fig-align: center
 {{< include sec_user_experience.qmd >}}
 
 ```{=latex}
-\end{multicols*}
+%\end{multicols}
+\onecolumn
 ```
 ![](images/arm_overview.png)
 

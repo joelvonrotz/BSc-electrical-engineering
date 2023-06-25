@@ -78,11 +78,6 @@ Statische Bibliothek, welche während dem Linker-Prozess mit dem Programm kombin
 Die Disassembly beinhaltet Referenzen zum C-Programm in Bezug zu den Assembler-Befehlen.
 
 
-```{=latex}
-\vfill\null
-\columnbreak
-```
-
 # Visualisierung
 
 ``` cpp
@@ -170,3 +165,5 @@ Damit FreeRTOS Daten senden kann, müssen die Hooks zuerst instrumentiert werden
   SEGGER_SYSVIEW_MarkStop(unsigned MarkerId);
 #endif
 ```
+
+`\newpage`{=latex}

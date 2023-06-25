@@ -112,11 +112,11 @@ Es gibt Lösungen wie Flashless MCU, XiP (execute in Place), PoP (Package on Pac
 :::
 
 ```{=latex}
-\begin{description}
-  \item[ARM Cortex-A] \textbf{A}pplication
-  \item[ARM Cortex-R] \textbf{R}ealtime
-  \item[ARM Cortex-M] \textbf{M}icrocontroller
-\end{description}
+\begin{itemize}
+  \item[A] ARM Cortex-\textbf{A}pplication
+  \item[R] ARM Cortex-\textbf{R}ealtime
+  \item[M] ARM Cortex-\textbf{M}icrocontroller
+\end{itemize}
 ```
 ### Übersicht
 
@@ -128,11 +128,13 @@ $\Longrightarrow$ **Siehe letzte Seiten**
 
 ### Cortex M4 (TinyK22)
 
-![](images/vector_table_cortex_m4.png)
+![](images/vector_table_cortex_m4.png){width="7cm"}
+
+\newpage
 
 ### Cortex M0/M0+ (LPC845)
 
-![](images/vector_table_cortex_m0.png)
+![](images/vector_table_cortex_m0.png){width="7cm"}
 
 ## SysTick
 

@@ -102,15 +102,9 @@ Implementiert...
 
 ## Kernel
 
-\textcolor{white}{.}
-
 ### API
 
-\textcolor{white}{.}
-
 #### vTaskStartScheduler()
-
-\textcolor{white}{.}
 
 ``` cpp
 void vTaskStartScheduler(void); // <1>
