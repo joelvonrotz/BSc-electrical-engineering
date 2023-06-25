@@ -17,6 +17,7 @@ format:
     output-file: "s4_regelungstechnik"
     fontenc: T1
 
+
 source:
   github: "https://github.com/joelvonrotz/bachelor-electrical-engineering/tree/main/semester%204/summary/regelungstechnik"
 
@@ -29,6 +30,8 @@ geometry:
 - "right=5mm"
 papersize: a4
 fontsize: 10pt
+
+
 
 code-block-border-left: false
 code-block-bg: "#f7f7f7"
@@ -43,6 +46,7 @@ fig-align: center
 ---
 
 \newpage
+`\onecolumn`{=latex}
 
 ::: callout-tip
 ## Vorgehen MEP
@@ -56,7 +60,10 @@ fig-align: center
 - Wenn Zeit übrig, Lösung validieren
 :::
 
+
 ```{=latex}
+
+\twocolumn
 % keep this to have smaller code blocks
 \ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[
   colback={shadecolor},
@@ -70,7 +77,6 @@ fig-align: center
   breakable
 ]}{\end{tcolorbox}}\fi
 ```
-`\begin{multicols*}{2}`{=latex}
 
 <!-- insert -->
 
@@ -166,8 +172,5 @@ $$
 
 $\rightarrow$ [Project Pigeon](https://en.wikipedia.org/wiki/Project_Pigeon)
 
-
-
-`\end{multicols*}`{=latex}
 
 {{< include sec_glossar.qmd >}}
