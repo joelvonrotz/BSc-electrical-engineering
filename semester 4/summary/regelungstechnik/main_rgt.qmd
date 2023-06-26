@@ -133,7 +133,9 @@ fig-align: center
   P-,PI-, PD-, PDT1-, PID-Regler
 -->
 ```
-{{< include sec_regulator.qmd >}} {{< include sec_pid_regler.qmd >}}
+{{< include sec_regulator.qmd >}}
+
+{{< include sec_pid_regler.qmd >}}
 
 ```{=html}
 <!-- [DESIGN] 
