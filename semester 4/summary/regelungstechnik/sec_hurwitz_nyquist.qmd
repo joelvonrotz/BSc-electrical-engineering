@@ -138,7 +138,8 @@ Das System $G_{yr}$ ist stabil wenn $P=U$
 ```{=latex}
 \begin{conditions}
   P & Anzahl instabiler Polstellen von $L(s)$ \\
-  U & Anzahl Umläufe der Nyquist-Kurve $L(j\omega)$ mit $\omega\in [-\infty,\infty]$ um den Punkt $(-1,0)$ im \underline{Gegenuhr}zeigersinn
+  U & Anzahl Umläufe der Nyquist-Kurve $L(j\omega)$ mit $\omega\in [-\infty,\infty]$ \\
+  \hookrightarrow & um den Punkt $(-1,0)$ im \underline{Gegenuhr}zeigersinn
 \end{conditions}
 ```
 [Beispiel]{.underline}

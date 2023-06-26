@@ -7,6 +7,8 @@ language: _language-de.yml
 # [RENDER CONFIGURATION] ==============================
 format:
   pdf:
+    classoption: 
+    - "twocolumn"
     keep-tex: true
     include-in-header:
       - config/config.tex
@@ -16,7 +18,6 @@ format:
       - config/before-body.tex
     output-file: "s4_regelungstechnik"
     fontenc: T1
-
 
 source:
   github: "https://github.com/joelvonrotz/bachelor-electrical-engineering/tree/main/semester%204/summary/regelungstechnik"
@@ -31,8 +32,6 @@ geometry:
 papersize: a4
 fontsize: 10pt
 
-
-
 code-block-border-left: false
 code-block-bg: "#f7f7f7"
 
@@ -46,24 +45,20 @@ fig-align: center
 ---
 
 \newpage
-`\onecolumn`{=latex}
 
 ::: callout-tip
 ## Vorgehen MEP
 
-- Zuerst lösen, was man kann und nicht zu lange Zeit verlieren
-- 10 Minuten pro Aufgabe
-  - Gewisse Aufgaben brauchen mehr als 10 Minuten, andere weniger
-- Aufgaben sind meist einfacher als man denkt
-  - Es gibt verschiedene Lösungsansätze
-  - Annahmen treffen oder fragen, falls man unsicher ist
-- Wenn Zeit übrig, Lösung validieren
+-   Zuerst lösen, was man kann und nicht zu lange Zeit verlieren
+-   10 Minuten pro Aufgabe
+    -   Gewisse Aufgaben brauchen mehr als 10 Minuten, andere weniger
+-   Aufgaben sind meist einfacher als man denkt
+    -   Es gibt verschiedene Lösungsansätze
+    -   Annahmen treffen oder fragen, falls man unsicher ist
+-   Wenn Zeit übrig, Lösung validieren
 :::
 
-
 ```{=latex}
-
-\twocolumn
 % keep this to have smaller code blocks
 \ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[
   colback={shadecolor},
@@ -77,9 +72,9 @@ fig-align: center
   breakable
 ]}{\end{tcolorbox}}\fi
 ```
-
 <!-- insert -->
 
+```{=html}
 <!-- INHALT
   - INTRO - Zusammenfassung Linear Algebra, Sus & Euler Approximation
   - SYSTEM
@@ -96,81 +91,87 @@ fig-align: center
     - MATLAB
     - SIMULINK
  -->
-
+```
+```{=html}
 <!-- [INTRO] 
   Zusammenfassung Linear Algebra, Sus & Euler Approximation
  -->
+```
 {{< include sec_linearalgebra_sus.qmd >}}
 
+```{=html}
 <!-- [SYSTEM]
   Verschiedene Arten von Systemen
   Und Darstellungen (DGL, Zustandsraum)
 -->
+```
 {{< include sec_systems.qmd >}}
 
+```{=html}
 <!-- [DYNAMICS]
   Gleichgewichtslage, Lösen von DLGs
 -->
+```
 {{< include sec_dynamik.qmd >}}
 
+```{=html}
 <!-- [STABILITY]
   Verschiedene Arten von Stabilitätsprüfungen
   -->
+```
 {{< include sec_stability.qmd >}}
 
+```{=html}
 <!-- [PROCESSES]
   Grundlegende Art von Prozessen, Identifikation
 -->
+```
 {{< include sec_process.qmd >}}
 
+```{=html}
 <!-- [REGULATOR]
   P-,PI-, PD-, PDT1-, PID-Regler
 -->
-{{< include sec_regulator.qmd >}}
-{{< include sec_pid_regler.qmd >}}
+```
+{{< include sec_regulator.qmd >}} {{< include sec_pid_regler.qmd >}}
 
-
+```{=html}
 <!-- [DESIGN] 
   Entwurf, Auslegungen
 -->
+```
 {{< include sec_loop_shaping.qmd >}}
 
 <!-- [DISCRETISATION] -->
+
 {{< include sec_discrete.qmd >}}
 
-
 <!-- [MATLAB] -->
+
 {{< include sec_matlab.qmd >}}
 
 <!-- [MISC] -->
+
 {{< include sec_guides.qmd >}}
-
-
-
 
 {{< include sec_linear_time_invariant.qmd >}}
 
-
 {{< include sec_ubertragungselemente.qmd >}}
-
-
-
-
-
-
 
 # Anderes Zeug
 
-Betrag von Zeitverzögerungen sind immer $=1$, da die Phase keine Rolle spielt.
-$$
+Betrag von Zeitverzögerungen sind immer $=1$, da die Phase keine Rolle spielt. $$
 |PC| = 1 \Rightarrow \lvert k \cdot e^{-0.2s} \frac{10}{s}\rvert
 $$
 
 \newpage
 
+![](images/EM8q5ItW4AEfbDo.jpg)
+
+![](images/EFEPSgaWkAEiEG3.jpg)
+
 ![](images/rgt_meme.jpg)
 
 $\rightarrow$ [Project Pigeon](https://en.wikipedia.org/wiki/Project_Pigeon)
-
 
 {{< include sec_glossar.qmd >}}

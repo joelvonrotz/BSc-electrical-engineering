@@ -1,12 +1,256 @@
 # Diskretisierung
 
-## Auslegung
+## Entwurf Regler
 
 Digitalrechner arbeiten zeitdiskret $\leftrightarrow$ Prozesse sind von zeitkontinuierlicher Natur
 
-::: callout-note
-## Perspektiven für Entwurf zeitdiskrete Regler
+### 1) kontinuierlicher Prozess
 
-1.  *Prozess*:
-2.  *Regler*:
+kontinuierlicher Regler $s$ wird entworfen und dann diskretisiert.
+
+![](images/paste-58.png)
+
+$$
+\begin{array}{ll}
+  z = e^{sh} \approx 1+sh & \text{Euler/Vorwärtsdifferenz}^1 \\
+  z = e^{sh} \approx \frac1{1-sh} & \text{Rücksdifferenz}^2 \\
+  z = e^{sh} \approx \frac{1+s\sfrac{h}{2}}{1-s\sfrac{h}{2}} & \text{Trapezregel/Tustin} \\
+\end{array}
+$$
+
+\small
+
+1.  zu optimistisch
+2.  zu pessimistisch
+
+\normalsize
+
+$$
+\begin{array}{ll}
+  \widetilde{s} = \frac{z-1}{h} & \text{Euler/Vorwärtsdifferenz} \\
+  z = \frac{z-1}{zh} & \text{Rücksdifferenz} \\
+  z = \frac{2}{h}\cdot\frac{z-1}{z+1} & \text{Trapezregel/Tustin} \\
+\end{array}
+$$
+
+![](images/paste-59.png)
+
+::: callout-tip
+## Stabilität
+
+Die [Stabilitätsaussage bezieht]{.underline} sich auf die [transformierte Funktion]{.underline}, *nicht aber zwingend* auch für den geschlossenen Regelkreis
 :::
+
+### 2) zeitdiskreter Regler
+
+![](images/paste-60.png)
+
+![](images/paste-62.png)
+
+![](images/paste-63.png)
+
+### Relation z & s Ebene
+
+![](images/paste-61.png)
+
+# Unstetiger Regler
+
+```{=latex}
+\begin{center}
+  \begin{tikzpicture}
+
+    \node[box, minimum height=0.8cm, minimum width=0.8cm, inner sep=5pt] (procBox) at (0,2) {$-N(a)$};
+    \node[box, minimum height=0.8cm, minimum width=0.8cm, inner sep=5pt] (boxBox) at (2,2) {$L(s)$};
+
+    \node(endB) at (-2.5,2) {B};
+    \node(startA) at (-1.5,2) {A};
+
+
+    \draw[->] (startA) -- (procBox);
+    
+    \draw[->]  (boxBox) -- (3,2) -- (3,1) -- (-3.5,1) -- (-3.5,2) -- (endB);
+\draw[->]  (procBox) edge (boxBox);
+\end{tikzpicture}
+\end{center}
+```
+![](images/paste-46.png){width="7cm"}
+
+::: callout-important
+## Anhaltende Schwingung
+
+Die Bedingung für eine anhaltende Schwingung lautet in erster Näherung:
+
+$$
+N(a)\cdot L(j\omega)=1
+$$
+:::
+
+## Ohne Hysterese
+
+![](images/paste-49.png){width="7cm" height="3.4cm"}
+
+![](images/paste-47.png){width="7cm"}
+
+$$
+F(e)=\left\{
+\begin{array}{ll}
++b & \text{falls }\ e \geq 0 \\
+-b & \text{falls }\ e < 0 \\
+\end{array}
+\right.
+$$
+
+$$
+N(a) = M_1(a)e^{j\varphi_1(a)}=\frac{4b}{a\pi}e^{j0}=\frac{4b}{a\pi}
+$$
+
+```{=latex}
+\begin{conditions}
+  a & Amplitude des harmonischen Eingangssignals \\
+  b & Amplitude Rechtecksignal Ausgang \\
+  N(a) & \textbf{Beschreibungsfunktion}
+\end{conditions}
+```
+Entsprechend für den Schnittpunkt auf der Ortskurve gilt $-\frac1{N(a)}=-\frac{a\pi}{4b}$!
+
+## Mit Hysterese
+
+![](images/paste-50.png){width="7cm"}
+
+![](images/paste-48.png){width="7cm"}
+
+![](images/paste-51.png){width="7cm"}
+
+Zugehörige Fourierreihe lautet
+
+$$
+\begin{split}
+y(t) &= \frac{4b}{\pi}\left(\sin(\omega t-\alpha) + \frac1{3}\sin(3\omega t-3\alpha)\right. \\
+     &+ \left.\frac1{3}\sin(5\omega t-5\alpha)+\cdots\right)
+\end{split}
+$$
+
+und deren erste Harmonische
+
+$$
+y_1(t)=\frac{4b}{\pi}\sin(\omega-\alpha)\quad\text{mit}\quad \sin(\alpha)=\frac{c}{a}
+$$
+
+Unter der Vorraussetzung dass $a > c$ ist, ergibt sich die Beschreibungsfunktion $N(\cdot)$ zu
+
+$$
+N(a)= M_1(a)e^{j\varphi_1(a)}=\frac{4b}{a\pi}e^{j\alpha}=\frac{4b}{a\pi}(\cos(\alpha)-j\sin(\alpha))
+$$
+
+```{=latex}
+\begin{conditions}
+  c & Schaltpunkte für die Hysterese \\
+  \alpha & Phasenverschiebung
+\end{conditions}
+```
+Es folgt mit $\sin(\alpha)=\sfrac{c}{a}\;;\; \cos(\alpha)=\sqrt{1^2-\sin(\alpha)^2}$
+
+$$
+N(a)=\frac{4b}{a\pi}\left(\sqrt{1-\frac{c^2}{a^2}}-j\frac{c}{a}\right)
+$$
+
+Mit Kehrwert
+
+$$
+\frac1{N(a)}=\frac{\pi \sqrt{a^2-c^2}}{4b}+j\frac{\pi c}{4b}
+$$
+
+## Zustandsraum
+
+Nur kleine Info: anhand dem Zustandsraum können die "Regelumschaltungen" ermittelt werden. Folgend ist ein Phasenporträit, welches das Ziel in zwei Schritten erreicht.
+
+![](images/paste-52.png)
+
+# Struktur
+
+::: callout-warning
+## Steuerung & Stabilität
+
+Steuerungen nehmen im Allgemeinen keinen Einfluss auf die Stablität des Regelkreises $\rightarrow$ Solange [**keine**]{.underline} **Grössen** **aus dem Regelkreis** Einfluss nehmen!
+:::
+
+## Steuerungen
+
+### Vorfilter
+
+![](images/paste-55.png)
+
+$$
+G_{yr}=F\cdot\frac{PC}{1+PC}
+$$
+
+Mit dem idealen Ziel $G_{yr}=1$ ergibt sich
+
+$$
+F\stackrel{!}{=}\frac{1+PC}{PC}=1+(PC)^{-1}
+$$
+
+Oft aber ist dies theoretisch möglich, **aber** die Realisation wird nicht realisierbar sein.
+
+-   [**nicht kausal**]{.underline} -- Totzeiten $e^{-\tau s}\rightarrow$ Vorhersage (\textcolor{BrickRed}{Nicht Realisierbar}) $e^{\tau s}$
+-   [**instabil**]{.underline} -- Inverse Funktionen, welche instabil werden $L^{-1}=\frac{s+2}{s-1}$
+
+::: callout-caution
+## Pol-/ Nullstellenkürzung
+
+Eine Kürzung, und damit Egalisierung, von Polen durch entsprechende Nullstellen ist nur dann zulässig, wenn diese stabil und hinreichend schnell sind. Ansonsten resultieren Signale welche entweder exponentiell anwachsen oder nur sehr langsam abklingen.
+:::
+
+::: callout-tip
+## Approximation
+
+Als Lösung können stabile, kausale Approximationen $P^\dagger(s)=P(0)^{-1}$ verwendet werden, welche die relevanten Eigenschaften hinreichend wiedergibt.
+
+$$
+P = \frac{1}{1+sT}e^{-\tau s} \qquad P^\dagger=\frac{1+sT}{1+sT/N}
+$$
+
+$$
+P = \frac{s-1}{s+2}\qquad P^\dagger=\frac{s+2}{s+1}
+$$
+:::
+
+### Vorsteuerung
+
+![](images/paste-56.png)
+
+$$
+G_{yr}=\frac{P(CF_r)+F_u}{1+PC}=\underbrace{F_r}_{\text{Sollverhalten}}+\underbrace{\frac{PF_u-F_r}{1+PC}}_{\rightarrow 0}
+$$
+
+$$
+F_r \stackrel{!}{=}PF_u\qquad F_u = P^{-1}F_r
+$$
+
+::: callout-caution
+## Anforderungen $F_r$
+
+Damit $F_u = P^{-1}F_r$ realisierbar ist, gelten folgende Kriterien:
+
+1.  zeitliche Verzögerung von $F_r$ muss **mindestens so gross** wie von $P$ sein ( $\rightsquigarrow$ [Kausalität]{.underline})
+2.  $F_r$ & $P$ müssen die **gleichen Nullstellen in der rechten Halbebene** ($\rightsquigarrow$ [Stabilität]{.underline})
+3.  Polüberschuss von $F_r$ mindestens so gross wie von $P$ ($\rightsquigarrow$ keine reine Differentiation)
+:::
+
+### Störgrössenaufschaltung
+
+![](images/paste-53.png)
+
+$$
+G_{yv} = \frac{P_2\cdot(1 + P_1F_v)}{1 + PC}= P_2\underbrace{(1 + P_1F_v)}_{\text{Steuerung}}\cdot\underbrace{\frac1{1+PC}}_{\text{Regelung}}
+$$
+
+$$
+1+P_1F_v \stackrel{!}{=}0\qquad F_v = -P_1^{-1}
+$$
+
+### Kombination
+
+Mit allen Strukturen zusammen, ergibt sich folgender Regelkreis.
+
+![](images/paste-54.png)

@@ -82,6 +82,10 @@ Folgende Merkmale **muss** eine Regelung aufweisen, ansonsten ist es keine Regel
 ```
 ### 'Gang of Four'
 
+![](images/paste-44.png)
+
+![](images/paste-43.png){width="7cm"}
+
 Das Verhalten der Regelung kann durch die folgenden vier Sensitivitätsfunktionen beschrieben werden.
 
 `\underline{\footnotesize{Sensitivity Function}}`{=latex}
@@ -130,13 +134,13 @@ $$
 `\underline{\footnotesize{Load Sensitivity Function}}`{=latex}
 
 $$
-G_{vy} = PS = \frac1{1+PC} 
+G_{yv} = PS = \frac{P}{1+PC} 
 $$
 
 `\underline{\footnotesize{Complementary Sensitivity Function}}`{=latex}
 
 $$
-G_{yr} = T = \frac1{1+PC} \stackrel{!}{=} \underline{1}
+G_{yr} = T = \frac{PC}{1+PC}\quad (\stackrel{!}{=} \underline{1})
 $$
 
 `\underline{\footnotesize{Noise Sensitivity Function}}`{=latex}
