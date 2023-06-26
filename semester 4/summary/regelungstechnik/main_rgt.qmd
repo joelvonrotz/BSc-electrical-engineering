@@ -74,7 +74,7 @@ fig-align: center
 ```
 <!-- insert -->
 
-```{=html}
+
 <!-- INHALT
   - INTRO - Zusammenfassung Linear Algebra, Sus & Euler Approximation
   - SYSTEM
@@ -91,57 +91,45 @@ fig-align: center
     - MATLAB
     - SIMULINK
  -->
-```
-```{=html}
+
+
 <!-- [INTRO] 
   Zusammenfassung Linear Algebra, Sus & Euler Approximation
  -->
-```
+
 {{< include sec_linearalgebra_sus.qmd >}}
 
-```{=html}
+
 <!-- [SYSTEM]
   Verschiedene Arten von Systemen
   Und Darstellungen (DGL, Zustandsraum)
 -->
-```
+
 {{< include sec_systems.qmd >}}
 
-```{=html}
-<!-- [DYNAMICS]
-  Gleichgewichtslage, Lösen von DLGs
--->
-```
+
+<!-- [DYNAMICS] Gleichgewichtslage, Lösen von DLGs -->
+
 {{< include sec_dynamik.qmd >}}
 
-```{=html}
-<!-- [STABILITY]
-  Verschiedene Arten von Stabilitätsprüfungen
-  -->
-```
+
+<!-- [STABILITY] Verschiedene Arten von Stabilitätsprüfungen -->
+
 {{< include sec_stability.qmd >}}
 
-```{=html}
-<!-- [PROCESSES]
-  Grundlegende Art von Prozessen, Identifikation
--->
-```
+
+<!-- [PROCESSES] Grundlegende Art von Prozessen, Identifikation -->
+
 {{< include sec_process.qmd >}}
 
-```{=html}
-<!-- [REGULATOR]
-  P-,PI-, PD-, PDT1-, PID-Regler
--->
-```
+<!-- [REGULATOR] P-,PI-, PD-, PDT1-, PID-Regler -->
+
 {{< include sec_regulator.qmd >}}
 
 {{< include sec_pid_regler.qmd >}}
 
-```{=html}
-<!-- [DESIGN] 
-  Entwurf, Auslegungen
--->
-```
+<!-- [DESIGN] Entwurf, Auslegungen -->
+
 {{< include sec_loop_shaping.qmd >}}
 
 <!-- [DISCRETISATION] -->

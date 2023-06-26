@@ -158,6 +158,7 @@ Die Stellgrösse wird dadurch solange geregelt, bis der Regelfehler $e=0$ wird.
 
 Der D-Anteil reagiert auf *zukünftige* Fehler, indem die Steigung mit einem Verstärkungsfaktor $k_d$ verstärkt wird.
 
+\newpage
 
 ## Auslegung anhand...
 
@@ -165,7 +166,8 @@ Der D-Anteil reagiert auf *zukünftige* Fehler, indem die Steigung mit einem Ver
 
 #### Approximation 0-er Ordnung
 
-![](images/paste-31.png)
+![](images/paste-31.png){width="7cm"}
+
 
 Für einen statischen Prozess $K=P(0)$ und einen I-Regler wird $L=PC=K\cdot\frac{k_i}{s}$:
 
@@ -212,6 +214,8 @@ C(s) = k_i \frac{(1+s\ T_1)(1+s\ T_2)}{s} = k_p \frac{(1+s\ T_i)(1+s\ T_d)}{s\cd
 $$
 
 [Zielgrössen]{.underline}: Durchtrittsfrequenz $\omega_{gc}$, die Phasenreserve $\varphi_m$ und allenfalls Amplitudenreserve $g_m$.
+
+\newpage
 
 ::: callout-tip
 ## Vorgehen
