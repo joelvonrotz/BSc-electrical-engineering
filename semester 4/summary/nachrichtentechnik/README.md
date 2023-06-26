@@ -1,8 +1,8 @@
-# Zusammenfassung Advanced Embedded Systems
+# Zusammenfassung Nachrichtentechnik
 
 Seid gegrüsst, Werte Besucher & Interessierte
 
-Hier findet ihr die Quelldateien für die Zusammenfassung des HSLU Moduls AEMBS (*Advanced Embedded Systems*).
+Hier findet ihr die Quelldateien für die Zusammenfassung des HSLU Moduls NRT (*Nachrichtentechnik*).
 
 ## Anforderungen
 
