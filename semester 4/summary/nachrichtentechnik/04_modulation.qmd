@@ -1,0 +1,145 @@
+# Modulation
+
+## Blockdiagramm eines Kommunikationssystems
+
+Bei einer digitale Punkt-zu-Punkt-Übertragung werden Symbole aus einem bestehenden Alphabet versendet. Ein binäres System hat ein Alphabet mit nur zwei Symbolen, ein mehrwertiges System ein Alphabet mit $M$ verschiedenen Symbolen. Der **Modulator** setzt die Symbolfolge in ein für die Übertragung geeignetes Zeitsignal um. Der **Demodulator** *schätzt* die ursprüngliche Symbolfolge.
+
+Während der Übertragung wird das Signal verzerrt und es kommt *weisses Rauschen* *(Gauss verteilte Amplituden)* zum Signal dazu.
+
+![](images/05_SchemaUebertrager.png)
+
+## Klassische binäre Leitungscodes
+
+Das Informationssignal als binärer Datenstrom wird als Leitungscode in einer Pulsfolge abgebildet, die der Charackteristik des Übertragungskanals angepasst ist.
+
+-   *Non Return to Zero* (NRZ) Code
+-   Bi-Phase, Manchester Code, (10-Mbit/s-Ethernet)
+-   Delay Modulation (DM), Miller Code
+-   Alternate Mark Inversion (AMI), modifizierter AMI-Code bei ISDN, ($S_0$-Bus)
+-   High Density Bipolar (HDB-3), Telefonie, PCM30 Bündel
+
+![](images/04_Signalverlaufe_einiger_Leitungscodes.png){fig-align="center" width="12cm"}
+
+## Basisbandmodulation
+
+Übertragung im Basisband lässt Frequenzkomponenten von $0\text{ Hz}$ bis zu einer oberen Grenzfrequenz $f_g$ zu $\rightarrow$ [Tiefpass Charakteristik]{.underline}.
+
+::: {.callout-note}
+### Informationssignal Typ
+
+Wenn das Informationssignal in analoger oder digitaler Form vorliegt, werden unterschiedliche Implementierungskonzepte angewendet.
+:::
+
+### Bandbreitenbegrenzung
+
+Eine informationstragende Pulssequenz *stellt ein Zufallssignal dar*. die mittlere normierte spektrale Leistungsdichte einer Serie von polaren Rechteckpulsen für $n$ Datenbits entspricht
+
+$$
+G(f)=\frac{nA^2\tau^2sinc^2(f\tau)}{n\tau}=A^2\tau sinc^2(f\tau)\qquad\left[\frac{V^2}{Hz}\right]
+$$
+
+mit Pulsamplitude $A$ und Pulsbreite $\tau$. Die Qualität ist proportional zur übertragenen AC-Signalleistung, die von der Kanalbandbreite abhängt
+
+![](images/05_Kanalbandbreitenbegrenzung.png)
+
+### Basisbandmodulator
+
+`\begin{multicols}{2}`{=latex}
+
+Digitales Symbol, `\textcolor{NavyBlue}{Zahl}`{=latex}
+
+$$
+\{0,\ 1\}
+$$
+
+Bitdauer
+
+$$
+T_b\ [\text{s}]
+$$
+
+Bitrate
+
+$$
+r_b=\frac{1}{T_b}\ \left[\frac{\text{bit}}{\text{1}}\right]
+$$
+
+[Beispiel]{.underline}
+
+- Binär: $T_b=T_S$
+- 2 Bit pro Symbol: $2T_b=T_S$
+- m Bit pro Symbol: $mT_b=T_S$
+
+\columnbreak
+
+Physikalisches Symbol, `\textcolor{NavyBlue}{Puls}`{=latex}
+
+![](images/05_basisbandmodulator_puls.png){width="5cm"}
+
+Symboldauer
+
+$$
+T_s\ [\text{s}]
+$$
+
+Symbolrate
+
+$$
+r_s = \frac{1}{T_s}\ [\text{baud}]
+$$
+
+[Beispiel]{.underline}
+
+- Amplitudenstufen: $2^1=2$
+- Amplitudenstufen: $2^2=4$
+- Amplitudenstufen: $2^m$
+
+::: callout-tip
+Bit- und Datenrate ist zu unterscheiden, da eine Bitrate die
+:::
+
+`\end{multicols}`{=latex}
+
+
+
+
+::: callout-note
+## Fundamentaler Zusammenhang
+
+$\text{Pulsdauer}\cdot\text{Bandbreite}\approx\text{konstant}$
+
+Es gilt also: je **kürzer** der Puls, desto **breiter** die Bandbreite
+:::
+
+
+
+## Angepasste Pulsformen
+
+Um Pulse mit besseren spektralen Eigenschaften zu erhalten, wird der Rechteckpuls (1) angepasst. Die Optimalen spektralen Eigenschaften besitzt ein $sinc$-Puls, welcher eine Bandbreite von $T$ aufweist, jedoch einen unendlichen Puls darstellt.
+
+Zur Entschärfung der zeitlichen Überlappungen wird der **Raised Cosine**-Puls verwendet
+
+![](images/05_Pulsformen.png)
+
+Der Impuls hat die Form
+
+$$
+p(t)=A\space\text{sinc}(r_bt)\cdot\frac{\cos{(2\pi\beta t)}}{1-(4\beta t)^2}
+$$
+
+$\beta$ hängt direkt von der Datenrate $r_b$, zur einfacheren Handhabung wird der *roll-off*-Faktor $\alpha$ in Prozent
+
+$$
+\alpha=\frac{2\beta}{r_b}100\%
+$$
+
+Im Frequenzbereich beschreibt der Puls ein Spektrumsverlauf mit $\cos^2$-förmige Flanke
+
+$$
+P(f)=
+\begin{cases}
+\frac{1}{r_b}\hfill |f|\le\frac{r_b}{2}-\beta\\
+\frac{1}{r_b}\cos^2\left(\frac{\pi}{4\beta}(|f|-\frac{r_b}{2}+\beta)\right)\qquad\hfill\frac{r_b}{2}-\beta<|f|<\frac{r_b}{2}+\beta\\
+0\hfill |f|\ge\frac{r_b}{2}+\beta
+\end{cases}
+$$

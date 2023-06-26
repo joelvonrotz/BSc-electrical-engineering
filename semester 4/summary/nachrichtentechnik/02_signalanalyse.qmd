@@ -1,0 +1,376 @@
+# Signalanalyse
+
+Die Spektralanalyse ist einer der wichtigsten Methoden der Signalanalyse in der Kommunikationstechnik und basiert auf der Fourier Reihenentwicklung und der Fourier Transformation. Sie erlaubt im Frequenzbereich die Behandlung von ganzen Signalklassen mit ähnlichen Eigenschaften gegenüber der individuellen Analyse jedes einzelnen Signals im Zeitbereich.
+
+![](images/02_Signalanalyse.png)
+
+## Deterministische und Zufallssignale
+
+Signale können entweder *deterministisch* mit mathematischen Funktionen beschrieben werden oder sie liegen als *Zufallssignale* vor und nehmen zu jedem Zeitpunkt einen zufälligen Wert an, der einer Gauss-verteilung folgt.
+
+### Harmonische Schwingung
+
+Kosinusschwingung als reelle Zeitfunktion
+
+$$
+s(t)=A\cos(2\pi ft+\varphi)
+$$
+
+![](images/02_HarmonischeSchwingung.png)
+
+$$
++A\sin(\omega t)=+A\cos(\omega t-90°)=+A\cos\left(\omega t -\frac{\pi}{2}\right)
+$$
+
+$$
+-A\cos(\omega t)=+A\cos(\omega t\pm 180°)=+A\cos(\omega t\pm\pi)
+$$
+
+### Rechteckpuls
+
+$$
+\Pi(t)=
+\begin{cases}
+   1,\qquad|t|<\frac12\\
+   0,\qquad\text{sonst}
+\end{cases}
+$$
+
+![](images/02_Einheitsrechteckimpuls.png)
+
+### Zufallssignal
+
+Zufallssignale nehmen zu jedem Zeitpunkt zufällige Werte an und können daher nicht vollständig mathematisch beschrieben werden. Man kann aber für diese Signalklasse statistische Grössen wie eine Wahrscheinlichkeitsdichtefunktion $p(u)$, den Erwartungswert $m_u$ und die Standardabweichung $s_u$ als beschreibende Grössen ermitteln
+
+![](images/02_Rauschen.png)
+
+## Komplexe Zeigernotation
+
+Signale (auch Reellwertige) können einfacher anhand der *komplexen Zeigernotation* beschrieben werden
+
+$$
+S(t)=\underbrace{A\cos(\omega_0 t+\varphi)}_{\text{reelle Schwingung}}\pm\underbrace{jA\sin(\omega_0 t+\varphi)}_{\text{Erweiterung}}=\underbrace{Ae^{\pm j(\omega_0 t+\varphi)}}_{\text{komplexer Zeiger}}
+$$
+
+Es gilt trotz Erweiterung immernoch
+
+$$
+s(t)=Re\left[Ae^{\pm j(\omega_0 t+\varphi)}\right]=A\cos(\omega_0 t+\varphi)
+$$
+
+Aus dieser Zeigernotation kann direkt das **Amplituden- und Phasenspektrum** als **einseitiges Linienspektrum** abgetragen werden
+
+![Zeigerdiagramm, Amplituden- und Phasenspektrum](images/02_AmpUndPhasenSpektrum.png)
+
+### Zweiseitige Spektrumsdarstellung
+
+Eine weitere Darstellung ist das **zweiseitige Linienspektrum**, wobei über die komplexe Konjugation das Ganze, komplexe Signal reelwertig gehalten wird
+
+$$
+s(t)=\underbrace{\frac{A}{2}e^{j(\omega_0 t+\varphi)}}_{\text{Gegenuhrzeigersinn}}=\underbrace{\frac{A}{2}e^{-j(\omega_0 t+\varphi)}}_{\text{Uhrzeigersinn}}=A\cos(\omega_0 t+\varphi)
+$$
+
+da sich die Komplexen Teile aufheben. Da das *Amplitudenspektrum* stehts den Betrag anzeigt, werden negative Werte stehts mit einer *Phasenverschiebung* um $\pi$ aufgetragen.
+
+-   Amplitudendiagramm ist *symmetrisch*
+
+-   Phasendiagramm ist *punktsymmetrisch*
+
+![Konjugiert komplexe Zeiger und zweiseitiges Linienspektrum](images/02_AmpUndPhasenSpektrumZweiseitig.png)
+
+## Periodische Signale
+
+Harmonische Schwingungen und Zeiger gehören zu der allgemeinen Klasse der periodischen Signale, mit der Eigenschaft
+
+$$
+s(t\pm mT_0)=s(t)\qquad -\infty<t<+\infty\qquad\text{Mit }m=1,2,3,...
+$$
+
+Die Signalform ändert sich also nicht bei einer Verschiebung um $m$.
+
+### Mittlere Leistung
+
+*Mittelwert* $\bar{s}$
+
+$$
+\bar{s}=\frac{1}{T_0}\int_{t_0}^{t_0+T_0}{s(t)dt}
+$$
+
+Die *Mittlere **normierte** Leistung* beschreibt die Leistung bezogen auf $1\Omega$
+
+$$
+P=\frac{1}{T_0}\int_{t_0}^{t_0+T_0}{|s(t)|^2dt}
+$$
+
+Entspricht die Leistung $0<P<\infty$ so spricht man von einem *periodischen Leistungssignal*.
+
+## $sinc$-Funktion
+
+Zur Bestimmung der Fourier-Koeffizienten $c_n$ erhält man oft das Integral
+
+$$
+\frac{1}{T}\int_{-\frac{T}{2}}^{+\frac{T}{2}}{e^{-j\pi ft}dt}
+=-\frac{1}{j2\pi fT}(e^{-j\pi fT}-e^{j\pi fT})
+$$
+
+was durch die geometrische Beziehung $(e^{j\theta}-e^{-j\theta})/(j2)=sin(\theta)$ zur $sinc$-Funktion führt
+
+$$
+si(\pi fT)=\frac{sin(\pi fT)}{\pi fT}\qquad\overbrace{=}^{x=fT}\qquad sinc(x)=\frac{sin(\pi x)}{\pi x}=
+\begin{cases}
+   1,\qquad x=0\\
+   0,\qquad x=\pm1,\pm2,...
+\end{cases}
+$$
+
+![](images/02_sinc.png)
+
+## Komplexe Fourier Reihe *(perodisch)*
+
+Ein periodisches Signal $s(t)$ kann mit der *komplexen Fourier Reihenentwicklung* in eine zweiseitige Spektrumsdarstellung gewandelt werden. DIe komplexe Fourier Riehe für ein periodisches Leistungssignal der Periode $T_0=\frac{1}{f_0}$ lautet
+
+$$
+s(t)=\sum_{n=-\infty}^{\infty}{c_ne^{jn\omega_0t}}\qquad n=0,\pm1,\pm2,...
+$$
+
+Die komplexen Koeffizienten $c_n$ lauten
+
+$$
+c_n=\frac{1}{T_0}\int_{t_0}^{t_0+T_0}{s(t)e^{-jn\omega_0t}dt}
+$$
+
+Der Betrag $|c_n|$ repräsentiert die Amplitude und das Argument $\angle c_n$ entspricht der Phase. Es gilt:
+
+-   Alle Frequenzen sind ganzzahlige Vielfache der Grundfrequenz $\omega_0$
+
+-   Die Gleichstromkomponente $c_0$ entspricht $\bar{s}$
+
+-   Ist $s(t)$ reell, so besitzt das zweiseitige *Amplitudenspektrum* $|c_n|$ eine **gerade Symmetrie**
+
+-   Ist $s(t)$ reell, so besitzt das zweiseitige *Phasenspektrum* $\angle c_n$ eine **ungerade Sysmmetrie**
+
+### Parseval'sches Leistungstheorem
+
+Die mittlere, normierte Leistung eines periodischen Signals kann im Zeitbereich oder im Frequenzbereich bestimmt werden
+
+$$
+P=\frac{1}{T_0}\int_{t_0}^{t_0+T_0}{|s(t)|^2dt}=\sum_{n=-\infty}^{\infty}{|c_n|^2}
+$$
+
+## Nichtperiodische Energiesignale
+
+![Nichtperiodische Signale](images/02_NichtPeriodisch.png)
+
+Die *normierte Signalenergie* $E$ beschreibt die Energie eines Signals über einen Widerstand von $1\Omega$
+
+$$
+E=\int_{-\infty}^{\infty}{|s(t)|^2dt}
+$$
+
+::: callout-caution
+## Energiesignal
+
+Ist die Energie *endlich*, also $0<E<\infty$ so handelt es sich um ein **nichtperiodisches Energiesignal**.
+
+Auch Signal die vermeintlich undendlich lange andauern können endlich sein, z. B.:
+
+![](images/02_Entladekurve.png)
+
+Die Funktion wird zwar Mathematisch nie $0$, die Energie ist jedoch Endlich *(Kondensator hat nicht unendlich Energie)*
+:::
+
+## Fourier Transformation *(nicht periodisch)*
+
+Mit der Fourier Transformation werden nicht periodische Signale in ihre Frequenzbestandteile aufgeteilt und man erhält ein **Kontinuierliches Dichtespektrum**. Die Fourier Transformation ist definiert durch
+
+$$
+S(f)=\int_{-\infty}^{\infty}{s(t)e^{-j\omega t}dt}\qquad\text{mit }\omega=2\pi f
+$$
+
+Die Rücktransformation gelingt durch die inverse Fourier Transformation
+
+$$
+s(t)=\int_{-\infty}^{\infty}{S(f)e^{-j\omega t}dt}\qquad\text{mit }\omega=2\pi f
+$$
+
+Für die komplexe Funktion $S(f)$ der Fourier Transformation gelten die *spektralen Eigenschaften*
+
+-   Das *Amplitudendichtespektrum* entspricht $|S(f)|$
+
+-   Das *Phasendichtespektrum* entspricht $\angle S(f)$
+
+-   Der Funktionionswert $S(f)\big|_{f=0}$ entspricht der Nettofläche von $s(t)$
+
+-   Ist $s(t)$ reell, so besitzt das *Amplitudenspektrum* $|c_n|$ eine **gerade Symmetrie**
+
+-   Ist $s(t)$ reell, so besitzt das *Phasenspektrum* $\angle c_n$ eine **ungerade Sysmmetrie**
+
+### Parseval'sches Energietheorem
+
+Die Signalenergie im Zeitbereich wie auch im Grequenzbereich entspricht demseben Wert, die Beiden Darstellungen beinhalten also diselben Informationen
+
+$$
+E=\int_{-\infty}^{\infty}{|s(t)|^2dt}=\int_{-\infty}^{\infty}{|S(f|^2df}
+$$
+
+## Logarithmische Darstellung
+
+Das Amplitudenspektrum wird oft in der y-Achse logarithmisch dargestellt
+
+$$
+A_{dB}=20\log_{10}\left(\frac{A_{V}}{A_{Ref}}\right)
+$$
+
+als Bezugswert $A_{Ref}$ wird oft der Effektivwert des Signals oder die Amplitude der Grundschwingung verwendet.
+
+## Korrelation
+
+### Autokorrelation
+
+Die *Autokorrelation* macht Angaben über den inneren Zusammenhang einer Funktion $s(t)$. Dies gilt für ein *periodisches Leistungssignal*
+
+$$
+k_{11}(t)=E[s_1(t-\tau)\cdot s_1(t)]=\lim_{T\rightarrow \infty}{\frac{1}{T}\int_0^T{s_1(t-\tau)s_1(t)dt}}
+$$
+
+und für ein *Energiesignal*
+
+$$
+k_{11}(\tau)=\int_{-\infty}^{\infty}{s_1(t-\tau)s_1(t)dt}
+$$
+
+Im **Frequenzbereich** erhalten wir die Autokorrelationen eines *periodischesn Leistungssignals* durch
+
+$$
+k_{11}=\lim_{T\rightarrow\infty}{\frac{1}{T}\int_0^T{S_1(f)S_1^*(f)df}}
+$$
+
+und eines *Energiesignals* über
+
+$$
+k_{11}(\tau)=\int_{-\infty}^{\infty}{S_1(f)S_1^*(f)df}
+$$
+
+![Blockdiagramm einer Autokorrelation](images/02_Autokorrelation.png)
+
+Es gelten die folgenden Eigenschaften:
+
+-   *AK* ist gerade: $k_{11}(\tau)=k_{11}(-\tau)$
+
+-   $\lim_{\tau\rightarrow\infty}k_{11}(\tau)=0$
+
+-   Bei $\tau=0$ erhält man die normierte Leistung (o. Energie): $k_{11}(\tau=0)=s_1(t)^2=s_{eff}^2$
+
+-   Das Maximum liegt bei $\tau=0$
+
+-   Für periodische Signale $s(t)$ liegt die gleiche Periodendauer wie bei $k_{11}(\tau)$ vor
+
+#### Kohärenzzeit
+
+Der Bereich von $\tau$, in dem $k_{11}\ne 0$ ist, wird als *Kohärenzzeit* bezeichnet.
+
+![](images/02_Koh%C3%A4renzzeit.png)
+
+Die Kohärenzzeit eines sehr fluktiativen (*= grosse Bandbreite*) Signals ist sehr kurz, während diese bei einem langsamen Signal (*= keline Bandbreite*) eher lang ist. Es gilt also
+
+$$
+\text{Kohärenzzeit}\propto \frac{1}{\text{Bandbreite}}
+$$
+
+### Kreuzkorrelation
+
+Die *Kreuzkorrelation* macht Angaben über den Zusammenhang zweier Signale $s_1(t)$ und $s_2(t)$. Dabei kann man herausfinden, ob zwei Signale miteinander verwandt sind und gemeinsame Merkmale enthalten. Zudem kann man erkennen ob zwei Signale in Abhängikeit einer zeitlichen Verschiebung zueinander stehen. Dies gilt für *periodische Leistungssignale*
+
+$$
+k_{12}(t)=E[s_1(t-\tau)\cdot s_2(t)]=\lim_{T\rightarrow \infty}{\frac{1}{T}\int_0^T{s_1(t-\tau)s_2(t)dt}}
+$$
+
+und für ein *Energiesignal*
+
+$$
+k_{12}(\tau)=\int_{-\infty}^{\infty}{s_1(t-\tau)s_2(t)dt}
+$$ Es gelten die folgenden Eigenschaften:
+
+-   *KK* ist gerade: $k_{12}(\tau)=k_{21}(-\tau)$
+
+-   $\lim_{\tau\rightarrow\infty}k_{12}(\tau)=0$
+
+-   Das Maximum liegt bei $\tau=\tau_0$
+
+![](images/02_Kreuzkorrelation.png)
+
+## Signalabtastung und Rekonstruktion
+
+### Idealer Abtastprozess
+
+Der Abtastprozess kann als Multiplikation eines analogen Eingangssignals mit einer periodischen Serie von Einheitsimpulsen betrachtet werden
+
+$$
+x(t)=x(t)\sum_{k=-\infty}^{\infty}{\delta(t-kT_s)}
+$$
+
+Was eine Faltung im Frequenzbereich mit einem Impulskamm zur Folge hat
+
+$$
+X_s(f)=X(f)*\left[f_s\sum_{k=-\infty}^{\infty}{\delta(f-kf_s)}\right]=f_s\sum_{k=-\infty}^{\infty}{X(f-kf_s)}
+$$
+
+Was einer periodischen Fortsetzung des Spektrums zur Folge hat
+
+![](images/02_IdealeAbtastung.png)
+
+Es sind also Entsprechende Kopien des Spektrums (*Alias*) bei den ganzzahligen Vielfachen der *Abtastfrequenz* $f_s$ zu sehen. Die unverzerrte Rückgewinnung über ein Tiefpassfilter ist nur möglich, wenn das Abtasttheorem, bzw. die *Nyquist-Rate* eingehalten wird
+
+$$
+f_{s_{min}}>2f_{Singal_{max}}
+$$
+
+Ein idealer Tiefpass mit einer Verstärkung $K$, einer Verzögerungszeit $t_d$ und einer Bandbreite $B$ hat eine Übertragungsfunktion von
+
+$$
+H_{TP}(f)=K\space \Pi\left(\frac{f}{2B}\right)e^{-j\omega t_d}
+$$
+
+![](images/02_IdealerTiefpass.png)
+
+### Analoge Vorfilter
+
+Das analoge Vorfilter (*anti-aliasing* Filter) verhindert das Kopien eines Störignals (Ausserhalb der Grenzfrequenz) in den Nutzbereich fallen.
+
+![](images/02_AntiAliasing.png)
+
+Realisierbare FIlter sind nicht ideal. Die korrekte Auslegung des Filters hängt von verschiedenen Gesichtspunkten ab:
+
+-   Gewünschte Signalbreite (Grenzfrequenz für den Durchlassbereich $f_g$)
+
+-   Abtastfrequenz $f_s$
+
+-   Gewünschte minimale Sperrdämpfung für Spiegelfrequenzen ($f_{sb}=f_s-f_g$)
+
+-   Anforderungen bezüglich Signalverzerrung durch das Filter
+
+### Reale Abtastung - PAM Signal
+
+Reale Abtastungen erfolgen durch die *Sample&Hold*-Technik, so erhält man eine Flat-Top-Abtastung. Dadurch erzeugt man die Zeitfunktion
+
+$$
+x_p(t)=x(t)\sum_{k=-\infty}^{\infty}{p(t-kT_s)}
+$$
+
+![](images/02_FlatTop.png)
+
+Dies induziert einen *Apertureffekt*, bei welchem eine Dämpfung der höheren Frequenzkomponenten des Signalspektrums
+
+![](images/02_ApertureEffekt.png)
+
+### Abtastung von Bandpasssignalen
+
+Besitzt ein Signal ein bandbegrenztes Spektrum mit der Bandbreite $B$ und der maximalen oberen Signalfrequenz $f_{Signal_{max}}$, so kann es mit der Frequenz
+
+$$
+f_{Sample}=\frac{2 f_{Signal_{max}}}{m}
+$$
+
+abgetastet werden, ohne das es zu Spektrumsüberlappungen kommt. $m$ ist die grösste Zahl, die das Verhältnis $\frac{f_{Signal_{max}}}{B}$ nicht übersteigt.
+
+![](images/02_BandpassAbtastung.png)
