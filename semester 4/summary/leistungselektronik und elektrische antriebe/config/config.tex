@@ -1,0 +1,71 @@
+\usepackage{amssymb, amsmath}
+\numberwithin{equation}{section}
+
+\usepackage[utf8]{inputenc}
+\usepackage{lastpage} % counts all the pages, used in footer
+\usepackage{hyperref}
+
+% Flexible Multicolumn Option
+\usepackage{multicol}
+\setlength\columnsep{20pt}
+
+% Package for enabling colors (colorful output)
+\usepackage[dvipsnames]{xcolor}
+\definecolor{darkgreen}{HTML}{014f32}
+
+% Icons - http://mirrors.ctan.org/fonts/fontawesome5/doc/fontawesome5.pdf
+\usepackage{fontawesome5}
+
+
+\usepackage{tabularx}
+\renewcommand\tabularxcolumn[1]{m{#1}} % vertically center content
+
+
+\usepackage[nodisplayskipstretch]{setspace}
+
+% Font Configuration
+\usepackage{lmodern}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{cmbright}
+\usepackage[scaled=0.85]{beramono}
+
+% 
+\usepackage{fancyhdr}
+
+\renewcommand{\headrulewidth}{1pt}
+\renewcommand{\footrulewidth}{1pt}
+
+\pagestyle{fancy}
+\fancyhead{} % clear all header fields
+\makeatletter
+\fancyhead[R]{\@title\ - Zusammenfassung}
+\makeatother
+\fancyhead[L]{HSLU T\&A}
+\fancyfoot{} % clear all footer fields
+\fancyfoot[C]{\thepage\ / \pageref{LastPage}}
+\fancyfoot[R]{LEA}
+\fancyfoot[L]{\today}
+
+% introduces conditions environment to create nice equation parameter descriptions
+\usepackage{array}
+
+\newenvironment{conditions}
+  {\par\vspace{\abovedisplayskip}\noindent\begin{tabular}{>{$}l<{$} @{${}:{}$} l}}
+  {\end{tabular}\par\vspace{\belowdisplayskip}}
+  
+\usepackage{fvextra}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{
+  breaklines,
+  breaksymbolleft={\tiny\faAngleRight},
+  commandchars=\\\{\}
+}
+
+% 
+\let\paragraph\oldparagraph
+\let\subparagraph\oldsubparagraph
+
+\usepackage{xhfill}
+\usepackage[explicit]{titlesec}
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}\par}
+
+\titleformat{\section}[block]{\bfseries\Large}{\thetitle.}{3mm}{#1\space\xrfill[0.6ex]{1pt}}

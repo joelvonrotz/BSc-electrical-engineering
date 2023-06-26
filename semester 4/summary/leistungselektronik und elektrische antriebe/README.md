@@ -1,8 +1,8 @@
-# Zusammenfassung Advanced Embedded Systems
+# Zusammenfassung Leistungselektronik und Antriebssysteme
 
 Seid gegrüsst, Werte Besucher & Interessierte
 
-Hier findet ihr die Quelldateien für die Zusammenfassung des HSLU Moduls AEMBS (*Advanced Embedded Systems*).
+Hier findet ihr die Quelldateien für die Zusammenfassung des HSLU Moduls LEA (*Leistungselektronik und Antriebssysteme*).
 
 ## Anforderungen
 
