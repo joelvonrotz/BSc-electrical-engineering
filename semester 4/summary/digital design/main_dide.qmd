@@ -4,6 +4,8 @@
 format:
   pdf:
     pdf-engine: pdflatex
+    classoption: 
+      - twocolumn
     include-in-header:
       - config.tex
       - _two-column-longtable.tex
@@ -64,7 +66,6 @@ crossref:
 ```
 <!-- [Chapters] -->
 
-`\begin{multicols*}{2}`{=latex}
 
 {{< include sec_fpga.qmd >}}
 
@@ -76,11 +77,6 @@ crossref:
 
 {{< include sec_libraries_and_others.qmd >}}
 
-```{=latex}
-\vfill\null
-\columnbreak
-```
-
 {{< include sec_vhdl_process_templates.qmd >}}
 
 \newpage
@@ -90,5 +86,3 @@ crossref:
 ![](images/vktzbnteslj41-4294383263.jpg)
 
 ![](images/pewh6yrhfmp91.png)
-
-`\end{multicols*}`{=latex}

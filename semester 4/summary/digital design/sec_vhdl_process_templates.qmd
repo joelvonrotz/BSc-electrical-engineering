@@ -51,9 +51,7 @@ end process;
 -- FSM initialization
 type state is (S0, S1, S2);
 signal c_st, n_st : state;
-```
 
-``` vhdl
 -- memorizing process
 p_seq: process (rst, clk) -- <1>
 begin
@@ -63,9 +61,7 @@ begin
     c_st <= n_st;
   end if;
 end process;
-```
 
-``` vhdl
 -- memoryless process
 p_com: process (i, c_st) -- <2>
 begin
@@ -122,9 +118,7 @@ begin
     c_st <= n_st;
   end if;
 end process;
-```
 
-``` vhdl
 -- memoryless process
 p_com: process (i, c_st)                        -- <2>
 begin
