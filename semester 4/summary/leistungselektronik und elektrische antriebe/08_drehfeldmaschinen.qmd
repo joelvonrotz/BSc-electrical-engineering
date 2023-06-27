@@ -2,7 +2,6 @@
 
 
 
-`\begin{multicols}{2}`{=latex}
 
 ::: callout-note
 ## Drehfeldmaschinen
@@ -11,10 +10,7 @@
 -   Asynchronmaschine (ASM)
 :::
 
-```{=latex}
-\vfill\null
-\columnbreak
-```
+
 
 ::: callout-note
 ## Kollektormotoren
@@ -22,5 +18,3 @@
 -   Gleichstrommaschine (GM)
 -   Universalmotor
 :::
-
-`\end{multicols}`{=latex}

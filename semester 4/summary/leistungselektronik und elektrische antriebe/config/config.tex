@@ -1,12 +1,14 @@
 \usepackage{amssymb, amsmath}
-\numberwithin{equation}{section}
 
 \usepackage[utf8]{inputenc}
 \usepackage{lastpage} % counts all the pages, used in footer
 \usepackage{hyperref}
 
+% adds sfrac (which is a diagonal form of the fraction sign)
+\usepackage{gensymb}
+\usepackage{xfrac}
+
 % Flexible Multicolumn Option
-\usepackage{multicol}
 \setlength\columnsep{20pt}
 
 % Package for enabling colors (colorful output)
@@ -16,18 +18,13 @@
 % Icons - http://mirrors.ctan.org/fonts/fontawesome5/doc/fontawesome5.pdf
 \usepackage{fontawesome5}
 
-
-\usepackage{tabularx}
-\renewcommand\tabularxcolumn[1]{m{#1}} % vertically center content
-
-
 \usepackage[nodisplayskipstretch]{setspace}
 
 % Font Configuration
 \usepackage{lmodern}
 \renewcommand{\familydefault}{\sfdefault}
 \usepackage{cmbright}
-\usepackage[scaled=0.85]{beramono}
+\usepackage[scaled=0.9]{inconsolata}
 
 % 
 \usepackage{fancyhdr}
@@ -52,7 +49,7 @@
 \newenvironment{conditions}
   {\par\vspace{\abovedisplayskip}\noindent\begin{tabular}{>{$}l<{$} @{${}:{}$} l}}
   {\end{tabular}\par\vspace{\belowdisplayskip}}
-  
+
 \usepackage{fvextra}
 \DefineVerbatimEnvironment{Highlighting}{Verbatim}{
   breaklines,
@@ -60,7 +57,6 @@
   commandchars=\\\{\}
 }
 
-% 
 \let\paragraph\oldparagraph
 \let\subparagraph\oldsubparagraph
 
@@ -69,3 +65,5 @@
 \renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}\par}
 
 \titleformat{\section}[block]{\bfseries\Large}{\thetitle.}{3mm}{#1\space\xrfill[0.6ex]{1pt}}
+
+\usepackage{pdfpages}
