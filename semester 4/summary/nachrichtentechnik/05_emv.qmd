@@ -1,5 +1,7 @@
 # Elektromagnetische Verträglichkeit (EMV)
 
+![](images/paste-2.png)
+
 ::: callout-note
 [Elektrische Ladungen]{.underline} eines [Wechselstroms]{.underline} ($\dot{I}$), also der Änderungsrate des Stromes, [erzeugen]{.underline} ein [elektromagnetische Feld]{.underline}. $\rightarrow$ Somit ist ein elektronisches System von vielen unterschiedlichen Quellen von Störungen und Rauschen ausgesetzt.
 :::
@@ -10,15 +12,27 @@ Man unterscheidet diese Rauschquellen in drei Kategorie
 2.  **Intrinsisches Rauschen** -- Rauschen [innerhalb]{.underline} der Schaltung (z.B. thermisches Rauschen & Shot-Rauschen von Halbleitern)
 3.  **Externe Störgeräusche** -- Werden vom System aufgefangen (z.B. entstehen durch Gewitterentladungen oder von anderen elektrischen Geräten)
 
++------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------+
 | Art                                                                          | Herkunft                                                                                                      |
-|---------------------------------------|---------------------------------|
++==============================================================================+===============================================================================================================+
 | Schmalbandige Störsignale                                                    | z.B. Langwellen- und Mittelwellen-Radiosender                                                                 |
++------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------+
 | Breitbandige Störsignale                                                     | Mobilfunksignale, Datenkommunikation mit hoher Datenrate (Übersprechen von benachbarten Übertragungssystemen) |
++------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------+
 | Periodische, pulshafte Störsignale, [synchron]{.underline} zur Netzfrequenz  | Leistungselektronik in der Antriebssteuerung                                                                  |
++------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------+
 | Periodische, pulshafte Störsignale, [asynchron]{.underline} zur Netzfrequenz | z.B. getaktete Netzteile; diskrete Spektrallinien von 50Hz...200Hz                                            |
++------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------+
 | Nichtperiodisches, pulshaftes Rauschen                                       | z.B. Gewitterentladungen; Impulsdauer bis einige Millisekunden                                                |
++------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------+
 | Farbiges Hintergrundrauschen                                                 | Verschiedene Quellen mit tiefer spektraler Leistungsdichte ; Zeitkonstante von Minuten bis Stunden            |
-|                                                                              |                                                                                                               |
++------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------+
+
+![](images/paste-1.png)
+
+## Elektromagnetisches Spektrum
+
+![](images/spectrum_and_icons_EIC_v2.png)
 
 $$
 T=\frac{1}{f}\qquad \lambda=\frac{v}{f}\qquad E=h\cdot f
@@ -36,12 +50,168 @@ $$
 ```
 ## Magnetische Feldenergie
 
+Gespeicherte magnetische Feldenergie im Nahbereich eines Schaltkreises
+
 $$
 w_m = \frac12\cdot L\cdot i^2
 $$
 
+![](images/paste-4.png)
+
+Für die induzierte Störspannung gilt
+
+$$
+u_n=j\omega M_pi_2
+$$
+
+Die parasitäre Gegeninduktivität ist gegeben mit
+
+$$
+M_p=k\sqrt{L_1L_2}\qquad\text{mit }k\text{ als Koppelfaktor}
+$$
+
+Ein Magnetfeld hat eine grosse $H$-Feldkomponente une eine kleine $E$-Feldkomponente. die Wellenimpedanz $|\eta|=\left|\frac{E}{H}\right|$ wird daher sehr klein.
+
+::: callout-warning
+## Erratische Ausfälle
+
+Induktive Kopplung kann zu Erratischen (Nicht konstant vorhandenen) Ausfällen führen, wenn z.B. ein Motor neben dem DUT gestartet wird, treten höhere magnetische Energien auf.
+:::
+
 ## Elektrische Feldenergie
+
+Gespeicherte elektrische Energie im Nahbereich eines Schaltkreises
 
 $$
 w_e = \frac12\cdot C\cdot u^2
 $$
+
+![](images/paste-5.png)
+
+Für den eingekoppelten Störstrom gilt
+
+$$
+i_n=j\omega C_pu_2
+$$
+
+Ein $E$-Feld besitzt im Nahfeldbereich eine viel grössere elektrische Feldkomponente gegenüber der magnetischen Feldkomponente. somit wird $|\eta|=\left|\frac{E}{H}\right|$ sehr gross.
+
+## Abgestrahlte Feldenergie
+
+*Elektrisch lange* Schaltkreise strahlen vermehrt Feldenergie ab
+
+$$
+\text{Elektrische Länge}=\frac{\text{Physikalische Länge }\ell}{\text{Wellenlänge }\lambda}\qquad\text{mit }\lambda=\frac{v}{f}\space\text{mit }v\approx3\cdot10^8\frac{m}{s}\text{ (Vakuum)}
+$$
+
+![](images/paste-6.png)
+
+### Feldzonen und Wellenwiderstand
+
+![](images/paste-7.png)
+
++-----------------+---------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------+
+|                 | Nahfeld *(reaktives Feld)*                                                                        | Fernfeld *(Strahlungsfeld)*                                                                     |
++=================+===================================================================================================+=================================================================================================+
+| Energie         | -   speichert Energie                                                                             | -   transportiert abgestrahlte Energie                                                          |
+|                 |                                                                                                   |                                                                                                 |
+|                 | -   transport mittels induktiver- und kapazitiver-Kopplung                                        |                                                                                                 |
++-----------------+---------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------+
+| Existenz        | -   verschwindet, wenn die Quelle ausgeschaltet wird                                              | -   breitet sich aus, bis das Feld absorbiert wird                                              |
++-----------------+---------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------+
+| Interaktion     | -   Messen des Feldes ändert $U$/$I$ des Quellenkreis                                             | -   entnommene Energie merkt der Sender nicht                                                   |
+|                 |                                                                                                   |                                                                                                 |
+|                 | -   Entzug von Feldenergie ändert $U$/$I$ des Quellenkreis                                        |                                                                                                 |
++-----------------+---------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------+
+| Form des Feldes | -   hängt von Quelle ab                                                                           | -   Kugelwelle                                                                                  |
+|                 |                                                                                                   |                                                                                                 |
+|                 |                                                                                                   | -   ab grosser Distanz: Ebene Wellenfront                                                       |
++-----------------+---------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------+
+| Wellenimpedanz  | -   Abhängig von Erzeugerschaltung                                                                | -   Abhängig vom Ausbreitungsmaterial *(Wellenimpedanz)*                                        |
++-----------------+---------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------+
+| Wellenführung   | -   Energieführung mittels Leitungen *(transmission line)*, basierend auf der Kopplung im Nahfeld | -   Energieführung mittels Wellenleiter *(wave guide)*, basierend auf Reflexion an Grenzflächen |
++-----------------+---------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------+
+
+: Eigenschaften eines EM-Feldes
+
+## Gleichtakt-Störung
+
+### Störeinkopplung infolge *Erdschlaufe*
+
+Werden z.B. zwei Gehäuse über Erde miteinander verbunden, kann dies zu einer Rahmenantenne führen, welche Störeinkopplungen hervorbringt.
+
+![](images/paste-8.png)
+
+`\begin{multicols}{2}`{=latex}
+
+Die induzierte Spannung in einem **kleinen Loop** $\left(\ell<\frac{ \lambda}{2}\right)$ liegt hierbei bei
+
+$$
+u(t)=\frac{2\pi\ell s E f\text{[MHz]}}{300}
+$$
+
+und bei einem **grossen Loop** $\left(\ell>\frac{\lambda}{2}\right)$ bei
+
+$$
+u(t)=\pi s E
+$$
+
+`\columnbreak`{=latex}
+
+```{=latex}
+\begin{conditions}
+E       & Elektrische Feldstärke $\left[\frac{V}{m}\right]$ \\
+\ell s  & Loopfläche $[m^2]$ \\
+f       & Frequenz $[MHz]$ \\
+\lambda & Wellenlänge $[m]$
+\end{conditions}
+```
+`\end{multicols}`{=latex}
+
+### Störabstrahlung infolge *asymmetrischer Strom*
+
+Aufgrund des asymmetrischen Stroms $i_{netto}$ auf der Leitung, entsteht eine Störabstrahlung. Die Ursache für den asymmetrischen Strom findet sich im alternativen Rückweg $i_{r2}$ des Signalstroms über das geerdete Gehäuse.
+
+![](images/paste-3.png)
+
+Die Abgestrahlte Feldstärke in einem Punkt P im Fernfeld ist definiert mit
+
+`\begin{multicols}{3}`{=latex}
+
+*kleiner Dipol* $\left(\ell<\frac{ \lambda}{2}\right)$
+
+$$
+E=\frac{\eta_0\space i_{netto}\space \ell f[MHz]}{600\space d}
+$$
+
+*grosser Dipol* $\left(\ell>\frac{ \lambda}{2}\right)$
+
+$$
+E=\frac{\eta_0\space i_{netto}}{4\space d}
+$$
+
+`\columnbreak`{=latex}
+
+*kleiner Loop* $\left(\ell<\frac{ \lambda}{2}\right)$
+
+$$
+E=\frac{\eta_0\space i_{netto}\space \ell s f^2_{[MHz]}}{300^2\space d}
+$$
+
+*grosser Loop* $\left(\ell>\frac{ \lambda}{2}\right)$
+
+$$
+E=\frac{\pi\space\eta_0\space i_{netto}\space s}{600\space d}
+$$
+
+`\columnbreak`{=latex}
+
+```{=latex}
+\begin{conditions}
+E       & Elektrische Feldstärke $\left[\frac{V}{m}\right]$ \\
+\ell s  & Loopfläche $[m^2]$ \\
+f       & Frequenz $[MHz]$ \\
+\lambda & Wellenlänge $[m]$
+\end{conditions}
+```
+`\end{multicols}`{=latex}

@@ -24,7 +24,7 @@ Das Informationssignal als binärer Datenstrom wird als Leitungscode in einer Pu
 
 Übertragung im Basisband lässt Frequenzkomponenten von $0\text{ Hz}$ bis zu einer oberen Grenzfrequenz $f_g$ zu $\rightarrow$ [Tiefpass Charakteristik]{.underline}.
 
-::: {.callout-note}
+::: callout-note
 ### Informationssignal Typ
 
 Wenn das Informationssignal in analoger oder digitaler Form vorliegt, werden unterschiedliche Implementierungskonzepte angewendet.
@@ -66,9 +66,9 @@ $$
 
 [Beispiel]{.underline}
 
-- Binär: $T_b=T_S$
-- 2 Bit pro Symbol: $2T_b=T_S$
-- m Bit pro Symbol: $mT_b=T_S$
+-   Binär: $T_b=T_S$
+-   2 Bit pro Symbol: $2T_b=T_S$
+-   m Bit pro Symbol: $mT_b=T_S$
 
 \columnbreak
 
@@ -90,18 +90,15 @@ $$
 
 [Beispiel]{.underline}
 
-- Amplitudenstufen: $2^1=2$
-- Amplitudenstufen: $2^2=4$
-- Amplitudenstufen: $2^m$
+-   Amplitudenstufen: $2^1=2$
+-   Amplitudenstufen: $2^2=4$
+-   Amplitudenstufen: $2^m$
 
 ::: callout-tip
 Bit- und Datenrate ist zu unterscheiden, da eine Bitrate die
 :::
 
 `\end{multicols}`{=latex}
-
-
-
 
 ::: callout-note
 ## Fundamentaler Zusammenhang
@@ -110,8 +107,6 @@ $\text{Pulsdauer}\cdot\text{Bandbreite}\approx\text{konstant}$
 
 Es gilt also: je **kürzer** der Puls, desto **breiter** die Bandbreite
 :::
-
-
 
 ## Angepasste Pulsformen
 
