@@ -1,1 +1,158 @@
 # Fremdgeführte Gleichrichter
+
+Fremdgeführte Gleichrichter benötigen eine Führungsspannung, welche die Kommutierung ermöglicht. Beim fremdgeführten Gleichrichter erfolgt diese Kommutierung natürlich, die Halbleiter löschen also, weil der Strom im Halbleiter bedingt durch äussere Einflüsse null wird. Die Führungsspannung kann vom Netz kommen *(netzgeführt)*, oder es kann die induzierte Spannung einer Maschine sein *(maschinen- oder lastgeführt)*.
+
+**Schaltungsart\
+M** *Einwegschaltung*: Sekundärstrom im Transformator bzw. der Netzstrom ist ein Gleichstrom. Der Mittelpunkt der Sekundärwicklung (Sternpunkt bei dreiphasig) muss zugänglich sein *(Mittelpunkschaltung)*.\
+**B** *Zweiwegschaltung*: Sekundärstrom im Transformator bzw. der Netzstrom ist ein Wechselstrom. Aufgrund des Gleichrichters wird diese Schaltung als *Brückenschaltung* bezeichnet.
+
+**Phasenzahl**\
+Aufgrund der Sekundärphasenzahl oft ein-, zwei-, drei-, oder mehrphasige Schaltung.
+
+**Pulszahl**\
+Die Pulszahl entspricht der Welligkeit der erzeugten Gleichspannung.
+
+**Steuerungsart\
+***Ungesteuert* (Diodengleichrichter) oder *gesteuert* (Thyristorgleichrichter).
+
+::: callout-note
+## Bsp. **B2**
+
+Brückenschaltung mit zweipulsiger Gleichspannung *(zwei "Buckel" pro Netzperiode)*
+
+![](images/paste-1.png){width="232"}
+:::
+
++---------------+-------------------------------------------------+
+| Bez.          | Schaltung                                       |
++===============+=================================================+
+| M1            | ![](images/paste-2.png){width="8.4cm"}          |
++---------------+-------------------------------------------------+
+| M2            | ![](images/paste-4.png){width="9.9cm"}          |
++---------------+-------------------------------------------------+
+| M3            | ![](images/paste-5.png){width="11.4cm"}         |
++---------------+-------------------------------------------------+
+| B2            | ![](images/paste-6.png){width="10.3cm"}         |
++---------------+-------------------------------------------------+
+| B6            | ![](images/paste-7.png){width="11.1cm"}         |
++---------------+-------------------------------------------------+
+| DSS6          | ![](images/paste-8.png){width="9.3cm"}          |
++---------------+-------------------------------------------------+
+
+## Einphasiger Gleichrichter
+
++-------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------+------------------------------------------------------+
+| Ohm'sche Last                                                                                   | L-Glättung                                                            | C-Glättung                                           |
++=================================================================================================+=======================================================================+======================================================+
+| ![](images/paste-9.png){width="5cm"}                                                            | ![](images/paste-11.png){width="5cm"}                                 | ![](images/paste-15.png){width="5cm" height="2.2cm"} |
+|                                                                                                 |                                                                       |                                                      |
+| $$                                                                                              | $$                                                                    | ![](images/paste-16.png){width="5cm"}                |
+| U_{di0}=\frac{1}{T}\int_{0}^{T}{u_d}\space dt=\frac{1}{\pi}\int_{0}^{\pi}{u_d}\space d\omega    | U_{di0}\approx0.9\cdot U_N                                            |                                                      |
+| $$                                                                                              | $$                                                                    |                                                      |
+|                                                                                                 |                                                                       |                                                      |
+| $$                                                                                              |                                                                       |                                                      |
+| =\frac{2}{\pi}\hat{U}=\frac{2\sqrt2}{\pi}U_N\approx0.9\cdot U_N                                 |                                                                       |                                                      |
+| $$                                                                                              |                                                                       |                                                      |
++-------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------+------------------------------------------------------+
+| ![](images/paste-10.png){width="5cm"}                                                           | ![](images/paste-12.png){width="5cm"}                                 | $$                                                   |
+|                                                                                                 |                                                                       | U_{di\alpha}=                                        |
+| $$                                                                                              | $$                                                                    | \begin{cases}                                        |
+| U_{di\alpha}=\frac{1}{\pi}\int_{\alpha}^{\pi}{u_d}\space d\omega=U_{di0}\frac{1+cos(\alpha)}{2} | U_{di\alpha}=\frac{1}{\pi}\int_\alpha^{\pi+\alpha}{u_d}\space d\omega | \sqrt{2}\cdot U_N, 0°<\alpha <90°\\                  |
+| $$                                                                                              | $$                                                                    | \sqrt{2}\cdot U_N\cdot\sin(\alpha), 90°<\alpha <180° |
+|                                                                                                 |                                                                       | \end{cases}                                          |
+|                                                                                                 | $$                                                                    | $$                                                   |
+|                                                                                                 | =U_{di0}\cos(\alpha)=0.9\space U_N\cos(\alpha)                        |                                                      |
+|                                                                                                 | $$                                                                    |                                                      |
++-------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------+------------------------------------------------------+
+
+### Leistung bei L-Glättung
+
+::: callout-important
+## Im Fall der idealen Glättung des Gleichstroms $I_d$
+
+$$
+I_{N_{eff}}=I_d
+$$
+:::
+
+Für die Wirkleistung gilt
+
+$$
+P_N = P_{di\alpha} = I_d\cdot U_{di\alpha} = I_d\cdot U_{di0}\cdot\cos(\alpha)=P_{di0}\cos(\alpha)
+$$
+
+Für die Scheinleistung gilt
+
+$$
+S_N=U_{N_{eff}}\cdot I_{N_{eff}}=\frac{\pi}{2\sqrt{2}}U_{di0}\cdot I_d = 1.11\cdot P_{di0}
+$$
+
+::: callout-tip
+## Transformator Dimensionierung
+
+Bei $\alpha = 0$ muss der Transformator auf das $1.11$-fache der übertragenen Wirkleistung ausgelegt werden. Bei grösserem $\alpha$ sinkt die Wirkleistung bei gleichbleibender Scheinleistung weiter ab.
+:::
+
+Der Leistungsfaktor beträgt
+
+$$
+\lambda=\frac{P_N}{S_N}=\frac{P_{di\alpha}}{1.11\cdot P_{di0}}=0.9\cos(\alpha)
+$$
+
+### Netzrückwirkung L-Glättung
+
+Die Fourieranalyse des rechteckförmigen Netzstroms ergibt
+
+$$
+i_N(t)=\frac{4}{\pi}I_d\left(\sin(\omega t)+\frac13\sin(3\omega t)+\frac15\sin(5\omega t)+\ldots\right)
+$$
+
+::: callout-warning
+## EMV
+
+Die eingeführten Oberschwingungen verzerren auch die Netzspannung und führen so unweigerlich zu Störungen.
+:::
+
+### Belastung der Halbleiter bei L-Glättung
+
+Der Strom durch die Halbleiter beträgt
+
+$$
+i_{HL_{rms}}=\sqrt\frac12 I_d\qquad\qquad i_{HL_{avg}}=\frac12 I_d
+$$
+
+## Dreiphasige Gleichrichter
+
+Durch hinzufügen eines weiteren Phasenmodul an einen Brückengleichrichter, kann der Gleichrichter *B2* dreiphasig ans Netz angeschlossen werden.
+
+![![](images/paste-18.png){width="10cm"}](images/paste-17.png){width="10cm"}
+
+Für den Netzstrom gilt
+
+$$
+i_{N_{eff}}=\sqrt\frac23 I_d
+$$
+
+Für die Ausgangsspannung gilt analog zum zwei-phasigen Brückengleichrichter
+
+$$
+U_{di0}=U_{N_{eff}}\frac{3\sqrt2}{\pi}=1.35\cdot U_{N_{eff}}
+$$
+
+Desweiteren kann auch hier mit dem Zündwinkel die Ausgangsspannung beeinflusst werden
+
+$$
+U_d=U_{di0}\cos(\alpha)=1.35\cdot U_{N_{eff}}\cdot\cos(\alpha)
+$$
+
++--------------------------+--------------------------+--------------------------+
+| $\alpha=0^\circ$         | $\alpha=30^\circ$        | $\alpha=45^\circ$        |
++==========================+==========================+==========================+
+| ![](images/paste-19.png) | ![](images/paste-20.png) | ![](images/paste-21.png) |
++--------------------------+--------------------------+--------------------------+
+
++--------------------------+--------------------------+
+| $\alpha=60^\circ$        | $\alpha=90^\circ$        |
++==========================+==========================+
+| ![](images/paste-22.png) | ![](images/paste-23.png) |
++--------------------------+--------------------------+
