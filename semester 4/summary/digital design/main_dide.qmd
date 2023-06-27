@@ -79,7 +79,7 @@ crossref:
 
 {{< include sec_vhdl_process_templates.qmd >}}
 
-\newpage
+# Meme `\faSmile[regular]`{=latex} {.unnumbered .unlisted}
 
 ![](images/th-1357161762.jpg)
 
