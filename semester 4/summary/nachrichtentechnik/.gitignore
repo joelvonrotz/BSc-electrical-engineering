@@ -1,3 +1,10 @@
 # Output Data
 output
+main_nrt_files
 main_nrt.tex
+
+# all sorts of logging data
+**.log
+
+# draw.io temp documents
+**.bkp
