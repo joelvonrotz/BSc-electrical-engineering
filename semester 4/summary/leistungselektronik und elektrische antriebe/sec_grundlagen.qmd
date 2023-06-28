@@ -36,13 +36,14 @@
 +--------------------------+--------------------------------------------------------------------+------------------------------------+-----------------------+-----------------------------------------------------------------------------------------+-------------------------------------------------------------+
 : {tbl-colwidths="[15,25,10,15,25,10]"}
 
+`\begin{multicols}{2}`{=latex}
+
 Zusammenhang Translatorisch & Rotatorisch:
 
 $$
 M = F\cdot r \qquad \text{und} \qquad v_{tang} = r\cdot \omega\ (\text{resp. } a_{tang}=\dot\omega \cdot r)
 $$
 
-`\begin{multicols}{2}`{=latex}
 
 ### Zentrifugalkraft
 
@@ -90,7 +91,7 @@ Es kommen zudem *stabile* und *instabile* Arbeitspunkte vor. **Stabil** sind sie
 
 Wird ein stromdurchflossener Leiter in die Nähe eines Magneten gebracht, so wirkt auf jedes Längenelement des Leiters eine Kraft, die senkrecht auf dem Längenelement steht. Ihre Grösse ist dem Strom im Leiterproportional.
 
-![](images/01_LorentzKraft.png)
+![](images/01_LorentzKraft.png){width="4cm"}
 
 Die Kraft $F$ die auf einen Leiter wirkt ist abhängig vom Längenelement $l$ (länge des Leiters im Magnetfeld) des Stroms $i$.
 
@@ -108,7 +109,7 @@ $$
 
 Das Durchflutungsgesetz verbindet die Ursache der Magnetfelds, die Durchflutung $\theta$, mit deren Wirkung , der magnetischen Feldstärke $H$.
 
-![](images/01_Eisenkern.png)
+![](images/01_Eisenkern.png){width="6cm"}
 
 `\end{multicols}`{=latex}
 
@@ -143,7 +144,7 @@ Werden grosse Induktivitätswerte benötigt, wird mit ferromagnetischem Material
 
 In Drosseln mit Luftspalt wird dabei die Feldstärke vornehmlich durch die Luftspaltlänge bestimmt. Bei sehr grossem $\mu_r$ kann der Anteil der Eisenweglänge am Umlaufintegral sogar vernachlässigt werden. Der **Fluss** $\phi$ ist im Luftspalt und im Eisen gleich, ebenso die Querschnittsfläche $A$.
 
-![](images/02_Luftspalt.png)
+![](images/02_Luftspalt.png){width="6cm"}
 
 `\end{multicols}`{=latex}
 
@@ -385,7 +386,7 @@ $$
 
 :::
 
-Die übrigen Frequenzanteile des Stromes verursachen Verluste in den Leitungen (Wirkleistung $=0$). Dies wird *Verzerrungsblindleistung* $D$ genannt.
+Die übrigen Frequenzanteile des Stromes verursachen Verluste in den Leitungen ($\rightarrow$ Blindleistung). Dies wird *Verzerrungsblindleistung* $D$ genannt.
 $$
 D = U_{eff}\cdot I_{\textcolor{BrickRed}{v>1},eff} = U_{rms}\cdot\sqrt{I_{AV}^2+I_{v=2,eff}^2+I_{v=3,eff}^2+\cdots}
 $$
@@ -415,7 +416,7 @@ $$
 ### Klirrfaktor
 
 Der Leistungsfaktor $\lambda$ zeigt, wie optimal die Wirkleistung übertragen wird.
-Allgemein gilt $\lambda \leq \cos{\varphi_1}$ ($=$: kein Wirkleistungsverlust, $<$ Verlust).
+Allgemein gilt $\lambda \leq \cos{\varphi_1}$ ($=$: kein Wirkleistungsverlust, $<$: Verlust).
 
 Der Klirrfaktor $k$ beschreibt die Qualität, mit $k\rightarrow 0$ sehr gut ist (keine Oberschwingungen).
 
