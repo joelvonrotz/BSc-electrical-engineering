@@ -8,8 +8,6 @@ format:
   pdf:
     keep-tex: true
     pdf-engine: pdflatex
-    #classoption: 
-    #  - twocolumn
     include-in-header:
       - config/config.tex
       - text: "\\usepackage[nswissgerman]{babel}"
@@ -49,7 +47,6 @@ fig-align: center
 
 
 
-`\begin{multicols}{2}`{=latex}
 
 <!-- {{< include 01_einfuehrung.qmd >}} - Not really needed, as it is explained later on -->
 

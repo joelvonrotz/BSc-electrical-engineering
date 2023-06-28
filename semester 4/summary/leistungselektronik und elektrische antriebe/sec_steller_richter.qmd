@@ -1,10 +1,6 @@
 {{< include 06_leistungshalbleiter.qmd >}}
 
-# Gleichstromsteller
-
 {{< include 04_gleichstromsteller.qmd >}}
-
-# Gleichrichter
 
 {{< include 07_transformatoren.qmd >}}
 

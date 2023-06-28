@@ -23,55 +23,83 @@ Brückenschaltung mit zweipulsiger Gleichspannung *(zwei "Buckel" pro Netzperiod
 ![](images/paste-1.png){}
 :::
 
-`\end{multicols}`{=latex}
+[**M1**: **M**ittelpunktschaltung **1**]{.underline}
 
-+---------------+---------------------------------------------+
-| Bez.          | Schaltung                                   |
-+===============+=============================================+
-| M1            | ![](images/paste-2.png)                     |
-+---------------+---------------------------------------------+
-| M2            | ![](images/paste-4.png)                     |
-+---------------+---------------------------------------------+
-| M3            | ![](images/paste-5.png)                     |
-+---------------+---------------------------------------------+
-| B2            | ![](images/paste-6.png)                     |
-+---------------+---------------------------------------------+
-| B6            | ![](images/paste-7.png)                     |
-+---------------+---------------------------------------------+
-| DSS6          | ![](images/paste-8.png)                     |
-+---------------+---------------------------------------------+
+![](images/paste-2.png)
 
-`\begin{multicols}{2}`{=latex}
+[M2]{.underline}
+
+![](images/paste-4.png)
+
+[M3]{.underline}
+
+![](images/paste-5.png)
+
+[**B2**: **B**rückenschaltung **2** Dioden]{.underline}
+
+![](images/paste-6.png)
+
+[B6]{.underline}
+
+![](images/paste-7.png)
+
+[DSS6]{.underline}
+
+![](images/paste-8.png)
 
 ## Einphasiger Gleichrichter
 
-`\end{multicols}`{=latex}
+### Ohm'sche Last
 
-+-------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------+------------------------------------------------------+
-| Ohm'sche Last                                                                                   | L-Glättung                                                            | C-Glättung                                           |
-+=================================================================================================+=======================================================================+======================================================+
-| ![](images/paste-9.png)                                                                         | ![](images/paste-11.png)                                              | ![](images/paste-15.png)                             |
-|                                                                                                 |                                                                       |                                                      |
-| $$                                                                                              | $$                                                                    | ![](images/paste-16.png)                             |
-| U_{di0}=\frac{1}{T}\int_{0}^{T}{u_d}\space dt=\frac{1}{\pi}\int_{0}^{\pi}{u_d}\space d\omega    | U_{di0}\approx0.9\cdot U_N                                            |                                                      |
-| $$                                                                                              | $$                                                                    |                                                      |
-|                                                                                                 |                                                                       |                                                      |
-| $$                                                                                              |                                                                       |                                                      |
-| =\frac{2}{\pi}\hat{U}=\frac{2\sqrt2}{\pi}U_N\approx0.9\cdot U_N                                 |                                                                       |                                                      |
-| $$                                                                                              |                                                                       |                                                      |
-+-------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------+------------------------------------------------------+
-| ![](images/paste-10.png)                                                                        | ![](images/paste-12.png)                                              | $$                                                   |
-|                                                                                                 |                                                                       | U_{di\alpha}=                                        |
-| $$                                                                                              | $$                                                                    | \begin{cases}                                        |
-| U_{di\alpha}=\frac{1}{\pi}\int_{\alpha}^{\pi}{u_d}\space d\omega=U_{di0}\frac{1+cos(\alpha)}{2} | U_{di\alpha}=\frac{1}{\pi}\int_\alpha^{\pi+\alpha}{u_d}\space d\omega | \sqrt{2}\cdot U_N, 0°<\alpha <90°\\                  |
-| $$                                                                                              | $$                                                                    | \sqrt{2}\cdot U_N\cdot\sin(\alpha), 90°<\alpha <180° |
-|                                                                                                 |                                                                       | \end{cases}                                          |
-|                                                                                                 | $$                                                                    | $$                                                   |
-|                                                                                                 | =U_{di0}\cos(\alpha)=0.9\space U_N\cos(\alpha)                        |                                                      |
-|                                                                                                 | $$                                                                    |                                                      |
-+-------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------+------------------------------------------------------+
+[Mit Dioden]{.underline}
 
-`\begin{multicols}{2}`{=latex}
+![](images/paste-9.png)
+
+$$
+\begin{split}
+U_{di0}&=\frac{1}{T}\int_{0}^{T}{u_d}\space dt=\frac{1}{\pi}\int_{0}^{\pi}{u_d}\space d\omega \\
+  &=\frac{2}{\pi}\hat{U}=\frac{2\sqrt2}{\pi}U_N\approx0.9\cdot U_N
+\end{split}
+$$
+
+[Mit Thyristoren]{.underline}
+
+![](images/paste-10.png)
+
+$$
+U_{di\alpha}=\frac{1}{\pi}\int_{\alpha}^{\pi}{u_d}\space d\omega=U_{di0}\frac{1+cos(\alpha)}{2}
+$$
+
+### L-Glättung
+
+![](images/paste-11.png)
+
+$$
+U_{di0}\approx0.9\cdot U_N
+$$
+
+![](images/paste-12.png)
+
+$$
+\begin{split}
+U_{di\alpha}&=\frac{1}{\pi}\int_\alpha^{\pi+\alpha}{u_d}\space d\omega \\
+  &=U_{di0}\cos(\alpha)=0.9\space U_N\cos(\alpha)
+\end{split}
+$$
+
+### C-Glättung
+
+![](images/paste-15.png)                            
+                                                    
+![](images/paste-16.png)                            
+
+$$                                                  
+U_{di\alpha}=                                       
+\begin{cases}                                       
+\sqrt{2}\cdot U_N & 0\degree<\alpha <90\degree \\
+\sqrt{2}\cdot U_N\cdot\sin(\alpha) & 90\degree<\alpha <180\degree
+\end{cases}
+$$
 
 ### Leistung bei L-Glättung
 

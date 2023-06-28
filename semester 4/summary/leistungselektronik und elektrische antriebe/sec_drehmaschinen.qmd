@@ -1,5 +1,3 @@
-# Drehmaschinen
-
 {{< include 03_gleichstrommaschine.qmd >}}
 
 {{< include 08_drehfeldmaschinen.qmd >}}

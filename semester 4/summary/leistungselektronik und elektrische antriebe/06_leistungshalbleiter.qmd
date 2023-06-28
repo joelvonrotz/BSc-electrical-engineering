@@ -82,7 +82,7 @@ Mit einem kurzen Gatestromimpuls aus einer elektronischen Gatestromquelle kleine
 
 Der Triac entspricht der Antiparallelschaltung zweier Einschaltthyristoren und kann in beiden Richtungen Strom führen und Spannung aufnehmen. Triacs haben zum Zünden in beide Stromrichtungen ein gemeinsames Gate
 
-![](images/power19.gif)
+![](images/paste-33.png)
 
 ## Abschaltthyristoren *GTO*, *IGCT*
 
