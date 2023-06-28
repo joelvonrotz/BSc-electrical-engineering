@@ -78,6 +78,8 @@ $$
 J=\frac{2\cdot m}{5}r^2=\frac{8}{15}\pi\cdot\rho\cdot r^5
 $$
 
+`\twocolumn`{=latex}
+
 ## Wirkungskette elektrischer Maschinen
 
 Bei rotatorischer Bewegung steht die DIfferenz zwischen *Derhmoment* $M_{masch}$, das die Maschine abgibt und das *Lastmoment* $M_{last}$ zur *Winkelbeschleunigung* $\dot{\omega}$ zur Verfügung

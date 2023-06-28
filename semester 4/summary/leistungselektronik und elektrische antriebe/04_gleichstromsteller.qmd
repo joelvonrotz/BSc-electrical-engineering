@@ -120,7 +120,7 @@ Der Vierquadrantensteller (engl. Full Bridge DC-DC Converter) ist ein selbstgef�
 
 ![](images/04_Vierquadrantensteller.png)
 
-## Gleichstromsteller mit GTO
+## Gleichstromsteller mit GTO {#sec-stromstellergto}
 
 Bei gebrauch realer Halbleiter, müssen diese geschützt werden. Wird Ein GTO (Gate Turn Off Thyristor) eingesetzt, so müssen Strom- und Spannungssteilheit durch Entlastungsnetzwerke begrenzt werden
 
