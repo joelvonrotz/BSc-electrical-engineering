@@ -2,9 +2,12 @@
 output
 main_nrt_files
 main_nrt.tex
+**.aux
+
 
 # all sorts of logging data
 **.log
 
 # draw.io temp documents
 **.bkp
+**.drawio.dtmp

@@ -48,7 +48,9 @@ $$
   h       & Plank'sche Konstante $4.136\cdot 10^{-15} eVs$ \\
 \end{conditions}
 ```
-## Magnetische Feldenergie
+## Störquellen
+
+### Magnetische Feldenergie
 
 Gespeicherte magnetische Feldenergie im Nahbereich eines Schaltkreises
 
@@ -78,7 +80,7 @@ Ein Magnetfeld hat eine grosse $H$-Feldkomponente une eine kleine $E$-Feldkompon
 Induktive Kopplung kann zu Erratischen (Nicht konstant vorhandenen) Ausfällen führen, wenn z.B. ein Motor neben dem DUT gestartet wird, treten höhere magnetische Energien auf.
 :::
 
-## Elektrische Feldenergie
+### Elektrische Feldenergie
 
 Gespeicherte elektrische Energie im Nahbereich eines Schaltkreises
 
@@ -96,7 +98,7 @@ $$
 
 Ein $E$-Feld besitzt im Nahfeldbereich eine viel grössere elektrische Feldkomponente gegenüber der magnetischen Feldkomponente. somit wird $|\eta|=\left|\frac{E}{H}\right|$ sehr gross.
 
-## Abgestrahlte Feldenergie
+### Abgestrahlte Feldenergie
 
 *Elektrisch lange* Schaltkreise strahlen vermehrt Feldenergie ab
 
@@ -106,7 +108,7 @@ $$
 
 ![](images/paste-6.png)
 
-### Feldzonen und Wellenwiderstand
+#### Feldzonen und Wellenwiderstand
 
 ![](images/paste-7.png)
 
@@ -134,9 +136,11 @@ $$
 
 : Eigenschaften eines EM-Feldes
 
-## Gleichtakt-Störung
+### Gleichtakt-Störung
 
-### Störeinkopplung infolge *Erdschlaufe*
+Das unbeabsichtigte Abstrahlen eines EM-Feldes hängt primär vom Strom ab. Bei der **Gegentakabstrahlung** haben die Ströme auf dem Hin- und Rückpfad die gleiche Stärke, aber unterschiedliche Vorzeichen. Die Abstrahlung hängt beim Doppelleiter von der Fläche zwischen den Leitern ab (*Rahmenantenne*). Sind beide Leiter nahe beieinander, bewirkt dies eine Abstrahlung nahezu Null ( $d<<\lambda$ ). Bei der **Gleichtaktabstrahlung** besteht infolge kapazitiver Kopplung alternative Signalpfade oder alternative Rückwege. Dies führt dazu, dass der der Rück-Strom $i_{r1}$ im Vergleich zum Hin-Strom $i_s$ aufgrund des "Leck"-Stroms $i_{r2}$ nicht gleich gross sind und es so zu einem Netto-Strom $i_{netto}$ führt (*Stabantenne*).
+
+#### Störeinkopplung infolge *Erdschlaufe*
 
 Werden z.B. zwei Gehäuse über Erde miteinander verbunden, kann dies zu einer Rahmenantenne führen, welche Störeinkopplungen hervorbringt.
 
@@ -168,13 +172,13 @@ f       & Frequenz $[MHz]$ \\
 ```
 `\end{multicols}`{=latex}
 
-### Störabstrahlung infolge *asymmetrischer Strom*
+#### Störabstrahlung infolge *asymmetrischer Strom*
 
 Aufgrund des asymmetrischen Stroms $i_{netto}$ auf der Leitung, entsteht eine Störabstrahlung. Die Ursache für den asymmetrischen Strom findet sich im alternativen Rückweg $i_{r2}$ des Signalstroms über das geerdete Gehäuse.
 
 ![](images/paste-3.png)
 
-Die Abgestrahlte Feldstärke in einem Punkt P im Fernfeld ist definiert mit
+Die Abgestrahlte Feldstärke in einem Punkt $P$ im Fernfeld ist definiert mit
 
 `\begin{multicols}{3}`{=latex}
 
@@ -208,10 +212,180 @@ $$
 
 ```{=latex}
 \begin{conditions}
-E       & Elektrische Feldstärke $\left[\frac{V}{m}\right]$ \\
-\ell s  & Loopfläche $[m^2]$ \\
-f       & Frequenz $[MHz]$ \\
-\lambda & Wellenlänge $[m]$
+    E       & Elektrische Feldstärke $\left[\frac{V}{m}\right]$ \\
+    \ell s  & Loopfläche $[m^2]$ \\
+    f       & Frequenz $[MHz]$ \\
+    \lambda & Wellenlänge $[m]$ \\
+    \eta_0  & Wellenimpedanz (Fern) $[377\Omega]$ \\
+    i_{netto} & Antennenstrom $[A]$ \\
+    d         & Distanz zu P $[m]$
 \end{conditions}
 ```
 `\end{multicols}`{=latex}
+
+### Impedanzkopplung
+
+Störeinkopplungen zwischen zwei Schaltkreisen erfolgt über die **gemeinsame Nutzung** des Rückleiters. Desweiteren kann ein Störstrom $i_n$ im Rückleiter zu einer Störeinkopplung in die symmetrische bzw. asymmetrische Übertragung führen
+
+![](images/paste-9.png)
+
+## Störunterdrückung
+
+### Gleichtakt Störunterdrückung
+
+Zur Unterdrückung von Gleichtaktstörungen werden *Common-Mode-Chokes* oder *Ferritperlen* verwendet. Diese behindern das Magnetfeld, welches entsteht, wenn der Hin- und Rückstrom nicht gleichgross sind ( $i_{netto} \neq 0$ ).
+
+![](images/paste-10.png)
+
+### Erdung
+
+Die *Erdung* von Schaltkreisen, Geräten und Systemen muss verschiedene Aufgaben lösen. Um Das Problem der Impedanzkopplung zu reduzieren, bildet man Signalklassen. Die Hirarchie der Erdung für Signalklassen können mit einem Erdungsbaum dargestellt werden.
+
+![](images/paste-11.png)
+
+#### Sternpunkt
+
+DIe Verbindung aller Erden auf einen zentralen Erdungspunkt oder Schiene ist auf grund der auftretenden parasitären Frequenzen nur bis ca. *300kHz* geeignet. Oft ist es schwierig eine Saubere Sternpunktarchitektur auszulegen, da bei Verbindungen unter den Systemmodulen auch eine gewollt/ungewollte Erdverbindung auftreten kann.
+
+![](images/paste-12.png)
+
+#### Mehrpunkt-Erdungsschema
+
+Bei Frequenzen über *300kHz* ist ein Mehrpunkt.Erdungsschema besser geeignet, da so die parasitären Kapazitäten wegfallen. Hierbei wird eine Groundplane (*Erdungsfläche*) aufgezogen, auf welcher alle Komponenten geerdet werden. Diese Fläche wird anschliessend an einem zentralen Punkt geerdet.
+
+![](images/paste-13.png)
+
+#### Erdanbindung
+
+Will man **Erdschlaufen verhindern**, so gibt es mehrere möglichkeiten:
+
+-   Eine Seite wird *floating* betrieben
+
+-   Niederfrequente Isolation (*Kapazität*)
+
+-   Hochfrequente Isolation (*Induktivität*)
+
+-   Hochohmiger Widerstand zum verhindern einer statischen Aufladung
+
+![](images/paste-14.png)
+
+### Schirmung
+
+Um Elektromagnetische Emission sowie Imission im Fern- wie im Nahfeld zu verhindern, können Schirmungen verwendet werden. Bei einem idealen Schirm handelt es sich hierbei um eine perfekt leitende Oberfläche.
+
+![](images/paste-15.png)
+
+Erreicht eine senkrecht einfallende, ebene Welle die ebene Grenzfläche, so gelten folgende Beziehungen für Kontinuität
+
+![](images/paste-16.png)
+
+Für das eintretende E-Feld $E_e$ gilt
+
+$$
+E_{x1}=E_e(1+\Gamma_E)\qquad E_{x2}=E_e T
+$$
+
+Der Reflexionskoeffizient $\Gamma$ ist
+
+$$
+\Gamma_E=\frac{\eta_2-\eta_1}{\eta_2+\eta_1}=-\Gamma_H
+$$
+
+Der Transferkoeffizient $T$ ist
+
+$$
+T=1+\Gamma_E=\frac{2\eta_2}{\eta_1+\eta_2}
+$$
+
+Die Wellenimpedanz $\eta$ einer sinusförmigen EM-Welle im Material kann allgemein mit einem komplexen Impedanzbelag $\hat{z}$ und einem komplexen Admittanzbelag $\hat{y}$ beschrieben werden
+
+$$
+\eta=\sqrt{\frac{\hat{z}}{\hat{y}}}
+$$
+
+Für einige typische Materialien sind diese Beläge wie folgt gegeben
+
+```{=tex}
+\begin{conditions}
+    \hat{z}=j\omega\mu_0, \hat{y}=j\omega\epsilon_0 & Freiraum \\
+    \hat{z}=j\omega\mu_0, \hat{y}=\sigma + j\omega\epsilon_0 & Nichtmagnetische Metalle \\
+    \hat{z}=j\omega\mu_0, \hat{y}=j\omega\epsilon & Nichtmetalle \\
+    \hat{z}=j\omega\mu, \hat{y}=\sigma + j\omega\epsilon & Ferromagnetische Materialien
+\end{conditions}
+```
+Mit
+
+```{=tex}
+\begin{conditions}
+    \mu_0 = 4\pi\cdot 10^{-7}\frac{Vs}{Am} & Magnetische Feldkonstante \\
+    \epsilon_0 = 8.854\cdot10^{-12}\frac{As}{Vm} & Elektrische Feldkonstante \\
+    \mu_r & Relative Permeabilität des Materials \\
+    \epsilon_r & Relative Permettivität des Materials \\
+    \sigma & Spezifische Leitfähigkeit des Materials
+\end{conditions}
+```
+#### Skin-Effekt
+
+Alle metallischen Leiter zeigen den Skin Effekt (Stromverdrängung). Nach der Distan einer Eindringtiefe $\delta$ ist die Amplitude auf $37%$ abgesunken. So ist nach 5 Eindringtiefen $\delta$ "nichtsmehr" übrig. Die Feldstärken $E$ und $H$ nehmen dabei exponentiell ab.
+
+$$
+E(x)=E_0e^{-\frac{x}{\delta}}\space\text{und}\space H(x)=H_0e^{-\frac{x}{\delta}}\space\text{mit}\space\delta=\frac{1}{\sqrt{\pi f\mu\sigma}}
+$$
+
+Mit
+
+```{=tex}
+\begin{conditions}
+    \delta & Eindringtiefe \\
+    f      & Frequenz \\
+    \mu    & Permeabilität \\
+    \sigma & Spezifische Leitfähigkeit
+\end{conditions}
+```
+#### Schirmung im Fernfeld
+
+EM-Feld wird als ebene Welle angenommen. Die Wellenimpedanz im Freiraum beträgt $377\Omega$ . Für die Schrimung sind zwei Mechanismen relevant, *Reflexion* für tiefe Frequenzen und *Absorption* für hohe Frequenzen. Die Effektivität einer EM-Schirmung wird mit dem Verhältnis der durchgelassenen Signalleistung $P_t$ zur ankommenden Signalleistung $P_e$ bestimmt
+
+$$
+\text{Schild Effektivität } SE\space[dB] = -\log_{10}\left(\frac{P_t}{P_e}\right)
+$$
+
+![](images/paste-17.png)
+
+#### Einfluss von Löchern im Schirm
+
+Zeigt der Schirm Öffnungen *(Löcher, Geflecht, Spalt, ...)*, so hängt die Schild Effektivität von der Grösse der Öffnung ab.
+
+::: callout-tip
+## Vereinfachte Annahme
+
+Öffnung wird mit einem kleinstmöglichen Kreis mit Durchmesser $D$ umschlossen
+
+-   $D>\frac{\lambda}{2}$ EM-Feld passiert die Schirmung ungehindert
+
+-   $D<\frac{\lambda}{2}$ Dämpfung nimmt schnell zu
+
+-   $D<\frac{\lambda}{10}$ Schildeffektivität kann wie nachfolgend abgeschätzt werden
+
+![](images/paste-18.png){width="176"}
+:::
+
+Fernfeld und Skin-Effekt Eindringtiefe $\delta$ **klein** *(best case)*
+
+$$
+SE_{dB}\approx-10\log_{10}\left(A_L\left(\frac{a}{\lambda}\right)^4\right)
+$$
+
+Nahfeld und Skin-Effekt Eindringtiefe $\delta$ **gross** *(worst case)*
+
+$$
+SE_{dB}\approx-10\log_{10}\left(16\left(\frac{a}{\lambda}\right)^2\right)
+$$
+
+Schirmung von Wabenstrukturen
+
+$$
+SE_{sB}\approx16\frac{z}{a}-10\log_{10}(N)
+$$
+
+![](images/paste-19.png){width="247"}
