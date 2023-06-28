@@ -2,9 +2,11 @@
 
 Die Spektralanalyse ist einer der wichtigsten Methoden der Signalanalyse in der Kommunikationstechnik und basiert auf der Fourier Reihenentwicklung und der Fourier Transformation. Sie erlaubt im Frequenzbereich die Behandlung von ganzen Signalklassen mit ähnlichen Eigenschaften gegenüber der individuellen Analyse jedes einzelnen Signals im Zeitbereich.
 
-![](images/02_Signalanalyse.png)
+![](images/02_Signalanalyse.png){fig-align="center" width="280"}
 
 ## Deterministische und Zufallssignale
+
+`\begin{multicols}{2}`{=latex}
 
 Signale können entweder *deterministisch* mit mathematischen Funktionen beschrieben werden oder sie liegen als *Zufallssignale* vor und nehmen zu jedem Zeitpunkt einen zufälligen Wert an, der einer Gauss-verteilung folgt.
 
@@ -26,6 +28,8 @@ $$
 -A\cos(\omega t)=+A\cos(\omega t\pm 180°)=+A\cos(\omega t\pm\pi)
 $$
 
+\vfill\null\columnbreak
+
 ### Rechteckpuls
 
 $$
@@ -43,6 +47,8 @@ $$
 Zufallssignale nehmen zu jedem Zeitpunkt zufällige Werte an und können daher nicht vollständig mathematisch beschrieben werden. Man kann aber für diese Signalklasse statistische Grössen wie eine Wahrscheinlichkeitsdichtefunktion $p(u)$, den Erwartungswert $m_u$ und die Standardabweichung $s_u$ als beschreibende Grössen ermitteln
 
 ![](images/02_Rauschen.png)
+
+`\end{multicols}`{=latex}
 
 ## Komplexe Zeigernotation
 
@@ -78,12 +84,16 @@ da sich die Komplexen Teile aufheben. Da das *Amplitudenspektrum* stehts den Bet
 
 ![Konjugiert komplexe Zeiger und zweiseitiges Linienspektrum](images/02_AmpUndPhasenSpektrumZweiseitig.png)
 
+`\begin{multicols}{2}`{=latex}
+
 ## Periodische Signale
 
 Harmonische Schwingungen und Zeiger gehören zu der allgemeinen Klasse der periodischen Signale, mit der Eigenschaft
 
 $$
-s(t\pm mT_0)=s(t)\qquad -\infty<t<+\infty\qquad\text{Mit }m=1,2,3,...
+\begin{split}
+s(t\pm mT_0)=s(t) \\ \text{ mit }-\infty<t<+\infty\text{ und }m=1,2,3,\ldots
+\end{split}
 $$
 
 Die Signalform ändert sich also nicht bei einer Verschiebung um $m$.
@@ -116,14 +126,18 @@ $$
 was durch die geometrische Beziehung $(e^{j\theta}-e^{-j\theta})/(j2)=sin(\theta)$ zur $sinc$-Funktion führt
 
 $$
-si(\pi fT)=\frac{sin(\pi fT)}{\pi fT}\qquad\overbrace{=}^{x=fT}\qquad sinc(x)=\frac{sin(\pi x)}{\pi x}=
+\begin{split}
+si(\pi fT)=\frac{sin(\pi fT)}{\pi fT}\qquad\text{mit }x=fT \\ = sinc(x)=\frac{sin(\pi x)}{\pi x}=
 \begin{cases}
    1,\qquad x=0\\
    0,\qquad x=\pm1,\pm2,...
 \end{cases}
+\end{split}
 $$
 
 ![](images/02_sinc.png)
+
+`\end{multicols}`{=latex}
 
 ## Komplexe Fourier Reihe *(perodisch)*
 

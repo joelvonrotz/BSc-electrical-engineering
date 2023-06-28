@@ -48,6 +48,8 @@ highlight-style: github
 
 {{< include 01_einführung.qmd >}}
 
+{{< pagebreak >}}
+
 {{< include 02_signalanalyse.qmd >}}
 
 {{< include 03_uebertragung_filterung.qmd >}}

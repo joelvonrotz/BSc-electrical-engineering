@@ -36,7 +36,11 @@ Zur mehrfachnutzung eines zur verfügung stehenden Kanals werden verschiedene Ve
 
 ![Mehrfachausnutzung mittels Modulation](images/01_Multiplexing.png)
 
+{{< pagebreak >}}
+
 ## Informationen
+
+`\begin{multicols}{2}`{=latex}
 
 Die Informationsrate einer Quelle ist in der Regel **nicht konstant** (Zufallsprozess).
 
@@ -105,15 +109,20 @@ $$
 den Therm
 
 $$
+\begin{split}
 y(t)=\underbrace{\left(\frac{a_2}{2}+\frac{3a_4}{8}+...\right)}_{A_0 \space[DC-Anteil]}+
-\underbrace{\left(a_1+\frac{3a_3}{4}+...\right)}_{A_1}\cos(\omega_0t)+
+\underbrace{\left(a_1+\frac{3a_3}{4}+...\right)}_{A_1} 
+\\ \cos(\omega_0t)+
 \underbrace{\left(\frac{a_2}{2}+\frac{a_4}{4}+...\right)}_{A_2}\cos(2\omega_0t)+...
+\end{split}
 $$
 
 Zur beschreibung der Nichtlinearität wird der **Klirrfaktor** $k$ benutzt
 
 $$
-k=\sqrt{\frac{Oberwellen\space Amplituden}{Gesamt\space Amplituden\space (ohne\space DC)}}=\sqrt{\frac{(A_2)^2+(A_3)^2+...}{(A_1)^2+(A_2)^2+(A_3)^2+...}}
+\begin{split}
+k=\sqrt{\frac{Oberwellen\space Amplituden}{Gesamt\space Amplituden\space (ohne\space DC)}}\\=\sqrt{\frac{(A_2)^2+(A_3)^2+...}{(A_1)^2+(A_2)^2+(A_3)^2+...}}
+\end{split}
 $$
 
 Wird die *Zweitonmessung* $x(t)=\cos(\omega_1t)+\cos(\omega_2t)$ gemacht, so enthält das Ausgangssignal eines nichtlinearen Systems neben den Oberwellen auch die Terme der Form $(\omega_2-\omega_1),\space(\omega_2+\omega_1),\space(\omega_2-2\omega_1)+...$, was man als **Inetrmodulationsprodukte** bezeichnet.
@@ -135,7 +144,6 @@ $$
   T_v & Verarbeitungsverzögerung (\textit{process delay}) \\
 \end{conditions}
 ```
-
 Ausbreitungsverzögerung *propagation delay*
 
 $$
@@ -149,3 +157,5 @@ T_{\ddot{u}}=\frac{\text{Paketgrösse}\space[byte]}{\text{Datenrate}\space[\frac
 $$
 
 Die Verarbeitungsverzögerung *process delay* $T_v$ ist vom Verarbeitungssystem abhängig und beschreibt z. B. eine Prozesszeit.
+
+`\end{multicols}`{=latex}
