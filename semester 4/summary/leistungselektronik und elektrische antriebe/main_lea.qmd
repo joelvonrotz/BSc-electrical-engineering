@@ -8,12 +8,12 @@ format:
   pdf:
     keep-tex: true
     pdf-engine: pdflatex
-    classoption: 
-      - twocolumn
+    #classoption: 
+    #  - twocolumn
     include-in-header:
       - config/config.tex
-      - config/_two-column-longtable.tex
       - text: "\\usepackage[nswissgerman]{babel}"
+      - text: "\\usepackage{multicol}"
     template-partials:
       - config/before-body.tex
     output-file: "s4_leistungselektronik_antriebe"
@@ -29,7 +29,7 @@ geometry:
 - "left=5mm"
 - "right=5mm"
 papersize: a4
-fontsize: 10pt
+fontsize: 9pt
 
 code-block-border-left: false
 code-block-bg: "#f7f7f7"
@@ -43,7 +43,17 @@ fig-pos: "H"
 fig-align: center
 ---
 
+\newpage
+
 <!-- [Chapters] -->
+
+<!-- {{< include sec_drehmaschinen.qmd >}}
+
+{{< include sec_richter.qmd >}}
+
+{{< include sec_steller.qmd >}}-->
+
+`\begin{multicols}{2}`{=latex}
 
 {{< include 01_einfuehrung.qmd >}}
 
@@ -68,3 +78,5 @@ fig-align: center
 {{< include 11_selbstgeführter_wechselrichter.qmd >}}
 
 {{< include 12_umrichter.qmd >}}
+
+`\end{multicols}`{=latex}

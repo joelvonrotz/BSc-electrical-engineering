@@ -20,10 +20,10 @@ Die Pulszahl entspricht der Welligkeit der erzeugten Gleichspannung.
 
 Brückenschaltung mit zweipulsiger Gleichspannung *(zwei "Buckel" pro Netzperiode)*
 
-![](images/paste-1.png){width="232"}
+![](images/paste-1.png){}
 :::
 
-`\onecolumn`{=latex}
+`\end{multicols}`{=latex}
 
 +---------------+---------------------------------------------+
 | Bez.          | Schaltung                                   |
@@ -41,7 +41,11 @@ Brückenschaltung mit zweipulsiger Gleichspannung *(zwei "Buckel" pro Netzperiod
 | DSS6          | ![](images/paste-8.png)                     |
 +---------------+---------------------------------------------+
 
+`\begin{multicols}{2}`{=latex}
+
 ## Einphasiger Gleichrichter
+
+`\end{multicols}`{=latex}
 
 +-------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------+------------------------------------------------------+
 | Ohm'sche Last                                                                                   | L-Glättung                                                            | C-Glättung                                           |
@@ -67,7 +71,7 @@ Brückenschaltung mit zweipulsiger Gleichspannung *(zwei "Buckel" pro Netzperiod
 |                                                                                                 | $$                                                                    |                                                      |
 +-------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------+------------------------------------------------------+
 
-`\twocolumn`{=latex}
+`\begin{multicols}{2}`{=latex}
 
 ### Leistung bei L-Glättung
 
@@ -129,7 +133,9 @@ $$
 
 Durch hinzufügen eines weiteren Phasenmodul an einen Brückengleichrichter, kann der Gleichrichter *B2* dreiphasig ans Netz angeschlossen werden.
 
-![![](images/paste-18.png){width="10cm"}](images/paste-17.png){width="10cm"}
+![](images/paste-18.png)
+
+![](images/paste-17.png)
 
 Für den Netzstrom gilt
 
