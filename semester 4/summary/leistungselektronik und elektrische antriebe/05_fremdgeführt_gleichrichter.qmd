@@ -20,35 +20,39 @@ Die Pulszahl entspricht der Welligkeit der erzeugten Gleichspannung.
 
 Brückenschaltung mit zweipulsiger Gleichspannung *(zwei "Buckel" pro Netzperiode)*
 
-![](images/paste-1.png){width="232"}
+![](images/paste-1.png){}
 :::
 
-`\onecolumn`{=latex}
+`\end{multicols}`{=latex}
 
 +---------------+-----------------------------------------------+
 | Bez.          | Schaltung                                     |
 +===============+===============================================+
-| M1            | ![](images/paste-2.png){width="8.4cm"}        |
+| M1            | ![](images/paste-2.png){}        |
 +---------------+-----------------------------------------------+
-| M2            | ![](images/paste-4.png){width="9.9cm"}        |
+| M2            | ![](images/paste-4.png){}        |
 +---------------+-----------------------------------------------+
-| M3            | ![](images/paste-5.png){width="11.4cm"}       |
+| M3            | ![](images/paste-5.png){}       |
 +---------------+-----------------------------------------------+
-| B2            | ![](images/paste-6.png){width="10.3cm"}       |
+| B2            | ![](images/paste-6.png){}       |
 +---------------+-----------------------------------------------+
-| B6            | ![](images/paste-7.png){width="11.1cm"}       |
+| B6            | ![](images/paste-7.png){}       |
 +---------------+-----------------------------------------------+
-| DSS6          | ![](images/paste-8.png){width="9.3cm"}        |
+| DSS6          | ![](images/paste-8.png){}        |
 +---------------+-----------------------------------------------+
 
+`\begin{multicols}{2}`{=latex}
+
 ## Einphasiger Gleichrichter
+
+`\end{multicols}`{=latex}
 
 +-------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------+------------------------------------------------------+
 | Ohm'sche Last                                                                                   | L-Glättung                                                            | C-Glättung                                           |
 +=================================================================================================+=======================================================================+======================================================+
-| ![](images/paste-9.png){width="5cm"}                                                            | ![](images/paste-11.png){width="5cm"}                                 | ![](images/paste-15.png){width="5cm" height="2.2cm"} |
+| ![](images/paste-9.png)                                                                         | ![](images/paste-11.png)                                              | ![](images/paste-15.png)                             |
 |                                                                                                 |                                                                       |                                                      |
-| $$                                                                                              | $$                                                                    | ![](images/paste-16.png){width="5cm"}                |
+| $$                                                                                              | $$                                                                    | ![](images/paste-16.png)                             |
 | U_{di0}=\frac{1}{T}\int_{0}^{T}{u_d}\space dt=\frac{1}{\pi}\int_{0}^{\pi}{u_d}\space d\omega    | U_{di0}\approx0.9\cdot U_N                                            |                                                      |
 | $$                                                                                              | $$                                                                    |                                                      |
 |                                                                                                 |                                                                       |                                                      |
@@ -56,7 +60,7 @@ Brückenschaltung mit zweipulsiger Gleichspannung *(zwei "Buckel" pro Netzperiod
 | =\frac{2}{\pi}\hat{U}=\frac{2\sqrt2}{\pi}U_N\approx0.9\cdot U_N                                 |                                                                       |                                                      |
 | $$                                                                                              |                                                                       |                                                      |
 +-------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------+------------------------------------------------------+
-| ![](images/paste-10.png){width="5cm"}                                                           | ![](images/paste-12.png){width="5cm"}                                 | $$                                                   |
+| ![](images/paste-10.png)                                                                        | ![](images/paste-12.png)                                              | $$                                                   |
 |                                                                                                 |                                                                       | U_{di\alpha}=                                        |
 | $$                                                                                              | $$                                                                    | \begin{cases}                                        |
 | U_{di\alpha}=\frac{1}{\pi}\int_{\alpha}^{\pi}{u_d}\space d\omega=U_{di0}\frac{1+cos(\alpha)}{2} | U_{di\alpha}=\frac{1}{\pi}\int_\alpha^{\pi+\alpha}{u_d}\space d\omega | \sqrt{2}\cdot U_N, 0°<\alpha <90°\\                  |
@@ -67,7 +71,7 @@ Brückenschaltung mit zweipulsiger Gleichspannung *(zwei "Buckel" pro Netzperiod
 |                                                                                                 | $$                                                                    |                                                      |
 +-------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------+------------------------------------------------------+
 
-`\twocolumn`{=latex}
+`\begin{multicols}{2}`{=latex}
 
 ### Leistung bei L-Glättung
 
@@ -129,7 +133,9 @@ $$
 
 Durch hinzufügen eines weiteren Phasenmodul an einen Brückengleichrichter, kann der Gleichrichter *B2* dreiphasig ans Netz angeschlossen werden.
 
-![![](images/paste-18.png){width="10cm"}](images/paste-17.png){width="10cm"}
+![](images/paste-18.png)
+
+![](images/paste-17.png)
 
 Für den Netzstrom gilt
 
