@@ -47,36 +47,16 @@ fig-align: center
 
 <!-- [Chapters] -->
 
-<!-- {{< include sec_drehmaschinen.qmd >}}
 
-{{< include sec_richter.qmd >}}
-
-{{< include sec_steller.qmd >}}-->
 
 `\begin{multicols}{2}`{=latex}
 
-{{< include 01_einfuehrung.qmd >}}
+<!-- {{< include 01_einfuehrung.qmd >}} - Not really needed, as it is explained later on -->
 
-{{< include 02_grundlagen.qmd >}}
+{{< include sec_grundlagen.qmd >}}
 
-{{< include 03_gleichstrommaschine.qmd >}}
+{{< include sec_drehmaschinen.qmd >}}
 
-{{< include 04_gleichstromsteller.qmd >}}
-
-{{< include 05_fremdgeführt_gleichrichter.qmd >}}
-
-{{< include 06_leistungshalbleiter.qmd >}}
-
-{{< include 07_transformatoren.qmd >}}
-
-{{< include 08_drehfeldmaschinen.qmd >}}
-
-{{< include 09_synchronmaschine.qmd >}}
-
-{{< include 10_asynchronmaschine.qmd >}}
-
-{{< include 11_selbstgeführter_wechselrichter.qmd >}}
-
-{{< include 12_umrichter.qmd >}}
+{{< include sec_steller_richter.qmd >}}
 
 `\end{multicols}`{=latex}
