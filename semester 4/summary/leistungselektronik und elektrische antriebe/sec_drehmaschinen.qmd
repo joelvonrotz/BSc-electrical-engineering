@@ -1,0 +1,7 @@
+{{< include 03_gleichstrommaschine.qmd >}}
+
+{{< include 08_drehfeldmaschinen.qmd >}}
+
+{{< include 09_synchronmaschine.qmd >}}
+
+{{< include 10_asynchronmaschine.qmd >}}

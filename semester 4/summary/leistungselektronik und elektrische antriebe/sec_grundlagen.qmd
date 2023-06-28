@@ -1,0 +1,425 @@
+# Grundlagen
+
+## Mechanik
+
+### Grundgrössen
+
+`\end{multicols}`{=latex}
+`\renewcommand*{\arraystretch}{1.4}`{=latex}
+
++------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Translatorische Bewegung                                                                                                           | Rotatorische Bewegung                                                                                                                                                         |
++:=========================+:===================================================================+:==================================:+:======================+:========================================================================================+:===========================================================:+
+| Weg                      | $\displaystyle s$                                                  | $\left[m\right]$                   | Winkel                | $\displaystyle \varphi$                                                                 | $\left[\text{rad}\right]/\left[1\right]$                    |
+|                          | $\displaystyle h = \iint{a\cdot dt}=\sfrac{1}{2}\cdot a\cdot t^2$  |                                    |                       | $\displaystyle \quad=2\pi\cdot\frac{n\space [\frac{1}{min}]}{60\space [\frac{s}{min}]}$ |                                                             |
++--------------------------+--------------------------------------------------------------------+------------------------------------+-----------------------+-----------------------------------------------------------------------------------------+-------------------------------------------------------------+
+| Geschwindikeit           | $\displaystyle v=\frac{ds}{dt}=r\cdot\omega$                       | $\left[\frac{m}{s}\right]$         | Kreisfrequenz         | $\displaystyle \omega = \frac{d\varphi}{dt}$\                                           | $\left[\frac{\text{rad}}{s}\right]/\left[\frac1{s}\right]$  |
+|                          |                                                                    |                                    |                       | $\displaystyle \quad=2\pi\cdot\frac{n\space [\frac{1}{min}]}{60\space [\frac{s}{min}]}$ |                                                             |
++--------------------------+--------------------------------------------------------------------+------------------------------------+-----------------------+-----------------------------------------------------------------------------------------+-------------------------------------------------------------+
+| Beschleunigung           | $\displaystyle a=\frac{dv}{dt}=\frac{d^2}{dt^2}$                   | $\left[\frac{m}{s^2}\right]$       | Winkelbeschl.         | $\displaystyle \dot{\omega}=\frac{d\omega}{dt}=\frac{d^2\varphi}{dt^2}$                 | $\left[\frac1{s^2}\right]$                                  |
++--------------------------+--------------------------------------------------------------------+------------------------------------+-----------------------+-----------------------------------------------------------------------------------------+-------------------------------------------------------------+
+| Kraft                    | $\displaystyle F= m\cdot a$                                        | $\left[N\right]$                   | Drehmoment            | $\displaystyle M = J\cdot\dot{\omega}$\                                                 | $\left[Nm\right]$                                           |
+|                          |                                                                    |                                    |                       | $\displaystyle \quad=F\cdot r_\perp$                                                    |                                                             |
++--------------------------+--------------------------------------------------------------------+------------------------------------+-----------------------+-----------------------------------------------------------------------------------------+-------------------------------------------------------------+
+| Masse                    | $\displaystyle m$                                                  | $\left[kg\right]$                  | Trägheitsmoment       | $\displaystyle J$                                                                       | $\left[kg\cdot m^2\right]$                                  |
++--------------------------+--------------------------------------------------------------------+------------------------------------+-----------------------+-----------------------------------------------------------------------------------------+-------------------------------------------------------------+
+| Impuls                   | $\displaystyle B = m\cdot v$                                       | $\left[\frac{kg\cdot m}{s}\right]$ | Drall                 | $\displaystyle D = J\cdot\omega$                                                        | $\left[\frac{kg\cdot m^2}{s}\right]$                        |
++--------------------------+--------------------------------------------------------------------+------------------------------------+-----------------------+-----------------------------------------------------------------------------------------+-------------------------------------------------------------+
+| Leistung                 | $\displaystyle P=F\cdot v$                                         | $\left[W\right]$                   | Leistung              | $\displaystyle P = M\cdot \omega$                                                       | $\left[W\right]$                                            |
++--------------------------+--------------------------------------------------------------------+------------------------------------+-----------------------+-----------------------------------------------------------------------------------------+-------------------------------------------------------------+
+| Energie                  | $\displaystyle W=\int{p(t)\cdot dt}$                               | $\left[Ws\right]$                  | Energie               | $\displaystyle W=\int{p(t)\cdot dt}$                                                    | $\left[Ws\right]$                                           |
++--------------------------+--------------------------------------------------------------------+------------------------------------+-----------------------+-----------------------------------------------------------------------------------------+-------------------------------------------------------------+
+| kin. Energie             | $\displaystyle W_{kin}=\frac1{2}\cdot m\cdot v^2$                  | $\left[Ws\right]$                  | kin. Energie          | $\displaystyle W_{kin}=\frac{J\omega^2}{2}$                                             | $\left[Ws\right]$                                           |
++--------------------------+--------------------------------------------------------------------+------------------------------------+-----------------------+-----------------------------------------------------------------------------------------+-------------------------------------------------------------+
+| pot. Energie             | $\displaystyle W_{pot} =\int{F(s)\cdot ds}$\                       | $\left[Ws\right]$                  | pot. Energie          | $\displaystyle W_{pot}=\int{M(\varphi)\cdot d\varphi}$                                  | $\left[Ws\right]$                                           |
+|                          | $\displaystyle\qquad = m\cdot g\cdot h$                            |                                    |                       |                                                                                         |                                                             |
++--------------------------+--------------------------------------------------------------------+------------------------------------+-----------------------+-----------------------------------------------------------------------------------------+-------------------------------------------------------------+
+: {tbl-colwidths="[15,25,10,15,25,10]"}
+
+`\begin{multicols}{2}`{=latex}
+
+Zusammenhang Translatorisch & Rotatorisch:
+
+$$
+M = F\cdot r \qquad \text{und} \qquad v_{tang} = r\cdot \omega\ (\text{resp. } a_{tang}=\dot\omega \cdot r)
+$$
+
+
+### Zentrifugalkraft
+
+$$
+F=\frac{m\cdot v^2}{r}=m\cdot r\cdot \omega^2\space [N]
+$$
+
+### Trägheitsmoment $J$
+
+- [Vollzylinder]{.underline}
+
+$$
+J=\frac{m}{2}r^2=\frac{\pi\cdot l\cdot\rho}{2}r^4
+$$
+
+- [Hohlzylinder]{.underline}
+
+$$
+J=\frac{m}{2}(r_a^2+r_i^2)=\frac{\pi\cdot l\cdot\rho}{2}(r_a^4-r_i^4)
+$$
+
+- [Zylindermantel]{.underline} ($\delta\ll r$)
+
+$$
+J=\frac{m}{4}(2\cdot r-\delta)^2=2\pi\cdot l\cdot\rho r^3\delta
+$$
+
+- [Kugel]{.underline}
+
+$$
+J=\frac{2\cdot m}{5}r^2=\frac{8}{15}\pi\cdot\rho\cdot r^5
+$$
+
+## Wirkungskette elektrischer Maschinen
+
+Bei rotatorischer Bewegung steht die DIfferenz zwischen *Derhmoment* $M_{masch}$, das die Maschine abgibt und das *Lastmoment* $M_{last}$ zur *Winkelbeschleunigung* $\dot{\omega}$ zur Verfügung
+
+![](images/01_WIrkungskette.png)
+
+Es kommen zudem *stabile* und *instabile* Arbeitspunkte vor. **Stabil** sind sie, wenn bei sinkender Drehzahl das Moment steigt und so wieder beschleunigen kann, sonst andersrum. So "regelt" sich das System ein stück weit selbst
+
+![](images/01_Arbeitspunkte.png)
+
+## Elektromechanische Energieumwandlung
+
+Wird ein stromdurchflossener Leiter in die Nähe eines Magneten gebracht, so wirkt auf jedes Längenelement des Leiters eine Kraft, die senkrecht auf dem Längenelement steht. Ihre Grösse ist dem Strom im Leiterproportional.
+
+![](images/01_LorentzKraft.png){width="4cm"}
+
+Die Kraft $F$ die auf einen Leiter wirkt ist abhängig vom Längenelement $l$ (länge des Leiters im Magnetfeld) des Stroms $i$.
+
+$$
+\overrightarrow{F}=l(\overrightarrow{i}\times\overrightarrow{B})
+$$
+
+Steht der Leiter im Rotor senkrecht zum Magnetfeld so folgt
+
+$$
+F=l\cdot i\cdot B
+$$
+
+### Durchflutungsgesetz
+
+Das Durchflutungsgesetz verbindet die Ursache der Magnetfelds, die Durchflutung $\theta$, mit deren Wirkung , der magnetischen Feldstärke $H$.
+
+![](images/01_Eisenkern.png){width="6cm"}
+
+`\end{multicols}`{=latex}
+
++----------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Durchflutung $[A]$                     | $\displaystyle \theta=\oint\overrightarrow{H}\cdot d\overrightarrow{s}=H\cdot l_{Fe}=\sum{I}=N\cdot I=\iint\overrightarrow{j}\cdot d\overrightarrow{A}$ |
++----------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Magnetische Feldstärke $[\frac{A}{m}]$ | $\displaystyle H=\frac{N\cdot I}{l_{Fe}}$                                                                                                               |
++----------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Magnetische Flussdichte $[T]$          | $\displaystyle B=\mu_0\cdot\mu_r\cdot H$ oder Magnetisierungskennlinie                                                                                  |
++----------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Permeabilität $[\frac{Vs}{Am}]$        | $\displaystyle \mu_0=4\cdot\pi\cdot 10^{-7}\frac{Vs}{Am}$                                                                                               |
++----------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------+
+| relative Permeabilität $[\space]$      | $\displaystyle \mu_r$ ist Materialabhängig                                                                                                              |
++----------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Magnetischer Fluss $[Vs];[Wb]$         | $\displaystyle \phi=B\cdot A_{Fe}$                                                                                                                      |
++----------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Induzierte Spannung $[V]$              | $\displaystyle u=N\frac{d\phi}{dt}=\underbrace{\mu_0\cdot\mu_r\cdot\frac{A_{Fe}}{l_{Fe}}N^2}_{L}\frac{d}{dt}i=\frac{d}{dt}\Psi$                         |
++----------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Flussverkettung $[Vs];[Wb]$            | $\displaystyle \Psi=N\phi=Li$                                                                                                                           |
++----------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Induktivität $[H]$                     | $\displaystyle L=\frac{N^2\cdot A_{Fe}\cdot\mu_0\cdot\mu_r}{l_{Fe}}$                                                                                    |
++----------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------+
+: {tbl-colwidths="[30,70]"}
+
+`\begin{multicols}{2}`{=latex}
+
+Werden grosse Induktivitätswerte benötigt, wird mit ferromagnetischem Material gearbeitet. Dabei müssen Sättigungseffekte beachtet werden (B-H-Kennlinie)
+
+![](images/01_Magnetisierung.png)
+
+### Luftspalt
+
+In Drosseln mit Luftspalt wird dabei die Feldstärke vornehmlich durch die Luftspaltlänge bestimmt. Bei sehr grossem $\mu_r$ kann der Anteil der Eisenweglänge am Umlaufintegral sogar vernachlässigt werden. Der **Fluss** $\phi$ ist im Luftspalt und im Eisen gleich, ebenso die Querschnittsfläche $A$.
+
+![](images/02_Luftspalt.png){width="6cm"}
+
+`\end{multicols}`{=latex}
+
++----------------------------------------+----------------------------------------------------------------------------------------------------------------------+------------------------------------------------+
+| Durchflutung $[A]$                     | $\theta=\oint\overrightarrow{H}\cdot d\overrightarrow{s}=H_{Fe}\cdot l_{Fe}+H_\delta\cdot l_\delta=\sum{I}=N\cdot I$ |                                                |
++----------------------------------------+----------------------------------------------------------------------------------------------------------------------+------------------------------------------------+
+| magnetische Feldstärke $[\frac{A}{m}]$ | $H_{Fe}=\frac{B}{\mu_0\mu_r}=\frac{\phi}{\mu_0\mu_rA}$                                                               | $H_\delta=\frac{B}{\mu_0}=\frac{\phi}{\mu_0A}$ |
++----------------------------------------+----------------------------------------------------------------------------------------------------------------------+------------------------------------------------+
+| Magnetischer Fluss $[Vs];[Wb]$         | $\phi\approx\frac{N\cdot I\cdot\mu_0\cdot A}{l_\delta}$                                                              |                                                |
++----------------------------------------+----------------------------------------------------------------------------------------------------------------------+------------------------------------------------+
+|                                        | $H_{Fe}=\frac{N\cdot I}{\mu_r\cdot l_\delta}$                                                                        | $H_\delta=\frac{N\cdot I}{l_\delta}$           |
++----------------------------------------+----------------------------------------------------------------------------------------------------------------------+------------------------------------------------+
+: {tbl-colwidths="[25,45,30]"}
+
+`\newpage`{=latex}
+
+## Kapazität & Induktivität
+
+`\begin{multicols}{2}`{=latex}
+
+
+### Kapazität $C$
+
+![](images/grundlagen/kapazitat.png){width="5cm"}
+
+
+$$
+{i_C} = C \cdot \frac{du}{dt}\quad\Leftrightarrow\quad u_C = \frac1{C}\int{i_C(t)}=\frac{t}{C}I_C
+$$
+
+Kurzschluss: $i_C \rightarrow \infty$
+
+![](images/grundlagen/kapazitat_stromverlauf.png){width="6cm"}
+
+![](images/grundlagen/kapazitat_spannungsverlauf.png){width="6cm"}
+
+
+```{=latex}
+\vfill\null
+\columnbreak
+```
+
+### Induktivität $L$
+
+![](images/grundlagen/induktivitat.png){width="5cm"}
+
+$$
+u_L = L \cdot \frac{di}{dt}\quad\Leftrightarrow\quad i_L = \frac1{L}\int{u_L(t)}=\frac{t}{L}U_L
+$$
+
+Leerlauf: $u_L \rightarrow \infty$
+
+![](images/grundlagen/induktivitat_spannungsverlauf.png){width="6cm"}
+
+![](images/grundlagen/induktivitat_stromverlauf.png){width="6cm"}
+
+```{=latex}
+\end{multicols}
+\rule{\textwidth}{0.1pt}
+\begin{multicols}{2}
+```
+
+## Periodische Signale
+
+### Fourierreihe
+
+Ein periodisches Signal
+
+$$
+s(t) = s(t\pm mT_0)\qquad -\infty<t<+\infty\qquad\text{mit }m=1,2,3,...
+$$
+
+lässt sich als reelle Fourier Reihe dartellen. Die Fourierreihe ist eine unendliche Summe von $\cos$- und $\sin$-Funktionen, deren Frequenzen ganzzahlige Vielfache von $\omega_1$ sind.
+
+$$
+x(t)=\frac{a_0}{2}+\sum_{n=1}^{\infty}{[a_n\cos(n\omega_1t)+b_n\sin(n\omega_1 t)]}
+$$
+
+Mit dem Zusammenhang $\omega_1=2\pi f_1=\frac{2\pi}{T_1}$.
+
+Koeffizient $\frac{a_0}{2}$ entspricht dem **Mittelwert** $\overline{X}$.
+$$
+\begin{split}
+a_n &= \frac1{\pi}\int_0^{2\pi}[x(\omega_1t)\cdot\cos(n\cdot\omega_1t)]\ d(\omega_1t) \\
+b_n &= \frac1{\pi}\int_0^{2\pi}[x(\omega_1t)\cdot\sin(n\cdot\omega_1t)]\ d(\omega_1t)
+\end{split}
+$$
+
+### Amplitudenspektrum $\hat{X}_n$ & Phasenspektrum $\varphi_n$
+
+$$
+\hat{X}_n=X_{n,p}=\sqrt{a_n^2+b_n^2}\qquad\varphi_n=\arctan\left(\frac{a_n}{b_n}\right)
+$$
+
+$$
+\hat{X}_n\space[dB]=20\log_{10}\left(\frac{\hat{X}_n\space[V]}{X_B\space[V]}\right)
+$$
+
+als Bezugswert $X_B$ wird oft der Effektivwert des Signals oder die Amplitude der Grundschwingung verwendet.
+
+Damit lässt sich das Signal $x(t)$ durch ein Summe von Sinusfunktionen mit Phasenverschiebung darstellen
+
+$$
+x(t)=\overline{X}+\sum_{n=1}^\infty{[\hat{X}_n\cdot\sin(n\omega_1t+\varphi_n]}
+$$
+
+### Gerade Funktion
+
+$$
+x(\omega_1t)=x(-\omega_1t)
+$$
+
+Ist $x(\omega_1t)$ eine *gerade Funktion* (Bsp. Kosinus) so gilt
+
+$$
+a_n=\frac{2}{\pi}\int_0^\pi{[x(\omega_1t)\cdot\cos(n\cdot\omega_1t)]\,d(\omega_1t)}\text{,}\qquad b_n=0
+$$
+
+### Ungerade Funktion
+
+$$
+x(\omega_1t)=-x(-\omega_1t)
+$$ 
+
+Ist $x(\omega_1t)$ eine *ungerade Funktion* (Bsp. Sinus) so gilt
+
+$$
+a_n=0\text{,}\qquad b_n=\frac{2}{\pi}\int_0^\pi{[x(\omega_1t)\cdot\sin(n\omega_1t)]\,d(\omega_1t)}
+$$
+
+### (linearen) Mittelwert $X_{MW}/X_{AV}/\overline{X}$
+
+$$
+X_{AV}=\overline{X}=\frac{a_0}{2}=\frac{1}{T_1}\int_0^{T_1}{x(t)dt}=\frac{1}{2\pi}\int_0^{2\pi}{x(\omega_1t)d(\omega_1t)}
+$$
+
+
+### Effektivwert
+
+$$
+X_{eff}=X_{rms}=\sqrt{\frac{1}{T_1}\int_0^{T_1}{x^2(t)dt}}=\sqrt{\frac{1}{2\pi}\int_0^{2\pi}{x^2(\omega_1t)d(\omega_1t)}}
+$$
+
+Der Effektivwert lässt sich auch aus dem Mittelwert eines Signals und den Amplituden der Oberschwingungen berechnen
+
+$$
+X_{eff}=X_{rms}=\sqrt{\overline{X}^2+\sum_{n=1}^\infty{\frac{\hat{X}_n^2}{2}}}=\sqrt{\overline{X}^2+\sum_{n=1}^\infty{X_{n,rms}^2}}
+$$
+
+Rein Sinusförmig gilt
+
+$$
+\hat{X}=\sqrt2X_{eff}
+$$
+
+## Leistungsberechnung
+
+### Einphasige Leistungen (allgemein)
+
+$$
+p(t) = u(t) \cdot i(t)
+$$
+
+::: callout-important
+#### Wirkleistung $P$
+
+Die Wirkleistung $P$ entspricht dem Mittelwert von $p(t)$:
+
+$$
+P = \frac1{T}\int_0^Tp(t)\ dt=\frac1{T}\int_0^Tu(t)\cdot i(t)\ dt
+$$
+:::
+
+### Einphasige Leistungen (periodisch)
+
+**Wichtig**: Folgend Annahme, dass $u(t)$ und $i(t)$ periodisch sind und mit gleicher Periodendauer $T$.
+
+$$
+P = \sum_{v=0}^\infty\frac{\hat{U}_v\cdot\hat{I}_v}{2}\cos(\varphi_v)=\sum_{n=0}^\infty\hat{U}_{v,eff}\cdot\hat{I}_{v,eff}\cdot\cos(\varphi_v)
+$$
+
+::: callout-important
+Nur gleiche Frequenzanteile in $U$ & $I$ tragen zur Wirkleistung bei!
+:::
+
+$$
+S = U_{eff}\cdot I_{eff}
+$$
+
+$$
+\lambda = \frac{P}{S}
+$$
+
+$$
+Q = \sqrt{S^2-P^2}
+$$
+
+```{=latex}
+\begin{conditions}
+  P & Wirkleistung \\
+  Q & Blindleistung \\
+  S & Scheinleistung \\
+  U_{eff}, I_{eff} & Effektivwerte Strom \& Spannung \\
+  \lambda & Leistungsfaktor
+\end{conditions}
+```
+
+### Einphasige Leistung (sinusförmgie Spannung)
+
+**Häufiger Fall**: sinusförmigen Spannung und ein ebenfalls periodischer, nicht-sinusförmiger Strom.
+
+Es gilt:
+
+$$
+\begin{split}
+u(t) &= U_{eff} \sqrt{2}\cdot\sin(\omega t)\quad U_{v=1,eff}=U_{eff}\quad U_{v>1,eff}=0 \\
+i(t) &= I_{AV} + \sum_{v=1}^\infty \hat{I}_v\cdot\sin(v\cdot\omega t + \varphi_v)
+\end{split}
+$$
+
+::: callout-important
+Nur die Grundschwingung des Stromes zusammen mit der sinusförmigen Spannung erbringt **Wirkleistung**.
+
+$$
+\begin{split}
+P &=U_{eff}\cdot I_{v=1,eff}\cdot\cos(\varphi_1) \\
+\end{split}
+$$
+
+Ist $\varphi_1\neq 0$, zusätzliche *Grundschwingungsblindleistung* $Q_1$ und folglich auch eine *Grundschwingungscheinleistung* $S_1$:
+
+$$
+Q_1 = U_{eff}\cdot I_{v=1,eff}\cdot\sin(\varphi_1)
+$$
+
+$$
+S_1 = U_{v=1,eff}\cdot I_{v=1,eff}
+$$
+
+:::
+
+Die übrigen Frequenzanteile des Stromes verursachen Verluste in den Leitungen ($\rightarrow$ Blindleistung). Dies wird *Verzerrungsblindleistung* $D$ genannt.
+$$
+D = U_{eff}\cdot I_{\textcolor{BrickRed}{v>1},eff} = U_{rms}\cdot\sqrt{I_{AV}^2+I_{v=2,eff}^2+I_{v=3,eff}^2+\cdots}
+$$
+
+Die Scheinleistung ist das Produkt der Effektivwerte und zwischen den verschiedenen Leistungen besteht folgender Zusammenhang.
+
+$$
+S = U_{eff}\cdot I_{eff}
+$$
+
+$$
+S^2 = P^2+Q^2=P^2+Q_1^2+D^2=S_1^2+D^2
+$$
+
+$$
+\lambda = \frac{P}{S} = \frac{I_{v=1,eff}}{I_{eff}}\cos(\varphi_1)
+$$
+
+```{=latex}
+\begin{conditions}
+  Q_1 & Grundschwingungsblindleistung \\
+  S_1 & Grundwellenscheinleistung \\
+  D & Verzerrungsblindleistung
+\end{conditions}
+```
+
+### Klirrfaktor
+
+Der Leistungsfaktor $\lambda$ zeigt, wie optimal die Wirkleistung übertragen wird.
+Allgemein gilt $\lambda \leq \cos{\varphi_1}$ ($=$: kein Wirkleistungsverlust, $<$: Verlust).
+
+Der Klirrfaktor $k$ beschreibt die Qualität, mit $k\rightarrow 0$ sehr gut ist (keine Oberschwingungen).
+
+$$
+k_i = \frac{I_{v>1,eff}}{I_{eff}}=\sqrt{\frac{I_{eff}^2-I_{v=1,eff}^2}{I_{eff}^2}}
+$$
