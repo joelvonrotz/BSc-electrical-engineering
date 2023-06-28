@@ -10,7 +10,6 @@ Die Eingangsspannung $U_1$ wird oft mit einem ungesteuerten Gleichrichter erzeug
 
 Folgende Gleichstromsteller sind haupts채chlich im Einsatz
 
-
 +--------------------------------+--------------------------------+--------------------------+
 | Tiefsetz- oder Abw채rtssteller  | step-down (**buck**) converter | $U_2<U_1$                |
 +--------------------------------+--------------------------------+--------------------------+
@@ -21,7 +20,6 @@ Folgende Gleichstromsteller sind haupts채chlich im Einsatz
 +--------------------------------+--------------------------------+--------------------------+
 | Durchfluss- und Sperrwandler   |                                | integrierter Trafo       |
 +--------------------------------+--------------------------------+--------------------------+
-
 
 ## Abw채rtsteller
 
@@ -117,7 +115,7 @@ Der Vierquadrantensteller (engl. Full Bridge DC-DC Converter) ist ein selbstgef�
 
 ![](images/04_Vierquadrantensteller.png)
 
-## Gleichstromsteller mit GTO
+## Gleichstromsteller mit GTO {#sec-stromstellergto}
 
 Bei gebrauch realer Halbleiter, m체ssen diese gesch체tzt werden. Wird Ein GTO (Gate Turn Off Thyristor) eingesetzt, so m체ssen Strom- und Spannungssteilheit durch Entlastungsnetzwerke begrenzt werden
 

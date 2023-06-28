@@ -1,1 +1,169 @@
 # Leistungshalbleiter
+
+## Übersicht
+
+In der Leistungselektronik werden folgende Halbleiter eingesetzt:
+
+*Fremdgeführt*:
+
+-   Diode
+
+*Einschaltbar*:
+
+-   Thyristor
+
+*Ein- und Auschschaltbar*:
+
+-   GTO *(Gate Turn Off Thyristor)*
+
+-   IGCT *(Insulated Gate Commutated Thyristor)*
+
+-   IGBT *(Insulated Gate Bipolar Transistor)*
+
+-   FET *(Feld Effekt Transistor)*
+
+-   Bipolartransistor
+
+![](images/paste-13.png)
+
+## Diode
+
+Zweischicht-Element mit einem pn-Übergang
+
+![](images/paste-14.png)
+
+Der maximale Durchgangsstrom ist durch die Erwährmung der Diode bestimmt. Die typische maximale Junction-Temperatur beträgt $T_{j_{max}}=150^\circ C$. Die Erwärmung der Diode wird durch die Kühlung und die Verluste bestimmt
+
+$$
+P_V=\frac{1}{T}\int_0^Tu(t)\cdot i(t)dt=U_DI_{avg}+r_dI_{rms}^2
+$$
+
+### Trägerstaueffekt *TSE*
+
+Der Übergang von einem sperrenden zu einem leitenden Zustand bei einer Diode erfordert Zeit, um die pn-Schicht mit Ladungsträgern zu überschwemmen. Bei einem hohen di/dt beim Einschalten kann die Diode zerstört werden, da sie noch nicht vollständig leitend ist. Ähnlich erfolgt der Übergang vom leitenden zum sperrenden Zustand, bei dem die pn-Schicht von Ladungsträgern befreit werden muss, was zu Überspannungen führen kann.
+
+Der Trägerstaueffekt kann mit der Ausschaltentlastung aus @sec-stromstellergto
+
+![](images/paste-24.png)
+
+### Schottky Dioden
+
+Schottky-Dioden zeichnen sich durch eine deutlich geringere Durchlassspannung, einen geringeren Rückwärtsstrom und eine geringere Spannungszeitfläche Qrr beim Ausschalten aus, sind jedoch nur für Sperrspannungen bis etwa 100 V geeignet.
+
+## Bipolartransistor
+
+In der Leistungselektronik werden BJTs zur Minimierung der Verlustleistung nur im Zustand voll leitend oder voll sperrend eingesetzt. Sie können nur in einer Richtung Strom führen, Spannung jedoch in beiden Richtungen aufnehmen.
+
+![](images/paste-25.png)
+
+Die Struktur ist wie folgt aufgebaut
+
+![](images/paste-26.png)
+
+## Einschaltthyristoren
+
+Hochleistungs-Einschaltthyristoren haben typische maximale Ströme von $2$ bis $5kA$ und Spannungen bis zu $8.5kV$. Durch Serie- oder Parallelschaltung lassen sich auch Stromrichter bis zu $1500kA$ [oder]{.underline} $500kV$ realisieren.
+
+![](images/paste-27.png)
+
+![](images/paste-28.png)
+
+Verluste treten nur in eingeschaltetem Zustand auf, wobei sie in diesem bereich wie bei der Diode verhalten
+
+$$
+P_V=\frac{1}{T}\int_0^Tu(t)\cdot i(t)dt=U_DI_{avg}+r_dI_{rms}^2
+$$
+
+Mit einem kurzen Gatestromimpuls aus einer elektronischen Gatestromquelle kleiner Leistung, können Thyristoren bei positiver Anoden-Kathoden-Spannung $u_{AK}$ vom blockierten in den leitenden Zustand gekippt werden.
+
+![](images/paste-29.png)
+
+### Triac
+
+Der Triac entspricht der Antiparallelschaltung zweier Einschaltthyristoren und kann in beiden Richtungen Strom führen und Spannung aufnehmen. Triacs haben zum Zünden in beide Stromrichtungen ein gemeinsames Gate
+
+![](images/power19.gif)
+
+## Abschaltthyristoren *GTO*, *IGCT*
+
+GTOs können im Vergleich zum Thyristor auch ausgeschalten werden.
+
+![](images/paste-30.png)
+
+Der Gatestrom zum Ausschalten beträgt
+
+beim **GTO**
+
+$$
+I_G\approx\frac13 i_A
+$$
+
+beim **IGCT**
+
+$$
+I_G\approx i_A
+$$
+
+Für die Ansteuerung von GTOs wird eine *Turn-On*- und eine *Turn-Off*-Schaltung verwendet. Beim *Turn-On* muss ein genügend grosser Gatestrom generiert werden. Zum ausschalten muss der Gatestrom "aus dem Gate gezogen" werden. Dies geschieht mit Kondensatoren, die zwischen Kathode und Gate geschalten werden
+
+![](images/paste-31.png)
+
+## Feldeffekttransistor *FET*
+
+Dä kensch
+
+![](images/paste-32.png)
+
+## Insulated Gate Bipolar Transistor *IGBT*
+
+Für den IGBT wird ein Bipolar Transistor mit einem FET kombiniert. Es handelt sich also um einen spannungsgesteuerten Bipolartransistor.
+
+![](images/paste-34.png)
+
+## Schaltverluste
+
+Bei DIoden und Thyristoren können die Schaltverluste in der Regel vernachlässigt werden. Bei abschaltbaren Elementen entstehen Schaltverluste, die in der Regel proportional zur sperrenden Spannung, zum Strom im eingeschalteten Zustand und zur Schaltfrequenz $f$ sind.
+
+![](images/paste-35.png)
+
+$$
+E_{ein}=\int_0^{T_{ein}}u(t)\cdot i(t) dt\qquad E_{aus}=\int_0^{T_{aus}}u(t)\cdot i(t) dt
+$$
+
+$$
+P_{V_{schalt}}=(E_{ein}+E_{aus})\cdot f
+$$
+
+Diese Schaltverluste kommen zu den Leitverlusten dazu, je nach Schaltfrequenz verändert sich das Verhältnis.
+
+## Kühlung
+
+Jeder Halbleiter hat eine maximal zulässige Temperatur der Sperrschicht *Junction* $T_{j_{max}}$. Bei schaltbaren Elementen liegt diese typischerweise bei $125^\circ C$, bei Dioden können es $150^\circ C$ oder noch mehr sein. Oberhalb dieser Temperatur verliert der Halbleiter an Sperrfähigkeit und wird beim anlegen einer Spannung durch den grossen Rückwärtsstrom zerstört.
+
+![](images/paste-36.png)
+
+Berechnungen analog zum ohmschen Gesetz mit $P_{V_{tot}}=P_{V_{leit}}+P_{V_{schalt}}$
+
+$$
+\Delta T_{jc}=T_j-T_c=P_{V_{tot}}\cdot R_{th_{jc}}
+$$
+
+$$
+\Delta T_{ch}=T_c-T_h=P_{V_{tot}}\cdot R_{th_{ch}}
+$$
+
+$$
+\Delta T_{ha}=T_h-T_a=P_{V_{tot}}\cdot R_{th_{ha}}
+$$
+
+oder mit $R_{th_{ja}}=R_{th_{jc}}+R_{th_{ch}}+R_{th_{ha}}$
+
+$$
+\Delta T_{ja}=T_j-T_a=P_{V_{tot}}\cdot R_{th_{ja}}
+$$
+
+Die Temperatur der Sperrschicht des Halbleiters berechnet sich zu
+
+$$
+T_j = T_a + \Delta T_{ja}
+$$
