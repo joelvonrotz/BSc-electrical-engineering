@@ -326,7 +326,7 @@ Mit
 ```
 #### Skin-Effekt
 
-Alle metallischen Leiter zeigen den Skin Effekt (Stromverdrängung). Nach der Distan einer Eindringtiefe $\delta$ ist die Amplitude auf $37%$ abgesunken. So ist nach 5 Eindringtiefen $\delta$ "nichtsmehr" übrig. Die Feldstärken $E$ und $H$ nehmen dabei exponentiell ab.
+Alle metallischen Leiter zeigen den Skin Effekt (Stromverdrängung). Nach der Distan einer Eindringtiefe $\delta$ ist die Amplitude auf $37\%$ abgesunken. So ist nach 5 Eindringtiefen $\delta$ "nichtsmehr" übrig. Die Feldstärken $E$ und $H$ nehmen dabei exponentiell ab.
 
 $$
 E(x)=E_0e^{-\frac{x}{\delta}}\space\text{und}\space H(x)=H_0e^{-\frac{x}{\delta}}\space\text{mit}\space\delta=\frac{1}{\sqrt{\pi f\mu\sigma}}
@@ -348,6 +348,10 @@ EM-Feld wird als ebene Welle angenommen. Die Wellenimpedanz im Freiraum beträgt
 
 $$
 \text{Schild Effektivität } SE\space[dB] = -\log_{10}\left(\frac{P_t}{P_e}\right)
+$$
+
+$$
+SE\space[dB]=-20\log_{10}\left(\frac{E_t}{E_e}\right)=-20\log_{10}(T_1\cdot e^{-\frac{d}{\delta}}\cdot T_2)=-20\log_{10}\left(\frac{4\eta_1\eta_2}{(\eta_1+\eta_2)^2}\cdot e^{-\frac{d}{\delta}}\right)
 $$
 
 ![](images/paste-17.png)
