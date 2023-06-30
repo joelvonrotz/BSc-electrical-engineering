@@ -96,9 +96,23 @@ $$
 
 ![Linearer Übertragungskanal](images/01_Wiedergabetreue.png)
 
-Die Wiedergabe eines Übertragunssystems ist umso besser, je geringer die Signalverzerrung ist. Eine Verzerrungsfreie Übertragung hat die Bedingungen **konstante Verstärkung** und **linearer Phasengang**
+Die Wiedergabe eines Übertragunssystems ist umso besser, je geringer die Signalverzerrung ist. 
 
-Eine *Lineare Verzerrung* liegt vor wenn das Ausgangssignal **keine zusätzlichen Frequenzkomponenten** enthält.
+::: callout-tip
+##### Verzerrungsfreie Übertragung
+
+Für verzerrungsfreie Übertragung gelten zwei Bedingungen:
+1. konstante Verstärkung
+2. linearer Phasengang
+
+:::
+
+::: callout-note
+##### Lineare Verzerrung
+
+Eine *Lineare Verzerrung* liegt vor wenn das Ausgangssignal **keine zusätzlichen Frequenzkomponenten** enthält, also nur die Amplituden und Phasen der Signalkomponenten wird verändert.
+:::
+
 
 Um die Wiedergabetreue zu messen wird die *Eintonmessung* angewendet, bei welcher das Testsignal $x(t) = \cos(2\pi f_0t)$ eingespiesen wird und man das Ausgangssignal $y(t)=a_1\cos(\omega_0t)+a_2\cos^2(\omega_0t)+...$ erhält. Mit der Trigonometrischen Umformung
 
@@ -116,6 +130,9 @@ y(t)=\underbrace{\left(\frac{a_2}{2}+\frac{3a_4}{8}+...\right)}_{A_0 \space[DC-A
 \underbrace{\left(\frac{a_2}{2}+\frac{a_4}{4}+...\right)}_{A_2}\cos(2\omega_0t)+...
 \end{split}
 $$
+
+
+#### Klirrfaktor
 
 Zur beschreibung der Nichtlinearität wird der **Klirrfaktor** $k$ benutzt
 

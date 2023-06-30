@@ -156,11 +156,8 @@ $$
 Der Betrag $|c_n|$ repräsentiert die Amplitude und das Argument $\angle c_n$ entspricht der Phase. Es gilt:
 
 -   Alle Frequenzen sind ganzzahlige Vielfache der Grundfrequenz $\omega_0$
-
 -   Die Gleichstromkomponente $c_0$ entspricht $\bar{s}$
-
 -   Ist $s(t)$ reell, so besitzt das zweiseitige *Amplitudenspektrum* $|c_n|$ eine **gerade Symmetrie**
-
 -   Ist $s(t)$ reell, so besitzt das zweiseitige *Phasenspektrum* $\angle c_n$ eine **ungerade Sysmmetrie**
 
 ### Parseval'sches Leistungstheorem
@@ -181,16 +178,16 @@ $$
 E=\int_{-\infty}^{\infty}{|s(t)|^2dt}
 $$
 
-::: callout-caution
+::: callout-important
 ## Energiesignal
 
 Ist die Energie *endlich*, also $0<E<\infty$ so handelt es sich um ein **nichtperiodisches Energiesignal**.
 
-Auch Signal die vermeintlich undendlich lange andauern können endlich sein, z. B.:
+Auch Signale die vermeintlich undendlich lange andauern können endlich sein, z. B.:
 
 ![](images/02_Entladekurve.png)
 
-Die Funktion wird zwar Mathematisch nie $0$, die Energie ist jedoch Endlich *(Kondensator hat nicht unendlich Energie)*
+Die Funktion wird zwar Mathematisch nie $0$, die Energie ist jedoch Endlich *(Kondensator hat nicht unendlich Energie)*.
 :::
 
 ## Fourier Transformation *(nicht periodisch)*
@@ -210,13 +207,9 @@ $$
 Für die komplexe Funktion $S(f)$ der Fourier Transformation gelten die *spektralen Eigenschaften*
 
 -   Das *Amplitudendichtespektrum* entspricht $|S(f)|$
-
 -   Das *Phasendichtespektrum* entspricht $\angle S(f)$
-
--   Der Funktionionswert $S(f)\big|_{f=0}$ entspricht der Nettofläche von $s(t)$
-
+-   Der Funktionionswert $S(f)\big|_{f=0}=S(0)=\int_{-\infty}^{\infty}s(t)dt$ entspricht der Nettofläche von $s(t)$
 -   Ist $s(t)$ reell, so besitzt das *Amplitudenspektrum* $|c_n|$ eine **gerade Symmetrie**
-
 -   Ist $s(t)$ reell, so besitzt das *Phasenspektrum* $\angle c_n$ eine **ungerade Sysmmetrie**
 
 ### Parseval'sches Energietheorem
@@ -224,7 +217,7 @@ Für die komplexe Funktion $S(f)$ der Fourier Transformation gelten die *spektra
 Die Signalenergie im Zeitbereich wie auch im Grequenzbereich entspricht demseben Wert, die Beiden Darstellungen beinhalten also diselben Informationen
 
 $$
-E=\int_{-\infty}^{\infty}{|s(t)|^2dt}=\int_{-\infty}^{\infty}{|S(f|^2df}
+E=\int_{-\infty}^{\infty}{|s(t)|^2dt}=\int_{-\infty}^{\infty}{|S(f)|^2df}
 $$
 
 ## Logarithmische Darstellung
@@ -239,18 +232,24 @@ als Bezugswert $A_{Ref}$ wird oft der Effektivwert des Signals oder die Amplitud
 
 ## Korrelation
 
+::: callout-warning
+### Konjugiert komplex 
+
+Eine Funktion wird immer **konjugiert komplex** sein, damit die Phasen richtig behandelt werden!
+:::
+
 ### Autokorrelation
 
 Die *Autokorrelation* macht Angaben über den inneren Zusammenhang einer Funktion $s(t)$. Dies gilt für ein *periodisches Leistungssignal*
 
 $$
-k_{11}(t)=E[s_1(t-\tau)\cdot s_1(t)]=\lim_{T\rightarrow \infty}{\frac{1}{T}\int_0^T{s_1(t-\tau)s_1(t)dt}}
+k_{11}(t)=E[s_1(t-\tau)\cdot s_1(t)]=\lim_{T\rightarrow \infty}{\frac{1}{T}\int_0^T{s_1^*(t-\tau)s_1(t)dt}}
 $$
 
 und für ein *Energiesignal*
 
 $$
-k_{11}(\tau)=\int_{-\infty}^{\infty}{s_1(t-\tau)s_1(t)dt}
+k_{11}(\tau)=\int_{-\infty}^{\infty}{s_1^*(t-\tau)s_1(t)dt}
 $$
 
 Im **Frequenzbereich** erhalten wir die Autokorrelationen eines *periodischesn Leistungssignals* durch
@@ -270,13 +269,9 @@ $$
 Es gelten die folgenden Eigenschaften:
 
 -   *AK* ist gerade: $k_{11}(\tau)=k_{11}(-\tau)$
-
 -   $\lim_{\tau\rightarrow\infty}k_{11}(\tau)=0$
-
 -   Bei $\tau=0$ erhält man die normierte Leistung (o. Energie): $k_{11}(\tau=0)=s_1(t)^2=s_{eff}^2$
-
 -   Das Maximum liegt bei $\tau=0$
-
 -   Für periodische Signale $s(t)$ liegt die gleiche Periodendauer wie bei $k_{11}(\tau)$ vor
 
 #### Kohärenzzeit
@@ -296,19 +291,19 @@ $$
 Die *Kreuzkorrelation* macht Angaben über den Zusammenhang zweier Signale $s_1(t)$ und $s_2(t)$. Dabei kann man herausfinden, ob zwei Signale miteinander verwandt sind und gemeinsame Merkmale enthalten. Zudem kann man erkennen ob zwei Signale in Abhängikeit einer zeitlichen Verschiebung zueinander stehen. Dies gilt für *periodische Leistungssignale*
 
 $$
-k_{12}(t)=E[s_1(t-\tau)\cdot s_2(t)]=\lim_{T\rightarrow \infty}{\frac{1}{T}\int_0^T{s_1(t-\tau)s_2(t)dt}}
+k_{12}(t)=E[s_1(t-\tau)\cdot s_2(t)]=\lim_{T\rightarrow \infty}{\frac{1}{T}\int_0^T{s_1^*(t-\tau)s_2(t)dt}}
 $$
 
 und für ein *Energiesignal*
 
 $$
-k_{12}(\tau)=\int_{-\infty}^{\infty}{s_1(t-\tau)s_2(t)dt}
-$$ Es gelten die folgenden Eigenschaften:
+k_{12}(\tau)=\int_{-\infty}^{\infty}{s_1^*(t-\tau)s_2(t)dt}
+$$
+
+Es gelten die folgenden Eigenschaften:
 
 -   *KK* ist gerade: $k_{12}(\tau)=k_{21}(-\tau)$
-
 -   $\lim_{\tau\rightarrow\infty}k_{12}(\tau)=0$
-
 -   Das Maximum liegt bei $\tau=\tau_0$
 
 ![](images/02_Kreuzkorrelation.png)
@@ -356,11 +351,8 @@ Das analoge Vorfilter (*anti-aliasing* Filter) verhindert das Kopien eines Stör
 Realisierbare FIlter sind nicht ideal. Die korrekte Auslegung des Filters hängt von verschiedenen Gesichtspunkten ab:
 
 -   Gewünschte Signalbreite (Grenzfrequenz für den Durchlassbereich $f_g$)
-
 -   Abtastfrequenz $f_s$
-
 -   Gewünschte minimale Sperrdämpfung für Spiegelfrequenzen ($f_{sb}=f_s-f_g$)
-
 -   Anforderungen bezüglich Signalverzerrung durch das Filter
 
 ### Reale Abtastung - PAM Signal
@@ -373,9 +365,15 @@ $$
 
 ![](images/02_FlatTop.png)
 
-Dies induziert einen *Apertureffekt*, bei welchem eine Dämpfung der höheren Frequenzkomponenten des Signalspektrums
+Dies induziert einen *Apertureffekt*, bei welchem eine Dämpfung der höheren Frequenzkomponenten des Signalspektrums entsteht.
 
 ![](images/02_ApertureEffekt.png)
+
+Mögliche Abhlifen:
+
+- Einsatz eines Equalizers ($\sin(x)/x$-Korrektur) mit $H_{EQ}(f)=Ke^{-j\omega t_d}/P(f)$
+- Verhältnis der Pulsbreite $\tau$ zur Abtastperiode $T_s$ klein wählen: $\tau/T_s \ll 1$
+
 
 ### Abtastung von Bandpasssignalen
 
@@ -388,3 +386,4 @@ $$
 abgetastet werden, ohne das es zu Spektrumsüberlappungen kommt. $m$ ist die grösste Zahl, die das Verhältnis $\frac{f_{Signal_{max}}}{B}$ nicht übersteigt.
 
 ![](images/02_BandpassAbtastung.png)
+Bandpass Abtastung mit $f_{Sample}=4\ (m=2)$
