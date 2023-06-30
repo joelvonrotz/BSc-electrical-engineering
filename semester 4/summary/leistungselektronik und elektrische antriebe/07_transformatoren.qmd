@@ -1,7 +1,159 @@
 # Transformatoren
 
+![Einphasiger Transformator: Schnittbild mit Eisenkern und Wicklungen](images/paste-9.png)
+
+## Idealer Transformator
+
+![Erssatzschaltung eines idealen Trafos](images/paste-10.png){width="255"}
+
+Bei Wechselspannungsansteuerung $u_1$ auf der Primärseite ergibt sich im Kern dein Wechselfluss $\phi$
+
+$$
+u_1=N_1\frac{d\phi}{dt}\qquad\text{bzw.}\qquad\phi=\frac{1}{N_1}\int u_1\space dt
+$$
+
+Der Wechselfluss $\phi$ induziert in der Sekundärspule eine Spannung $u_2$
+
+$$
+u_2=N_2\frac{d\phi}{dt}=\frac{N_2}{N_1}u_1=\frac{u_1}{\ddot{u}}
+$$
+
+Es gilt also
+
+$$
+\frac{u_1}{u_2}=\frac{N_1}{N_2}=\ddot{u}
+$$
+
+::: callout-caution
+## Sättigung
+
+Je tiefer die Betriebsfrequenz, je grösser der Fluss $\phi$. Um nicht in *Sättigung* zu gehen, muss also entsprechend der Querschnitt $A_{Fe}$ des Eisenkerns grösser werden.
+:::
+
+Der idealisierte Transformator besitzt keine Verluste, so gilt
+
+$$
+\frac{i_1}{i_2}=\frac{N_2}{N_1}=\frac{1}{\ddot{u}}
+$$
+
+## Realer Transformator
+
+### Magnetisierungsstrom
+
+Bei einem nicht idealen Transformator fliesst ein sehr kleiner *Magnetisierungsstrom* $i_{m1}$ durch die *primärseitige Hauptinduktivität* $L_{h1}$
+
+$$
+L_{h1}=\mu_0\mu_r\frac{A_{Fe}}{l_{Fe}}N_1^2
+$$
+
+$$
+i_{m1}=\left(i_1-\frac{N_2}{N_1}i_2\right)
+$$
+
+::: callout-note
+## Primär- und Sekundärseite
+
+Die Primär- und Sekundäreseite sind von der Funktion her vertauschbar. Magnetisierungssttrom und die Hauptinduktivitä könnnen auch auf die Sekundärseite bezogen werden
+
+$$
+L_{h2}=L_{h1}\frac{1}{\ddot{u}^2}
+$$
+:::
+
+Desweiteren entstehen durch das Ummagnetisieren des Kernmaterials Verluste, welche mit dem Ersatzwiderstand $R_{Fel}$ modeliert werden
+
+![](images/paste-11.png){width="236"}
+
+### Streuung
+
+Durch nicht idealen Verlauf der Feldlinien durch die Primär- und Sekundärwicklung, bliden sich *Streuflüsse* die wiederum zur Spannung in der entsprechenenden Wicklung beitragen
+
+$$
+u_1=N_1\frac{d}{dt}(\phi_h+\phi_{\sigma1})\qquad\text{bzw.}\qquad u_2=N_2\frac{d}{dt}(\phi_h-\phi_{\sigma2})
+$$
+
+Diese Streuinduktivitäten $L_{\sigma1}$ und $L_{\sigma2}$ werden zusätzlich mit den ohm'schen Verlusten $R_1$ und $R_2$ der Wicklungen in der Ersatzschaltung modeliert.
+
+![](images/paste-12.png)
+
+### T-Ersatzschaltung
+
+Werden die Grössen von der Sekundärseite auf die Primärseite verschoben, ergibt sich folgende Ersatzschaltung
+
+![](images/paste-15.png)
+
+Mit
+
+$$
+U_2^`=U_2\ddot{u}\qquad\qquad I_2^`=\frac{I_2}{\ddot{u}}
+$$
+
+$$
+R_2^`=R_2\ddot{u}^2\qquad\qquad L_{\sigma2}^`=L_{\sigma2}\ddot{u}^2 
+$$
+
+Desweiteren können zum bestimmen der Werte folgende Formeln Hilfreich sein
+
+$$
+L_1=L_h+L_{\sigma1}\qquad\qquad L_2^`=L_h+L_{\sigma2}^`
+$$
+
+$$
+L_{h2}=L_{h1}\frac{1}{\ddot{u}^2}
+$$
+
+## Dreiphasiger Transformator
+
+![](images/paste-16.png){width="254"}
+
+Auch für den dreiphasigen Transformator wird das T-Ersatzschaltbild verwendet, es werden die Ströme und Spannungen jedoch als komplexe Zeiger angegeben.
+
+![](images/paste-37.png)
+
+Die Zeigerlängen müssen den Effektivwerten der Phasengrössen entsprechen. Für die Verlustleistung gilt so
+
+$$
+P_{V1}=3R_1|\underline{I}_1|^2
+$$
+
+$$
+P_{V2}=3R_2|\underline{I}_2|^2=3R_2^`|\underline{I}_2^`|^2
+$$
+
+Dreiphaseige Transformatoren können je nach Aufbau unterschiedliche Phasenverschiebungen aufweisen
+
+![](images/paste-41.png)
+
 ## Parameterbestimmung
+
+Zur Bestimmung der Parameter eines Realen Trafos.
 
 ### Leerlaufversuch
 
-Trafo wird [primärseitig]{.underline} gespiesen und [sekundärseitig]{.underline} [offen]{.underline} gelassen.
+Trafo wird *primärseitig* gespiesen und *sekundärseitig* offen gelassen
+
+![](images/paste-42.png)
+
+Aus der Wirk- und Blindleistung lassen sich im Leerlauf die einzelnen Komponenten der Ersatzschaltung bestimmen. Bei einer **DC-Messung** ergibt sich
+
+$$
+R_1=\frac{U_{1_{nenn}}}{I_{1_{Ll}}}
+$$
+
+Aus Spannung und Strom oder einer Leistungsmessung lassen sich $R_{Fe}$ sowie $L_1=L_h+L_{\sigma1}$ bestimmen.
+
+### Kurzschlussversuch
+
+Beim Kurzschlussversuch wird die Sekundärwicklung kurzgeschlossen. Primärseitig wird die Spannung $U_{1}$ so lange erhöht, bis Nennstrom fliesst. Diese Spannung wird auch Kurzschlussspannung $u_k$ kennant und wird oft in Prozent der Nennspannung angegeben.
+
+![](images/paste-43.png)
+
+Aus Spannung und Strom oder aus einer Leistungsmessung lassen sich $L_{\sigma1}+L_{\sigma2}^`$ bestimmen. Es gilt die Annahme
+
+$$
+L_{\sigma1}=L_{\sigma2}^`=\frac12(L_{\sigma1}+L_{\sigma2}^`)
+$$
+
+Zusammen mit dem Leerlaufversuch lässt sich so $L_h=L_1-L_{\sigma1}$ bestimmen.
+
+Der Wicklungswiderstand $R_2^`$ kann wieder mit einer DC-Messung $R_2=\frac{U_{2_{test}}}{I_{2_{test}}}$ bestimmt werden.

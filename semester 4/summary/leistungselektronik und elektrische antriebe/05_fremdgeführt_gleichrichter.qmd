@@ -20,86 +20,40 @@ Die Pulszahl entspricht der Welligkeit der erzeugten Gleichspannung.
 
 Brückenschaltung mit zweipulsiger Gleichspannung *(zwei "Buckel" pro Netzperiode)*
 
-![](images/paste-1.png){}
+![](images/paste-1.png)
 :::
 
 [**M1**: **M**ittelpunktschaltung **1**]{.underline}
 
-![](images/paste-2.png)
+![](images/paste-2.png){width="235"}
 
 [M2]{.underline}
 
-![](images/paste-4.png)
+![](images/paste-4.png){width="230"}
 
 [M3]{.underline}
 
-![](images/paste-5.png)
+![](images/paste-5.png){width="225"}
 
-[**B2**: **B**rückenschaltung **2** Dioden]{.underline}
+[**B2**: **B**rückenschaltung **2** Buckel pro Netzperiode]{.underline}
 
-![](images/paste-6.png)
+![](images/paste-6.png){width="224"}
 
 [B6]{.underline}
 
-![](images/paste-7.png)
+![](images/paste-7.png){width="223"}
 
 [DSS6]{.underline}
 
-![](images/paste-8.png)
+![](images/paste-8.png){width="223"}
+
+`\end{multicols}`{=latex}
 
 ## Einphasiger Gleichrichter
 
-### Ohm'sche Last
+![](images/paste-38.png)
 
-[Mit Dioden]{.underline}
-
-![](images/paste-9.png)
-
-$$
-\begin{split}
-U_{di0}&=\frac{1}{T}\int_{0}^{T}{u_d}\space dt=\frac{1}{\pi}\int_{0}^{\pi}{u_d}\space d\omega \\
-  &=\frac{2}{\pi}\hat{U}=\frac{2\sqrt2}{\pi}U_N\approx0.9\cdot U_N
-\end{split}
-$$
-
-[Mit Thyristoren]{.underline}
-
-![](images/paste-10.png)
-
-$$
-U_{di\alpha}=\frac{1}{\pi}\int_{\alpha}^{\pi}{u_d}\space d\omega=U_{di0}\frac{1+cos(\alpha)}{2}
-$$
-
-### L-Glättung
-
-![](images/paste-11.png)
-
-$$
-U_{di0}\approx0.9\cdot U_N
-$$
-
-![](images/paste-12.png)
-
-$$
-\begin{split}
-U_{di\alpha}&=\frac{1}{\pi}\int_\alpha^{\pi+\alpha}{u_d}\space d\omega \\
-  &=U_{di0}\cos(\alpha)=0.9\space U_N\cos(\alpha)
-\end{split}
-$$
-
-### C-Glättung
-
-![](images/paste-15.png)                            
-                                                    
-![](images/paste-16.png)                            
-
-$$                                                  
-U_{di\alpha}=                                       
-\begin{cases}                                       
-\sqrt{2}\cdot U_N & 0\degree<\alpha <90\degree \\
-\sqrt{2}\cdot U_N\cdot\sin(\alpha) & 90\degree<\alpha <180\degree
-\end{cases}
-$$
+`\begin{multicols}{2}`{=latex}
 
 ### Leistung bei L-Glättung
 
