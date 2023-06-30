@@ -12,6 +12,61 @@ Die Ermittlung der Impulsantwort $h(t)$ mittels *Periodischer Zufallssequenz* $s
 
 ![](images/03_Korrelationsverfahren.png)
 
+## Signalverzerrung durch Übertragungssysteme
+
+Alle Übertragungsmedien (leitergebunden, Funk, etc.) haben zwei physikalische Eigenschfften gemeinsam:
+
+- **Interne Leistungsverluste**: Reduktion der Signalgrösse
+- **Interne Energiespeicher**: Veränderung der Form des Signals
+
+### Verzerrungsfrei
+
+Das Ausgangssignal gilt als unverzerrt, wenn das Eingangssignal nur mit einer Konstanten $K$ multipliziert wird und mit einer bestimmten endlichen Zeit $t_d$ verzögert.
+
+[Zeitbereich]{.underline}
+
+$$
+y(t) = K\cdot x(t-t_d)
+$$
+
+[Übertragung im Frequenzbereich]{.underline}
+
+$$
+H(f) = K\cdot e^{-j\omega t_d}
+$$
+
+### Lineare Verzerrungen
+
+In der Realität ist die Forderung für verzerrungsfreie Übertragung nur bedingt einhaltbar. Man unterscheidet zwei Arten von linearen Verzerrungen:
+
+- Amplitudenverzerrung: $\lvert H(f)\rvert\neq K$
+  - Häufig werden nur hohe oder tiefe Frequenzen beschwächt (im Beispiel: $\small x(t)=\cos(\omega t)-\frac13 \cos(3\omega t)+ \frac15\cos(5\omega t) \normalsize$)
+
+![](images/verzerrungen/amplitude.png)
+
+- Phasen- oder Laufzeitverzerrung: $\arg H(f) \neq -\omega\cdot t_d$
+  - Form des Eingangssignals kann stark verändert werden damit (Beispiel Phasenverschiebung von $90^\circ$ für jede Signalkomponente)
+
+![](images/verzerrungen/phase.png)
+
+### Gruppenlaufzeit und Phasenlaufzeit
+
+Phasenverzerrungen können bei linearen Systemen besser anhand der Ableitung der Phase in Bezug zur Frequenz bestimmt werden. Für **verzerrungsfreie Systeme** muss die **Gruppenlaufzeit** $t_d$ **konstant** sein!
+
+$$
+t_g = -\frac{d\varphi}{d\omega}
+$$
+
+Für die individuelle Phasenlaufzeit für jede einzelne Frequenzkomponente:
+
+$$
+t_d = -\frac{\varphi}{2\pi f}
+$$
+
+::: callout-important
+In einem verzerrungsfreien System sind Gruppenlaufzeit $t_g$ und Phasenlaufzeit $t_d$ gleich gross.
+:::
+
 ## Pegelberechnung
 
 Bei einer verzerrungsfreien Übertragung ist die Ausgangsleistung $P_y$ proportional zur Eingangsleistung $P_x$ , die *Dämpfung* entspricht
@@ -41,9 +96,13 @@ Desweiteren gibt es verschiedene Filterklasifizierungen, welche folgende **ideal
 
 ### Reale Filter - Spezifikation
 
-Reale Filter können keine sauberen 1/0-Übergänge realisieren, wonach Filter mit der *Filtermaske* definiert werden
+Reale Filter zeigen ein abweichendes Verhalten zum idealen Verlauf. Z.B. ist der nicht kausale Teil eines ideal TPs nur mit einer Verzögerung teilweise möglich. Beim Filterentwurf wird der gewünschte Amplitudenverlauf mit einer *Filtermaske* spezifiziert.
 
-![Filtermaske eines Tiefpassfilters](images/03_Filtermaske.png)
+![Filtermaske eines Tiefpassfilters](images/filter/reale_filter.png)
+
+- **Durchgangsbereich** -- bei TP $0 \leftrightarrow f_g$
+- **Übergangsbereich** -- $f_g \leftrightarrow f_s$
+- **Sperrbereich** -- bei TP $f_s \leftrightarrow \infty$
 
 Zur definition von Filtern gibt es verschiedene Approximationsverfahren
 
@@ -55,17 +114,17 @@ Zur bestimmung ob ein Leiter mit der klassichen Schaltungstheorie oder mit Phän
 
 ![](images/03_ElektrischeLange.png)
 
-Wobei die Wellenlänge $\lambda$ über die Geschwindigkeit $v$ der Signalwelle *(max* $v_0=3\cdot10^8\frac{m}{s}$*)* im Übertragungsmedium mit der Frequenz $f$ verbunden definiert ist durch
+Wobei die Wellenlänge $\lambda$ über die Geschwindigkeit $v$ der Signalwelle (im Vakumm: $v_0=c=3\cdot10^8\frac{m}{s}$) im Übertragungsmedium mit der Frequenz $f$ verbunden definiert ist durch
 
 $$
-\lambda=\frac{c}{f}\ [m]
+\lambda=\frac{v}{f}\ [m]\qquad \text{falls im Vakuum}\rightarrow \lambda=\frac{c}{f}
 $$
 
-Längshomogene Zweidrahtleitungen aus metallischen Leitern können als Zweitorkette modeliert werden
+Vorteilhafte Übertragungseigenschaften bietet die **längshomogene Leitung**, welche auf der gesamten Länge konstante Querschnitt, gleiches Leitermaterial, konstante Leiterabstand und gleichförmige Isolation besitzt. Längshomogene Zweidrahtleitungen aus metallischen Leitern können als Zweitorkette modeliert werden.
 
 ![](images/03_Zweitorkette.png){fig-align="center" width="14cm"}
 
-Wird dabei die Weglänge $\Delta z=\frac{1}{n}$ betrachtet so kann angenommen werden, dass die Längsinduktivität $\Delta L$ und die Parallelkapazität $\Delta C$ gleichförmig über die Länge $\Delta z$ verteilt sind. Diese werden in diesem Modell als **Leitungsbeläge** ausgedrückt
+Betrachtet man ein kurzes Leitungsstück der Weglänge $\Delta z=\frac{1}{n}$, so kann angenommen werden, dass die Längsinduktivität $\Delta L$ und die Parallelkapazität $\Delta C$ gleichförmig über die Länge $\Delta z$ verteilt sind. Diese werden in diesem Modell als **Leitungsbeläge** ausgedrückt
 
 $$
 L'=\frac{\Delta L}{\Delta z}=\frac{L_l}{l}\ \left[\frac{H}{m}\right]\qquad\text{und}\qquad C'=\frac{\Delta C}{\Delta z}=\frac{C_l}{l}\ \left[\frac{F}{m}\right]
@@ -87,6 +146,8 @@ $$
 \frac{d^2I(z)}{dz^2}=\gamma^2I(z)\qquad\text{und}\qquad\frac{d^2U(z)}{dz^2}=\gamma^2U(z)
 $$
 
+($\gamma^2=(R'+j\omega L')(G'+j\omega C')$)
+
 mit der **komplexen Ausbreitungskonstante**
 
 $$
@@ -104,11 +165,10 @@ $\beta$ kann als Positionsabhängige Phasenverschiebung betrachtet werden.
 Die allgemeinen Lösungen der Wellengelichungen lauten *(*$_V$ *vorwärts laufend,* $_R$ *rückwärts laufend)*
 
 $$
-U(z,t)=(U_Ve^{-\gamma z}+U_Re^{\gamma z})e^{j\omega t}
-$$
-
-$$
-I(z,t)=(I_Ve^{-\gamma z}+I_Re^{\gamma z})e^{j\omega t}
+\begin{split}
+U(z,t)&=(U_Ve^{-\gamma z}+U_Re^{\gamma z})e^{j\omega t}\\
+I(z,t)&=(I_Ve^{-\gamma z}+I_Re^{\gamma z})e^{j\omega t}
+\end{split}
 $$
 
 Die Wellenfront bewegt sich mit der Ausbreitungsgeschwindigkeit (*propagation velocity*):
@@ -126,6 +186,10 @@ $$
   c_0,\,c & Lichtgeschwindigkeit ($299'792'458 \tfrac{m}{s}$ oder $3\cdot10^8\frac{m}{s}$)
 \end{conditions}
 ```
+
+::: callout-tip
+#### Umrechnung $Np\rightarrow dB$
+
 Umrechnung der Spannungsreduktion von *Neper* $Np$ in *Dezibel* $dB$ erfolgt durch
 
 $$
@@ -133,6 +197,8 @@ $$
 \cdot\alpha_{Np/m}
 =8.686\cdot\alpha_{Np/m}
 $$
+
+:::
 
 Die Welle hat also eine exponentiel abfallende Form
 
@@ -146,31 +212,31 @@ $$
 
 ### Leistungsfluss
 
-Die Elektrische Leistung in der *Vorwärtswelle* wird mit den Effektivwerten berechnet
+Die Elektrische Leistung in der **V***orwärtswelle* wird mit den Effektivwerten berechnet. Für die **R***ückwertswelle* wechselt das Vorzeichen der charakteristischen Impedanz und somit die Richtung des Leistungsflusses.
 
 $$
-P_v=\frac{U_VI_V^*}{2}=\frac{|U_V|^2}{2Z_0}
-$$
-
-Für die *Rückwertswelle* wechselt das Vorzeichen der charakteristischen Impedanz und somit die Richtung des Leistungsflusses
-
-$$
-P_R=\frac{U_RI_R^*}{2}=-\frac{|U_R|^2}{2Z_0}
+P_V=\frac{U_VI_V^*}{2}=\frac{|U_V|^2}{2Z_0}\qquad\qquad P_R=\frac{U_RI_R^*}{2}=-\frac{|U_R|^2}{2Z_0}
 $$
 
 ### Leitergeometrien
 
 Verschiedene Leitergometrien führen zu unterschiedlichen Impedanzen und Belägen
 
-![](images/03_leiterimpedanzen.png)
+![](images/leiter/formen.png){width="8cm"}
 
-Wobei der Oberflächenwiderstand allgmein als
 
-$$
-R_S=\sqrt{\frac{\pi\mu_{Leiter}f}{\sigma_{Leiter}}}
-$$
+```{=latex}
+\begin{conditions}
+  \mu_0 = 4\pi\cdot10^{-7}\ [Vs/Am] & Permeabilität der Luft \\
+  \varepsilon_0=8.854\cdot10^{-12}\ [As/Vm] & Dielektrizitätskonstante \\
+  \varepsilon_r & Dielektrische Konstante des Dielektrikums relativ zu Luft \\
+  \mu_r & Relative Permeabilität des Leitermaterials \\
+  \sigma_i & Spezifische Leitfähigkeit des Leiters oder des Dielektrikums \\
+  R_s = \sqrt{\frac{\pi\cdot f\cdot\mu_{Leiter}}{\sigma_{Leiter}}} & Skineffekt, Oberflächenwiderstand des Leiters
+\end{conditions}
+```
 
-definiert ist. Die unterschiedlichen Belagsgrössen sind abhängig von der Leitergeometrie
+Die unterschiedlichen Belagsgrössen sind abhängig von der Leitergeometrie
 
 ![](images/03_Belagsgroessen.png)
 
@@ -195,9 +261,7 @@ $$
 ## Spezialfälle $Z_L$
 
 -   $Z_L = 0\Omega\ \Rightarrow\ \Gamma=-1\quad\rightarrow\quad U_{ZL}=0,\, I_{ZL}=2\cdot I_V$
-
 -   $Z_L=\infty\ \Rightarrow\ \Gamma=+1\quad\rightarrow\quad U_{ZL}=2\cdot U_V,\, I_{ZL}=0$
-
 -   $Z_L=Z_0\ \Rightarrow\ \Gamma=0\quad\rightarrow\quad U_{ZL}=U_V,\, I_{ZL}=I_V$
 :::
 
@@ -233,7 +297,7 @@ $$
 Z(z)=\frac{U(z)}{I(z)}=Z_0\frac{Z_L+jZ_0\tan(\beta(\ell-z))}{Z_0+jZ_L\tan(\beta(\ell-z))}
 $$
 
-### Welligkeitsfaktor
+#### Welligkeitsfaktor $s$
 
 Die Überlagerungen der vor- und rücklaufenden Welle bildet örtliche Maxima und Minima, was zu einer stehenden Welle führt. Der Welligkeitsfaktor ist definiert durch
 
@@ -241,11 +305,15 @@ $$
 s=\frac{\hat{U}_{max}}{\hat{U}_{min}}=\frac{|U_V|+|U_R|}{|U_V|-|U_R|}=\frac{1+|\Gamma|}{1-|\Gamma|}
 $$
 
+#### Rückflussdämpfung $a$
+
 Die Rückflussdämpfung bezeichnet wie viel das rücklaufende Signal gegenüber dem vorlaufenden gedämpft ist
 
 $$
 a=-\log_{10}(|\Gamma|^2)
 $$
+
+#### Hüllkurve
 
 Die Überlagerungen führen zu einer Hüllkurve
 
@@ -309,6 +377,33 @@ $$
 
 Folgend zeigt eine "Messung" von $u_2(t)$ mit folgenden Widerstandswerten: $R_Q=0\Omega,\, Z_0=50\Omega,\, R_L=100\Omega,\, l=1\text{m},\, v=0.5c_0$
 
+```{=latex}
+\begin{center}
+\begin{tikzpicture}[scale=1.4]
+
+\node (lt) at (-2,3) [left] {$\mathbf{0\cdot t_d}: 1$};
+\node (lb) at (-2,-0.5) {};
+\node (rt) at (2,3) {};
+\node (rb) at (2,-0.5) [right] {$\mathbf{7t_d}: \frac{28}{27}-\frac1{27}\pm\cdots$};
+\draw[line width=0.7pt]  (lt.east) edge  (lb.center);
+\draw[line width=0.7pt]  (rt.center) edge (rb.west);
+\node(td1) at (2,2.5) [right] {$\mathbf{t_d}: 1+\frac1{3}=\frac{4}{3}$};
+\node(td2) at (-2,2) [left] {$\mathbf{2t_d}: 1+\frac1{3}-\frac1{3}=1$};
+\node(td3) at (2,1.5) [right] {$\mathbf{3t_d}: \frac{4}{3}-\frac1{3}-\frac1{9}=\frac{8}{9}$};
+\node(td4) at (-2,1) [left] {$\mathbf{4t_d}: 1-\frac1{9}+\frac1{9}=1$};
+\node(td5) at (2,0.5) [right] {$\mathbf{5t_d}: \frac{8}{9}+\frac1{9}-\frac1{27}=\frac{28}{27}$};
+\node(td6) at (-2,0) [left] {$\mathbf{6t_d}: 1+\frac1{27}-\frac1{27}=1$};
+\draw[green!50!black,-latex] (lt)       -- node[above right]{$1$} (td1.west);
+\draw[blue!80!black,-latex] (td1.west) -- node[above left]{$\frac1{3}$} (td2.east);
+\draw[green!50!black,-latex] (td2.east) -- node[above right]{$-\frac1{3}$} (td3.west);
+\draw[blue!80!black,-latex] (td3.west) -- node[above left]{$-\frac1{9}$} (td4.east);
+\draw[green!50!black,-latex] (td4.east) -- node[above right]{$\frac1{9}$} (td5.west);
+\draw[blue!80!black,-latex] (td5.west) -- node[above left]{$\frac1{27}$}(td6.east);
+\draw[green!50!black,-latex] (td6.east) -- node[above right]{$-\frac1{27}$} (rb);
+\end{tikzpicture}
+\end{center}
+```
+
 ![Ausgleichsvorgang $u_2(t)$](images/03_ausgleichsvorgang_u2.png){#fig-ausgleichsvorgang fig-align="center" width="8cm"}
 
 # Drahtlose Signalübertragung & -Filterung
@@ -334,11 +429,8 @@ Beim Entwurf eines Übertragungssystems interessiert primär die Leistung $P_{Rx
 Die Leistung am Empfänger kann also erhöht werden durch...
 
 -   Sendeleistung $P_{Tx}$ erhöhen
-
 -   Verluste der Zubringerkabel minimieren
-
 -   Reflexionen an den Übergängen minimieren
-
 -   Sende- bzw. Empfangsgewinne $G_t$ und $G_r$ vergrössern
 
 Die Empfangsleistung $P_{Rx}$ muss dabei genügend gross sein, damit das Signal mit einer guten Qualität am Empfängereingang vorliegt. Für eine bessere Übersicht für einen *Systementwurf* wird ein Linkbudget aufgestellt
@@ -375,7 +467,8 @@ Antennen können Allgemein als Impedanzwandler zwischen dem Übertrager *(Schalt
 
 Die Antennenimpedanz $Z_{ant}$ hängt direkt von der Antennengeometrie ab und kann als Ersatzschaltung dargestellt werden
 
-![](images/04_ErsatzschaltungImpedanz.png)
+
+![$R_v \hat{=} R_{\Omega}$](images/antenne/ersatz_antenne.png)
 
 Die Wichtigsten Eigenschaften sind hierbei
 
@@ -384,7 +477,7 @@ Die Wichtigsten Eigenschaften sind hierbei
 Die **Strahlungseffizienz** $\eta$ ist definiert durch
 
 $$
-\eta=\frac{R_{rad}}{R_\Omega+R_{rad}}
+\eta_{rad}=\frac{R_{rad}}{R_\Omega+R_{rad}}
 $$
 
 Wodurch auf den Antennengewinn $G$ geschlossen werden kann
@@ -402,7 +495,7 @@ $$
 Die Reflexion beträgt dabei
 
 $$
-\Gamma_{dB}=10\log_{10}{(|\Gamma|^2}
+\Gamma_{dB}=10\log_{10}{(|\Gamma|^2)}
 $$
 
 Die *relative Bandbreite* $B_r$ ist gegeben durch die Mittenfrequenz $f_0$ und die Bandbreite $B$ bei $xx\space dB$
@@ -413,29 +506,28 @@ $$
 
 `\columnbreak`{=latex}
 
-$Z_{ant}$ Antennenimpedanz und Anpassung
+```{=latex}
+\begin{conditions}
+Z_{ant}   & Antennenimpedanz und Anpassung \textcolor{BrickRed}{*}\\
+R_\Omega  & stellt die ohm'schen Verluste der Antennenstruktur dar\\
+R_{rad}   & entspricht der abgestrahlten \textit{Wirkleistung}\\
+X_{ant}   & vom \textit{reaktiven} Nahfeld beeinflussbarer Blindwiderstand\\
+D         & Richtwirkung \textit{(nicht }$D$\textit{ als Antennenmass)} \textcolor{BrickRed}{*}\\
+G         & Antennengewinn \textcolor{BrickRed}{*}\\
+          & Polarisation \textcolor{BrickRed}{*}\\
+B         & Bandbreite ($B_r$: relative Bandbreite\textcolor{BrickRed}{*}) \\
+\eta_{rad}  & Strahlungseffizienz \textcolor{BrickRed}{*}
+\end{conditions}
 
-$R_\Omega$ stellt die ohm'schen Verluste der Antennestruktur dar
+\textcolor{BrickRed}{*} Wichtige Eigenschaften einer Antenne!
+\end{multicols}
+```
 
-$R_{rad}$ entspricht der abgestrahlten *Wirkleistung*
-
-$X_{ant}$ ist der Blindwiderstand, der vom *reaktiven* Nahfeld beeinflusst werden kann
-
-$D$ Richtwirkung *(nicht* $D$ *als Antennenmass)*
-
-$G$ Antennengewinn
-
-Polarisation
-
-$B$ Bandbreite
-
-`\end{multicols}`{=latex}
-
-![](images/04_RelativeBandbreite.png)
+![](images/04_RelativeBandbreite.png){width="10cm"}
 
 Für einen effizienten Betrieb wird die Antenne bei Resonanz, also $X_{ant}=0$, betrieben. Bei einem **Dipol** wird dies das erste mal bei einer Länge $\ell=\frac{\lambda}{2}$ erreicht und wiederholt sich bei *ganzzahligen Vielfachen* von $\frac{\lambda}{2}$.
 
-![](images/04_ResonanceAntenna.png)
+![](images/antenne/z_ant.png){width="12cm"}
 
 ### Richtcharakteristik
 
@@ -447,18 +539,18 @@ $$
 
 ![Antennengewinn für einen isotropen Strahler und eine gerichtete Antenne](images/04_IsotropGerichtet.png)
 
-Die Richtwirkung $D$ beträgt beim *isotropen Strahler* $1$. Bei einer *dipol-Antenne* gilt $D=1.64$. Allgemein wird die Richtwirkung über die maximale Leistungsdichte $S(\theta,\varphi)_{max}$ einer gerichteten Antenne bestimmt (wobei $\Delta\theta°_{-3dB}$ und $\Delta\varphi°_{-3dB}$ den Öffnungswinkel in der Horizontalen- bzw. Vertikalen-Ebene beschreiben)
+Die Richtwirkung $D$ beträgt beim *isotropen Strahler* $1$. Bei einer *dipol-Antenne* gilt $D=1.64$. Allgemein wird die Richtwirkung über die maximale Leistungsdichte $S(\theta,\varphi)_{max}$ einer gerichteten Antenne bestimmt (wobei $\Delta\theta°_{-3dB}$ und $\Delta\varphi°_{-3dB}$ den Öffnungswinkel in der Horizontalen- respektive Vertikalen-Ebene beschreiben)
 
 $$
 D=\frac{S(\theta,\varphi)_{max}}{S_{iso}}\approx\frac{32400}{\Delta\theta°_{-3dB}\space\Delta\varphi°_{-3dB}}
 $$
 
-![](images/04_Richtdiagramm.png)
+![](images/04_Richtdiagramm.png){width="11cm"}
 
 und der daraus schliessende Antennegewinn $G$ ist
 
 $$
-G=D\space\eta
+G=D\cdot\eta
 $$
 
 ### Effektiv abgestrahlte Leistung
@@ -466,13 +558,13 @@ $$
 Die *Equivalent Isotropically Radiated Power* $EIRP$ beschreibt, dass bei $1kW$ Leistung an einem *isotropischen Strahler* die Feldstärke $H$ in $1km$ Entfernung $173\frac{mV}{m}$ beträgt.
 
 $$
-EIRP = P_{ant}G_i
+EIRP = P_{ant}\cdot G_i
 $$
 
 Die *Effektive Radiated Power* $ERP$ beschreibt, dass bei $1kW$ Leistung an einem vertikalen *Referenzdipol* die Feldstärke $H$ in $1km$ Entfernung $222\frac{mV}{m}$ beträgt.
 
 $$
-ERP=P_{ant}G_d
+ERP=P_{ant}\cdot G_d
 $$
 
 Die beiden Grössen haben den direkten Zusammenhang
@@ -493,15 +585,15 @@ $$
 L_p=\frac{1}{|\vec{e}_E\cdot\vec{e}_{ant}|^2}
 $$
 
-Diese können grob nach folgendem Schema, wobei *RHC* (*R*ight *H*and *C*ircular), *LHC* (*L*eft *H*and *C*ircular), *V*ertical und *H*orizontal gilt. Zudem gelten die $3\space dB^*$ für alle Kombinationen zwichen linearer und zirkularer Polarisation.
+Diese können grob nach folgendem Schema, wobei *RHC* (**R**ight **H**and **C**ircular), *LHC* (**L**eft **H**and **C**ircular), **V**ertical und **H**orizontal gilt. Zudem gelten die $3\space dB^*$ für alle Kombinationen zwischen linearer und zirkularer Polarisation.
 
-![Polarisationsversluste zwischen entsprechenden Polarisationen](images/04_PolarisationsVerluste.png)
+![Polarisationsversluste zwischen entsprechenden Polarisationen](images/04_PolarisationsVerluste.png){width="12cm"}
 
 ## Verfügbare Leistung am Empfangsort
 
 `\begin{multicols}{2}`{=latex}
 
-Die verfügbare Leistung $P_r$ ist proportional zur effektiv wirksamen Apertur $A_e$
+Die verfügbare Leistung $P_r$ ist proportional zur effektiv wirksamen Apertur/Antennenfläche $A_e$
 
 $$
 P_r=S_r(\theta,\varphi)\space A_e=\frac{E^2}{Z_w}A_e=H^2Z_wA_e
@@ -521,29 +613,23 @@ $$
 
 `\columnbreak`{=latex}
 
-$S_r$: Strahlungsleistungsdichte $\left[\frac{W}{m^2}\right]$
+```{=latex}
+\begin{conditions}
+S_r       &   Strahlungsleistungsdichte $\left[\frac{W}{m^2}\right]$ \\
+E         &   Effektivwert el. Feldstärke $\left[\frac{V}{m}\right]$ \\
+H         &   Effektivwert magn. Feldstärke $\left[\frac{A}{m}\right]$ \\
+Z_w       &   Wellenimpedanz (Luft: $377\Omega$ ) \\
+A_e       &   Effektive Aperture $[m^2]$ \\
+G         &   Antennengewinn \\
+E         &   Elektrische Feldstärke $\left[\frac{V}{m}\right]$ \\
+AF        &   Antennenfaktor $\left[\frac{1}{m}\right]$ \\
+U         &   Signalspannung am Antennenanschluss $[V]$ \\
+\lambda   &   Wellenlänge
+\end{conditions}
+\end{multicols}
+```
 
-$E$: Effektivwert el. Feldstärke $\left[\frac{V}{m}\right]$
-
-$H$: Effektivwert magn. Feldstärke $\left[\frac{A}{m}\right]$
-
-$Z_w$: Wellenimpedanz *(Luft:* $377\Omega$ *)*
-
-$A_e$: Effektive Aperture $[m^2]$
-
-$G$: Antennengewinn
-
-$E$: Elektrische Feldstärke $\left[\frac{V}{m}\right]$
-
-$AF$: Antennenfaktor $\left[\frac{1}{m}\right]$
-
-$U$: Signalspannung am Antennenanschluss $[V]$
-
-$\lambda$: Wellenlänge
-
-`\end{multicols}`{=latex}
-
-![](images/04_EffektiveAperture.png)
+![](images/04_EffektiveAperture.png){height="4cm"}
 
 ## Ausbreitungsverluste einer Funkstrecke
 
@@ -555,31 +641,40 @@ Folgende Betrachtungen gelten nur im **Fernfeld**
 
 Die **Freiraumdämpfung** $L_fs$ *(Free Space Path Loss)* gilt bei Sichtverbindung, Die EM-Welle wird nicht beeinflusst (idealer Funkkanal).
 
-`\begin{multicols}{2}`{=latex}
+`\begin{multicols*}{2}`{=latex}
 
 $$
 L_{fs}=\frac{P_t}{P_r}=\frac{P_t}{S_rA_e}=\left(\frac{4\pi r}{\lambda}\right)^2
 $$
 
+und in der dB Darstellung:
+
 $$
-L_{fs}[dB]=32.4+20\log_{10}{(f[MHz])}+20\log_{10}{(r[km])}
+L_{fs[dB]}=32.4+20\log_{10}{(f_{[MHz]})}+20\log_{10}{(r_{[km]})}
+$$
+
+Die an einem angepassten Empfänger abgegebene Leistung $P_r$ ist gegeben durch:
+
+$$
+P_r = P_t\frac{G_t\cdot G_r}{L_{fs}}
 $$
 
 `\columnbreak`{=latex}
 
-$L_{fs}$: Freiraumdämpfung
-
-$P_t$: Sendeleistung
-
-$S_r$: Strahlungsdichte am Empfangsort
-
-$A_e$: Effektive Apertur *(isotroper Strahler)*
-
-$r$: Distanz
-
-$\lambda$: Wellenlänge
-
-`\end{multicols}`{=latex}
+```{=latex}
+\begin{conditions}
+L_{fs}    & Freiraumdämpfung \\
+P_t       & Sendeleistung (\textbf{T}ransmitter) \\
+G_r,G_t   & Antennengewinne
+P_r       & Empfängerleistung (\textbf{R}eceiver) \\
+S_r       & Strahlungsdichte am Empfangsort \\
+A_e       & Effektive Apertur/Antennenfläche \textit{(isotroper Strahler)} \\
+f_{[MHz]} & Frequenz in $\mathbf{M}Hz$
+r_{[km]}  & Distanz in $km$ \\
+\lambda   & Wellenlänge
+\end{conditions}
+\end{multicols*}
+```
 
 ### Empirisches Kanalmodell
 
@@ -588,7 +683,7 @@ Empirisches Modell für Ausbreitungsverluste *(Power Law Propagation Regime)* oh
 $$
 L_M=\left(4\pi\frac{d_0}{\gamma}\right)^2\left(\frac{r}{d_0}\right)^\gamma
 \qquad\text{oder}\qquad
-L_M[dB]=32.4+20\log_{10}{(f[GHz])}+10\gamma\log_{10}{(r[m])}
+L_M[dB]=32.4+20\cdot\log_{10}{(f[GHz])}+10\cdot\gamma\cdot\log_{10}{(r[m])}
 $$
 
 | Umfeld                                               | $\gamma$ Bereich |
@@ -609,19 +704,21 @@ Real gesehen spielen jedoch noch viele weitere Faktoren eine Rolle
 
 ### Zeitvarianter Mehrwegkanal
 
-Starke Signalschwankungen im Bereich einiger Wellenlängen, welche durch die Mehrwegausbreitung zustande kommen, nenn man **Rayleigh Fading Propagation Regime**. Man erhält für die *Signalspannung* $u(t)$ am Empfänger eine Rayleigh Verteilung mit
+Starke Signalschwankungen im Bereich einiger Wellenlängen, welche durch die Mehrwegausbreitung zustande kommen, nennt man **Rayleigh Fading Propagation Regime**. Der Kanal ist ein sehr konservatives Modell bezüglich Verlust (Skript.74). Man erhält für die *Signalspannung* $u(t)$ am Empfänger eine Rayleigh Verteilung mit...
 
 $$
-p(u)=\frac{1}{\bar{P_r}}e^{-\frac{u}{\bar{P_r}}}\text{ , }u\geq0\space\space\text{und}\space\space\bar{P_r}=2\sigma^2
+p(u)=\frac{1}{\overline{P}_r}e^{-\frac{u}{\overline{P}_r}}\qquad\text{mit } u\geq0\space\space\text{und}\space\space\overline{P}_r=2\sigma^2
 $$
 
-Mit der Mittleren Empfangsleistung $\bar{P_r}$ des Signals, welche die Ausbreitungsverluste und die Abschattungsverluste beinhaltet. Die Leistungsverteilung folgt
+...mit der Mittleren Empfangsleistung $\overline{P}_r$ des Signals, welche die Ausbreitungsverluste und die Abschattungsverluste beinhaltet.
+
+Die Leistungsverteilung des Empfangssignals folgt einer Exponentialverteilung:
 
 $$
-p_{u^2}(x)=\frac{1}{\bar{P_r}}e^{-\frac{x}{\bar{P_r}}}\text{ , }x\geq0\
+p_{u^2}(x)=\frac{1}{\overline{P}_r}e^{-\frac{x}{\overline{P}_r}}\text{ , }x\geq0\
 $$
 
-Die Wahrscheinlichkeit für das *Unterschreiten einer minimalen Signalleistung* $S_{min}$
+Die **Wahrscheinlichkeit P** für das *Unterschreiten einer minimalen Signalleistung* $S_{min}$
 
 $$
 P[u^2<S_{min}]=\int_0^{S_{min}}{p_{u^2}(x)dx}
