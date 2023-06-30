@@ -30,6 +30,7 @@ geometry:
 papersize: a4
 fontsize: 10pt
 fig-pos: H
+fig-align: center
 
 code-block-border-left: false
 code-block-bg: "#f7f7f7"
