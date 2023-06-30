@@ -1,5 +1,7 @@
 # Gleichstrommaschine
 
+![](images/motor/gleichstrommotor.png){width="6cm"}
+
 ## Aufbau
 
 Durch die *Erregerwicklung* fliesst der *Erregerstrom*, welcher ein magnetisches Feld erzeugt, das den Luftspalt und den Rotor durchdringt. Bei permamenterregten Gleichstrommaschinen wird das Feld mit einem Permanentmagnet erzeugt
@@ -10,9 +12,21 @@ Die Wicklungen sind dabei so auf den Rotor gewickelt, dass ein kontinuierlicher 
 
 ![](images/03_Abgewickelt.png)
 
-## Ersatzschaltung *Fremderregt*
+::: callout-caution
+### Gegenspannung
 
-Für den elektrischen Teil einer *fremderregten* Maschine ergibt sich folgendes Ersatzschaltbild
+Gleichstrommotoren erzeugen eine **Gegenspannung** durch die Rotation der Kupferwicklung im Magnetfeld (Selbstinduktion). Diese wirkt gegen die Ankerspeisung und regelt auch dadurch die Drehzahl von selbst.
+:::
+
+### Nebenschluss / parallel
+
+Der Anker und der Rotor wird parallel verbunden $\rightarrow$ niedriges Anlaufmoment, dafür fast konstant unabhängig von der Belastung 
+
+### Reihenschluss
+
+Der Anker und der Rotor wird in Serie verbunden $\rightarrow$ hohes Anlaufmoment, nimmt aber stark ab mit der Belastung.
+
+## Grundgleichungen
 
 ![](images/03_ErsatzschaltbildFremderregt.png)
 
@@ -36,6 +50,7 @@ $$
 M_{el}=M_{Last/Welle}+M_{Reibung}+J\frac{d\omega_m}{dt}
 $$
 
+
 [Elektr.]{.underline} $\leftrightarrow$ [Mech.]{.underline}
 
 $$
@@ -45,6 +60,7 @@ U_i & =c\cdot\phi\cdot\omega_m \\
 M_{el}&=c\cdot\phi\cdot I_a
 \end{split}
 $$
+
 
 ::: callout-note
 ## Maschinenkonstante $c$
@@ -57,6 +73,20 @@ Enthält unter anderem die Windungszahl. Sie ist [bekannt]{.underline} *oder* ka
 $$
 \phi=\frac{L_e}{N_e}\cdot I_e
 $$
+
+```{=latex}
+\begin{conditions}
+  U_a & Ankerspannung\\
+  U_e & Erregerspannung\\
+  U_i & induzierte Spannung\\
+  \phi & \\
+\end{conditions}
+```
+
+## Ersatzschaltung *Fremderregt*
+
+
+Für den elektrischen Teil einer *fremderregten* Maschine ergibt sich das Ersatzschaltbild von vorher.
 
 **Stationär** gilt
 
@@ -135,7 +165,12 @@ $$
 $$
 
 $$
-\omega_m=\frac{U_a-(R_a+R_e)I_a}{c\frac{L_e}{N_e}I_a}\qquad = \frac{U_a}{c\phi}-\frac{(R_a+R_e)I_a}{c\phi}\text{ mit}\space\phi\propto I
+\omega_m=\frac{U_a-(R_a+R_e)I_a}{c\cdot\dfrac{L_e}{N_e}\cdot I_a} = \frac{U_a}{c\cdot\phi}-\frac{(R_a+R_e)I_a}{c\cdot\phi}\text{ mit}\space\phi\propto I
+$$
+
+Für das Drehmoment gilt: 
+$$
+M_{el}=c\cdot \frac{L_e}{N_e}\cdot I_a^2
 $$
 
 Zur Vereinfachung schreibt man
@@ -182,6 +217,18 @@ Universalmotoren sind meist zweipolig aufgebaut, in der Regel mit symmetrischem 
 ![](images/03_AufbauUniversalmotor.png)
 
 Wie für einen Serienmotor Typisch, verfügt der Motor bei Leerlauf (oder niedrigem Moment) über eine sehr hohe Drehzahl da $\omega_m\propto\frac{1}{\sqrt{M}}$ gilt.
+
+![](images/motor/ersatzschaltung_universalmotor.png)
+
+$$
+\begin{split}
+\underline{U}_e &=\underline{I}\cdot R_e+j\omega L_e\underline{I} \\
+\underline{U}_a &=\underline{I}\cdot R_a+j\omega L_e\underline{I} \\
+\underline{U}_i &=c\cdot \underline{\phi}\cdot \omega_m=c\cdot\frac{L_e}{N_e}\cdot\underline{I}\cdot\omega_m\cdot L_e
+\end{split}
+$$
+
+
 
 ### Drehzahlsteuerung
 

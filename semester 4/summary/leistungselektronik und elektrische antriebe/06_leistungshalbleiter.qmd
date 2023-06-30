@@ -38,13 +38,15 @@ $$
 P_V=\frac{1}{T}\int_0^Tu(t)\cdot i(t)dt=U_DI_{avg}+r_dI_{rms}^2
 $$
 
+::: callout-important
 ### Trägerstaueffekt *TSE*
 
-Der Übergang von einem sperrenden zu einem leitenden Zustand bei einer Diode erfordert Zeit, um die pn-Schicht mit Ladungsträgern zu überschwemmen. Bei einem hohen di/dt beim Einschalten kann die Diode zerstört werden, da sie noch nicht vollständig leitend ist. Ähnlich erfolgt der Übergang vom leitenden zum sperrenden Zustand, bei dem die pn-Schicht von Ladungsträgern befreit werden muss, was zu Überspannungen führen kann.
+Der Übergang von einem sperrenden zu einem leitenden Zustand bei einer Diode erfordert Zeit, um die pn-Schicht mit Ladungsträgern zu überschwemmen. Bei einem hohen $\frac{di}{dt}$ beim Einschalten kann die Diode zerstört werden, da sie noch nicht vollständig leitend ist. Ähnlich erfolgt der Übergang vom leitenden zum sperrenden Zustand, bei dem die pn-Schicht von Ladungsträgern befreit werden muss, was zu Überspannungen führen kann.
 
 Der Trägerstaueffekt kann mit der Ausschaltentlastung aus @sec-stromstellergto
 
 ![](images/paste-24.png)
+:::
 
 ### Schottky Dioden
 
@@ -60,7 +62,7 @@ Die Struktur ist wie folgt aufgebaut
 
 ![](images/paste-26.png)
 
-## Einschaltthyristoren
+## (Einschalt-)Thyristoren
 
 Hochleistungs-Einschaltthyristoren haben typische maximale Ströme von $2$ bis $5kA$ und Spannungen bis zu $8.5kV$. Durch Serie- oder Parallelschaltung lassen sich auch Stromrichter bis zu $1500kA$ [oder]{.underline} $500kV$ realisieren.
 
@@ -74,43 +76,48 @@ $$
 P_V=\frac{1}{T}\int_0^Tu(t)\cdot i(t)dt=U_DI_{avg}+r_dI_{rms}^2
 $$
 
+
+::: callout-note
+### Dynmamsches Verhalten
 Mit einem kurzen Gatestromimpuls aus einer elektronischen Gatestromquelle kleiner Leistung, können Thyristoren bei positiver Anoden-Kathoden-Spannung $u_{AK}$ vom blockierten in den leitenden Zustand gekippt werden.
 
 ![](images/paste-29.png)
 
+Dieser besteht bis der Anodenstrom $i_a \leq 0$ gebracht wird. 
+:::
+
 ### Triac
 
-Der Triac entspricht der Antiparallelschaltung zweier Einschaltthyristoren und kann in beiden Richtungen Strom führen und Spannung aufnehmen. Triacs haben zum Zünden in beide Stromrichtungen ein gemeinsames Gate
+Der Triac entspricht der Antiparallelschaltung zweier Einschaltthyristoren und kann in beiden Richtungen Strom führen und Spannung aufnehmen. Triacs haben zum Zünden in beide Stromrichtungen ein gemeinsames Gate.
 
 ![](images/paste-33.png)
 
 ## Abschaltthyristoren *GTO*, *IGCT*
 
-GTOs können im Vergleich zum Thyristor auch ausgeschalten werden.
+**G**ate **T**urn **O**ff Thyristors können im Vergleich zum Thyristor auch ausgeschalten werden.
+**I**ntegrated **G**ate **C**ommutated **T**hyristor ist eine Weiterentwicklung des GTOs und sind schneller.
 
 ![](images/paste-30.png)
 
-Der Gatestrom zum Ausschalten beträgt
+Der Gatestrom zum Ausschalten beträgt...
 
-beim **GTO**
+- ...beim **GTO**
+  $$
+  I_G\approx\frac13 i_A
+  $$
+- ...beim **IGCT**
+  $$
+  I_G\approx i_A
+  $$
 
-$$
-I_G\approx\frac13 i_A
-$$
-
-beim **IGCT**
-
-$$
-I_G\approx i_A
-$$
-
-Für die Ansteuerung von GTOs wird eine *Turn-On*- und eine *Turn-Off*-Schaltung verwendet. Beim *Turn-On* muss ein genügend grosser Gatestrom generiert werden. Zum ausschalten muss der Gatestrom "aus dem Gate gezogen" werden. Dies geschieht mit Kondensatoren, die zwischen Kathode und Gate geschalten werden
+Für die Ansteuerung von GTOs wird eine *Turn-On*- und eine *Turn-Off*-Schaltung verwendet.
+Beim *Turn-On* muss ein genügend grosser positiver Gatestromimpuls generiert werden. Zum Ausschalten muss der Gatestrom "aus dem Gate gezogen" werden (ungefähr $-\frac13$ des Laststroms). Dies geschieht mit Kondensatoren, die zwischen Kathode und Gate geschalten werden
 
 ![](images/paste-31.png)
 
 ## Feldeffekttransistor *FET*
 
-Dä kensch
+Ein FET ist ein spannungsgesteurter, verstellbarer Widerstand. Meist wird dieser als Schalter verwendet, da dieser im volleitenden Zustand fast leistungslos ist. 
 
 ![](images/paste-32.png)
 
@@ -120,9 +127,21 @@ Für den IGBT wird ein Bipolar Transistor mit einem FET kombiniert. Es handelt s
 
 ![](images/paste-34.png)
 
+Damit können grosse Ströme fast leistungslos gesteuert werden.
+
+## Leitverluste
+
+![](images/halbleiter/leitverluste.png){width="5cm"}
+
+$$
+P_{V(Leit)} = \frac1{T}\int_0^Tu(t)\cdot i(t)\ dt=U_D\cdot I_{avg} + r_D\cdot I_{rms}^2
+$$
+
+Bei **FET**: Spannung $=0$ & $r_D \equiv r_{DS}$
+
 ## Schaltverluste
 
-Bei DIoden und Thyristoren können die Schaltverluste in der Regel vernachlässigt werden. Bei abschaltbaren Elementen entstehen Schaltverluste, die in der Regel proportional zur sperrenden Spannung, zum Strom im eingeschalteten Zustand und zur Schaltfrequenz $f$ sind.
+Bei Dioden und Thyristoren können die Schaltverluste in der Regel vernachlässigt werden. Bei abschaltbaren Elementen entstehen Schaltverluste, die in der Regel proportional zur sperrenden Spannung, zum Strom im eingeschalteten Zustand und zur Schaltfrequenz $f$ sind.
 
 ![](images/paste-35.png)
 

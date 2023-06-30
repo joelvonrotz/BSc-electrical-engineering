@@ -1,1 +1,72 @@
 # Asynchronmaschine *(ASM)*
+
+## Rotorspannung
+
+![](images/motor/asm_rotorspannung.png)
+
+Stillstand: $n=0$, $s=1$, $\omega_2 = \omega_1$, $U_{h2}=\dfrac{U_{h1}}{\ddot{u}}$
+Synchrondrehzahl: $n=n_{syn}$, $s=0$, $\omega_2 = 0$, $U_{h2}=0$
+
+```{=latex}
+\begin{conditions}
+  U_{h1} & Eingangsspannung\\
+  U_{h2} & Induzierte Spannung im Rotor\\
+  \omega_1 & Netzfrequenz am Stator\\
+  \omega_2 & Netzfrequenz am Rotor\\
+  s & Schlupf
+\end{conditions}
+```
+
+![](images/motor/asm_betriebsarten.png)
+
+## Frequenzen
+
+[Winkelfrequenzen der Drehfelder]{.underline}
+
+$$
+\omega_{D1} = \frac{\omega_1}{p}\qquad \omega_{D2} = \omega_{D1}-\omega_{mech}
+$$
+
+[Frequenz der Achse (Rotor)]{.underline}
+
+$$
+\omega_{mech}=2\pi\cdot f_{mech} = 2\pi\frac{n}{60}
+$$
+
+$$
+\omega_2 = p\cdot \omega_{D2}=\omega_1 - p\cdot \omega_{mech}
+$$
+
+[Schlupf]{.underline}
+
+$$
+s = \frac{n_{syn}-n}{n_{syn}} = \frac{\omega_{syn}-\omega_{mech}}{\omega_{syn}} = \frac{\omega_1-p\cdot\omega_{mech}}{\omega_{syn}} = \frac{\omega_2}{\omega_1}
+$$
+
+$$
+\omega_2 = s\cdot \omega_1
+$$
+
+```{=latex}
+\begin{conditions}
+  \omega_1 & Netzfrequenz am Stator\\
+  \omega_2 & Netzfrequenz am Rotor\\
+  \omega_{D1} & Drehfehlgrösse bezüglich Stator\\
+  \omega_{D2} & Drehfehlgrösse bezüglich Stator\\
+  s & Schlupf
+\end{conditions}
+```
+
+## Leistungen
+
+$$
+P_2 = 3\cdot U_{h2}\cdot I_2
+$$
+
+$$
+P_1 = 3\cdot U_{h2}\cdot I_2
+$$
+
+$$
+
+$$
