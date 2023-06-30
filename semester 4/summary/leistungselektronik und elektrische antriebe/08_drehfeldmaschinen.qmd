@@ -1,19 +1,98 @@
 # Drehfeldmaschinen
 
+Druch Anordnen von drei Spulen, $120^\circ$ zueinander versetzt, und speisen von Störmen die ebenfalls um $120^\circ$ zueinander versetzt sind, entsteht ein resultierendes Feld mit konstanter Amplitude, das rotiert.
 
+![](images/paste-39.png)
 
-::: callout-note
-## Drehfeldmaschinen
+Jeder der drei Phasenströme erzeugt ein in der Achse der entsprechenden Wicklung liegendes Magnetfeld
 
--   Synchronmaschine (SM)
--   Asynchronmaschine (ASM)
+$$
+\begin{split}
+i_a(t)=\hat{I}\cos(\omega t+\varphi_i) \qquad\qquad & \Psi_a=L_{ph}\cdot i_a \\
+i_b(t)=\hat{I}\cos(\omega t-120^\circ+\varphi_i)\qquad & \Psi_b=L_{ph}\cdot i_b \\
+i_c(t)=\hat{I}\cos(\omega t+120^\circ+\varphi_i)\qquad & \Psi_c=L_{ph}\cdot i_c
+\end{split}
+$$
+
+Durch die Geometrische Addition der drei Felder ergibt sich ein drehender Zeiger (*Drehfeld*)
+
+![](images/paste-40.png)
+
+Durch die Verkettung ergibt sich
+
+$$
+\vec{\Psi}_{gesamt}=\left[\Psi_a \cdot e^{j0^\circ}+\Psi_b \cdot e^{j0
+120^\circ}+\Psi_c \cdot e^{-j120^\circ}\right]
+$$
+
+Dies ergibt für den Resultierenden Fluss
+
+$$
+\vec{\Psi}=\frac32\hat{I}\cdot L_{ph}\cdot e^{j(\omega t+\varphi_i)}
+$$
+
+Nach üblicher Konvention *(siehe Skript S.7)* arbeitet man für die Drehzeigertransformation mit
+
+$$
+\vec{\Psi}=\hat{I}\cdot L_{ph}\cdot e^{j(\omega t+\varphi_i)}
+$$
+
+## Drehzeigertransformation
+
+Die Drehzeigertransformation wird bei Drehfeldmaschinen verwendet, um die Analyse und Beschreibung ihres Verhaltens in einem komplexen Wechselstromsystem zu erleichtern. Sie wandelt dreiphasige Größen von einem dreiphasigen Koordinatensystem in ein rotorfestes Koordinatensystem um, wodurch die Komplexität reduziert wird. Die d- und q-Komponenten des rotorfesten Koordinatensystems sind direkt mit den magnetischen und mechanischen Zuständen der Maschine verbunden und ermöglichen eine vereinfachte Analyse.
+
+![Darstellung von Dreiphasengrössen als Drehzeiger und als Zeiger im synchron mitlaufenden Koordinatensystem.](images/paste-44.png)
+
+::: callout-important
+## Notation
+
+Die Transformation kann mit allen grössen gerechnet werden (Spannung $u$, Strom $i$, Fluss $\Psi$). Nachfolgend wird der allgmeine Fall mit $x$ gerechnet.
+
+$$
+\vec{x}(t)=\frac23\left[x_a(t)+x_b(t)\cdot e^{j120^\circ}+x_c(t)\cdot e^{-j120^\circ}\right]
+$$
 :::
 
+### Dreiphasenebene $\rightarrow$ Drehzeiger
 
+Für die Darstelleung auf der Komplexen Ebene mit $x(t)=x_\alpha+j\cdot x_\beta$ gilt für die Komponenten
 
-::: callout-note
-## Kollektormotoren
+$$
+x_\alpha=\frac13(2x_a-x_b-x_c)\qquad x_\beta=\frac{1}{\sqrt{3}}(x_b-x_c)
+$$
 
--   Gleichstrommaschine (GM)
--   Universalmotor
-:::
+Ist das Dreiphasensystem nicht stationär symmetrisch *(bsp. Sternpunkt verschoben)*, so ergibt sich ein Nullsystem
+
+$$
+x_0(t)=\frac13[x_a+x_b+x_c]
+$$
+
+### Drehzeiger $\rightarrow$ Zeiger
+
+Die Drehzeiger können von einem rotierenden Koordinatensystem aus betrachtet werden. Entspricht die Umlaufgeschwindigkeit des Koordinatensystems $\omega_k$ derjenigen des Drehzeigers, erscheint er als stillstehender Zeiger $\underline{X}$
+
+$$
+\underline{X}(t)=\vec{x}(t)\cdot e^{-j\int\omega_k dt}\qquad\text{mit }\omega_k\text{ konstant: } \underline{X}(t)=\vec{x}(t)\cdot e^{-j\omega_k t}
+$$
+
+Auch hier werden die Projektionen auf die Achse des imaginären Zeigers betrachtet. Dies mit den Indizes $x$ und $y$, bzw. $d$ und $q$ bei Synchronmaschinen
+
+$$
+\underline{X}(t)=X_x+j\cdot X_y
+$$
+
+### Zeiger $\rightarrow$ Drehzeiger
+
+$$
+\vec{x}(t)=\underline{X}(t)\cdot e^{j\int\omega_k dt}\qquad\text{mit }\omega_k\text{ konstant: } \vec{x}(t)=\underline{X}(t)\cdot e^{j\omega_k t}
+$$
+
+### Drehzeiger $\rightarrow$ Phasengrösse
+
+$$
+\begin{split}
+x_a &= x_\alpha+x_0 \\
+x_b &= \frac12(\sqrt3 x_\beta-x_\alpha)+x_0 \\
+x_c &= \frac12(-\sqrt3 x_\beta-x_\alpha)+x_0
+\end{split}
+$$

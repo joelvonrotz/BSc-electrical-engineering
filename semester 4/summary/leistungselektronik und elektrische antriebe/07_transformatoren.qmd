@@ -104,7 +104,7 @@ $$
 
 ## Dreiphasiger Transformator
 
-![](images/paste-16.png){width="254"}
+![](images/paste-16.png){width="168"}
 
 Auch für den dreiphasigen Transformator wird das T-Ersatzschaltbild verwendet, es werden die Ströme und Spannungen jedoch als komplexe Zeiger angegeben.
 
