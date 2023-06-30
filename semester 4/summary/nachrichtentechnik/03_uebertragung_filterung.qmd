@@ -75,6 +75,7 @@ $$
 a=\frac{P_x}{P_y}\qquad\text{bzw.}\qquad a_{dB}=10\space\log_{10}(a)
 $$
 
+$P_x$, $P_y$ werden als Effektivwerte angegeben.
 Können nicht beide Leistungen gleichzeitig bestimmt werden, so wird mit Referenzgrössen gearbeitet
 
 | Referenz                   | Formel                                                                                              | Einheit             |
@@ -665,11 +666,11 @@ $$
 \begin{conditions}
 L_{fs}    & Freiraumdämpfung \\
 P_t       & Sendeleistung (\textbf{T}ransmitter) \\
-G_r,G_t   & Antennengewinne
+G_r,G_t   & Antennengewinne \\
 P_r       & Empfängerleistung (\textbf{R}eceiver) \\
 S_r       & Strahlungsdichte am Empfangsort \\
 A_e       & Effektive Apertur/Antennenfläche \textit{(isotroper Strahler)} \\
-f_{[MHz]} & Frequenz in $\mathbf{M}Hz$
+f_{[MHz]} & Frequenz in $\mathbf{M}Hz$ \\
 r_{[km]}  & Distanz in $km$ \\
 \lambda   & Wellenlänge
 \end{conditions}
