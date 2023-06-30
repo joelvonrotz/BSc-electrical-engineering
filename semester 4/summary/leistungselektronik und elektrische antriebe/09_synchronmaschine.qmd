@@ -1,1 +1,95 @@
 # Synchronmaschine *(SM)*
+
+## Aufbau
+
+Üblicherweise hat der Stator einer SM eine dreiphasige Wicklung. Der Rotor trägt eine Wiklung, die über einen Schleifring mit GLeichstrom magnetisiert wird, alternativ werden beim Rotor Permanentmagnete eingesetzt.
+
+Die **Vollpolmaschine** besitzt einen langen Rotor mit kleinem Durchmesser, der deshalb für schnelllaufende Maschinen geeignet ist. Die **Schenkelpolmaschine** ist kürzer, hat aber einen grösseren Druchmesser.
+
+![Schenkelpolmaschine *links*, Vollpolmaschine *rechts*](images/paste-45.png)
+
+## Wirkungsweise
+
+### Drehzahl & Polpaarzahl
+
+Die Statorwicklung erzeugt ein Drehfeld, welches stationär mit
+
+$$
+\omega_{mech}=\omega_{D1}=\frac{\omega_1}{p}
+$$
+
+dreht. Der Index $1$ steht für Stator. $p$ steht für die Polpaarzahl. Das Drehfeld hat folgenden Ablauf
+
+![](images/paste-49.png)
+
+Über die Polpaarzahl $p$ kann die Umdrehungszahl bei Betriebsfrequenz definiert werden.
+
+Zum Beispiel für den Betrieb am $50Hz$-Netz:
+
+![](images/paste-48.png)
+
+Das Drehmoment ist der Drehzahl umgekehrt proportional
+
+$$
+M_{mech}=p\cdot M_{1}
+$$
+
+### Polradspannung & Ersatzschaltung
+
+Die rotierende Erregerwicklung (*Polrad*) erzeugt ein Drehfeld, welches in den Ständerwicklungen die Polradspannung $U_p$ inuziert. Die Polradspannung ist drehzahlproportional
+
+$$
+\underline{U}_p=j\cdot\omega_1\cdot\underline{\Psi}_p\qquad U_p=\omega_1\cdot|\underline{\Psi}_p|
+$$
+
+Wenn kein Strom im Stator fliesst, also im **Leerlauf**, liegt die Spannung $U_p$ an den Statorklemmen an. Durch Stromfluss in den Statorwicklungen entsteht ein Drehfeld, das sich mit dem Polradfeld überlagert und zusammen die induzierte Spannung im Stator erzeugt, wobei die Überlagerung der Drehfelder oder der von beiden Feldern induzierten Spannungen betrachtet werden kann, wobei der durch den Statorstrom resultierende Spannungsanteil der Selbstinduktionsspannung in der Statorwicklung entspricht.
+
+$$
+u_{Ld}=(L_a+L_\sigma)\frac{di_1}{dt}
+$$
+
+Wobei $L_a$ die Hauptinduktivität und $L_\sigma$ die Streuinduktivität darstellen. Zudem wird mit $R_1$ der Wicklungswiderstand modelliert, wobei dieser bei grossen Maschinen oft weggelassen wird.
+
+![](images/paste-50.png)
+
+Zudem werden die Induktivitäten of zusammengefasst zu $L_d=L_\sigma+L_a$
+
+Die Spannung $\underline{\Delta U}$ berechnet sich nach
+
+$$
+\underline{\Delta U}=j\cdot X_d\cdot\underline{I}_1+R\cdot \underline{I}_1
+$$
+
+$$
+X_d=\omega_1 L_d=\omega_1(L_a+L_\sigma)
+$$
+
+### Drehmomentbildung
+
+Durch die verdrehung des Rotors im Statorfeld um den Polradwinkel $\vartheta$ erzeugt ein Drehmoment. Eilt das Statorfeld dem Polrad voraus, ist die Maschine im Motorbetrieb, eilt das Statorfeld nach, Generatorbetrieb
+
+![](images/paste-51.png)
+
+Das Drehmoment nimmt mit dem Sinus über den Polradwinkel $\vartheta$ zu, ist also bei $\vartheta = 90^\circ$ maximal. In diesem Punkt läuft die Maschine nichtmehr synchron, sie kippt $\rightarrow$ Kippmoment.
+
+Die Mechanische Leistung $P_{mech}$ berechnet sich wiefolgt
+
+$$
+P_{mech}=M\cdot\omega_{mech}=\frac{3U_1U_p}{X_d}\sin(\vartheta)
+$$
+
+Wobei für die Drehzahl $\omega_{mech}$ gilt
+
+$$
+\omega_{mech}=\frac{\omega_1}{p}=2\pi f_{mech}=2\pi\frac{n}{60}
+$$
+
+Für das Drehmoment folgt daraus
+
+$$
+M=\underbrace{\frac{3pU_1U_p}{\omega_1X_d}}_{\text{Kippmoment}}\sin(\vartheta)
+$$
+
+![](images/paste-52.png)
+
+## Betrieb am Netz

@@ -117,7 +117,7 @@ Beim *Turn-On* muss ein genügend grosser positiver Gatestromimpuls generiert we
 
 ## Feldeffekttransistor *FET*
 
-Ein FET ist ein spannungsgesteurter, verstellbarer Widerstand. Meist wird dieser als Schalter verwendet, da dieser im volleitenden Zustand fast leistungslos ist. 
+Ein FET ist ein spannungsgesteurter, verstellbarer Widerstand. Meist wird dieser als Schalter verwendet, da dieser im volleitenden Zustand fast verlustfrei ist. 
 
 ![](images/paste-32.png)
 
