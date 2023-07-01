@@ -332,6 +332,15 @@ Die maximale Wirkleistungsübertragung von der Leitung zur Last kann nur erreich
 
 ### Ausgleichsvorgang an einer Stossstelle
 
+Zuerst ausrechnen, ob der Ausgleichsvorgang überhaupt gemacht werden muss!
+
+$$
+l_\lambda = \frac{l}{\lambda}=\frac{l}{\tau_P\cdot v_{Ph}}=\begin{cases}
+  \leq \frac1{20} & \text{Leitung kann als ideal betrachtet werden }(\textit{rein ohmisch}) \\
+  > \frac1{20} & \text{Leitungsverhalten frequenzabhängig }(C',\,L',\ldots)
+\end{cases}
+$$
+
 Die Verzögerung durch die Phasengeschwindigkeit des Leiters führt zu einem *verspäteten* Signalverlauf am anderen Ende des Leiters, dies wird mit der Laufzeit $t_d$ dargestellt:
 
 $$
@@ -642,7 +651,7 @@ Folgende Betrachtungen gelten nur im **Fernfeld**
 
 Die **Freiraumdämpfung** $L_fs$ *(Free Space Path Loss)* gilt bei Sichtverbindung, Die EM-Welle wird nicht beeinflusst (idealer Funkkanal).
 
-`\begin{multicols*}{2}`{=latex}
+`\begin{multicols}{2}`{=latex}
 
 $$
 L_{fs}=\frac{P_t}{P_r}=\frac{P_t}{S_rA_e}=\left(\frac{4\pi r}{\lambda}\right)^2
@@ -674,7 +683,7 @@ f_{[MHz]} & Frequenz in $\mathbf{M}Hz$ \\
 r_{[km]}  & Distanz in $km$ \\
 \lambda   & Wellenlänge
 \end{conditions}
-\end{multicols*}
+\end{multicols}
 ```
 
 ### Empirisches Kanalmodell
