@@ -93,3 +93,27 @@ $$
 ![](images/paste-52.png)
 
 ## Betrieb am Netz
+
+Im Netzbetrieb ist die Statorspannung $\underline{U}1= U_N$ vorgegeben. Der Strom $\underline{I}_1$ muss sich nun so einstellen, dass der Spamnnungsabfall $\underline{\Delta U}$ über der Maschinenimpedanz gerade der Differenz zwischen $\underline{U}_1-\underline{U}_p$ entspricht. Unter Vernachlässigung des Wirkwiderstands folgt
+
+$$
+\underline{I}_1=-j\frac{\underline{\Delta U}}{X_d}=-j\frac{\underline{U}_1-\underline{U}_p}{X_d}
+$$
+
+Entsprechend können die Zeigerdiagramme ausfallen
+
+![](images/paste-46.png)
+
+Wird über den Erregerstrom der Betrag von $\underline{U}_p$ erhöht, können $\underline{I}_1$ und $\underline{U}_1$ wieder phasengleich ausgerichtet werden. So bezieht die Maschine keine Blindleistung und der Leistungsfaktor entspricht $\lambda=1$
+
+![](images/paste-47.png)
+
+Sind $\underline{I}_1$ und $\underline{U}_1$ in Phase und die Maschine in mechanischem Leerlauf, so kann über den Erregerstrom $\underline{\Delta U}_1$ eingestellt werden. Die Maschine verhält sich dann Induktiv oder Kapazitiv, bzw. die Blindleistung kann eingestellt werden
+
+![](images/paste-53.png)
+
+## Inselbetrieb
+
+Durch Vergrössern und Verkleinern des Betrages der Polradspannung $U_p$ über den Erregerstrom kann der Betrag der Klemmenspannung $U_1$ auf den gewünschten Wert eingestellt werden.
+
+![](images/paste-54.png)
