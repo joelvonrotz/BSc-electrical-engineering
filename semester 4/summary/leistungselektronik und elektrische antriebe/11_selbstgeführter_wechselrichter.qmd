@@ -1,1 +1,57 @@
 # Selbstgeführter Wechselrichter
+
+## Phasenmodul
+
+Grundlage eines jeden Wechselrichters ist das Phasenmodul
+
+![](images/paste-55.png)
+
+Grundsätzlich kann mit einem einzelnen Phasenmodul bereits ein Wechselrichter aufgebaut werden. Dazu ist ein Mittelabgriff an der speisenden GLeichspannungsquelle notwendig *(z.B. Trafo mit Mittelabgriff AC-Seitig)*
+
+![](images/paste-56.png)
+
+Dies führt zu folgenden Kurvenverläufen
+
+![](images/paste-57.png)
+
+## Einphaseige Brückenschaltung
+
+Die einphasige Brückenschaltung hat die grösste praktische Bedeutung. Mit der Anordnung von zwei Phasenmodulen ist kein Mittelabgriff mehr nötig.
+
+![](images/paste-58.png)
+
+Desweiteren ist es möglich die Brückenschaltung im Dreipunktbetrieb zu betreiben, wenn nur $S_1$ und $S_3$ oder nur $S_2$ und $S_4$ eingeschalten sind. Mit $\alpha$ kann zudem die Amplitude der Grundschwingung angepasst werden.
+
+Im **Zweipunktbetrieb** $\alpha=0$ beträgt die Amplitude $\hat{U}_{a1}$ der Grundschwingung
+
+$$
+\hat{U}_{a1}=\frac{4}{\pi}U_{dc}
+$$
+
+Im **Dreipunktbetrieb** gilt
+
+$$
+\hat{U}_{a1}=\frac{4}{\pi}U_{dc}\cos\alpha
+$$
+
+In der Ausgangsspannung treten auch Oberwellen auf, und zwar alle Ungeradzahligen. Im **Zweipunktbetrieb** gilt für die $v$-te Oberwelle
+
+$$
+\hat{U}_{av}=\frac{4}{\pi}U_{dc}\cdot\frac{1}{v}\qquad\text{mit }v=3,5,7,\ldots
+$$
+
+Im **Dreipunktbetrieb** gilt für die $v$-te Oberwelle
+
+$$
+\hat{U}_{av}=\frac{4}{\pi}U_{dc}\cdot\frac{1}{v}\cos(v\alpha)\qquad\text{mit }v=3,5,7,\ldots
+$$
+
+![](images/paste-59.png)
+
+## Last mit Gegenspannung
+
+Verfügt die Last über eine Gegenspannung *(z.B. SM)*, so verändert sich der Laststrom
+
+![](images/paste-60.png)
+
+![](images/paste-61.png)
