@@ -241,6 +241,46 @@ Die unterschiedlichen Belagsgrössen sind abhängig von der Leitergeometrie
 
 ![](images/03_Belagsgroessen.png)
 
+### Streuparameter bei Zweitore (evtl. nicht so wichtig!)
+
+![](images/1280px-S-Parameter.png){width="8cm"}
+
+`\begin{multicols}{2}`{=latex}
+
+#### Eingangsreflexionsfaktor $s_11$
+
+stellt die Reflexion am Eingang ohne Anregung an Tor 2 dar:
+
+$$
+S_{11}=\left.\frac{b_1}{a_1}\right \vert_{a_2=0}
+$$
+
+#### Ausgangsreflexionsfaktor  $s_22$
+
+stellt die Reflexion am Tor 2 ohne Anregung an Tor 1 dar:
+
+$$
+S_{22}=\left.\frac{b_2}{a_2}\right \vert_{a_1=0}
+$$
+
+#### Vorwärts-Transmissionsfaktor $s_21$
+
+stellt die Vorwärts-Transmission ohne Anregung an Tor 2 dar:
+
+$$
+S_{21}=\left.\frac{b_2}{a_1}\right \vert_{a_2=0}
+$$
+
+#### Rückwärts-Transmissionsfaktor $s_12$
+
+stellt die Rückwärts-Transmission ohne Anregung an Tor 1 dar:
+
+$$
+S_{12}=\left.\frac{b_1}{a_2}\right \vert_{a_2=0}
+$$
+
+`\end{multicols}`{=latex}
+
 ### Reflexionen an der Last
 
 Entspricht die *Lastimpedanz* $Z_L$ nicht der Leitungsimpedanz $Z_0$ so entsteht eine **Stosswelle** am Übergang. Es kommt zu einer (Teil-)Reflexion der vorlaufenden Signalwelle. Es wird eine neue rücklaufende Signalwelle erzeugt.
@@ -311,8 +351,10 @@ $$
 Die Rückflussdämpfung bezeichnet wie viel das rücklaufende Signal gegenüber dem vorlaufenden gedämpft ist
 
 $$
-a=-\log_{10}(|\Gamma|^2)
+a=-10\cdot \log_{10}(|\Gamma|^2)
 $$
+
+
 
 #### Hüllkurve
 
@@ -520,7 +562,7 @@ $$
 \begin{conditions}
 Z_{ant}   & Antennenimpedanz und Anpassung \textcolor{BrickRed}{*}\\
 R_\Omega  & stellt die ohm'schen Verluste der Antennenstruktur dar\\
-R_{rad}   & entspricht der abgestrahlten \textit{Wirkleistung}\\
+R_{rad}   & entspricht der abgestrahlten \textit{Wirkleistung} (\tiny Strahlungswiderstand\normalsize)\\
 X_{ant}   & vom \textit{reaktiven} Nahfeld beeinflussbarer Blindwiderstand\\
 D         & Richtwirkung \textit{(nicht }$D$\textit{ als Antennenmass)} \textcolor{BrickRed}{*}\\
 G         & Antennengewinn \textcolor{BrickRed}{*}\\
@@ -549,10 +591,10 @@ $$
 
 ![Antennengewinn für einen isotropen Strahler und eine gerichtete Antenne](images/04_IsotropGerichtet.png)
 
-Die Richtwirkung $D$ beträgt beim *isotropen Strahler* $1$. Bei einer *dipol-Antenne* gilt $D=1.64$. Allgemein wird die Richtwirkung über die maximale Leistungsdichte $S(\theta,\varphi)_{max}$ einer gerichteten Antenne bestimmt (wobei $\Delta\theta°_{-3dB}$ und $\Delta\varphi°_{-3dB}$ den Öffnungswinkel in der Horizontalen- respektive Vertikalen-Ebene beschreiben)
+Die Richtwirkung $D$ beträgt beim *isotropen Strahler* $1$. Bei einer *dipol-Antenne* gilt $D=1.64$. Allgemein wird die Richtwirkung über die maximale Leistungsdichte $S(\theta,\varphi)_{max}$ einer gerichteten Antenne bestimmt (wobei $\Delta\theta^\circ_{-3dB}$ und $\Delta\varphi^\circ_{-3dB}$ den Öffnungswinkel in der Horizontalen- respektive Vertikalen-Ebene beschreiben)
 
 $$
-D=\frac{S(\theta,\varphi)_{max}}{S_{iso}}\approx\frac{32400}{\Delta\theta°_{-3dB}\space\Delta\varphi°_{-3dB}}
+D=\frac{S(\theta,\varphi)_{max}}{S_{iso}}\approx\frac{32400}{\Delta\theta^\circ_{-3dB}\space\Delta\varphi^\circ_{-3dB}}
 $$
 
 ![](images/04_Richtdiagramm.png){width="11cm"}
