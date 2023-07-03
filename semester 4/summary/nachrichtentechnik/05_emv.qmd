@@ -144,7 +144,7 @@ Das unbeabsichtigte Abstrahlen eines EM-Feldes hängt primär vom Strom ab. Bei 
 
 Werden z.B. zwei Gehäuse über Erde miteinander verbunden, kann dies zu einer Rahmenantenne führen, welche Störeinkopplungen hervorbringt.
 
-![](images/paste-8.png)
+![](images/paste-8.png){width="418"}
 
 `\begin{multicols}{2}`{=latex}
 
@@ -176,7 +176,7 @@ f       & Frequenz $[MHz]$ \\
 
 Aufgrund des asymmetrischen Stroms $i_{netto}$ auf der Leitung, entsteht eine Störabstrahlung. Die Ursache für den asymmetrischen Strom findet sich im alternativen Rückweg $i_{r2}$ des Signalstroms über das geerdete Gehäuse.
 
-![](images/paste-3.png)
+![](images/paste-3.png){width="411"}
 
 Die Abgestrahlte Feldstärke in einem Punkt $P$ im Fernfeld ist definiert mit
 
@@ -241,19 +241,19 @@ Zur Unterdrückung von Gleichtaktstörungen werden *Common-Mode-Chokes* oder *Fe
 
 Die *Erdung* von Schaltkreisen, Geräten und Systemen muss verschiedene Aufgaben lösen. Um Das Problem der Impedanzkopplung zu reduzieren, bildet man Signalklassen. Die Hirarchie der Erdung für Signalklassen können mit einem Erdungsbaum dargestellt werden.
 
-![](images/paste-11.png)
+![](images/paste-11.png){width="477"}
 
 #### Sternpunkt
 
 DIe Verbindung aller Erden auf einen zentralen Erdungspunkt oder Schiene ist auf grund der auftretenden parasitären Frequenzen nur bis ca. *300kHz* geeignet. Oft ist es schwierig eine Saubere Sternpunktarchitektur auszulegen, da bei Verbindungen unter den Systemmodulen auch eine gewollt/ungewollte Erdverbindung auftreten kann.
 
-![](images/paste-12.png)
+![](images/paste-12.png){width="319"}
 
 #### Mehrpunkt-Erdungsschema
 
 Bei Frequenzen über *300kHz* ist ein Mehrpunkt.Erdungsschema besser geeignet, da so die parasitären Kapazitäten wegfallen. Hierbei wird eine Groundplane (*Erdungsfläche*) aufgezogen, auf welcher alle Komponenten geerdet werden. Diese Fläche wird anschliessend an einem zentralen Punkt geerdet.
 
-![](images/paste-13.png)
+![](images/paste-13.png){width="454"}
 
 #### Erdanbindung
 
@@ -267,17 +267,17 @@ Will man **Erdschlaufen verhindern**, so gibt es mehrere möglichkeiten:
 
 -   Hochohmiger Widerstand zum verhindern einer statischen Aufladung
 
-![](images/paste-14.png)
+![](images/paste-14.png){width="455"}
 
 ### Schirmung
 
 Um Elektromagnetische Emission sowie Imission im Fern- wie im Nahfeld zu verhindern, können Schirmungen verwendet werden. Bei einem idealen Schirm handelt es sich hierbei um eine perfekt leitende Oberfläche.
 
-![](images/paste-15.png)
+![](images/paste-15.png){width="474"}
 
 Erreicht eine senkrecht einfallende, ebene Welle die ebene Grenzfläche, so gelten folgende Beziehungen für Kontinuität
 
-![](images/paste-16.png)
+![](images/paste-16.png){width="364"}
 
 Für das eintretende E-Feld $E_e$ gilt
 
@@ -326,7 +326,7 @@ Mit
 ```
 #### Skin-Effekt
 
-Alle metallischen Leiter zeigen den Skin Effekt (Stromverdrängung). Nach der Distan einer Eindringtiefe $\delta$ ist die Amplitude auf $37\%$ abgesunken. So ist nach 5 Eindringtiefen $\delta$ "nichtsmehr" übrig. Die Feldstärken $E$ und $H$ nehmen dabei exponentiell ab.
+Alle metallischen Leiter zeigen den Skin Effekt (Stromverdrängung). Nach der Distanz einer Eindringtiefe $\delta$ ist die Amplitude auf $37\%$ abgesunken. So ist nach 5 Eindringtiefen $\delta$ "nichtsmehr" übrig. Die Feldstärken $E$ und $H$ nehmen dabei exponentiell ab.
 
 $$
 E(x)=E_0e^{-\frac{x}{\delta}}\space\text{und}\space H(x)=H_0e^{-\frac{x}{\delta}}\space\text{mit}\space\delta=\frac{1}{\sqrt{\pi f\mu\sigma}}
@@ -354,7 +354,7 @@ $$
 SE\space[dB]=-20\log_{10}\left(\frac{E_t}{E_e}\right)=-20\log_{10}(T_1\cdot e^{-\frac{d}{\delta}}\cdot T_2)=-20\log_{10}\left(\frac{4\eta_1\eta_2}{(\eta_1+\eta_2)^2}\cdot e^{-\frac{d}{\delta}}\right)
 $$
 
-![](images/paste-17.png)
+![](images/paste-17.png){width="464"}
 
 #### Einfluss von Löchern im Schirm
 

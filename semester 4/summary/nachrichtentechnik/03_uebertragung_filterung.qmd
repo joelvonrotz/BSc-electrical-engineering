@@ -16,8 +16,8 @@ Die Ermittlung der Impulsantwort $h(t)$ mittels *Periodischer Zufallssequenz* $s
 
 Alle Übertragungsmedien (leitergebunden, Funk, etc.) haben zwei physikalische Eigenschfften gemeinsam:
 
-- **Interne Leistungsverluste**: Reduktion der Signalgrösse
-- **Interne Energiespeicher**: Veränderung der Form des Signals
+-   **Interne Leistungsverluste**: Reduktion der Signalgrösse
+-   **Interne Energiespeicher**: Veränderung der Form des Signals
 
 ### Verzerrungsfrei
 
@@ -39,13 +39,13 @@ $$
 
 In der Realität ist die Forderung für verzerrungsfreie Übertragung nur bedingt einhaltbar. Man unterscheidet zwei Arten von linearen Verzerrungen:
 
-- Amplitudenverzerrung: $\lvert H(f)\rvert\neq K$
-  - Häufig werden nur hohe oder tiefe Frequenzen beschwächt (im Beispiel: $\small x(t)=\cos(\omega t)-\frac13 \cos(3\omega t)+ \frac15\cos(5\omega t) \normalsize$)
+-   Amplitudenverzerrung: $\lvert H(f)\rvert\neq K$
+    -   Häufig werden nur hohe oder tiefe Frequenzen beschwächt (im Beispiel: $\small x(t)=\cos(\omega t)-\frac13 \cos(3\omega t)+ \frac15\cos(5\omega t) \normalsize$)
 
 ![](images/verzerrungen/amplitude.png)
 
-- Phasen- oder Laufzeitverzerrung: $\arg H(f) \neq -\omega\cdot t_d$
-  - Form des Eingangssignals kann stark verändert werden damit (Beispiel Phasenverschiebung von $90^\circ$ für jede Signalkomponente)
+-   Phasen- oder Laufzeitverzerrung: $\angle H(f) \neq -\omega\cdot t_d$
+    -   Form des Eingangssignals kann stark verändert werden damit (Beispiel Phasenverschiebung von $90^\circ$ für jede Signalkomponente)
 
 ![](images/verzerrungen/phase.png)
 
@@ -75,8 +75,7 @@ $$
 a=\frac{P_x}{P_y}\qquad\text{bzw.}\qquad a_{dB}=10\space\log_{10}(a)
 $$
 
-$P_x$, $P_y$ werden als Effektivwerte angegeben.
-Können nicht beide Leistungen gleichzeitig bestimmt werden, so wird mit Referenzgrössen gearbeitet
+$P_x$, $P_y$ werden als Effektivwerte angegeben. Können nicht beide Leistungen gleichzeitig bestimmt werden, so wird mit Referenzgrössen gearbeitet
 
 | Referenz                   | Formel                                                                                              | Einheit             |
 |-------------------|----------------------------------|-------------------|
@@ -87,13 +86,13 @@ Können nicht beide Leistungen gleichzeitig bestimmt werden, so wird mit Referen
 
 ## Filtersysteme
 
-Niederfrequent haben Analoge LC-FIlter sehr lange eine dominierende Rolle, wobei dieselben Methoden der Filtersynthese auch auf modernere Filtertechnologien angewendet werden können. Für verschiedene Einsatzbereiche gibt es *verschiedene Filtertechnologien*, wobei auch *Digitale Filter* bis ca. 100MHz analoge Filter nachbilden können, mit dem VOrteil, dass diese anschliessend noch anpassbar sind
+Niederfrequent haben Analoge LC-FIlter sehr lange eine dominierende Rolle, wobei dieselben Methoden der Filtersynthese auch auf modernere Filtertechnologien angewendet werden können. Für verschiedene Einsatzbereiche gibt es *verschiedene Filtertechnologien*, wobei auch *Digitale Filter* bis ca. 100MHz analoge Filter nachbilden können, mit dem Vorteil, dass diese anschliessend noch anpassbar sind
 
 ![](images/03_Filtertechnologien.png)
 
-Desweiteren gibt es verschiedene Filterklasifizierungen, welche folgende **ideale Amplitudengänge** aufweisen
+Desweiteren gibt es verschiedene Filterklassifizierungen, welche folgende **ideale Amplitudengänge** aufweisen
 
-![](images/03_Filterklasifizierungen.png)
+![](images/03_Filterklasifizierungen.png){width="403"}
 
 ### Reale Filter - Spezifikation
 
@@ -101,13 +100,13 @@ Reale Filter zeigen ein abweichendes Verhalten zum idealen Verlauf. Z.B. ist der
 
 ![Filtermaske eines Tiefpassfilters](images/filter/reale_filter.png)
 
-- **Durchgangsbereich** -- bei TP $0 \leftrightarrow f_g$
-- **Übergangsbereich** -- $f_g \leftrightarrow f_s$
-- **Sperrbereich** -- bei TP $f_s \leftrightarrow \infty$
+-   **Durchgangsbereich** -- bei TP $0 \leftrightarrow f_g$
+-   **Übergangsbereich** -- $f_g \leftrightarrow f_s$
+-   **Sperrbereich** -- bei TP $f_s \leftrightarrow \infty$
 
 Zur definition von Filtern gibt es verschiedene Approximationsverfahren
 
-![Aproximationsverfahren für Filterordnung $n=5$ und $A\_{max}=3dB$](images/03_Approximationsverfahren.png)
+![Aproximationsverfahren für Filterordnung $n=5$ und $A_{max}=3dB$](images/03_Approximationsverfahren.png)
 
 ## Leitergebundene Übertragung
 
@@ -163,7 +162,7 @@ $$
 ```
 $\beta$ kann als Positionsabhängige Phasenverschiebung betrachtet werden.
 
-Die allgemeinen Lösungen der Wellengelichungen lauten *(*$_V$ *vorwärts laufend,* $_R$ *rückwärts laufend)*
+Die allgemeinen Lösungen der Wellengleichungen lauten *(*$_V$ *vorwärts laufend,* $_R$ *rückwärts laufend)*
 
 $$
 \begin{split}
@@ -187,7 +186,6 @@ $$
   c_0,\,c & Lichtgeschwindigkeit ($299'792'458 \tfrac{m}{s}$ oder $3\cdot10^8\frac{m}{s}$)
 \end{conditions}
 ```
-
 ::: callout-tip
 #### Umrechnung $Np\rightarrow dB$
 
@@ -198,7 +196,6 @@ $$
 \cdot\alpha_{Np/m}
 =8.686\cdot\alpha_{Np/m}
 $$
-
 :::
 
 Die Welle hat also eine exponentiel abfallende Form
@@ -213,7 +210,7 @@ $$
 
 ### Leistungsfluss
 
-Die Elektrische Leistung in der **V***orwärtswelle* wird mit den Effektivwerten berechnet. Für die **R***ückwertswelle* wechselt das Vorzeichen der charakteristischen Impedanz und somit die Richtung des Leistungsflusses.
+Die Elektrische Leistung in der **V***orwärtswelle* wird mit den Effektivwerten berechnet. Für die **R***ückwärtswelle* wechselt das Vorzeichen der charakteristischen Impedanz und somit die Richtung des Leistungsflusses.
 
 $$
 P_V=\frac{U_VI_V^*}{2}=\frac{|U_V|^2}{2Z_0}\qquad\qquad P_R=\frac{U_RI_R^*}{2}=-\frac{|U_R|^2}{2Z_0}
@@ -225,7 +222,6 @@ Verschiedene Leitergometrien führen zu unterschiedlichen Impedanzen und Beläge
 
 ![](images/leiter/formen.png){width="8cm"}
 
-
 ```{=latex}
 \begin{conditions}
   \mu_0 = 4\pi\cdot10^{-7}\ [Vs/Am] & Permeabilität der Luft \\
@@ -236,18 +232,17 @@ Verschiedene Leitergometrien führen zu unterschiedlichen Impedanzen und Beläge
   R_s = \sqrt{\frac{\pi\cdot f\cdot\mu_{Leiter}}{\sigma_{Leiter}}} & Skineffekt, Oberflächenwiderstand des Leiters
 \end{conditions}
 ```
-
 Die unterschiedlichen Belagsgrössen sind abhängig von der Leitergeometrie
 
 ![](images/03_Belagsgroessen.png)
 
-### Streuparameter bei Zweitore (evtl. nicht so wichtig!)
+### Streuparameter bei Zweitore
 
 ![](images/1280px-S-Parameter.png){width="8cm"}
 
 `\begin{multicols}{2}`{=latex}
 
-#### Eingangsreflexionsfaktor $s_11$
+#### Eingangsreflexionsfaktor $s_{11}$
 
 stellt die Reflexion am Eingang ohne Anregung an Tor 2 dar:
 
@@ -255,7 +250,7 @@ $$
 S_{11}=\left.\frac{b_1}{a_1}\right \vert_{a_2=0}
 $$
 
-#### Ausgangsreflexionsfaktor  $s_22$
+#### Ausgangsreflexionsfaktor $s_{22}$
 
 stellt die Reflexion am Tor 2 ohne Anregung an Tor 1 dar:
 
@@ -263,7 +258,7 @@ $$
 S_{22}=\left.\frac{b_2}{a_2}\right \vert_{a_1=0}
 $$
 
-#### Vorwärts-Transmissionsfaktor $s_21$
+#### Vorwärts-Transmissionsfaktor $s_{21}$
 
 stellt die Vorwärts-Transmission ohne Anregung an Tor 2 dar:
 
@@ -271,7 +266,7 @@ $$
 S_{21}=\left.\frac{b_2}{a_1}\right \vert_{a_2=0}
 $$
 
-#### Rückwärts-Transmissionsfaktor $s_12$
+#### Rückwärts-Transmissionsfaktor $s_{12}$
 
 stellt die Rückwärts-Transmission ohne Anregung an Tor 1 dar:
 
@@ -310,7 +305,11 @@ Der Wertebereich von $\Gamma$ liegt innerhalb des Einheitskreises der komplexen 
 
 ![](images/03_Reflexionskoeffizient.png){fig-align="center" width="9cm"}
 
-Die resultierende Spannung und Strom auf der Leitung ist die Überlagerung von vor- und rücklaufenden Signalwellen
+Die resultierende Spannung und Strom auf der Leitung ist die Überlagerung von vor- und rücklaufenden Signalwellen[^1]
+
+[^1]: $$
+    \gamma=\alpha+j\beta=\sqrt{(R'+j\omega L')(G'+j\omega C')}
+    $$
 
 $$
 U(z)=U_V\cdot e^{-\gamma z}+U_Re^{-\gamma(\ell-z)}=U_V\cdot e^{-\gamma z}(1+\Gamma_Le^{-2\gamma(\ell-z)})
@@ -346,15 +345,13 @@ $$
 s=\frac{\hat{U}_{max}}{\hat{U}_{min}}=\frac{|U_V|+|U_R|}{|U_V|-|U_R|}=\frac{1+|\Gamma|}{1-|\Gamma|}
 $$
 
-#### Rückflussdämpfung $a$
+#### Rückflussdämpfung $s_{11}$
 
 Die Rückflussdämpfung bezeichnet wie viel das rücklaufende Signal gegenüber dem vorlaufenden gedämpft ist
 
 $$
-a=-10\cdot \log_{10}(|\Gamma|^2)
+s_{11}=-10\cdot \log_{10}(|\Gamma|^2)
 $$
-
-
 
 #### Hüllkurve
 
@@ -455,7 +452,6 @@ Folgend zeigt eine "Messung" von $u_2(t)$ mit folgenden Widerstandswerten: $R_Q=
 \end{tikzpicture}
 \end{center}
 ```
-
 ![Ausgleichsvorgang $u_2(t)$](images/03_ausgleichsvorgang_u2.png){#fig-ausgleichsvorgang fig-align="center" width="8cm"}
 
 # Drahtlose Signalübertragung & -Filterung
@@ -519,7 +515,6 @@ Antennen können Allgemein als Impedanzwandler zwischen dem Übertrager *(Schalt
 
 Die Antennenimpedanz $Z_{ant}$ hängt direkt von der Antennengeometrie ab und kann als Ersatzschaltung dargestellt werden
 
-
 ![$R_v \hat{=} R_{\Omega}$](images/antenne/ersatz_antenne.png)
 
 Die Wichtigsten Eigenschaften sind hierbei
@@ -574,7 +569,6 @@ B         & Bandbreite ($B_r$: relative Bandbreite\textcolor{BrickRed}{*}) \\
 \textcolor{BrickRed}{*} Wichtige Eigenschaften einer Antenne!
 \end{multicols}
 ```
-
 ![](images/04_RelativeBandbreite.png){width="10cm"}
 
 Für einen effizienten Betrieb wird die Antenne bei Resonanz, also $X_{ant}=0$, betrieben. Bei einem **Dipol** wird dies das erste mal bei einer Länge $\ell=\frac{\lambda}{2}$ erreicht und wiederholt sich bei *ganzzahligen Vielfachen* von $\frac{\lambda}{2}$.
@@ -680,7 +674,6 @@ U         &   Signalspannung am Antennenanschluss $[V]$ \\
 \end{conditions}
 \end{multicols}
 ```
-
 ![](images/04_EffektiveAperture.png){height="4cm"}
 
 ## Ausbreitungsverluste einer Funkstrecke
@@ -691,7 +684,7 @@ Folgende Betrachtungen gelten nur im **Fernfeld**
 
 ### Freiraummodell
 
-Die **Freiraumdämpfung** $L_fs$ *(Free Space Path Loss)* gilt bei Sichtverbindung, Die EM-Welle wird nicht beeinflusst (idealer Funkkanal).
+Die **Freiraumdämpfung** $L_{fs}$ *(Free Space Path Loss)* gilt bei Sichtverbindung, Die EM-Welle wird nicht beeinflusst (idealer Funkkanal).
 
 `\begin{multicols}{2}`{=latex}
 
@@ -727,7 +720,6 @@ r_{[km]}  & Distanz in $km$ \\
 \end{conditions}
 \end{multicols}
 ```
-
 ### Empirisches Kanalmodell
 
 Empirisches Modell für Ausbreitungsverluste *(Power Law Propagation Regime)* ohne direkte Sichtverbindung. Parameter $\gamma$ des Modells wird mit Hilfe einer Regression aus Messwerten bestimmt oder es werden Typische Werte (siehe Tabelle) angenommen. Die Referenzdistanz $d_0$ ergibt sich mit der Kalibrierung des Messaufbaus, z.B. $d_0=1m$

@@ -13,6 +13,7 @@ Während der Übertragung wird das Signal verzerrt und es kommt *weisses Rausche
 Das Informationssignal als binärer Datenstrom wird als Leitungscode in einer Pulsfolge abgebildet, die der Charackteristik des Übertragungskanals angepasst ist.
 
 -   *Non Return to Zero* (NRZ) Code
+-   *Return to Zero* (RZ) Code
 -   Bi-Phase, Manchester Code, (10-Mbit/s-Ethernet)
 -   Delay Modulation (DM), Miller Code
 -   Alternate Mark Inversion (AMI), modifizierter AMI-Code bei ISDN, ($S_0$-Bus)
@@ -94,10 +95,6 @@ $$
 -   Amplitudenstufen: $2^2=4$
 -   Amplitudenstufen: $2^m$
 
-::: callout-tip
-Bit- und Datenrate ist zu unterscheiden, da eine Bitrate die
-:::
-
 `\end{multicols}`{=latex}
 
 ::: callout-note
@@ -122,7 +119,7 @@ $$
 p(t)=A\space\text{sinc}(r_bt)\cdot\frac{\cos{(2\pi\beta t)}}{1-(4\beta t)^2}
 $$
 
-$\beta$ hängt direkt von der Datenrate $r_b$, zur einfacheren Handhabung wird der *roll-off*-Faktor $\alpha$ in Prozent
+$\beta$ hängt direkt von der Datenrate $r_b=\frac{1}{T_b}$, zur einfacheren Handhabung wird der *roll-off*-Faktor $\alpha$ in Prozent
 
 $$
 \alpha=\frac{2\beta}{r_b}100\%

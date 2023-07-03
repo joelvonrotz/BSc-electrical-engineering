@@ -21,11 +21,11 @@ $$
 ![](images/02_HarmonischeSchwingung.png)
 
 $$
-+A\sin(\omega t)=+A\cos(\omega t-90°)=+A\cos\left(\omega t -\frac{\pi}{2}\right)
++A\sin(\omega t)=+A\cos(\omega t-90^\circ)=+A\cos\left(\omega t -\frac{\pi}{2}\right)
 $$
 
 $$
--A\cos(\omega t)=+A\cos(\omega t\pm 180°)=+A\cos(\omega t\pm\pi)
+-A\cos(\omega t)=+A\cos(\omega t\pm 180^\circ)=+A\cos(\omega t\pm\pi)
 $$
 
 \vfill\null\columnbreak
@@ -73,7 +73,7 @@ Aus dieser Zeigernotation kann direkt das **Amplituden- und Phasenspektrum** als
 Eine weitere Darstellung ist das **zweiseitige Linienspektrum**, wobei über die komplexe Konjugation das Ganze, komplexe Signal reelwertig gehalten wird
 
 $$
-s(t)=\underbrace{\frac{A}{2}e^{j(\omega_0 t+\varphi)}}_{\text{Gegenuhrzeigersinn}}=\underbrace{\frac{A}{2}e^{-j(\omega_0 t+\varphi)}}_{\text{Uhrzeigersinn}}=A\cos(\omega_0 t+\varphi)
+s(t)=\underbrace{\frac{A}{2}e^{j(\omega_0 t+\varphi)}}_{\text{Gegenuhrzeigersinn}}+\underbrace{\frac{A}{2}e^{-j(\omega_0 t+\varphi)}}_{\text{Uhrzeigersinn}}=A\cos(\omega_0 t+\varphi)
 $$
 
 da sich die Komplexen Teile aufheben. Da das *Amplitudenspektrum* stehts den Betrag anzeigt, werden negative Werte stehts mit einer *Phasenverschiebung* um $\pi$ aufgetragen.
@@ -141,7 +141,7 @@ $$
 
 ## Komplexe Fourier Reihe *(perodisch)*
 
-Ein periodisches Signal $s(t)$ kann mit der *komplexen Fourier Reihenentwicklung* in eine zweiseitige Spektrumsdarstellung gewandelt werden. DIe komplexe Fourier Riehe für ein periodisches Leistungssignal der Periode $T_0=\frac{1}{f_0}$ lautet
+Ein periodisches Signal $s(t)$ kann mit der *komplexen Fourier Reihenentwicklung* in eine zweiseitige Spektrumsdarstellung gewandelt werden. Die komplexe Fourier Reihe für ein periodisches Leistungssignal der Periode $T_0=\frac{1}{f_0}$ lautet
 
 $$
 s(t)=\sum_{n=-\infty}^{\infty}{c_ne^{jn\omega_0t}}\qquad n=0,\pm1,\pm2,...
@@ -214,7 +214,7 @@ Für die komplexe Funktion $S(f)$ der Fourier Transformation gelten die *spektra
 
 ### Parseval'sches Energietheorem
 
-Die Signalenergie im Zeitbereich wie auch im Grequenzbereich entspricht demseben Wert, die Beiden Darstellungen beinhalten also diselben Informationen
+Die Signalenergie im Zeitbereich wie auch im Frequenzbereich entspricht demselben Wert, die beiden Darstellungen beinhalten also dieselben Informationen
 
 $$
 E=\int_{-\infty}^{\infty}{|s(t)|^2dt}=\int_{-\infty}^{\infty}{|S(f)|^2df}
@@ -233,7 +233,7 @@ als Bezugswert $A_{Ref}$ wird oft der Effektivwert des Signals oder die Amplitud
 ## Korrelation
 
 ::: callout-warning
-### Konjugiert komplex 
+### Konjugiert komplex
 
 Eine Funktion wird immer **konjugiert komplex** sein, damit die Phasen richtig behandelt werden!
 :::
@@ -280,7 +280,7 @@ Der Bereich von $\tau$, in dem $k_{11}\ne 0$ ist, wird als *Kohärenzzeit* bezei
 
 ![](images/02_Koh%C3%A4renzzeit.png)
 
-Die Kohärenzzeit eines sehr fluktiativen (*= grosse Bandbreite*) Signals ist sehr kurz, während diese bei einem langsamen Signal (*= keline Bandbreite*) eher lang ist. Es gilt also
+Die Kohärenzzeit eines sehr fluktiativen (*= grosse Bandbreite*) Signals ist sehr kurz, während diese bei einem langsamen Signal (*= kleine Bandbreite*) eher lang ist. Somit weisen Zufallssignale mit hoher Bandbreite (z.B. Rauschen) nur noch eine kleine statistische Abhängigkeit zwischen zwei Augenblicksamplituden auf. Es gilt also
 
 $$
 \text{Kohärenzzeit}\propto \frac{1}{\text{Bandbreite}}
@@ -340,15 +340,17 @@ $$
 H_{TP}(f)=K\space \Pi\left(\frac{f}{2B}\right)e^{-j\omega t_d}
 $$
 
-![](images/02_IdealerTiefpass.png)
+![](images/02_IdealerTiefpass.png){width="242"}
+
+`\begin{multicols}{2}`{=latex}
 
 ### Analoge Vorfilter
 
 Das analoge Vorfilter (*anti-aliasing* Filter) verhindert das Kopien eines Störignals (Ausserhalb der Grenzfrequenz) in den Nutzbereich fallen.
 
-![](images/02_AntiAliasing.png)
+![](images/02_AntiAliasing.png){width="244"}
 
-Realisierbare FIlter sind nicht ideal. Die korrekte Auslegung des Filters hängt von verschiedenen Gesichtspunkten ab:
+Realisierbare Filter sind nicht ideal. Die korrekte Auslegung des Filters hängt von verschiedenen Gesichtspunkten ab:
 
 -   Gewünschte Signalbreite (Grenzfrequenz für den Durchlassbereich $f_g$)
 -   Abtastfrequenz $f_s$
@@ -363,17 +365,16 @@ $$
 x_p(t)=x(t)\sum_{k=-\infty}^{\infty}{p(t-kT_s)}
 $$
 
-![](images/02_FlatTop.png)
+![](images/02_FlatTop.png){width="254"}
 
 Dies induziert einen *Apertureffekt*, bei welchem eine Dämpfung der höheren Frequenzkomponenten des Signalspektrums entsteht.
 
-![](images/02_ApertureEffekt.png)
+![](images/02_ApertureEffekt.png){width="265"}
 
-Mögliche Abhlifen:
+Mögliche Abhilfen:
 
-- Einsatz eines Equalizers ($\sin(x)/x$-Korrektur) mit $H_{EQ}(f)=Ke^{-j\omega t_d}/P(f)$
-- Verhältnis der Pulsbreite $\tau$ zur Abtastperiode $T_s$ klein wählen: $\tau/T_s \ll 1$
-
+-   Einsatz eines Equalizers ($\sin(x)/x$-Korrektur) mit $H_{EQ}(f)=Ke^{-j\omega t_d}/P(f)$
+-   Verhältnis der Pulsbreite $\tau$ zur Abtastperiode $T_s$ klein wählen: $\tau/T_s \ll 1$
 
 ### Abtastung von Bandpasssignalen
 
@@ -385,5 +386,8 @@ $$
 
 abgetastet werden, ohne das es zu Spektrumsüberlappungen kommt. $m$ ist die grösste Zahl, die das Verhältnis $\frac{f_{Signal_{max}}}{B}$ nicht übersteigt.
 
-![](images/02_BandpassAbtastung.png)
+![](images/02_BandpassAbtastung.png){width="350"}
+
 Bandpass Abtastung mit $f_{Sample}=4\ (m=2)$
+
+`\end{multicols}`{=latex}

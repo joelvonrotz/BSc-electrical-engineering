@@ -22,7 +22,7 @@ Durch Zusammenführen mehrerer Grundelemente entsteht ein Kommunikationsnetz, an
 
 ### Übertragungskapazität
 
-Infolge physikalischer Eigenaschaften (endliche Bandbreite, Rauschen/Störungen) hat jeder Übertragungskanal eine begrenzte Kapazität für Informationsübertragung. Die *Kapazität* $C$ hängt von der verfügbaren *Bandbreite* $B$ und dem Verhältnis zwischen *Signalleistung* $S$ und *Rauschleistung* $N$ *(externer Einfluss)* ab.
+Infolge physikalischer Eigenschaften (endliche Bandbreite, Rauschen/Störungen) hat jeder Übertragungskanal eine begrenzte Kapazität für Informationsübertragung. Die *Kapazität* $C$ hängt von der verfügbaren *Bandbreite* $B$ und dem Verhältnis zwischen *Signalleistung* $S$ und *Rauschleistung* $N$ *(externer Einfluss)* ab.
 
 $$
 C = B\cdot log_2\left(1+\frac{S}{N}\right)\qquad [bps]
@@ -30,7 +30,11 @@ $$
 
 ![Informationsquader](images/01_Informationsquader.png)
 
-Bei einer Fehlerrate von $10^{-12}$ ergibt sich $1$ -\*Bitfehler\* in $10^{12}$ Bits.
+::: callout-tip
+## Bitfehlerrate
+
+Bei einer Fehlerrate von $10^{-12}$ ergibt sich $1$ *Bitfehler* in $10^{12}$ Bits.
+:::
 
 Zur mehrfachnutzung eines zur verfügung stehenden Kanals werden verschiedene Verfahren zur Aufbereitung elektrischer Signale verwendet.
 
@@ -96,15 +100,12 @@ $$
 
 ![Linearer Übertragungskanal](images/01_Wiedergabetreue.png)
 
-Die Wiedergabe eines Übertragunssystems ist umso besser, je geringer die Signalverzerrung ist. 
+Die Wiedergabe eines Übertragunssystems ist umso besser, je geringer die Signalverzerrung ist.
 
 ::: callout-tip
 ##### Verzerrungsfreie Übertragung
 
-Für verzerrungsfreie Übertragung gelten zwei Bedingungen:
-1. konstante Verstärkung
-2. linearer Phasengang
-
+Für verzerrungsfreie Übertragung gelten zwei Bedingungen: 1. konstante Verstärkung 2. linearer Phasengang
 :::
 
 ::: callout-note
@@ -112,7 +113,6 @@ Für verzerrungsfreie Übertragung gelten zwei Bedingungen:
 
 Eine *Lineare Verzerrung* liegt vor wenn das Ausgangssignal **keine zusätzlichen Frequenzkomponenten** enthält, also nur die Amplituden und Phasen der Signalkomponenten wird verändert.
 :::
-
 
 Um die Wiedergabetreue zu messen wird die *Eintonmessung* angewendet, bei welcher das Testsignal $x(t) = \cos(2\pi f_0t)$ eingespiesen wird und man das Ausgangssignal $y(t)=a_1\cos(\omega_0t)+a_2\cos^2(\omega_0t)+...$ erhält. Mit der Trigonometrischen Umformung
 
@@ -130,7 +130,6 @@ y(t)=\underbrace{\left(\frac{a_2}{2}+\frac{3a_4}{8}+...\right)}_{A_0 \space[DC-A
 \underbrace{\left(\frac{a_2}{2}+\frac{a_4}{4}+...\right)}_{A_2}\cos(2\omega_0t)+...
 \end{split}
 $$
-
 
 #### Klirrfaktor
 
