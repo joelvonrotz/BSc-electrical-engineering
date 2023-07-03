@@ -23,7 +23,7 @@ Brückenschaltung mit zweipulsiger Gleichspannung *(zwei "Buckel" pro Netzperiod
 ![](images/paste-1.png)
 :::
 
-[**M1**: **M**ittelpunktschaltung **1**]{.underline}
+[**M1**: **M**ittelpunktschaltung **1** Diode]{.underline}
 
 ![](images/paste-2.png){width="235"}
 
@@ -53,7 +53,21 @@ Brückenschaltung mit zweipulsiger Gleichspannung *(zwei "Buckel" pro Netzperiod
 
 ![](images/paste-38.png)
 
+```{=latex}
+\begin{conditions}
+  d & Gleichspannung ("direct")\\
+  i & idealisiert (Spannungsabfall durch Kommutierung und Verluste vernachlässigt)\\
+  0 & Zündwinkel $\alpha = 0^\circ$, was bei Dioden immer der Fall ist.
+\end{conditions}
+```
+
 `\begin{multicols}{2}`{=latex}
+
+::: callout-important
+### L-Glättung Stromverlauf
+Die Thyristoren werden nie deaktiviert ($u_d(t)$-Verlauf geht ins negative), da der Strom nie $0A$ erreicht.
+:::
+
 
 ### Leistung bei L-Glättung
 
@@ -116,6 +130,8 @@ $$
 Durch hinzufügen eines weiteren Phasenmodul an einen Brückengleichrichter, kann der Gleichrichter *B2* dreiphasig ans Netz angeschlossen werden.
 
 ![](images/paste-18.png)
+
+`\textcolor{BrickRed}{\textbf{!!}}`{=latex} Nicht vergessen, der Stromverlauf ist geglättet durch die Induktivität `\textcolor{BrickRed}{\textbf{!!}}`{=latex}
 
 ![](images/paste-17.png)
 
