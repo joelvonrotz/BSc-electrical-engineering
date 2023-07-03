@@ -2,17 +2,21 @@
 
 ## Phasenmodul
 
-Grundlage eines jeden Wechselrichters ist das Phasenmodul
+Grundlage eines jeden Wechselrichters ist das Phasenmodul.
 
 ![](images/paste-55.png)
 
-Grundsätzlich kann mit einem einzelnen Phasenmodul bereits ein Wechselrichter aufgebaut werden. Dazu ist ein Mittelabgriff an der speisenden GLeichspannungsquelle notwendig *(z.B. Trafo mit Mittelabgriff AC-Seitig)*
+Grundsätzlich kann mit einem einzelnen Phasenmodul bereits ein Wechselrichter aufgebaut werden. Dazu ist ein Mittelabgriff an der speisenden GLeichspannungsquelle notwendig *(z.B. Trafo mit Mittelabgriff AC-Seitig*).
+
+Ist $S_1$ eingeschaltet, gilt $u_a=+U_{dc}/2$. Ist $S_2$ eingeschaltet, gilt $u_a = -U_{dc}/2 \rightarrow$ Die Last sieht eine rechteckige Spannung $u_a$.
 
 ![](images/paste-56.png)
 
-Dies führt zu folgenden Kurvenverläufen
+Dies führt zu folgenden Kurvenverläufen:
 
-![](images/paste-57.png)
+![](images/wechselrichter/phasenmodul_verlauf.png)
+
+-   Zu beachten! $\rightarrow$ Sinusförmiger Verlauf von $u_L$ kommt von R-L Kombination.
 
 ## Einphaseige Brückenschaltung
 
@@ -20,7 +24,15 @@ Die einphasige Brückenschaltung hat die grösste praktische Bedeutung. Mit der 
 
 ![](images/paste-58.png)
 
-Desweiteren ist es möglich die Brückenschaltung im Dreipunktbetrieb zu betreiben, wenn nur $S_1$ und $S_3$ oder nur $S_2$ und $S_4$ eingeschalten sind. Mit $\alpha$ kann zudem die Amplitude der Grundschwingung angepasst werden.
+Desweiteren ist es möglich die Brückenschaltung im Dreipunktbetrieb zu betreiben, wenn nur $S_1$ und $S_3$ oder nur $S_2$ und $S_4$ eingeschaltet sind. Mit $\alpha$ kann zudem die Amplitude der Grundschwingung angepasst werden.
+
+::: callout-note
+## Zwei- & Dreipunktbetrieb
+
+Der *Dreipunktbetrieb* ist eine Erweiterung des *Zweipunktbetriebes*. Bei Zwei sind jeweils nur einer der diagonalen Schalter-Paare aktiv ($S_1\ \&\ S_4$ oder $S_2\ \&\ S_3$). Bei Drei existiert zusätzlich der geschlossene Kreis bei $S_1,\,S_3$ & $S_2,\,S_4$.
+
+$\rightarrow u_a=0\quad\text{falls }S_1,\,S_3\text{ oder }S_2,\,S_4$
+:::
 
 Im **Zweipunktbetrieb** $\alpha=0$ beträgt die Amplitude $\hat{U}_{a1}$ der Grundschwingung
 
@@ -34,7 +46,7 @@ $$
 \hat{U}_{a1}=\frac{4}{\pi}U_{dc}\cos\alpha
 $$
 
-In der Ausgangsspannung treten auch Oberwellen auf, und zwar alle Ungeradzahligen. Im **Zweipunktbetrieb** gilt für die $v$-te Oberwelle
+In der Ausgangsspannung treten alle [ungeradzahligen]{.underline} Oberwellen (wegen Rechteck) auf. Im **Zweipunktbetrieb** gilt für die $v$-te Oberwelle ( $1/v$ kleiner als Grundschwingung).
 
 $$
 \hat{U}_{av}=\frac{4}{\pi}U_{dc}\cdot\frac{1}{v}\qquad\text{mit }v=3,5,7,\ldots
@@ -43,10 +55,10 @@ $$
 Im **Dreipunktbetrieb** gilt für die $v$-te Oberwelle
 
 $$
-\hat{U}_{av}=\frac{4}{\pi}U_{dc}\cdot\frac{1}{v}\cos(v\alpha)\qquad\text{mit }v=3,5,7,\ldots
+\hat{U}_{av}=\frac{4}{\pi}U_{dc}\cdot\frac{1}{v}\cos(v\cdot \alpha)\qquad\text{mit }v=3,5,7,\ldots
 $$
 
-![](images/paste-59.png)
+![](images/wechselrichter/zwei_dreipunktbetrieb.png)
 
 ## Last mit Gegenspannung
 
@@ -55,3 +67,94 @@ Verfügt die Last über eine Gegenspannung *(z.B. SM)*, so verändert sich der L
 ![](images/paste-60.png)
 
 ![](images/paste-61.png)
+
+## Steuerverfahren
+
+### Grundfrequenztaktung
+
+Entspricht die Grundfrequenz der Wechselrichter-Ausgangspannung der Schaltfrequenz der Halbleiter $\rightarrow$ **Grundfrequenztaktung**
+
+### Gepulste Wechselrichter (fixe Pulsbreite)
+
+![](images/paste-62.png)
+
+Halbleiter werden während einer Ausgangsperiode mehrmals geschaltet.
+
+```{=latex}
+\begin{itemize}
+  \item[\textcolor{OliveGreen}{\faPlus}] Entstehende Oberschwingung verschieben sich zu höheren Frequenzen
+  \item[\textcolor{OliveGreen}{\faPlus}] Amplitude der Grundschwingunge der Ausgangsspannung lässt sich einstellen
+  \item[\textcolor{BrickRed}{\faMinus}] mehrmaliges Pulsen in jeder Halbwelle erhöht Schaltverluste in Halbleitern
+\end{itemize}
+```
+### Unterschwingungsverfahren (PWM)
+
+#### ein Phasenmodul
+
+Die Pulsbreiten für das Schalten der Halbleiter werden anhand eines Sollwertes und eines Trägersignals generiert.
+
+![](images/paste-63.png)
+
+```{=tex}
+\begin{itemize}
+  \item[\circled{1}] dreieckförmiges Trägersignal \& sinusförmiger Sollwert
+  \item[\circled{2}] Ausgangsspannung $u_a$ eines Phasenmoduls
+\end{itemize}
+```
+::: callout-tip
+### Brückenschaltung/Zweipunktbetrieb
+
+Eine Brückenschaltung im Zweipunktbetrieb hat den gleichen zeitlichen Verlauf wie bei einem einzelnen Phasenmodul, **ausser** dass der Scheitelwert $\pm U_{dc}$ statt $\pm\frac{U_{dc}}{2}$ beträgt.
+:::
+
+#### Dreipunktbetrieb
+
+Beide Module können das gleiche Trägersignal verwenden. Ein Phasenmodul verwendet ein invertiertes Sollwert-Signal ($\rightarrow$ damit kein Kurzschluss).
+
+![](images/paste-64.png)
+
+```{=latex}
+\begin{itemize}
+  \item[\circled{1}] dreieckförmiges Trägersignal \& sinusförmiger Sollwert
+  \item[\circled{2}] Mit $S_1$ \& $S_2$ (Phasenmodul \#1) erzeugte Ausgangsspannung
+  \item[\circled{3}] Mit $S_3$ \& $S_4$ (Phasenmodul \#2) erzeugte Ausgangsspannung
+  \item[\circled{4}] Ausgangsspannung an der Last
+\end{itemize}
+```
+Das Verhältnis zwischen der sinusförmigen Referenz-**Amplitude** (Sollwert für Ausgang) zur dreieckförmigen Trägersignal-**Amplitude** wird Aussteuerungs- oder Modulationsgrad $m$ genannt.
+
+[Brückenschaltung]{.underline}
+
+$$
+\hat{U}_{a1} = m\cdot U_{dc}\quad\text{mit}\quad m=\frac{\hat{U}_{\text{sinusförmige Referenz}}}{\hat{U}_{\text{Trägersignal}}}
+$$
+
+[Mittelpunkschaltung (Phasenmodul]{.underline} $\pm\frac{U_{dc}}{2}$[)]{.underline}
+
+$$
+\hat{U}_{a1} = m\cdot \frac{U_{dc}}{2}\quad\text{mit}\quad m=\frac{\hat{U}_{\text{sinusförmige Referenz}}}{\hat{U}_{\text{Trägersignal}}}
+$$
+
+```{=latex}
+\begin{conditions}
+  \hat{U}_{a1} & Amplitude der Grundschwingung der Wechselrichter-Ausgangsspannung
+\end{conditions}
+```
+## Toleranzbandsteuerung
+
+Neben der Grundfrequenztaktung und PWM ebenfalls eine Möglichkeit.
+
+-   Strom $i_a$ wird mit einem Toleranzband um $I_{soll}$ verglichen
+    -   Beim Verlassen des Toleranzbandes, aufgestellt um $I_{soll}$, wird die Ausgangsspannung umgeschaltet
+    -   $i_{a}>I_{up}\rightarrow$ negative Ausgangsspannung
+    -   $i_a<I_{bottom}\rightarrow$ positive Ausgangsspannung
+
+![](images/paste-65.png)
+
+## Dreiphasige Wechselrichter
+
+![](images/paste-66.png)
+
+Grundsätzlich können gleiche Verfahren wie bei einphasigem Wechselrichter verwendet werden.
+
+[Verwendung]{.underline}: bei drehzahlvariablen Antrieben eingesetzten Asynchronmaschinen.

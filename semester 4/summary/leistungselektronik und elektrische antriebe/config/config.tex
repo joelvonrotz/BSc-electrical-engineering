@@ -16,6 +16,10 @@
 \usepackage[dvipsnames]{xcolor}
 \definecolor{darkgreen}{HTML}{014f32}
 
+\usepackage{tikz}
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+  \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+
 % Icons - http://mirrors.ctan.org/fonts/fontawesome5/doc/fontawesome5.pdf
 \usepackage{fontawesome5}
 
