@@ -1,25 +1,56 @@
 # Modulation
 
-## Blockdiagramm eines Kommunikationssystems
-
 Bei einer digitale Punkt-zu-Punkt-Übertragung werden Symbole aus einem bestehenden Alphabet versendet. Ein binäres System hat ein Alphabet mit nur zwei Symbolen, ein mehrwertiges System ein Alphabet mit $M$ verschiedenen Symbolen. Der **Modulator** setzt die Symbolfolge in ein für die Übertragung geeignetes Zeitsignal um. Der **Demodulator** *schätzt* die ursprüngliche Symbolfolge.
 
 Während der Übertragung wird das Signal verzerrt und es kommt *weisses Rauschen* *(Gauss verteilte Amplituden)* zum Signal dazu.
 
 ![](images/05_SchemaUebertrager.png)
 
-## Klassische binäre Leitungscodes
+## Information
 
-Das Informationssignal als binärer Datenstrom wird als Leitungscode in einer Pulsfolge abgebildet, die der Charackteristik des Übertragungskanals angepasst ist.
+`\begin{multicols}{2}`{=latex}
 
--   *Non Return to Zero* (NRZ) Code
--   *Return to Zero* (RZ) Code
--   Bi-Phase, Manchester Code, (10-Mbit/s-Ethernet)
--   Delay Modulation (DM), Miller Code
--   Alternate Mark Inversion (AMI), modifizierter AMI-Code bei ISDN, ($S_0$-Bus)
--   High Density Bipolar (HDB-3), Telefonie, PCM30 Bündel
+Digitales Symbol, `\textcolor{NavyBlue}{Zahl}`{=latex}
 
-![](images/04_Signalverlaufe_einiger_Leitungscodes.png){fig-align="center" width="12cm"}
+$$ \{0,\ 1\} $$
+
+Bitdauer
+
+$$ T_b\ [\text{s}] $$
+
+Bitrate
+
+$$ r_b=\frac{1}{T_b}\ \left[\frac{\text{bit}}{\text{1}}\right] $$
+
+[Beispiel]{.underline}
+
+-   Binär: $T_b=T_S$
+-   2 Bit pro Symbol: $2T_b=T_S$
+-   m Bit pro Symbol: $mT_b=T_S$
+
+```{=latex}
+\vfill\null
+\columnbreak
+```
+Physikalisches Symbol, `\textcolor{NavyBlue}{Puls}`{=latex}
+
+![](images/05_basisbandmodulator_puls.png){width="5cm"}
+
+Symboldauer
+
+$$ T_s\ [\text{s}] $$
+
+Symbolrate
+
+$$ r_s = \frac{1}{T_s}\ [\text{baud}] $$
+
+[Beispiel]{.underline}
+
+-   Amplitudenstufen: $2^1=2$
+-   Amplitudenstufen: $2^2=4$
+-   Amplitudenstufen: $2^m$
+
+`\end{multicols}`{=latex}
 
 ## Basisbandmodulation
 
@@ -33,105 +64,139 @@ Wenn das Informationssignal in analoger oder digitaler Form vorliegt, werden unt
 
 ### Bandbreitenbegrenzung
 
-Eine informationstragende Pulssequenz *stellt ein Zufallssignal dar*. die mittlere normierte spektrale Leistungsdichte einer Serie von polaren Rechteckpulsen für $n$ Datenbits entspricht
+Eine **informationstragende Pulssequenz** stellt ein [Zufallssignal]{.underline} dar. Die mittlere normierte spektrale Leistungsdichte einer Serie von polaren Rechteckpulsen für $n$ Datenbits entspricht mit:
 
 $$
-G(f)=\frac{nA^2\tau^2sinc^2(f\tau)}{n\tau}=A^2\tau sinc^2(f\tau)\qquad\left[\frac{V^2}{Hz}\right]
+G(f)=\frac{n\cdot A^2\cdot \tau^2\cdot (\text{sinc}(f\cdot\tau))^2}{n\cdot\tau}=A^2\cdot\tau\cdot (sinc(f\cdot\tau))^2\qquad\left[\frac{V^2}{Hz}\right]
 $$
 
-mit Pulsamplitude $A$ und Pulsbreite $\tau$. Die Qualität ist proportional zur übertragenen AC-Signalleistung, die von der Kanalbandbreite abhängt
+```{=latex}
+\begin{conditions}
+  A & Pulsamplitude \\
+  \tau & Pulsbreite
+\end{conditions}
+```
+Die Qualität ist proportional zur übertragenen AC-Signalleistung, die von der Kanalbandbreite abhängt
 
-![](images/05_Kanalbandbreitenbegrenzung.png)
+![](images/05_Kanalbandbreitenbegrenzung.png){width="13cm"}
 
-### Basisbandmodulator
+### (binäre) Leitungscodes
 
-`\begin{multicols}{2}`{=latex}
-
-Digitales Symbol, `\textcolor{NavyBlue}{Zahl}`{=latex}
-
-$$
-\{0,\ 1\}
-$$
-
-Bitdauer
-
-$$
-T_b\ [\text{s}]
-$$
-
-Bitrate
-
-$$
-r_b=\frac{1}{T_b}\ \left[\frac{\text{bit}}{\text{1}}\right]
-$$
-
-[Beispiel]{.underline}
-
--   Binär: $T_b=T_S$
--   2 Bit pro Symbol: $2T_b=T_S$
--   m Bit pro Symbol: $mT_b=T_S$
-
-\columnbreak
-
-Physikalisches Symbol, `\textcolor{NavyBlue}{Puls}`{=latex}
-
-![](images/05_basisbandmodulator_puls.png){width="5cm"}
-
-Symboldauer
-
-$$
-T_s\ [\text{s}]
-$$
-
-Symbolrate
-
-$$
-r_s = \frac{1}{T_s}\ [\text{baud}]
-$$
-
-[Beispiel]{.underline}
-
--   Amplitudenstufen: $2^1=2$
--   Amplitudenstufen: $2^2=4$
--   Amplitudenstufen: $2^m$
-
-`\end{multicols}`{=latex}
+Das Informationssignal als binärer Datenstrom wird als Leitungscode in einer Pulsfolge abgebildet, die der Charackteristik des Übertragungskanals angepasst ist.
 
 ::: callout-note
-## Fundamentaler Zusammenhang
+### Aufgaben eines Leitungscodes
+
+-   Kanal-Ströme & -Spannungen entsprechen nicht den Werten einer normalen Logikfamilie -- Häufig höhere Werte
+-   Bittakt muss aus dem regenerierten Signal leicht erkennbar sein
+-   Keine Gleichstromkomponente
+-   Signal muss erkennbar sein, egal ob richtig oder invertiert
+-   Start eines neuen Datensatzes soll markiert sein
+:::
+
+![](images/04_Signalverlaufe_einiger_Leitungscodes.png){fig-align="center" width="12cm"}
+
+-   Non Return to Zero (NRZ)
+-   Return to Zero (RZ)
+-   Bi-Phase, Manchester Code, (10-Mbit/s-Ethernet)
+-   Delay Modulation (Miller Code)
+-   Alternate Mark Inversion (AMI)
+-   High Density Bipolar (HDB-3), Telefonie, PCM30 Bündel
+
+::: callout-important
+### Fundamentaler Zusammenhang
 
 $\text{Pulsdauer}\cdot\text{Bandbreite}\approx\text{konstant}$
 
-Es gilt also: je **kürzer** der Puls, desto **breiter** die Bandbreite
+-   Je **kürzer** der Puls, desto **breiter** die Bandbreite
+-   DC Anteil ist nicht so gut
+-   Taktinformation geht je nach Code verloren
+
+[Beispiel]{.underline}: Manchester Code hat eine grössere Bandbreite als z.B. ein NRZ-L, besitzt keinen DC-Anteil und behält die Taktinformation.
 :::
 
-## Angepasste Pulsformen
+### Pulsformen mit besseren Eigenschaften
 
-Um Pulse mit besseren spektralen Eigenschaften zu erhalten, wird der Rechteckpuls (1) angepasst. Die Optimalen spektralen Eigenschaften besitzt ein $sinc$-Puls, welcher eine Bandbreite von $T$ aufweist, jedoch einen unendlichen Puls darstellt.
+Eigenschaften 'guter' Pulsformen:
 
-Zur Entschärfung der zeitlichen Überlappungen wird der **Raised Cosine**-Puls verwendet
+-   Eine 'runde' Pulsform $\rightarrow$ eckige Amplitudenverläufe benötigt mehr Bandbreite
+-   Pulsform für ein Datenbit darf vorausgegangenen und nachfolgende Pulse nicht verfälschen $\rightarrow$ gute Detektierbarkeit
+
+::: callout-note
+### Pulsverfälschung
+
+Eine gegenseitige Pulsverfälschung wird *Inter-Symbol-Interferenc* (ISI) genannt.
+:::
 
 ![](images/05_Pulsformen.png)
 
-Der Impuls hat die Form
+`\circled{1}`{=latex} **Rechteck Impuls**
+
+Rechteckimpuls hat zwar ein grosses Spektrum, ist aber durch eine konstante *Noise Margin* über die gesamte Pulsdauer weniger empfindlich auf Synchronisationsfehler (im Vergleich zu *Sinc*).
+
+`\circled{2}`{=latex} **Sinc-Puls**
+
+Runde Form führt zu scharf begrenztem Spektrum im Frequenzbereich (Benötigt minimale Bandbreite). **Signal** entspricht **Summe von Sinc-Pulsen**.
+
+![](images/paste-22.png){width="8cm"}
 
 $$
-p(t)=A\space\text{sinc}(r_bt)\cdot\frac{\cos{(2\pi\beta t)}}{1-(4\beta t)^2}
+B_K = \frac{r_b}{2}
 $$
 
-$\beta$ hängt direkt von der Datenrate $r_b=\frac{1}{T_b}$, zur einfacheren Handhabung wird der *roll-off*-Faktor $\alpha$ in Prozent
+-   Gesamte Pulsenergie liegt innerhalb $0$ bis $r_b/2\ \text{Hz}$ $\rightarrow$ sehr gute Spektraleffizienz
+-   Jeder Sinc-Puls ist auf die Mitte der Bit-Periode $T_b=1/r_b$ zentriert
+-   Überlappt zeitlich mit anderen Pulsen
+
+::: callout-caution
+Der Sinc-Puls trägt verschiedene Probleme mit sich:
+
+\textcolor{BrickRed}{\faMinus} Nur in der Mitte jeder Bitperiode besteht keine Symbolinterferenz\
+\textcolor{BrickRed}{\faMinus} Empfänger nicht exakt synchronisiert $\rightarrow$ abgetasteter Wert von Nachbarpulsen verfälscht\
+\textcolor{BrickRed}{\faMinus} Empfindlich auf überlagertes Rauschen $\rightarrow$ *Noise Margin*
+:::
+
+`\circled{3}`{=latex} **Raised Cosine Pulse (RC-Pulse)**
+
+![](images/paste-23.png)
+
+Gedämpfter Sinc-Puls verbessert Symbolinterferenzen.
 
 $$
-\alpha=\frac{2\beta}{r_b}100\%
-$$
-
-Im Frequenzbereich beschreibt der Puls ein Spektrumsverlauf mit $\cos^2$-förmige Flanke
-
-$$
-P(f)=
-\begin{cases}
-\frac{1}{r_b}\hfill |f|\le\frac{r_b}{2}-\beta\\
-\frac{1}{r_b}\cos^2\left(\frac{\pi}{4\beta}(|f|-\frac{r_b}{2}+\beta)\right)\qquad\hfill\frac{r_b}{2}-\beta<|f|<\frac{r_b}{2}+\beta\\
-0\hfill |f|\ge\frac{r_b}{2}+\beta
+B_{Puls}=\frac{r_b}{2}+\beta\qquad \begin{cases}
+\beta=0\rightarrow \text{keine Dämpfung} \\
+\beta=r_b/2\rightarrow \textbf{maximale}\text{ Dämpfung}
 \end{cases}
 $$
+
+[Pulsform im Zeitbereich]{.underline}
+
+$$
+p(t)=A\cdot\text{sinc}(r_b\cdot t)\left[\frac{\cos(2\pi\cdot\beta \cdot t)}{1-(4\cdot\beta \cdot t)^2}\right] = A\cdot\frac{\sin(r_b\cdot t)}{r_b\cdot t}\left[\frac{\cos(2\pi\cdot\beta \cdot t)}{1-(4\cdot\beta \cdot t)^2}\right]
+$$
+
+Wertebereich von $\beta$ ist von Datenrate $r_b$ abhängig $\rightarrow$ Für bessere Handhabung wird der ***roll-off*** **Faktor** $\alpha$ verwendet
+
+$$
+\alpha = \frac{2\beta}{r_b}\cdot 100\%\quad[\%]
+$$
+
+[Pulsform im Frequenzbereich]{.underline}
+
+$$
+P(f)=\begin{cases}
+\frac1{r_b}   & \hphantom{\left(\frac{r_b}{2}-\beta\right) <\;} \lvert f\rvert\leq\left(\frac{r_b}{2}-\beta\right) \\
+\frac1{r_b}\cos^2\left[\frac{\pi}{4\beta}(\lvert f\rvert-\frac{r_b}{2}+\beta\right] & \left(\frac{r_b}{2}-\beta\right) < \lvert f\rvert < \left(\frac{r_b}{2}+\beta\right)\\
+0 & \hphantom{\left(\frac{r_b}{2}-\beta\right) <\;}\lvert f\rvert \geq \left(\frac{r_b}{2}+\beta\right)
+\end{cases}
+$$
+
+### Vergleich von Pulsformen für digitale Signale
+
+![](images/paste-24.png)
+
+### Augendiagramm
+
+![](images/paste-25.png){width="13cm"}
+
+## Basisbanddemodulation
