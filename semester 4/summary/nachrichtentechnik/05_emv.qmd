@@ -260,11 +260,8 @@ Bei Frequenzen über *300kHz* ist ein Mehrpunkt.Erdungsschema besser geeignet, d
 Will man **Erdschlaufen verhindern**, so gibt es mehrere möglichkeiten:
 
 -   Eine Seite wird *floating* betrieben
-
 -   Niederfrequente Isolation (*Kapazität*)
-
 -   Hochfrequente Isolation (*Induktivität*)
-
 -   Hochohmiger Widerstand zum verhindern einer statischen Aufladung
 
 ![](images/paste-14.png){width="455"}
@@ -366,9 +363,7 @@ Zeigt der Schirm Öffnungen *(Löcher, Geflecht, Spalt, ...)*, so hängt die Sch
 Öffnung wird mit einem kleinstmöglichen Kreis mit Durchmesser $D$ umschlossen
 
 -   $D>\frac{\lambda}{2}$ EM-Feld passiert die Schirmung ungehindert
-
 -   $D<\frac{\lambda}{2}$ Dämpfung nimmt schnell zu
-
 -   $D<\frac{\lambda}{10}$ Schildeffektivität kann wie nachfolgend abgeschätzt werden
 
 ![](images/paste-18.png){width="176"}

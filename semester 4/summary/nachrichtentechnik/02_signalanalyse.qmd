@@ -79,7 +79,6 @@ $$
 da sich die Komplexen Teile aufheben. Da das *Amplitudenspektrum* stehts den Betrag anzeigt, werden negative Werte stehts mit einer *Phasenverschiebung* um $\pi$ aufgetragen.
 
 -   Amplitudendiagramm ist *symmetrisch*
-
 -   Phasendiagramm ist *punktsymmetrisch*
 
 ![Konjugiert komplexe Zeiger und zweiseitiges Linienspektrum](images/02_AmpUndPhasenSpektrumZweiseitig.png)
@@ -183,9 +182,9 @@ $$
 
 Ist die Energie *endlich*, also $0<E<\infty$ so handelt es sich um ein **nichtperiodisches Energiesignal**.
 
-Auch Signale die vermeintlich undendlich lange andauern können endlich sein, z. B.:
+Auch Signale die vermeintlich unendlich lange andauern können endlich sein, z. B.:
 
-![](images/02_Entladekurve.png)
+![](images/02_Entladekurve.png){width="10cm"}
 
 Die Funktion wird zwar Mathematisch nie $0$, die Energie ist jedoch Endlich *(Kondensator hat nicht unendlich Energie)*.
 :::
@@ -264,7 +263,7 @@ $$
 k_{11}(\tau)=\int_{-\infty}^{\infty}{S_1(f)S_1^*(f)df}
 $$
 
-![Blockdiagramm einer Autokorrelation](images/02_Autokorrelation.png)
+![Blockdiagramm einer Autokorrelation](images/02_Autokorrelation.png){width="10cm"}
 
 Es gelten die folgenden Eigenschaften:
 
@@ -278,7 +277,7 @@ Es gelten die folgenden Eigenschaften:
 
 Der Bereich von $\tau$, in dem $k_{11}\ne 0$ ist, wird als *Kohärenzzeit* bezeichnet.
 
-![](images/02_Koh%C3%A4renzzeit.png)
+![](images/02_Koh%C3%A4renzzeit.png){width="12cm"}
 
 Die Kohärenzzeit eines sehr fluktiativen (*= grosse Bandbreite*) Signals ist sehr kurz, während diese bei einem langsamen Signal (*= kleine Bandbreite*) eher lang ist. Somit weisen Zufallssignale mit hoher Bandbreite (z.B. Rauschen) nur noch eine kleine statistische Abhängigkeit zwischen zwei Augenblicksamplituden auf. Es gilt also
 
@@ -386,7 +385,7 @@ $$
 
 abgetastet werden, ohne das es zu Spektrumsüberlappungen kommt. $m$ ist die grösste Zahl, die das Verhältnis $\frac{f_{Signal_{max}}}{B}$ nicht übersteigt.
 
-![](images/02_BandpassAbtastung.png){width="350"}
+![](images/02_BandpassAbtastung.png)
 
 Bandpass Abtastung mit $f_{Sample}=4\ (m=2)$
 

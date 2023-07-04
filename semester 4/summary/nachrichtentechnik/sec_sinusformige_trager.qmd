@@ -1,0 +1,261 @@
+## Sinusförmige Träger
+
+```{=latex}
+\begin{multicols}{2}
+```
+### Basisbandsignal
+
+Ausgehen von einem Basisbandsignal mit Form
+
+$$
+x(t)=\sum_k a_k\cdot(p(t-k\cdot T_s)
+$$
+
+erhält man das **Bandpass**signal mittels einer spektralen Verschiebung:
+
+$$
+s_{BP}(t)=\text{Re}\left[x(t)\cdot A_T\cdot e^{j\,2\pi\cdot f_0\cdot t}\right]
+$$
+
+```{=latex}
+\begin{center}\begin{tikzpicture}
+
+\node (null) at (0,0) {$0$};
+\node (startY) at (0,-0.5) {};
+\node (endY) at (0,1.75) {$S(f)$};
+\node (startX) at (-3,0) {};
+\node (endX) at (3,0) {$f$};
+
+
+\draw[white!20!black!60, line width=0.5pt,densely dashed] (-2.5,0) -- (-2.5,1) -- (-1.5,1) -- (-1.5,0);
+
+\draw [->] (startX) edge (endX);
+\draw [->] (startY) edge (endY);
+\draw[blue!80!black!60, line width=1pt] (-0.5,0) -- (-0.5,1) -- (0.5,1) -- (0.5,0);
+\draw[blue!80!black!60, line width=1pt] (1.5,0) -- (1.5,1) -- (2.5,1) -- (2.5,0);
+
+
+\node[scale=0.8,right=-1mm](offEnd)  at (2,-0.25) {$f_0$};
+\node(offStart) at (0,-0.25) {};
+\node[scale=0.8,white!20!black!60](offMirror) at (-2,-0.25) {$-f_0$};
+\draw[<->,white!20!black!60]  (offStart) edge (offMirror);
+\draw[<->]  (offStart) edge (offEnd);
+\draw[line width=0.25pt] (2,0) -- (2,-0.1);
+\draw[line width=0.25pt] (-2,0) -- (-2,-0.1);
+\end{tikzpicture}\end{center}
+
+\vfill\null
+\columnbreak
+```
+Bei komplexem Basisbandsignal...
+
+$$
+x(t) = x_I(t)+j\,x_Q(t)
+$$
+
+...folgt die Quadrantendarstellung für das reelle Bandpasssignal.
+
+$$
+s_{BP}=A_T\left[x_I(t)\cos(\omega_0t)-x_Q(t)\sin(\omega_0t)\right]
+$$
+
+**Die reellen Basisbandsignale** $x_I(t)$ **und** $x_Q(t)$ **beinhalten die zu übertragende Information**. Ausgehend von den Leistungsdichtespektren $G_I(f)$ und $G_Q(f)$, ergibt sich das zweiseitige Leistungsdichtespektrum des Bandpasssignals:
+
+$$
+G_{BP}(f)=\left(\frac{A_T}{2}\right)^2\ [G_I(f\pm f_0)+G_Q(f\pm f_0)]
+$$
+
+```{=latex}
+\end{multicols}
+\begin{conditions}
+  a_k & Pegelwert\\
+  p(t) & Basissymbol\\
+  A_T  & Trägeramplitude\\
+  f_0  & Trägerfrequenz\\
+  x_I  & \textbf{I}nphase-Komponente\\
+  x_I  & \textbf{Q}uadratur-Komponente
+\end{conditions}
+```
+### Binäre Amplitudenumtastung (*amplitude shift keying* ASK)
+
+Lässt sich durch Ein- & Ausschalten des Trägersignals erzeugen (on-off). **Information** liegt in der **Amplitude**.
+
+$$
+s_{PAM}(t)=\cdots\qquad\Rightarrow s_{ASK} = s_{PAM}(t)\cdot A_T\cos(\omega_0 t)
+$$
+
+![](images/paste-34.png){width="12cm"}
+
+### Binäre Phasenumtastung (*phase shift keying* PSK)
+
+Verwendet polare Signalisierung! **Information** liegt in der **Phase**.
+
+Das Basisband-Signal besteht aus polaren Signalen (z.B. Rechteck mit $\pm1V$ Zustände) und somit gilt für Bit 1 $A\cos(\omega_0t)$ und Bit 0 $A\cos(\omega_0t+ \pi)$
+
+$$
+s_{PAM}(t)=\cdots\qquad\Rightarrow s_{PSK} = s_{PAM}(t)\cdot A_T\cos(\omega_0 t)
+$$
+
+![](images/paste-35.png){width="11.6cm"}
+
+### Allgemeiner I/Q-Modulator (*Quadratur Amiplituden Modulation* QAM)
+
+**Nachteil** von ASK & PSK: tiefe spektrale Effizienz $\rightarrow$ doppelte Bandbreitebedarf für Bandpasssignal
+
+Quadraturmodulation ermöglicht eine doppelte spektrale Effizienz, indem die Frequenz mithilfe von zwei **orthogonalen** Trägerfrequenzen doppelt genutzt wird.
+
+-   Signal wird auf $I$ und $Q$ Teile geteilt
+-   Ein Trägersignal wird um $90^\circ$ verschoben $\rightarrow$ orthogonal, stören sich gegenseitig nicht
+
+![links: Modulator, rechts: Signalzustandsdiagramm](images/iqmodulator/iqmodulator.png){width="12cm"}
+
+### Binäre Frequenzumtastung (*Frequency Shift Keying* FSK)
+
+**FSK** ist **aufweniger** als PSK & ASK, da dieser **nicht linear** ist. Zur Signalerzeugung gibt es zwei Methoden:
+
+![](images/paste-39.png){width="12cm"}
+
+#### Frequenzumtastung (*Frequency Shift Keying* FSK)
+
+![](images/paste-40.png){width="12cm"}
+
+Die binäre FSK besteht aus zwei unterschiedlichen Frequenzen:
+
+$$
+\begin{matrix}
+1\rightarrow s_1(t) = A_T\cos[(\omega_0+\Delta\omega) t] & 0\leq t\leq T_b\\
+0\rightarrow s_0(t) = A_T\cos[(\omega_0-\Delta\omega) t] & 0\leq t\leq T_b
+\end{matrix}
+$$
+
+Diese beiden Momentanfrequenzen $f_0/f_1$ liegen zweimal den Frequenzhub $\Delta f$ auseinander. Ein Allgemeines **M**-FSK Zeitsignal besteht aus allen aufsummierten Pulse:
+
+$$
+s_{FSK} = A_T\sum_k \cos(2\pi\cdot f_k\cdot t+\varphi_k)p(t-k\cdot T_s)\qquad\rightarrow f_k = f_0+\Delta f\cdot a_k
+$$
+
+\textcolor{BrickRed}{Wichtig} Dies wird "harte" FSK genannt und hat **keine kontinuierliche Phasenfunktion**
+
+```{=latex}
+\begin{conditions}
+  \Delta f = \frac{h}{2T_s}& Frequenzhub\\
+  h & ganzzahliger Modulationsindex\\
+  f_k & Momentanfrequenz\\
+  a_k & ein Faktor ($= \pm1,\pm2,\ldots,\pm(M-1),\ M$ gerade)\\
+  M & $M$-Oszillatoren
+\end{conditions}
+```
+#### Phasenkontinuierliche FSK (*Continuous Phase FSK*)
+
+Nur ein Oszillator vorhanden $\rightarrow$ **keine *harte* Phasensprünge**.
+
+$$
+\Phi(t) = a_n\cdot h\cdot \pi\frac{(t-n\cdot T_s)}{T_s}+\underbrace{\pi\sum_{i<n}a_i}_{\Phi_n(t)}
+$$
+
+![](images/paste-41.png){width="12cm"}
+
+#### Mehrwertige FSK
+
+![4-FSK mit $m=2$](images/paste-43.png)
+
+### Demodulation / Empfang
+
+#### [Nichtkohärente Demodulation]{.underline}: Hüllkurvendetektor
+
+Angewendet bei **PSK**
+
+![](images/paste-45.png){width="12cm"}
+
+#### [Kohärente Demodulation]{.underline}: Frequenz- und phasensynchrones Referenzsignal
+
+![](images/paste-42.png){width="12cm"}
+
+#### Empfänger für Quadratur-Träger Systeme
+
+![](images/paste-44.png){width="12cm"}
+
+### Vergleich zwischen binären Umtastmodulationen
+
+![](images/paste-46.png)
+
+## Rauschanalyse
+
+[Modell für weisses Rauschen]{.underline}
+
+![](images/paste-47.png)
+
+[Thermisches Rauschen]{.underline} erfüllt das Modell über den relevanten Frequenzbereich:
+
+$$
+G_n(f)\approx 2\cdot R\cdot k\cdot T\qquad \text{für }\lvert f\rvert < 10^{12}\text{ Hz}
+$$
+
+```{=latex}
+\begin{conditions}
+  T & Temperatur in \textbf{Kelvin} $T_K = T_C + 273.15K$\\
+  k & Bolzmann Konstante $1.38\cdot 10^{-23}\ [J/K]$\\
+  R & Widerstand $[\Omega]$
+\end{conditions}
+```
+### Elektrisches Ersatzbild -- Thermisches Rauschen
+
+![](images/paste-48.png){width="12cm"}
+
+$$
+P_n = \frac{(u_n/2)^2}{R}= \frac{u_n^2}{4R} = k\cdot T\cdot B
+$$
+
+Diese abgegebene Rauschleistung $P_n$ ist unabhängig vom Widerstandswert!
+
+### Rauschzahl eines Systems
+
+Jedes Bauteil oder System fügt Rauschleistung hinzu. Dies wird mit der **Rauschzahl** beschrieben
+
+$$
+F = \frac{P_{n_intern}+g\cdot P_n}{g\cdot P_n}
+$$
+
+```{=latex}
+\begin{conditions}
+  P_n & Rauschleistung am Eingang\\
+  P_{n_intern} & Eigenrauschen\\
+  g & Verstärkungsfaktor\\
+  F & Rauschzahl
+\end{conditions}
+```
+Für eine Rauschkette gilt nach der *Formel nach Friis*:
+
+$$
+F= \frac{(P_s/P_n)_{ein}}{(P_s/P_n)_{aus}}=F_1+\frac{F_2-1}{g_1}+\frac{F_3-1}{g_1g_2}+\cdots+\frac{F_k-1}{g_1g_2\cdots g_{k-1}}
+$$
+
+![](images/paste-49.png)
+
+### Radio Noise
+
+Die Qualität einer Übertragung **hängt wesentlich vom Signal/Rausch-Leistungsverhältnis** (S/N Ratio, SNR) am Empfängereingang ab.
+
+Bei Annahme verlustloser Antenne und Kabel ergibt sich folgende Rauschleistung:
+
+$$
+p_n = f_a\cdot k\cdot T_0\cdot B
+$$
+
+Und in dB-Form bei $T_0=293 K\ \hat{=}\ 20^\circ C$:
+
+$$
+P_n = F_a + 10\cdot\log_{10}(B)-174\quad dBm
+$$
+
+```{=latex}
+\begin{conditions}
+  f_a & externer Rauschfaktor\\
+  k & Bolzmann Konstante $1.38\cdot 10^{-23}\ [J/K]$\\
+  T_0 & Referenztemperatur $293K$\\
+  B  & Empfängerbandbreite (z.B. ZF-Filterbandbreite)
+\end{conditions}
+```
+### Low Noise Amplifier
+
+![](images/paste-50.png)

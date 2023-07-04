@@ -7,9 +7,7 @@
 ![Funktionsblöcke einer Punkt-zu-Punkt-Verbindung](images/01_PunktZuPunkt.png)
 
 -   *Simplex-Verbindung*: Die Information fliesst nur von A nach B.
-
 -   *Halbduplex-Verbindung*: Es kann nur die eine oder andere Seite Informationen senden.
-
 -   *Vollduplex-Verbindung*: Informationen können einander unabhängig voneinander übermittelt werden.
 
 ![Mögliche Verbindungsarten](images/01_Verbindungsarten.png)

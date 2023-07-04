@@ -2,7 +2,7 @@
 
 Es wird hier vorallem vom LTI-Filterkanal gesprochen, und die Störungen die vom Kanal selbst kommen
 
-![](images/01_Wiedergabetreue.png)
+![](images/01_Wiedergabetreue.png){width="12cm"}
 
 Die Beschreibung der Übertragungseigenschaften erfolgt im Zeitbereich mithilfe der *Impulsantwort* $h(t)$ und im Frequenzbereich mit dem *komplexen Frequenzgang* $H(f)$. Diese werde folgendermassen ermittelt
 
@@ -42,12 +42,12 @@ In der Realität ist die Forderung für verzerrungsfreie Übertragung nur beding
 -   Amplitudenverzerrung: $\lvert H(f)\rvert\neq K$
     -   Häufig werden nur hohe oder tiefe Frequenzen beschwächt (im Beispiel: $\small x(t)=\cos(\omega t)-\frac13 \cos(3\omega t)+ \frac15\cos(5\omega t) \normalsize$)
 
-![](images/verzerrungen/amplitude.png)
+![](images/verzerrungen/amplitude.png){width="12cm"}
 
 -   Phasen- oder Laufzeitverzerrung: $\angle H(f) \neq -\omega\cdot t_d$
     -   Form des Eingangssignals kann stark verändert werden damit (Beispiel Phasenverschiebung von $90^\circ$ für jede Signalkomponente)
 
-![](images/verzerrungen/phase.png)
+![](images/verzerrungen/phase.png){width="7cm"}
 
 ### Gruppenlaufzeit und Phasenlaufzeit
 
@@ -238,7 +238,7 @@ Die unterschiedlichen Belagsgrössen sind abhängig von der Leitergeometrie
 
 ### Streuparameter bei Zweitore
 
-![](images/1280px-S-Parameter.png){width="8cm"}
+![](images/1280px-S-Parameter.png){width="6cm"}
 
 `\begin{multicols}{2}`{=latex}
 
@@ -280,7 +280,7 @@ $$
 
 Entspricht die *Lastimpedanz* $Z_L$ nicht der Leitungsimpedanz $Z_0$ so entsteht eine **Stosswelle** am Übergang. Es kommt zu einer (Teil-)Reflexion der vorlaufenden Signalwelle. Es wird eine neue rücklaufende Signalwelle erzeugt.
 
-![](images/03_Reflexion.png){width="14cm"}
+![](images/03_Reflexion.png){width="13cm"}
 
 Das Verhältnis der Vor- und Rücklaufenden Amplituden bildet den **Reflexionskoeffizient**
 
@@ -303,7 +303,7 @@ $$
 
 Der Wertebereich von $\Gamma$ liegt innerhalb des Einheitskreises der komplexen Ebene
 
-![](images/03_Reflexionskoeffizient.png){fig-align="center" width="9cm"}
+![](images/03_Reflexionskoeffizient.png){fig-align="center" width="7cm"}
 
 Die resultierende Spannung und Strom auf der Leitung ist die Überlagerung von vor- und rücklaufenden Signalwellen[^1]
 
@@ -461,18 +461,16 @@ Folgend zeigt eine "Messung" von $u_2(t)$ mit folgenden Widerstandswerten: $R_Q=
 Es gibt verschiedene Ausbreitungsarten, welche zum Teil auch vom Spektrum abhängen
 
 -   *Bodenwelle* breitet sich entlang der "Materialgrenze" Luft-Boden aus
-
 -   *Direktverbindung* (auch *Line-of-Sight* oder *free space propagation*) im nicht ionisierenden Bereich der Atmosphäre
-
 -   *Raumwelle* erfolgt durch die Reflektion am ionisierten Bereich der Atmosphäre, ab ca. **100MHz** durchdringen Wellen die Ionosphäre
 
-    ![](images/04_AusbreitungVonRadiowellen.png)
+    ![](images/04_AusbreitungVonRadiowellen.png){width="12cm"}
 
 ## Linkbudget
 
 Beim Entwurf eines Übertragungssystems interessiert primär die Leistung $P_{Rx}$ am Empfängereingang. Diese ist jedoch abhängig von den Verlusten und Gewinnen der Sender, Kabel, Antennen.
 
-![](images/04_DrahtloseUebertragung.png)
+![](images/04_DrahtloseUebertragung.png){width="12cm"}
 
 Die Leistung am Empfänger kann also erhöht werden durch...
 
