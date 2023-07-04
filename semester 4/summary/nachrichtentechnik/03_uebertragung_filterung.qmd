@@ -359,6 +359,16 @@ Die Überlagerungen führen zu einer Hüllkurve
 
 ![](images/03_H%C3%BCllkurve.png)
 
+#### Abgegebene Wirkleistung
+
+![](images/paste-53.png){width="316"}
+
+Die abgegebene Wirkleistung einer abgeschlossenen Leitung ist gegeben mit
+
+$$
+P_L=\frac{U_LI_L^*}{2}=\frac{(U_V+U_R)(I_V+I_R)^*}{2}=\frac{U_VI_V^*}{2}(1-|\Gamma|^2)
+$$
+
 $$
 P_L=P_V(1-|\Gamma|^2)
 $$ {#eq-test}
