@@ -18,7 +18,7 @@ Dies führt zu folgenden Kurvenverläufen:
 
 -   Zu beachten! $\rightarrow$ Sinusförmiger Verlauf von $u_L$ kommt von R-L Kombination.
 
-## Einphaseige Brückenschaltung
+## Einphasige Brückenschaltung
 
 Die einphasige Brückenschaltung hat die grösste praktische Bedeutung. Mit der Anordnung von zwei Phasenmodulen ist kein Mittelabgriff mehr nötig.
 

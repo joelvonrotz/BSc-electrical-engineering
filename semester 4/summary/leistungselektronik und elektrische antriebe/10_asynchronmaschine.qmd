@@ -1,11 +1,14 @@
 # Asynchronmaschine *(ASM)*
 
+Grundsätzlich besteht die *ASM* aus einem Rotor und einem Stator. Die Spannung des Rotors $U_{h2}$ ist abgreifbar, oder bei einem Käfigläufer kurzgeschlossen
+
+![](images/paste-67.png)
+
 ## Rotorspannung
 
 ![](images/motor/asm_rotorspannung.png)
 
-Stillstand: $n=0$, $s=1$, $\omega_2 = \omega_1$, $U_{h2}=\dfrac{U_{h1}}{\ddot{u}}$
-Synchrondrehzahl: $n=n_{syn}$, $s=0$, $\omega_2 = 0$, $U_{h2}=0$
+Stillstand: $n=0$, $s=1$, $\omega_2 = \omega_1$, $U_{h2}=\dfrac{U_{h1}}{\ddot{u}}$ Synchrondrehzahl: $n=n_{syn}$, $s=0$, $\omega_2 = 0$, $U_{h2}=0$
 
 ```{=latex}
 \begin{conditions}
@@ -16,6 +19,29 @@ Synchrondrehzahl: $n=n_{syn}$, $s=0$, $\omega_2 = 0$, $U_{h2}=0$
   s & Schlupf
 \end{conditions}
 ```
+## Betriebsarten
+
+**Motorbetrieb**
+
+$$
+0<s<1\qquad 0<n<n_{syn} \qquad P_\delta>0
+$$
+
+$$
+0<P_{mech}<P_\delta\qquad 0<P_2<P_\delta
+$$
+
+**Generatorbetrieb**
+
+$$ s<0\qquad n>n_{syn} \qquad P_\delta<0 $$
+
+$$ P_{mech}<0\qquad P_2>0 $$
+
+**Gegenlauf (Bremsbetrieb)**
+
+$$ s>1\qquad n<0 \qquad P_\delta>0 $$
+
+$$ P_{mech}<0\qquad P_2>0 $$
 
 ![](images/motor/asm_betriebsarten.png)
 
@@ -40,7 +66,7 @@ $$
 [Schlupf]{.underline}
 
 $$
-s = \frac{n_{syn}-n}{n_{syn}} = \frac{\omega_{syn}-\omega_{mech}}{\omega_{syn}} = \frac{\omega_1-p\cdot\omega_{mech}}{\omega_{syn}} = \frac{\omega_2}{\omega_1}
+s = \frac{n_{syn}-n}{n_{syn}} = \frac{\omega_{syn}-\omega_{mech}}{\omega_{syn}} = \frac{\omega_1-p\cdot\omega_{mech}}{\omega_{1}} = \frac{\omega_2}{\omega_1}
 $$
 
 $$
@@ -56,8 +82,25 @@ $$
   s & Schlupf
 \end{conditions}
 ```
+## Ströme
+
+Die ASM verhält sich wie ein Transformator, bei dem sich Statorstrom $I_1$ und Rotorstrom $I_2$ kompensieren.
+
+![](images/paste-68.png){width="232"}
+
+$$
+I_1=\frac{1}{\ddot{u}}I_2\qquad I_2=\ddot{u}I_1
+$$
 
 ## Leistungen
+
+Für die Leistung wird angenommen, dass der Rotor mit einem ohm'schen Widerstand abgeschlossen ist. Dies gilt auch für den Kurzschlussläufer, bei dem nur der Wicklungswiderstand der Rotorwicklung vorhanden ist.
+
+![](images/paste-69.png){width="270"}
+
+### Verlustfrei
+
+*Belastung mit* $R_2$*,* $I_2$ *und* $U_{h2}$ *in Phase*
 
 $$
 P_2 = 3\cdot U_{h2}\cdot I_2
@@ -67,6 +110,230 @@ $$
 P_1 = 3\cdot U_{h2}\cdot I_2
 $$
 
+### Verlustbehaftet
+
+![](images/paste-71.png)
+
+```{=tex}
+\begin{conditions}
+    P_1        & Elektrische Eingangsleistung \\
+    P_{V_1}    & Verlustleistung Stator \\
+    P_{V_{Fe}} & Magnetisierungsverluste \\
+    P_{V_2}    & Verlustleistung Rotor \\
+    P_\delta   & Luftspaltleistung \\
+    P_{mech}   & Mechanische Leistung
+\end{conditions}
+```
+Die Luftspaltleistung ist definiert über
+
+$$
+P_\delta=P_1-3R_1I_1^2-P_{Fe}
 $$
 
 $$
+P_\delta=P_2+P_{mech}
+$$
+
+Die Rotorleistung entspricht
+
+$$
+P_2=3U_{h2}I_2=3sU_{h1}I_1=sP_\delta
+$$
+
+Die Mechanische Leistung entspricht
+
+$$
+P_{mech}=P_\delta-P_2=(1-s)P_\delta
+$$
+
+## Wirkungsgrad
+
+### Motorbetrieb $0<s<1$
+
+$$
+\eta=\frac{P_{mech}}{P_1}<\frac{P_{mech}}{P_\delta}=1-s
+$$
+
+### Generatorbetrieb $s<0$
+
+$$
+\eta=\frac{P_1}{P_{mech}}<\frac{P_\delta}{P_{mech}}=\frac{1}{1-s}
+$$
+
+## Ersatzschaltung
+
+![](images/paste-69.png){width="280"}
+
+Es gilt mit $\ddot{u}$ das Übersetzungsverhältnis
+
+$$
+U_{h2}=s\frac{U_{h1}}{\ddot{u}}=sU_{h20}
+$$
+
+wobei $U_{h20}$ die Rotorspannung im Stillstand bei $s=1$ ist
+
+$$
+I_1=\frac{1}{\ddot{u}}I_2=\frac{1}{\ddot{u}}\frac{U_{h2}}{R_2}
+$$
+
+### Läuferwiderstand $R_S$
+
+Statt mit einer schlupfabhängigen Sekundärspannung und -frequenz zu arbeiten, kann im Ersatzschema ein Laufwiderstand $R_S=R_2\frac{1-s}{s}$ eingeführt werden, der von $s$ abhängig ist. So ergibt sich der Ausgangswiderstand
+
+$$
+R_2+R_S=\frac{R_2}{s}
+$$
+
+![](images/paste-70.png){width="276"}
+
+So ergibt sich
+
+$$
+U_{h20}=\frac{U_1}{\ddot{u}}
+$$
+
+$$
+I_2=\frac{U_1}{\ddot{u}R_s}=\frac{U_1s}{\ddot{u}R_2}
+$$
+
+### Berücksichtigung der Streu- und Hauptimpedanzen
+
+Unter Berücksichtigung aller Impedanzen ergibt sich das Ersatzschaltbild des Trafos
+
+![](images/paste-72.png)
+
+Mit
+
+$$
+\underline{U}_2^`=\ddot{u}\underline{U}_2 \qquad R_2^`=\ddot{u}^2R_2 \qquad L_{\sigma2}^`=\ddot{u}^2L_{\sigma2}
+$$
+
+$$
+\underline{I}_2^`=\frac{\underline{I}_2}{\ddot{u}} \qquad R_s^`=\ddot{u}R_s
+$$
+
+Bei der Kurzschlussläufer ASM wird der Apastroph als Markierung oft weggelassen, da der Rotor nicht zugänglich ist und so zur Auslegung des Antriebs unwesentlich ist, welches Übersetzungsverhältnis vorliegt.
+
+Die Spannung $U_2=\frac{U_2^`}{\ddot{u}}$ ist die an den Rotorklemmen anliegende Spannung. Beim kurzgeschlossenen Rotor ist sie $0$. Gegebenenfalls wird hier ein externer Rotorwiderstand angeschlossen. Zur Berechnung von $R_s$ muss für $R_2$ die Summe von sekundären Wicklungeswiderstand und externem Rotorwiderstand eingesetzt werden.
+
+Bei kurzgeschlossenem Rotor, kann die Maschine als Transformator betrachtet werden, der durch einen ohm'schen Widerstand belastet ist. Dieser Laufwiderstand entspricht gerade dem Ersatzwiderstand für die mechanische Leistung an der Welle. Ein externer Rotorwiderstand wird zum Wicklungswiderstand der Sekundärwicklung dazugerechnet.
+
+So präsentiert sich das typische Ersatzschaltbild als einphasiges T-Ersatzschaltbild
+
+![](images/paste-73.png)
+
+Beim Kurzschlussläufer ist die Spannung $U_2$ natürlich null
+
+![](images/paste-74.png)
+
+## Drehmoment
+
+$$
+M_{el}=\frac{P_{mech}}{\omega_{mech}}=\frac{P_\delta}{\omega_{D1}}=\frac{P_\delta \cdot p}{\omega_1}
+$$
+
+::: callout-important
+## Verfügbares Drehmoment
+
+Um das Stationär an der Welle verfügbare Drehmoment $M_{mech}$ zu erhalten, müssen noch die mechanischen Reibungsverluste $M_{V_{reib}}$ abgezogen werden.
+:::
+
+Unter Berücksichtigung der Statordaten ergibt sich
+
+$$
+M_{el}=\frac{3p}{\omega_1}\cdot\frac{U_1^2}{\left(R_1+\frac{R_2^`}{s}\right)^2+(\omega_1 L_{1\sigma}+\omega_1L_{2\sigma}^`)^2}\cdot\frac{R_2^`}{s}
+$$
+
+Es ergibt sich folgender Verlauf des Drehmoments
+
+![](images/paste-75.png)
+
+Im linearen Bereich ( $s$ klein) ist der Verlauf annähernd linear
+
+$$
+M_{el}\cong\frac{3p}{\omega_1}\frac{U_1^2}{R_2^`}s
+$$
+
+Der **Kippschlupf** ist definiert durch
+
+$$
+s_k=\frac{R_2^`}{\sqrt{R_1^2+(\omega_1L_{1\sigma}+\omega_1L_{2\sigma}^`)^2}}
+$$
+
+Unter Vernachlässigung des Statorwiderstandes $R_1$ wird der Kippschlupf zu
+
+$$
+s_k=\frac{R_2^`}{\omega_1(L_{1\sigma}+L_{2\sigma}^`)}
+$$
+
+Das **Kippmoment** erhält man mit
+
+$$
+M_k=\frac{3p}{2\omega_1}\frac{U_1^2}{R_1+\omega_1L_{1\sigma}+\omega_1L_{2\sigma}^`}
+$$
+
+Unter Vernachlässigung des Statorwiderstandes $R_1$ erhält man
+
+$$
+M_k=\frac{3p}{2(L_{1\sigma}+L_{2\sigma}^`)}\frac{U_1^2}{\omega_1^2}
+$$
+
+::: callout-note
+## Kloss'sche Gleichung
+
+Durch Kippmoment und Kippschlupf läss sich das Drehmoment für jeden Schlupf berechnen
+
+$$
+\frac{M_{el}}{M_k}=\frac{2}{\frac{s}{s_k}+\frac{s_k}{s}}
+$$
+:::
+
+## Variation der Drehzahl
+
+### Variation von $R_2$
+
+![](images/paste-76.png){width="267"}
+
+Aus der Formel für den Kippschlupf ist ersichtlich, dass $R_2$ einen erheblichen Einfluss hat
+
+![](images/paste-77.png)
+
+### Variable Statorspannung $U_1$
+
+Die Synchrondrehzahl und der Kippschlupf bleiben dabei unverändert. Lediglich das Moment ändert mit $U_1^2$. Diese Variante eignet sich demzufolge nur zum Hochfahren der Maschine bei wenig Last oder für kleine Drehzahlanpassungen im Bereich der Nenndrehzahl, aber nicht zum Betrieb in einem weiteren Drehzahlbereich.
+
+![](images/paste-78.png)
+
+::: callout-tip
+## Verringerter Anlaufstrom
+
+Zur Verringerung des Anlaufstromes ist es möglich, den Motor in Sternschaltung anlaufen zu lassen und danach auf Dreieck umzuschalten. Dabei werden beim Anfahren die Leistung und das Drehmoment auf $\frac13$ verringert.
+:::
+
+### Variable Statorfrequenz
+
+Wird die Statorfrequnez verändert, variiert die Synchrondrehzahl. Die Maschine kann mit kleinem $R_2$ und kleinem Schlupf, das heisst mit gutem Wirkungsgrad betrieben werden.
+
+Um die Maschine im Nennfluss zu betreiben, muss die Spannung der Frequenz angepasst werden: $\frac{U_1}{\omega_1}=\text{konstant}$
+
+![](images/paste-79.png)
+
+### Umschaltbare Polpaarzahl *(Dahlander Maschine)*
+
+Wird heute kaum angewendet. Es ist jedoch die einzige Möglichkeit um bei kleiner Drehzahl die colle Maschinenleistung, das heisst ein entsprechend grösseres Moment zu erhalten.
+
+![](images/paste-80.png)
+
+# Stromortskurve
+
+Nach der Ersatzschaltung der Kurzschlussläufer-ASM ist der Statorstrom $I_1$ bei konstanter Statorspannung $U_1$ eine Funktion des Schlupfes $s$. Für den komplexen Statorstromzeiger gilt:
+
+$$
+\underline{I}_1=\frac{\underline{U}_1}{R_1+j\omega_1L_{1\sigma}+\frac{1}{\frac{1}{j\omega_1L_h}+\frac{1}{\frac{R_2^`}{s}+j\omega_1L_{\sigma2}^`}}}
+$$
+
+Geplottet ergibt sich
+
+![](images/paste-81.png)
+
+Im Stillstand ist die Wirkleistungsaufnahme grösser als im Nennarbeitspunkt. Trotzdem wird die Maschine im Stillstand *(blockiert)* heiss, da $P_{mech}=M\cdot\omega_{mech}$. Es geht also keine Wirkleistung in mechanische Leistung über.
