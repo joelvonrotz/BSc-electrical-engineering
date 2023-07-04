@@ -81,8 +81,8 @@ $P_x$, $P_y$ werden als Effektivwerte angegeben. Können nicht beide Leistungen 
 |-------------------|----------------------------------|-------------------|
 | $P_{Ref}=1mW$              | $P_{dB}=10\space\log_{10}\left(\frac{P}{1mW}\right)$                                                | $dBm$               |
 | $P_{Ref}=1W$               | $P_{dB}=10\space\log_{10}\left(\frac{P}{1W}\right)$                                                 | $dBW$               |
-| $U_{Ref}=1V$               | $U_{dB}=20\space\log_{10}\left(\frac{P}{1V}\right)+10\space\log_{10}\left(\frac{R_{Ref}}{R}\right)$ | $dBV$               |
-| $E_{Ref}=1\frac{\mu V}{m}$ | $E_{dB}=20\space\log_{10}\left(\frac{P}{1\frac{\mu V}{m}}\right)$                                   | $dB\frac{\mu V}{m}$ |
+| $U_{Ref}=1V$               | $U_{dB}=20\space\log_{10}\left(\frac{U}{1V}\right)+10\space\log_{10}\left(\frac{R_{Ref}}{R}\right)$ | $dBV$               |
+| $E_{Ref}=1\frac{\mu V}{m}$ | $E_{dB}=20\space\log_{10}\left(\frac{E}{1\frac{\mu V}{m}}\right)$                                   | $dB\frac{\mu V}{m}$ |
 
 ## Filtersysteme
 
@@ -461,7 +461,9 @@ Folgend zeigt eine "Messung" von $u_2(t)$ mit folgenden Widerstandswerten: $R_Q=
 Es gibt verschiedene Ausbreitungsarten, welche zum Teil auch vom Spektrum abhängen
 
 -   *Bodenwelle* breitet sich entlang der "Materialgrenze" Luft-Boden aus
+
 -   *Direktverbindung* (auch *Line-of-Sight* oder *free space propagation*) im nicht ionisierenden Bereich der Atmosphäre
+
 -   *Raumwelle* erfolgt durch die Reflektion am ionisierten Bereich der Atmosphäre, ab ca. **100MHz** durchdringen Wellen die Ionosphäre
 
     ![](images/04_AusbreitungVonRadiowellen.png){width="12cm"}
