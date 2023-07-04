@@ -178,7 +178,7 @@ $$
 [Pulsform im Zeitbereich]{.underline}
 
 $$
-p(t)=A\cdot\text{sinc}(r_b\cdot t)\left[\frac{\cos(2\pi\cdot\beta \cdot t)}{1-(4\cdot\beta \cdot t)^2}\right] = A\cdot\frac{\sin(r_b\cdot t)}{r_b\cdot t}\left[\frac{\cos(2\pi\cdot\beta \cdot t)}{1-(4\cdot\beta \cdot t)^2}\right]
+p(t)=A\cdot\text{sinc}(r_b\cdot t)\left[\frac{\cos(2\pi\cdot\beta \cdot t)}{1-(4\cdot\beta \cdot t)^2}\right] = A\cdot\frac{\sin(\textcolor{BurntOrange}{\pi}\cdot r_b\cdot t)}{\textcolor{BurntOrange}{\pi}\cdot r_b\cdot t}\left[\frac{\cos(2\pi\cdot\beta \cdot t)}{1-(4\cdot\beta \cdot t)^2}\right]
 $$
 
 Wertebereich von $\beta$ ist von Datenrate $r_b$ abhängig $\rightarrow$ Für bessere Handhabung wird der ***roll-off*** **Faktor** $\alpha$ verwendet
