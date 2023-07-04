@@ -1,6 +1,12 @@
-# Modulation
+# Modulation & Demodulation
 
-Bei einer digitale Punkt-zu-Punkt-Übertragung werden Symbole aus einem bestehenden Alphabet versendet. Ein binäres System hat ein Alphabet mit nur zwei Symbolen, ein mehrwertiges System ein Alphabet mit $M$ verschiedenen Symbolen. Der **Modulator** setzt die Symbolfolge in ein für die Übertragung geeignetes Zeitsignal um. Der **Demodulator** *schätzt* die ursprüngliche Symbolfolge.
+Bei einer digitale Punkt-zu-Punkt-Übertragung werden Symbole aus einem bestehenden Alphabet versendet. Ein binäres System hat ein Alphabet mit nur zwei Symbolen, ein mehrwertiges System ein Alphabet mit $M$ verschiedenen Symbolen.
+
+::: callout-note
+## Modulation & Demodulation
+
+Der **Modulator** setzt die Symbolfolge in ein für die Übertragung geeignetes Zeitsignal um. Der **Demodulator** *schätzt* die ursprüngliche Symbolfolge.
+:::
 
 Während der Übertragung wird das Signal verzerrt und es kommt *weisses Rauschen* *(Gauss verteilte Amplituden)* zum Signal dazu.
 
@@ -200,3 +206,297 @@ $$
 ![](images/paste-25.png){width="13cm"}
 
 ## Basisbanddemodulation
+
+### Einfacher binärer Empfänger
+
+![](images/paste-26.png){width="12cm"}
+
+```{=latex}
+\begin{conditions}
+  s(t)      & ursprünglich ausgesendetes Symbol für das Datenbit $a_k$\\
+  n(t)      & Gauss'sches Rauschen mit $G_n(f) = N_0/2$ und mittelwertfrei\\
+  r(t)      & Empfangssignal am Eingang des Empfängers\\
+  z(t)      & Signal am Eingang des Abtasters\\
+  z_k       & Abgetastetes Signal am Eingang des Entscheiders\\
+  \hat{a}_k & Geschätztes Symbol (Bit) am Ausgang des Entscheiders
+\end{conditions}
+```
+#### Rauschmodell
+
+Das modellierte Rauschen am Eingang des Empfängers sei **weisses Rauscehn**. Die Amplitude ist Gauss verteilt und mittelwertfrei.
+
+$$
+p(n)=\frac1{\sqrt{2\pi\sigma^2}}\cdot e^{-\frac{n^2}{2\sigma^2}}
+$$
+
+```{=latex}
+\begin{conditions}
+  \sigma^2 & Varianz (mittlere Rauschleistung $E[n^2(t)]$)\\
+  n        & Amplitude des Rauschens\\
+  p(n)     & Wahrscheinlichkeitsdichtefunktion
+\end{conditions}
+```
+#### Rauschen am Ausgang des Empfangsfilters ($z(t)$)
+
+Tiefpassfilter besitzt Grenzfrequenz $f_g$, welche der Bandbreite des übertragenen Signals entspricht. Da der Filter linear ist, wird die gauss'sche Form von $n$ in $n_0$ erhalten.
+
+Leistungsdichtespektrum des Rauschen ändert sich jedoch:
+
+$$
+G_{n_0}(f)=G_n(f)\cdot \lvert H(f)\rvert^2
+$$
+
+$$
+E[n_0^2(t)] = N_0B_n=\sigma_0^2
+$$
+
+#### Rauschen am Ausgang des Abtasters ($z_k$)
+
+$$
+p(n_0)=\frac1{\sqrt{2\pi\sigma_0^2}}\cdot e^{-\frac{n_0^2}{2\sigma_0^2}}
+$$
+
+```{=latex}
+\begin{conditions}
+  \sigma_0^2 & Varianz am Ausgang des Abtasters ($z_k$
+\end{conditions}
+```
+### Q-Funktion
+
+Die Wahrscheinlichkeit, dass eine Gauss verteilte Zufallsvariable mit dem Mittelwert m und der Varianz $\sigma^2$ einen beobachteten Wert grösser als ( $m + \sigma\cdot k$) annimmt, ist mit der Q-Funktion gegeben:
+
+$$
+Q(k)=\frac1{\sqrt{2\pi}}\int_k^\infty e^{-\frac12\lambda^2}\ d\lambda
+$$
+
+Somit gilt die Wahrscheinlichkeit am Eingang des Entscheiders:
+
+$$
+P[z_k>(m+\sigma_0k)]=Q(k)
+$$
+
+Folgende Tabelle gibt numerische Werte für $Q(k)$ an. Für $k>3$ kann eine Näherung angewendet werden (Fehler der Näherung $<6\%$)
+
+$$
+Q(k)\approx\frac{e^{-\frac{k^2}{2}}}{k\sqrt{2\pi}}
+$$
+
+![](images/paste-29.png)
+
+### Mittlere Bitfehlerwahrscheinlichkeit $P_b$
+
+*Noise Margin* reicht nicht mehr alleine aus $\rightarrow$ daher **mittlere Bitfehlerwahrscheinlichkeit**. $P_b$ beschreibt, wie wahrscheinlich eine **fehlerhafte Schätzung** ist:
+
+$$
+P_b=P[b]\cdot P[(\hat{a}_k=a)\,|\,b\,]+P[a]\cdot P[(\hat{a}_k=b)\,|\,a\,]=\underbrace{P[b]\cdot Q\left(\frac{b-V_{ref}}{\sigma_0}\right) + P[a]\cdot Q\left(\frac{V_{ref}-a}{\sigma_0}\right)}_{\text{einfacher Empfänger}}
+$$
+
+```{=latex}
+\begin{conditions}
+  P_b & mittlere Bitfehlerwahrscheinlichkeit \\
+  P[a],P[b] & Wahrscheinlichkeiten der Symbolwerte $a$ und $b$\\
+  \hat{a}_k & geschätztes Symbol\\
+  P[x\vert y] & '\textit{x entschieden, obwohl y gesendet wurde}' (bedingte Wahrsch.)
+\end{conditions}
+```
+#### Fall $P[a\vert b]$
+
+`\begin{multicols}{2}`{=latex}
+
+> $a$ wurde entschieden, obwohl $b$ gesendet wurde
+
+$$
+P[a\vert b]=Q\left(\frac{b-V_{ref}}{\sigma_0^2}\right)=Q(k)
+$$
+
+```{=latex}
+\vfill\null
+\columnbreak
+```
+![](images/paste-27.png){width="6cm"}
+
+`\end{multicols}`{=latex}
+
+#### Fall $P[b\vert a]$
+
+`\begin{multicols}{2}`{=latex}
+
+> $b$ wurde entschieden, obwohl $a$ gesendet wurde
+
+$$
+P[a\vert b]=Q\left(\frac{a-V_{ref}}{\sigma_0}\right)=Q(k)
+$$
+
+```{=latex}
+\vfill\null
+\columnbreak
+```
+![](images/paste-28.png){width="6.5cm"}
+
+`\end{multicols}`{=latex}
+
+#### Gleiche Häufigkeit für $a$ und $b$
+
+$$
+P_b=Q\left(\frac{b-a}{2\sigma_0}\right)=Q\underbrace{\left(\sqrt{\frac{S}{\sigma_0^2}}\right)}_{S=((b-a)/2)^2}
+$$
+
+### Optimale Empfänger
+
+Verbesserte Empfänger basieren entscheid auf **Signalenergie übder die Symboldauer** $\rightarrow$ Unabhängigkeit von Amplitude des Pulses.
+
+Folgend sind zwei Arten von optimalen Empfänger: der Korrelator Empfänger (Kreuzkorrelation zwischen Empfangssignal und ursprüngliches Signal) & der *Matched Filter* Empfänger (Form des Sendepuls ist bekannt).
+
+![](images/paste-32.png)
+
+### Signalzustandsdiagramm für binäre Signale
+
+Die drei Signalvarianten (*polar*, *orthogonal* und *on-off*) können geometrisch dargestellt werden,
+
+![](images/paste-33.png)
+
+Die *normierte Distanz* $d_{min}$ und die daraus folgende Bitfehlerwahrscheinlichkeit $P_b$ sind gegeben durch:
+
+$$
+d_{min}=\frac{D_{min}}{\sqrt{2\cdot E_b}} \qquad P_b = Q\left(\sqrt{d_{min}^2\cdot\frac{E_b}{N_0}}\right)
+$$
+
+
+```{=latex}
+\begin{conditions}
+  E_s & mittlere Symbolenergie $[\text{Joule}]$\\
+  N_0 & Rauschleistungsdichte $[\text{W}/\text{Hz}]$
+\end{conditions}
+```
+
+```{=latex}
+\begin{multicols}{3}
+```
+#### Orthogonal
+
+```{=latex}
+\begin{center}\begin{tikzpicture}[scale=0.9]
+\fill[white]  (-0.5,1.75) rectangle (5.25,-1.25);
+
+\node (null2) at (3,0) {$0$};
+\node (startY2) at (3,-1.25) {};
+\node (endY2) at (3,1.5) {$\frac{s_2(t)}{V}$};
+\node (startX2) at (2.5,0) {};
+\node (endX2) at (5,0) {$\frac{t}{s}$};
+\draw [->] (startX2) edge (endX2);
+\draw [->] (startY2) edge (endY2);
+
+\node (null) at (0,0) {$0$};
+\node (startY) at (0,-0.5) {};
+\node (endY) at (0,1.5) {$\frac{s_1(t)}{V}$};
+\node (startX) at (-0.5,0) {};
+\node (endX) at (2,0) {$\frac{t}{s}$};
+\draw [->] (startX) edge (endX);
+\draw [->] (startY) edge (endY);
+\draw[blue!80!black!60, line width=1pt] (0,0) -- (0,1) node[left,black,scale=0.7] {$A$} -- (1.5,1) -- (1.5,0) node[below,black,scale=0.7] {$T_s$};
+
+\draw[blue!80!black!60, line width=1pt] (null2.center) -- (3,1) node[left,black,scale=0.7] {$A$} -- (3.75,1) -- (3.75,-1) -- (4.5,-1) -- (4.5,0) node[above,black,scale=0.7] {$T_s$};
+\node[left,scale=0.7] at (3,-1) {$-A$};
+\end{tikzpicture}\end{center}
+```
+$$
+P_b = Q\left(\sqrt{\frac{E_b}{N_0}}\right)
+$$
+
+Das Verhältnis $E_b/N_0$ stellt das Signal/Rausch-Verhältnis am Eingang des Empfängers dar.
+
+```{=latex}
+\vfill\null
+\columnbreak
+```
+
+#### Bipolar
+
+```{=latex}
+\begin{center}\begin{tikzpicture}[scale=0.9]
+\fill[white]  (-0.5,1.75) rectangle (5.25,-1.25);
+
+\node (null2) at (3,1) {$0$};
+\node (startY2) at (3,-0.5) {};
+\node (endY2) at (3,1.75) {$\frac{s_2(t)}{V}$};
+\node (startX2) at (2.5,1) {};
+\node (endX2) at (5,1) {$\frac{t}{s}$};
+\draw [->] (startX2) edge (endX2);
+\draw [->] (startY2) edge (endY2);
+
+\node (null) at (0,0) {$0$};
+\node (startY) at (0,-0.5) {};
+\node (endY) at (0,1.75) {$\frac{s_1(t)}{V}$};
+\node (startX) at (-0.5,0) {};
+\node (endX) at (2,0) {$\frac{t}{s}$};
+\draw [->] (startX) edge (endX);
+\draw [->] (startY) edge (endY);
+\draw[blue!80!black!60, line width=1pt] (0,0) -- (0,1) node[left,black,scale=0.7] {$A$} -- (1.5,1) -- (1.5,0) node[below,black,scale=0.7] {$T_s$};
+
+\draw[blue!80!black!60, line width=1pt] (null2.center) -- (3,0) node[left,black,scale=0.7] {$-A$} -- (4.5,0)  -- (4.5,1) node[above,black,scale=0.7] {$T_s$};
+\end{tikzpicture}\end{center}
+```
+
+$$
+P_b = Q\left(\sqrt{\frac{2E_b}{N_0}}\right)
+$$
+
+**Bessere** Performance als bei orthogonalen Signalen
+
+```{=latex}
+\vfill\null
+\columnbreak
+```
+
+#### On-Off
+
+```{=latex}
+\begin{center}
+\begin{tikzpicture}[scale=0.9]
+\fill[white]  (-0.5,1.75) rectangle (5.25,-1.25);
+
+\node (null2) at (3,0.5) {$0$};
+\node (startY2) at (3,-1) {};
+\node (endY2) at (3,1.25) {$\frac{s_2(t)}{V}$};
+\node (startX2) at (2.5,0.5) {};
+\node (endX2) at (5,0.5) {$\frac{t}{s}$};
+\draw [->] (startX2) edge (endX2);
+\draw [->] (startY2) edge (endY2);
+
+\node (null) at (0,-0.5) {$0$};
+\node (startY) at (0,-1) {};
+\node (endY) at (0,1.25) {$\frac{s_1(t)}{V}$};
+\node (startX) at (-0.5,-0.5) {};
+\node (endX) at (2,-0.5) {$\frac{t}{s}$};
+\draw [->] (startX) edge (endX);
+\draw [->] (startY) edge (endY);
+\draw[blue!80!black!60, line width=1pt] (0,-0.5) -- (0,0.5) node[left,black,scale=0.7] {$A$} -- (1.5,0.5) -- (1.5,-0.5) node[below,black,scale=0.7] {$T_s$};
+
+\draw[blue!80!black!60, line width=1pt] (null2.center) -- (3,-0.5) node[left,black,scale=0.7] {$-A$} -- (4.5,-0.5)  -- (4.5,0.5) node[above,black,scale=0.7] {$T_s$};
+\end{tikzpicture}
+\end{center}
+```
+$$
+P_b = Q\left(\sqrt{\frac{E_b}{2N_0}}\right)
+$$
+
+**Schlechtere** Performance als bei orthogonalen Signalen
+
+```{=latex}
+\vfill\null
+\end{multicols}
+```
+### Signal to Noise Power Ratio (SNR)
+
+$$
+SNR = \frac1{T_s\cdot B}\cdot \frac{E_s}{N_0}
+$$
+
+```{=latex}
+\begin{conditions}
+  T_s & Symboldauer\\
+  B & Filterbandbreite\\
+  E_s & mittlere Energie im Symbol\\
+  N_0 & Rauschleistungsdichte im Kanal
+\end{conditions}
+```
