@@ -46,6 +46,8 @@ highlight-style: github
 
 {{< pagebreak >}}
 
+![](images/7rgf68.jpg){width="10cm"}
+
 {{< include 01_einführung.qmd >}}
 
 {{< pagebreak >}}
