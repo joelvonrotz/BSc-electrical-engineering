@@ -1,1 +1,159 @@
 # Umrichter
+
+## Umrichter Typen
+
+### Umrichter mit Spannungszwischenkreis / U-Umrichter
+
+::: {.callout-important appearance="minimal"}
+**NUR FÜR LEA RELEVANT**, andere Umrichter nicht so wichtig
+:::
+
+Zwischen beiden Seiten wird zur Entkopplung ein Kondensator eingesetzt, welcher die Gleichspannung glättet.
+
+![Umkehrgleichrichter](images/paste-85.png)
+
+Mit Thyristoren kann die Zwischenspannung eingestellt werden -- Dioden geben eine fixe Spannung vor. Die Verwendung einer antiparallelen Thyristorbrückenschaltung (Bild oben links) erlaubt die Rückspeisung ins Netz.
+
+![Blockdiagramm eines U-Umrichters](images/paste-83.png)
+
+### Umrichter mit Stromzwischenkreis / I-Umrichter
+
+I-Umrichter werden meist in Kombination mit zwei Thyristorstromrichtern zur Speisung eines Synchronmotors eingesetzt.
+
+$\Rightarrow$ sehr hohe Leistungsgrenze $\rightarrow$ Schalten von hohen Leistungen möglich
+
+![I-Umrichter mit SM (Stromrichter-Synchronmotor)](images/paste-84.png)
+
+### Direkt Umrichter
+
+Haben keinen Energiespeicher für die Entkopplung $\rightarrow$ diese Art von Umrichter werden weniger eingesetzt.
+
+## Grundbegriffe
+
+### Frequenzumrichter
+
+Ein Frequenzumrichter (FU) besteht aus drei Hauptbaugruppen: \circled{1} maschinenseitiger Stromrichter (SR), \circled{2} netzseitiger Stromrichter und \circled{3} Zwischenkreis (ZK ; hauptsächlich ein Kondensator).
+
+![](images/paste-87.png){width="8cm" height="3.7cm"}
+
+::: callout-important
+#### Wahl der Technologie
+
+Die Wahl der Technolige des **netzseitigen Stromrichters** bestimmt der schlussendliche Funktionsumfang (z.B. Rückspeisefähigkeit) und Eigenschaften (Harmonische, $\cos\varphi$).
+:::
+
+### Rückspeisefähigkeit
+
+![](images/paste-86.png)
+
+[Nutzung wo viel gebremst wird]{.underline}: Fahrzeugen (Strasse & Bahn), Seilbahnen, Kranen (Senken der Last), Aufzügen, schnell abgebremsten Zentrifugen, Prüfstände (bremsende Belastungsmaschine)
+
+::: callout-caution
+#### Nachteile
+
+Rückspeisefähige Umrichter **kosten mehr** und haben **geringfügig höhere Verluste**. Nur in bestimmten Nutzgebieten lohnenswert.
+:::
+
+### Harmonische
+
+Nebst den gewünschten Grundschwingung, sind auch Harmonische in den Ein- und Ausgangsströme eines FUs vorhanden. Welche harmonische diese sind, ist vom netzseitigen Umrichter abhängig!
+
+::: callout-tip
+## Reduktion
+
+Zur Reduktion von Harmonischen ist der Einsatz von Filtern möglich
+:::
+
+### Leistungsfaktor & $\cos\varphi$
+
+-   Leistungsfaktor $\lambda$: [Verhältnis]{.underline} zwischen [Wirk- und Scheinleistung]{.underline}
+-   $\mathbf{\cos\varphi}$: [Verhältnis]{.underline} zwischen [Wirk- und Scheinleistung]{.underline} der [Grundschwingung]{.underline} des Netzstromes.
+
+::: callout-important
+Harmonische führen dazu, dass $\cos\varphi< 1$ wird
+:::
+
+## Umrichter mit Spannungszwischenkreis
+
+```{=latex}
+\end{multicols}
+```
+![](images/paste-88.png)
+
+```{=tex}
+\begin{multicols}{2}
+```
+### Diodengleichrichter (Netzseite)
+
+![](images/umrichter/diodengleichrichter.png)
+
+-   Die Gleichspannung ist durch die Eingangsspannung gegeben.
+-   Nur eine Energierichtung.
+-   Kostengünstig und robust.
+
+### Thyristorgleichrichter (Netzseite)
+
+![](images/umrichter/thyristorgleichrichter.png)
+
+-   Die Gleichspannung kann über den Steuerwinkel eingestellt werden.
+-   Blindleistungsbezug.
+-   Zwei Energierichtungen, aber nur eine Stromrichtung.
+-   Kostengünstig und robust.
+-   Kommutierungsfehler bei Netzstörungen möglich.
+
+::: callout-note
+#### Leistungsfluss
+
+$\alpha < 90^\circ$: Fluss positiv
+
+$90^\circ<\alpha <180^\circ$: Fluss negativ
+:::
+
+### Umkehrgleichrichter
+
+![](images/umrichter/umkehrgleichrichter.png)
+
+-   Die Gleichspannung kann über den Steuerwinkel eingestellt werden.
+-   Blindleistungsbezug
+-   Zwei Energierichtungen ohne Änderung der ZK-Spannung
+-   Kostengünstig und robust
+-   Kommutierungsfehler bei Netzstörungen möglich
+
+### Netz- und maschinenseitigen Wechselrichter
+
+#### WR (als GR) auf der Netzseite
+
+![auch dreiphasig möglich!](images/paste-89.png)
+
+-   Hier mit IGBTs, für grössere Leistungen mit GTOs oder IGCTs
+-   Die Gleichspannung limitiert veränderbar
+-   Wirkleistungsbezug und -abgabe einstellbar $\rightarrow$ Gleichspannung über C auf gewünschten Wert
+-   Oberschwingungen durch die Taktfrequenz beeinflussbar
+-   Relativ teuer; löst aber Umkehrgleichrichter immer mehr ab
+
+#### Selbstgeführter WR (Lastseite)
+
+![ebenfalls dreiphasig möglich :)](images/paste-90.png)
+
+-   DC im Zwischenkreis $\rightarrow$ AC Lastseite
+-   **zwingend** **abschaltbare** Halbleiter erforderlich
+-   Oft zur Speisung von Drehfeldmaschinen
+-   Zur Einspeisung in ein Netz (Wirk- & Blindleistung können eingestellt werden)
+
+## Regelung
+
+### U/f-Kennlinien Verfahren
+
+![](images/paste-91.png)
+
+Die Ausgangsfrequenz des Wechselrichters wird mit der gewünschten Drehzahl verglichen und angepasst. **Diese Regelung** ist **eigentlich eine Steuerung**, da gar keine Drehzahlmessung gemacht wird (kann aber erweitert werden).
+
+### Feldorientierte Regelung / *Vector Control*
+
+Das Koordinatensystem für die Zeiger werden auf das rotierende magnetische Feld der Maschine ausgerichtet $\rightarrow$ feldorientierte Regelung.
+
+Über den Strom wird Fluss & Drehmoment der Maschine geregelt. Mit dem **d-Anteil** des **Stromes** lässt sich der Fluss regeln, mit dem **q-Anteil** das **Drehmoment**.
+
+### Direkte Drehmomentregelung
+
+Soll-Istwert-Abweichung vom Drehmoment & Fluss steuert direkt die Schaltsignale des Wechselrichters an.

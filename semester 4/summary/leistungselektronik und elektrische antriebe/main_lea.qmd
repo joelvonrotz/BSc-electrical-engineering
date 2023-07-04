@@ -18,7 +18,7 @@ format:
     fontenc: T1
 
 source:
-  github: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+  github: "https://github.com/joelvonrotz/bachelor-electrical-engineering/tree/main/semester%204/summary/leistungselektronik%20und%20elektrische%20antriebe"
 
 # [DOCUMENT CONFIGURATION] ============================
 geometry: 
