@@ -358,9 +358,8 @@ Die drei Signalvarianten (*polar*, *orthogonal* und *on-off*) können geometrisc
 Die *normierte Distanz* $d_{min}$ und die daraus folgende Bitfehlerwahrscheinlichkeit $P_b$ sind gegeben durch:
 
 $$
-d_{min}=\frac{D_{min}}{\sqrt{2\cdot E_b}} \qquad P_b = Q\left(\sqrt{d_{min}^2\cdot\frac{E_b}{N_0}}\right)
+d_{min}=\frac{D_{min}}{\sqrt{2\cdot E_s}} \qquad P_b = Q\left(\sqrt{d_{min}^2\cdot\frac{E_s}{N_0}}\right)
 $$
-
 
 ```{=latex}
 \begin{conditions}
@@ -368,7 +367,6 @@ $$
   N_0 & Rauschleistungsdichte $[\text{W}/\text{Hz}]$
 \end{conditions}
 ```
-
 ```{=latex}
 \begin{multicols}{3}
 ```
@@ -409,7 +407,6 @@ Das Verhältnis $E_b/N_0$ stellt das Signal/Rausch-Verhältnis am Eingang des Em
 \vfill\null
 \columnbreak
 ```
-
 #### Bipolar
 
 ```{=latex}
@@ -436,7 +433,6 @@ Das Verhältnis $E_b/N_0$ stellt das Signal/Rausch-Verhältnis am Eingang des Em
 \draw[blue!80!black!60, line width=1pt] (null2.center) -- (3,0) node[left,black,scale=0.7] {$-A$} -- (4.5,0)  -- (4.5,1) node[above,black,scale=0.7] {$T_s$};
 \end{tikzpicture}\end{center}
 ```
-
 $$
 P_b = Q\left(\sqrt{\frac{2E_b}{N_0}}\right)
 $$
@@ -447,7 +443,6 @@ $$
 \vfill\null
 \columnbreak
 ```
-
 #### On-Off
 
 ```{=latex}
