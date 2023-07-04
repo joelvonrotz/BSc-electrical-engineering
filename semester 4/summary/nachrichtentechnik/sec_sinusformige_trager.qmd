@@ -157,7 +157,7 @@ $$
 
 #### Mehrwertige FSK
 
-![4-FSK mit $m=2$](images/paste-43.png)
+![4-FSK mit $m=2$](images/paste-43.png){width="10cm"}
 
 ### Demodulation / Empfang
 
@@ -183,7 +183,7 @@ Angewendet bei **PSK**
 
 [Modell für weisses Rauschen]{.underline}
 
-![](images/paste-47.png)
+![](images/paste-47.png){width="14cm"}
 
 [Thermisches Rauschen]{.underline} erfüllt das Modell über den relevanten Frequenzbereich:
 
@@ -230,7 +230,7 @@ $$
 F= \frac{(P_s/P_n)_{ein}}{(P_s/P_n)_{aus}}=F_1+\frac{F_2-1}{g_1}+\frac{F_3-1}{g_1g_2}+\cdots+\frac{F_k-1}{g_1g_2\cdots g_{k-1}}
 $$
 
-![](images/paste-49.png)
+![](images/paste-49.png){width="10cm"}
 
 ### Radio Noise
 
