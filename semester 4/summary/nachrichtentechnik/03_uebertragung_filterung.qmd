@@ -454,6 +454,46 @@ Folgend zeigt eine "Messung" von $u_2(t)$ mit folgenden Widerstandswerten: $R_Q=
 ```
 ![Ausgleichsvorgang $u_2(t)$](images/03_ausgleichsvorgang_u2.png){#fig-ausgleichsvorgang fig-align="center" width="8cm"}
 
+## Reale Zweidrahtleitung
+
+Jede elektrische Übertragung kann als Kette von elementaren Leitungsnachbildungen modelliert werden
+
+![](images/paste-51.png)
+
+Die **Laufzeit** des Signals pro Elementabschnitt folgt
+
+$$
+t_{Delay_n}=\sqrt{L_{\Delta n} C_{\Delta n}}
+$$
+
+Multipliziert mit $n$-Leitungsabschnitten ergibt sich die Laufzeit über die gesamte Signallaufzeit der Leitung. Jede Signalleitung hat eine obere Grenzfrequenz, welche sich abschätzen lässt
+
+$$
+f_g=\frac{1}{\pi\sqrt{L_\Delta C_\Delta}}
+$$
+
+Die Eingangsimpedanz $Z_0$ einer unendlich langen Übertragungsleitung kann ebenfalls über die Belagsgrössen abgeschäzt werden
+
+$$
+Z_0=\sqrt{\frac{L_\Delta}{C_\Delta}}
+$$
+
+### Anpassung
+
+Über ein Anpassungsnetzwerk können Reflektionen vermieden werden
+
+![](images/paste-52.png)
+
+$$
+R_1=\sqrt{Z_0(Z_0-R_Q)}\qquad\text{und}\qquad R_2=\frac{R_QZ_0}{R_1}
+$$
+
+Dabei erfährt das Signal eine Dämpfung der Spannung von
+
+$$
+a_u=\sqrt{\frac{Z_0}{R_Q}}+\sqrt{\frac{Z_0}{R_Q}-1}
+$$
+
 # Drahtlose Signalübertragung & -Filterung
 
 ![Spektrumsbereich](images/04_Spektrumsbereich.png)
