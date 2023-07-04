@@ -218,7 +218,7 @@ Universalmotoren sind meist zweipolig aufgebaut, in der Regel mit symmetrischem 
 
 Wie für einen Serienmotor Typisch, verfügt der Motor bei Leerlauf (oder niedrigem Moment) über eine sehr hohe Drehzahl da $\omega_m\propto\frac{1}{\sqrt{M}}$ gilt.
 
-![](images/motor/ersatzschaltung_universalmotor.png)
+![](images/motor/ersatzschaltung_universalmotor.png){width="7cm"}
 
 $$
 \begin{split}
@@ -228,6 +228,30 @@ $$
 \end{split}
 $$
 
+$$
+\underline{U}_a + \underline{U}_e + \underline{U}_i = \underline{U}
+$$
+
+$$
+\underline{U} = \underline{U}_i + \underline{I}(R_a + R_e)+j\omega\underline{I}(L_a+L_e)
+$$
+
+Bei Vernachlässigung der Sättigung ist der Fluss proportional zum Strom und somit das Drehmoment propportional zum Strom im Quadrat.
+
+$$
+M_{el} = c\cdot\Phi\cdot I =c\cdot\frac{L_e}{N_e}I^2
+$$
+
+Und somit ergibt sich folgende Abhängigkeit der Drehzahl ($\sim$ = proportional)
+
+$$
+\omega_m=\frac{\lvert \underline{U}-\underline{I}(R_a + R_e)+j\omega\underline{I}(L_a+L_e)\rvert}{\sqrt{c\frac{L_e}{N_e}M_{el}}} \qquad \omega_m\sim \frac{U_i}{\sqrt{M_{el}}}
+$$
+
+```{=latex}
+\vfill\null
+\columnbreak
+```
 
 
 ### Drehzahlsteuerung
