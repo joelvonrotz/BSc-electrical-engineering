@@ -335,9 +335,9 @@ Mit `System.Diagnostics.Debugger.IsAttached` kann geprüft werden, ob ein Debugg
 
 ## Systemd - *System Daemon*
 
-*Systemd* ist eine Kollektion von Tools und Services und wird insbesondere für Hintergrundprozesse verwendet. Ein *Daemon* bezeichnet ein Program, welches im im Hintergrund läuft und die Kommunikation verläuft über Signale, Pipes oder Sockets (kein direkter Zugriff).
+*Systemd* ist eine Kollektion von Tools und Services und wird insbesondere für Hintergrundprozesse verwendet. Ein *Daemon* bezeichnet ein Program, welches im im Hintergrund läuft und die Kommunikation verläuft über Signale, Pipes oder Sockets (kein direkter Zugriff). Kritik: Systemd übernimmt zu viel Macht und Kontrolle über das System und widerspricht damit traditionellen Unix-Pholosophien wie KISS (Keep It Simple, Stupid) und "Do One Thing and Do It Well". Ebenfalls wird die mangelnde Portabilität kritisiert, da Systemd nicht auf alle nUnix-ähnlichen Betriebssystemen standardmässig vorhanden ist.
 
-Systemd verwendet Unit-Dateien um Prozess zu beschreiben und diese werden unter `/etc/systemd/system/`, `/etc/systemd/network/` oder `/etc/systemd/user/` abgelegt.
+Systemd verwendet Unit-Dateien um Prozesse zu beschreiben und diese werden unter `/etc/systemd/system/`, `/etc/systemd/network/` oder `/etc/systemd/user/` abgelegt.
 
 Eine Unit-Datei kann folgendes beinhalten.
 
@@ -364,9 +364,9 @@ WantedBy=multi-user.target
 - `sudo systemctl start <service>.service`{.bash}
 - `sudo systemctl stop <service>.service`{.bash}
 - `sudo systemctl try-restart <service>.service`{.bash}
-- `sudo systemctl daemon-reload`{.bash} informiert Daemon über neue Units.
-- `sudo systemctl enable sample.service`{.bash}
-- `sudo systemctl disable sample.service`{.bash}
+- `sudo systemctl daemon-reload`{.bash} informiert Daemon über neue Units
+- `sudo systemctl enable sample.service`{.bash} Service ist aktiviert und wird beim Booten des Systems automatisch ausgeführt
+- `sudo systemctl disable sample.service`{.bash} Service ist deaktiviert und muss manuell gestartet werden
 - `journalctl -u sample.service`{.bash} zeigt Protokoll/Journal des Daemons
 
 

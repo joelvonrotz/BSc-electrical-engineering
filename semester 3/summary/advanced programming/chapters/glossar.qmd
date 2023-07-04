@@ -7,8 +7,28 @@
 - **HAT** "Hardware On Top" für Raspberry Pi, "Shield" für Arduino, "Cape" für Beaglebone
 
 - **CLR** "Common Language Runtime" stellt eine Laufzeitumgebung zur Verfügung, um Programme unabhängig der darunterliegenden Hardware auszuführen und unterstützt
-eine Vielzahl von Programmiersprachen.
+eine Vielzahl von Programmiersprachen
+
+- **CLI** "Common Language Infrastructure" ist ein internationaler Standard, der Systeme spezifiziert, die sprach- und plattformneutrale Anwendungsentwicklung und -ausführung ermöglichen
+
+- **CIL** "Common Intermediate Language" ist eine Zwischensprache, in die alle Programme der Common Language Infrastructure (CLI) übersetzt werden. Ist eine objektorientierte Assemblersprache und ist vollständig stackbasiert
 
 - **Linux Betriebssystem** "Linus Unix" monolithischer Kernel, überwiegend in *C*, wenig in *Assembler* geschrieben
 
 - **GNU** "GNU is not Unix" unixähnliches Betriebssystem und freie Software. Es ist unix ähnlich, enthält aber kein Unix COde
+
+- **Fall-trough** Code wird nach einem Case, der zutrifft, weiter ausgeführt, wenn am Ende des Case kein "break"-Schlüsselwort verwendet wird
+
+- **Just-In-Time Compiler** (JIT) übersetzt den CIL-Code zur Laufzeit in nativen Maschinencode, um die Leistung zu verbessern, Plattformunabhängigkeit zu ermöglichen und Flexibilität sowie Sicherheit in .NET-Anwendungen bereitzustellen
+
+- **POP und OOP** "Procedure Oriented Programming und Object Oriented Programming" beschreiben Programmier-Modelle. In der objektorientierten Programmierung liegt der Fokus auf die Organisation von Code in Objekten und die Interaktion zwischen ihnen, während in der prozeduralen Programmierung der Code als eine Abfolge von prozeduren, die nacheinander ausgeführt werden, betrachtet wird
+
+- **Kapselung** Ermöglicht es, Daten und zugehörige Methoden in einer Klasse zu organisieren, um den Zugriff auf die Daten zu steuern und den direkten Zugriff von extern zu unterbinden
+
+- **Unified Type System** "Vereinheitlichtes Typsystem" ist ein Konzept, das sicherstellt, dass alle Typen in der .NET-Umgebzng ein gemeinsames Basistypsystem haben. Alle Typen erben implizit oder explizit von der Basisklasse `Object`{.csharp}. Erleichtert die Interoperabilitär von Code, da Objekte verschiedener Typen miteinander kommunizieren können. Das Konzept ermöglicht Verwendung von Polymorphismus, Vererbung und generischen Typen
+
+- **Linux** "Linus Unix". Ist ein freies, unix-ähnliches Betriebssystem, die modular sind und sich durch eine strikte Trennung von User und Kernel Space auszeichnen. Linus Torvalds veröffentlichte 1992 basierend auf GNU des Linux-Kernel. Heute fassen Distributionen den Kernel mit verschiedener Software zusammen. Linux ist quelloffen und frei verfügbar
+
+- **GNU** "GNU is not Unix", rekursives Akronym. Unixähnliches Betriebssystem und freie Software. GNU ist unixähnlich, aber quelloffen und frei verfügbar. Entwickelt von Richard Stallman am MIT
+
+- **API** "Application Progamming Interface" ist eine Schnitstelle, die es verschiedenen Softewarekomponenten ermöglichen, miteinander zu interagieren. Beschreibt nur die Schnittstelle und nicht die Implementation, um eine klare Trennung zu ermöglichen. Damit können Änderungen an einer Implementierung vorgenommen werden, ohne dass die Verwendung des API davon betroffen ist

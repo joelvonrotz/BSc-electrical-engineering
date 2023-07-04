@@ -82,11 +82,9 @@ Der Modifier `abstract` gibt an, dass die Klasse unvollständige Implementatione
 
 ```csharp
 abstract class Shape {
-abstract class Shape {
   public abstract int GetArea();
 }
 
-class Square : Shape {
 class Square : Shape {
   private int _side;
 
@@ -160,7 +158,7 @@ static void Main() {
 
 ## Interfaces
 
-`interface` sind komplett abstrakte Klassen und können nur Methodenprototypen, Delegates und leere Properties beinhalten, daher **keine** Implementationen. Sie bilden das Grundfundament für Basis- und Erweiterungsklassen. Es ist **nicht möglich Objekte von Interfaces** zu erstellen.
+`interface` sind komplett abstrakte Klassen und können nur Methodenprototypen, Delegates und leere Properties beinhalten, daher **keine** Implementationen. Sie bilden das Grundfundament für Basis- und Erweiterungsklassen. Es ist **nicht möglich, Objekte von Interfaces** zu erstellen. Ein Interface ist die **Deklaration** und eine erbende Klasse übernimmt die **Definition**. Vergleichbar mit der Header-Datei in C.
 
 ```csharp
 interface IAnimal {
@@ -171,16 +169,14 @@ interface IAnimal {
 }
 ```
 
-Wenn Interfaces implementiert werden, müssen alle Methoden und Member des Interfaces implementiert werden, ansonsten ist das Programm nicht kompilierbar.
+Wenn Interfaces implementiert werden, müssen alle Methoden und Member des Interfaces implementiert werden, ansonsten ist das Programm nicht kompilierbar. Können kein Konstanten, Konstruktoren und Member beinhalten. Elemente von Interfaces dürfen nicht statisch sein und sind implizit ```public abstract (virtual)```{.csharp}.
 
 ::: callout-note
-
 Interfaces werden mit dem `I`-Präfix gekennzeichnet.
 
 ```csharp
 interface IAnimal
 ```
-
 :::
 
 Interfaces können voneinander erben und es können einfach die neuen Inhalte eingefügt werden. Die explizite Implementierung findet in den Klassen statt.
@@ -258,10 +254,9 @@ NetLog: Franzwurst Error
 MyLogger: Peterwurst Error
 ```
 
-
 ## Polymorphismus (Vielgestaltigkeit)
 
-Mit Polymorhpismus kann die vererbte Methode einen anderen Task ausführen, indem diese [überschrieben]{.underline} wird. Es bietet die Möglichkeit, dass Klassen verschiedene Implementierungen von Methoden anbieten, die über denselben Namen aufgerufen werden.
+Polymorphismus ermöglicht es, dass Objekt einer abgeleiteten Klasse sich wie Objekte der Basisklasse verhalten können. So können Klassen verschiedene Implementierungen von Methoden anbieten, die über denselben Namen aufgerufen werden. Beim Methodenaufruf wird zur Lauftzeit der Typ des Objekts bestimmt und dessen virtuelle Methode aufgerufen.
 
 ```csharp
 class Animal {
@@ -302,7 +297,6 @@ void Main() {
 ```
 
 [Ausgabe]{.underline}:
-
 ```cmd
 Animal makes no sound
 Oink Oink!

@@ -1,29 +1,26 @@
+WPF (Windows Presentation Foundation) ist ein Framework zur Erstellung grafischer Benutzeroberflächen für Windows-Anwendungen mit flexibler Layoutgestaltung und unterstützt XAML für die deklarative Beschreibung der Benutzeroberfläche. Separation of Concerns: XAML ermöglicht klare Trennung von Design und Logik. XAML ermöglicht einfache Wiederverwendbarkeit von Elementen und verwendet eine deklarative Syntax, um Design und Struktur in einer intuitiven, lesbaren Weise zu beschreiben.
+
 ::: callout-note
 ## Unterschied zwischen WPF & Console Application
 
-WPF-Applikationen bestehen aus grafischen Elementen und 
+WPF ermöglicht die Erstellung ansprechender grafischer Benutzeroberflächen für Windows-Anwendungen, während Console Applications textbasierte Programme sind, die über die Befehlszeile interagieren.
 
 :::
 
 ## Dispatcher
 
-Der Dispatcher wird zum Aktualisieren der Benutzeroberfläche über einen *nicht-UI*-Thread (z.B. separate Workload) verwendet.
-
-Wird also ein Event-Handler wie `UserUpdate` von ausserhalb des WPF aufgerufen, kann dieser Eventhandler nicht auf die Elemente des WPF zugreifen. Wierzu wird der **`Dispatcher`** genutzt. Dieser `Invoked` den Event-Handler nocheinmal mit den selben Parameter, diesmal jedoch im WPF-Thread.
+Der Dispatcher wird zum Aktualisieren der Benutzeroberfläche über einen *nicht-UI*-Thread (z.B. separate Workload) verwendet. Wird also ein Event-Handler wie `UserUpdate` von ausserhalb des WPF aufgerufen, kann dieser Eventhandler nicht auf die Elemente des WPF zugreifen. Wierzu wird der **`Dispatcher`** genutzt. Dieser `Invoked` den Event-Handler nocheinmal mit den selben Parameter, diesmal jedoch im WPF-Thread.
 
 ```csharp
-void UserUpdate(object sender, UserUpdateEventArgs e) {
-    if (!Dispatcher.CheckAccess())
-    {
-        // put Userupdate into event que with right context
+void UserUpdate(object sender,
+                        UserUpdateEventArgs e) {
+    if (!Dispatcher.CheckAccess()) {
+        // put Userupdate into event que with
+        // right context
         Dispatcher.Invoke(
-            new EventHandler<UserUpdateEventArgs>(UserUpdate), 
-            sender, e);
+            new EventHandler<UserUpdateEventArgs>
+                        (UserUpdate), sender, e);
         return;
-    }
-    /* WPF-Element-Update */
+    } /* WPF-Element-Update */
 }
 ```
-
-## Key-Event
-

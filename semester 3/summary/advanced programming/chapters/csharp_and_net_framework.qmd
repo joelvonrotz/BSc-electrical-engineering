@@ -21,13 +21,15 @@
 
 ## Struktur `C#`-Programm
 
+Als minimale Sprachelemente für ein C#-Programm benötigt man eine Namespace-Deklaration, einen Einstiegspunkt (Entry Point) und eine Klasse.
+
 ### Namespace {#sec-namespace}
 
 ```csharp
 namespace { ... }
 ```
 
-`namespace` dient zur Kapselung von Methoden, Klassen, etc., damit zum Beispiel mehrere Klassen/Methoden gleich benannt werden können.
+NET's verwendet `namespace`'s, um seine vielen Klassen zu organisieren. Mit eigenen `namespace`'s kann der Umfang von Klassen- und Methodennamen in grossen Programmierprojekten zu kontrollieren. Sind immer implizit `public`{.csharp}.
 
 ```csharp
 namespace SampleNamespace {
@@ -39,14 +41,9 @@ namespace SampleNamespace {
     class SampleClass {...}
   }
 }
-
-namespace NameOfSpace {
-  class SampleClass{...}
-  ...
-}
 ```
 
-Zum Aufrufen von Klassen/Methoden anderer `namespace`'s kann dieser über `using` eingebunden werden oder der Aufruf geschieht über `<namespace>.SampleClass`.
+Um Klassen / Methoden anderer `namespace`'s aufzurufen, können diese über `using` eingebunden werden. Alternativ geschieht der Aufruf über `<namespace>.SampleClass`.
 
 ### Klassen
 
@@ -67,8 +64,7 @@ Math.Atan2(5, 1);
 ```
 
 ### Konstruktor
-
-Konstruktoren werden beim Erstellen von neuen Objekten aufgerufen. Ihnen können Parameter oder andere Objekte übergeben werden.
+Konstruktoren werden beim Erstellen von neuen Objekten aufgerufen. Ihnen können Parameter oder andere Objekte übergeben werden. Der Rückgabewert des Konstruktors ist die Objektreferenz. Zugriff auf das eigene Objekt mit `this`{.csharp}. 
 
 ```csharp
 public class Point {
@@ -98,14 +94,14 @@ Destruktoren werden verwendet, um die Resourcen von Objekten freizugeben. Es ist
 public class MyClass {
     // Other members of the class...
     ~MyClass() {
-        // Release resources held by the object here.
+      // Release resources held by the object here
     }
 }
 ```
 
-### Methode
+### Methoden
 
-Methoden sind das C#-pendant der Funktionen in C. Der Zugriff auf Methoden kann mit Zugriff-Modifizierern *(siehe @sec-modifier)* eingeschränkt werden. Methoden werden über Objekte aufgerufen.
+Methoden sind das C#-pendant der Funktionen in C. Der Zugriff auf Methoden kann mit Zugriff-Modifizierern *(siehe @sec-modifier)* eingeschränkt werden. Methoden werden über Objekte aufgerufen. Die Methodensignatur besteht aus dem Methodennamen und allen Parametern. Der Rückgabetyp ist nicht Teil der Methodensignatur, da dieser Eigenschaft der Implementierung der Methode ist und nicht benötigt wird, um den Aufruf der Methode zu definieren.
 
 ```csharp
 MyClass NewObject = new MyClass("some string");
@@ -130,13 +126,13 @@ public class MyClass {
 }
 ```
 
-Die `Main(string[] args) {}`{.csharp} Methode beschreibt den Einstiegspunkt eines Programms. In `args`{.csharp} sind Programm-Parameter gespeichert welche z.B. bei einer Konsolenapplikation angefügt werden (folgendes Beispiel mit `--debug`).
+Die `Main(string[] args) {}`{.csharp}-Methode beschreibt den Einstiegspunkt eines Programms. In `args`{.csharp} sind Programm-Parameter gespeichert welche z.B. bei einer Konsolenapplikation angefügt werden (folgendes Beispiel mit `--debug`). Die `Main`{.csharp}-Methode muss static sein, da sie ohne eine Instanz einer Klasse aufgerufen werden kann.
 
 ```{.bash}
 dotnet MyProgram.dll --debug
 ```
 
-### Membervariable
+### Membervariablen
 
 Membervariablen sind **Daten** oder **Attribute** eines Objektes. So ist z.B. `color` eine Membervariable in der Klasse `car`. Membervariablen können mit Zugriff-Modifizierern (siehe @sec-modifier) eingeschränkt werden.
 
@@ -190,7 +186,7 @@ public class Point {
 
 ### Property {#sec-property}
 
-*Getter*- und *Setter*-Methoden sind sehr umständlich und führen bei vielen Variablen zu viel Code. Aus diesem Grund werden automatische Getter- und Setter-Methoden genutzt, nämlich **Properties** mit den Schlüsselwörtern `get` und `set`.
+*Getter*- und *Setter*-Methoden sind sehr umständlich und führen bei vielen Variablen zu viel Code. Aus diesem Grund werden automatische Getter- und Setter-Methoden genutzt, nämlich **Properties** mit den Schlüsselwörtern `get` und `set`. Properties, die mit `private set`{.csharp} gekennzeichnet sind, können nur vom Konstruktor aus intialisiert werden. Propertier ohne `set`{.csharp} sind `readonly`{.csharp} und können nur bei der Deklaration initialisiert werden.
 
 ```csharp
 public class Point {
@@ -224,10 +220,11 @@ private uint Birthyear;
 public uint Age {
   get { 
     return ((uint)DateTime.Now.Year - Birthyear); 
-    }
+  }
   set { 
-    this.Birthyear = ((uint)DateTime.Now.Year - value); 
-    }
+    this.Birthyear = ((uint)DateTime.Now.Year -
+      value); 
+  }
 }
 ```
 
@@ -235,6 +232,17 @@ public uint Age {
 ## Namensgebung
 Da Properties Methoden enthalten können, gilt: `PascalCase`
 :::
+
+### Objekterzeugung
+Mit `new`{.csharp} wird ein neues Objekt erzeugt. Dabei wird vom Memory-Management Speicher für das Objekt angefordert und eine Objektreferenz wird zurückgegeben. Sobald ein Objekt nicht mehr benötigt wird, wird es zerstört und der Speicher freigegeben. Beim Instantieren eines Objektes wird der Konstruktor aufgerufen.
+
+```csharp
+Point p1:
+p1 = new Point(5,10);
+Point p2 = new Point(2,5);
+// Zerstörung
+p1 = null;
+```
 
 ## .Net Bibliotheken
 
@@ -259,12 +267,16 @@ Console.WriteLine("World");
 
 ```csharp
 // Read next char from stream
-char c = Console.Read();
+int c = Console.Read();
 // Read next line from stream
 string msg = Console.ReadLine();
 // Read Key with modifiers
 ConsoleKeyInfo k = Console.ReadKey();
 ```
+
+`Console.Read()`{.csharp} blockiert Rückgabe, bis Eingabetaste betätigt wird. Nachfolgende Aufrufe rufen Eingabe zeichenweise ab. Nachdem das letzts Zeichen aufgerufen wurde, blockiert die Rückgabe erneut. Gibt -1 zurück, wenn keine weitere Zeichen mehr gelesen werden können oder Crtl+Z eigegeben wird.
+
+`Console.ReadKey()`{.csharp} blockiert, bis ein Zeichen oder eine Funktionstaste gedrückt wird und `Console.ReadLine()`{.csharp} blockiert, bis Eingabetaste betätigt wird.
 
 Mit `.ReadKey()`{.csharp} werden auch Tasten gelesen, die kein char ergeben *(z.B. Enter, Backspace,...)*. 
 Mit `k.Key == ConsoleKey.Escape`{.csharp} kann zum Beispiel überprüft werden, ob die *Escape*-Taste gedrückt wurde. 
@@ -471,6 +483,7 @@ Statische ***Variablen*** ...
 
 * ... erhalten eine **fixe** Adresse
 * ... kommen pro Klasse nur **einmal** vor
+* ... haben für alle Objekte den gleichen Wert
 * ... werden in der Klasse, **nicht** im Objekt gespeichert
 * ... sind ohne ein Objekt zu erstellen aufrufbar
 
@@ -543,16 +556,39 @@ public class BankAccount {
   private readonly AccNumber;
   public BankAccount ( int accNum ) {
     this.AccNumber = accNum; 
-  }
-  // AccNumber can't be changend from here on
+  } // AccNumber can't be changend from here on
 }
 ```
 
 ## Datentypen
 
-Wie in C gibt es in C# Wertetypen und Referenztypen
+Wie in C gibt es in C# Wertetypen und Referenztypen. Wertetypen enthalten eine Instanz des Typs, werden direkt auf dem Stack gespeichert und enthalten den Wert der Variable. Referenztypen enthalten eine Referenz zu einer Instanz des Typs, werden im Heap-Speicher abgelegt und enthalten die Adresse zum Speicherort. Änderungen an einem Referenztyp wirken sich auf alle Variablen aus, die auf dieselben Daten verweisen.
 
 ![](images/Types.png)
+
+### Wertetypen
+![](images/Datatypes.png)
+### Casting
+Umwandlung von einem Datentyp in einen anderen.
+
+![](images/Casting.png)
+#### Explizites Casting
+```csharp
+int counter = (int)3.5;
+```
+#### Implizites Casting
+```csharp
+int j = int.MaxValue;
+long longVar = j;
+```
+
+#### `Convert`
+In der Klasse `Convert`{.csharp} sind Methoden enthalten, um Basisdatentypen in einen anderen Basisdatentypen zu konvertieren.
+```csharp
+double dNum = 23.15;
+// Returns 23
+int iNum = Convert.ToInt32(dNum);
+```
 
 ### `struct`
 
@@ -586,25 +622,47 @@ string oldPath = "c:\\Program Files\\Python";
 
 // Initialize with a verbatim string literal.
 string newPath = @"c:\Program Files\Python";
+
+// String examples with a verbatim literal.
+string msg = @"Hello
+World!";
+string quote = @"She said, ""Hello""";
+string escaped = @"\tHello,\nWorld!";
+
 ```
 
 Mit dem Verbatim-Literal `@` werden Zeilenumbrechende Zeichen als Teil des Strings behandelt.
 
 ::: callout-important
 
-Strings können nicht verändert werden -> sind **read-only**.
+Strings können nicht verändert werden -> sind **read-only**. Das bedeutet, dass bei jeder Veränderung eine Kopie erzeugt und neu abgespeichert wird, wobei der ursprüngliche String dem Garbage Collector übergeben wird.
 
 ```csharp
 string s = "Hallo Welt";
 
 s[1] = 'A'; // ERROR
 ```
-
 :::
+
+#### String-Casting
+
+Um einen Zahlentyp in einen `string`{.csharp} zu konvertieren, können die Methoden `ToString()`{.csharp} oder `string.Format`{.csharp} aufgerufen werden.
+
+```csharp
+string s = "55";
+// Schreibt die Zahl in s in integer i
+int.TryParse(s, out int i);
+string s = "5.5"
+// Schreibt die Zahl in s in integer i
+double.TryParse(s, out double d);
+```
 
 #### Stringformatierung
 
-Parameter/variablen können direkt in Strings eingefügt werden.
+Parameter / Variablen können direkt in Strings eingefügt werden.
+
+Formatierte Ausgaben werden mit folgender Syntax erreicht:
+{index[,alignment][:formatString]}
 
 ```csharp
 // C-Sytle
@@ -642,13 +700,14 @@ Verwendet werden Enums mit ihren Namen (`Button btn = Button.LEFT`{.csharp}). Zu
 // +, -, ++, --
   c = c + 1;    c++;                                
 // &, |, ~
-  btn.UP & btn.DOWN  // = "12" -> UP, DOWN      
+  btn.UP & btn.DOWN  // = "12" -> UP, DOWN  
 ```
 
+Im Gegensatz zu `Enums`{.csharp} in `C`{.csharp} werden Enumerationen in `C#`{.csharp} als echte Typen anstatt als Interger-Werte interpretiert.
 
 ### Array
 
-C# Arrays sind ähnlich wie C Arrays, einfach mit ein paar weiteren Eigenschaften. C# Arrays erben von `object` und nach einer Deklarierung eines Arrays, muss diese initalisiert werden. Sind diese nicht initialisiert, können diese nicht verwendet werden.
+C# Arrays sind ähnlich wie C Arrays, also eine Datenstruktur, um eine Sammlung von Elementen desselben Datentyps zu speichern. C# Arrays erben von `object`. Um Arrays nach einer Deklaration verwenden zu können, muss dieses initialisiert werden.
 
 Sie [verhalten]{.underline} sich wie [Array-Zeiger]{.underline} und wenn es auf kein Array zeigt, was solls denn tun?
 

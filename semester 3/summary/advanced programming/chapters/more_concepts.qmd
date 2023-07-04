@@ -2,13 +2,9 @@
 
 ![](images/mqtt/flow_graph.png)
 
-MQTT ist ein Nachrichtenprotokoll nach dem Publish/Subscribe-Prinzip. Clients verbinden sich mit einem Broker, welcher die Publish & Subscribe-Nachrichten bearbeitet. Abonniert ein Subscriber einen Sensor, merkt sich der Broker die Identität des Subscribers und leitet alle Publishs des Sensor zu diesem Subscriber weiter.
+MQTT ist ein Nachrichtenprotokoll nach dem Publish/Subscribe-Prinzip. Clients verbinden sich mit einem Broker, welcher die Publish & Subscribe-Nachrichten bearbeitet. Abonniert ein Subscriber einen Sensor, merkt sich der Broker die Identität des Subscribers und leitet alle Publishs des Sensor zu diesem Subscriber weiter. Eine Nachricht besteht aus einem Topic und einer Nachricht, also dem Inhalt. Topics werden meistens in Form von `<ID>/<Topic>/<subtopic>` verwendet, wobei jeder Teil einem *Topic-Level* entspricht. Dumm gesagt, `<ID>` ist ebenfalls ein Topic.
 
-Eine Nachricht besteht aus einem Topic und einer Nachricht, also dem Inhalt. Topics werden meistens in Form von `<ID>/<Topic>/<subtopic>` verwendet, wobei jeder Teil einem *Topic-Level* entspricht. Dumm gesagt, `<ID>` ist ebenfalls ein Topic.
-
-Mit Wildcards `#` und `+` kann bei mehreren Topics "subscribed" werden.
-
-`+` ist die Single-Level Wildcard und betrachtet nur das Topic-Level in das es eingesetzt wurde. 
+Mit Wildcards `#` und `+` kann bei mehreren Topics "subscribed" werden. `+` ist die Single-Level Wildcard und betrachtet nur das Topic-Level in das es eingesetzt wurde. 
 
 ```{=latex}
 \texttt{myhome\textcolor{ForestGreen}{/}EG\textcolor{ForestGreen}{/}\textcolor{BrickRed}{\textbf{+}}\textcolor{ForestGreen}{/}temperature}
@@ -91,8 +87,8 @@ static void MsgPubReceived(
 
 ```csharp
 // create client instance 
-MqttClient client = new MqttClient(
-  IPAddress.Parse(MQTT_BROKER_ADDRESS)); 
+MqttClient client = new MqttClient(IPAddress
+                    .Parse(MQTT_BROKER_ADDRESS)); 
  
 string clientId = Guid.NewGuid().ToString(); 
 client.Connect(clientId); 
@@ -112,15 +108,13 @@ Jeder **Host** hat eine **IP-Adresse** (IPv4: 32 Bit oder IPv6: 128 Bit). Es wir
 
 ![](images/Networking.png)
 
-Daten werden über das Schichtmodell zwischen den Hosts ausgetauscht. Im internet wird über *IP-Adresse* und *Ports* (16 Bit, 0-65535) adressiert. Ein grossteil der Port-Nummern sind [standardisiert](https://en.wikipedia.org/wiki/List_of_TCP_and_UDP_port_numbers) (bsp.: 22 für SSH, 80 für HTTP). IP und Port ergeben zusammen den **Socket**.
+Daten werden über das Schichtenmodell zwischen den Hosts ausgetauscht. Im internet wird über *IP-Adresse* und *Ports* (16 Bit, 0-65535) adressiert. Ein grossteil der Port-Nummern sind [standardisiert](https://en.wikipedia.org/wiki/List_of_TCP_and_UDP_port_numbers) (bsp.: 22 für SSH, 80 für HTTP). IP und Port ergeben zusammen den **Socket**.
 
 ![](images/InternetLayers.png)
 
 ### Netzwerkkommunikation in .NET
 
-Der Namespace `System.Net`{.csharp} bietet Implementierungen von Internetprotokollen (wie *TCP*, *UDP*, *HTTP*) und Internetdiensten (wie *DNS*). `System.Net.Sockets`{.csharp} bietet Klassen für datenstrom-orientierte Kommunikation über Sockets.
-
-Für die Kommunikation wird die IP-Adresse oder der Hostname für den Endpunkt benötigt
+Der Namespace `System.Net`{.csharp} bietet Implementierungen von Internetprotokollen (wie *TCP*, *UDP*, *HTTP*) und Internetdiensten (wie *DNS*). `System.Net.Sockets`{.csharp} bietet Klassen für datenstrom-orientierte Kommunikation über Sockets. Für die Kommunikation wird die IP-Adresse oder der Hostname für den Endpunkt benötigt
 
 ```csharp
 IPAddress ip1 = IPAddress.Parse("192.168.1.2");
@@ -131,15 +125,13 @@ IPAddress Ip2 =
 IPEndPoint ep2 = new IPEndPoint(ip2, 1234);
 ```
 
-Es ist zu wissen, dass bei einem `.WriteLine()`{.csharp} oder `.ReadLine()`{.csharp} immer nur auf den Puffer zugegriffen wird und nicht direkt auf den Verbundenen Host. Die Datenübermittlung übernimmt das Betriebssystem.
+Es ist zu wissen, dass bei einem `.WriteLine()`{.csharp} oder `.ReadLine()`{.csharp} immer nur auf den Puffer zugegriffen wird und nicht direkt auf den verbundenen Host. Die Datenübermittlung übernimmt das Betriebssystem.
 
 ![](images/BufferedNet.png)
 
 ### TCP
 
-Bei **TCP** (Transmission Control Protocol) wird sichergestellt, dass Daten ohne Übertragungsfehler und in der richtigen Reihenfolge übertragen werden (bsp. *www*, *ssh*, *FTP*, *Email*). **Verbindungsorientiertes** Bytestrom Protokoll.
-
-Die Klasse `System.Net.TcpClient`{.csharp} stellt funktionalitäten wie `Connect()` für das TCP-Protokoll zur Verfügung
+Bei **TCP** (Transmission Control Protocol) wird sichergestellt, dass Daten ohne Übertragungsfehler und in der richtigen Reihenfolge übertragen werden (z.B. *www*, *ssh*, *FTP*, *Email*). **Verbindungsorientiertes** Bytestrom Protokoll. Die Klasse `System.Net.TcpClient`{.csharp} stellt funktionalitäten wie `Connect()` für das TCP-Protokoll zur Verfügung
 
 ```csharp
 IPEndPoint ep = new IPEndPoint(ip, 13);
@@ -206,13 +198,11 @@ while (true) {
   new Thread(clHandler.DoHandle).Start();
 }
 
-// ...
-
 // class to handle Client
 class ClHandler {
   private TcpClient client;
 
-  public ClHandler(TcpClient client){
+  public ClHandler(TcpClient client) {
     this.client = client
   }
 
@@ -229,7 +219,8 @@ class ClHandler {
 }
 ```
 ::: callout-important
-Es kann sein, dass `StreamReader.ReadLine()` keine Nachricht zurückgibt. Um dies zu unterdrücken sollte folgende Zeile eingesetzt werden
+Es kann sein, dass `StreamReader.ReadLine()` keine Nachricht zurückgibt. Um dies zu unterdrücken, sollte folgende Zeile eingesetzt werden
+:::
 
 ```csharp
 // Back to top of while(true)
@@ -238,9 +229,7 @@ if( msg == null ) break;
 
 ### UDP
 
-Bei **UDP** (User Datagram Protocol) ist nicht garantiert, dass Daten lückenlos und in der richtigen Reihenfolge ankommen (bsp. *Online Games*, *Live Streams*, *DNS*, *VPN*). **Verbindungsloses** Protokoll.
-
-Daten können Byteweise bidirektional direkt über den `UdpClient` übertragen werden. **Achtung** Da UDP *Verbindungslos* ist, wird bei einem `.Close()` nur dieses Seite der Verbindung geschlossen, respektive der Socket suspendiert. 
+Bei **UDP** (User Datagram Protocol) ist nicht garantiert, dass Daten lückenlos und in der richtigen Reihenfolge ankommen (bsp. *Online Games*, *Live Streams*, *DNS*, *VPN*). **Verbindungsloses** Protokoll. Daten können Byteweise bidirektional direkt über den `UDP-Client` übertragen werden. **Achtung** Da UDP *Verbindungslos* ist, wird bei einem `.Close()` nur dieses Seite der Verbindung geschlossen, respektive der Socket suspendiert. 
 
 ```csharp
 // UDP client config
@@ -259,7 +248,7 @@ client.Close();
 
 #### UDP Server
 
-UDP ist verbindungslos, darum gibt es auf beiden Seiten einen Client. Es muss beidseitig auf den **selben Socket** verbunden werden, damit die "Verbindung" steht. So muss Serverseitig ein `UdpClient` auf den selben `IPEndPoint` verbunden werden wie Clientseitig.
+UDP ist verbindungslos, darum gibt es auf beiden Seiten einen Client. Es muss beidseitig auf den **selben Socket** verbunden werden, damit die "Verbindung" steht. So muss serverseitig ein `UDP-Client` auf den selben `IPEndPoint` verbunden werden, wie dies clientseitig der Fall ist.
 
 ```csharp
 // "listener" config
@@ -269,15 +258,10 @@ UdpClient client = new UdpClient(ep);
 // start listening, waiting for a UDP packet
 byte[] data = client.Receive(ref ep);
 string msg = Encoding.ASCII.GetString(data, 
-                            0, data.Length);
+                                 0, data.Length);
 // close connection
 client.Close();
-
 ```
-
-
-## Unit Tests
-
 
 ## UART & I2C
 
@@ -308,12 +292,11 @@ ctrl.OpenPin(pinTinyK22Enable, PinMode.Output);
 // enable UART-Interface on tinyK
 ctrl.Write(pinTinyK22Enable, PinValue.High);
 
-while (!Console.KeyAvailable)
-{
+while (!Console.KeyAvailable) {
   try {
     int bytes = serial.Read(data, 0, data.Length);
-    string read = Encoding.ASCII
-      .GetString(data, 0, bytes);
+    string read = Encoding.ASCII.GetString(data, 
+                                        0, bytes);
     Console.WriteLine(read);
   } catch (Exception ex) {
     Console.WriteLine($"ERROR: {ex.Message}");

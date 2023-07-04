@@ -87,7 +87,7 @@ Eine `SortedList<TKey, TValue>` ist eine Collection mit Key/Value Paaren, welche
 
 ### Indexer
 
-Indexer ermöglichen die Indexierung von Klassen oder Structs. Der Indexer wird mit dem `this` Keyword definiert. Indexer müssen nicht durch einen Integer-Wert indexiert werden und können überladen werden. Mehrere Parameter können verwendet werden, um beispielsweise auf ein zweidimensionales Array zuzugreifen.
+Indexer ermöglichen die Indexierung von Klassen oder Structs und damit den Zugriff auf Instanzen einer Klasse .Der Indexer wird mit dem `this` Keyword definiert. Indexer müssen nicht durch einen Integer-Wert indexiert werden und können überladen werden. Mehrere Parameter können verwendet werden, um beispielsweise auf ein zweidimensionales Array zuzugreifen.
 
 ```csharp
 class Collection<T> {
@@ -110,7 +110,7 @@ class Program {
 
 ### Generics
 
-Mit dem generischen Typenparameter `T` können Klassen oder Methoden deklariert werden, bei welchen erst zur Deklaration der Datentyp instanziiert wird. Wenn eine Klasse mit einem kontreten Typen instanziiert wird, wird `T` mit dem Typen ersetzt.
+Mit dem generischen Typenparameter `T` können Klassen oder Methoden deklariert werden, bei welchen der Datentyp erst bei dier Instanziierung festgelegt wird. Wenn eine Klasse mit einem kontreten Typen instanziiert wird, wird `T` mit dem Typen ersetzt. Generics sind Typensicher.
 
 ```csharp
 public class GenList<T> {
@@ -182,9 +182,7 @@ if(a == 0) {
   int b = 3;
   a++;
   
-  if(b == 3 && a == 1) {
-    int c = a + b;
-  }
+  if(b == 3 && a == 1) { int c = a + b; }
   c = 4; // Compile Error -> outside of scope
 }
 ```
@@ -192,12 +190,12 @@ if(a == 0) {
 ## Overloading
 
 ::: callout-important
-Overloading-Signaturen müssen sich in den **Datentypen** unterscheiden. Unterschiedliche Variabel-Namen führen zu einem *Compiler-Error*.
+Overloading-Signaturen müssen sich in den **Datentypen** unterscheiden. Unterschiedliche Variablen-Namen führen zu einem *Compiler-Error*. 
 :::
 
 ### Konstruktor Overloading
 
-Je nach Signatur können andere Konstruktoren aufgerufen werden. Dies nennt man auch *Overloading*. In folgendem Beispiel kann ein `Point` Objekt erstellt werden entweder mit oder ohne Angabe der Position.
+Je nach Signatur können andere Konstruktoren aufgerufen werden. Dies nennt man auch *Overloading*. In folgendem Beispiel kann ein `Point` Objekt auch ohne Position erstellt werden. Zur Signatur gehören der Methodennamen und die Anzahl, Typen und Reihenfolge der Parameter.
 
 ```csharp
 class Point {
@@ -362,15 +360,15 @@ Informationen welche **nicht** berücksichtigt werden:
 - Parameter*namen*
 
 ```csharp
-void MyFunc(); // MyFunc()
-void MyFunc(int x); // MyFunc(int)
-void MyFunc(ref int x); // MyFunc(ref int)
-void MyFunc(out int x); // MyFunc(out int)
-void MyFunc(int x, int y); // MyFunc(int, int)
-int MyFunc(string s); // MyFunc(string)
-int MyFunc(int x); // MyFunc(int)
-void MyFunc(string[] a); // MyFunc(string[])
-void MyFunc(params string[] a); // MyFunc(string[])
+void MyFunc(); //MyFunc()
+void MyFunc(int x); //MyFunc(int)
+void MyFunc(ref int x); //MyFunc(ref int)
+void MyFunc(out int x); //MyFunc(out int)
+void MyFunc(int x, int y); //MyFunc(int, int)
+int MyFunc(string s); //MyFunc(string)
+int MyFunc(int x); //MyFunc(int)
+void MyFunc(string[] a); //MyFunc(string[])
+void MyFunc(params string[] a); //MyFunc(string[])
 ```
 
 `\vspace{2mm}`{=latex}
@@ -390,11 +388,20 @@ Die zweite Methodenausführung sieht ähnlich aus wie eine `void`-basierte Metho
 
 ## Exceptions
 
-*Exceptions* sind in den meisten grundlegenden Funktionen implementiert und werden ausgelöst, wenn die entsprechenden Vorgaben nicht eingehalten werden. Ein Beispiel wäre ein Datenpacket via TCP zu verschicken, ohne zuerst mit dem TCP-Server zu verbinden (wenn keine Strasse zur Adresse existiert, wie sollte die Post wissen wo durch?)
+*Exceptions* sind in den meisten grundlegenden Funktionen implementiert und werden ausgelöst, wenn die entsprechenden Vorgaben nicht eingehalten werden. Ein Beispiel wäre ein Datenpacket via TCP zu verschicken, ohne zuerst mit dem TCP-Server zu verbinden (wenn keine Strasse zur Adresse existiert, wie sollte die Post wissen wo durch?) Bei einer Exception wird die Aufruferkette rückwärts nach einer passenden `catch`{.csharp}-Klausel durchlaufen und falls keine gefunden wird, erfolgt ein Programmabbruch mit Fehlermeldung und Stack-Trace. Exceptions bieten einen strukturierten und kontrollierten Mechanismus um Fehler zu erfassen, zu signalisieren und zu behandeln.
+
+Vorteile:
+- Trennung von Fehlerbehandlung und normaler Programmausführung
+- Exceptions können detaillierte Informationen über den auftretenden Fehler enthalten
+- Fehlerbehandlung erfolgt an zentraler Stelle im Code
+- Ausnahmebehandlung erfolgt an beliebiger Stelle
+- Exceptions ermöglichen es, Fehler über verschiedene Ebenen des Code-Stacks hinweg zu propagieren
+
+::: callout-important
+Die Verwendung/Bearbeitung von Exceptions beansprucht viele Ressourcen, weshalb alle möglichen Fehler zur Laufzeit abgefragt werden sollten (z.B. Null-Reference). Das Programm sollte nicht darauf basieren, dass eine Exception geworfen wird, falls ein abzufragender Fehler auftritt!
+:::
 
 ### Exceptions abfangen mit `try` & `catch`
-
-Zum Exceptions abfangen:
 
 ```csharp
 try {
@@ -408,11 +415,11 @@ catch (Exception e) {
 }
 ```
 
-Die `catch`-"Parametern" müssen nicht unbedingt existieren, erlaubt aber den Fehler besser zu identifizeren.
+Die `catch`-"Parameter" müssen nicht unbedingt existieren, erlauben aber, den Fehler besser zu identifizeren.
 
 ### Erweiterung `finally`
 
-Der `finally`-Codeblock wird verwendet, um etwas zu machen, bevor aus der Funktion gesprungen wird mit `return`. Ein Beispiel wäre eine Kommunikation zu beenden.
+Der `finally`-Codeblock wird verwendet, um etwas zu machen, bevor aus der Funktion gesprungen wird mit `return`. Ein Beispiel wäre eine Kommunikation zu beenden. Der `catch`-Codeblock ist optional und kann auch weggelassen werden.
 
 ```csharp
 try {
@@ -438,6 +445,7 @@ throw new ArithmeticException("string")
 
 ## Multithreading `System.Threading`
 
+Ermöglich parallere Ausführung von von Code. Thread-Scheduler stellt sicher, dass alle Threads genug CPU-Zeit erhalten. Jeder Thread hat seinen eigenen Stack, teilt sich aber den Heap mit anderen Threads vom gleichen Prozess. Bei einem Multicore-Prozessor erfolgt die Zuteilung der CPU-Zeit aus einer Mischung von Zeitschlitz-Verfahren und mehreren Cores.
 
 ```csharp
 static void Main(string[] args) {
@@ -457,11 +465,10 @@ static void Run() {
 
 ### Join
 
-Mit `t.Join()`{.csharp} kann gewartet werden, bis sich der Thread beendet hat.
+Mit `t.Join()`{.csharp} kann gewartet werden, bis sich ein Thread beendet hat.
 
 ```csharp
-static void Main()
-{
+static void Main() {
   Thread t1 = new Thread(Run);
   t1.Start();
   t1.Join();
@@ -496,8 +503,7 @@ lock(syncRoot) {
 
 ### Deadlock
 
-Der Deadblock ist ein Softlock, welcher zwei miteinander interagierenden Threads blockiert.
-Wenn Thread #1 `lockA` sperrt und direkt danach Thread #2 `lockB` blockiert, haben sich beide Threads gegenseitig gesperrt.
+Der Deadblock ist ein Softlock, welcher zwei miteinander interagierenden Threads blockiert. Wenn Thread #1 `lockA` sperrt und direkt danach Thread #2 `lockB` blockiert, haben sich beide Threads gegenseitig gesperrt.
 
 ```csharp
 void f1() {
@@ -539,7 +545,7 @@ private void HandleRequest(object _object)
 
 ## Boxing & Unboxing
 
-*Boxing* und *Unboxing* ermöglicht das Konvertieren von Wertetypen (`int`, `Bool`, `struct`) in Referenztypen (z.B. `object`) und zurück. Dies kann hilfreich sein wenn z.B. Wertetypen in einer Sammlung gespeichert werden soll, welche nur Referenztypen akzeptiert.
+*Boxing* und *Unboxing* ermöglicht das Konvertieren von Wertetypen (`int`, `Bool`, `struct`) in Referenztypen (z.B. `object`) und zurück. Dies kann z.B. hilfreich sein, wenn Wertetypen in einer Sammlung gespeichert werden sollen, welche nur Referenztypen akzeptiert.
 
 Im folgenden Beispiel wird der Integerwert $123$ *geboxed* (impliziter cast) und das neue Objekt zeigt nun auf den geboxted Integer. Zum *unboxen* muss **explizit** gecastet werden!
 
@@ -551,6 +557,8 @@ object o = i; // box the int
 
 int j = (int)o; // unbox the object
 ```
+
+Birgt Risiko von Laufzeitfehlern. Wenn ein Werttyp unbeabsichtigt als Objekt behandelt wird und dann wieder in seinen ursprünglichen Werttyp umgewandelt werden soll, kann es zu Fehlern kommen, wenn die Typen nicht übereinstimmen. Kann mit generischen Listen ungangen werden, da diese die Typensicherheit sicherstellen. Ebenfalls kann ständiges Konvertieren zwischen Werttypen und Objekten die Performance beeinträchtigen.
 
 ## Streams
 
@@ -596,8 +604,6 @@ BinaryReader brB = new BinaryReader(gsB);
 // Read
 string msg = brB.ReadString();
 brB.Close();
-
-// ...
 ```
 
 ::: callout-important
@@ -609,7 +615,7 @@ brB.Close();
 
 ## Delegates
 
-Delegates sind das OOP-pendant zu *Funktionszeigern* in `C` oder `C++`, ist also eine **Referenztyp-Variable** welche mit dem Schlüsselwort `delegate` verwendet wird und auf eine Mehtode zeigt.
+Delegates sind das OOP-pendant zu *Funktionszeigern* in `C` oder `C++`. Ist eine **Referenztyp-Variable**, welche eine Referenz zu einer Methode enthält. Bei Delegates wird auch der Rückgabetyp der Methode für die Signatur verwendet. Dies gewährleistet die Typsicherheit und Konsistenz bei der Verwendung von Delegates. Gleich wie bei Funktionszeigern in `C` ermöglichen Delegates unter anderem die Implementierung von Callbacks und die Erstellung von Funktionen zur Laufzeit. Im Gegensatz zu Funktionszeigern können mit Delegates (mehrere) Methodenreferenzen auf verschiedene Art gekapselt und übergeben werden. Sie können auf Methoden von Klassen oder Instanzen verweisen.
 
 ```csharp
 private delegate void Notifier (string message);
@@ -625,7 +631,6 @@ static void Main () {
   Notifier doNotify = SayHello; 
   doNotify("Hanswurst");
 }
-
 // out: "Hello from Hanswurst"
 ```
 
@@ -633,10 +638,10 @@ Im obigen Beispiel wird dem delegate `doNotify` der Referenz der Methode `SayHel
 
 ::: callout-important
 - Die Signatur des Delegates `void Notifier (string message)` muss mit jener der Methode `void SayHello (string sender)` übereinstimmen (auch der Rückgabewert).
-- Delegate Methoden dürfen nur aufgerufen werden wenn diese nicht `NULL`, also eine Zuweisung aufweisen
+- Delegate Methoden dürfen nur aufgerufen werden, wenn diese nicht `NULL` sind, ansonsten wird eine Exception ausgelöst
+- Delegates können auch auf statische Methoden zeigen
+- Methoden dürfen virtual oder override sein, aber nicht abstract
 :::
-
-Delegates können auch auf Methoden von Objekten oder statischen Klassen zeigen
 
 ```csharp
 doNotify = Obj.SayGueteMorge;
@@ -664,15 +669,14 @@ Der Vorteil hierbei liegt bei der möglichen Verwendung von `NULL`-checking. So 
 doNotify?.Invoke("Oliver");
 ```
 
-Mit dem Befehl `GetInvocationList()` kann ein Array aller Methoden auf dem Delagate generiert werden.
-
 ### Multicast
 
-Es können auch *mehrere* Methoden auf ein Delegate zugewiesen werden, dies wird **Multicast**-Delegate genannt. Bei einem Aufruf oder `.Invoke()` werden der Reihe nach alle Methoden aufgerufen.
+Es können auch *mehrere* Methoden auf ein Delegate zugewiesen werden, dies wird **Multicast**-Delegate genannt. Bei einem Aufruf oder `.Invoke()` werden der Reihe nach alle Methoden aufgerufen und mit `.GetInvocationList()` wird ein Array der Methoden zurückgegeben.
 
 ::: callout-important
 - Gibt es einen Rückgabewert, so wird nur der Letzte geliefert
-- Alle Methoden müssen die absolut selbe Signatur haben
+- Alle Methoden müssen die selbe Signatur haben
+- Sollte bei der Abarbeitung der Multicast-Delegates eine Exception ausgelöst werden, werden die restlichen Delegates nicht mehr aufgerufen
 :::
 
 ```csharp
@@ -691,9 +695,9 @@ doNotify.Invoke("Sissi")
 
 ## Events
 
-Events entsprechen einer spezifizierten Nutzung von Delegates. Ein Ereignis ist ein Mechanismus mit dem ein Programmabschnitt darüber informiert werden kann, dass etwas im System passiert ist um darauf zu reagieren. z.B. anklicken einer Schaltfläche, Unterbruch einer Netzwerkverbindung, Änderung eines Wertes. Ein Ereignis besteht aus einem Ereignisauslöser (**event trigger**) und einem oder mehrerer Ereignishandlern (**event handler**), welche aufgerufen werden, wenn das Event ausgelöst wird.
+Ein Event wird von einem **Publisher** (Veröffentlicher) ausgelöst und kann von mehreren **Subscribern** (Abonnenten) behandelt werden. Ein Delegate definiert die Signatur des Events, während der **Eventhandler** die Methode repräsentiert, die auf das Event reagiert. Durch die Verwendung von Events können verschiedene Teile einer Anwendung miteinander kommunizieren und Aktionen auslösen, wenn ein bestimmtes Ereignis eintritt.
 
-Ein Event kann nur in der eigenen Klasse (oder Implementierung) geändert und gefeuert werden (Events sind immer `public`). Ausserhalb ist nur das Hinzufügen `+=` und Entfernen `-=` von Eventhandlern erlaubt. Folgendes Beispiel beschreibt die Klasse einer Ereignisquelle
+Ein Event kann nur in der eigenen Klasse (oder Implementierung) geändert und gefeuert werden (Events sind immer `public`). Ausserhalb ist nur das Hinzufügen `+=` und Entfernen `-=` von Eventhandlern erlaubt. Im Gegensatz zu Delegates können Events so nicht von "Ausserhalb" überschrieben werden. Folgendes Beispiel beschreibt die Klasse einer Ereignisquelle.
 
 ```csharp
 public class Model {
@@ -710,13 +714,13 @@ public class Model {
 ```
 
 ::: callout-important
-Eventhandler haben wie Delegatesmethoden ein vorgegebene Signatur die eingehalten werden muss
+Eventhandler haben wie Delegatesmethoden eine vorgegebene Signatur, die eingehalten werden muss.
 
 ```csharp
 void EventHandler(object source, EventArgs e);
 ```
 
-Benötigte Parameter werden in den Parameter **`e`** verpackt um so der Signatur gerecht zu werden. Hierzu wird die Klasse `MyEventArgs` benötigt, welche von `EventArgs` erbt
+In der Variable **`e`** können zusätzliche Informationen über das Ereignis übermittelt werden. Dafür kann eine erbende Klasse von `EventArgs`{.csharp} erstellt werden, in welcher die Eventdaten festgehalten werden.
 
 ```csharp
 public class ModelEventArgs : EventArgs {
@@ -763,7 +767,7 @@ public class View {
 }
 ```
 
-Es können nun Objekte von `View` erstellt werden, welche sich direkt auf den Event `ModelChanged` registrieren. Wird ein `.Update()` ausgeführt, geschieht dies mit allen Objekten
+Es können nun Objekte von `View` erstellt werden, welche sich direkt auf den Event `ModelChanged` registrieren. Wird ein `.Update()` ausgeführt, geschieht dies mit allen Objekten.
 
 ```csharp
 static void Main() {
