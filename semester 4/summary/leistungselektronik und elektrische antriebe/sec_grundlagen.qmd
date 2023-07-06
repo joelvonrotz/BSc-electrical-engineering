@@ -4,37 +4,36 @@
 
 ### Grundgrössen
 
-`\end{multicols}`{=latex}
-`\renewcommand*{\arraystretch}{1.4}`{=latex}
+`\end{multicols}`{=latex} `\renewcommand*{\arraystretch}{1.4}`{=latex}
 
-+------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Translatorische Bewegung                                                                                                           | Rotatorische Bewegung                                                                                                                                                         |
-+:=========================+:===================================================================+:==================================:+:======================+:========================================================================================+:===========================================================:+
-| Weg                      | $\displaystyle s$                                                  | $\left[m\right]$                   | Winkel                | $\displaystyle \varphi$                                                                 | $\left[\text{rad}\right]/\left[1\right]$                    |
-|                          | $\displaystyle h = \iint{a\cdot dt}=\sfrac{1}{2}\cdot a\cdot t^2$  |                                    |                       | $\displaystyle \quad=2\pi\cdot\frac{n\space [\frac{1}{min}]}{60\space [\frac{s}{min}]}$ |                                                             |
-+--------------------------+--------------------------------------------------------------------+------------------------------------+-----------------------+-----------------------------------------------------------------------------------------+-------------------------------------------------------------+
-| Geschwindikeit           | $\displaystyle v=\frac{ds}{dt}=r\cdot\omega$                       | $\left[\frac{m}{s}\right]$         | Kreisfrequenz         | $\displaystyle \omega = \frac{d\varphi}{dt}$\                                           | $\left[\frac{\text{rad}}{s}\right]/\left[\frac1{s}\right]$  |
-|                          |                                                                    |                                    |                       | $\displaystyle \quad=2\pi\cdot\frac{n\space [\frac{1}{min}]}{60\space [\frac{s}{min}]}$ |                                                             |
-+--------------------------+--------------------------------------------------------------------+------------------------------------+-----------------------+-----------------------------------------------------------------------------------------+-------------------------------------------------------------+
-| Beschleunigung           | $\displaystyle a=\frac{dv}{dt}=\frac{d^2}{dt^2}$                   | $\left[\frac{m}{s^2}\right]$       | Winkelbeschl.         | $\displaystyle \dot{\omega}=\frac{d\omega}{dt}=\frac{d^2\varphi}{dt^2}$                 | $\left[\frac1{s^2}\right]$                                  |
-+--------------------------+--------------------------------------------------------------------+------------------------------------+-----------------------+-----------------------------------------------------------------------------------------+-------------------------------------------------------------+
-| Kraft                    | $\displaystyle F= m\cdot a$                                        | $\left[N\right]$                   | Drehmoment            | $\displaystyle M = J\cdot\dot{\omega}$\                                                 | $\left[Nm\right]$                                           |
-|                          |                                                                    |                                    |                       | $\displaystyle \quad=F\cdot r_\perp$                                                    |                                                             |
-+--------------------------+--------------------------------------------------------------------+------------------------------------+-----------------------+-----------------------------------------------------------------------------------------+-------------------------------------------------------------+
-| Masse                    | $\displaystyle m$                                                  | $\left[kg\right]$                  | Trägheitsmoment       | $\displaystyle J$                                                                       | $\left[kg\cdot m^2\right]$                                  |
-+--------------------------+--------------------------------------------------------------------+------------------------------------+-----------------------+-----------------------------------------------------------------------------------------+-------------------------------------------------------------+
-| Impuls                   | $\displaystyle B = m\cdot v$                                       | $\left[\frac{kg\cdot m}{s}\right]$ | Drall                 | $\displaystyle D = J\cdot\omega$                                                        | $\left[\frac{kg\cdot m^2}{s}\right]$                        |
-+--------------------------+--------------------------------------------------------------------+------------------------------------+-----------------------+-----------------------------------------------------------------------------------------+-------------------------------------------------------------+
-| Leistung                 | $\displaystyle P=F\cdot v$                                         | $\left[W\right]$                   | Leistung              | $\displaystyle P = M\cdot \omega$                                                       | $\left[W\right]$                                            |
-+--------------------------+--------------------------------------------------------------------+------------------------------------+-----------------------+-----------------------------------------------------------------------------------------+-------------------------------------------------------------+
-| Energie                  | $\displaystyle W=\int{p(t)\cdot dt}$                               | $\left[Ws\right]$                  | Energie               | $\displaystyle W=\int{p(t)\cdot dt}$                                                    | $\left[Ws\right]$                                           |
-+--------------------------+--------------------------------------------------------------------+------------------------------------+-----------------------+-----------------------------------------------------------------------------------------+-------------------------------------------------------------+
-| kin. Energie             | $\displaystyle W_{kin}=\frac1{2}\cdot m\cdot v^2$                  | $\left[Ws\right]$                  | kin. Energie          | $\displaystyle W_{kin}=\frac{J\omega^2}{2}$                                             | $\left[Ws\right]$                                           |
-+--------------------------+--------------------------------------------------------------------+------------------------------------+-----------------------+-----------------------------------------------------------------------------------------+-------------------------------------------------------------+
-| pot. Energie             | $\displaystyle W_{pot} =\int{F(s)\cdot ds}$\                       | $\left[Ws\right]$                  | pot. Energie          | $\displaystyle W_{pot}=\int{M(\varphi)\cdot d\varphi}$                                  | $\left[Ws\right]$                                           |
-|                          | $\displaystyle\qquad = m\cdot g\cdot h$                            |                                    |                       |                                                                                         |                                                             |
-+--------------------------+--------------------------------------------------------------------+------------------------------------+-----------------------+-----------------------------------------------------------------------------------------+-------------------------------------------------------------+
-: {tbl-colwidths="[15,25,10,15,25,10]"}
++----------------+-------------------------------------------------------------------------------------+------------------------------------+-----------------+-----------------------------------------------------------------------------------------------------------------+------------------------------------------------------------+
+|                |                                                                                     |                                    |                 | Translatorische Bewegung                                                                                        | Rotatorische Bewegung                                      |
++================+=====================================================================================+====================================+=================+:================================================================================================================+:===========================================================+
+| Weg            | $\displaystyle s$ $\displaystyle h = \iint{a\cdot dt}=\sfrac{1}{2}\cdot a\cdot t^2$ | $\left[m\right]$                   | Winkel          | $\displaystyle \varphi$ $\displaystyle \quad=2\pi\cdot\frac{n\space [\frac{1}{min}]}{60\space [\frac{s}{min}]}$ | $\left[\text{rad}\right]/\left[1\right]$                   |
++----------------+-------------------------------------------------------------------------------------+------------------------------------+-----------------+-----------------------------------------------------------------------------------------------------------------+------------------------------------------------------------+
+| Geschwindikeit | $\displaystyle v=\frac{ds}{dt}=r\cdot\omega$                                        | $\left[\frac{m}{s}\right]$         | Kreisfrequenz   | $\displaystyle \omega = \frac{d\varphi}{dt}$\                                                                   | $\left[\frac{\text{rad}}{s}\right]/\left[\frac1{s}\right]$ |
+|                |                                                                                     |                                    |                 | $\displaystyle \quad=2\pi\cdot\frac{n\space [\frac{1}{min}]}{60\space [\frac{s}{min}]}$                         |                                                            |
++----------------+-------------------------------------------------------------------------------------+------------------------------------+-----------------+-----------------------------------------------------------------------------------------------------------------+------------------------------------------------------------+
+| Beschleunigung | $\displaystyle a=\frac{dv}{dt}=\frac{d^2}{dt^2}$                                    | $\left[\frac{m}{s^2}\right]$       | Winkelbeschl.   | $\displaystyle \dot{\omega}=\frac{d\omega}{dt}=\frac{d^2\varphi}{dt^2}$                                         | $\left[\frac1{s^2}\right]$                                 |
++----------------+-------------------------------------------------------------------------------------+------------------------------------+-----------------+-----------------------------------------------------------------------------------------------------------------+------------------------------------------------------------+
+| Kraft          | $\displaystyle F= m\cdot a$                                                         | $\left[N\right]$                   | Drehmoment      | $\displaystyle M = J\cdot\dot{\omega}$\                                                                         | $\left[Nm\right]$                                          |
+|                |                                                                                     |                                    |                 | $\displaystyle \quad=F\cdot r_\perp$                                                                            |                                                            |
++----------------+-------------------------------------------------------------------------------------+------------------------------------+-----------------+-----------------------------------------------------------------------------------------------------------------+------------------------------------------------------------+
+| Masse          | $\displaystyle m$                                                                   | $\left[kg\right]$                  | Trägheitsmoment | $\displaystyle J$                                                                                               | $\left[kg\cdot m^2\right]$                                 |
++----------------+-------------------------------------------------------------------------------------+------------------------------------+-----------------+-----------------------------------------------------------------------------------------------------------------+------------------------------------------------------------+
+| Impuls         | $\displaystyle B = m\cdot v$                                                        | $\left[\frac{kg\cdot m}{s}\right]$ | Drall           | $\displaystyle D = J\cdot\omega$                                                                                | $\left[\frac{kg\cdot m^2}{s}\right]$                       |
++----------------+-------------------------------------------------------------------------------------+------------------------------------+-----------------+-----------------------------------------------------------------------------------------------------------------+------------------------------------------------------------+
+| Leistung       | $\displaystyle P=F\cdot v$                                                          | $\left[W\right]$                   | Leistung        | $\displaystyle P = M\cdot \omega$                                                                               | $\left[W\right]$                                           |
++----------------+-------------------------------------------------------------------------------------+------------------------------------+-----------------+-----------------------------------------------------------------------------------------------------------------+------------------------------------------------------------+
+| Energie        | $\displaystyle W=\int{p(t)\cdot dt}$                                                | $\left[Ws\right]$                  | Energie         | $\displaystyle W=\int{p(t)\cdot dt}$                                                                            | $\left[Ws\right]$                                          |
++----------------+-------------------------------------------------------------------------------------+------------------------------------+-----------------+-----------------------------------------------------------------------------------------------------------------+------------------------------------------------------------+
+| kin. Energie   | $\displaystyle W_{kin}=\frac1{2}\cdot m\cdot v^2$                                   | $\left[Ws\right]$                  | kin. Energie    | $\displaystyle W_{kin}=\frac{J\omega^2}{2}$                                                                     | $\left[Ws\right]$                                          |
++----------------+-------------------------------------------------------------------------------------+------------------------------------+-----------------+-----------------------------------------------------------------------------------------------------------------+------------------------------------------------------------+
+| pot. Energie   | $\displaystyle W_{pot} =\int{F(s)\cdot ds}$\                                        | $\left[Ws\right]$                  | pot. Energie    | $\displaystyle W_{pot}=\int{M(\varphi)\cdot d\varphi}$                                                          | $\left[Ws\right]$                                          |
+|                | $\displaystyle\qquad = m\cdot g\cdot h$                                             |                                    |                 |                                                                                                                 |                                                            |
++----------------+-------------------------------------------------------------------------------------+------------------------------------+-----------------+-----------------------------------------------------------------------------------------------------------------+------------------------------------------------------------+
+
+: {tbl-colwidths="\[15,25,10,15,25,10\]"}
 
 `\begin{multicols}{2}`{=latex}
 
@@ -44,7 +43,6 @@ $$
 M = F\cdot r \qquad \text{und} \qquad v_{tang} = r\cdot \omega\ (\text{resp. } a_{tang}=\dot\omega \cdot r)
 $$
 
-
 ### Zentrifugalkraft
 
 $$
@@ -53,25 +51,25 @@ $$
 
 ### Trägheitsmoment $J$
 
-- [Vollzylinder]{.underline}
+-   [Vollzylinder]{.underline}
 
 $$
 J=\frac{m}{2}r^2=\frac{\pi\cdot l\cdot\rho}{2}r^4
 $$
 
-- [Hohlzylinder]{.underline}
+-   [Hohlzylinder]{.underline}
 
 $$
 J=\frac{m}{2}(r_a^2+r_i^2)=\frac{\pi\cdot l\cdot\rho}{2}(r_a^4-r_i^4)
 $$
 
-- [Zylindermantel]{.underline} ($\delta\ll r$)
+-   [Zylindermantel]{.underline} ($\delta\ll r$)
 
 $$
 J=\frac{m}{4}(2\cdot r-\delta)^2=2\pi\cdot l\cdot\rho r^3\delta
 $$
 
-- [Kugel]{.underline}
+-   [Kugel]{.underline}
 
 $$
 J=\frac{2\cdot m}{5}r^2=\frac{8}{15}\pi\cdot\rho\cdot r^5
@@ -91,7 +89,7 @@ Es kommen zudem *stabile* und *instabile* Arbeitspunkte vor. **Stabil** sind sie
 
 Wird ein stromdurchflossener Leiter in die Nähe eines Magneten gebracht, so wirkt auf jedes Längenelement des Leiters eine Kraft, die senkrecht auf dem Längenelement steht. Ihre Grösse ist dem Strom im Leiterproportional.
 
-![](images/01_LorentzKraft.png){width="4cm"}
+![](images/01_LorentzKraft.png){width="3.2cm"}
 
 Die Kraft $F$ die auf einen Leiter wirkt ist abhängig vom Längenelement $l$ (länge des Leiters im Magnetfeld) des Stroms $i$.
 
@@ -109,7 +107,7 @@ $$
 
 Das Durchflutungsgesetz verbindet die Ursache der Magnetfelds, die Durchflutung $\theta$, mit deren Wirkung , der magnetischen Feldstärke $H$.
 
-![](images/01_Eisenkern.png){width="6cm"}
+![](images/01_Eisenkern.png){width="4.6cm"}
 
 `\end{multicols}`{=latex}
 
@@ -132,13 +130,14 @@ Das Durchflutungsgesetz verbindet die Ursache der Magnetfelds, die Durchflutung 
 +----------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------+
 | Induktivität $[H]$                     | $\displaystyle L=\frac{N^2\cdot A_{Fe}\cdot\mu_0\cdot\mu_r}{l_{Fe}}$                                                                                    |
 +----------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------+
-: {tbl-colwidths="[30,70]"}
+
+: {tbl-colwidths="\[30,70\]"}
 
 `\begin{multicols}{2}`{=latex}
 
 Werden grosse Induktivitätswerte benötigt, wird mit ferromagnetischem Material gearbeitet. Dabei müssen Sättigungseffekte beachtet werden (B-H-Kennlinie)
 
-![](images/01_Magnetisierung.png)
+![](images/01_Magnetisierung.png){width="254"}
 
 ### Luftspalt
 
@@ -157,7 +156,8 @@ In Drosseln mit Luftspalt wird dabei die Feldstärke vornehmlich durch die Lufts
 +----------------------------------------+----------------------------------------------------------------------------------------------------------------------+------------------------------------------------+
 |                                        | $H_{Fe}=\frac{N\cdot I}{\mu_r\cdot l_\delta}$                                                                        | $H_\delta=\frac{N\cdot I}{l_\delta}$           |
 +----------------------------------------+----------------------------------------------------------------------------------------------------------------------+------------------------------------------------+
-: {tbl-colwidths="[25,45,30]"}
+
+: {tbl-colwidths="\[25,45,30\]"}
 
 `\newpage`{=latex}
 
@@ -165,11 +165,9 @@ In Drosseln mit Luftspalt wird dabei die Feldstärke vornehmlich durch die Lufts
 
 `\begin{multicols}{2}`{=latex}
 
-
 ### Kapazität $C$
 
 ![](images/grundlagen/kapazitat.png){width="5cm"}
-
 
 $$
 {i_C} = C \cdot \frac{du}{dt}\quad\Leftrightarrow\quad u_C = \frac1{C}\int{i_C(t)}=\frac{t}{C}I_C
@@ -181,12 +179,10 @@ Kurzschluss: $i_C \rightarrow \infty$
 
 ![](images/grundlagen/kapazitat_spannungsverlauf.png){width="6cm"}
 
-
 ```{=latex}
 \vfill\null
 \columnbreak
 ```
-
 ### Induktivität $L$
 
 ![](images/grundlagen/induktivitat.png){width="5cm"}
@@ -206,7 +202,6 @@ Leerlauf: $u_L \rightarrow \infty$
 \rule{\textwidth}{0.1pt}
 \begin{multicols}{2}
 ```
-
 ## Periodische Signale
 
 ### Fourierreihe
@@ -225,8 +220,7 @@ $$
 
 Mit dem Zusammenhang $\omega_1=2\pi f_1=\frac{2\pi}{T_1}$.
 
-Koeffizient $\frac{a_0}{2}$ entspricht dem **Mittelwert** $\overline{X}$.
-$$
+Koeffizient $\frac{a_0}{2}$ entspricht dem **Mittelwert** $\overline{X}$. $$
 \begin{split}
 a_n &= \frac1{\pi}\int_0^{2\pi}[x(\omega_1t)\cdot\cos(n\cdot\omega_1t)]\ d(\omega_1t) \\
 b_n &= \frac1{\pi}\int_0^{2\pi}[x(\omega_1t)\cdot\sin(n\cdot\omega_1t)]\ d(\omega_1t)
@@ -267,7 +261,7 @@ $$
 
 $$
 x(\omega_1t)=-x(-\omega_1t)
-$$ 
+$$
 
 Ist $x(\omega_1t)$ eine *ungerade Funktion* (Bsp. Sinus) so gilt
 
@@ -280,7 +274,6 @@ $$
 $$
 X_{AV}=\overline{X}=\frac{a_0}{2}=\frac{1}{T_1}\int_0^{T_1}{x(t)dt}=\frac{1}{2\pi}\int_0^{2\pi}{x(\omega_1t)d(\omega_1t)}
 $$
-
 
 ### Effektivwert
 
@@ -351,7 +344,6 @@ $$
   \lambda & Leistungsfaktor
 \end{conditions}
 ```
-
 ### Einphasige Leistung (sinusförmgie Spannung)
 
 **Häufiger Fall**: sinusförmigen Spannung und ein ebenfalls periodischer, nicht-sinusförmiger Strom.
@@ -383,12 +375,10 @@ $$
 $$
 S_1 = U_{v=1,eff}\cdot I_{v=1,eff}
 $$
-
 :::
 
-Die übrigen Frequenzanteile des Stromes verursachen Verluste in den Leitungen ($\rightarrow$ Blindleistung). Dies wird *Verzerrungsblindleistung* $D$ genannt.
-$$
-D = U_{eff}\cdot I_{\textcolor{BrickRed}{v>1},eff} = U_{rms}\cdot\sqrt{I_{AV}^2+I_{v=2,eff}^2+I_{v=3,eff}^2+\cdots}
+Die übrigen Frequenzanteile des Stromes verursachen Verluste in den Leitungen ($\rightarrow$ Blindleistung). Dies wird *Verzerrungsblindleistung* $Q_D$ genannt. $$
+Q_D = U_{eff}\cdot I_{\textcolor{BrickRed}{v>1},eff} = U_{rms}\cdot\sqrt{I_{AV}^2+I_{v=2,eff}^2+I_{v=3,eff}^2+\cdots}
 $$
 
 Die Scheinleistung ist das Produkt der Effektivwerte und zwischen den verschiedenen Leistungen besteht folgender Zusammenhang.
@@ -398,7 +388,9 @@ S = U_{eff}\cdot I_{eff}
 $$
 
 $$
-S^2 = P^2+Q^2=P^2+Q_1^2+D^2=S_1^2+D^2
+\begin{split}
+S^2 =& P^2+Q^2\\=&P_1^2+\underbrace{P_2^2}_{P\space\text{Oberschwingungen}\atop U_2\cdot I_2} +\underbrace{Q_1^2}_{Q\space\text{aus Oberschwingungen}\atop U_2=0,\space U_1\cdot I_2}+Q_D^2\\=&S_1^2+Q_D^2
+\end{split}
 $$
 
 $$
@@ -412,11 +404,15 @@ $$
   D & Verzerrungsblindleistung
 \end{conditions}
 ```
+### Dreiphasige Leistung
+
+$$
+S=3\cdot U_{ph_{RMS}}\cdot I_{ph_{RMS}}=\sqrt3\cdot U_{vk_{RMS}}\cdot I_{ph_{RMS}}
+$$
 
 ### Klirrfaktor
 
-Der Leistungsfaktor $\lambda$ zeigt, wie optimal die Wirkleistung übertragen wird.
-Allgemein gilt $\lambda \leq \cos{\varphi_1}$ ($=$: kein Wirkleistungsverlust, $<$: Verlust).
+Der Leistungsfaktor $\lambda$ zeigt, wie optimal die Wirkleistung übertragen wird. Allgemein gilt $\lambda \leq \cos{\varphi_1}$ ($=$: kein Wirkleistungsverlust, $<$: Verlust).
 
 Der Klirrfaktor $k$ beschreibt die Qualität, mit $k\rightarrow 0$ sehr gut ist (keine Oberschwingungen).
 
