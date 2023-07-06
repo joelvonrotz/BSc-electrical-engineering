@@ -345,12 +345,12 @@ $$
 s=\frac{\hat{U}_{max}}{\hat{U}_{min}}=\frac{|U_V|+|U_R|}{|U_V|-|U_R|}=\frac{1+|\Gamma|}{1-|\Gamma|}
 $$
 
-#### Rückflussdämpfung $s_{11}$
+#### Rückflussdämpfung $a_u$
 
 Die Rückflussdämpfung bezeichnet wie viel das rücklaufende Signal gegenüber dem vorlaufenden gedämpft ist
 
 $$
-s_{11}=-10\cdot \log_{10}(|\Gamma|^2)
+a_u = -s_{11}=-10\cdot \log_{10}(|\Gamma|^2)
 $$
 
 #### Hüllkurve
@@ -823,3 +823,13 @@ Komplementär dazu die *Versorgungswahrscheinlichkeit*
 $$
 P[u^2\geq S_{min}]=1-P[u^2<S_{min}]
 $$
+
+::: callout-important
+## Masseinheiten
+
+Leistungen in Watt $[W]$
+
+$$
+P_{[W]}=10^{\frac{P_{[dBW]}}{10}}\qquad\text{bzw.}\qquad P_{[mW]}=10^{\frac{P_{[dBm]}}{10}}\cdot 1mW
+$$
+:::
