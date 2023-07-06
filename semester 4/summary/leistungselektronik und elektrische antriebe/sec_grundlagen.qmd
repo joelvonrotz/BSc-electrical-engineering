@@ -159,8 +159,6 @@ In Drosseln mit Luftspalt wird dabei die Feldstärke vornehmlich durch die Lufts
 
 : {tbl-colwidths="\[25,45,30\]"}
 
-`\newpage`{=latex}
-
 ## Kapazität & Induktivität
 
 `\begin{multicols}{2}`{=latex}
@@ -218,9 +216,25 @@ $$
 x(t)=\frac{a_0}{2}+\sum_{n=1}^{\infty}{[a_n\cos(n\omega_1t)+b_n\sin(n\omega_1 t)]}
 $$
 
+::: callout-tip
+#### Rechteckimpuls
+
+$$
+\begin{split}
+f(t)=&\frac{4\cdot h}{\pi}\left[\sin(\omega t) + \frac13\cdot\sin(3\omega t)+\cdots\right]\\
+    =&\frac{4\cdot h}{\pi}\sum_{k=1}^{\infty}\frac{\sin((2k-1)\omega t)}{2k-1}
+\end{split}
+$$
+
+$h$: Amplitude des **Rechteck**signals
+
+:::
+
 Mit dem Zusammenhang $\omega_1=2\pi f_1=\frac{2\pi}{T_1}$.
 
-Koeffizient $\frac{a_0}{2}$ entspricht dem **Mittelwert** $\overline{X}$. $$
+Koeffizient $\frac{a_0}{2}$ entspricht dem **Mittelwert** $\overline{X}$.
+
+$$
 \begin{split}
 a_n &= \frac1{\pi}\int_0^{2\pi}[x(\omega_1t)\cdot\cos(n\cdot\omega_1t)]\ d(\omega_1t) \\
 b_n &= \frac1{\pi}\int_0^{2\pi}[x(\omega_1t)\cdot\sin(n\cdot\omega_1t)]\ d(\omega_1t)
@@ -344,6 +358,7 @@ $$
   \lambda & Leistungsfaktor
 \end{conditions}
 ```
+
 ### Einphasige Leistung (sinusförmgie Spannung)
 
 **Häufiger Fall**: sinusförmigen Spannung und ein ebenfalls periodischer, nicht-sinusförmiger Strom.
@@ -377,7 +392,9 @@ S_1 = U_{v=1,eff}\cdot I_{v=1,eff}
 $$
 :::
 
-Die übrigen Frequenzanteile des Stromes verursachen Verluste in den Leitungen ($\rightarrow$ Blindleistung). Dies wird *Verzerrungsblindleistung* $Q_D$ genannt. $$
+Die übrigen Frequenzanteile des Stromes verursachen Verluste in den Leitungen ($\rightarrow$ Blindleistung). Dies wird *Verzerrungsblindleistung* $Q_D$ genannt.
+
+$$
 Q_D = U_{eff}\cdot I_{\textcolor{BrickRed}{v>1},eff} = U_{rms}\cdot\sqrt{I_{AV}^2+I_{v=2,eff}^2+I_{v=3,eff}^2+\cdots}
 $$
 
@@ -389,7 +406,9 @@ $$
 
 $$
 \begin{split}
-S^2 =& P^2+Q^2\\=&P_1^2+\underbrace{P_2^2}_{P\space\text{Oberschwingungen}\atop U_2\cdot I_2} +\underbrace{Q_1^2}_{Q\space\text{aus Oberschwingungen}\atop U_2=0,\space U_1\cdot I_2}+Q_D^2\\=&S_1^2+Q_D^2
+S^2 =& P^2+Q^2\\
+    =&P_1^2+\underbrace{P_2^2}_{P\ \text{Oberschwingungen}\atop U_2\cdot I_2} +\underbrace{Q_1^2}_{Q\space\text{aus Oberschwingungen}\atop U_2=0,\space U_1\cdot I_2}+Q_D^2\\
+    =&S_1^2+Q_D^2
 \end{split}
 $$
 
@@ -404,6 +423,7 @@ $$
   D & Verzerrungsblindleistung
 \end{conditions}
 ```
+
 ### Dreiphasige Leistung
 
 $$

@@ -6,7 +6,7 @@ Gleichstromsteller haben die Aufgabe, eine Gleichspannung $U_1$ in eine gegenüb
 
 Die Eingangsspannung $U_1$ wird oft mit einem ungesteuerten Gleichrichter erzeugt, folgt also alfälligen Netzspannungsschwankungen. Die Ausgangsspannung $U_2$ kann durch einen Regelkreis auf den gewünschten Wert eingestellt werden
 
-![](images/04_DC-Steller_Geregelt.png){fig-align="center" }
+![](images/04_DC-Steller_Geregelt.png){fig-align="center"}
 
 Folgende Gleichstromsteller sind hauptsächlich im Einsatz
 
@@ -25,10 +25,9 @@ Folgende Gleichstromsteller sind hauptsächlich im Einsatz
 
 `\begin{multicols}{2}`{=latex}
 
-
 ## Abwärtsteller
 
-![](images/04_Chopper.png){fig-align="center" }
+![](images/04_Chopper.png){fig-align="center"}
 
 Durch Regelmässigers ein- und ausschalten von $S$, lässt sich über die Impulsdauer der Mittelwert ($AV=\text{average}$) der Ausgangsspannung $U_2$ einstellen
 
@@ -54,11 +53,11 @@ $$
 
 Wir erhalten also folgende Strom- / Spannungsverläufe im stationären Betrieb
 
-![](images/04_ChopperWaveform.png){fig-align="center" }
+![](images/04_ChopperWaveform.png){fig-align="center"}
 
 ### Standard DC-Last
 
-![](images/04_ChopperDC-Last.png){fig-align="center" }
+![](images/04_ChopperDC-Last.png){fig-align="center"}
 
 Da der Mittelwert der Spannung über $L$ im stationären Betrieb null sein muss, gilt
 
@@ -76,13 +75,13 @@ $$
 
 Bei einer hohen Induktivität, wird der Strom $I_2(t)$ gut geglättet. Ist die Induktivität jedoch nicht sehr hoch oder die Taktfrequenz nicht deutlich kleiner als die Zeitkonstante $\tau=\frac{L}{R}$ , setzt sich der Stromverlauf aus Auschnitten von $e$-Funktionen zusammen
 
-![](images/04_e-Functions.png){fig-align="center" }
+![](images/04_e-Functions.png){fig-align="center"}
 
 ### Glättungskondensator
 
 Wird die Quelle mit einem Glättungskondensator ausgestattet, wird dieser mit unten dargestelltem Strom belastet
 
-![](images/04_Gl%C3%A4ttungskondensator.png){fig-align="center" }
+![](images/04_Gl%C3%A4ttungskondensator.png){fig-align="center"}
 
 ### Arbeitspunkteinstellung
 
@@ -108,11 +107,13 @@ Die Toleranzbandsteuerung beschreibt ein Prinzip, das ohne Pulsdauer- und Pulsfr
 
 Durch Regelmässigers ein- und ausschalten von $S$, lässt sich über die Impulsdauer der Mittelwert ($AV=\text{average}$) der Ausgangsspannung $U_2$ einstellen
 
-$$U_{2_{AV}}=U_1\frac{1}{1-a}\qquad \text{mit}\space a=\frac{T_{ein}}{T}$$ Unter der Annahme, dass der Steller verlustfrei arbeitet, gilt
+$$U_{2_{AV}}=U_1\frac{1}{1-a}\qquad \text{mit}\quad a=\frac{T_{ein}}{T}$$ Unter der Annahme, dass der Steller verlustfrei arbeitet, gilt
 
 $$
 I_{2_{AV}}=I_{1_{AV}}(1-a)
 $$
+
+![](images/paste-92.png)
 
 ## Vierquadrantensteller
 
