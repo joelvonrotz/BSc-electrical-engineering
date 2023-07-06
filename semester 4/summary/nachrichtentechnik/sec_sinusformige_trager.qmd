@@ -179,6 +179,8 @@ Angewendet bei **PSK**
 
 ![](images/paste-46.png)
 
+`\small`{=latex} **PSK**: linear $\quad$ **FSK**: nicht linear $\quad$ **ASK**: nicht linear (Frequenzunterbruch durch Phasenverschiebung). `\normalsize`{=latex}
+
 ## Rauschanalyse
 
 [Modell für weisses Rauschen]{.underline}
