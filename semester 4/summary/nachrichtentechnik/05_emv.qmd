@@ -1,6 +1,6 @@
 # Elektromagnetische Verträglichkeit (EMV)
 
-![](images/paste-2.png)
+![](images/paste-2.png){width="10cm"}
 
 ::: callout-note
 [Elektrische Ladungen]{.underline} eines [Wechselstroms]{.underline} ($\dot{I}$), also der Änderungsrate des Stromes, [erzeugen]{.underline} ein [elektromagnetische Feld]{.underline}. $\rightarrow$ Somit ist ein elektronisches System von vielen unterschiedlichen Quellen von Störungen und Rauschen ausgesetzt.
@@ -12,23 +12,16 @@ Man unterscheidet diese Rauschquellen in drei Kategorie
 2.  **Intrinsisches Rauschen** -- Rauschen [innerhalb]{.underline} der Schaltung (z.B. thermisches Rauschen & Shot-Rauschen von Halbleitern)
 3.  **Externe Störgeräusche** -- Werden vom System aufgefangen (z.B. entstehen durch Gewitterentladungen oder von anderen elektrischen Geräten)
 
-+------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------+
 | Art                                                                          | Herkunft                                                                                                      |
-+==============================================================================+===============================================================================================================+
+|------------------------------|------------------------------------------|
 | Schmalbandige Störsignale                                                    | z.B. Langwellen- und Mittelwellen-Radiosender                                                                 |
-+------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------+
 | Breitbandige Störsignale                                                     | Mobilfunksignale, Datenkommunikation mit hoher Datenrate (Übersprechen von benachbarten Übertragungssystemen) |
-+------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------+
 | Periodische, pulshafte Störsignale, [synchron]{.underline} zur Netzfrequenz  | Leistungselektronik in der Antriebssteuerung                                                                  |
-+------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------+
 | Periodische, pulshafte Störsignale, [asynchron]{.underline} zur Netzfrequenz | z.B. getaktete Netzteile; diskrete Spektrallinien von 50Hz...200Hz                                            |
-+------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------+
 | Nichtperiodisches, pulshaftes Rauschen                                       | z.B. Gewitterentladungen; Impulsdauer bis einige Millisekunden                                                |
-+------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------+
 | Farbiges Hintergrundrauschen                                                 | Verschiedene Quellen mit tiefer spektraler Leistungsdichte ; Zeitkonstante von Minuten bis Stunden            |
-+------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------+
 
-![](images/paste-1.png)
+![](images/paste-1.png){width="10cm"}
 
 ## Elektromagnetisches Spektrum
 
@@ -52,11 +45,13 @@ $$
 
 ### Magnetische Feldenergie
 
-Gespeicherte magnetische Feldenergie im Nahbereich eines Schaltkreises
+Gespeicherte magnetische Feldenergie im Nahbereich eines Schaltkreises.
 
 $$
 w_m = \frac12\cdot L\cdot i^2
 $$
+
+Benachbarte Induktivitäten können die Energie der primären Induktivität entnehmen $\rightarrow$ [Primär-Strom und/oder -Spannung ändert sich]{.underline}!
 
 ![](images/paste-4.png)
 
@@ -88,6 +83,8 @@ $$
 w_e = \frac12\cdot C\cdot u^2
 $$
 
+Benachbarte Kapazität können die Energie der primären Induktivität entnehmen $\rightarrow$ [Primär-Strom und/oder -Spannung ändert sich]{.underline} und/oder [kann für Energietransport dienen]{.underline}
+
 ![](images/paste-5.png)
 
 Für den eingekoppelten Störstrom gilt
@@ -106,40 +103,63 @@ $$
 \text{Elektrische Länge}=\frac{\text{Physikalische Länge }\ell}{\text{Wellenlänge }\lambda}\qquad\text{mit }\lambda=\frac{v}{f}\space\text{mit }v\approx3\cdot10^8\frac{m}{s}\text{ (Vakuum)}
 $$
 
+::: callout-note
+Schaltkreise und Leitungen mit einer 'elektrischen Länge' von $>\frac{1}{20}$ beginnen zunehmen Energie abzustrahlen.
+
+Die Energie ist **nicht** im nahen Feld gespeichert, sondern bewegt sich von Quelle & Antenne weg!
+:::
+
 ![](images/paste-6.png)
 
 #### Feldzonen und Wellenwiderstand
 
-![](images/paste-7.png)
+![(rechts: Besser Ansicht auf Skript s.125)](images/paste-7.png)
 
-+-----------------+---------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------+
-|                 | Nahfeld *(reaktives Feld)*                                                                        | Fernfeld *(Strahlungsfeld)*                                                                     |
-+=================+===================================================================================================+=================================================================================================+
-| Energie         | -   speichert Energie                                                                             | -   transportiert abgestrahlte Energie                                                          |
-|                 |                                                                                                   |                                                                                                 |
-|                 | -   transport mittels induktiver- und kapazitiver-Kopplung                                        |                                                                                                 |
-+-----------------+---------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------+
-| Existenz        | -   verschwindet, wenn die Quelle ausgeschaltet wird                                              | -   breitet sich aus, bis das Feld absorbiert wird                                              |
-+-----------------+---------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------+
-| Interaktion     | -   Messen des Feldes ändert $U$/$I$ des Quellenkreis                                             | -   entnommene Energie merkt der Sender nicht                                                   |
-|                 |                                                                                                   |                                                                                                 |
-|                 | -   Entzug von Feldenergie ändert $U$/$I$ des Quellenkreis                                        |                                                                                                 |
-+-----------------+---------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------+
-| Form des Feldes | -   hängt von Quelle ab                                                                           | -   Kugelwelle                                                                                  |
-|                 |                                                                                                   |                                                                                                 |
-|                 |                                                                                                   | -   ab grosser Distanz: Ebene Wellenfront                                                       |
-+-----------------+---------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------+
-| Wellenimpedanz  | -   Abhängig von Erzeugerschaltung                                                                | -   Abhängig vom Ausbreitungsmaterial *(Wellenimpedanz)*                                        |
-+-----------------+---------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------+
-| Wellenführung   | -   Energieführung mittels Leitungen *(transmission line)*, basierend auf der Kopplung im Nahfeld | -   Energieführung mittels Wellenleiter *(wave guide)*, basierend auf Reflexion an Grenzflächen |
-+-----------------+---------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------+
+$$
+R_1 \approx 0.62\cdot\sqrt{\frac{D^3}{\lambda}}\qquad R_2 \approx \max\left[\frac{2\cdot D^2}{\lambda}\,,\,1.6\cdot\lambda\right]\qquad \eta=\frac{E}{H}
+$$
 
-: Eigenschaften eines EM-Feldes
+![](images/paste-57.png)
 
-### Gleichtakt-Störung
+### Gegentakt- und Gleichtakt-Abstrahlung/-Störung
 
-Das unbeabsichtigte Abstrahlen eines EM-Feldes hängt primär vom Strom ab. Bei der **Gegentakabstrahlung** haben die Ströme auf dem Hin- und Rückpfad die gleiche Stärke, aber unterschiedliche Vorzeichen. Die Abstrahlung hängt beim Doppelleiter von der Fläche zwischen den Leitern ab (*Rahmenantenne*). Sind beide Leiter nahe beieinander, bewirkt dies eine Abstrahlung nahezu Null ( $d<<\lambda$ ). Bei der **Gleichtaktabstrahlung** besteht infolge kapazitiver Kopplung alternative Signalpfade oder alternative Rückwege. Dies führt dazu, dass der der Rück-Strom $i_{r1}$ im Vergleich zum Hin-Strom $i_s$ aufgrund des "Leck"-Stroms $i_{r2}$ nicht gleich gross sind und es so zu einem Netto-Strom $i_{netto}$ führt (*Stabantenne*).
+::: callout-important
+Das unbeabsichtigte Abstrahlen eines EM-Feldes hängt primär vom Strom ab.
+:::
 
+```{=latex}
+\begin{multicols}{2}
+```
+Bei der **Gegentakabstrahlung** haben die Ströme auf dem Hin- und Rückpfad die gleiche Stärke, aber unterschiedliche Vorzeichen. Die Abstrahlung hängt beim Doppelleiter von der Fläche zwischen den Leitern ab.
+
+-   kleiner Abstand $\rightarrow$ Abstrahlung nahezu Null ($d<<\lambda$)
+-   grosser Abstand $\rightarrow$ Rahmenantenne (magnetisch im Nahfeld)
+
+```{=latex}
+\vfill\null
+\columnbreak
+```
+![](images/paste-55.png){width="8cm"}
+
+```{=tex}
+\end{multicols}
+\begin{multicols}{2}
+```
+Bei der **Gleichtaktabstrahlung** besteht infolge kapazitiver Kopplung alternative Signalpfade oder alternative Rückwege.
+
+Ist $I_\text{Signal} + I_{\text{Rückweg}}\neq 0$, ergibt sich ein Nettostrom $I_{\text{netto}}$ in eine Richtung. Das Kabel dient für den Nettostrom als Stabantenne und es kommt zur Abstrahlung.
+
+$\rightarrow$ Mögliche Abhilfe: Spule mit Ferritkernen (CM-Choke ; Skript s.118)
+
+```{=tex}
+\vfill\null
+\columnbreak
+```
+![](images/paste-56.png){width="8cm"}
+
+```{=tex}
+\end{multicols}
+```
 #### Störeinkopplung infolge *Erdschlaufe*
 
 Werden z.B. zwei Gehäuse über Erde miteinander verbunden, kann dies zu einer Rahmenantenne führen, welche Störeinkopplungen hervorbringt.
@@ -151,13 +171,13 @@ Werden z.B. zwei Gehäuse über Erde miteinander verbunden, kann dies zu einer R
 Die induzierte Spannung in einem **kleinen Loop** $\left(\ell<\frac{ \lambda}{2}\right)$ liegt hierbei bei
 
 $$
-u(t)=\frac{2\pi\ell s E f\text{[MHz]}}{300}
+u(t)=\frac{2\pi\cdot \overbrace{\ell\cdot s}^{=A}\cdot E\cdot f_{\text{[MHz]}}}{300}
 $$
 
 und bei einem **grossen Loop** $\left(\ell>\frac{\lambda}{2}\right)$ bei
 
 $$
-u(t)=\pi s E
+u(t)=\pi\cdot s\cdot E
 $$
 
 `\columnbreak`{=latex}
@@ -185,13 +205,13 @@ Die Abgestrahlte Feldstärke in einem Punkt $P$ im Fernfeld ist definiert mit
 *kleiner Dipol* $\left(\ell<\frac{ \lambda}{2}\right)$
 
 $$
-E=\frac{\eta_0\space i_{netto}\space \ell f[MHz]}{600\space d}
+E=\frac{\eta_0\cdot i_{netto}\cdot \ell\cdot f[MHz]}{600\cdot d}
 $$
 
 *grosser Dipol* $\left(\ell>\frac{ \lambda}{2}\right)$
 
 $$
-E=\frac{\eta_0\space i_{netto}}{4\space d}
+E=\frac{\eta_0\cdot i_{netto}}{4\cdot d}
 $$
 
 `\columnbreak`{=latex}
@@ -199,13 +219,13 @@ $$
 *kleiner Loop* $\left(\ell<\frac{ \lambda}{2}\right)$
 
 $$
-E=\frac{\eta_0\space i_{netto}\space \ell s f^2_{[MHz]}}{300^2\space d}
+E=\frac{\eta_0\cdot i_{netto}\cdot\ell\cdot s\cdot f^2_{[MHz]}}{300^2\cdot d}
 $$
 
 *grosser Loop* $\left(\ell>\frac{ \lambda}{2}\right)$
 
 $$
-E=\frac{\pi\space\eta_0\space i_{netto}\space s}{600\space d}
+E=\frac{\pi\cdot\eta_0\cdot i_{netto}\cdot s}{600\cdot d}
 $$
 
 `\columnbreak`{=latex}
@@ -213,7 +233,7 @@ $$
 ```{=latex}
 \begin{conditions}
     E       & Elektrische Feldstärke $\left[\frac{V}{m}\right]$ \\
-    \ell s  & Loopfläche $[m^2]$ \\
+    A = \ell\cdot s  & Loopfläche $[m^2]$ \\
     f       & Frequenz $[MHz]$ \\
     \lambda & Wellenlänge $[m]$ \\
     \eta_0  & Wellenimpedanz (Fern) $[377\Omega]$ \\
@@ -241,7 +261,7 @@ Zur Unterdrückung von Gleichtaktstörungen werden *Common-Mode-Chokes* oder *Fe
 
 Die *Erdung* von Schaltkreisen, Geräten und Systemen muss verschiedene Aufgaben lösen. Um Das Problem der Impedanzkopplung zu reduzieren, bildet man Signalklassen. Die Hirarchie der Erdung für Signalklassen können mit einem Erdungsbaum dargestellt werden.
 
-![](images/paste-11.png){width="477"}
+![](images/paste-54.png)
 
 #### Sternpunkt
 
@@ -291,7 +311,7 @@ $$
 Der Transferkoeffizient $T$ ist
 
 $$
-T=1+\Gamma_E=\frac{2\eta_2}{\eta_1+\eta_2}
+T=1+\Gamma_E=\frac{2\cdot\eta_2}{\eta_1+\eta_2}
 $$
 
 Die Wellenimpedanz $\eta$ einer sinusförmigen EM-Welle im Material kann allgemein mit einem komplexen Impedanzbelag $\hat{z}$ und einem komplexen Admittanzbelag $\hat{y}$ beschrieben werden
@@ -304,10 +324,10 @@ Für einige typische Materialien sind diese Beläge wie folgt gegeben
 
 ```{=tex}
 \begin{conditions}
-    \hat{z}=j\omega\mu_0, \hat{y}=j\omega\epsilon_0 & Freiraum \\
-    \hat{z}=j\omega\mu_0, \hat{y}=\sigma + j\omega\epsilon_0 & Nichtmagnetische Metalle \\
-    \hat{z}=j\omega\mu_0, \hat{y}=j\omega\epsilon & Nichtmetalle \\
-    \hat{z}=j\omega\mu, \hat{y}=\sigma + j\omega\epsilon & Ferromagnetische Materialien
+    \hat{z}=j\omega\mu_0, \hat{y}=j\omega\varepsilon_0 & Freiraum \\
+    \hat{z}=j\omega\mu_0, \hat{y}=\sigma + j\omega\varepsilon_0 & Nichtmagnetische Metalle \\
+    \hat{z}=j\omega\mu_0, \hat{y}=j\omega\varepsilon & Nichtmetalle \\
+    \hat{z}=j\omega\mu, \hat{y}=\sigma + j\omega\varepsilon & Ferromagnetische Materialien
 \end{conditions}
 ```
 Mit
@@ -315,9 +335,9 @@ Mit
 ```{=tex}
 \begin{conditions}
     \mu_0 = 4\pi\cdot 10^{-7}\frac{Vs}{Am} & Magnetische Feldkonstante \\
-    \epsilon_0 = 8.854\cdot10^{-12}\frac{As}{Vm} & Elektrische Feldkonstante \\
+    \varepsilon_0 = 8.854\cdot10^{-12}\frac{As}{Vm} & Elektrische Feldkonstante \\
     \mu_r & Relative Permeabilität des Materials \\
-    \epsilon_r & Relative Permettivität des Materials \\
+    \varepsilon_r & Relative Permettivität des Materials \\
     \sigma & Spezifische Leitfähigkeit des Materials
 \end{conditions}
 ```
@@ -326,7 +346,7 @@ Mit
 Alle metallischen Leiter zeigen den Skin Effekt (Stromverdrängung). Nach der Distanz einer Eindringtiefe $\delta$ ist die Amplitude auf $37\%$ abgesunken. So ist nach 5 Eindringtiefen $\delta$ "nichtsmehr" übrig. Die Feldstärken $E$ und $H$ nehmen dabei exponentiell ab.
 
 $$
-E(x)=E_0e^{-\frac{x}{\delta}}\space\text{und}\space H(x)=H_0e^{-\frac{x}{\delta}}\space\text{mit}\space\delta=\frac{1}{\sqrt{\pi f\mu\sigma}}
+E(x)=E_0e^{-\frac{x}{\delta}}\qquad\text{und}\qquad H(x)=H_0e^{-\frac{x}{\delta}}\qquad\text{mit}\qquad\delta=\frac{1}{\sqrt{\pi f\mu\sigma}}
 $$
 
 Mit
@@ -341,7 +361,7 @@ Mit
 ```
 #### Schirmung im Fernfeld
 
-EM-Feld wird als ebene Welle angenommen. Die Wellenimpedanz im Freiraum beträgt $377\Omega$ . Für die Schrimung sind zwei Mechanismen relevant, *Reflexion* für tiefe Frequenzen und *Absorption* für hohe Frequenzen. Die Effektivität einer EM-Schirmung wird mit dem Verhältnis der durchgelassenen Signalleistung $P_t$ zur ankommenden Signalleistung $P_e$ bestimmt
+EM-Feld wird als ebene Welle angenommen. Die Wellenimpedanz im Freiraum beträgt $377\Omega$ . Für die Schrimung sind zwei Mechanismen relevant: `\small\circled{1}\normalsize`{=latex} **Reflexion** für [tiefe]{.underline} Frequenzen und `\small\circled{2}\normalsize`{=latex} **Absorption** für [hohe]{.underline} Frequenzen. Die Effektivität einer EM-Schirmung wird mit dem Verhältnis der durchgelassenen Signalleistung $P_t$ zur ankommenden Signalleistung $P_e$ bestimmt
 
 $$
 \text{Schild Effektivität } SE\space[dB] = -\log_{10}\left(\frac{P_t}{P_e}\right)
@@ -351,7 +371,7 @@ $$
 SE\space[dB]=-20\log_{10}\left(\frac{E_t}{E_e}\right)=-20\log_{10}(T_1\cdot e^{-\frac{d}{\delta}}\cdot T_2)=-20\log_{10}\left(\frac{4\eta_1\eta_2}{(\eta_1+\eta_2)^2}\cdot e^{-\frac{d}{\delta}}\right)
 $$
 
-![](images/paste-17.png){width="464"}
+![](images/paste-17.png){width="8cm"}
 
 #### Einfluss von Löchern im Schirm
 
@@ -366,7 +386,7 @@ Zeigt der Schirm Öffnungen *(Löcher, Geflecht, Spalt, ...)*, so hängt die Sch
 -   $D<\frac{\lambda}{2}$ Dämpfung nimmt schnell zu
 -   $D<\frac{\lambda}{10}$ Schildeffektivität kann wie nachfolgend abgeschätzt werden
 
-![](images/paste-18.png){width="176"}
+![](images/paste-18.png){width="150"}
 :::
 
 Fernfeld und Skin-Effekt Eindringtiefe $\delta$ **klein** *(best case)*
@@ -387,4 +407,4 @@ $$
 SE_{sB}\approx16\frac{z}{a}-10\log_{10}(N)
 $$
 
-![](images/paste-19.png){width="247"}
+![](images/paste-19.png){height="5cm"}

@@ -347,7 +347,7 @@ $$
 
 #### Rückflussdämpfung $a_u$
 
-Die Rückflussdämpfung bezeichnet wie viel das rücklaufende Signal gegenüber dem vorlaufenden gedämpft ist
+Die Rückflussdämpfung bezeichnet wie viel das rücklaufende Signal gegenüber dem vorlaufenden gedämpft ist. **VORZEICHEN BEACHTEN!**
 
 $$
 a_u = -s_{11}=-10\cdot \log_{10}(|\Gamma|^2)

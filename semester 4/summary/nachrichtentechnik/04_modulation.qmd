@@ -199,7 +199,15 @@ $$
 
 ### Vergleich von Pulsformen für digitale Signale
 
-![](images/paste-24.png)
+![](images/paste-24.png){width="13cm"}
+
+### Spektrale Effizienz
+
+Die Spektrale Effizienz (oder Bandbreiteneffizienz) bezeichnet das Verhältnis zwischen Datenübertragungsrate und Bandbreite des Signals.
+
+$$
+\text{Spektrale Effizienz} = \frac{r_b}{B_{BB}}\qquad [\text{bit}/\text{Hz}]=\frac{[\text{bit}]}{[\text{Hz}]}
+$$
 
 ### Augendiagramm
 
@@ -303,10 +311,10 @@ $$
 
 `\begin{multicols}{2}`{=latex}
 
-> $a$ wurde entschieden, obwohl $b$ gesendet wurde
+$a$ wurde entschieden, obwohl $b$ gesendet wurde
 
 $$
-P[a\vert b]=Q\left(\frac{b-V_{ref}}{\sigma_0^2}\right)=Q(k)
+P[a\vert b]=Q\left(\frac{b-V_{ref}}{\sigma_0}\right)=Q(k)
 $$
 
 ```{=latex}
@@ -321,10 +329,10 @@ $$
 
 `\begin{multicols}{2}`{=latex}
 
-> $b$ wurde entschieden, obwohl $a$ gesendet wurde
+$b$ wurde entschieden, obwohl $a$ gesendet wurde
 
 $$
-P[a\vert b]=Q\left(\frac{a-V_{ref}}{\sigma_0}\right)=Q(k)
+P[a\vert b]=Q\left(\frac{V_{ref}-a}{\sigma_0}\right)=Q(k)
 $$
 
 ```{=latex}
