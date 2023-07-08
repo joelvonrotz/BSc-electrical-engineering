@@ -1,0 +1,11 @@
+# This is section 1
+
+```cpp
+int main(void) {
+  int8_t variable;
+  variable = 1;
+  while(true) {
+    printf("Jesus is alive!");
+  }
+}
+```

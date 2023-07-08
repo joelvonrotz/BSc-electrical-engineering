@@ -1,0 +1,20 @@
+\begin{center}
+  \vspace*{0.5cm}
+  
+  \textbf{\Huge $title$}\\
+  \vspace{0.1cm}
+  \textsf{\textit{\large $subtitle$}}
+  
+  \vspace{0.5cm}
+$if(source)$
+  \textsf{\large $author$ \hspace{0.3cm}\textbf{/}\hspace{0.3cm}\large
+  $if(source.github)$  \faGithub\space \href{$source.github.link$}{$source.github.title$} $endif$
+  }
+$endif$
+\end{center}
+
+$if(abstract)$
+\begin{abstract}
+$abstract$
+\end{abstract}
+$endif$

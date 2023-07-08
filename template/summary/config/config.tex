@@ -1,0 +1,82 @@
+\usepackage{amssymb, amsmath} % includes some neato math environments, symbols and stuff
+\numberwithin{equation}{section}
+
+\usepackage[utf8]{inputenc} % correctly encodes the formatting of the text files (since we live in the future of UTF8)
+\usepackage{lastpage} % counts all the pages, used in footer
+\usepackage{hyperref}
+
+% Flexible Multicolumn Option
+\usepackage{multicol}
+\setlength\columnsep{20pt}
+
+% Package for enabling colors (colorful output)
+\usepackage[dvipsnames]{xcolor}
+\definecolor{darkgreen}{HTML}{014f32}
+
+% Icons - http://mirrors.ctan.org/fonts/fontawesome5/doc/fontawesome5.pdf
+% This one is neat, when you want to add some icons
+\usepackage{fontawesome5}
+
+% Depending on the type of document, mostly summaries, I remove the spacing Display-styled Equations insert, since it's a waste of space.
+\usepackage[nodisplayskipstretch]{setspace}
+
+% Font Configuration
+\usepackage{lmodern}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{cmbright}
+\usepackage[scaled=0.85]{beramono} % monospaced font (for code blocks)
+
+% Heading
+\usepackage{fancyhdr}
+
+\renewcommand{\headrulewidth}{1pt}
+\renewcommand{\footrulewidth}{1pt}
+
+\pagestyle{fancy}
+\fancyhead{} % clear all header fields
+
+\ifcsname subtitle\endcsname
+  \fancyhead[R]{\myTitle\space -- \subtitle}%
+\else
+  \fancyhead[R]{\myTitle}%
+\fi
+\fancyhead[L]{Change this in \texttt{config/config.tex}}
+\fancyfoot{} % clear all footer fields
+\fancyfoot[C]{\thepage\ / \pageref{LastPage}}
+\fancyfoot[R]{Change this in \texttt{config/config.tex}}
+\fancyfoot[L]{\today}
+
+
+
+
+% introduces conditions environment to create nice equation parameter description
+\usepackage{array}
+\newenvironment{conditions}
+  {\par\vspace{\abovedisplayskip}\noindent\begin{tabular}{>{$}l<{$} @{${}:{}$} l}}
+  {\end{tabular}\par\vspace{\belowdisplayskip}}
+
+% Used for pandoc code block generations.
+% Introduces breaklines for overflowing code blocks, by defining the Highlighting environment with breakline & symbol.
+% Don't know what commandchars does :)
+\usepackage{fvextra}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{
+  breaklines,
+  breaksymbolleft={\textcolor{gray}{\scriptsize\ensuremath\hookrightarrow}},
+  commandchars=\\\{\}
+}
+
+% stylized section headings!
+\let\paragraph\oldparagraph
+\let\subparagraph\oldsubparagraph
+
+\usepackage{xhfill}
+\usepackage[explicit]{titlesec}
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}\par}
+
+\titleformat{\section}[block]{\bfseries\Large}{\thetitle.}{3mm}{#1\space\xrfill[0.6ex]{1pt}}
+
+% TIKZ can be used to create many different types of diagramms, drawings, etc.
+%\usepackage{tikz}
+%\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+%            \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+%\usetikzlibrary{shapes,arrows,arrows.meta,matrix}

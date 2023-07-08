@@ -2,6 +2,14 @@
 
 All my most important summaries and notes of my bachelor in electrical engineering. The summaries are a mix between English and German, but are mostly written in German.
 
+## Tools used
+
+The majority of all the summaries are written using [Quarto](https://quarto.org/). It's neato and I've used it for quite some time.
+
+## Template used
+
+All of the document formats are written by me. If you want to use the template, it's inside `template/summary`.
+
 ## `cmbright`
 
 When using the TinyTex-Distribution (which is just a smaller TexLive with less packages), the `cmbright` package doesn't work with specific configuration (I think it has something to do with the `multicol` package), giving out an *auto expansion* error.
