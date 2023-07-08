@@ -58,6 +58,16 @@ fig-align: center
 -   Wenn Zeit übrig, Lösung validieren
 :::
 
+
+![](images/EM8q5ItW4AEfbDo.jpg){width="8cm"}
+
+![](images/EFEPSgaWkAEiEG3.jpg){width="8cm"}
+
+![](images/rgt_meme.jpg)
+
+$\rightarrow$ [Project Pigeon](https://en.wikipedia.org/wiki/Project_Pigeon)
+
+
 ```{=latex}
 % keep this to have smaller code blocks
 \ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[
@@ -150,18 +160,10 @@ fig-align: center
 
 # Anderes Zeug
 
-Betrag von Zeitverzögerungen sind immer $=1$, da die Phase keine Rolle spielt. $$
+Betrag von Zeitverzögerungen sind immer $=1$, da die Phase keine Rolle spielt.
+
+$$
 |PC| = 1 \Rightarrow \lvert k \cdot e^{-0.2s} \frac{10}{s}\rvert
 $$
-
-\newpage
-
-![](images/EM8q5ItW4AEfbDo.jpg)
-
-![](images/EFEPSgaWkAEiEG3.jpg)
-
-![](images/rgt_meme.jpg)
-
-$\rightarrow$ [Project Pigeon](https://en.wikipedia.org/wiki/Project_Pigeon)
 
 {{< include sec_glossar.qmd >}}
