@@ -5,7 +5,7 @@ Hello Dweller of Github or Studentbox User (or curious friends that I've sent th
 This repository contains summaries and some lab reports written both in Latex & Quarto. The majority of the summaries is written using [Quarto](https://quarto.org/) and has been extended with some Latex templates.
 
 > ***Why Quarto and not Office Word?***<br>
-> When working with multiple people on one document, Word at some point struggles or just straight up dies, as its collaboration tools have been (probably) ducktaped on top of Word. And well Latex documents look cool :)
+> I've found Latex to be really powerful for thesis and documentations and gives off a consistent style! Quarto solves the learning curve of Latex for me, by replacing the language by rMarkdown.
 
 ## Lovely Contributors
 
@@ -14,13 +14,11 @@ The peeps below have helped me out a lot with writing the summaries and without 
 |<img src="https://github.com/AndreasMing.png" width="60px;"/><br /><a href="https://github.com/AndreasMing">AndreasMing</a>|<img src="https://github.com/manuelfanger.png" width="60px;"/><br /><a href="https://github.com/manuelfanger">manuelfanger</a>|
 |:-------------------------------------------------------------------------------------------------------------------------:|:----------------------------------------------------------------------------------------------------------------------------:|
 
-## Hello Joel, I would like to use your template or make my own changes to your existing documents, but I don't know how to setup my environment. Could you help me?
+## Compiling it yourself
 
-Yes! So first of all, if there are major flaws in the summaries, either make an issue or edit the respective document on your own and create a pull/merge request. &rarr; this way there aren't multiple versions of the summaries.
+If you want to compile the documents for yourself, in the following steps I will try to explain the installation process.
 
-> I might also create a HSLU student organization, that contains the summaries' source files. But don't know when I get to it.
-
-Second, I'll show you how to setup the environment. My main workflow has been with Visual Studio Code and the TinyTex- distribution.
+> If you found something horribly wrong or some critical changes, then either inform me or create a pull request. Keeping it correct is the way to go!
 
 ### Install Quarto
 
@@ -56,23 +54,28 @@ RStudio is neat, as its integration is much better than VSCode's, but lacks the 
 
 - [Download](https://posit.co/products/open-source/rstudio/) & install RStudio instead of Visual Studio Code
 
-### Download Template
+### Open up a Summary
 
-- Open up the folder, where the template is located: 
-  - **Main** &rarr; template &rarr; summary
-  - [Link](https://github.com/joelvonrotz/bachelor-electrical-engineering/blob/main/template/summary/Template_v1.zip)
-- Download the zipped template &rarr; click on it and click download
-![Alt text](image-1.png)
-- Extract the ZIP file &rarr; This is your workspace for **one** document
-- Open up the template in Visual Studio Code
-
-### Use Template
-
-- `main_document.qmd` contains the most important information about the document, such as the title, author, etc.
-- Inside `config/config.tex` you can change the footer and header contents &rarr; at Line 35-47
-- `config/before-body.tex` you can change the title page
-
+Open up any folder and open up the respective `main_*.qmd`-file and hit the render/compile button.
 
 Good Luck!
 
+## `cmbright`
 
+When using the TinyTex-Distribution (which is just a smaller TexLive with less packages), the `cmbright` package doesn't work with specific configuration (I think it has something to do with the `multicol` package), giving out an auto expansion error.
+
+What worked for me was to install following packages manually...
+
+- `cm-super`
+- `fontspec`
+- `hfbright`
+
+
+..., run `updmap` in the terminal and afterwards set the quarto-setting in the document.
+
+```bash
+tlmgr.bat install cm-super cmbright fontspec hfbright
+updmap
+```
+
+It does give a nicer text body (using CM Bright Light) and feels nice to look at.
