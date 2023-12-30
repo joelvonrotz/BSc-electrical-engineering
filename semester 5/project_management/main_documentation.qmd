@@ -1,0 +1,105 @@
+---
+# [DOCUMENT CONFIGURATION] ------------------------------------------------------------
+# Settings such as author name, language, date, size, toc, etc.
+title: "Reflection Paper"
+subtitle: "Project Management"
+
+author-title: "Author"
+author:
+  - "Joel von Rotz"
+
+supervisor-title: "Professor"
+supervisor:
+  - "Christina Skytte Møller"
+
+university: "Syddansk Universitet (SDU) Sønderborg"
+
+lang: en-UK
+date: today
+date-format: long
+
+# TOC
+toc: false
+toc-depth: 3
+number-sections: true
+
+pagenumbering: none # since a selfmade solution is used
+papersize: a4
+fontsize: 11pt
+
+bibliography: 'bibliography.bib'
+cite-method: biblatex
+biblio-style: ieee
+
+geometry:
+- "top=30mm"
+- "bottom=30mm"
+- "left=25mm"
+- "right=25mm"
+
+# tries to place the picture where you define it and center it
+fig-pos: H
+fig-align: center
+
+# CODE BLOCKS
+# this configures code blocks to have a coloured background and no border
+code-block-border-left: false
+code-block-bg: "#f7f7f7"
+highlight-style: github
+
+# [OUTPUT CONFIGURATION] --------------------------------------------------------------
+format:
+  pdf:
+    pdf-engine: pdflatex
+    documentclass: article
+    include-in-header:
+      - config/config.tex
+    template-partials:
+      - config/before-body.tex
+output-file: joelvonrotz_reflection_paper
+---
+
+# Introduction
+
+In this reflection paper, I write about my experiences in project work and my role in it. As I am an exchange student and have not participated in *Expert in Teams*, a similar project course from my home university named *Product Development* (PREN) is used. Before presenting the questionnaire results, an explanation on what PREN is and what the task of the course was is first presented.
+
+# PREN - Güselrobert
+
+In *PREN*, teams of six students develop a device that has to solve a specific task and then compete against other teams at a small competition. Each team has two electrical engineering students, two mechanical engineering students and two computer science students. The course itself lasts two semesters, starting in the autumn semester with the concept creation and in the following spring semester with the implementation of the concept.
+
+The goal for each group was to create an autonomous garbage picking robot. Bottle caps, plastic caps, cigarette butts and keys were spread across the work field and the robot was required to collect these autonomously. The robot itself is mounted at a stationary location adjacent to the work field and therefore required an extendable contraption to reach as much of the work field as possible. Our group decided on a SCARA ([S]{.underline}elective [C]{.underline}ompliance [A]{.underline}ssembly [R]{.underline}obot [A]{.underline}rm) consisting of three movable segments, a Z-axis and a grabbing mechanism (see @fig-robot). Due to a lack of time, the robot could not be completed, and other groups fared similarly, with a few exceptions.
+
+![partly finished SCARA robot](images/paste-1.png){#fig-robot fig-align="center" width="13cm"}
+
+My role in the team was to write the firmware of the microcontroller from the robot arm. The firmware controls the stepper motors, processes IO such as the limit switch on the arm segments or the emergency button, and executes the commands of the master computer. Most work was therefore done in the development side of the project, specifically the electronics, than the management side. Aside the conceptualisation and implementation of the firmware, I managed the structure and style of the final documentation. I introduced tools such as Quarto (<https://quarto.org/>) for writing the documentation, Zotero for managing the bibliography and Git for an easier merging process of changes, to the team.
+
+# MBTI Profile
+
+The result of the MBTI questionnaire is INFJ or *Advocate* [@IntroductionAdvocateINFJ], as seen in @fig-mbti-profile.
+
+![MBTI Profile](images/joelvonrotz_mbti_profile.jpeg){#fig-mbti-profile fig-align="center" width="10cm"}
+
+According to the description provided by *16Personalities*, the INFJ-type or *Advocate* approach life with deep thoughtfulness, guided by inner vision, personal values, and humanistic principles. They are often seen as idealistic and principled, driven by a desire to make a positive impact in the world. Advocates prioritise fulfilment, helping others, and standing up for what is right, valuing integrity and adhering to their own sense of wisdom and intuition. Common traits are introversion, intuitive thinking, desire to plan before execution and prioritise personal values and emotions in decision-making, demonstrating empathy, compassion, and a strong concern for others [@IntroductionAdvocateINFJ].
+
+In the context of *PREN*, the majority of the traits and information of the Advocate resonate with me. In groups I try to provide criticism to all suggestions from the team. By asking specific questions, I hope to understand their way of thinking and to lead the team towards a specific solution everyone is pleased with. Dealing with criticism, which is sometimes understanding and sometimes confusing, is difficult for me personally, as I usually consider my suggestions to be bad, even though only part of the suggestion has been criticised. While it resembles the role of a project manager, I rather desire to work in the project development or implementation.
+
+# Belbin Profile
+
+The result of the Belbin questionnaire can be seen in @fig-belbin-profile. In general, I partially agree with the profile. The roles *Executive*, *Team Player* and *Analysist* fit my own assessment well, especially that I do not want to be a team or project manager, but want to contribute to a good team dynamic nonetheless.
+
+![Belbin Profile](images/joelvonrotz_belbin_profile.jpeg){#fig-belbin-profile fig-align="center" width="8cm"}
+
+The "low-percentage" roles Expert and *Completer* are not fitting based on personal assumption. I place particular emphasis on the comprehensibility of the functionality of a device or concept, which is usually in the form of documentation or an internal wiki entry. This results in a better understanding of the subject and therefore leads to expertise.
+
+Again in the context of *PREN*, the general role fit on how I acted in the team. I tried to balance between leadership and collaborative team dynamics, as to keep the hierarchy of roles as flat as possible and make communication between us team members easier. While I put emphasise on a high quality project documentation, which I take in relation to the roles of the *Completer*, the health of the team is important and requires right balancing.
+
+# Conclussion
+
+The results of the MBTI and Belbin questionnaires provided a general characterisation of the way I work in teams and the roles I take on. It is important to note that these results only represent tendencies, and the actual behaviour in a team setting can be influenced by various factors, including the specific context, current role, and personal development.
+
+Overall, I do not see myself in the role of a project manager, as I enjoy the development process of a project a lot more. Netherthanless, the results are an useful insight.
+
+# References
+
+::: {#refs}
+:::

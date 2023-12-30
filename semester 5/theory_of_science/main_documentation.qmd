@@ -1,0 +1,122 @@
+---
+# [DOCUMENT CONFIGURATION] ------------------------------------------------------------
+# Settings such as author name, language, date, size, toc, etc.
+title: "Theory of Science"
+subtitle: "Written Assignment"
+
+author-title: "Author"
+author:
+  - "Joel von Rotz"
+
+supervisor-title: "Professor"
+supervisor:
+  - "Stephen R. Parsons"
+
+university: "Syddansk Universitet (SDU) Sønderborg"
+
+lang: en-UK
+date: today
+date-format: long
+
+# TOC
+toc: false
+toc-depth: 3
+number-sections: true
+
+pagenumbering: none # since a selfmade solution is used
+papersize: a4
+fontsize: 11pt
+linestretch: 1.2
+
+bibliography: 'bibliography.bib'
+cite-method: biblatex
+biblio-style: ieee
+
+geometry:
+- "top=30mm"
+- "bottom=30mm"
+- "left=25mm"
+- "right=25mm"
+
+# tries to place the picture where you define it and center it
+fig-pos: H
+fig-align: center
+
+# CODE BLOCKS
+# this configures code blocks to have a coloured background and no border
+code-block-border-left: false
+code-block-bg: "#f7f7f7"
+highlight-style: github
+
+# [OUTPUT CONFIGURATION] --------------------------------------------------------------
+format:
+  pdf:
+    pdf-engine: pdflatex
+    documentclass: article
+    include-in-header:
+      - config/config.tex
+    template-partials:
+      - config/before-body.tex
+output-file: joelvonrotz_theoryofscience_paper
+---
+
+# Introduction
+
+In this essay I present my experiences in team projects and apply some of the concepts learnt in the philosophy of science lectures. As I am an exchange student at SDU, I have decided to use a similar project module to *Expert in Teams* named *Product Development*. The course focused on creating a concept to solve a specific problem in the third semester and to realise the concept in the fourth semester. This essay reflects on how different reasoning methods were applied during the project work and how philosophical concepts describe the group's influence on the project's outcome.
+
+# Waste Collection and Filtering Robot
+
+In *Product Development*, teams of six students develop a device that has to solve a specific task and then compete against other teams at a small competition. Each team has two electrical engineering students, two mechanical engineering students and two computer science students. The goal for each group was to create an autonomous garbage picking robot. Bottle caps, plastic caps, cigarette butts and keys were spread across the work field and the robot was required to collect these autonomously. The robot itself is mounted at a stationary location adjacent to the work field and therefore required an extendable contraption to reach as much of the work field as possible. Our group decided on a SCARA ([S]{.underline}elective [C]{.underline}ompliance [A]{.underline}ssembly [R]{.underline}obot [A]{.underline}rm) consisting of three movable segments, a Z-axis and a grabbing mechanism (see @fig-robot). Unfortunately, due to a lack of time, the robot could not be completed, and other groups fared similarly, with a few exceptions.
+
+![The PREN robot](images/pren_photo.png){#fig-robot fig-align="center" width="12cm"}
+
+In the first semester, time was spent on understanding each other, specifically what abilities and personality each member can bring to the team, and creating the concept of the robot. Unfortunately, in the first six weeks a lot of time was lost in the problem breakdown and task assignment phase. It was forgotten to establish the actual expectations and the resulting "true" personalities of the individual members. The absence of a clear understanding of each other's expectations resulted in organisational challenges and unclear project expectations. The consequence is confusion among each other, since there is no baseline in the team. A fitting concept to describe this scenario would be the fundamental attribution error [@streetFundamentalAttributionError2016] and there could also be a thematic connection with Francis Bacon's *Idol of the Cave* [@streetFrancisBaconFour2016]. The individual team member could have operated "in their own caves" of subjective perceptions, assumptions, or biases, which hindered effective communication and collaboration. The issue was solved by clarifying everyone's expectations, restructuring the team and assigning the main roles such as project leader to the fitting members.
+
+<!--# Working together as a team -->
+
+Communication and behaviour across group has shown various parts from Bacon's Idol <!--# incomplete -->
+
+The writing of the concept and the implementation in the second semester uses both scientific and engineering methods, which are shown in @fig-methods. The project assignment is based around a problem: garbage needs to be picked up and automatically sorted based on their type. This problem is more suited to the engineering method in @fig-engineering-method, as it is a practical challenge requiring a solution. The scientific method in @fig-scientific-method also has its uses in the engineering method. Designs need to be tested on their physical attributes, in which the hypothesis corresponds to the desired test conditions or results. @fig-pren-flow shows an idea on how the scientific method could be used in an engineering method.
+
+::: {#fig-methods layout-ncol="2"}
+![Engineering method [@EngineeringDesignProcess]](images/paste-1.png){#fig-engineering-method fig-align="center" width="6.1cm"}
+
+![Scientific method [@StepsScientificMethod]](images/paste-2.png){#fig-scientific-method fig-align="center" width="6cm"}
+
+Diagrams of the two methods
+:::
+
+![Idea on how scientific method is used in an engineering method based project flow](images/paste-3.png){#fig-pren-flow}
+
+<!--# Three Philosophical Methods of Reasoning -->
+
+After reflecting on the groups approach by applying the three philosophical methods of reasoning [@DeductiveInductiveAbductive], all three types of reasoning could be found in some form in the work – specifically, inductive and abductive reasoning. Inductive reasoning was used for testing the mechanical parts using stress testing. One of these tests was the durability and flexibility test of the main material used for the encasing of the arm. The material was conditioned under the maximum defined load and additionally subjected to tension and compression. PLA, wood and acrylic glass were considered for this test, with wood emerged as the most favourable option. Drawing on the background knowledge from mechanical engineering and physics classes, a general model of the arm segments could be extracted.
+
+<!--# Abductive Reasoning -->
+
+Abductive reasoning was mainly used when one was not familiar with the concept of a physical process. For example, it was assumed that the stepper motors used in the robot emitted thermal energy, but due to their discrete movement, the temperature change was generally neglected in the calculations
+
+<!--# Hardware Structure -->
+
+Deductive reasoning was used for testing the electronics, encompassing the firmware and hardware. In general, electronics design employ the deductive reasoning approach, as misuse or abuse of electronic components can lead to fatal injuries, and component calculations are based on their derived models. An example would be determining the reference voltages for the maximum current for the motor drivers. The voltage was initially calculated using an equation provided by the manufacturer and verified during the commissioning phase using a multimeter.
+
+<!--# Firmware Structure -->
+
+The firmware (code for embedded systems) utilises a combination of inductive and deductive reasoning. Deductivley, the code structure was planned first using flow charts and state diagrams, before being translated to actual code and tested on the hardware. By testing the code on various preset conditions, bugs can be identified and fixed, representing the inductive reasoning of actively updating the code based on the test results. The same applies for the software written by the computer science students.
+
+<!--# Descartes & ogical Reasoning -->
+
+As I mainly worked on the firmware part of the project, I wrote code naturally with *René Decartes' four rules of thinking* [@DescartesScientificMethod] applied. Especially rules two "break every problem into smaller parts" and three "Solve the simplest problems first" were employed split up a components code into sub components and to create clean code structures. The *split-up* design allows for easier lookup of specific code lines and for solving bugs and errors. Rule four "Be thorough" found its use in writing the documentation, as explaining clearly how features function was essential for the reader's comprehension of the code. Lastly *Mill's method of difference* [@CausalReasoning] and logical thinking were used for debugging code. If a new iteration of a function causes an error, the error can be derived from the fact that the error did not occur in the previous iteration, but in the new iteration.
+
+<!--# Ethical Engineering - Did we consider it? Was the end product something useful? -->
+
+Regarding the topics of ethical engineering, the project was in a questionable area. While it is interesting to see <!--# incomplete -->
+
+# Conclussion
+
+This essay shows that both scientific and engineering methods and philosophical concepts are <!--# incomplete -->
+
+# References
+
+::: {#refs}
+:::

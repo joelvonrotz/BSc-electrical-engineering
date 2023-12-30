@@ -1,0 +1,90 @@
+\usepackage{amssymb, amsmath} % includes some neato math environments, symbols and stuff
+\numberwithin{equation}{section}
+
+\usepackage[utf8]{inputenc} % correctly encodes the formatting of the text files (since we live in the future of UTF8)
+\usepackage{lastpage} % counts all the pages, used in footer
+\usepackage{hyperref}
+
+% Flexible Multicolumn Option
+\usepackage{multicol}
+\setlength\columnsep{20pt}
+
+% Package for enabling colors (colorful output)
+\usepackage[dvipsnames]{xcolor}
+\definecolor{darkgreen}{HTML}{014f32}
+
+% Icons - http://mirrors.ctan.org/fonts/fontawesome5/doc/fontawesome5.pdf
+% This one is neat, when you want to add some icons
+\usepackage{fontawesome5}
+
+% Depending on the type of document, mostly summaries, I remove the spacing Display-styled Equations insert, since it's a waste of space.
+\usepackage[nodisplayskipstretch]{setspace}
+
+% [FONT CONFIGURATION]
+%\usepackage{lmodern}
+\usepackage{AlegreyaSans}
+\usepackage{cmbright}
+\usepackage[scaled=0.95]{inconsolata}
+\renewcommand\familydefault{\sfdefault}
+
+
+\usepackage{sectsty}
+\allsectionsfont{\normalfont\sffamily\bfseries}
+% [HEADER & FOOTER CONFIGURATION]
+% ┌head───────────┐
+% │ L     C     R │
+% │ ------------- │ <- \headrulewidth
+% │               │
+% │               │
+% │               │
+% │               │
+% │               │
+% │ ------------- │ <- \footrulewidth
+% │ L     C     R │
+% └foot───────────┘
+\usepackage{fancyhdr}
+
+\renewcommand{\headrulewidth}{1pt}
+\renewcommand{\footrulewidth}{1pt}
+
+\pagestyle{fancy}
+\fancyhead{} % clear all header fields
+\fancyhead[R]{Joel von Rotz}
+\fancyhead[L]{Project Management}
+
+\fancyfoot{} % clear all footer fields
+\fancyfoot[R]{SDU Sønderborg}
+\fancyfoot[C]{\thepage\ / \pageref{LastPage}}
+\fancyfoot[L]{\today}
+
+% [TOC PACKAGES & CUSTOMIZATION]
+\usepackage{tocloft}
+\renewcommand\cftsecafterpnum{\vskip3pt}
+\renewcommand\cftsubsecafterpnum{\vskip3pt}
+\renewcommand\cftsubsubsecafterpnum{\vskip3pt}
+
+% Adjust
+\renewcommand{\cftsecfont}{\bfseries}
+\renewcommand{\cftsecpagefont}{\bfseries}
+
+% [CONDITIONS ENVIRONMENT]
+% introduces conditions environment to create nice equation parameter description
+% note: the first column is already in math mode, so no $ are required
+%
+% \begin{conditions}
+%   A & Description about A \\
+%   B & Description about B \\
+%   C & Description about C
+% \begin{conditions}
+%
+\usepackage{array}
+\newenvironment{conditions}
+  {\par\vspace{\abovedisplayskip}\noindent\begin{tabular}{>{$}l<{$} @{${}:{}$} l}}
+  {\end{tabular}\par\vspace{\belowdisplayskip}}
+
+% [TIKZ CONFIGURATION]
+% Is used for different types of diagramms, drawings, etc.
+\usepackage{tikz}
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+            \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+\usetikzlibrary{shapes,arrows,arrows.meta,matrix}
