@@ -26,7 +26,7 @@ number-sections: true
 pagenumbering: none # since a selfmade solution is used
 papersize: a4
 fontsize: 11pt
-linestretch: 1.2
+linestretch: 1.1
 
 bibliography: 'bibliography.bib'
 cite-method: biblatex
@@ -66,15 +66,15 @@ In this essay I present my experiences in team projects and apply some of the co
 
 # Waste Collection and Filtering Robot
 
-In *Product Development*, teams of six students develop a device that has to solve a specific task and then compete against other teams at a small competition. Each team has two electrical engineering students, two mechanical engineering students and two computer science students. The goal for each group was to create an autonomous garbage picking robot. Bottle caps, plastic caps, cigarette butts and keys were spread across the work field and the robot was required to collect these autonomously. The robot itself is mounted at a stationary location adjacent to the work field and therefore required an extendable contraption to reach as much of the work field as possible. Our group decided on a SCARA ([S]{.underline}elective [C]{.underline}ompliance [A]{.underline}ssembly [R]{.underline}obot [A]{.underline}rm) consisting of three movable segments, a Z-axis and a grabbing mechanism (see @fig-robot). Unfortunately, due to a lack of time, the robot could not be completed, and other groups fared similarly, with a few exceptions.
+In *Product Development* (PREN), teams of six students develop a device that has to solve a specific task and then compete against other teams at a small competition. Each team has two electrical engineering students, two mechanical engineering students and two computer science students. The goal for each group was to create an autonomous garbage picking robot. Bottle caps, plastic caps, cigarette butts and keys were spread across the work field and the robot was required to collect these autonomously. The robot itself is mounted at a stationary location adjacent to the work field and therefore required an extendable contraption to reach as much of the work field as possible. Our group decided on a SCARA ([S]{.underline}elective [C]{.underline}ompliance [A]{.underline}ssembly [R]{.underline}obot [A]{.underline}rm) consisting of three movable segments, a Z-axis and a grabbing mechanism (see @fig-robot). Unfortunately, due to a lack of time, the robot could not be completed, and other groups fared similarly, with a few exceptions.
 
 ![The PREN robot](images/pren_photo.png){#fig-robot fig-align="center" width="12cm"}
 
-In the first semester, time was spent on understanding each other, specifically what abilities and personality each member can bring to the team, and creating the concept of the robot. Unfortunately, in the first six weeks a lot of time was lost in the problem breakdown and task assignment phase. It was forgotten to establish the actual expectations and the resulting "true" personalities of the individual members. The absence of a clear understanding of each other's expectations resulted in organisational challenges and unclear project expectations. The consequence is confusion among each other, since there is no baseline in the team. A fitting concept to describe this scenario would be the fundamental attribution error [@streetFundamentalAttributionError2016] and there could also be a thematic connection with Francis Bacon's *Idol of the Cave* [@streetFrancisBaconFour2016]. The individual team member could have operated "in their own caves" of subjective perceptions, assumptions, or biases, which hindered effective communication and collaboration. The issue was solved by clarifying everyone's expectations, restructuring the team and assigning the main roles such as project leader to the fitting members.
+In the first semester, time was spent on understanding each other, specifically what abilities and personality each member can bring to the team, and creating the concept of the robot. Unfortunately, in the first six weeks a lot of time was lost in the problem breakdown and task assignment phase. It was forgotten to establish the actual expectations and the resulting "true" personalities of the individual members. The absence of a clear understanding of each other's expectations resulted in organisational challenges and unclear project expectations. The consequence is confusion among each other, since there is no baseline in the team. An appropriate concept to describe this scenario would be the fundamental attribution error [@streetFundamentalAttributionError2016], as it seemed that everyone thought the project would work because everyone would have the same expectations, which was not the case . There could also be a thematic connection with Francis Bacon's *Idol of the Cave* [@streetFrancisBaconFour2016]. The individual team member could have operated "in their own caves" of subjective perceptions, assumptions, or biases, which hindered effective communication and collaboration. The issue was solved by clarifying everyone's expectations, restructuring the team and assigning the main roles such as project leader to the fitting members.
 
 <!--# Working together as a team -->
 
-Communication and behaviour across group has shown various parts from Bacon's Idol <!--# incomplete -->
+Communication and behaviour across group has shown various parts from Bacon's Idols [@streetFrancisBaconFour2016]. The *Idols of the Tribe* was found in form of the . Everyone had a different picture of the same idea, which led to misunderstandings. As a solution, The person who suggested the idea was commissioned to sketch the idea. Since the project and, in particular, the implementation process of our chosen idea required a great deal of effort, which not everyone was able to contribute equally, there were work conflicts and contentious discussions. This could be due to the amount of time involved or the expectations among the members, but it certainly seems to fit the description of the *Idols of the Cave*. The passion, devotion and enthusiasm did not line up with the others and therefore brought conflict. This was improved by giving each other enough space to deal with the issue first before starting discussions and finding a compromise. PREN encourages students to acquire new knowledge themselves. They are tasked to familiarise themselves with the content of new concepts, such as inverse kinematics or the MQTT protocol. These concepts were assessed using simulations with CAD or mathematical software. Characteristics of Bacon's *Idol of the Theatre* were recognised in retrospect in this process. <!--# incomplete -->
 
 The writing of the concept and the implementation in the second semester uses both scientific and engineering methods, which are shown in @fig-methods. The project assignment is based around a problem: garbage needs to be picked up and automatically sorted based on their type. This problem is more suited to the engineering method in @fig-engineering-method, as it is a practical challenge requiring a solution. The scientific method in @fig-scientific-method also has its uses in the engineering method. Designs need to be tested on their physical attributes, in which the hypothesis corresponds to the desired test conditions or results. @fig-pren-flow shows an idea on how the scientific method could be used in an engineering method.
 
@@ -86,7 +86,7 @@ The writing of the concept and the implementation in the second semester uses bo
 Diagrams of the two methods
 :::
 
-![Idea on how scientific method is used in an engineering method based project flow](images/paste-3.png){#fig-pren-flow}
+![Idea on how scientific method is used in an engineering method based project flow](images/paste-3.png){#fig-pren-flow fig-align="center" width="14cm" height="3.3cm"}
 
 <!--# Three Philosophical Methods of Reasoning -->
 
@@ -108,13 +108,17 @@ The firmware (code for embedded systems) utilises a combination of inductive and
 
 As I mainly worked on the firmware part of the project, I wrote code naturally with *René Decartes' four rules of thinking* [@DescartesScientificMethod] applied. Especially rules two "break every problem into smaller parts" and three "Solve the simplest problems first" were employed split up a components code into sub components and to create clean code structures. The *split-up* design allows for easier lookup of specific code lines and for solving bugs and errors. Rule four "Be thorough" found its use in writing the documentation, as explaining clearly how features function was essential for the reader's comprehension of the code. Lastly *Mill's method of difference* [@CausalReasoning] and logical thinking were used for debugging code. If a new iteration of a function causes an error, the error can be derived from the fact that the error did not occur in the previous iteration, but in the new iteration.
 
-<!--# Ethical Engineering - Did we consider it? Was the end product something useful? -->
-
-Regarding the topics of ethical engineering, the project was in a questionable area. While it is interesting to see <!--# incomplete -->
-
 # Conclussion
 
-This essay shows that both scientific and engineering methods and philosophical concepts are <!--# incomplete -->
+This essay shows that scientific and engineering methods as well as philosophical concepts are always present in some form in project work. From my own reflection, I noticed that several concepts were passed on to me, unknown of their origin and meaning, whether verbally or through literature. Once a term has been associated with these concepts, it is easier to recognise them or apply them in new projects. In addition to raising awareness, it helps as additional information in discussions about the history of science, for example.
+
+The three reasoning methods can used for conveying the logic and method of experiments in form of texts without the need of lengthy paragraphs. In regard of the course *product development*, it made it possible to retrospectively label certain processes with the appropriate term and improve understanding of why certain scenarios occurred.
+
+Recognised concepts such as Francis Bacon's four Idols of the Mind, the fundamental attribution error and René Descartes' Four Precepts has additionally helped with analysing certain behaviours from not only myself, but also from the group. While there are concepts not applied in this essay such as the availability heuristic [@rosieAvailabilityBiasHow2021], explaining that we often misjudge the frequency and magnitude of events due to our limitations of memory and that we remember things better through vivid narrative, and the hindsight bias [@streetHindsightBiasIntroduction2009], they still deem useful for future use.
+
+While this essay delves into specific methodologies and concepts, it is important to note the relevance of concepts such as the availability heuristic [@rosieAvailabilityBiasHow2021], highlighting our tendency to misjudge the frequency and magnitude due to the limitations of memory, and the hindsight bias, emphasising the "knew-it-all-along" effect when looking backward in time and see events as more predictable than they actually were [@streetHindsightBiasIntroduction2009].
+
+In terms of ethics in technology, the project was questionable, not because the robot could cause injury, but because of its usefulness. Waste is not only a social problem, but also has an impact on the environment. Microplastic harms wildlife, such as the plastic consumption of aquatic animals. As a personal opinion, the view that society must be forced to dispose of its own waste simply does not take all human factors into account. Conflicting opinions or other views may lead to waste not being disposed of appropriately or the options may not have existed in this situation. The robot solves an environmental problem, but not completely. An idea would be to make recycling and sorting waste more attractive.
 
 # References
 
