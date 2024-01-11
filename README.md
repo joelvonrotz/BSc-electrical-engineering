@@ -11,7 +11,7 @@ This repository contains summaries and some lab reports written both in Latex & 
 
 The peeps below have helped me out a lot with writing the summaries and without them I probably wouldn't be able to write the majority of the summaries!
 
-|<img src="https://github.com/AndreasMing.png" width="60px;"/><br /><a href="https://github.com/AndreasMing">AndreasMing</a>|<img src="https://github.com/manuelfanger.png" width="60px;"/><br /><a href="https://github.com/manuelfanger">manuelfanger</a>|
+|<img src="https://github.com/threaming.png" width="60px;"/><br /><a href="https://github.com/threaming">threaming</a>|<img src="https://github.com/manuelfanger.png" width="60px;"/><br /><a href="https://github.com/manuelfanger">manuelfanger</a>|
 |:-------------------------------------------------------------------------------------------------------------------------:|:----------------------------------------------------------------------------------------------------------------------------:|
 
 ## Compiling it yourself
