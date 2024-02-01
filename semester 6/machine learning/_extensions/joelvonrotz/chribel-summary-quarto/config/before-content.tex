@@ -1,0 +1,42 @@
+% Workaround to fix some subtle things, such as caption style for code blcocks.
+
+% changes the preset style
+\floatsetup[codelisting]{style=MyListingStyle}
+
+% include the current section number into the different caption types
+\numberwithin{equation}{section}
+\numberwithin{codelisting}{section}
+\numberwithin{figure}{section}
+\numberwithin{table}{section}
+
+% if no code blocks are used, 'Shaded' doesn't exist!
+\ifdefined\Shaded
+  % redefine the Shaded environment to make the codeblock more bearable to 
+  \renewenvironment{Shaded}
+    {\begin{tcolorbox}[
+      rounded corners,
+      colback={codebgcolor},
+      colframe={codebgcolor},
+      enhanced,
+      boxrule=0mm,
+      borderline={1pt}{0pt}{gray,dotted},
+      left=0mm,
+      breakable,
+      %title after break={Theorem \themytheorem\ Continued}, % works, but not great
+      overlay first={%
+          \draw[thick,gray,line width=0.5pt,decoration={zigzag,segment length=4mm, amplitude=2mm/(2*sqrt(2))},decorate]
+            (frame.south west) -- (frame.south east);
+      },
+      overlay middle={%
+          \draw[thick,gray,line width=0.5pt,decoration={zigzag,segment length=4mm, amplitude=2mm/(2*sqrt(2))},decorate]
+            (frame.south west) -- (frame.south east);
+          \draw[thick,gray,line width=0.5pt,decoration={zigzag,segment length=4mm, amplitude=2mm/(2*sqrt(2))},decorate]
+            (frame.north west) -- (frame.north east);
+      },
+      overlay last={%
+          \draw[thick,gray,line width=0.5pt,decoration={zigzag,segment length=4mm, amplitude=2mm/(2*sqrt(2))},decorate]
+            (frame.north west) -- (frame.north east);
+      }
+      ]}
+    {\end{tcolorbox}}
+\fi

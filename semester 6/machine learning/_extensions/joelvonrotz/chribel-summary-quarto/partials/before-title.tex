@@ -1,0 +1,246 @@
+
+% [GENERAL PACKAGES] ------------------------------------------------------------------- %
+% includes some neato math environments, symbols and stuff
+\usepackage{amssymb, amsmath}
+
+% correctly encodes the formatting of the text files (since we live in the future of UTF8)
+\usepackage[utf8]{inputenc} 
+
+% Used for the page counter in the footer to see the amount of pages 
+\usepackage{lastpage} 
+
+% Mostly used for the titlepage. Compared to the 'twocolumn' mode, multicols allows for
+% more flexible changing (without inserting newpage between column mode changes)
+\usepackage{multicol}
+\setlength\columnsep{20pt}
+
+% Package for enabling colors (colorful output)
+\usepackage[dvipsnames]{xcolor}
+\definecolor{colorAccent}{HTML}{$accentcolor$}
+
+% Icons - http://mirrors.ctan.org/fonts/fontawesome5/doc/fontawesome5.pdf
+% This one is neat, when you want to add some icons
+\usepackage{fontawesome5}
+
+% Depending on the type of document, mostly summaries, I remove the spacing Display-styled Equations insert, since it's a waste of space.
+\usepackage[nodisplayskipstretch]{setspace}
+
+% [FONT CONFIGURATION] ----------------------------------------------------------------- %
+% change the fonts here (depending which latex engine is used, this might need to be
+% removed)
+
+$for(chribel-fontfamily)$
+$if(it.options)$
+\usepackage[$it.options$]{$it.name$}
+$else$
+\usepackage{$it.name$}
+$endif$
+$endfor$
+
+% \usepackage{AlegreyaSans}
+% \usepackage{cmbright}
+% \usepackage[scaled=0.95]{inconsolata} % for code blocks
+
+% [TIKZ CONFIGURATION] ----------------------------------------------------------------- %
+% Tikz is really good at creating nice looking and clean drawings, diagramms, etc. 
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows,arrows.meta,matrix,decorations.pathmorphing}
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+            \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}           
+
+% TIP: use 'TikzEdt' (http://www.tikzedt.org/) to preview the drawings.
+
+% [HEADING/SECTION STYLE CONFIGURATION] ------------------------------------------------ %
+% 'sectsty' is used for minor adjustments and is used to apply the bold sans serif style
+% to all sections (sec, subsec, subsubsec, ...)
+\usepackage{sectsty}
+\allsectionsfont{\normalfont\bfseries\sffamily}
+
+% 'titlesec' is used to customize the numbered and unnumbered sections styles (but can
+% also be used for the other section types).
+% 'xhfill' is used to add a ruler, centered to the text.
+\usepackage{xhfill}
+\usepackage[explicit]{titlesec}
+
+\makeatletter
+\newcommand \Cdotfill {\leavevmode\cleaders\hb@xt@.25em{\hss$$\cdot$$\hss}\hfill\kern\z@}
+\makeatother
+
+% NUMBERED - SECTIION
+\titleformat
+  {\section} % {⟨command⟩}
+  [hang] % [⟨shape⟩]
+  {\normalfont\LARGE\bfseries\filright\sffamily} % {⟨format⟩}
+  {\thesection} % {⟨label⟩}
+  {3mm} % {⟨sep⟩}
+  {%
+    \color{colorAccent}{#1\hspace{2mm}\xrfill[0.6ex]{1pt}}
+  } % {⟨before-code⟩}
+
+\titlespacing*{\section} % ⟨command⟩
+  {0em} % ⟨left⟩
+  {12pt} % ⟨before-sep⟩
+  {6pt} % ⟨after-sep⟩
+
+% NUMBERLESS - SECTION
+\titleformat
+  {name=\section,numberless} % {⟨command⟩}
+  [hang] % [⟨shape⟩]
+  {\normalfont\LARGE\bfseries\filright\sffamily} % {⟨format⟩}
+  {} % {⟨label⟩}
+  {0mm} % {⟨sep⟩}
+  {%
+    \color{colorAccent}{#1\hspace{2mm}}\xrfill[0.6ex]{1.2pt}[colorAccent]
+  }% {⟨before-code⟩}
+
+% NUMBERED - SUBSECTION
+\titleformat{\subsection} % {⟨command⟩}
+  [hang] % [⟨shape⟩]
+  {\normalfont\Large\bfseries\filright\sffamily} % {⟨format⟩}
+  {\thesection} % {⟨label⟩}
+  {2mm} % {⟨sep⟩}
+  {%
+    {#1\hspace{1mm}\color{colorAccent}{\Cdotfill}}%
+  } % {⟨before-code⟩}
+
+% NUMBERLESS - SUBSECTION
+\titleformat{name=\subsection,numberless} % {⟨command⟩}
+  [hang] % [⟨shape⟩]
+  {\normalfont\Large\bfseries\filright\sffamily} % {⟨format⟩}
+  {} % {⟨label⟩}
+  {0mm} % {⟨sep⟩}
+  {%
+    {#1\hspace{1mm}\color{colorAccent}{\Cdotfill}}%
+  }% {⟨before-code⟩}
+
+\titlespacing*{\subsection} % <command>
+  {0em} % <left>
+  {.5em} % <before-sep>
+  {.4em} % <after-sep>
+
+% NUMBERED - SUBSUBSECTION
+\titleformat{\subsubsection} % {⟨command⟩}
+  [hang] % [⟨shape⟩]
+  {\normalfont\large\bfseries\sffamily} % {⟨format⟩}
+  {\thesection} % {⟨label⟩}
+  {2mm} % {⟨sep⟩}
+  {
+    #1%
+  } % {⟨before-code⟩}
+
+% NUMBERLESS - SUBSUBSECTION
+\titleformat{name=\subsubsection,numberless} % {⟨command⟩}
+  [hang] % [⟨shape⟩]
+  {\normalfont\large\bfseries\sffamily} % {⟨format⟩}
+  {} % {⟨label⟩}
+  {0mm} % {⟨sep⟩}
+  {%
+    #1%
+  }% {⟨before-code⟩}
+
+% [HEADER & FOOTER CONFIGURATION] ------------------------------------------------------ %
+% Most configuration is done through the quarto project yaml file (aka. '_quarto.yml').
+% 
+% Inside '_quarto.yml' use following structure. If one is not used, uncomment it:
+%
+%  fancyhdr:
+%    header:
+%      right: "text"
+%      center: "text"
+%      left: "text"
+%    footer:
+%      right: "text"
+%      center: "text"
+%      left: "text"
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+% This adds the section number to the rightmark command, which is usually used for the
+% header/footer
+\renewcommand{\sectionmark}[1]{\markright{#1}}
+\renewcommand{\subsectionmark}[1]{}
+
+% Adds a rules to the header and footer
+\renewcommand{\headrulewidth}{1pt}
+\renewcommand{\footrulewidth}{1pt}
+
+\fancyhf{} % clear all header and footer fields
+% header
+$if(fancyhdr.header.right)$
+\fancyhead[R]{\sffamily $fancyhdr.header.right$}
+$endif$
+
+$if(fancyhdr.header.center)$
+\fancyhead[C]{\sffamily $fancyhdr.header.center$}
+$endif$
+
+$if(fancyhdr.header.left)$
+\fancyhead[L]{\sffamily $fancyhdr.header.left$}
+$endif$
+
+% header
+$if(fancyhdr.footer.right)$
+\fancyfoot[R]{\sffamily $fancyhdr.footer.right$}
+$endif$
+
+$if(fancyhdr.footer.center)$
+\fancyfoot[C]{\sffamily $fancyhdr.footer.center$}
+$endif$
+
+$if(fancyhdr.footer.left)$
+\fancyfoot[L]{\sffamily $fancyhdr.footer.left$}
+$endif$
+
+% [CONDITIONS ENVIRONMENT] ------------------------------------------------------------- %
+% introduces conditions environment to create nice equation parameter description
+% note: the first column is already in math mode, so no $$ are required.
+%
+% \begin{conditions}
+%   A & Description about A \\
+%   B & Description about B \\
+%   C & Description about C
+% \begin{conditions}
+%
+\usepackage{array}
+\newenvironment{conditions}
+  {\par\vspace{\abovedisplayskip}\noindent\begin{tabular}{>{$$}l<{$$} @{$${}:{}$$} l}}
+  {\end{tabular}\par\vspace{\belowdisplayskip}}
+
+% [FANCY VERBATIM] --------------------------------------------------------------------- %
+% in combination with the file 'before-content.tex' inside the 'config' folder, the
+% packages 'fancyvbr', 'fvextra' and 'floatrow' are used to restyle the implemented
+% Verbatim/Codeblock styles to make it (personally) nicer looking and include breaklines +
+% symbols
+\usepackage{fancyvrb}
+\definecolor{codeRuleColor}{HTML}{1a1e2e}
+\definecolor{codeLineNumberColor}{HTML}{84858a}
+
+% This reconfigures the code block to make a little nicer to look at.
+% The following renewcommand 
+\renewcommand{\theFancyVerbLine}{%
+  \textcolor{codeLineNumberColor}{\ttfamily\scriptsize
+  \arabic{FancyVerbLine}}}
+
+\usepackage{fvextra}
+\DefineVerbatimEnvironment{Highlighting} % Its new name
+  {Verbatim} % Based on this environment
+  {
+    breaklines,
+    breaksymbolleft={\textcolor{gray}{\scriptsize\ensuremath\hookrightarrow}},
+    commandchars=\\\{\},
+    rulecolor=\color{codeRuleColor},
+    xleftmargin=1mm
+  }
+
+
+\DeclareFloatStyle{MyListingStyle}
+  {
+    style=plaintop,
+    captionskip=1pt
+  }
+
+% [MISC] ------------------------------------------------------------------------------- %
+
+
+% -------------------------------------------------------------------------------------- %
+

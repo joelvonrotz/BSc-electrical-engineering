@@ -1,0 +1,91 @@
+{
+	"folders": [
+		{
+			"path": "advanced robotics"
+		},
+		{
+			"path": "advanced system design"
+		},
+		{
+			"path": "machine learning"
+		},
+		{
+			"path": "real-time image processing"
+		}
+	],
+	"settings": {},
+	"tasks": {
+		"version": "2.0.0",
+		"tasks": [
+			{
+				"label": "Quarto Render: Advanced Robotics",
+				"type": "shell",
+				"icon": {
+					"id": "robot",
+					"color": "terminal.ansiBlue"
+				},
+				"options": {
+					"cwd": "${workspaceFolder}/../advanced robotics/"
+				},
+				"command": "quarto render",
+				"problemMatcher": []
+			},
+			{
+				"label": "Quarto Render: Advanced System Design",
+				"type": "shell",
+				"icon": {
+					"id": "chip",
+					"color": "terminal.ansiGreen"
+				},
+				"options": {
+					"cwd": "${workspaceFolder}/../advanced system design/"
+				},
+				"command": "quarto render",
+				"problemMatcher": []
+			},
+			{
+				"label": "Quarto Render: Machine Learning",
+				"type": "shell",
+				"icon": {
+					"id": "mortar-board",
+					"color": "terminal.ansiYellow"
+				},
+				"options": {
+					"cwd": "${workspaceFolder}/../machine learning/"
+				},
+				"command": "quarto render",
+				"problemMatcher": []
+			},
+			{
+				"label": "Quarto Render: Real-Time Image Processing",
+				"type": "shell",
+				"icon": {
+					"id": "device-camera",
+					"color": "terminal.ansiRed"
+				},
+				"options": {
+					"cwd": "${workspaceFolder}/../real-time image processing/"
+				},
+				"command": "quarto render",
+				"problemMatcher": []
+			},
+			{
+				"label": "Quarto Render All",
+				"dependsOn": [
+					"Quarto Render: Advanced Robotics",
+					"Quarto Render: Advanced System Design",
+					"Quarto Render: Machine Learning",
+					"Quarto Render: Real-Time Image Processing"
+				],
+				"icon": {
+					"id": "layers",
+					"color": "terminal.ansiWhite"
+				},
+				"dependsOrder": "parallel",
+				"group": "build",
+				"problemMatcher": [],
+				"isBackground": true
+			}
+		]
+	}
+}

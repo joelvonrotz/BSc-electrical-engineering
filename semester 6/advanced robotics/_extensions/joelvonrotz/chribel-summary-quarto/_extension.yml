@@ -1,0 +1,46 @@
+title: Chribel Summary Quarto
+author: Joel von Rotz
+version: 1.1.0
+quarto-required: ">=1.4.0"
+contributes:
+  project:
+    project:
+      type: default
+  formats:
+    pdf:
+      pdf-engine: pdflatex
+      documentclass: article
+      
+      # [PAGE SETTINGS]
+      geometry:
+        - "top=18mm"
+        - "bottom=15mm"
+        - "left=5mm"
+        - "right=5mm"
+      papersize: a4
+      fontenc: T1
+      fontsize: 10pt
+      pagenumbering: none
+
+      # [DOCUMENT STRUCTURES]
+      include-before-body: 
+        - config/before-content.tex
+      include-in-header:
+        - config/preamble.tex
+      template-partials:
+        - partials/before-body.tex
+        - partials/before-title.tex
+      
+      # [TOC OPTIONS]
+      toc: true
+      toc-depth: 3
+      number-sections: false
+      
+      # [FIGURE OPTIONS]
+      fig-pos: H
+      fig-align: center
+
+      # [CODE BLOCK STYLING]
+      code-block-bg: "#f7f7f7"
+      code-line-numbers: false
+      highlight-style: github
