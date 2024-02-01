@@ -1,3 +1,0 @@
-# This is section 2
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dictum a massa eu faucibus. Integer sodales quis est et suscipit. Pellentesque vitae dolor quam. Morbi eget consectetur augue. Interdum et malesuada fames ac ante ipsum primis in faucibus. Duis laoreet massa ante, ac fermentum dolor mattis ut. Interdum et malesuada fames ac ante ipsum primis in faucibus. Phasellus sagittis sem mi, vel feugiat lectus facilisis hendrerit. Nam ut elementum magna.
