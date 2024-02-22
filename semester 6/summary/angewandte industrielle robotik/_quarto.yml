@@ -2,7 +2,7 @@ project:
   type: chribel-summary-quarto
   output-dir: ".."
   render: 
-    - s6_advanced_system_design.qmd
+    - s6_applied_industrial_robotics.qmd
 
 format:
   chribel-summary-quarto-pdf:
@@ -13,7 +13,7 @@ format:
     classoption: twocolumn
 
 # [DOCUMENT INFORMATION]
-title: "Advanced System Design"
+title: "Angewandte Industrielle Robotik"
 subtitle: "Zusammenfassung"
 author: "Joel von Rotz"
 
@@ -24,11 +24,11 @@ babel-lang: nswissgerman
 # [HEADER & FOOTER]
 fancyhdr:
   header:
-    right: Advanced System Design - Zusammenfassung
+    right: Angewandte Industrielle Robotik - Zusammenfassung
     center: ""
     left: "HSLU T&A"
   footer:
-    right: "ASYD"
+    right: "AROB"
     center: "\\thepage\\ / \\pageref{LastPage}"
     left: "\\DTMtoday"
   

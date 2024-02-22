@@ -1,9 +1,6 @@
 {
 	"folders": [
 		{
-			"path": "advanced robotics"
-		},
-		{
 			"path": "advanced system design"
 		},
 		{
@@ -11,6 +8,9 @@
 		},
 		{
 			"path": "real-time image processing"
+		},
+		{
+			"path": "angewandte industrielle robotik"
 		}
 	],
 	"settings": {},
@@ -18,14 +18,14 @@
 		"version": "2.0.0",
 		"tasks": [
 			{
-				"label": "Quarto Render: Advanced Robotics",
+				"label": "Quarto Render: Angewandte Industrielle Robotik",
 				"type": "shell",
 				"icon": {
 					"id": "robot",
 					"color": "terminal.ansiBlue"
 				},
 				"options": {
-					"cwd": "${workspaceFolder}/../advanced robotics/"
+					"cwd": "${workspaceFolder}/../angewandte industrielle robotik/"
 				},
 				"command": "quarto render",
 				"problemMatcher": []

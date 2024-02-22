@@ -1,0 +1,584 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+  10pt,
+  a4paper,
+  twocolumn]{article}
+
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else  
+    % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[top=18mm,bottom=15mm,left=5mm,right=5mm]{geometry}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+% Make \paragraph and \subparagraph free-standing
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+
+% this merely exists to fix the loading sequence (so 'floatrow' is loaded first before 'float')
+\usepackage{floatrow}
+\usepackage[datesep=.]{datetime2}
+\DTMsetdatestyle{ddmmyyyy}
+\makeatletter
+\@ifpackageloaded{tcolorbox}{}{\usepackage[skins,breakable]{tcolorbox}}
+\@ifpackageloaded{fontawesome5}{}{\usepackage{fontawesome5}}
+\definecolor{quarto-callout-color}{HTML}{909090}
+\definecolor{quarto-callout-note-color}{HTML}{0758E5}
+\definecolor{quarto-callout-important-color}{HTML}{CC1914}
+\definecolor{quarto-callout-warning-color}{HTML}{EB9113}
+\definecolor{quarto-callout-tip-color}{HTML}{00A047}
+\definecolor{quarto-callout-caution-color}{HTML}{FC5300}
+\definecolor{quarto-callout-color-frame}{HTML}{acacac}
+\definecolor{quarto-callout-note-color-frame}{HTML}{4582ec}
+\definecolor{quarto-callout-important-color-frame}{HTML}{d9534f}
+\definecolor{quarto-callout-warning-color-frame}{HTML}{f0ad4e}
+\definecolor{quarto-callout-tip-color-frame}{HTML}{02b875}
+\definecolor{quarto-callout-caution-color-frame}{HTML}{fd7e14}
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Inhaltsverzeichnis}
+\else
+  \newcommand\contentsname{Inhaltsverzeichnis}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{Abbildungsverzeichnis}
+\else
+  \newcommand\listfigurename{Abbildungsverzeichnis}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{Tabellenverzeichnis}
+\else
+  \newcommand\listtablename{Tabellenverzeichnis}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Abbildung}
+\else
+  \newcommand\figurename{Abbildung}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Tabelle}
+\else
+  \newcommand\tablename{Tabelle}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listing}
+\newcommand*\listoflistings{\listof{codelisting}{Listingverzeichnis}}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+\makeatletter
+\@ifpackageloaded{tcolorbox}{}{\usepackage[skins,breakable]{tcolorbox}}
+\makeatother
+\makeatletter
+\@ifundefined{shadecolor}{\definecolor{shadecolor}{rgb}{.97, .97, .97}}{}
+\makeatother
+\makeatletter
+\@ifundefined{codebgcolor}{\definecolor{codebgcolor}{HTML}{f7f7f7}}{}
+\makeatother
+\makeatletter
+\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[enhanced, breakable, colback={codebgcolor}, boxrule=0pt, sharp corners, frame hidden]}{\end{tcolorbox}}\fi
+\makeatother
+\ifLuaTeX
+\usepackage[bidi=basic]{babel}
+\else
+\usepackage[bidi=default]{babel}
+\fi
+\babelprovide[main,import]{nswissgerman}
+% get rid of language-specific shorthands (see #6817):
+\let\LanguageShortHands\languageshorthands
+\def\languageshorthands#1{}
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\usepackage{bookmark}
+
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={Angewandte Industrielle Robotik},
+  pdfauthor={Joel von Rotz},
+  pdflang={de-CH},
+  colorlinks=true,
+  linkcolor={blue},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={Blue},
+  pdfcreator={LaTeX via pandoc}}
+
+
+% [GENERAL PACKAGES] ------------------------------------------------------------------- %
+% includes some neato math environments, symbols and stuff
+\usepackage{amssymb, amsmath}
+
+% correctly encodes the formatting of the text files (since we live in the future of UTF8)
+\usepackage[utf8]{inputenc} 
+
+% Used for the page counter in the footer to see the amount of pages 
+\usepackage{lastpage} 
+
+% Mostly used for the titlepage. Compared to the 'twocolumn' mode, multicols allows for
+% more flexible changing (without inserting newpage between column mode changes)
+\usepackage{multicol}
+\setlength\columnsep{20pt}
+
+% Package for enabling colors (colorful output)
+\usepackage[dvipsnames]{xcolor}
+\definecolor{colorAccent}{HTML}{124E82}
+
+% Icons - http://mirrors.ctan.org/fonts/fontawesome5/doc/fontawesome5.pdf
+% This one is neat, when you want to add some icons
+\usepackage{fontawesome5}
+
+% Depending on the type of document, mostly summaries, I remove the spacing Display-styled Equations insert, since it's a waste of space.
+\usepackage[nodisplayskipstretch]{setspace}
+
+% [FONT CONFIGURATION] ----------------------------------------------------------------- %
+% change the fonts here (depending which latex engine is used, this might need to be
+% removed)
+
+\usepackage{AlegreyaSans}
+\usepackage{cmbright}
+\usepackage[scaled=0.95]{inconsolata}
+
+% \usepackage{AlegreyaSans}
+% \usepackage{cmbright}
+% \usepackage[scaled=0.95]{inconsolata} % for code blocks
+
+% [TIKZ CONFIGURATION] ----------------------------------------------------------------- %
+% Tikz is really good at creating nice looking and clean drawings, diagramms, etc. 
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows,arrows.meta,matrix,decorations.pathmorphing}
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+            \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}           
+
+% TIP: use 'TikzEdt' (http://www.tikzedt.org/) to preview the drawings.
+
+% [HEADING/SECTION STYLE CONFIGURATION] ------------------------------------------------ %
+% 'sectsty' is used for minor adjustments and is used to apply the bold sans serif style
+% to all sections (sec, subsec, subsubsec, ...)
+\usepackage{sectsty}
+\allsectionsfont{\normalfont\bfseries\sffamily}
+
+% 'titlesec' is used to customize the numbered and unnumbered sections styles (but can
+% also be used for the other section types).
+% 'xhfill' is used to add a ruler, centered to the text.
+\usepackage{xhfill}
+\usepackage[explicit]{titlesec}
+
+\makeatletter
+\newcommand \Cdotfill {\leavevmode\cleaders\hb@xt@.25em{\hss$\cdot$\hss}\hfill\kern\z@}
+\makeatother
+
+% NUMBERED - SECTIION
+\titleformat
+  {\section} % {⟨command⟩}
+  [hang] % [⟨shape⟩]
+  {\normalfont\LARGE\bfseries\filright\sffamily} % {⟨format⟩}
+  {\thesection} % {⟨label⟩}
+  {3mm} % {⟨sep⟩}
+  {%
+    \color{colorAccent}{#1\hspace{2mm}\xrfill[0.6ex]{1pt}}
+  } % {⟨before-code⟩}
+
+\titlespacing*{\section} % ⟨command⟩
+  {0em} % ⟨left⟩
+  {12pt} % ⟨before-sep⟩
+  {6pt} % ⟨after-sep⟩
+
+% NUMBERLESS - SECTION
+\titleformat
+  {name=\section,numberless} % {⟨command⟩}
+  [hang] % [⟨shape⟩]
+  {\normalfont\LARGE\bfseries\filright\sffamily} % {⟨format⟩}
+  {} % {⟨label⟩}
+  {0mm} % {⟨sep⟩}
+  {%
+    \color{colorAccent}{#1\hspace{2mm}}\xrfill[0.6ex]{1.2pt}[colorAccent]
+  }% {⟨before-code⟩}
+
+% NUMBERED - SUBSECTION
+\titleformat{\subsection} % {⟨command⟩}
+  [hang] % [⟨shape⟩]
+  {\normalfont\Large\bfseries\filright\sffamily} % {⟨format⟩}
+  {\thesection} % {⟨label⟩}
+  {2mm} % {⟨sep⟩}
+  {%
+    {#1\hspace{1mm}\color{colorAccent}{\Cdotfill}}%
+  } % {⟨before-code⟩}
+
+% NUMBERLESS - SUBSECTION
+\titleformat{name=\subsection,numberless} % {⟨command⟩}
+  [hang] % [⟨shape⟩]
+  {\normalfont\Large\bfseries\filright\sffamily} % {⟨format⟩}
+  {} % {⟨label⟩}
+  {0mm} % {⟨sep⟩}
+  {%
+    {#1\hspace{1mm}\color{colorAccent}{\Cdotfill}}%
+  }% {⟨before-code⟩}
+
+\titlespacing*{\subsection} % <command>
+  {0em} % <left>
+  {.5em} % <before-sep>
+  {.4em} % <after-sep>
+
+% NUMBERED - SUBSUBSECTION
+\titleformat{\subsubsection} % {⟨command⟩}
+  [hang] % [⟨shape⟩]
+  {\normalfont\large\bfseries\sffamily} % {⟨format⟩}
+  {\thesection} % {⟨label⟩}
+  {2mm} % {⟨sep⟩}
+  {
+    #1%
+  } % {⟨before-code⟩}
+
+% NUMBERLESS - SUBSUBSECTION
+\titleformat{name=\subsubsection,numberless} % {⟨command⟩}
+  [hang] % [⟨shape⟩]
+  {\normalfont\large\bfseries\sffamily} % {⟨format⟩}
+  {} % {⟨label⟩}
+  {0mm} % {⟨sep⟩}
+  {%
+    #1%
+  }% {⟨before-code⟩}
+
+% [HEADER & FOOTER CONFIGURATION] ------------------------------------------------------ %
+% Most configuration is done through the quarto project yaml file (aka. '_quarto.yml').
+% 
+% Inside '_quarto.yml' use following structure. If one is not used, uncomment it:
+%
+%  fancyhdr:
+%    header:
+%      right: "text"
+%      center: "text"
+%      left: "text"
+%    footer:
+%      right: "text"
+%      center: "text"
+%      left: "text"
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+% This adds the section number to the rightmark command, which is usually used for the
+% header/footer
+\renewcommand{\sectionmark}[1]{\markright{#1}}
+\renewcommand{\subsectionmark}[1]{}
+
+% Adds a rules to the header and footer
+\renewcommand{\headrulewidth}{1pt}
+\renewcommand{\footrulewidth}{1pt}
+
+\fancyhf{} % clear all header and footer fields
+% header
+\fancyhead[R]{\sffamily Angewandte Industrielle Robotik -
+Zusammenfassung}
+
+
+\fancyhead[L]{\sffamily HSLU T\&A}
+
+% header
+\fancyfoot[R]{\sffamily AROB}
+
+\fancyfoot[C]{\sffamily \thepage~/ \pageref{LastPage}}
+
+\fancyfoot[L]{\sffamily \DTMtoday}
+
+% [CONDITIONS ENVIRONMENT] ------------------------------------------------------------- %
+% introduces conditions environment to create nice equation parameter description
+% note: the first column is already in math mode, so no $ are required.
+%
+% \begin{conditions}
+%   A & Description about A \\
+%   B & Description about B \\
+%   C & Description about C
+% \begin{conditions}
+%
+\usepackage{array}
+\newenvironment{conditions}
+  {\par\vspace{\abovedisplayskip}\noindent\begin{tabular}{>{$}l<{$} @{${}:{}$} l}}
+  {\end{tabular}\par\vspace{\belowdisplayskip}}
+
+% [FANCY VERBATIM] --------------------------------------------------------------------- %
+% in combination with the file 'before-content.tex' inside the 'config' folder, the
+% packages 'fancyvbr', 'fvextra' and 'floatrow' are used to restyle the implemented
+% Verbatim/Codeblock styles to make it (personally) nicer looking and include breaklines +
+% symbols
+\usepackage{fancyvrb}
+\definecolor{codeRuleColor}{HTML}{1a1e2e}
+\definecolor{codeLineNumberColor}{HTML}{84858a}
+
+% This reconfigures the code block to make a little nicer to look at.
+% The following renewcommand 
+\renewcommand{\theFancyVerbLine}{%
+  \textcolor{codeLineNumberColor}{\ttfamily\scriptsize
+  \arabic{FancyVerbLine}}}
+
+\usepackage{fvextra}
+\DefineVerbatimEnvironment{Highlighting} % Its new name
+  {Verbatim} % Based on this environment
+  {
+    breaklines,
+    breaksymbolleft={\textcolor{gray}{\scriptsize\ensuremath\hookrightarrow}},
+    commandchars=\\\{\},
+    rulecolor=\color{codeRuleColor},
+    xleftmargin=1mm
+  }
+
+
+\DeclareFloatStyle{MyListingStyle}
+  {
+    style=plaintop,
+    captionskip=1pt
+  }
+
+% [MISC] ------------------------------------------------------------------------------- %
+
+
+% -------------------------------------------------------------------------------------- %
+\title{Angewandte Industrielle Robotik}
+\usepackage{etoolbox}
+\makeatletter
+\providecommand{\subtitle}[1]{% add subtitle to \maketitle
+  \apptocmd{\@title}{\par {\large #1 \par}}{}{}
+}
+\makeatother
+\subtitle{Zusammenfassung}
+\author{Joel von Rotz}
+\date{}
+
+\begin{document}
+\makeatletter
+\begin{center}
+  \vspace*{0.5cm}
+  \textbf{\textsf{\Huge Angewandte Industrielle Robotik}}\\
+  \vspace{0.1cm}
+  \textsf{\textit{\large Zusammenfassung}}\\
+  \vspace{0.5cm}
+  \textsf{\large Joel von
+Rotz \hspace{0.3cm}\textbf{/}\hspace{0.3cm}\mbox{\large \faGithub\space \href{https://www.youtube.com/watch?v=VGhcSupkNs8}{Quelldateien}}}
+\end{center}
+\makeatother
+\normalfont
+
+
+% Workaround to fix some subtle things, such as caption style for code blcocks.
+
+% changes the preset style
+\floatsetup[codelisting]{style=MyListingStyle}
+
+% include the current section number into the different caption types
+\numberwithin{equation}{section}
+\numberwithin{codelisting}{section}
+\numberwithin{figure}{section}
+\numberwithin{table}{section}
+
+% if no code blocks are used, 'Shaded' doesn't exist!
+\ifdefined\Shaded
+  % redefine the Shaded environment to make the codeblock more bearable to 
+  \renewenvironment{Shaded}
+    {\begin{tcolorbox}[
+      rounded corners,
+      colback={codebgcolor},
+      colframe={codebgcolor},
+      enhanced,
+      boxrule=0mm,
+      borderline={1pt}{0pt}{gray,dotted},
+      left=0mm,
+      breakable,
+      %title after break={Theorem \themytheorem\ Continued}, % works, but not great
+      overlay first={%
+          \draw[thick,gray,line width=0.5pt,decoration={zigzag,segment length=4mm, amplitude=2mm/(2*sqrt(2))},decorate]
+            (frame.south west) -- (frame.south east);
+      },
+      overlay middle={%
+          \draw[thick,gray,line width=0.5pt,decoration={zigzag,segment length=4mm, amplitude=2mm/(2*sqrt(2))},decorate]
+            (frame.south west) -- (frame.south east);
+          \draw[thick,gray,line width=0.5pt,decoration={zigzag,segment length=4mm, amplitude=2mm/(2*sqrt(2))},decorate]
+            (frame.north west) -- (frame.north east);
+      },
+      overlay last={%
+          \draw[thick,gray,line width=0.5pt,decoration={zigzag,segment length=4mm, amplitude=2mm/(2*sqrt(2))},decorate]
+            (frame.north west) -- (frame.north east);
+      }
+      ]}
+    {\end{tcolorbox}}
+\fi
+
+\renewcommand*\contentsname{Inhaltsverzeichnis}
+{
+\hypersetup{linkcolor=}
+\setcounter{tocdepth}{3}
+\tableofcontents
+}
+\section{Repetition Linear Algebra}\label{repetition-linear-algebra}
+
+\subsection{Vektoren}\label{vektoren}
+
+\subsubsection{Skalarprodukt}\label{skalarprodukt}
+
+\begin{center}
+\includegraphics[width=9cm,height=\textheight]{images/skalarprodukt.png}
+\end{center}
+
+Das Skalarprodukt entspricht der Multiplikation der Projektion
+\(\overrightarrow{b_a}\) auf \(\overrightarrow{a}\) mit
+\(\overrightarrow{a}\)
+
+\[ \overrightarrow{a} \bullet \overrightarrow{b} = \begin{bmatrix} a_1 \\ \vdots \\ a_n \end{bmatrix} \bullet \begin{bmatrix} b_1 \\ \vdots \\ b_n \end{bmatrix}= a_1 \cdot b_1 + \cdots + a_n \cdot b_n = \sum^n_{i=1}{a_i\cdot b_i} \]
+
+\subsubsection{}\label{section}
+
+\subsubsection{Winkel \& Orthogonalität}\label{winkel-orthogonalituxe4t}
+
+\begin{center}
+\includegraphics[width=4.3cm,height=3.5cm]{images/winkel.png}
+\end{center}
+
+Beim Berechnen des Winkels zwischen zwei Vektoren
+
+\[ \varphi = \arccos{\frac{x\bullet y}{\Vert x \Vert \cdot \Vert y \Vert}} \]
+
+Es gilt:
+
+\begin{itemize}
+\item
+  \(\overrightarrow{a} \bullet \overrightarrow{b} > 0\quad\text{wenn}\quad{\varphi}<\frac{\pi}{2}\)
+\item
+  \(\overrightarrow{a} \bullet \overrightarrow{b} < 0\quad\text{wenn}\quad{\varphi}>\frac{\pi}{2}\)
+\end{itemize}
+
+\begin{tcolorbox}[enhanced jigsaw, leftrule=.75mm, bottomrule=.15mm, colback=white, colframe=quarto-callout-important-color-frame, opacityback=0, opacitybacktitle=0.6, breakable, toprule=.15mm, rightrule=.15mm, colbacktitle=quarto-callout-important-color!10!white, left=2mm, bottomtitle=1mm, toptitle=1mm, coltitle=black, arc=.35mm, titlerule=0mm, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Definition Orthogonalität}]
+
+Sind zwei Vektoren \emph{orthogonal}/\emph{senkrecht} zueinander, ergibt
+das Skalarprodukt
+
+\[ \overrightarrow{a} \bullet \overrightarrow{b} = 0\quad\text{und}\quad\varphi = \frac{\pi}{2} \]
+
+\end{tcolorbox}
+
+\vspace{2mm}
+
+\begin{tcolorbox}[enhanced jigsaw, leftrule=.75mm, bottomrule=.15mm, colback=white, colframe=quarto-callout-note-color-frame, opacityback=0, opacitybacktitle=0.6, breakable, toprule=.15mm, rightrule=.15mm, colbacktitle=quarto-callout-note-color!10!white, left=2mm, bottomtitle=1mm, toptitle=1mm, coltitle=black, arc=.35mm, titlerule=0mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Richtungswinkel in \(\mathbb{R}^3\)}]
+
+\[ \cos\alpha=\frac{a_x}{a} \textcolor{gray}{\text{ \& }} \cos\beta=\frac{a_y}{a} \textcolor{gray}{\text{ \& }} \cos\gamma=\frac{a_z}{a} \]
+
+\[ \cos^2\alpha + \cos^2\beta + \cos^2\gamma = 1 \]
+
+\end{tcolorbox}
+
+\subsubsection{Kreuzprodukt}\label{kreuzprodukt}
+
+\subsection{Matrizen}\label{matrizen}
+
+Schiefsymmetrische Matrix: \(A=-A^T\)
+
+Asymmetrische Matrix: \(A=A^T\)
+
+Diagonalmatrix
+
+Selektion Untermatrizen oder Vektoren
+
+\[
+A = \begin{bmatrix}
+1 & 0 & 0\\
+0 & 3 & 0\\
+0 & 0 & 5
+\end{bmatrix}
+\]
+
+\[
+A(\color{BrickRed}{1:2}, {1:2}}) \quad A(\color{OliveGreen}{1:2, 1:2})
+\]
+
+\[
+E = \begin{bmatrix}
+-2 & 4 & 1\\
+4 & -1 & 0\\
+1 & 0 & 4
+\end{bmatrix}
+\]
+
+\[
+\text{Inv}(E)=E^{-1}=\frac{\text{adj}(E)}{\text{det}(E)}
+\]
+
+\[
+\text{adj}(E)=
+\]
+
+
+
+\end{document}

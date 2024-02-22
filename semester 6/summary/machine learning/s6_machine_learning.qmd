@@ -1,0 +1,3 @@
+# Crash Course
+
+{{< include python.qmd >}}

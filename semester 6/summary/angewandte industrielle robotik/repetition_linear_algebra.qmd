@@ -1,0 +1,93 @@
+## Vektoren
+
+### Skalarprodukt
+
+![](images/skalarprodukt.png){fig-align="center" width="9cm"}
+
+Das Skalarprodukt entspricht der Multiplikation der Projektion $\overrightarrow{b_a}$ auf $\overrightarrow{a}$ mit $\overrightarrow{a}$
+
+$$ \overrightarrow{a} \bullet \overrightarrow{b} = \begin{bmatrix} a_1 \\ \vdots \\ a_n \end{bmatrix} \bullet \begin{bmatrix} b_1 \\ \vdots \\ b_n \end{bmatrix}= a_1 \cdot b_1 + \cdots + a_n \cdot b_n = \sum^n_{i=1}{a_i\cdot b_i} $$
+
+### 
+
+### Winkel & Orthogonalität
+
+![](images/winkel.png){fig-align="center" width="4.3cm" height="3.5cm"}
+
+Beim Berechnen des Winkels zwischen zwei Vektoren
+
+$$ \varphi = \arccos{\frac{x\bullet y}{\Vert x \Vert \cdot \Vert y \Vert}} $$
+
+Es gilt:
+
+-   $\overrightarrow{a} \bullet \overrightarrow{b} > 0\quad\text{wenn}\quad{\varphi}<\frac{\pi}{2}$
+
+-   $\overrightarrow{a} \bullet \overrightarrow{b} < 0\quad\text{wenn}\quad{\varphi}>\frac{\pi}{2}$
+
+::: callout-important
+### Definition Orthogonalität
+
+Sind zwei Vektoren *orthogonal*/*senkrecht* zueinander, ergibt das Skalarprodukt
+
+$$ \overrightarrow{a} \bullet \overrightarrow{b} = 0\quad\text{und}\quad\varphi = \frac{\pi}{2} $$
+:::
+
+`\vspace{2mm}`{=latex}
+
+::: callout-note
+## Richtungswinkel in $\mathbb{R}^3$
+
+$$ \cos\alpha=\frac{a_x}{a} \textcolor{gray}{\text{ \& }} \cos\beta=\frac{a_y}{a} \textcolor{gray}{\text{ \& }} \cos\gamma=\frac{a_z}{a} $$
+
+$$ \cos^2\alpha + \cos^2\beta + \cos^2\gamma = 1 $$
+:::
+
+### Kreuzprodukt
+
+## Matrizen
+
+Schiefsymmetrische Matrix: $A=-A^T$
+
+Asymmetrische Matrix: $A=A^T$
+
+Diagonalmatrix
+
+Inverse Matrix/Kehrmatrix
+
+Adjunkte
+
+Rank
+
+Selektion Untermatrizen oder Vektoren
+
+$$
+A = \begin{bmatrix}
+\textcolor{BrickRed}{1} & \textcolor{BrickRed}{0} & \textcolor{OliveGreen}{0}\\
+\textcolor{BrickRed}{0} & \textcolor{BrickRed}{3} & \textcolor{OliveGreen}{0}\\
+0 & 0 & \textcolor{OliveGreen}{5}
+\end{bmatrix}
+$$
+
+$$
+A(\textcolor{BrickRed}{1:2}, \textcolor{BrickRed}{1:2}) \quad A(\textcolor{OliveGreen}{:}, \textcolor{OliveGreen}{3})
+$$
+
+$$
+E = \begin{bmatrix}
+-2 & 4 & 1\\
+4 & -1 & 0\\
+1 & 0 & 4
+\end{bmatrix}
+$$
+
+$$
+\text{Inv}(E)=E^{-1}=\frac{\text{adj}(E)}{\text{det}(E)}
+$$
+
+### Rang
+
+Anzahl linear unabhängige Spalten oder Zeilen einer Matrix
+
+$$
+\text{Rang}\leq (n,m)
+$$

@@ -1,0 +1,3 @@
+# Repetition Linear Algebra
+
+{{< include repetition_linear_algebra.qmd >}}
