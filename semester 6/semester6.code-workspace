@@ -1,16 +1,20 @@
 {
 	"folders": [
 		{
+			"name": "angewandte industrielle robotik",
+			"path": "angewandte industrielle robotik"
+		},
+		{
+			"name": "advanced system design",
 			"path": "advanced system design"
 		},
 		{
+			"name": "machine learning",
 			"path": "machine learning"
 		},
 		{
+			"name": "real-time image processing",
 			"path": "real-time image processing"
-		},
-		{
-			"path": "angewandte industrielle robotik"
 		}
 	],
 	"settings": {},
