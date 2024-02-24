@@ -34,7 +34,7 @@ fancyhdr:
     left: "\\DTMtoday"
   
 source:
-  github: "https://www.youtube.com/watch?v=VGhcSupkNs8"
+  github: "https://github.com/joelvonrotz/BSc-electrical-engineering/tree/main/semester%206/advanced%20system%20design"
 
 accentcolor: "124E82" # must be given as hex, sadly :(
 
