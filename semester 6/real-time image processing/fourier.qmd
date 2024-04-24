@@ -1,0 +1,27 @@
+# Fourier Transformation
+
+## Repetition
+
+### Transformationen Aperiodischer Signale
+
+$$
+x\rightarrow f:\qquad\hat{h}(f)=\int^{+\infty}_{-\infty}h(x)\cdot e^{-j\cdot 2\pi f x}dx
+$$
+
+
+$$
+f\rightarrow x:\qquad{h}(x)=\int^{+\infty}_{-\infty}\hat{h}(x)\cdot e^{-j\cdot 2\pi f x}df
+$$
+
+### Transformationen Periodischer Signale
+
+
+### Abtastung
+
+$$
+x\rightarrow f:\qquad\hat{h}(f)=\sum^{\infty}_{n=-\infty}h_n\cdot e^{-j\cdot 2\pi\cdot f\cdot n\cdot x_s}dx
+$$
+
+$$
+f\rightarrow x:\qquad {h_n}=\frac1{f_s}\int^{f_s}_{0}h(x)\cdot e^{-j\cdot 2\pi\cdot n\cdot x_s\cdot f}df
+$$

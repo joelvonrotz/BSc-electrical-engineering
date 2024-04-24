@@ -1,0 +1,18 @@
+graph: { title: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\pathname_manipulation.adb"
+node: { title: "pathname_manipulation__root_dir" label: "Root_Dir\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\pathname_manipulation.adb:38:4\n40 bytes (static)" }
+node: { title: "__gnat_last_chance_handler" label: "gnat_last_chance_handler\n<built-in>" shape : ellipse }
+edge: { sourcename: "pathname_manipulation__root_dir" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\pathname_manipulation.adb:48:41" }
+edge: { sourcename: "pathname_manipulation__root_dir" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\pathname_manipulation.adb:49:25" }
+edge: { sourcename: "pathname_manipulation__root_dir" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\pathname_manipulation.adb:53:18" }
+edge: { sourcename: "pathname_manipulation__root_dir" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\pathname_manipulation.adb:53:55" }
+edge: { sourcename: "pathname_manipulation__root_dir" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\pathname_manipulation.adb:53:44" }
+edge: { sourcename: "pathname_manipulation__root_dir" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\pathname_manipulation.adb:54:23" }
+node: { title: "pathname_manipulation__root_dir__2" label: "Root_Dir\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\pathname_manipulation.adb:62:4\n64 bytes (static)" }
+edge: { sourcename: "pathname_manipulation__root_dir__2" targetname: "pathname_manipulation__root_dir" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\pathname_manipulation.adb:65:7" }
+node: { title: "system__secondary_stack__ss_allocate" label: "Ss_Allocate\nC:\gnat\2020-arm-elf\arm-eabi\lib\gnat\zfp-cortex-m4f\gnat\s-secsta.ads:58:14" shape : ellipse }
+edge: { sourcename: "pathname_manipulation__root_dir__2" targetname: "system__secondary_stack__ss_allocate" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\pathname_manipulation.adb:67:10" }
+edge: { sourcename: "pathname_manipulation__root_dir__2" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\pathname_manipulation.adb:69:29" }
+edge: { sourcename: "pathname_manipulation__root_dir__2" targetname: "system__secondary_stack__ss_allocate" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\pathname_manipulation.adb:69:10" }
+node: { title: "memcpy" label: "builtin_memcpy\n<built-in>" shape : ellipse }
+edge: { sourcename: "pathname_manipulation__root_dir__2" targetname: "memcpy" }
+}

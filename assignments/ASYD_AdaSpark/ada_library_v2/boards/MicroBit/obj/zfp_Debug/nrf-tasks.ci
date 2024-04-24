@@ -1,0 +1,7 @@
+graph: { title: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-tasks.adb"
+node: { title: "nrf__tasks__trigger" label: "Trigger\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-tasks.adb:42:4\n24 bytes (static)" }
+node: { title: "__gnat_last_chance_handler" label: "gnat_last_chance_handler\n<built-in>" shape : ellipse }
+edge: { sourcename: "nrf__tasks__trigger" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-tasks.adb:43:25" }
+node: { title: "nrf__tasks__get_address" label: "Get_Address\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-tasks.adb:52:4\n16 bytes (static)" }
+node: { title: "nrf__tasks__get_address__2" label: "Get_Address\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-tasks.adb:61:4\n16 bytes (static)" }
+}

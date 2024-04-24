@@ -1,0 +1,208 @@
+V "GNAT Lib v2020"
+A -O0
+A -gnatA
+A --RTS=C:\gnat\2020-arm-elf\arm-eabi\lib\gnat\zfp-cortex-m4f\
+A -mlittle-endian
+A -mthumb
+A -mfloat-abi=hard
+A -mcpu=cortex-m4
+A -mfpu=fpv4-sp-d16
+A -gnata
+A -fcallgraph-info=su
+A -fcallgraph-info=su
+A -g
+A -gnatwa
+A -gnatw_A
+A -gnatQ
+A -gnatw.X
+A -ffunction-sections
+A -fdata-sections
+A -march=armv7e-m+fp
+P ZX
+
+RN
+RV NO_IMPLEMENTATION_ATTRIBUTES
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_ELABORATION_CODE
+
+U cortex_m.nvic%b	cortex_m-nvic.adb	7980045f NE OO PK
+W cortex_m%s		cortex_m.ads		cortex_m.ali
+W memory_barriers%s	memory_barriers.adb	memory_barriers.ali
+Z system%s		system.ads		system.ali
+
+U cortex_m.nvic%s	cortex_m-nvic.ads	3efb9865 BN EE OO PK
+W cortex_m%s		cortex_m.ads		cortex_m.ali
+W hal%s			hal.ads			hal.ali
+W system%s		system.ads		system.ali
+Z system.storage_elements%s  s-stoele.adb	s-stoele.ali
+
+D cortex_m.ads		20210108111948 38b367df cortex_m%s
+D cortex_m-nvic.ads	20210108111948 cb914309 cortex_m.nvic%s
+D cortex_m-nvic.adb	20210108111948 49a59c5f cortex_m.nvic%b
+D hal.ads		20210108111948 2b42c80e hal%s
+D interfac.ads		20200819171400 5ab55268 interfaces%s
+D memory_barriers.ads	20210108111948 fbb4db09 memory_barriers%s
+D system.ads		20200819171400 e69b74bd system%s
+D s-stoele.ads		20200819171400 2dc34a04 system.storage_elements%s
+G a e
+G c Z s b [set_priority_grouping cortex_m__nvic 69 14 none]
+G c Z s b [priority_grouping cortex_m__nvic 72 13 none]
+G c Z s b [set_priority cortex_m__nvic 75 14 none]
+G c Z s b [encoded_priority cortex_m__nvic 79 13 none]
+G c Z s b [set_priority cortex_m__nvic 86 14 none]
+G c Z s b [enable_interrupt cortex_m__nvic 94 14 none]
+G c Z s b [disable_interrupt cortex_m__nvic 96 14 none]
+G c Z s b [active cortex_m__nvic 98 13 none]
+G c Z s b [pending cortex_m__nvic 100 13 none]
+G c Z s b [set_pending cortex_m__nvic 102 14 none]
+G c Z s b [clear_pending cortex_m__nvic 104 14 none]
+G c Z s b [reset_system cortex_m__nvic 106 14 none]
+G c Z s s [uint8sIP cortex_m__nvic 111 9 none]
+G c Z s s [wordsIP cortex_m__nvic 110 9 none]
+G c Z s s [system_control_blockIP cortex_m__nvic 155 9 none]
+G c Z s s [nested_vectored_interrupt_controllerIP cortex_m__nvic 114 9 none]
+G r c none [reset_system cortex_m__nvic 106 14 none] [data_synchronization_barrier memory_barriers 36 14 none]
+X 1 cortex_m.ads
+32K9*Cortex_M 34e13 2|48r9 257r5 3|44r14 253r5
+X 2 cortex_m-nvic.ads
+48K18*NVIC 1|32k9 2|110E9 257l14 257e18 3|44b23 253l14 253t18
+50I9*Interrupt_ID<integer> 76r18 87r26 94r39 96r40 98r28 100r29 102r34 104r36
+. 3|80r18 138r26 153r39 165r40 178r28 192r29 206r34 218r36
+51M9*Interrupt_Priority<4|97M9> 69r54 72r38 77r18 80r26 81r26 82r26 83r14
+. 88r26 89r26 3|50r38 52r14 61r54 81r18 97r26 98r26 99r26 100r14 102r38 103r29
+. 104r29 105r15 106r15 107r15 108r15 109r15 139r26 140r26 142r33
+54m4*Priority_Group_0{4|97M9}
+57m4*Priority_Group_1{4|97M9}
+60m4*Priority_Group_2{4|97M9}
+63m4*Priority_Group_3{4|97M9}
+66m4*Priority_Group_4{4|97M9}
+69U14*Set_Priority_Grouping 69>37 3|61b14 73l8 73t29
+69m37 Priority_Group{51M9} 3|61b37 63r53
+72V13*Priority_Grouping{51M9} 3|50b13 55l8 55t25 142s55
+75U14*Set_Priority 76>7 77>7 3|79b14 90l8 90t20 144s7
+76i7 IRQn{50I9} 3|80b7 83r44
+77m7 Priority{51M9} 3|81b7 85r29
+79V13*Encoded_Priority{51M9} 80>7 81>7 82>7 3|96b13 131l8 131t24 146s10
+80m7 Priority_Group{51M9} 3|97b7 102r60
+81m7 Preempt_Priority{51M9} 3|98b7 124r16
+82m7 Subpriority{51M9} 3|99b7 128r16
+86U14*Set_Priority 87>7 88>7 89>7 3|137b14 147l8 147t20
+87i7 IRQn{50I9} 3|138b7 145r10
+88m7 Preempt_Priority{51M9} 3|139b7 146r44
+89m7 Subpriority{51M9} 3|140b7 146r62
+94U14*Enable_Interrupt 94>32 3|153b14 159l8 159t24
+94i32 IRQn{50I9} 3|153b32 154r49
+96U14*Disable_Interrupt 96>33 3|165b14 172l8 172t25
+96i33 IRQn{50I9} 3|165b33 166r49
+98V13*Active{boolean} 98>21 3|178b13 186l8 186t14
+98i21 IRQn{50I9} 3|178b21 179r49
+100V13*Pending{boolean} 100>22 3|192b13 200l8 200t15
+100i22 IRQn{50I9} 3|192b22 193r49
+102U14*Set_Pending 102>27 3|206b14 212l8 212t19
+102i27 IRQn{50I9} 3|206b27 207r49
+104U14*Clear_Pending 104>29 3|218b14 224l8 224t21
+104i29 IRQn{50I9} 3|218b29 219r49
+106U14*Reset_System 3|230b14 251l8 251t20
+110A9 Words(4|97M9)<integer> 115r19 117r19 118r19 120r19 121r19 123r19 124r19
+. 126r19 127r19 129r19 132r19 184r19 190r19 192r19 194r19
+111A9 UInt8s(4|53M9)<integer> 130r19 168r19
+114R9 Nested_Vectored_Interrupt_Controller 136e6 138r8 236r11
+115a7*ISER{110A9} 139r7 3|158m12
+117a7*Reserved0{110A9} 140r7
+118a7*ICER{110A9} 141r7 3|171m12
+120a7*Reserved1{110A9} 142r7
+121a7*ISPR{110A9} 143r7 3|199r20 211m12
+123a7*Reserved2{110A9} 144r7
+124a7*ICPR{110A9} 145r7 3|223m12
+126a7*Reserved3{110A9} 146r7
+127a7*IABR{110A9} 147r7 3|185r20
+129a7*Reserved4{110A9} 148r7
+130a7*IP{111A9} 149r7 3|89m12
+132a7*Reserved5{110A9} 150r7
+133m7*STIR{4|97M9} 151r7
+155R9 System_Control_Block 198e6 200r8 231r10
+156m7*CPUID{4|97M9} 201r7
+158m7*ICSR{4|97M9} 202r7
+160m7*VTOR{4|97M9} 203r7
+162m7*AIRCR{4|97M9} 204r7 3|53r27 66r24 72m11 238m11 240r14
+164m7*SCR{4|97M9} 205r7
+166m7*CCR{4|97M9} 206r7
+168a7*SHP{111A9} 207r7
+170m7*SHCSR{4|97M9} 208r7
+172m7*CFSR{4|97M9} 209r7
+174m7*HFSR{4|97M9} 210r7
+176m7*DFSR{4|97M9} 211r7
+178m7*MMFAR{4|97M9} 212r7
+180m7*BFAR{4|97M9} 213r7
+182m7*AFSR{4|97M9} 214r7
+184a7*PFR{110A9} 215r7
+186m7*DFR{4|97M9} 216r7
+188m7*ADR{4|97M9} 217r7
+190a7*MMFR{110A9} 218r7
+192a7*ISAR{110A9} 219r7
+194a7*RESERVED0{110A9} 220r7
+195m7*CPACR{4|97M9} 221r7
+225N4 SCS_Base 227r28 228r28
+227N4 NVIC_Base 238r36
+228N4 SCB_Base 233r36
+231r4 SCB{155R9} 234m24 234r24 3|53r23 66r20 72m7 238m7 240r10
+236r4 NVIC{114R9} 239m24 239r24 3|89m7 158m7 171m7 185r15 199r15 211m7 223m7
+242N4 SCB_AIRCR_PRIGROUP_Pos 244r21 3|54r10
+243m4 SCB_AIRCR_PRIGROUP_Mask{4|97M9} 3|53r37 68r41 240r24
+246N4 SCB_AIRCR_VECTKEY_Pos 248r28 3|70r26 238r37
+247m4 SCB_AIRCR_VECTKEY_Mask{4|97M9} 3|68r15
+250N4 SCB_AIRCR_SYSRESETREQ_Pos 252r21
+251m4 SCB_AIRCR_SYSRESETREQ_Mask{4|97M9} 3|241r9
+254N4 NVIC_PRIO_BITS 3|85r44 111r35 112r33 117r30 120r52
+X 3 cortex_m-nvic.adb
+62m7 Reg_Value{4|97M9} 66m7 67m7 67r20 69m7 69r20 72r20
+63m7 PriorityGroupTmp{4|97M9} 71r21
+64N7 Key 70r21
+83i7 Index{natural} 89r16
+84m7 Value{4|97M9} 89r33
+102m7 PriorityGroupTmp{2|51M9} 111r15 114r37 117r11 120r29
+103m7 PreemptPriorityBits{2|51M9} 112m10 114m10 123r40
+104m7 SubPriorityBits{2|51M9} 118m10 120m10 125r44 127r40
+105m7 Temp1{2|51M9} 123m7 124r37
+106m7 Temp2{2|51M9} 124m7 125r28
+107m7 Temp3{2|51M9} 125m7 130r14
+108m7 Temp4{2|51M9} 127m7 128r32
+109m7 Temp5{2|51M9} 128m7 130r23
+142m7 Priority_Group{2|51M9} 146r28
+154m7 IRQn_As_Word{4|97M9} 156r31 158r52
+155i7 Index{natural} 158r18
+166m7 IRQn_As_Word{4|97M9} 168r31 171r52
+167i7 Index{natural} 171r18
+179m7 IRQn_As_Word{4|97M9} 181r31 183r33
+180i7 Index{natural} 185r26
+182m7 Value{4|97M9} 185r37
+193m7 IRQn_As_Word{4|97M9} 195r31 197r33
+194i7 Index{natural} 199r26
+196m7 Value{4|97M9} 199r37
+207m7 IRQn_As_Word{4|97M9} 209r31 211r52
+208i7 Index{natural} 211r18
+219m7 IRQn_As_Word{4|97M9} 221r31 223r52
+220i7 Index{natural} 223r18
+231N7 Key 238r32
+249l9 spin
+X 4 hal.ads
+34K9*HAL 2|46w6 46r26 4|166e8
+53M9*UInt8<5|63M9> 2|111r47 3|89r26
+97M9*UInt32<5|74M9> 2|51r35 54r32 57r32 60r32 63r32 66r32 110r46 133r19 156r19
+. 158r19 160r19 162r19 164r19 166r19 170r19 172r19 174r19 176r19 178r19 180r19
+. 182r19 186r19 188r19 195r19 243r39 247r39 251r42 3|62r19 63r35 63r45 84r24
+. 85r21 154r31 154r41 166r31 166r41 179r31 179r41 182r31 193r31 193r41 196r31
+. 207r31 207r41 219r31 219r41
+X 5 interfac.ads
+63M9*Unsigned_8
+74M9*Unsigned_32
+121V13*Shift_Left{74M9} 2|244s6 248s6 252s6 3|70s9 71s9 85s9 123s16 125s16
+. 127s16 158s28 171s28 183s9 197s9 211s28 223s28 238s20
+125V13*Shift_Right{74M9} 3|53s10 156s18 168s18 181s18 195s18 209s18 221s18
+X 6 memory_barriers.ads
+34K9*Memory_Barriers 3|42w6 232r11 6|41e20
+36U14*Data_Synchronization_Barrier 3|236s7 245s7
+X 7 system.ads
+60K9*System 2|45w6 233r17 238r17 7|172e11
+90M9*Address 2|233r17 238r17
+

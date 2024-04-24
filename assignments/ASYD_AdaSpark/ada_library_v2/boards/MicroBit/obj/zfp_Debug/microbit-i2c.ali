@@ -1,0 +1,120 @@
+V "GNAT Lib v2020"
+A -O0
+A -gnatA
+A --RTS=C:\gnat\2020-arm-elf\arm-eabi\lib\gnat\zfp-cortex-m4f\
+A -mlittle-endian
+A -mthumb
+A -mfloat-abi=hard
+A -mcpu=cortex-m4
+A -mfpu=fpv4-sp-d16
+A -gnata
+A -fcallgraph-info=su
+A -fcallgraph-info=su
+A -g
+A -gnatwa
+A -gnatw_A
+A -gnatQ
+A -gnatw.X
+A -ffunction-sections
+A -fdata-sections
+A -march=armv7e-m+fp
+P ZX
+
+RN
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_IMPLEMENTATION_PRAGMAS
+
+U microbit.i2c%b	microbit-i2c.adb	6ac129a7 NE OO PK
+Z interfaces%s		interfac.ads		interfac.ali
+W microbit%s		microbit.ads		microbit.ali
+W nrf%s			nrf.ads			nrf.ali
+W nrf.device%s		nrf-device.adb		nrf-device.ali
+W nrf.twi%s		nrf-twi.adb		nrf-twi.ali
+Z system.assertions%s	s-assert.adb		s-assert.ali
+
+U microbit.i2c%s	microbit-i2c.ads	c7e8f8d9 EE NE OO PK
+W hal%s			hal.ads			hal.ali
+W hal.i2c%s		hal-i2c.ads		hal-i2c.ali
+W microbit%s		microbit.ads		microbit.ali
+
+D ada.ads		20200819171400 76789da1 ada%s
+D a-tags.ads		20200819171400 95e09aae ada.tags%s
+D hal.ads		20210108111948 2b42c80e hal%s
+D hal-gpio.ads		20210108111948 7f0c2ffe hal.gpio%s
+D hal-i2c.ads		20210108111948 0ed73138 hal.i2c%s
+D hal-spi.ads		20210108111948 fe139819 hal.spi%s
+D hal-uart.ads		20210108111948 d58316b4 hal.uart%s
+D interfac.ads		20200819171400 5ab55268 interfaces%s
+D microbit.ads		20210309072132 033332ef microbit%s
+D microbit-i2c.ads	20210306204800 ca0cfb0e microbit.i2c%s
+D microbit-i2c.adb	20210307183730 6d17b4db microbit.i2c%b
+D nrf.ads		20210108111948 74cf72f5 nrf%s
+D nrf-device.ads	20210306183624 0b4647f4 nrf.device%s
+D nrf-gpio.ads		20210306151712 72dee5c2 nrf.gpio%s
+D nrf-rtc.ads		20210108111948 36d88130 nrf.rtc%s
+D nrf-spi_master.ads	20210108111948 a8ff49a3 nrf.spi_master%s
+D nrf-timers.ads	20210108111948 385f1a57 nrf.timers%s
+D nrf-twi.ads		20210306201702 c69c2186 nrf.twi%s
+D nrf-uart.ads		20210307101722 3d63d355 nrf.uart%s
+D nrf_svd.ads		20210306183508 87ba21d7 nrf_svd%s
+D nrf_svd-rtc.ads	20210108111948 57c7ffc8 nrf_svd.rtc%s
+D nrf_svd-spi.ads	20210108111948 6e2ffb69 nrf_svd.spi%s
+D nrf_svd-timer.ads	20210108111948 ba50db1c nrf_svd.timer%s
+D nrf_svd-twi.ads	20210306201806 68301534 nrf_svd.twi%s
+D nrf_svd-uart.ads	20210108111948 83bcebc8 nrf_svd.uart%s
+D system.ads		20200819171400 e69b74bd system%s
+D s-assert.ads		20200819171400 cd8d2c94 system.assertions%s
+D s-stoele.ads		20200819171400 2dc34a04 system.storage_elements%s
+D s-unstyp.ads		20200819171400 5ecf7212 system.unsigned_types%s
+G a e
+G c Z s b [initialized microbit__i2c 38 13 none]
+G c Z s b [initialize microbit__i2c 41 14 none]
+G c Z s b [controller microbit__i2c 48 13 none]
+G r c none [initialize microbit__i2c 41 14 none] [configure nrf__twi 50 14 none]
+G r c none [initialize microbit__i2c 41 14 none] [enable nrf__twi 44 14 none]
+X 3 hal.ads
+34K9*HAL 166e8 10|32r6 32r19
+X 4 hal-gpio.ads
+47h9*GPIO_Point
+X 5 hal-i2c.ads
+32K13*I2C 84e12 10|32w10 32r23
+48h9*I2C_Port
+50P9*Any_I2C_Port(48R9) 10|48r40 11|73r40
+X 6 hal-spi.ads
+48h9*SPI_Port
+X 7 hal-uart.ads
+48h9*UART_Port
+X 9 microbit.ads
+35K9*MicroBit 72e13 10|34r9 51r5 11|35r14 76r5
+63r4*MB_SCL=63:53{14|67R9} 11|57r19
+64r4*MB_SDA=64:53{14|67R9} 11|58r19
+X 10 microbit-i2c.ads
+34K18*I2C 9|35k9 10|51l14 51e17 11|35b23 76l14 76t17
+36E9*Speed 36e48 41r30 11|54r30
+36n19*S100kbps{36E9} 11|60r28
+36n29*S250kbps{36E9} 11|61r28
+36n39*S400kbps{36E9} 41r39 11|54r39 62r28
+38V13*Initialized{boolean} 42s19 11|47b13
+41U14*Initialize 41>26 11|54b14 67l8 67t18
+41e26 S{36E9} 11|54b26 59r25
+48V13*Controller{5|50P9} 11|73b13
+X 11 microbit-i2c.adb
+37b4 Init_Done{boolean} 48r8 66m7
+39r4 Device=39:51{18|41R9} 56r7 65r7 74r8
+X 12 nrf.ads
+34K9*nRF 11|32r6 33r6 39r13 39r40 60r40 61r40 62r40 12|43e8
+X 13 nrf-device.ads
+44K13*Device 11|32w10 39r44 13|119e15
+102r4*TWI_0{18|41R9} 11|39m51 39r51
+X 18 nrf-twi.ads
+37K13*TWI 11|33w10 39r17 60r44 61r44 62r44 18|104e12
+39n23*TWI_100kbps{39E9} 11|60r48
+39n36*TWI_250kbps{39E9} 11|61r48
+39n49*TWI_400kbps{39E9} 11|62r48
+41R9*TWI_Master<5|48R9> 11|39r21 18|102e14
+44U14*Enable 11|65s14
+50U14*Configure 11|56s14
+51r25 SCL{14|67R9} 11|57r10
+51r30 SDA{14|67R9} 11|58r10
+52e25 Speed{39E9} 11|59r10
+

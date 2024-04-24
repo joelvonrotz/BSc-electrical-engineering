@@ -1,0 +1,66 @@
+```{=latex}
+% Workaround to fix some subtle things, such as caption style for code blcocks.
+
+% changes the preset style
+\floatsetup[codelisting]{style=MyListingStyle}
+
+% include the current section number into the different caption types
+\numberwithin{equation}{section}
+\numberwithin{codelisting}{section}
+\numberwithin{figure}{section}
+\numberwithin{table}{section}
+
+% if no code blocks are used, 'Shaded' doesn't exist!
+\ifdefined\Shaded
+  \renewenvironment{Shaded}
+    {\begin{tcolorbox}[rounded corners,
+      colback={codebgcolor},
+      colframe={codebgcolor},
+      enhanced,
+      boxrule=0mm,
+      left=2mm,
+      breakable
+    ]}
+    {\end{tcolorbox}}
+\fi
+
+```
+{{< include sections/misc_list_of_things.qmd >}}
+
+<!-- [CHAPTERS] ---------------------------------->
+
+# Abstract
+
+{{< include sections/sec_introduction.qmd >}}
+
+# Introduction
+
+{{< include sections/sec_introduction.qmd >}}
+
+# Literature Review
+
+{{< include sections/sec_literature_review.qmd >}}
+
+# Methodology
+
+{{< include sections/sec_methodology.qmd >}}
+
+# Results
+
+{{< include sections/sec_results.qmd >}}
+
+# Conclusion
+
+{{< include sections/sec_conclusion.qmd >}}
+
+# Discussion
+
+{{< include sections/sec_discussion.qmd >}}
+
+`\newpage`{=latex}
+
+{{< include sections/misc_bibliography.qmd >}}
+
+`\newpage`{=latex}
+
+{{< include sections/misc_appendix.qmd >}}

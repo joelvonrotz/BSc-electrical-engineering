@@ -1,0 +1,356 @@
+graph: { title: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb"
+class {
+  classname: "l3gd20__three_axis_gyroscope"
+  label: "l3gd20__three_axis_gyroscope\l3gd20.ads:57:9"
+  parent: "l3gd20__three_axis_gyroscope"
+  virtuals: "1:l3gd20__initialize\n
+             2:l3gd20__configure\n
+             3:l3gd20__enable_low_pass_filter\n
+             4:l3gd20__disable_low_pass_filter\n
+             5:l3gd20__full_scale_sensitivity\n
+             6:l3gd20__configure_high_pass_filter\n
+             7:l3gd20__enable_high_pass_filter\n
+             8:l3gd20__disable_high_pass_filter\n
+             9:l3gd20__reference_value\n
+             10:l3gd20__set_reference\n
+             11:l3gd20__data_status\n
+             12:l3gd20__get_raw_angle_rates\n
+             13:l3gd20__set_fifo_mode\n
+             14:l3gd20__enable_fifo\n
+             15:l3gd20__disable_fifo\n
+             16:l3gd20__set_fifo_watermark\n
+             17:l3gd20__get_raw_angle_rates_fifo\n
+             18:l3gd20__current_fifo_depth\n
+             19:l3gd20__fifo_below_watermark\n
+             20:l3gd20__fifo_empty\n
+             21:l3gd20__fifo_overrun\n
+             22:l3gd20__disable_int2_interrupts\n
+             23:l3gd20__enable_data_ready_interrupt\n
+             24:l3gd20__disable_data_ready_interrupt\n
+             25:l3gd20__enable_fifo_watermark_interrupt\n
+             26:l3gd20__disable_fifo_watermark_interrupt\n
+             27:l3gd20__enable_fifo_overrun_interrupt\n
+             28:l3gd20__disable_fifo_overrun_interrupt\n
+             29:l3gd20__enable_fifo_empty_interrupt\n
+             30:l3gd20__disable_fifo_empty_interrupt\n
+             31:l3gd20__disable_int1_interrupts\n
+             32:l3gd20__set_duration_counter\n
+             33:l3gd20__enable_event\n
+             34:l3gd20__disable_event\n
+             35:l3gd20__set_threshold\n
+             36:l3gd20__configure_interrupt1\n
+             37:l3gd20__enable_interrupt1\n
+             38:l3gd20__disable_interrupt1\n
+             39:l3gd20__set_interrupt_pin_mode\n
+             40:l3gd20__interrupt1_source\n
+             41:l3gd20__sleep\n
+             42:l3gd20__reboot\n
+             43:l3gd20__reset\n
+             44:l3gd20__device_id\n
+             45:l3gd20__temperature\n
+             46:l3gd20__write\n
+             47:l3gd20__read\n
+             48:l3gd20__read_uint8s\n
+             -1:l3gd20___size"
+}
+edge: { sourcename: "l3gd20__spi_mode"
+  targetname: "8:hal__gpio__gpio_point,hal__gpio__gpio_point"
+  label: "l3gd20.adb:172:17"
+}
+edge: { sourcename: "l3gd20__spi_mode"
+  targetname: "7:hal__gpio__gpio_point,hal__gpio__gpio_point"
+  label: "l3gd20.adb:174:17"
+}
+edge: { sourcename: "l3gd20__write"
+  targetname: "1:hal__spi__spi_port,hal__spi__spi_port"
+  label: "hal-spi.ads:60:21"
+}
+edge: { sourcename: "l3gd20__write"
+  targetname: "2:hal__spi__spi_port,hal__spi__spi_port"
+  label: "l3gd20.adb:188:16"
+}
+edge: { sourcename: "l3gd20__write"
+  targetname: "1:hal__spi__spi_port,hal__spi__spi_port"
+  label: "hal-spi.ads:60:21"
+}
+edge: { sourcename: "l3gd20__write"
+  targetname: "2:hal__spi__spi_port,hal__spi__spi_port"
+  label: "l3gd20.adb:193:16"
+}
+edge: { sourcename: "l3gd20__read"
+  targetname: "1:hal__spi__spi_port,hal__spi__spi_port"
+  label: "hal-spi.ads:60:21"
+}
+edge: { sourcename: "l3gd20__read"
+  targetname: "2:hal__spi__spi_port,hal__spi__spi_port"
+  label: "l3gd20.adb:215:16"
+}
+edge: { sourcename: "l3gd20__read"
+  targetname: "1:hal__spi__spi_port,hal__spi__spi_port"
+  label: "hal-spi.ads:76:21"
+}
+edge: { sourcename: "l3gd20__read"
+  targetname: "4:hal__spi__spi_port,hal__spi__spi_port"
+  label: "l3gd20.adb:221:16"
+}
+edge: { sourcename: "l3gd20__read_uint8s"
+  targetname: "1:hal__spi__spi_port,hal__spi__spi_port"
+  label: "hal-spi.ads:60:21"
+}
+edge: { sourcename: "l3gd20__read_uint8s"
+  targetname: "2:hal__spi__spi_port,hal__spi__spi_port"
+  label: "l3gd20.adb:246:16"
+}
+edge: { sourcename: "l3gd20__read_uint8s"
+  targetname: "1:hal__spi__spi_port,hal__spi__spi_port"
+  label: "hal-spi.ads:76:21"
+}
+edge: { sourcename: "l3gd20__read_uint8s"
+  targetname: "4:hal__spi__spi_port,hal__spi__spi_port"
+  label: "l3gd20.adb:255:19"
+}
+node: { title: "l3gd20__output_data_rate_selectionRP" label: "OUTPUT_DATA_RATE_SELECTIONRP\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.ads:77:9\n16 bytes (static)" }
+node: { title: "l3gd20__interrupt1_active_edgeRP" label: "INTERRUPT1_ACTIVE_EDGERP\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.ads:429:9\n16 bytes (static)" }
+node: { title: "l3gd20__three_axis_gyroscopeIP" label: "THREE_AXIS_GYROSCOPEIP\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.ads:530:9\n16 bytes (static)" }
+node: { title: "l3gd20___size" label: "L3GD20\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.ads:530:9\n16 bytes (static)" }
+node: { title: "l3gd20__power_mode_selectionRP" label: "POWER_MODE_SELECTIONRP\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.ads:68:9\n16 bytes (static)" }
+node: { title: "l3gd20__axes_selectionRP" label: "AXES_SELECTIONRP\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.ads:98:9\n16 bytes (static)" }
+node: { title: "l3gd20__bandwidth_selectionRP" label: "BANDWIDTH_SELECTIONRP\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.ads:114:9\n16 bytes (static)" }
+node: { title: "l3gd20__full_scale_selectionRP" label: "FULL_SCALE_SELECTIONRP\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.ads:127:9\n16 bytes (static)" }
+node: { title: "l3gd20__block_data_update_selectionRP" label: "BLOCK_DATA_UPDATE_SELECTIONRP\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.ads:138:9\n16 bytes (static)" }
+node: { title: "l3gd20__endian_data_selectionRP" label: "ENDIAN_DATA_SELECTIONRP\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.ads:147:9\n16 bytes (static)" }
+node: { title: "l3gd20__high_pass_filter_modeRP" label: "HIGH_PASS_FILTER_MODERP\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.ads:191:9\n16 bytes (static)" }
+node: { title: "l3gd20__gyro_data_statusIP" label: "GYRO_DATA_STATUSIP\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.ads:261:9\n16 bytes (static)" }
+node: { title: "l3gd20__angle_ratesIP" label: "ANGLE_RATESIP\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.ads:289:9\n16 bytes (static)" }
+node: { title: "l3gd20__fifo_modesRP" label: "FIFO_MODESRP\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.ads:312:9\n16 bytes (static)" }
+node: { title: "l3gd20__angle_rates_fifo_bufferIP" label: "ANGLE_RATES_FIFO_BUFFERIP\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.ads:339:9\n16 bytes (static)" }
+node: { title: "l3gd20__threshold_eventIP" label: "THRESHOLD_EVENTIP\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.ads:421:9\n16 bytes (static)" }
+node: { title: "l3gd20__threshold_event_listIP" label: "THRESHOLD_EVENT_LISTIP\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.ads:426:9\n16 bytes (static)" }
+node: { title: "l3gd20__pin_modesRP" label: "PIN_MODESRP\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.ads:479:9\n16 bytes (static)" }
+node: { title: "l3gd20__interrupt1_sourcesIP" label: "INTERRUPT1_SOURCESIP\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.ads:487:9\n16 bytes (static)" }
+node: { title: "l3gd20__data_rate_hertz" label: "DATA_RATE_HERTZ\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.ads:91:4\n16 bytes (static)" }
+edge: { sourcename: "l3gd20__data_rate_hertz" targetname: "l3gd20__output_data_rate_selectionRP" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.ads:92:12" }
+node: { title: "__gnat_last_chance_handler" label: "gnat_last_chance_handler\n<built-in>" shape : ellipse }
+edge: { sourcename: "l3gd20__data_rate_hertz" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.ads:92:12" }
+edge: { sourcename: "l3gd20__data_rate_hertz" targetname: "l3gd20__output_data_rate_selectionRP" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.ads:92:12" }
+edge: { sourcename: "l3gd20__data_rate_hertz" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.ads:92:12" }
+node: { title: "l3gd20__initialize" label: "INITIALIZE\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:149:4\n24 bytes (static)" }
+edge: { sourcename: "l3gd20__initialize" targetname: "l3gd20__spi_mode" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:158:7" }
+node: { title: "l3gd20__spi_mode" label: "SPI_MODE\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:165:4\n16 bytes (static)" }
+edge: { sourcename: "l3gd20__spi_mode" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:172:14" }
+node: { title: "__indirect_call" label: "Indirect Call Placeholder" shape : ellipse }
+edge: { sourcename: "l3gd20__spi_mode" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:172:17" }
+edge: { sourcename: "l3gd20__spi_mode" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:174:14" }
+edge: { sourcename: "l3gd20__spi_mode" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:174:17" }
+node: { title: "l3gd20__write" label: "WRITE\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:182:4\n64 bytes (static)" }
+edge: { sourcename: "l3gd20__write" targetname: "l3gd20__spi_mode" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:186:7" }
+edge: { sourcename: "l3gd20__write" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:188:11" }
+edge: { sourcename: "l3gd20__write" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\hal\src\hal-spi.ads:60:21" }
+node: { title: "system__assertions__raise_assert_failure" label: "Raise_Assert_Failure\nC:\gnat\2020-arm-elf\arm-eabi\lib\gnat\zfp-cortex-m4f\gnat\s-assert.ads:46:14" shape : ellipse }
+edge: { sourcename: "l3gd20__write" targetname: "system__assertions__raise_assert_failure" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:188:16" }
+edge: { sourcename: "l3gd20__write" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:188:16" }
+edge: { sourcename: "l3gd20__write" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:190:10" }
+edge: { sourcename: "l3gd20__write" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:193:11" }
+edge: { sourcename: "l3gd20__write" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\hal\src\hal-spi.ads:60:21" }
+edge: { sourcename: "l3gd20__write" targetname: "system__assertions__raise_assert_failure" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:193:16" }
+edge: { sourcename: "l3gd20__write" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:193:16" }
+edge: { sourcename: "l3gd20__write" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:195:10" }
+edge: { sourcename: "l3gd20__write" targetname: "l3gd20__spi_mode" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:198:7" }
+node: { title: "l3gd20__read" label: "READ\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:205:4\n64 bytes (static)" }
+edge: { sourcename: "l3gd20__read" targetname: "l3gd20__spi_mode" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:213:7" }
+edge: { sourcename: "l3gd20__read" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:215:11" }
+edge: { sourcename: "l3gd20__read" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\hal\src\hal-spi.ads:60:21" }
+edge: { sourcename: "l3gd20__read" targetname: "system__assertions__raise_assert_failure" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:215:16" }
+edge: { sourcename: "l3gd20__read" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:215:16" }
+edge: { sourcename: "l3gd20__read" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:218:10" }
+edge: { sourcename: "l3gd20__read" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:221:11" }
+edge: { sourcename: "l3gd20__read" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\hal\src\hal-spi.ads:76:21" }
+edge: { sourcename: "l3gd20__read" targetname: "system__assertions__raise_assert_failure" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:221:16" }
+edge: { sourcename: "l3gd20__read" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:221:16" }
+edge: { sourcename: "l3gd20__read" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:223:10" }
+edge: { sourcename: "l3gd20__read" targetname: "l3gd20__spi_mode" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:227:7" }
+node: { title: "l3gd20__read_uint8s" label: "READ_UINT8S\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:234:4\n88 bytes (static)" }
+edge: { sourcename: "l3gd20__read_uint8s" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:240:32" }
+edge: { sourcename: "l3gd20__read_uint8s" targetname: "l3gd20__spi_mode" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:244:7" }
+edge: { sourcename: "l3gd20__read_uint8s" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:246:11" }
+edge: { sourcename: "l3gd20__read_uint8s" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\hal\src\hal-spi.ads:60:21" }
+edge: { sourcename: "l3gd20__read_uint8s" targetname: "system__assertions__raise_assert_failure" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:246:16" }
+edge: { sourcename: "l3gd20__read_uint8s" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:246:16" }
+edge: { sourcename: "l3gd20__read_uint8s" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:251:10" }
+edge: { sourcename: "l3gd20__read_uint8s" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:255:14" }
+edge: { sourcename: "l3gd20__read_uint8s" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\hal\src\hal-spi.ads:76:21" }
+edge: { sourcename: "l3gd20__read_uint8s" targetname: "system__assertions__raise_assert_failure" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:255:19" }
+edge: { sourcename: "l3gd20__read_uint8s" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:255:19" }
+edge: { sourcename: "l3gd20__read_uint8s" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:257:13" }
+edge: { sourcename: "l3gd20__read_uint8s" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:259:10" }
+edge: { sourcename: "l3gd20__read_uint8s" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:259:18" }
+edge: { sourcename: "l3gd20__read_uint8s" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:260:25" }
+edge: { sourcename: "l3gd20__read_uint8s" targetname: "l3gd20__spi_mode" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:263:7" }
+node: { title: "l3gd20__configure" label: "CONFIGURE\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:270:4\n24 bytes (static)" }
+edge: { sourcename: "l3gd20__configure" targetname: "l3gd20__write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:292:7" }
+edge: { sourcename: "l3gd20__configure" targetname: "l3gd20__write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:293:7" }
+node: { title: "l3gd20__sleep" label: "SLEEP\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:300:4\n24 bytes (static)" }
+edge: { sourcename: "l3gd20__sleep" targetname: "l3gd20__read" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:304:7" }
+edge: { sourcename: "l3gd20__sleep" targetname: "l3gd20__write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:306:7" }
+node: { title: "l3gd20__configure_high_pass_filter" label: "CONFIGURE_HIGH_PASS_FILTER\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:313:4\n24 bytes (static)" }
+edge: { sourcename: "l3gd20__configure_high_pass_filter" targetname: "l3gd20__write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:322:7" }
+node: { title: "l3gd20__enable_high_pass_filter" label: "ENABLE_HIGH_PASS_FILTER\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:329:4\n24 bytes (static)" }
+edge: { sourcename: "l3gd20__enable_high_pass_filter" targetname: "l3gd20__read" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:332:7" }
+edge: { sourcename: "l3gd20__enable_high_pass_filter" targetname: "l3gd20__write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:335:7" }
+node: { title: "l3gd20__disable_high_pass_filter" label: "DISABLE_HIGH_PASS_FILTER\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:342:4\n24 bytes (static)" }
+edge: { sourcename: "l3gd20__disable_high_pass_filter" targetname: "l3gd20__read" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:345:7" }
+edge: { sourcename: "l3gd20__disable_high_pass_filter" targetname: "l3gd20__write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:348:7" }
+node: { title: "l3gd20__enable_low_pass_filter" label: "ENABLE_LOW_PASS_FILTER\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:355:4\n24 bytes (static)" }
+edge: { sourcename: "l3gd20__enable_low_pass_filter" targetname: "l3gd20__read" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:358:7" }
+edge: { sourcename: "l3gd20__enable_low_pass_filter" targetname: "l3gd20__write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:360:7" }
+node: { title: "l3gd20__disable_low_pass_filter" label: "DISABLE_LOW_PASS_FILTER\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:367:4\n24 bytes (static)" }
+edge: { sourcename: "l3gd20__disable_low_pass_filter" targetname: "l3gd20__read" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:370:7" }
+edge: { sourcename: "l3gd20__disable_low_pass_filter" targetname: "l3gd20__write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:373:7" }
+node: { title: "l3gd20__reference_value" label: "REFERENCE_VALUE\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:380:4\n24 bytes (static)" }
+edge: { sourcename: "l3gd20__reference_value" targetname: "l3gd20__read" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:383:7" }
+node: { title: "l3gd20__set_reference" label: "SET_REFERENCE\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:391:4\n16 bytes (static)" }
+edge: { sourcename: "l3gd20__set_reference" targetname: "l3gd20__write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:393:7" }
+node: { title: "l3gd20__data_status" label: "DATA_STATUS\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:400:4\n24 bytes (static)" }
+edge: { sourcename: "l3gd20__data_status" targetname: "l3gd20__read" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:406:7" }
+node: { title: "l3gd20__device_id" label: "DEVICE_ID\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:414:4\n24 bytes (static)" }
+edge: { sourcename: "l3gd20__device_id" targetname: "l3gd20__read" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:417:7" }
+node: { title: "l3gd20__temperature" label: "TEMPERATURE\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:425:4\n24 bytes (static)" }
+edge: { sourcename: "l3gd20__temperature" targetname: "l3gd20__read" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:428:7" }
+node: { title: "l3gd20__reboot" label: "REBOOT\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:436:4\n24 bytes (static)" }
+edge: { sourcename: "l3gd20__reboot" targetname: "l3gd20__read" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:439:7" }
+edge: { sourcename: "l3gd20__reboot" targetname: "l3gd20__write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:442:7" }
+node: { title: "l3gd20__full_scale_sensitivity" label: "FULL_SCALE_SENSITIVITY\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:449:4\n24 bytes (static)" }
+edge: { sourcename: "l3gd20__full_scale_sensitivity" targetname: "l3gd20__read" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:454:7" }
+node: { title: "l3gd20__get_raw_angle_rates" label: "GET_RAW_ANGLE_RATES\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:473:4\n48 bytes (static)" }
+edge: { sourcename: "l3gd20__get_raw_angle_rates" targetname: "l3gd20__read" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:486:7" }
+edge: { sourcename: "l3gd20__get_raw_angle_rates" targetname: "l3gd20__read_uint8s" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:488:7" }
+edge: { sourcename: "l3gd20__get_raw_angle_rates" targetname: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:l3gd20__swap2" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:498:10" }
+edge: { sourcename: "l3gd20__get_raw_angle_rates" targetname: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:l3gd20__swap2" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:499:10" }
+edge: { sourcename: "l3gd20__get_raw_angle_rates" targetname: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:l3gd20__swap2" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:500:10" }
+node: { title: "l3gd20__configure_interrupt1" label: "CONFIGURE_INTERRUPT1\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:512:4\n56 bytes (static)" }
+edge: { sourcename: "l3gd20__configure_interrupt1" targetname: "l3gd20__read" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:523:7" }
+edge: { sourcename: "l3gd20__configure_interrupt1" targetname: "l3gd20__write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:527:7" }
+edge: { sourcename: "l3gd20__configure_interrupt1" targetname: "l3gd20__set_duration_counter" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:530:10" }
+edge: { sourcename: "l3gd20__configure_interrupt1" targetname: "l3gd20__write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:547:7" }
+edge: { sourcename: "l3gd20__configure_interrupt1" targetname: "l3gd20__set_threshold" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:550:10" }
+node: { title: "l3gd20__set_interrupt_pin_mode" label: "SET_INTERRUPT_PIN_MODE\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:558:4\n24 bytes (static)" }
+edge: { sourcename: "l3gd20__set_interrupt_pin_mode" targetname: "l3gd20__read" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:564:7" }
+edge: { sourcename: "l3gd20__set_interrupt_pin_mode" targetname: "l3gd20__write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:567:7" }
+node: { title: "l3gd20__enable_interrupt1" label: "ENABLE_INTERRUPT1\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:574:4\n24 bytes (static)" }
+edge: { sourcename: "l3gd20__enable_interrupt1" targetname: "l3gd20__read" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:577:7" }
+edge: { sourcename: "l3gd20__enable_interrupt1" targetname: "l3gd20__write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:579:7" }
+node: { title: "l3gd20__disable_interrupt1" label: "DISABLE_INTERRUPT1\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:586:4\n24 bytes (static)" }
+edge: { sourcename: "l3gd20__disable_interrupt1" targetname: "l3gd20__read" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:589:7" }
+edge: { sourcename: "l3gd20__disable_interrupt1" targetname: "l3gd20__write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:591:7" }
+node: { title: "l3gd20__interrupt1_source" label: "INTERRUPT1_SOURCE\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:598:4\n24 bytes (static)" }
+edge: { sourcename: "l3gd20__interrupt1_source" targetname: "l3gd20__read" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:603:7" }
+node: { title: "l3gd20__set_duration_counter" label: "SET_DURATION_COUNTER\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:611:4\n16 bytes (static)" }
+edge: { sourcename: "l3gd20__set_duration_counter" targetname: "l3gd20__write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:617:7" }
+node: { title: "l3gd20__enable_event" label: "ENABLE_EVENT\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:624:4\n24 bytes (static)" }
+edge: { sourcename: "l3gd20__enable_event" targetname: "l3gd20__read" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:630:7" }
+edge: { sourcename: "l3gd20__enable_event" targetname: "l3gd20__write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:632:7" }
+node: { title: "l3gd20__disable_event" label: "DISABLE_EVENT\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:639:4\n24 bytes (static)" }
+edge: { sourcename: "l3gd20__disable_event" targetname: "l3gd20__read" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:645:7" }
+edge: { sourcename: "l3gd20__disable_event" targetname: "l3gd20__write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:647:7" }
+node: { title: "l3gd20__set_threshold" label: "SET_THRESHOLD\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:654:4\n16 bytes (static)" }
+edge: { sourcename: "l3gd20__set_threshold" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:660:12" }
+edge: { sourcename: "l3gd20__set_threshold" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:662:46" }
+edge: { sourcename: "l3gd20__set_threshold" targetname: "l3gd20__write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:662:13" }
+edge: { sourcename: "l3gd20__set_threshold" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:663:46" }
+edge: { sourcename: "l3gd20__set_threshold" targetname: "l3gd20__write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:663:13" }
+edge: { sourcename: "l3gd20__set_threshold" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:666:46" }
+edge: { sourcename: "l3gd20__set_threshold" targetname: "l3gd20__write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:666:13" }
+edge: { sourcename: "l3gd20__set_threshold" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:667:46" }
+edge: { sourcename: "l3gd20__set_threshold" targetname: "l3gd20__write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:667:13" }
+edge: { sourcename: "l3gd20__set_threshold" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:670:46" }
+edge: { sourcename: "l3gd20__set_threshold" targetname: "l3gd20__write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:670:13" }
+edge: { sourcename: "l3gd20__set_threshold" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:671:46" }
+edge: { sourcename: "l3gd20__set_threshold" targetname: "l3gd20__write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:671:13" }
+node: { title: "l3gd20__set_fifo_mode" label: "SET_FIFO_MODE\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:679:4\n24 bytes (static)" }
+edge: { sourcename: "l3gd20__set_fifo_mode" targetname: "l3gd20__read" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:685:7" }
+edge: { sourcename: "l3gd20__set_fifo_mode" targetname: "l3gd20__write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:688:7" }
+node: { title: "l3gd20__enable_fifo" label: "ENABLE_FIFO\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:695:4\n24 bytes (static)" }
+edge: { sourcename: "l3gd20__enable_fifo" targetname: "l3gd20__read" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:698:7" }
+edge: { sourcename: "l3gd20__enable_fifo" targetname: "l3gd20__write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:700:7" }
+node: { title: "l3gd20__disable_fifo" label: "DISABLE_FIFO\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:707:4\n24 bytes (static)" }
+edge: { sourcename: "l3gd20__disable_fifo" targetname: "l3gd20__read" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:710:7" }
+edge: { sourcename: "l3gd20__disable_fifo" targetname: "l3gd20__write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:712:7" }
+node: { title: "l3gd20__set_fifo_watermark" label: "SET_FIFO_WATERMARK\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:719:4\n24 bytes (static)" }
+edge: { sourcename: "l3gd20__set_fifo_watermark" targetname: "l3gd20__read" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:725:7" }
+edge: { sourcename: "l3gd20__set_fifo_watermark" targetname: "l3gd20__write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:728:7" }
+node: { title: "l3gd20__get_raw_angle_rates_fifo" label: "GET_RAW_ANGLE_RATES_FIFO\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:735:4\n128 bytes (dynamic)" }
+edge: { sourcename: "l3gd20__get_raw_angle_rates_fifo" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:742:60" }
+edge: { sourcename: "l3gd20__get_raw_angle_rates_fifo" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:743:58" }
+edge: { sourcename: "l3gd20__get_raw_angle_rates_fifo" targetname: "l3gd20__read" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:746:7" }
+edge: { sourcename: "l3gd20__get_raw_angle_rates_fifo" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:748:45" }
+edge: { sourcename: "l3gd20__get_raw_angle_rates_fifo" targetname: "l3gd20__read_uint8s" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:748:7" }
+edge: { sourcename: "l3gd20__get_raw_angle_rates_fifo" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:755:23" }
+edge: { sourcename: "l3gd20__get_raw_angle_rates_fifo" targetname: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:l3gd20__swap2" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:755:16" }
+edge: { sourcename: "l3gd20__get_raw_angle_rates_fifo" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:756:23" }
+edge: { sourcename: "l3gd20__get_raw_angle_rates_fifo" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:765:52" }
+edge: { sourcename: "l3gd20__get_raw_angle_rates_fifo" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:765:74" }
+edge: { sourcename: "l3gd20__get_raw_angle_rates_fifo" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:766:20" }
+edge: { sourcename: "l3gd20__get_raw_angle_rates_fifo" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:767:52" }
+edge: { sourcename: "l3gd20__get_raw_angle_rates_fifo" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:767:74" }
+edge: { sourcename: "l3gd20__get_raw_angle_rates_fifo" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:768:20" }
+edge: { sourcename: "l3gd20__get_raw_angle_rates_fifo" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:769:52" }
+edge: { sourcename: "l3gd20__get_raw_angle_rates_fifo" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:769:74" }
+edge: { sourcename: "l3gd20__get_raw_angle_rates_fifo" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:770:20" }
+node: { title: "l3gd20__current_fifo_depth" label: "CURRENT_FIFO_DEPTH\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:779:4\n24 bytes (static)" }
+edge: { sourcename: "l3gd20__current_fifo_depth" targetname: "l3gd20__read" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:782:7" }
+edge: { sourcename: "l3gd20__current_fifo_depth" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:784:26" }
+node: { title: "l3gd20__fifo_below_watermark" label: "FIFO_BELOW_WATERMARK\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:791:4\n24 bytes (static)" }
+edge: { sourcename: "l3gd20__fifo_below_watermark" targetname: "l3gd20__read" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:794:7" }
+node: { title: "l3gd20__fifo_empty" label: "FIFO_EMPTY\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:803:4\n24 bytes (static)" }
+edge: { sourcename: "l3gd20__fifo_empty" targetname: "l3gd20__read" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:806:7" }
+node: { title: "l3gd20__fifo_overrun" label: "FIFO_OVERRUN\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:815:4\n24 bytes (static)" }
+edge: { sourcename: "l3gd20__fifo_overrun" targetname: "l3gd20__read" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:818:7" }
+node: { title: "l3gd20__enable_data_ready_interrupt" label: "ENABLE_DATA_READY_INTERRUPT\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:827:4\n24 bytes (static)" }
+edge: { sourcename: "l3gd20__enable_data_ready_interrupt" targetname: "l3gd20__read" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:830:7" }
+edge: { sourcename: "l3gd20__enable_data_ready_interrupt" targetname: "l3gd20__write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:832:7" }
+node: { title: "l3gd20__disable_data_ready_interrupt" label: "DISABLE_DATA_READY_INTERRUPT\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:839:4\n24 bytes (static)" }
+edge: { sourcename: "l3gd20__disable_data_ready_interrupt" targetname: "l3gd20__read" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:842:7" }
+edge: { sourcename: "l3gd20__disable_data_ready_interrupt" targetname: "l3gd20__write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:844:7" }
+node: { title: "l3gd20__enable_fifo_watermark_interrupt" label: "ENABLE_FIFO_WATERMARK_INTERRUPT\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:851:4\n24 bytes (static)" }
+edge: { sourcename: "l3gd20__enable_fifo_watermark_interrupt" targetname: "l3gd20__read" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:854:7" }
+edge: { sourcename: "l3gd20__enable_fifo_watermark_interrupt" targetname: "l3gd20__write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:856:7" }
+node: { title: "l3gd20__disable_int1_interrupts" label: "DISABLE_INT1_INTERRUPTS\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:863:4\n24 bytes (static)" }
+edge: { sourcename: "l3gd20__disable_int1_interrupts" targetname: "l3gd20__read" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:866:7" }
+edge: { sourcename: "l3gd20__disable_int1_interrupts" targetname: "l3gd20__write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:868:7" }
+node: { title: "l3gd20__disable_int2_interrupts" label: "DISABLE_INT2_INTERRUPTS\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:875:4\n24 bytes (static)" }
+edge: { sourcename: "l3gd20__disable_int2_interrupts" targetname: "l3gd20__read" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:878:7" }
+edge: { sourcename: "l3gd20__disable_int2_interrupts" targetname: "l3gd20__write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:880:7" }
+node: { title: "l3gd20__disable_fifo_watermark_interrupt" label: "DISABLE_FIFO_WATERMARK_INTERRUPT\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:887:4\n24 bytes (static)" }
+edge: { sourcename: "l3gd20__disable_fifo_watermark_interrupt" targetname: "l3gd20__read" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:892:7" }
+edge: { sourcename: "l3gd20__disable_fifo_watermark_interrupt" targetname: "l3gd20__write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:894:7" }
+node: { title: "l3gd20__enable_fifo_overrun_interrupt" label: "ENABLE_FIFO_OVERRUN_INTERRUPT\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:901:4\n24 bytes (static)" }
+edge: { sourcename: "l3gd20__enable_fifo_overrun_interrupt" targetname: "l3gd20__read" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:906:7" }
+edge: { sourcename: "l3gd20__enable_fifo_overrun_interrupt" targetname: "l3gd20__write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:908:7" }
+node: { title: "l3gd20__disable_fifo_overrun_interrupt" label: "DISABLE_FIFO_OVERRUN_INTERRUPT\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:915:4\n24 bytes (static)" }
+edge: { sourcename: "l3gd20__disable_fifo_overrun_interrupt" targetname: "l3gd20__read" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:920:7" }
+edge: { sourcename: "l3gd20__disable_fifo_overrun_interrupt" targetname: "l3gd20__write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:922:7" }
+node: { title: "l3gd20__enable_fifo_empty_interrupt" label: "ENABLE_FIFO_EMPTY_INTERRUPT\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:929:4\n24 bytes (static)" }
+edge: { sourcename: "l3gd20__enable_fifo_empty_interrupt" targetname: "l3gd20__read" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:934:7" }
+edge: { sourcename: "l3gd20__enable_fifo_empty_interrupt" targetname: "l3gd20__write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:936:7" }
+node: { title: "l3gd20__disable_fifo_empty_interrupt" label: "DISABLE_FIFO_EMPTY_INTERRUPT\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:943:4\n24 bytes (static)" }
+edge: { sourcename: "l3gd20__disable_fifo_empty_interrupt" targetname: "l3gd20__read" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:948:7" }
+edge: { sourcename: "l3gd20__disable_fifo_empty_interrupt" targetname: "l3gd20__write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:950:7" }
+node: { title: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:l3gd20__swap2" label: "SWAP2\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:957:4\n24 bytes (static)" }
+edge: { sourcename: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:l3gd20__swap2" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:959:7" }
+node: { title: "l3gd20__reset" label: "RESET\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:970:4\n16 bytes (static)" }
+edge: { sourcename: "l3gd20__reset" targetname: "l3gd20__write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:973:7" }
+edge: { sourcename: "l3gd20__reset" targetname: "l3gd20__write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:974:7" }
+edge: { sourcename: "l3gd20__reset" targetname: "l3gd20__write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:975:7" }
+edge: { sourcename: "l3gd20__reset" targetname: "l3gd20__write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:976:7" }
+edge: { sourcename: "l3gd20__reset" targetname: "l3gd20__write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:977:7" }
+edge: { sourcename: "l3gd20__reset" targetname: "l3gd20__write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:978:7" }
+edge: { sourcename: "l3gd20__reset" targetname: "l3gd20__write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:979:7" }
+edge: { sourcename: "l3gd20__reset" targetname: "l3gd20__write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:980:7" }
+edge: { sourcename: "l3gd20__reset" targetname: "l3gd20__write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:981:7" }
+edge: { sourcename: "l3gd20__reset" targetname: "l3gd20__write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:982:7" }
+edge: { sourcename: "l3gd20__reset" targetname: "l3gd20__write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:983:7" }
+edge: { sourcename: "l3gd20__reset" targetname: "l3gd20__write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:984:7" }
+edge: { sourcename: "l3gd20__reset" targetname: "l3gd20__write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:985:7" }
+edge: { sourcename: "l3gd20__reset" targetname: "l3gd20__write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:986:7" }
+edge: { sourcename: "l3gd20__reset" targetname: "l3gd20__write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\l3gd20\l3gd20.adb:987:7" }
+}

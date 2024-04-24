@@ -1,0 +1,63 @@
+V "GNAT Lib v2020"
+A -O0
+A -gnatA
+A --RTS=C:\gnat\2020-arm-elf\arm-eabi\lib\gnat\zfp-cortex-m4f\
+A -mlittle-endian
+A -mthumb
+A -mfloat-abi=hard
+A -mcpu=cortex-m4
+A -mfpu=fpv4-sp-d16
+A -gnata
+A -fcallgraph-info=su
+A -fcallgraph-info=su
+A -g
+A -gnatwa
+A -gnatw_A
+A -gnatQ
+A -gnatw.X
+A -ffunction-sections
+A -fdata-sections
+A -march=armv7e-m+fp
+P ZX
+
+RN
+RV NO_DISPATCH
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_IMPLEMENTATION_PRAGMAS
+
+U hal.block_drivers%s	hal-block_drivers.ads	112dcf11 NE OO PK IU
+Z ada.tags%s		a-tags.adb		a-tags.ali
+W hal%s			hal.ads			hal.ali
+Z system%s		system.ads		system.ali
+
+D ada.ads		20200819171400 76789da1 ada%s
+D a-tags.ads		20200819171400 95e09aae ada.tags%s
+D hal.ads		20210108111948 2b42c80e hal%s
+D hal-block_drivers.ads	20210108111948 3a6f071f hal.block_drivers%s
+D interfac.ads		20200819171400 5ab55268 interfaces%s
+D system.ads		20200819171400 e69b74bd system%s
+D s-stoele.ads		20200819171400 2dc34a04 system.storage_elements%s
+G a e
+X 3 hal.ads
+34K9*HAL 166e8 4|32r9 56r5
+53M9*UInt8<5|63M9>
+160M9*UInt64<5|77M9> 4|44r22 51r22
+162A9*UInt8_Array(53M9)<integer> 4|37r21
+X 4 hal-block_drivers.ads
+32K13*Block_Drivers 3|34k9 4|56l9 56e22
+34h9*Block_Driver 35r40 42p13 43r29 49p13 50r29
+35P9*Any_Block_Driver(34R9)
+37A12*Block{3|162A9}<integer> 45r26 52r22
+39N4*Block_Size 47r40 54r40
+42y13*Read{boolean} 43=7 44>7 45<7
+43r7 This{34R9}
+44m7 Block_Number{3|160M9}
+45a7 Data{37A12} 47r24
+49y13*Write{boolean} 50=7 51>7 52>7
+50r7 This{34R9}
+51m7 Block_Number{3|160M9}
+52a7 Data{37A12} 54r24
+X 5 interfac.ads
+63M9*Unsigned_8
+77M9*Unsigned_64
+

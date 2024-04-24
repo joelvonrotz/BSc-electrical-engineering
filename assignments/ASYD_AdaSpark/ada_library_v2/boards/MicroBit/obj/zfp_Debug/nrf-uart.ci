@@ -1,0 +1,48 @@
+graph: { title: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-uart.adb"
+class {
+  classname: "nrf__uart__uart_device"
+  label: "nrf__uart__uart_device\nrf-uart.ads:39:9"
+  parent: "hal__uart__uart_port"
+  virtuals: "1:nrf__uart__data_size,1:hal__uart__uart_port\n
+             2:nrf__uart__transmit,2:hal__uart__uart_port\n
+             3:nrf__uart__transmit__2,3:hal__uart__uart_port\n
+             4:nrf__uart__receive,4:hal__uart__uart_port\n
+             5:nrf__uart__receive__2,5:hal__uart__uart_port\n
+             -1:nrf__uart___size__2,-1:hal__uart__uart_port\n
+             6:nrf__uart__configure\n
+             7:nrf__uart__enable\n
+             8:nrf__uart__disable\n
+             9:nrf__uart__enable_flow_control\n
+             10:nrf__uart__disable_flow_control\n
+             -6:nrf__uart__Oeq\n
+             -7:nrf__uart___assign"
+}
+node: { title: "nrf__uart__uart_deviceIP" label: "Uart_Deviceip\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-uart.ads:105:9\n24 bytes (static)" }
+node: { title: "nrf__uart___size__2" label: "Uart\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-uart.ads:105:9\n16 bytes (static)" }
+node: { title: "nrf__uart__Oeq" label: "=\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-uart.ads:105:4\n16 bytes (static)" }
+node: { title: "nrf__uart___assign" label: "Uart\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-uart.ads:105:9\n24 bytes (static)" }
+node: { title: "__gnat_last_chance_handler" label: "gnat_last_chance_handler\n<built-in>" shape : ellipse }
+edge: { sourcename: "nrf__uart___assign" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-uart.ads:105:9" }
+node: { title: "nrf__uart__baud_rateRP" label: "Baud_Raterp\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-uart.ads:43:9\n16 bytes (static)" }
+node: { title: "nrf__uart__data_size" label: "Data_Size\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-uart.ads:69:4\n16 bytes (static)" }
+node: { title: "nrf__uart__configure" label: "Configure\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-uart.adb:40:4\n24 bytes (static)" }
+node: { title: "nrf__uart__enable" label: "Enable\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-uart.adb:52:4\n24 bytes (static)" }
+node: { title: "nrf__uart__disable" label: "Disable\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-uart.adb:71:4\n16 bytes (static)" }
+node: { title: "nrf__uart__enable_flow_control" label: "Enable_Flow_Control\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-uart.adb:86:4\n24 bytes (static)" }
+node: { title: "nrf__uart__disable_flow_control" label: "Disable_Flow_Control\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-uart.adb:100:4\n16 bytes (static)" }
+node: { title: "nrf__uart__transmit" label: "Transmit\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-uart.adb:112:4\n48 bytes (static)" }
+edge: { sourcename: "nrf__uart__transmit" targetname: "nrf__uart__data_size" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\hal\src\hal-uart.ads:60:21" }
+node: { title: "system__assertions__raise_assert_failure" label: "Raise_Assert_Failure\nC:\gnat\2020-arm-elf\arm-eabi\lib\gnat\zfp-cortex-m4f\gnat\s-assert.ads:46:14" shape : ellipse }
+edge: { sourcename: "nrf__uart__transmit" targetname: "system__assertions__raise_assert_failure" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\hal\src\hal-uart.ads:60:21" }
+node: { title: "nrf__uart__receive" label: "Receive\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-uart.adb:146:4\n40 bytes (static)" }
+edge: { sourcename: "nrf__uart__receive" targetname: "nrf__uart__data_size" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\hal\src\hal-uart.ads:76:21" }
+edge: { sourcename: "nrf__uart__receive" targetname: "system__assertions__raise_assert_failure" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\hal\src\hal-uart.ads:76:21" }
+node: { title: "nrf__uart__transmit__2" label: "Transmit\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-uart.adb:180:4\n40 bytes (static)" }
+edge: { sourcename: "nrf__uart__transmit__2" targetname: "nrf__uart__data_size" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\hal\src\hal-uart.ads:68:21" }
+edge: { sourcename: "nrf__uart__transmit__2" targetname: "system__assertions__raise_assert_failure" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\hal\src\hal-uart.ads:68:21" }
+edge: { sourcename: "nrf__uart__transmit__2" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-uart.adb:187:7" }
+node: { title: "nrf__uart__receive__2" label: "Receive\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-uart.adb:195:4\n40 bytes (static)" }
+edge: { sourcename: "nrf__uart__receive__2" targetname: "nrf__uart__data_size" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\hal\src\hal-uart.ads:84:21" }
+edge: { sourcename: "nrf__uart__receive__2" targetname: "system__assertions__raise_assert_failure" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\hal\src\hal-uart.ads:84:21" }
+edge: { sourcename: "nrf__uart__receive__2" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-uart.adb:202:7" }
+}

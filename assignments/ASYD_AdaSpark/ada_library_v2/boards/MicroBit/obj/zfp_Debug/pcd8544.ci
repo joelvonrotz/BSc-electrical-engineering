@@ -1,0 +1,223 @@
+graph: { title: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\pcd8544\pcd8544.adb"
+class {
+  classname: "pcd8544__pcd8544_device"
+  label: "pcd8544__pcd8544_device\pcd8544.ads:61:9"
+  parent: "hal__framebuffer__frame_buffer_display"
+  virtuals: "1:pcd8544__max_layers,1:hal__framebuffer__frame_buffer_display\n
+             2:pcd8544__supported,2:hal__framebuffer__frame_buffer_display\n
+             3:pcd8544__set_orientation,3:hal__framebuffer__frame_buffer_display\n
+             4:pcd8544__set_mode,4:hal__framebuffer__frame_buffer_display\n
+             5:pcd8544__initialized,5:hal__framebuffer__frame_buffer_display\n
+             6:pcd8544__width,6:hal__framebuffer__frame_buffer_display\n
+             7:pcd8544__height,7:hal__framebuffer__frame_buffer_display\n
+             8:pcd8544__swapped,8:hal__framebuffer__frame_buffer_display\n
+             9:pcd8544__set_background,9:hal__framebuffer__frame_buffer_display\n
+             10:pcd8544__initialize_layer,10:hal__framebuffer__frame_buffer_display\n
+             11:pcd8544__initialized__2,11:hal__framebuffer__frame_buffer_display\n
+             12:pcd8544__update_layer,12:hal__framebuffer__frame_buffer_display\n
+             13:pcd8544__update_layers,13:hal__framebuffer__frame_buffer_display\n
+             14:pcd8544__color_mode,14:hal__framebuffer__frame_buffer_display\n
+             15:pcd8544__hidden_buffer,15:hal__framebuffer__frame_buffer_display\n
+             16:pcd8544__pixel_size,16:hal__framebuffer__frame_buffer_display\n
+             -1:pcd8544___size__5,-1:hal__framebuffer__frame_buffer_display\n
+             17:pcd8544__initialize\n
+             18:pcd8544__set_contrast\n
+             19:pcd8544__set_bias\n
+             20:pcd8544__set_temperature\n
+             21:pcd8544__set_display_mode\n
+             22:pcd8544__chip_select\n
+             23:pcd8544__reset\n
+             24:pcd8544__transmit\n
+             25:pcd8544__transmit__2\n
+             26:pcd8544__extended_mode\n
+             27:pcd8544__basic_mode\n
+             28:pcd8544__write_raw_pixels"
+}
+class {
+  classname: "pcd8544__pcd8544_bitmap_buffer"
+  label: "pcd8544__pcd8544_bitmap_buffer\pcd8544.ads:191:9"
+  parent: "memory_mapped_bitmap__memory_mapped_bitmap_buffer"
+  virtuals: "-1:pcd8544___size__4,-1:memory_mapped_bitmap__memory_mapped_bitmap_buffer\n
+             -6:pcd8544__Oeq__2,-6:memory_mapped_bitmap__memory_mapped_bitmap_buffer\n
+             -7:pcd8544___assign__2,-7:memory_mapped_bitmap__memory_mapped_bitmap_buffer"
+}
+edge: { sourcename: "pcd8544__chip_select"
+  targetname: "8:hal__gpio__gpio_point,hal__gpio__gpio_point"
+  label: "pcd8544.adb:43:20"
+}
+edge: { sourcename: "pcd8544__chip_select"
+  targetname: "7:hal__gpio__gpio_point,hal__gpio__gpio_point"
+  label: "pcd8544.adb:45:20"
+}
+edge: { sourcename: "pcd8544__reset"
+  targetname: "8:hal__gpio__gpio_point,hal__gpio__gpio_point"
+  label: "pcd8544.adb:57:18"
+}
+edge: { sourcename: "pcd8544__reset"
+  targetname: "7:hal__gpio__gpio_point,hal__gpio__gpio_point"
+  label: "pcd8544.adb:58:18"
+}
+edge: { sourcename: "pcd8544__reset"
+  targetname: "1:hal__time__delays,hal__time__delays"
+  label: "pcd8544.adb:61:19"
+}
+edge: { sourcename: "pcd8544__transmit"
+  targetname: "8:hal__gpio__gpio_point,hal__gpio__gpio_point"
+  label: "pcd8544.adb:73:14"
+}
+edge: { sourcename: "pcd8544__transmit"
+  targetname: "1:hal__spi__spi_port,hal__spi__spi_port"
+  label: "hal-spi.ads:60:21"
+}
+edge: { sourcename: "pcd8544__transmit"
+  targetname: "2:hal__spi__spi_port,hal__spi__spi_port"
+  label: "pcd8544.adb:74:16"
+}
+edge: { sourcename: "pcd8544__transmit__2"
+  targetname: "7:hal__gpio__gpio_point,hal__gpio__gpio_point"
+  label: "pcd8544.adb:89:14"
+}
+edge: { sourcename: "pcd8544__transmit__2"
+  targetname: "1:hal__spi__spi_port,hal__spi__spi_port"
+  label: "hal-spi.ads:60:21"
+}
+edge: { sourcename: "pcd8544__transmit__2"
+  targetname: "2:hal__spi__spi_port,hal__spi__spi_port"
+  label: "pcd8544.adb:90:16"
+}
+edge: { sourcename: "pcd8544__initialize"
+  targetname: "8:hal__gpio__gpio_point,hal__gpio__gpio_point"
+  label: "pcd8544.adb:180:14"
+}
+node: { title: "pcd8544__pcd8544_bitmap_bufferIP" label: "PCD8544_BITMAP_BUFFERIP\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\pcd8544\pcd8544.ads:191:9\n16 bytes (static)" }
+node: { title: "memory_mapped_bitmap__memory_mapped_bitmap_bufferIP" label: "Memory_Mapped_Bitmap_Bufferip\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\memory_mapped_bitmap.ads:41:9" shape : ellipse }
+edge: { sourcename: "pcd8544__pcd8544_bitmap_bufferIP" targetname: "memory_mapped_bitmap__memory_mapped_bitmap_bufferIP" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\pcd8544\pcd8544.ads:191:34" }
+node: { title: "pcd8544___size__4" label: "PCD8544\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\pcd8544\pcd8544.ads:191:9\n16 bytes (static)" }
+node: { title: "pcd8544__Oeq__2" label: "=\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\pcd8544\pcd8544.ads:191:4\n16 bytes (static)" }
+node: { title: "memory_mapped_bitmap__Oeq" label: "=\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\memory_mapped_bitmap.ads:41:9" shape : ellipse }
+edge: { sourcename: "pcd8544__Oeq__2" targetname: "memory_mapped_bitmap__Oeq" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\pcd8544\pcd8544.ads:191:9" }
+node: { title: "memcmp" label: "builtin_memcmp\n<built-in>" shape : ellipse }
+edge: { sourcename: "pcd8544__Oeq__2" targetname: "memcmp" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\pcd8544\pcd8544.ads:191:9" }
+node: { title: "pcd8544___assign__2" label: "PCD8544\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\pcd8544\pcd8544.ads:191:9\n24 bytes (static)" }
+node: { title: "memcpy" label: "builtin_memcpy\n<built-in>" shape : ellipse }
+edge: { sourcename: "pcd8544___assign__2" targetname: "memcpy" }
+node: { title: "pcd8544__pcd8544_deviceIP" label: "PCD8544_DEVICEIP\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\pcd8544\pcd8544.ads:196:9\n32 bytes (static)" }
+edge: { sourcename: "pcd8544__pcd8544_deviceIP" targetname: "pcd8544__pcd8544_bitmap_bufferIP" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\pcd8544\pcd8544.ads:203:10" }
+node: { title: "pcd8544_reg__pcd8544_function_registerIP" label: "Pcd8544_Function_Registerip\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\pcd8544\pcd8544_reg.ads:50:9" shape : ellipse }
+edge: { sourcename: "pcd8544__pcd8544_deviceIP" targetname: "pcd8544_reg__pcd8544_function_registerIP" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\pcd8544\pcd8544.ads:206:10" }
+node: { title: "pcd8544_reg__pcd8544_display_registerIP" label: "Pcd8544_Display_Registerip\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\pcd8544\pcd8544_reg.ads:65:9" shape : ellipse }
+edge: { sourcename: "pcd8544__pcd8544_deviceIP" targetname: "pcd8544_reg__pcd8544_display_registerIP" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\pcd8544\pcd8544.ads:207:10" }
+node: { title: "pcd8544___size__5" label: "PCD8544\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\pcd8544\pcd8544.ads:196:9\n16 bytes (static)" }
+node: { title: "pcd8544__chip_select" label: "CHIP_SELECT\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\pcd8544\pcd8544.adb:38:4\n16 bytes (static)" }
+node: { title: "__gnat_last_chance_handler" label: "gnat_last_chance_handler\n<built-in>" shape : ellipse }
+edge: { sourcename: "pcd8544__chip_select" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\pcd8544\pcd8544.adb:43:17" }
+node: { title: "__indirect_call" label: "Indirect Call Placeholder" shape : ellipse }
+edge: { sourcename: "pcd8544__chip_select" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\pcd8544\pcd8544.adb:43:20" }
+edge: { sourcename: "pcd8544__chip_select" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\pcd8544\pcd8544.adb:45:17" }
+edge: { sourcename: "pcd8544__chip_select" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\pcd8544\pcd8544.adb:45:20" }
+node: { title: "pcd8544__reset" label: "RESET\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\pcd8544\pcd8544.adb:54:4\n16 bytes (static)" }
+edge: { sourcename: "pcd8544__reset" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\pcd8544\pcd8544.adb:57:14" }
+edge: { sourcename: "pcd8544__reset" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\pcd8544\pcd8544.adb:57:18" }
+edge: { sourcename: "pcd8544__reset" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\pcd8544\pcd8544.adb:58:14" }
+edge: { sourcename: "pcd8544__reset" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\pcd8544\pcd8544.adb:58:18" }
+edge: { sourcename: "pcd8544__reset" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\pcd8544\pcd8544.adb:61:19" }
+node: { title: "pcd8544__transmit" label: "TRANSMIT\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\pcd8544\pcd8544.adb:69:4\n168 bytes (dynamic)" }
+edge: { sourcename: "pcd8544__transmit" targetname: "pcd8544__chip_select" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\pcd8544\pcd8544.adb:72:11" }
+edge: { sourcename: "pcd8544__transmit" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\pcd8544\pcd8544.adb:73:14" }
+edge: { sourcename: "pcd8544__transmit" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\hal\src\hal-spi.ads:60:21" }
+node: { title: "system__assertions__raise_assert_failure" label: "Raise_Assert_Failure\nC:\gnat\2020-arm-elf\arm-eabi\lib\gnat\zfp-cortex-m4f\gnat\s-assert.ads:46:14" shape : ellipse }
+edge: { sourcename: "pcd8544__transmit" targetname: "system__assertions__raise_assert_failure" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\pcd8544\pcd8544.adb:74:16" }
+edge: { sourcename: "pcd8544__transmit" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\pcd8544\pcd8544.adb:74:16" }
+edge: { sourcename: "pcd8544__transmit" targetname: "pcd8544__chip_select" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\pcd8544\pcd8544.adb:75:11" }
+node: { title: "system__img_lli__image_long_long_integer" label: "Image_Long_Long_Integer\nC:\gnat\2020-arm-elf\arm-eabi\lib\gnat\zfp-cortex-m4f\gnat\s-imglli.ads:39:14" shape : ellipse }
+edge: { sourcename: "pcd8544__transmit" targetname: "system__img_lli__image_long_long_integer" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\pcd8544\pcd8544.adb:77:79" }
+edge: { sourcename: "pcd8544__transmit" targetname: "memcpy" }
+node: { title: "__gnat_last_chance_handler" label: "Last_Chance_Handler\nC:\gnat\2020-arm-elf\arm-eabi\lib\gnat\zfp-cortex-m4f\gnat\a-except.adb:43:17" shape : ellipse }
+edge: { sourcename: "pcd8544__transmit" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\pcd8544\pcd8544.adb:77:10" }
+edge: { sourcename: "pcd8544__transmit" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\pcd8544\pcd8544.adb:77:10" }
+edge: { sourcename: "pcd8544__transmit" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\pcd8544\pcd8544.adb:77:10" }
+edge: { sourcename: "pcd8544__transmit" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\pcd8544\pcd8544.adb:77:10" }
+edge: { sourcename: "pcd8544__transmit" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\pcd8544\pcd8544.adb:77:10" }
+edge: { sourcename: "pcd8544__transmit" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\pcd8544\pcd8544.adb:77:10" }
+edge: { sourcename: "pcd8544__transmit" targetname: "memcpy" }
+edge: { sourcename: "pcd8544__transmit" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\pcd8544\pcd8544.adb:77:10" }
+edge: { sourcename: "pcd8544__transmit" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\pcd8544\pcd8544.adb:77:10" }
+node: { title: "pcd8544__transmit__2" label: "TRANSMIT\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\pcd8544\pcd8544.adb:85:4\n176 bytes (dynamic)" }
+edge: { sourcename: "pcd8544__transmit__2" targetname: "pcd8544__chip_select" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\pcd8544\pcd8544.adb:88:11" }
+edge: { sourcename: "pcd8544__transmit__2" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\pcd8544\pcd8544.adb:89:14" }
+edge: { sourcename: "pcd8544__transmit__2" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\pcd8544\pcd8544.adb:90:40" }
+edge: { sourcename: "pcd8544__transmit__2" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\hal\src\hal-spi.ads:60:21" }
+edge: { sourcename: "pcd8544__transmit__2" targetname: "system__assertions__raise_assert_failure" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\pcd8544\pcd8544.adb:90:16" }
+edge: { sourcename: "pcd8544__transmit__2" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\pcd8544\pcd8544.adb:90:16" }
+edge: { sourcename: "pcd8544__transmit__2" targetname: "pcd8544__chip_select" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\pcd8544\pcd8544.adb:91:11" }
+edge: { sourcename: "pcd8544__transmit__2" targetname: "system__img_lli__image_long_long_integer" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\pcd8544\pcd8544.adb:93:76" }
+edge: { sourcename: "pcd8544__transmit__2" targetname: "memcpy" }
+edge: { sourcename: "pcd8544__transmit__2" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\pcd8544\pcd8544.adb:93:10" }
+edge: { sourcename: "pcd8544__transmit__2" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\pcd8544\pcd8544.adb:93:10" }
+edge: { sourcename: "pcd8544__transmit__2" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\pcd8544\pcd8544.adb:93:10" }
+edge: { sourcename: "pcd8544__transmit__2" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\pcd8544\pcd8544.adb:93:10" }
+edge: { sourcename: "pcd8544__transmit__2" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\pcd8544\pcd8544.adb:93:10" }
+edge: { sourcename: "pcd8544__transmit__2" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\pcd8544\pcd8544.adb:93:10" }
+edge: { sourcename: "pcd8544__transmit__2" targetname: "memcpy" }
+edge: { sourcename: "pcd8544__transmit__2" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\pcd8544\pcd8544.adb:93:10" }
+edge: { sourcename: "pcd8544__transmit__2" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\pcd8544\pcd8544.adb:93:10" }
+node: { title: "pcd8544__extended_mode" label: "EXTENDED_MODE\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\pcd8544\pcd8544.adb:101:4\n16 bytes (static)" }
+edge: { sourcename: "pcd8544__extended_mode" targetname: "pcd8544__transmit" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\pcd8544\pcd8544.adb:105:14" }
+node: { title: "pcd8544__basic_mode" label: "BASIC_MODE\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\pcd8544\pcd8544.adb:113:4\n16 bytes (static)" }
+edge: { sourcename: "pcd8544__basic_mode" targetname: "pcd8544__transmit" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\pcd8544\pcd8544.adb:117:14" }
+node: { title: "pcd8544__set_contrast" label: "SET_CONTRAST\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\pcd8544\pcd8544.adb:125:4\n16 bytes (static)" }
+edge: { sourcename: "pcd8544__set_contrast" targetname: "pcd8544__extended_mode" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\pcd8544\pcd8544.adb:129:11" }
+edge: { sourcename: "pcd8544__set_contrast" targetname: "pcd8544__transmit" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\pcd8544\pcd8544.adb:130:11" }
+node: { title: "pcd8544__set_bias" label: "SET_BIAS\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\pcd8544\pcd8544.adb:137:4\n16 bytes (static)" }
+edge: { sourcename: "pcd8544__set_bias" targetname: "pcd8544__extended_mode" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\pcd8544\pcd8544.adb:141:11" }
+edge: { sourcename: "pcd8544__set_bias" targetname: "pcd8544__transmit" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\pcd8544\pcd8544.adb:142:11" }
+node: { title: "pcd8544__set_temperature" label: "SET_TEMPERATURE\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\pcd8544\pcd8544.adb:149:4\n16 bytes (static)" }
+edge: { sourcename: "pcd8544__set_temperature" targetname: "pcd8544__extended_mode" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\pcd8544\pcd8544.adb:153:11" }
+edge: { sourcename: "pcd8544__set_temperature" targetname: "pcd8544__transmit" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\pcd8544\pcd8544.adb:154:11" }
+node: { title: "pcd8544__set_display_mode" label: "SET_DISPLAY_MODE\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\pcd8544\pcd8544.adb:161:4\n16 bytes (static)" }
+edge: { sourcename: "pcd8544__set_display_mode" targetname: "pcd8544__basic_mode" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\pcd8544\pcd8544.adb:166:11" }
+edge: { sourcename: "pcd8544__set_display_mode" targetname: "pcd8544__transmit" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\pcd8544\pcd8544.adb:169:11" }
+node: { title: "pcd8544__initialize" label: "INITIALIZE\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\pcd8544\pcd8544.adb:176:4\n24 bytes (static)" }
+edge: { sourcename: "pcd8544__initialize" targetname: "pcd8544_reg__pcd8544_function_registerIP" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\pcd8544\pcd8544.adb:177:7" }
+edge: { sourcename: "pcd8544__initialize" targetname: "pcd8544_reg__pcd8544_display_registerIP" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\pcd8544\pcd8544.adb:178:7" }
+edge: { sourcename: "pcd8544__initialize" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\pcd8544\pcd8544.adb:180:14" }
+edge: { sourcename: "pcd8544__initialize" targetname: "pcd8544__reset" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\pcd8544\pcd8544.adb:181:11" }
+edge: { sourcename: "pcd8544__initialize" targetname: "pcd8544__transmit" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\pcd8544\pcd8544.adb:188:11" }
+edge: { sourcename: "pcd8544__initialize" targetname: "pcd8544__set_contrast" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\pcd8544\pcd8544.adb:190:11" }
+edge: { sourcename: "pcd8544__initialize" targetname: "pcd8544__set_bias" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\pcd8544\pcd8544.adb:191:11" }
+edge: { sourcename: "pcd8544__initialize" targetname: "pcd8544__set_temperature" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\pcd8544\pcd8544.adb:192:11" }
+edge: { sourcename: "pcd8544__initialize" targetname: "pcd8544__transmit" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\pcd8544\pcd8544.adb:196:11" }
+edge: { sourcename: "pcd8544__initialize" targetname: "pcd8544__set_display_mode" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\pcd8544\pcd8544.adb:198:11" }
+node: { title: "pcd8544__write_raw_pixels" label: "WRITE_RAW_PIXELS\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\pcd8544\pcd8544.adb:209:4\n24 bytes (static)" }
+edge: { sourcename: "pcd8544__write_raw_pixels" targetname: "pcd8544__chip_select" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\pcd8544\pcd8544.adb:214:11" }
+edge: { sourcename: "pcd8544__write_raw_pixels" targetname: "pcd8544__basic_mode" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\pcd8544\pcd8544.adb:215:11" }
+edge: { sourcename: "pcd8544__write_raw_pixels" targetname: "pcd8544__transmit" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\pcd8544\pcd8544.adb:216:11" }
+edge: { sourcename: "pcd8544__write_raw_pixels" targetname: "pcd8544__transmit" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\pcd8544\pcd8544.adb:217:11" }
+edge: { sourcename: "pcd8544__write_raw_pixels" targetname: "pcd8544__transmit__2" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\pcd8544\pcd8544.adb:218:11" }
+edge: { sourcename: "pcd8544__write_raw_pixels" targetname: "pcd8544__chip_select" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\pcd8544\pcd8544.adb:219:11" }
+node: { title: "pcd8544__initialized" label: "INITIALIZED\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\pcd8544\pcd8544.adb:226:15\n16 bytes (static)" }
+node: { title: "pcd8544__max_layers" label: "MAX_LAYERS\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\pcd8544\pcd8544.adb:233:15\n16 bytes (static)" }
+node: { title: "pcd8544__supported" label: "SUPPORTED\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\pcd8544\pcd8544.adb:240:15\n16 bytes (static)" }
+node: { title: "pcd8544__set_orientation" label: "SET_ORIENTATION\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\pcd8544\pcd8544.adb:248:15\n16 bytes (static)" }
+node: { title: "pcd8544__set_mode" label: "SET_MODE\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\pcd8544\pcd8544.adb:259:15\n16 bytes (static)" }
+node: { title: "pcd8544__width" label: "WIDTH\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\pcd8544\pcd8544.adb:266:15\n16 bytes (static)" }
+node: { title: "pcd8544__height" label: "HEIGHT\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\pcd8544\pcd8544.adb:273:15\n16 bytes (static)" }
+node: { title: "pcd8544__swapped" label: "SWAPPED\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\pcd8544\pcd8544.adb:280:15\n16 bytes (static)" }
+node: { title: "pcd8544__set_background" label: "SET_BACKGROUND\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\pcd8544\pcd8544.adb:287:15\n16 bytes (static)" }
+edge: { sourcename: "pcd8544__set_background" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\pcd8544\pcd8544.adb:290:7" }
+node: { title: "pcd8544__initialize_layer" label: "INITIALIZE_LAYER\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\pcd8544\pcd8544.adb:297:15\n32 bytes (static)" }
+edge: { sourcename: "pcd8544__initialize_layer" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\pcd8544\pcd8544.adb:308:10" }
+edge: { sourcename: "pcd8544__initialize_layer" targetname: "pcd8544__width" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\pcd8544\pcd8544.adb:310:50" }
+edge: { sourcename: "pcd8544__initialize_layer" targetname: "pcd8544__height" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\pcd8544\pcd8544.adb:311:50" }
+node: { title: "pcd8544__initialized__2" label: "INITIALIZED\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\pcd8544\pcd8544.adb:325:15\n16 bytes (static)" }
+node: { title: "pcd8544__update_layer" label: "UPDATE_LAYER\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\pcd8544\pcd8544.adb:337:15\n32 bytes (static)" }
+edge: { sourcename: "pcd8544__update_layer" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\pcd8544\pcd8544.adb:345:10" }
+edge: { sourcename: "pcd8544__update_layer" targetname: "pcd8544__write_raw_pixels" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\pcd8544\pcd8544.adb:348:11" }
+node: { title: "pcd8544__color_mode" label: "COLOR_MODE\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\pcd8544\pcd8544.adb:355:15\n16 bytes (static)" }
+edge: { sourcename: "pcd8544__color_mode" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\pcd8544\pcd8544.adb:361:10" }
+node: { title: "pcd8544__hidden_buffer" label: "HIDDEN_BUFFER\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\pcd8544\pcd8544.adb:370:15\n16 bytes (static)" }
+edge: { sourcename: "pcd8544__hidden_buffer" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\pcd8544\pcd8544.adb:376:10" }
+node: { title: "pcd8544__update_layers" label: "UPDATE_LAYERS\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\pcd8544\pcd8544.adb:385:15\n16 bytes (static)" }
+edge: { sourcename: "pcd8544__update_layers" targetname: "pcd8544__update_layer" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\pcd8544\pcd8544.adb:387:11" }
+node: { title: "pcd8544__pixel_size" label: "PIXEL_SIZE\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\pcd8544\pcd8544.adb:394:15\n16 bytes (static)" }
+}

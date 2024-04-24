@@ -1,0 +1,58 @@
+graph: { title: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\hal\src\hal-bitmap.ads"
+class {
+  classname: "hal__bitmap__bitmap_buffer"
+  label: "hal__bitmap__bitmap_buffer\hal-bitmap.ads:100:9"
+  virtuals: "1:hal__bitmap__width\n
+             2:hal__bitmap__height\n
+             3:hal__bitmap__swapped\n
+             4:hal__bitmap__color_mode\n
+             5:hal__bitmap__mapped_in_ram\n
+             6:hal__bitmap__memory_address\n
+             7:hal__bitmap__set_source\n
+             8:hal__bitmap__set_source__2\n
+             9:hal__bitmap__source\n
+             10:hal__bitmap__source__2\n
+             11:hal__bitmap__set_pixel\n
+             12:hal__bitmap__set_pixel__2\n
+             13:hal__bitmap__set_pixel__3\n
+             14:hal__bitmap__set_pixel_blend\n
+             15:hal__bitmap__pixel\n
+             16:hal__bitmap__pixel__2\n
+             17:hal__bitmap__draw_line\n
+             18:hal__bitmap__fill\n
+             19:hal__bitmap__fill_rect\n
+             20:hal__bitmap__copy_rect\n
+             21:hal__bitmap__copy_rect__2\n
+             22:hal__bitmap__copy_rect_blend\n
+             23:hal__bitmap__draw_vertical_line\n
+             24:hal__bitmap__draw_horizontal_line\n
+             25:hal__bitmap__draw_rect\n
+             26:hal__bitmap__draw_rounded_rect\n
+             27:hal__bitmap__fill_rounded_rect\n
+             28:hal__bitmap__draw_circle\n
+             29:hal__bitmap__fill_circle\n
+             30:hal__bitmap__cubic_bezier\n
+             31:hal__bitmap__bezier\n
+             32:hal__bitmap__buffer_size\n
+             -1:hal__bitmap___size\n
+             -6:hal__bitmap__Oeq\n
+             -7:hal__bitmap___assign"
+}
+node: { title: "hal__bitmap__bitmap_colorIP" label: "BITMAP_COLORIP\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\hal\src\hal-bitmap.ads:86:9\n16 bytes (static)" }
+node: { title: "hal__bitmap__pointIP" label: "POINTIP\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\hal\src\hal-bitmap.ads:67:9\n16 bytes (static)" }
+node: { title: "hal__bitmap__point_arrayIP" label: "POINT_ARRAYIP\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\hal\src\hal-bitmap.ads:72:9\n16 bytes (static)" }
+node: { title: "hal__bitmap__rectIP" label: "RECTIP\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\hal\src\hal-bitmap.ads:80:9\n16 bytes (static)" }
+node: { title: "hal__bitmap__bits_per_pixel" label: "BITS_PER_PIXEL\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\hal\src\hal-bitmap.ads:58:4\n16 bytes (static)" }
+node: { title: "__gnat_last_chance_handler" label: "gnat_last_chance_handler\n<built-in>" shape : ellipse }
+edge: { sourcename: "hal__bitmap__bits_per_pixel" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\hal\src\hal-bitmap.ads:59:12" }
+edge: { sourcename: "hal__bitmap__bits_per_pixel" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\hal\src\hal-bitmap.ads:59:12" }
+node: { title: "hal__bitmap__Oadd" label: "+\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\hal\src\hal-bitmap.ads:74:4\n24 bytes (static)" }
+edge: { sourcename: "hal__bitmap__Oadd" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\hal\src\hal-bitmap.ads:75:16" }
+edge: { sourcename: "hal__bitmap__Oadd" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\hal\src\hal-bitmap.ads:75:29" }
+node: { title: "hal__bitmap__Osubtract" label: "-\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\hal\src\hal-bitmap.ads:77:4\n24 bytes (static)" }
+edge: { sourcename: "hal__bitmap__Osubtract" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\hal\src\hal-bitmap.ads:78:16" }
+edge: { sourcename: "hal__bitmap__Osubtract" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\hal\src\hal-bitmap.ads:78:16" }
+edge: { sourcename: "hal__bitmap__Osubtract" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\hal\src\hal-bitmap.ads:78:29" }
+edge: { sourcename: "hal__bitmap__Osubtract" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\hal\src\hal-bitmap.ads:78:29" }
+node: { title: "hal__bitmap__Oeq" label: "=\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\hal\src\hal-bitmap.ads:100:9\n16 bytes (static)" }
+}

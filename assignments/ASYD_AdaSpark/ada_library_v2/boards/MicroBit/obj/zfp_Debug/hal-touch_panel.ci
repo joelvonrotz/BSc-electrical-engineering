@@ -1,0 +1,13 @@
+graph: { title: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\hal\src\hal-touch_panel.ads"
+class {
+  classname: "hal__touch_panel__touch_panel_device"
+  label: "hal__touch_panel__touch_panel_device\hal-touch_panel.ads:52:9"
+  virtuals: "1:hal__touch_panel__set_bounds\n
+             2:hal__touch_panel__active_touch_points\n
+             3:hal__touch_panel__get_touch_point\n
+             4:hal__touch_panel__get_all_touch_points\n
+             -1:hal__touch_panel___size"
+}
+node: { title: "hal__touch_panel__tp_touch_stateIP" label: "TP_TOUCH_STATEIP\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\hal\src\hal-touch_panel.ads:34:9\n16 bytes (static)" }
+node: { title: "hal__touch_panel__tp_stateIP" label: "TP_STATEIP\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\hal\src\hal-touch_panel.ads:50:9\n16 bytes (static)" }
+}

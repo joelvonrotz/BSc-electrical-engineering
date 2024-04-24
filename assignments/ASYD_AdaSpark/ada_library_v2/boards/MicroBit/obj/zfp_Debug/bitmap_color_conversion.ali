@@ -1,0 +1,120 @@
+V "GNAT Lib v2020"
+A -O0
+A -gnatA
+A --RTS=C:\gnat\2020-arm-elf\arm-eabi\lib\gnat\zfp-cortex-m4f\
+A -mlittle-endian
+A -mthumb
+A -mfloat-abi=hard
+A -mcpu=cortex-m4
+A -mfpu=fpv4-sp-d16
+A -gnata
+A -fcallgraph-info=su
+A -fcallgraph-info=su
+A -g
+A -gnatwa
+A -gnatw_A
+A -gnatQ
+A -gnatw.X
+A -ffunction-sections
+A -fdata-sections
+A -march=armv7e-m+fp
+P ZX
+
+RN
+RV NO_EXCEPTIONS
+RV NO_IMPLEMENTATION_PRAGMAS
+
+U bitmap_color_conversion%b  bitmap_color_conversion.adb  07016f71 NE OO PK
+Z ada.exceptions%s	a-except.adb		a-except.ali
+Z ada.tags%s		a-tags.adb		a-tags.ali
+Z interfaces%s		interfac.ads		interfac.ali
+
+U bitmap_color_conversion%s  bitmap_color_conversion.ads  d023b07a EE NE OO PK
+W hal%s			hal.ads			hal.ali
+W hal.bitmap%s		hal-bitmap.ads		hal-bitmap.ali
+
+D ada.ads		20200819171400 76789da1 ada%s
+D a-except.ads		20200819171400 5b5f0f2f ada.exceptions%s
+D a-except.adb		20200819171400 85a38458 ada.exceptions%b
+D a-tags.ads		20200819171400 95e09aae ada.tags%s
+D bitmap_color_conversion.ads  20210108111948 7ec7e967 bitmap_color_conversion%s
+D bitmap_color_conversion.adb  20210108111948 79c68616 bitmap_color_conversion%b
+D hal.ads		20210108111948 2b42c80e hal%s
+D hal-bitmap.ads	20210108111948 85a69113 hal.bitmap%s
+D interfac.ads		20200819171400 5ab55268 interfaces%s
+D system.ads		20200819171400 e69b74bd system%s
+D s-stoele.ads		20200819171400 2dc34a04 system.storage_elements%s
+G a e
+G c Z s b [bitmap_color_to_word bitmap_color_conversion 37 13 none]
+G c Z s b [word_to_bitmap_color bitmap_color_conversion 42 13 none]
+X 5 bitmap_color_conversion.ads
+35K9*Bitmap_Color_Conversion 47l5 47e28 6|32b14 260l5 260t28
+37V13*Bitmap_Color_To_Word{7|97M9} 38>7 38>33 6|38b13 133l8 133t28
+38e7 Mode{8|43E9} 6|39b7 80r12
+38r33 Col{8|86R9} 6|39b33 75r24 75r47 75r67 82r24 83r24 84r24 85r24 88r24
+. 89r24 90r24 93r24 94r24 95r24 98r24 99r24 100r24 101r24 104r24 105r24 106r24
+. 107r24 113r24 117r24 124r24 127r24
+42V13*Word_To_Bitmap_Color{8|86R9} 43>7 43>33 6|139b13 258l8 258t28
+43e7 Mode{8|43E9} 6|140b7 174r12
+43m33 Col{7|97M9} 6|140b33 157r37 242r16
+X 6 bitmap_color_conversion.adb
+42m7 Ret{7|97M9} 63m10 63r17 129m13 132r14
+44U17 Add_UInt8 45>10 45>25 45>40 53b17 64l11 64t20 82s13 83s13 84s13 85s13
+. 88s13 89s13 90s13 93s13 94s13 95s13 98s13 99s13 100s13 101s13 104s13 105s13
+. 106s13 107s13 110s13 113s13 114s13 117s13 118s13 121s13 124s13 127s13
+45m10 Value{7|53M9} 54b10 59r37
+45i25 Pos{natural} 54b25 61r21
+45i40 Size{positive} 54b40 60r51
+47V16 Luminance{7|53M9} 70b16 77l11 77t20 110s24 114s24 118s24 121s24 129s24
+56m10 Val{7|97M9} 63r24
+144V16 Get_UInt8{7|53M9} 145>10 145>25 151b16 170l11 170t20 176s18 177s18
+. 178s18 179s18 183s18 184s18 185s18 189s18 190s18 191s18 194s18 195s18 196s18
+. 197s18 200s18 201s18 202s18 203s18 207s18 212s18 213s18 218s18 219s18 225s18
+. 230s18 236s18
+145i10 Pos{natural} 152b10 155r63 157r51
+145i25 Size{positive} 152b25 155r53 159r13 161r16 163r16 165r41 166r37
+154m10 Ret{7|53M9} 157m10 160r20 162r24 165r32 166r28
+155m10 Mask{7|97M9} 157r45
+172m7 A{7|53M9} 176m13 182m13 188m13 194m13 200m13 206m13 212m13 218m13 224m13
+. 230m13 236m13 241m13 247m16 254r24
+172m10 R{7|53M9} 177m13 183m13 189m13 195m13 201m13 207m13 208r18 209r18
+. 213m13 214r18 215r18 219m13 220r18 221r18 225m13 226r18 227r18 231m13 237m13
+. 243m16 248m16 255r24
+172m13 G{7|53M9} 178m13 184m13 190m13 196m13 202m13 208m13 214m13 220m13
+. 226m13 232m13 238m13 244m16 249m16 256r24
+172m16 B{7|53M9} 179m13 185m13 191m13 197m13 203m13 209m13 215m13 221m13
+. 227m13 233m13 239m13 245m16 257r24
+X 7 hal.ads
+34K9*HAL 5|32w6 32r22 33r6 33r22 7|166e8
+53M9*UInt8<9|63M9> 6|45r18 47r33 54r18 70r33 73r17 145r49 152r49 154r16 157r17
+. 172r20
+97M9*UInt32<9|74M9> 5|39r13 43r39 6|40r14 42r13 56r25 58r21 75r16 75r39 75r59
+. 140r39 155r26
+X 8 hal-bitmap.ads
+34K13*Bitmap 5|33w10 33r26 8|432e15
+43E9*Bitmap_Color_Mode 5|38r14 43r14 6|39r14 140r14 8|56e8
+44n7*ARGB_8888{43E9} 6|81r15 175r15
+45n7*RGB_888{43E9} 6|87r15 181r15
+46n7*RGB_565{43E9} 6|92r15 187r15
+47n7*ARGB_1555{43E9} 6|97r15 193r15
+48n7*ARGB_4444{43E9} 6|103r15 199r15
+49n7*L_8{43E9} 6|109r15 205r15
+50n7*AL_44{43E9} 6|112r15 211r15
+51n7*AL_88{43E9} 6|116r15 217r15
+52n7*L_4{43E9} 6|120r15 223r15
+53n7*A_8{43E9} 6|123r15 229r15
+54n7*A_4{43E9} 6|126r15 235r15
+55n7*M_1{43E9} 6|128r15 240r15
+86R9*Bitmap_Color 5|38r39 44r13 6|39r39 141r14 8|91e15
+87m7*Alpha{7|53M9} 6|82r28 98r28 104r28 113r28 117r28 124r28 127r28 254m15
+88m7*Red{7|53M9} 6|75r28 83r28 88r28 93r28 99r28 105r28 255m15
+89m7*Green{7|53M9} 6|75r71 84r28 89r28 94r28 100r28 106r28 256m15
+90m7*Blue{7|53M9} 6|75r51 85r28 90r28 95r28 101r28 107r28 257m15
+X 9 interfac.ads
+63M9*Unsigned_8
+74M9*Unsigned_32
+81V13*Shift_Left{63M9} 6|165s20
+85V13*Shift_Right{63M9} 6|59s24 166s15
+121V13*Shift_Left{74M9} 6|57s18 155s36
+125V13*Shift_Right{74M9} 6|74s13 157s24
+

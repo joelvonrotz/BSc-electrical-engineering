@@ -1,0 +1,37 @@
+graph: { title: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\utils\file_block_drivers.adb"
+class {
+  classname: "file_block_drivers__file_block_driver"
+  label: "file_block_drivers__file_block_driver\file_block_drivers.ads:40:9"
+  parent: "hal__block_drivers__block_driver"
+  virtuals: "1:file_block_drivers__read,1:hal__block_drivers__block_driver\n
+             2:file_block_drivers__write,2:hal__block_drivers__block_driver\n
+             -1:file_block_drivers___size__2,-1:hal__block_drivers__block_driver\n
+             3:file_block_drivers__open\n
+             4:file_block_drivers__close"
+}
+node: { title: "file_block_drivers__file_block_driverIP" label: "File_Block_Driverip\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\utils\file_block_drivers.ads:65:9\n16 bytes (static)" }
+node: { title: "file_io__file_descriptorIP" label: "File_Descriptorip\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.ads:195:9" shape : ellipse }
+edge: { sourcename: "file_block_drivers__file_block_driverIP" targetname: "file_io__file_descriptorIP" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\utils\file_block_drivers.ads:67:7" }
+node: { title: "file_block_drivers___size__2" label: "File_Block_Drivers\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\utils\file_block_drivers.ads:65:9\n16 bytes (static)" }
+node: { title: "file_block_drivers__open" label: "Open\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\utils\file_block_drivers.adb:38:4\n24 bytes (static)" }
+node: { title: "file_io__open" label: "Open\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.ads:91:13" shape : ellipse }
+edge: { sourcename: "file_block_drivers__open" targetname: "file_io__open" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\utils\file_block_drivers.adb:45:14" }
+node: { title: "file_block_drivers__close" label: "Close\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\utils\file_block_drivers.adb:52:4\n16 bytes (static)" }
+node: { title: "file_io__close" label: "Close\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.ads:97:14" shape : ellipse }
+edge: { sourcename: "file_block_drivers__close" targetname: "file_io__close" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\utils\file_block_drivers.adb:54:7" }
+node: { title: "file_block_drivers__read" label: "Read\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\utils\file_block_drivers.adb:63:4\n128 bytes (static)" }
+node: { title: "system__assertions__raise_assert_failure" label: "Raise_Assert_Failure\nC:\gnat\2020-arm-elf\arm-eabi\lib\gnat\zfp-cortex-m4f\gnat\s-assert.ads:46:14" shape : ellipse }
+edge: { sourcename: "file_block_drivers__read" targetname: "system__assertions__raise_assert_failure" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\hal\src\hal-block_drivers.ads:47:24" }
+node: { title: "file_io__seek" label: "Seek\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.ads:121:13" shape : ellipse }
+edge: { sourcename: "file_block_drivers__read" targetname: "file_io__seek" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\utils\file_block_drivers.adb:76:10" }
+node: { title: "__gnat_last_chance_handler" label: "gnat_last_chance_handler\n<built-in>" shape : ellipse }
+edge: { sourcename: "file_block_drivers__read" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\utils\file_block_drivers.adb:80:21" }
+node: { title: "file_io__read" label: "Read\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.ads:108:13" shape : ellipse }
+edge: { sourcename: "file_block_drivers__read" targetname: "file_io__read" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\utils\file_block_drivers.adb:81:14" }
+node: { title: "file_block_drivers__write" label: "Write\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\utils\file_block_drivers.adb:89:4\n112 bytes (static)" }
+edge: { sourcename: "file_block_drivers__write" targetname: "system__assertions__raise_assert_failure" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\hal\src\hal-block_drivers.ads:54:24" }
+edge: { sourcename: "file_block_drivers__write" targetname: "file_io__seek" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\utils\file_block_drivers.adb:102:10" }
+edge: { sourcename: "file_block_drivers__write" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\utils\file_block_drivers.adb:106:21" }
+node: { title: "file_io__write" label: "Write\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.ads:113:13" shape : ellipse }
+edge: { sourcename: "file_block_drivers__write" targetname: "file_io__write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\utils\file_block_drivers.adb:107:14" }
+}

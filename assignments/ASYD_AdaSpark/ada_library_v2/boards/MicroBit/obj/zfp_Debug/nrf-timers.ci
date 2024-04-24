@@ -1,0 +1,65 @@
+graph: { title: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-timers.adb"
+class {
+  classname: "nrf__timers__timer"
+  label: "nrf__timers__timer\nrf-timers.ads:37:9"
+  parent: "nrf__timers__timer"
+  virtuals: "1:nrf__timers__set_prescaler\n
+             2:nrf__timers__set_mode\n
+             3:nrf__timers__set_bitmode\n
+             4:nrf__timers__bitmode\n
+             5:nrf__timers__compare_interrupt\n
+             6:nrf__timers__start\n
+             7:nrf__timers__stop\n
+             8:nrf__timers__clear\n
+             9:nrf__timers__compare_shortcut\n
+             10:nrf__timers__set_compare\n
+             11:nrf__timers__capture\n
+             12:nrf__timers__capture__2\n
+             13:nrf__timers__cc_register\n
+             14:nrf__timers__start_task\n
+             15:nrf__timers__stop_task\n
+             16:nrf__timers__count_task\n
+             17:nrf__timers__clear_task\n
+             18:nrf__timers__capture_task\n
+             19:nrf__timers__compare_event\n
+             -1:nrf__timers___size\n
+             -6:nrf__timers__Oeq\n
+             -7:nrf__timers___assign"
+}
+node: { title: "nrf__timers__timerIP" label: "Timerip\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-timers.ads:155:9\n24 bytes (static)" }
+node: { title: "nrf__timers___size" label: "Timers\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-timers.ads:155:9\n16 bytes (static)" }
+node: { title: "nrf__timers__Oeq" label: "=\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-timers.ads:155:4\n16 bytes (static)" }
+node: { title: "nrf__timers___assign" label: "Timers\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-timers.ads:155:9\n16 bytes (static)" }
+node: { title: "__gnat_last_chance_handler" label: "gnat_last_chance_handler\n<built-in>" shape : ellipse }
+edge: { sourcename: "nrf__timers___assign" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-timers.ads:155:9" }
+node: { title: "nrf__timers__start" label: "Start\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-timers.adb:40:4\n16 bytes (static)" }
+node: { title: "nrf__timers__stop" label: "Stop\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-timers.adb:49:4\n16 bytes (static)" }
+node: { title: "nrf__timers__clear" label: "Clear\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-timers.adb:58:4\n16 bytes (static)" }
+node: { title: "nrf__timers__set_prescaler" label: "Set_Prescaler\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-timers.adb:68:4\n16 bytes (static)" }
+node: { title: "nrf__timers__set_mode" label: "Set_Mode\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-timers.adb:80:4\n16 bytes (static)" }
+edge: { sourcename: "nrf__timers__set_mode" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-timers.adb:86:15" }
+node: { title: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-timers.adb:nrf__timers__set_bitmode___postconditions.6142" label: "Set_Bitmode\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-timers.adb:95:4\n32 bytes (static)" }
+edge: { sourcename: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-timers.adb:nrf__timers__set_bitmode___postconditions.6142" targetname: "nrf__timers__bitmode" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-timers.ads:72:19" }
+node: { title: "system__assertions__raise_assert_failure" label: "Raise_Assert_Failure\nC:\gnat\2020-arm-elf\arm-eabi\lib\gnat\zfp-cortex-m4f\gnat\s-assert.ads:46:14" shape : ellipse }
+edge: { sourcename: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-timers.adb:nrf__timers__set_bitmode___postconditions.6142" targetname: "system__assertions__raise_assert_failure" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-timers.ads:72:19" }
+node: { title: "nrf__timers__set_bitmode" label: "Set_Bitmode\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-timers.adb:95:4\n32 bytes (static)" }
+edge: { sourcename: "nrf__timers__set_bitmode" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-timers.adb:101:15" }
+edge: { sourcename: "nrf__timers__set_bitmode" targetname: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-timers.adb:nrf__timers__set_bitmode___postconditions.6142" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-timers.adb:106:8" }
+node: { title: "nrf__timers__bitmode" label: "Bitmode\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-timers.adb:112:4\n16 bytes (static)" }
+edge: { sourcename: "nrf__timers__bitmode" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-timers.adb:115:34" }
+node: { title: "nrf__timers__compare_interrupt" label: "Compare_Interrupt\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-timers.adb:126:4\n24 bytes (static)" }
+node: { title: "nrf__timers__compare_shortcut" label: "Compare_Shortcut\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-timers.adb:142:4\n16 bytes (static)" }
+edge: { sourcename: "nrf__timers__compare_shortcut" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-timers.adb:148:12" }
+node: { title: "nrf__timers__set_compare" label: "Set_Compare\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-timers.adb:168:4\n24 bytes (static)" }
+node: { title: "nrf__timers__capture" label: "Capture\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-timers.adb:181:4\n16 bytes (static)" }
+node: { title: "nrf__timers__capture__2" label: "Capture\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-timers.adb:191:4\n16 bytes (static)" }
+edge: { sourcename: "nrf__timers__capture__2" targetname: "nrf__timers__capture" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-timers.adb:197:11" }
+edge: { sourcename: "nrf__timers__capture__2" targetname: "nrf__timers__cc_register" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-timers.adb:198:18" }
+node: { title: "nrf__timers__cc_register" label: "Cc_Register\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-timers.adb:205:4\n16 bytes (static)" }
+node: { title: "nrf__timers__start_task" label: "Start_Task\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-timers.adb:217:4\n16 bytes (static)" }
+node: { title: "nrf__timers__stop_task" label: "Stop_Task\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-timers.adb:225:4\n16 bytes (static)" }
+node: { title: "nrf__timers__count_task" label: "Count_Task\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-timers.adb:233:4\n16 bytes (static)" }
+node: { title: "nrf__timers__clear_task" label: "Clear_Task\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-timers.adb:241:4\n16 bytes (static)" }
+node: { title: "nrf__timers__capture_task" label: "Capture_Task\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-timers.adb:249:4\n16 bytes (static)" }
+node: { title: "nrf__timers__compare_event" label: "Compare_Event\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-timers.adb:258:4\n16 bytes (static)" }
+}

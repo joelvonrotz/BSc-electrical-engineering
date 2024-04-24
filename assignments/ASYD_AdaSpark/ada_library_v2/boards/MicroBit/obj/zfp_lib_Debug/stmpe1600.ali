@@ -1,0 +1,308 @@
+V "GNAT Lib v2020"
+A -O0
+A -gnatA
+A --RTS=C:\gnat\2020-arm-elf\arm-eabi\lib\gnat\zfp-cortex-m4f\
+A -mlittle-endian
+A -mthumb
+A -mfloat-abi=hard
+A -mcpu=cortex-m4
+A -mfpu=fpv4-sp-d16
+A -gnata
+A -fcallgraph-info=su
+A -fcallgraph-info=su
+A -g
+A -gnatwa
+A -gnatw_A
+A -gnatQ
+A -gnatw.X
+A -ffunction-sections
+A -fdata-sections
+A -march=armv7e-m+fp
+P ZX
+
+RN
+RV NO_DISPATCHING_CALLS
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_UNCHECKED_ACCESS
+RV NO_UNCHECKED_CONVERSION
+RV NO_DEFAULT_INITIALIZATION
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_ATTRIBUTES
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLICIT_ALIASING
+RV NO_IMPLICIT_LOOPS
+
+U stmpe1600%b		stmpe1600.adb		289b58b1 NE OO PK IU
+W ada%s			ada.ads			ada.ali
+Z ada.tags%s		a-tags.adb		a-tags.ali
+W ada.unchecked_conversion%s
+W hal%s			hal.ads			hal.ali
+Z interfaces%s		interfac.ads		interfac.ali
+Z system%s		system.ads		system.ali
+Z system.assertions%s	s-assert.adb		s-assert.ali
+
+U stmpe1600%s		stmpe1600.ads		d333b3db EE NE OO PK IU
+Z ada.tags%s		a-tags.adb		a-tags.ali
+W hal%s			hal.ads			hal.ali
+W hal.gpio%s		hal-gpio.ads		hal-gpio.ali
+W hal.i2c%s		hal-i2c.ads		hal-i2c.ali
+Z interfaces%s		interfac.ads		interfac.ali
+Z system%s		system.ads		system.ali
+Z system.assertions%s	s-assert.adb		s-assert.ali
+Z system.unsigned_types%s  s-unstyp.ads		s-unstyp.ali
+
+D ada.ads		20200819171400 76789da1 ada%s
+D a-tags.ads		20200819171400 95e09aae ada.tags%s
+D a-unccon.ads		20200819171400 0e9b276f ada.unchecked_conversion%s
+D hal.ads		20210108111948 2b42c80e hal%s
+D hal-gpio.ads		20210108111948 7f0c2ffe hal.gpio%s
+D hal-i2c.ads		20210108111948 0ed73138 hal.i2c%s
+D interfac.ads		20200819171400 5ab55268 interfaces%s
+D stmpe1600.ads		20210108111948 a2e8ad1d stmpe1600%s
+D stmpe1600.adb		20210108111948 afaa1acd stmpe1600%b
+D system.ads		20200819171400 e69b74bd system%s
+D s-assert.ads		20200819171400 cd8d2c94 system.assertions%s
+D s-stoele.ads		20200819171400 2dc34a04 system.storage_elements%s
+D s-unstyp.ads		20200819171400 5ecf7212 system.unsigned_types%s
+G a e
+G c Z s b [check_id stmpe1600 52 14 none]
+G c Z s b [set_interrupt_enable stmpe1600 56 14 none]
+G c Z s b [set_interrupt_mask stmpe1600 64 14 none]
+G c Z s b [interrupt_mask stmpe1600 71 13 none]
+G c Z s b [interrupt_state stmpe1600 75 13 none]
+G c Z s b [pins_state stmpe1600 81 13 none]
+G c Z s b [pin_state stmpe1600 84 13 none]
+G c Z s b [set_pins_state stmpe1600 88 14 none]
+G c Z s b [set_pin_state stmpe1600 92 14 none]
+G c Z s b [set_pins_direction stmpe1600 97 14 none]
+G c Z s b [set_pin_direction stmpe1600 101 14 none]
+G c Z s b [pin_direction stmpe1600 106 13 none]
+G c Z s b [set_pin_polarity_inversion stmpe1600 111 14 none]
+G c Z s b [as_gpio_point stmpe1600 117 13 none]
+G c Z s s [support stmpe1600 156 13 none]
+G c Z s b [mode stmpe1600 165 13 none]
+G c Z s b [set_mode stmpe1600 168 14 none]
+G c Z s s [pull_resistor stmpe1600 172 13 none]
+G c Z s s [set_pull_resistor stmpe1600 177 14 none]
+G c Z s b [set stmpe1600 183 13 none]
+G c Z s b [set stmpe1600 186 14 none]
+G c Z s b [clear stmpe1600 189 14 none]
+G c Z s b [toggle stmpe1600 192 14 none]
+G c Z s b [read stmpe1600 216 14 none]
+G c Z s b [write stmpe1600 222 14 none]
+G c Z s s [stmpe1600_pinIP stmpe1600 147 9 none]
+G c Z s s [Tstmpe1600_pin_arrayBIP stmpe1600 152 4 none]
+G c Z s s [stmpe1600_expanderIP stmpe1600 194 9 none]
+G c Z s s [Tstmpe1600_pinsBIP stmpe1600 45 4 none]
+G c Z s s [Tstmpe1600_pins_directionBIP stmpe1600 48 4 none]
+G c Z s s [stmpe1600_sys_ctrlIP stmpe1600 126 9 none]
+G c Z b b [to_pins stmpe1600 39 13 none]
+G c Z b b [from_pins stmpe1600 40 13 none]
+X 1 ada.ads
+16K9*Ada 20e8 9|34r6 39r28 40r30
+X 3 a-unccon.ads
+20v14*Unchecked_Conversion 9|34w10 39r32 40r34
+X 4 hal.ads
+34K9*HAL 166e8 8|32r6 33r6 37r45 38r36 119r43 124r13 128r22 130r22 147r30
+. 157r29 160r16 160r35 165r48 169r31 173r35 174r7 178r40 194r45 195r36 218r16
+. 219r20 224r16 225r16 9|32w6 32r15 52r11 53r16 58r10 62r21 75r11 76r16 81r10
+. 85r21 317r43 329r48 332r32 333r33 342r31 347r35 348r35
+37M9*Bit 8|128r26
+39M9*UInt2 8|130r26
+53M9*UInt8<7|63M9> 8|218r20 224r20 9|48r16 71r16
+54M9*UInt10
+66M9*UInt16<7|66M9> 9|57r10 80r10
+162A9*UInt8_Array(53M9)<integer> 8|219r24 225r20 9|38r20 49r20 72r16 96r20
+. 118r26 137r20 149r21 164r21 179r21 208r25 238r24 254r27 279r27 297r27
+X 5 hal-gpio.ads
+32K13*GPIO 95e13 8|33w10 119r47 124r17 147r34 157r33 160r20 160r39 165r52
+. 169r35 173r39 174r11 178r44 9|317r47 329r52 332r36 333r37 342r35 347r39
+. 348r39
+34E9*Capability 35e53 8|157r38
+34n38*Input{34E9} 9|332r41 347r44
+34n45*Output{34E9} 9|333r42 348r44
+35n24*Floating{34E9} 8|174r16
+35n34*Pull_Up{34E9} 8|160r25
+35n43*Pull_Down{34E9} 8|160r44
+37E12*GPIO_Mode{34E9} 8|165r57 9|329r57
+42E12*GPIO_Config_Mode{37E12} 8|169r40 9|342r40
+45E12*GPIO_Pull_Resistor{34E9} 8|124r22 173r44 178r49
+47h9*GPIO_Point 8|147r39
+49P9*Any_GPIO_Point(47R9) 8|119r52 9|317r52
+X 6 hal-i2c.ads
+32K13*I2C 84e12 8|32w10 37r49 38r40 194r49 195r40 9|52r15 53r20 58r14 62r25
+. 75r15 76r20 81r14 85r25
+34E9*I2C_Status 38e12 9|52r19 53r24 75r19 76r24
+35n7*Ok{34E9} 9|62r29 85r29
+43n7*Memory_Size_8b{42E9} 9|58r18 81r18
+46M12*I2C_Address{4|54M9} 8|38r44 195r44
+48h9*I2C_Port
+50P9*Any_I2C_Port(48R9) 8|37r53 194r53
+66x14*Mem_Write 9|78R17
+75x14*Mem_Read 9|55R17
+X 7 interfac.ads
+63M9*Unsigned_8
+66M9*Unsigned_16
+X 8 stmpe1600.ads
+35K9*STMPE1600 126E9 228l5 228e14 9|36b14 399l5 399t14
+37R9*STMPE1600_Expander 37d29 38d29 39r46 53r23 57r25 65r14 72r14 76r14 82r21
+. 85r21 89r21 93r22 98r19 102r19 107r14 112r25 118r21 194c9 198e14 217r16
+. 223r16 9|47r16 70r16 93r23 112r25 133r14 147r16 162r14 177r21 192r21 205r21
+. 220r22 235r19 249r19 274r14 292r25 316r21
+37p29 Port{6|50P9} 194r29 9|55r12 78r12
+38m29 Addr{6|46M12} 195r29 9|56r15 79r15
+39P9*Any_STMPE1600_Expander(37R9) 148r14
+41E9*STMPE1600_Pin_Polarity 41e47 59r18 127r22 9|114r18
+41n36*Low{41E9} 127r48
+41n41*High{41E9}
+42E9*STMPE1600_Pin_Direction 42e52 49r38 104r19 109r14 9|251r19 276r14
+42n37*Input{42E9} 9|284r46 332r23 347r53
+42n44*Output{42E9} 9|256r51 284r34 333r23 348r54
+43I9*STMPE1600_Pin_Number<short_short_integer> 45r34 49r13 86r14 94r15 103r19
+. 108r14 113r25 119r14 149r14 153r13 9|193r14 221r15 250r19 275r14 293r25
+. 317r14
+45A9*STMPE1600_Pins(boolean)<43I9> 66r14 72r41 76r41 82r48 90r14 9|39r60
+. 40r56 134r14 147r43 162r41 177r48 195r23 206r14 224r14 253r27 278r27 296r27
+48A9*STMPE1600_Pins_Direction(42E9)<43I9> 99r19 9|236r19
+52U14*Check_Id 53=7 54<7 9|92b14 105l8 105t16
+53r7 This{37R9} 9|93b7 98r13
+54b7 Status{boolean} 9|94b7 98m53 103m10
+56U14*Set_Interrupt_Enable 57=7 58>7 59>7 60<7 9|111b14 126l8 126t28
+57r7 This{37R9} 9|112b7 120r13 124r17
+58b7 Enable{boolean} 9|113b7 122r33
+59e7 Polarity{41E9} 9|114b7 123r35
+60b7 Status{boolean} 9|115b7 120m50 121r10 124m54
+64U14*Set_Interrupt_Mask 65>7 66>7 67<7 9|132b14 140l8 140t26
+65r7 This{37R9} 9|133b7 139r14
+66a7 Mask{45A9} 9|134b7 137r57
+67b7 Status{boolean} 9|135b7 139m49
+71V13*Interrupt_Mask{45A9} 72>7 9|146b13 155l8 155t22
+72r7 This{37R9} 9|147b7 153r13
+75V13*Interrupt_State{45A9} 76>7 9|161b13 170l8 170t23
+76r7 This{37R9} 9|162b7 168r13
+81V13*Pins_State{45A9} 82=7 9|176b13 185l8 185t18 195s41 224s32
+82r7 This{37R9} 9|177b7 183r13
+84V13*Pin_State{boolean} 85=7 86>7 9|191b13 198l8 198t17 359s14
+85r7 This{37R9} 9|192b7 195m53 195r53
+86i7 Pin{43I9} 9|193b7 197r20
+88U14*Set_Pins_State 89=7 90>7 9|204b14 213l8 213t22 227s7
+89r7 This{37R9} 9|205b7 212r14
+90a7 Pins{45A9} 9|206b7 208r60
+92U14*Set_Pin_State 93=7 94>7 95>7 9|219b14 228l8 228t21 370s7 381s7
+93r7 This{37R9} 9|220b7 224m44 224r44 227m23
+94i7 Pin{43I9} 9|221b7 226r13
+95b7 State{boolean} 9|222b7 226r21
+97U14*Set_Pins_Direction 98>7 99>7 9|234b14 242l8 242t26
+98r7 This{37R9} 9|235b7 241r14
+99a7 Pins{48A9} 9|236b7 238r61
+101U14*Set_Pin_Direction 102>7 103>7 104>7 9|248b14 267l8 267t25 345s7
+102r7 This{37R9} 9|249b7 259r13 266r14
+103i7 Pin{43I9} 9|250b7 260r16 265r13
+104e7 Direction{42E9} 9|251b7 256r39
+106V13*Pin_Direction{42E9} 107>7 108>7 9|273b13 285l8 285t21 331s20
+107r7 This{37R9} 9|274b7 283r13
+108i7 Pin{43I9} 9|275b7 284r24
+111U14*Set_Pin_Polarity_Inversion 112>7 113>7 114>7 9|291b14 309l8 309t34
+112r7 This{37R9} 9|292b7 301r13 308r14
+113i7 Pin{43I9} 9|293b7 302r16 307r13
+114b7 Inversion_State{boolean} 9|294b7 302r23 307r21
+117V13*As_GPIO_Point{5|49P9} 118=7 119>7 9|315b13 322l8 322t21
+118r7 This{37R9} 9|316b7 320m7 320r7 320m29 320r29 321m14 321r14
+119i7 Pin{43I9} 9|317b7 320r20 320r55 321r27
+126R9 STMPE1600_SYS_CTRL 134e15 136r8 9|117r26
+127e7*INT_Polarity{41E9} 137r7 9|123m19
+128m7*Reserved_1{4|37M9} 138r7
+129b7*INT_Enable{boolean} 139r7 9|122m19
+130m7*Reserved_3_4{4|39M9} 140r7
+131b7*Wakeup_En{boolean} 141r7
+132b7*I2C_Shdn{boolean} 142r7
+133b7*Soft_Reset{boolean} 143r7
+147R9 STMPE1600_Pin<5|47R9> 150e14 153r46 156P13 156r29 165P13 165r26 168P14
+. 168r38 172P13 172r35 177P14 177r47 183P13 183r25 186P14 186r33 189P14 189r35
+. 192P14 192r36 9|329r26 341r38 356r25 367r33 378r35 389r36
+148p7*Port{39P9} 9|331r40 345r31 359r30 370r27 381r27
+149i7*Pin{43I9} 9|331r55 345r46 359r45 370r42 381r42
+152A9 STMPE1600_Pin_Array(147R9)<43I9> 197r16
+156V13 Support{boolean}<5|51p13> 156>22 157>22
+156r22 This{147R9}
+157e22 Capa{5|34E9} 159r13
+165V13 Mode{5|37E12}<5|57p13> 165>19 9|329b13 334l8 334t12
+165r19 This{147R9} 9|329b19 331r35 331r50
+168U14 Set_Mode<5|60p14> 168=24 169>24 9|341b14 349l8 349t16
+168r24 This{147R9} 9|341b24 345r26 345r41
+169e24 Mode{5|42E12} 9|342b24 346r32
+172V13 Pull_Resistor{5|45E12}<5|66p13> 172>28
+172r28 This{147R9}
+177U14 Set_Pull_Resistor<5|70p14> 177=33 178>33
+177r33 This{147R9}
+178e33 Pull{5|45E12}
+183V13 Set{boolean}<5|76p13> 183>18 9|356b13 360l8 360t11 392s15
+183r18 This{147R9} 9|356b18 359r25 359r40
+186U14 Set<5|88p14> 186=19 9|367b14 371l8 371t11 395s15
+186r19 This{147R9} 9|367b19 370r22 370r37
+189U14 Clear<5|90p14> 189=21 9|378b14 382l8 382t13 393s15
+189r21 This{147R9} 9|378b21 381r22 381r37
+192U14 Toggle<5|92p14> 192=22 9|389b14 397l8 397t14
+192r22 This{147R9} 9|389b22 392r10 393m10 393r10 395m10 395r10
+197a7*Points{152A9} 9|320m12 321m19
+200N4 STMPE1600_REG_ChipID 9|98r19
+201N4 STMPE1600_REG_Version_ID
+202N4 STMPE1600_REG_System_Ctrl 9|120r19 124r23
+203N4 STMPE1600_REG_IEGPIOR_0 9|139r20 153r19
+204N4 STMPE1600_REG_IEGPIOR_1
+205N4 STMPE1600_REG_ISGPIOR_0 9|168r19
+206N4 STMPE1600_REG_ISGPIOR_1
+207N4 STMPE1600_REG_GPMR_0 9|183r19
+208N4 STMPE1600_REG_GPMR_1
+209N4 STMPE1600_REG_GPSR_0 9|212r20
+210N4 STMPE1600_REG_GPSR_1
+211N4 STMPE1600_REG_GPDR_0 9|241r20 259r19 266r20 283r19
+212N4 STMPE1600_REG_GPDR_1
+213N4 STMPE1600_REG_GPPIR_0 9|301r19 308r20
+214N4 STMPE1600_REG_GPPIR_1
+216U14 Read 217>7 218>7 219<7 220<7 9|46b14 63l8 63t12 98s7 120s7 153s7 168s7
+. 183s7 259s7 283s7 301s7
+217r7 This{37R9} 9|47b7 55r7 56r10
+218m7 Reg{4|53M9} 9|48b7 57r18
+219a7 Data{4|162A9} 9|49b7 59m10
+220b7 Status{boolean} 9|50b7 62m7
+222U14 Write 223>7 224>7 225>7 226<7 9|69b14 86l8 86t13 124s10 139s7 212s7
+. 241s7 266s7 308s7
+223r7 This{37R9} 9|70b7 78r7 79r10
+224m7 Reg{4|53M9} 9|71b7 80r18
+225a7 Data{4|162A9} 9|72b7 82r10
+226b7 Status{boolean} 9|73b7 85m7
+X 9 stmpe1600.adb
+38A12 BA_2{4|162A9}<integer> 39r54 40r72
+39V13 To_Pins[3|20]{8|45A9} 154s14 169s14 184s14
+40V13 From_Pins[3|20]{4|162A9} 208s49
+52e7 S{6|34E9} 60m10 62r17
+75e7 S{6|34E9} 83m10 85r17
+96a7 Identifier{4|162A9} 98m41 100r10 101r17
+117r7 Sys_Ctrl{8|126R9} 118m63 118r63 122m10 123m10
+118a7 BA{4|162A9} 120m46 124r50
+137a7 BA{4|162A9} 139r45
+149a7 BA{4|162A9} 153m44 154r23
+150b7 Status{boolean} 153m48
+164a7 BA{4|162A9} 168m44 169r23
+165b7 Status{boolean} 168m48
+179a7 BA{4|162A9} 183m41 184r23
+180b7 Status{boolean} 183m45
+195a7 Pins{8|45A9} 197r14
+208a7 BA{4|162A9} 212r42
+209b7 Status{boolean} 212m46
+224a7 Pins{8|45A9} 226m7 227r29
+238a7 BA{4|162A9} 241r42
+239b7 Status{boolean} 241m46
+253a7 Pins{8|45A9} 254m64 254r64 260r10 265m7
+254a7 BA{4|162A9} 259m41 266r42
+255b7 Status{boolean} 259m45 266m46
+256b7 New_State{boolean} 260r23 265r21
+278a7 Pins{8|45A9} 279m64 279r64 284r18
+279a7 BA{4|162A9} 283m41
+280b7 Status{boolean} 283m45
+296a7 Pins{8|45A9} 297m64 297r64 302r10 307m7
+297a7 BA{4|162A9} 301m42 308r43
+298b7 Status{boolean} 301m46 308m47
+

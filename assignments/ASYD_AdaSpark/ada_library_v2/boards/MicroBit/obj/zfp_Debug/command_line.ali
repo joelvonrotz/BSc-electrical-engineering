@@ -1,0 +1,173 @@
+V "GNAT Lib v2020"
+A -O0
+A -gnatA
+A --RTS=C:\gnat\2020-arm-elf\arm-eabi\lib\gnat\zfp-cortex-m4f\
+A -mlittle-endian
+A -mthumb
+A -mfloat-abi=hard
+A -mcpu=cortex-m4
+A -mfpu=fpv4-sp-d16
+A -gnata
+A -fcallgraph-info=su
+A -fcallgraph-info=su
+A -g
+A -gnatwa
+A -gnatw_A
+A -gnatQ
+A -gnatw.X
+A -ffunction-sections
+A -fdata-sections
+A -march=armv7e-m+fp
+P SS ZX
+
+RN
+RV NO_ACCESS_SUBPROGRAMS
+RV NO_DISPATCH
+RV NO_DISPATCHING_CALLS
+RV NO_IMPLICIT_CONDITIONALS
+RV NO_RECURSION
+RV NO_SECONDARY_STACK
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_UNCHECKED_ACCESS
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLICIT_LOOPS
+RV NO_ELABORATION_CODE
+
+U command_line%b	command_line.adb	8e9ba915 OO PK
+Z ada.tags%s		a-tags.adb		a-tags.ali
+Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+
+U command_line%s	command_line.ads	29283dc6 EE NE OO PK
+Z ada.tags%s		a-tags.adb		a-tags.ali
+Z system%s		system.ads		system.ali
+Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+
+D ada.ads		20200819171400 76789da1 ada%s
+D a-tags.ads		20200819171400 95e09aae ada.tags%s
+D command_line.ads	20210108111948 29283dc6 command_line%s
+D command_line.adb	20210108111948 a7b394d3 command_line%b
+D system.ads		20200819171400 e69b74bd system%s
+D s-parame.ads		20200819171400 fe66c50d system.parameters%s
+D s-secsta.ads		20200819171400 56a2861c system.secondary_stack%s
+D s-stoele.ads		20200819171400 2dc34a04 system.storage_elements%s
+G a e
+G c Z s b [next command_line 43 13 none]
+G c Z s b [remaining command_line 44 13 none]
+G c Z s b [create command_line 48 13 none]
+G c Z s b [run command_line 74 14 none]
+G c Z s b [register command_line 78 14 none]
+G c Z s s [commandIP command_line 102 9 none]
+G c Z s s [name command_line 115 13 none]
+G c Z s b [execute command_line 119 14 none]
+G c Z s b [help command_line 124 14 none]
+G c Z s s [name command_line 133 13 none]
+G c Z s b [execute command_line 137 14 none]
+G c Z s b [help command_line 142 14 none]
+G c Z s s [string_delimitersIP command_line 86 9 none]
+G c Z s s [string_delimiters_arrayIP command_line 90 9 none]
+G c Z s s [argumentsIP command_line 92 9 none]
+G c Z s s [echo_cmdIP command_line 112 9 none]
+G c Z s s [help_cmdIP command_line 130 9 none]
+G c Z b b [make_delims command_line 41 13 none]
+X 3 command_line.ads
+32K9*Command_Line 86E9 146l5 146e17 4|32b14 281l5 281t17
+34P9*Put_Procedure 34>53 63r34 67r31 75r30 121r34 125r31 139r34 143r31 4|83r34
+. 118r31 135r34 179r31 241r18
+34a53 Str{string}
+35P9*Put_Line_Procedure 35>58 64r34 68r31 76r30 122r34 126r31 140r34 144r31
+. 4|84r34 119r31 136r34 180r31 242r18
+35a58 Str{string}
+41R9*Arguments 41d20 43p13 43r33 44p13 44r31 48p13 48r59 62r41 92c9 96e14
+. 120r41 138r41 4|82r41 134r41 183r14 195r33 211r31 224r59 226r13 226r26
+. 244r20
+41i20 Number_Of_Args{natural} 92r20 93r50 4|183m28 226m37
+43V13*Next{string} 43=19 4|92R43 154R46 195b13 205l8 205t12 245s44
+43r19 This{41R9} 4|195b19 198r10 198r26 199r19 200m10 200r26 201r17 201r27
+. 201r59
+44V13*Remaining{natural} 44>24 4|141R15 211b13 218l8 218t17
+44r24 This{41R9} 4|211b24 213r10 213r26 214r17 214r40
+46P9*String_Access(string) 48r37 94r29 4|224r37
+48V13*Create{41R9} 48>21 4|224b13 233l8 233t14 244s33
+48p21 Line{46P9} 4|224b21 225r62 228r55
+54H9*Command 56r35 58p13 58r26 61p14 61r41 66p14 66r38 102c9 104e14 112r25
+. 130r25
+56P9*Any_Command(54R9) 78r30 103r14 4|36r19 139r20 246r20 275r30
+58y13*Name{string} 58>19 4|147R42 159R61 253R24
+58r19 This{54R9}
+61x14*Execute 61=23 62=23 63>23 64>23 4|268R18
+61r23 This{54R9}
+62c23 Args<41R9>
+63p23 Put{34P9}
+64p23 Put_Line{35P9}
+66x14*Help 66=20 67>20 68>20 4|164R30
+66r20 This{54R9}
+67p20 Put{34P9}
+68p20 Put_Line{35P9}
+74U14*Run 74>19 75>19 76>19 4|239b14 269l8 269t11
+74a19 Line{string} 4|240b7 244r41
+75p19 Put{34P9} 4|241b7 268r33
+76p19 Put_Line{35P9} 4|242b7 261r10 268r38
+78U14*Register 78>24 4|275b14 279l8 279t16
+78p24 Cmd{56P9} 4|275b24 277r7 278r23
+86R9 String_Delimiters 88e14 90r64 4|48r15
+87i7*From{natural} 4|60m13 69r27 201r51
+87i13*To{natural} 4|67m13 69r16 201r83
+90A9 String_Delimiters_Array(86R9)<integer> 93r20 4|38r33 41r49 47r49 225r22
+93a7*Delimiters{90A9} 4|184m28 198r31 201r32 201r64 213r31 214r22 227m37
+. 231r26
+94p7*Str{46P9} 4|186m28 201r22 228m37
+95i7*Current{natural} 4|185m28 198r15 199r24 200m15 200r31 213r15 214r45
+. 229m37 231m11
+103p7*Next{56P9} 4|34m50 35m50 148r38 160r44 256r38 277m11
+112R9 Echo_Cmd<54R9> 112e49 115P13 115r26 119P14 119r41 124P14 124r38 4|34r28
+. 34r40 81r41 117r38
+115V13 Name{string}<58p13> 115>19
+115r19 This{112R9}
+119U14 Execute<61p14> 119=23 120=23 121>23 122>23 4|81b14 110l8 110t15
+119r23 This{112R9} 4|81b23 86r28
+120c23 Args<41R9> 4|82b23 92m38 92r38
+121p23 Put{34P9} 4|83b23 99r19 102r19
+122p23 Put_Line{35P9} 4|84b23 108r10
+124U14 Help<66p14> 124=20 125>20 126>20 4|117b14 126l8 126t12
+124r20 This{112R9} 4|117b20 121r28
+125p20 Put{34P9} 4|118b20 121r34
+126p20 Put_Line{35P9} 4|119b20 123r7 124r7 125r7
+130R9 Help_Cmd<54R9> 130e49 133P13 133r26 137P14 137r41 142P14 142r38 4|35r28
+. 35r40 133r41 178r38
+133V13 Name{string}<58p13> 133>19
+133r19 This{130R9}
+137U14 Execute<61p14> 137=23 138=23 139>23 140>23 4|133b14 171l8 171t15 188s12
+137r23 This{130R9} 4|133b23 138r28
+138c23 Args<41R9> 4|134b23 141r10 154m41 154r41
+139p23 Put{34P9} 4|135b23 164r36
+140p23 Put_Line{35P9} 4|136b23 145r10 147r13 150r10 164r41 166r19
+142U14 Help<66p14> 142=20 143>20 144>20 4|178b14 189l8 189t12
+142r20 This{130R9} 4|178b20 188m7 188r7
+143p20 Put{34P9} 4|179b20 188r27
+144p20 Put_Line{35P9} 4|180b20 188r32
+X 4 command_line.adb
+34r4 Echo_Instance{3|112R9} 35m58 35r58
+35r4 Help_Instance{3|130R9} 36m34 36r34
+36p4 Command_List{3|56P9} 139r35 157r30 246r35 277r19 278m7
+38a4 Empty_Delim_Array{3|90A9} 57r17 70r17 184r46
+41V13 Make_Delims{3|90A9} 41>26 47b13 73s22 74l8 74t19 225s49
+41a26 Input{string} 47b26 49r26 52r22 52r43 56r23 63r22 63r43 73r35 73r53
+48r7 Delim{3|86R9} 60m7 67m7 69r10 69r21 73r14
+49i7 Index{natural} 52r13 52r50 53m10 53r19 56r10 60r21 63r13 63r50 64m10
+. 64r19 67r19 73r43
+87b7 First{boolean} 95r16 98r19 100m19
+88b7 New_Line{boolean} 96m16 107r10
+92a13 Arg{string} 94r23 95r31 99r24 102r30
+139p7 Cmd_Driver{3|56P9} 146r16 147r31 148m13 148r27 157m16 159r22 159r50
+. 160m19 160r33 163r19 164r19
+154a16 Arg{string} 156r26 159r69 166r52
+182a7 Empty{string} 186r46
+183r7 Args{3|41R9} 188m21 188r21
+196i7 Index{natural} 199m10 201r44 201r76
+225a7 Arr{3|90A9} 226r55 227r55 229r55
+226r7 Ret{3|41R9} 231m7 231r22 232r14
+244r7 Args{3|41R9} 245r39 268r27
+245a7 Cmd{string} 248r10 253r31 261r43
+246p7 Cmd_Driver{3|56P9} 252r13 253r13 256m13 256r27 260r10 264r10 268r7
+

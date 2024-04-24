@@ -1,0 +1,723 @@
+graph: { title: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb"
+class {
+  classname: "soft_drawing_bitmap__soft_drawing_bitmap_buffer"
+  label: "soft_drawing_bitmap__soft_drawing_bitmap_buffer\soft_drawing_bitmap.ads:42:9"
+  parent: "hal__bitmap__bitmap_buffer"
+  virtuals: "7:soft_drawing_bitmap__set_source__2,7:hal__bitmap__bitmap_buffer\n
+             9:soft_drawing_bitmap__source__2,9:hal__bitmap__bitmap_buffer\n
+             12:soft_drawing_bitmap__set_pixel__2,12:hal__bitmap__bitmap_buffer\n
+             13:soft_drawing_bitmap__set_pixel__3,13:hal__bitmap__bitmap_buffer\n
+             15:soft_drawing_bitmap__pixel__2,15:hal__bitmap__bitmap_buffer\n
+             17:soft_drawing_bitmap__draw_line,17:hal__bitmap__bitmap_buffer\n
+             18:soft_drawing_bitmap__fill,18:hal__bitmap__bitmap_buffer\n
+             19:soft_drawing_bitmap__fill_rect,19:hal__bitmap__bitmap_buffer\n
+             20:soft_drawing_bitmap__copy_rect,20:hal__bitmap__bitmap_buffer\n
+             21:soft_drawing_bitmap__copy_rect__2,21:hal__bitmap__bitmap_buffer\n
+             22:soft_drawing_bitmap__copy_rect_blend,22:hal__bitmap__bitmap_buffer\n
+             23:soft_drawing_bitmap__draw_vertical_line,23:hal__bitmap__bitmap_buffer\n
+             24:soft_drawing_bitmap__draw_horizontal_line,24:hal__bitmap__bitmap_buffer\n
+             25:soft_drawing_bitmap__draw_rect,25:hal__bitmap__bitmap_buffer\n
+             26:soft_drawing_bitmap__draw_rounded_rect,26:hal__bitmap__bitmap_buffer\n
+             27:soft_drawing_bitmap__fill_rounded_rect,27:hal__bitmap__bitmap_buffer\n
+             28:soft_drawing_bitmap__draw_circle,28:hal__bitmap__bitmap_buffer\n
+             29:soft_drawing_bitmap__fill_circle,29:hal__bitmap__bitmap_buffer\n
+             30:soft_drawing_bitmap__cubic_bezier,30:hal__bitmap__bitmap_buffer\n
+             31:soft_drawing_bitmap__bezier,31:hal__bitmap__bitmap_buffer\n
+             -1:soft_drawing_bitmap___size__2,-1:hal__bitmap__bitmap_buffer\n
+             -6:soft_drawing_bitmap__Oeq__2,-6:hal__bitmap__bitmap_buffer\n
+             -7:soft_drawing_bitmap___assign__2,-7:hal__bitmap__bitmap_buffer"
+}
+edge: { sourcename: "soft_drawing_bitmap__set_source__2"
+  targetname: "4:hal__bitmap__bitmap_buffer,soft_drawing_bitmap__soft_drawing_bitmap_buffer"
+  label: "soft_drawing_bitmap.adb:48:49"
+}
+edge: { sourcename: "soft_drawing_bitmap__set_source__2"
+  targetname: "8:hal__bitmap__bitmap_buffer,soft_drawing_bitmap__soft_drawing_bitmap_buffer"
+  label: "soft_drawing_bitmap.adb:47:24"
+}
+edge: { sourcename: "soft_drawing_bitmap__source__2"
+  targetname: "4:hal__bitmap__bitmap_buffer,soft_drawing_bitmap__soft_drawing_bitmap_buffer"
+  label: "soft_drawing_bitmap.adb:61:53"
+}
+edge: { sourcename: "soft_drawing_bitmap__source__2"
+  targetname: "10:hal__bitmap__bitmap_buffer,soft_drawing_bitmap__soft_drawing_bitmap_buffer"
+  label: "soft_drawing_bitmap.adb:62:53"
+}
+edge: { sourcename: "soft_drawing_bitmap__set_pixel__2"
+  targetname: "7:soft_drawing_bitmap__soft_drawing_bitmap_buffer,soft_drawing_bitmap__soft_drawing_bitmap_buffer"
+  label: "soft_drawing_bitmap.adb:76:24"
+}
+edge: { sourcename: "soft_drawing_bitmap__set_pixel__2"
+  targetname: "11:hal__bitmap__bitmap_buffer,soft_drawing_bitmap__soft_drawing_bitmap_buffer"
+  label: "soft_drawing_bitmap.adb:77:24"
+}
+edge: { sourcename: "soft_drawing_bitmap__set_pixel__3"
+  targetname: "8:hal__bitmap__bitmap_buffer,soft_drawing_bitmap__soft_drawing_bitmap_buffer"
+  label: "soft_drawing_bitmap.adb:91:24"
+}
+edge: { sourcename: "soft_drawing_bitmap__set_pixel__3"
+  targetname: "11:hal__bitmap__bitmap_buffer,soft_drawing_bitmap__soft_drawing_bitmap_buffer"
+  label: "soft_drawing_bitmap.adb:92:24"
+}
+edge: { sourcename: "soft_drawing_bitmap__pixel__2"
+  targetname: "4:hal__bitmap__bitmap_buffer,soft_drawing_bitmap__soft_drawing_bitmap_buffer"
+  label: "soft_drawing_bitmap.adb:100:47"
+}
+edge: { sourcename: "soft_drawing_bitmap__pixel__2"
+  targetname: "16:hal__bitmap__bitmap_buffer,soft_drawing_bitmap__soft_drawing_bitmap_buffer"
+  label: "soft_drawing_bitmap.adb:101:47"
+}
+edge: { sourcename: "soft_drawing_bitmap__draw_line__draw_point"
+  targetname: "29:soft_drawing_bitmap__soft_drawing_bitmap_buffer,soft_drawing_bitmap__soft_drawing_bitmap_buffer"
+  label: "soft_drawing_bitmap.adb:132:33"
+}
+edge: { sourcename: "soft_drawing_bitmap__draw_line__draw_point"
+  targetname: "19:soft_drawing_bitmap__soft_drawing_bitmap_buffer,soft_drawing_bitmap__soft_drawing_bitmap_buffer"
+  label: "soft_drawing_bitmap.adb:135:33"
+}
+edge: { sourcename: "soft_drawing_bitmap__draw_line__draw_point"
+  targetname: "11:hal__bitmap__bitmap_buffer,soft_drawing_bitmap__soft_drawing_bitmap_buffer"
+  label: "soft_drawing_bitmap.adb:141:30"
+}
+edge: { sourcename: "soft_drawing_bitmap__fill"
+  targetname: "2:hal__bitmap__bitmap_buffer,soft_drawing_bitmap__soft_drawing_bitmap_buffer"
+  label: "soft_drawing_bitmap.adb:190:38"
+}
+edge: { sourcename: "soft_drawing_bitmap__fill"
+  targetname: "1:hal__bitmap__bitmap_buffer,soft_drawing_bitmap__soft_drawing_bitmap_buffer"
+  label: "soft_drawing_bitmap.adb:191:41"
+}
+edge: { sourcename: "soft_drawing_bitmap__fill"
+  targetname: "11:hal__bitmap__bitmap_buffer,soft_drawing_bitmap__soft_drawing_bitmap_buffer"
+  label: "soft_drawing_bitmap.adb:192:30"
+}
+edge: { sourcename: "soft_drawing_bitmap__fill_rect"
+  targetname: "11:hal__bitmap__bitmap_buffer,soft_drawing_bitmap__soft_drawing_bitmap_buffer"
+  label: "soft_drawing_bitmap.adb:209:30"
+}
+edge: { sourcename: "soft_drawing_bitmap__copy_rect__2"
+  targetname: "1:hal__bitmap__bitmap_buffer,hal__bitmap__bitmap_buffer"
+  label: "soft_drawing_bitmap.adb:251:39"
+}
+edge: { sourcename: "soft_drawing_bitmap__copy_rect__2"
+  targetname: "2:hal__bitmap__bitmap_buffer,hal__bitmap__bitmap_buffer"
+  label: "soft_drawing_bitmap.adb:253:40"
+}
+edge: { sourcename: "soft_drawing_bitmap__copy_rect__2"
+  targetname: "1:hal__bitmap__bitmap_buffer,soft_drawing_bitmap__soft_drawing_bitmap_buffer"
+  label: "soft_drawing_bitmap.adb:258:50"
+}
+edge: { sourcename: "soft_drawing_bitmap__copy_rect__2"
+  targetname: "2:hal__bitmap__bitmap_buffer,soft_drawing_bitmap__soft_drawing_bitmap_buffer"
+  label: "soft_drawing_bitmap.adb:260:51"
+}
+edge: { sourcename: "soft_drawing_bitmap__copy_rect__2"
+  targetname: "15:hal__bitmap__bitmap_buffer,hal__bitmap__bitmap_buffer"
+  label: "soft_drawing_bitmap.adb:267:30"
+}
+edge: { sourcename: "soft_drawing_bitmap__copy_rect__2"
+  targetname: "7:soft_drawing_bitmap__soft_drawing_bitmap_buffer,soft_drawing_bitmap__soft_drawing_bitmap_buffer"
+  label: "soft_drawing_bitmap.adb:268:34"
+}
+edge: { sourcename: "soft_drawing_bitmap__copy_rect__2"
+  targetname: "11:hal__bitmap__bitmap_buffer,soft_drawing_bitmap__soft_drawing_bitmap_buffer"
+  label: "soft_drawing_bitmap.adb:269:34"
+}
+edge: { sourcename: "soft_drawing_bitmap__copy_rect_blend"
+  targetname: "20:hal__bitmap__bitmap_buffer,hal__bitmap__bitmap_buffer"
+  label: "soft_drawing_bitmap.adb:289:7"
+}
+edge: { sourcename: "soft_drawing_bitmap__draw_vertical_line"
+  targetname: "19:soft_drawing_bitmap__soft_drawing_bitmap_buffer,soft_drawing_bitmap__soft_drawing_bitmap_buffer"
+  label: "soft_drawing_bitmap.adb:312:7"
+}
+edge: { sourcename: "soft_drawing_bitmap__draw_horizontal_line"
+  targetname: "19:soft_drawing_bitmap__soft_drawing_bitmap_buffer,soft_drawing_bitmap__soft_drawing_bitmap_buffer"
+  label: "soft_drawing_bitmap.adb:329:7"
+}
+edge: { sourcename: "soft_drawing_bitmap__draw_rect"
+  targetname: "19:soft_drawing_bitmap__soft_drawing_bitmap_buffer,soft_drawing_bitmap__soft_drawing_bitmap_buffer"
+  label: "soft_drawing_bitmap.adb:351:24"
+}
+edge: { sourcename: "soft_drawing_bitmap__draw_rect"
+  targetname: "19:soft_drawing_bitmap__soft_drawing_bitmap_buffer,soft_drawing_bitmap__soft_drawing_bitmap_buffer"
+  label: "soft_drawing_bitmap.adb:355:24"
+}
+edge: { sourcename: "soft_drawing_bitmap__draw_rect"
+  targetname: "19:soft_drawing_bitmap__soft_drawing_bitmap_buffer,soft_drawing_bitmap__soft_drawing_bitmap_buffer"
+  label: "soft_drawing_bitmap.adb:359:24"
+}
+edge: { sourcename: "soft_drawing_bitmap__draw_rect"
+  targetname: "19:soft_drawing_bitmap__soft_drawing_bitmap_buffer,soft_drawing_bitmap__soft_drawing_bitmap_buffer"
+  label: "soft_drawing_bitmap.adb:363:24"
+}
+edge: { sourcename: "soft_drawing_bitmap__draw_rounded_rect__draw_point"
+  targetname: "19:soft_drawing_bitmap__soft_drawing_bitmap_buffer,soft_drawing_bitmap__soft_drawing_bitmap_buffer"
+  label: "soft_drawing_bitmap.adb:399:30"
+}
+edge: { sourcename: "soft_drawing_bitmap__draw_rounded_rect__draw_point"
+  targetname: "11:hal__bitmap__bitmap_buffer,soft_drawing_bitmap__soft_drawing_bitmap_buffer"
+  label: "soft_drawing_bitmap.adb:404:30"
+}
+edge: { sourcename: "soft_drawing_bitmap__draw_rounded_rect"
+  targetname: "19:soft_drawing_bitmap__soft_drawing_bitmap_buffer,soft_drawing_bitmap__soft_drawing_bitmap_buffer"
+  label: "soft_drawing_bitmap.adb:414:24"
+}
+edge: { sourcename: "soft_drawing_bitmap__draw_rounded_rect"
+  targetname: "19:soft_drawing_bitmap__soft_drawing_bitmap_buffer,soft_drawing_bitmap__soft_drawing_bitmap_buffer"
+  label: "soft_drawing_bitmap.adb:418:24"
+}
+edge: { sourcename: "soft_drawing_bitmap__draw_rounded_rect"
+  targetname: "19:soft_drawing_bitmap__soft_drawing_bitmap_buffer,soft_drawing_bitmap__soft_drawing_bitmap_buffer"
+  label: "soft_drawing_bitmap.adb:422:24"
+}
+edge: { sourcename: "soft_drawing_bitmap__draw_rounded_rect"
+  targetname: "19:soft_drawing_bitmap__soft_drawing_bitmap_buffer,soft_drawing_bitmap__soft_drawing_bitmap_buffer"
+  label: "soft_drawing_bitmap.adb:426:24"
+}
+edge: { sourcename: "soft_drawing_bitmap__fill_rounded_rect"
+  targetname: "19:soft_drawing_bitmap__soft_drawing_bitmap_buffer,soft_drawing_bitmap__soft_drawing_bitmap_buffer"
+  label: "soft_drawing_bitmap.adb:474:27"
+}
+edge: { sourcename: "soft_drawing_bitmap__fill_rounded_rect"
+  targetname: "19:soft_drawing_bitmap__soft_drawing_bitmap_buffer,soft_drawing_bitmap__soft_drawing_bitmap_buffer"
+  label: "soft_drawing_bitmap.adb:478:24"
+}
+edge: { sourcename: "soft_drawing_bitmap__fill_rounded_rect"
+  targetname: "24:soft_drawing_bitmap__soft_drawing_bitmap_buffer,soft_drawing_bitmap__soft_drawing_bitmap_buffer"
+  label: "soft_drawing_bitmap.adb:494:27"
+}
+edge: { sourcename: "soft_drawing_bitmap__fill_rounded_rect"
+  targetname: "24:soft_drawing_bitmap__soft_drawing_bitmap_buffer,soft_drawing_bitmap__soft_drawing_bitmap_buffer"
+  label: "soft_drawing_bitmap.adb:497:27"
+}
+edge: { sourcename: "soft_drawing_bitmap__fill_rounded_rect"
+  targetname: "24:soft_drawing_bitmap__soft_drawing_bitmap_buffer,soft_drawing_bitmap__soft_drawing_bitmap_buffer"
+  label: "soft_drawing_bitmap.adb:500:27"
+}
+edge: { sourcename: "soft_drawing_bitmap__fill_rounded_rect"
+  targetname: "24:soft_drawing_bitmap__soft_drawing_bitmap_buffer,soft_drawing_bitmap__soft_drawing_bitmap_buffer"
+  label: "soft_drawing_bitmap.adb:503:27"
+}
+edge: { sourcename: "soft_drawing_bitmap__draw_circle"
+  targetname: "11:hal__bitmap__bitmap_buffer,soft_drawing_bitmap__soft_drawing_bitmap_buffer"
+  label: "soft_drawing_bitmap.adb:527:24"
+}
+edge: { sourcename: "soft_drawing_bitmap__draw_circle"
+  targetname: "11:hal__bitmap__bitmap_buffer,soft_drawing_bitmap__soft_drawing_bitmap_buffer"
+  label: "soft_drawing_bitmap.adb:528:24"
+}
+edge: { sourcename: "soft_drawing_bitmap__draw_circle"
+  targetname: "11:hal__bitmap__bitmap_buffer,soft_drawing_bitmap__soft_drawing_bitmap_buffer"
+  label: "soft_drawing_bitmap.adb:529:24"
+}
+edge: { sourcename: "soft_drawing_bitmap__draw_circle"
+  targetname: "11:hal__bitmap__bitmap_buffer,soft_drawing_bitmap__soft_drawing_bitmap_buffer"
+  label: "soft_drawing_bitmap.adb:530:24"
+}
+edge: { sourcename: "soft_drawing_bitmap__draw_circle"
+  targetname: "11:hal__bitmap__bitmap_buffer,soft_drawing_bitmap__soft_drawing_bitmap_buffer"
+  label: "soft_drawing_bitmap.adb:541:27"
+}
+edge: { sourcename: "soft_drawing_bitmap__draw_circle"
+  targetname: "11:hal__bitmap__bitmap_buffer,soft_drawing_bitmap__soft_drawing_bitmap_buffer"
+  label: "soft_drawing_bitmap.adb:542:27"
+}
+edge: { sourcename: "soft_drawing_bitmap__draw_circle"
+  targetname: "11:hal__bitmap__bitmap_buffer,soft_drawing_bitmap__soft_drawing_bitmap_buffer"
+  label: "soft_drawing_bitmap.adb:543:27"
+}
+edge: { sourcename: "soft_drawing_bitmap__draw_circle"
+  targetname: "11:hal__bitmap__bitmap_buffer,soft_drawing_bitmap__soft_drawing_bitmap_buffer"
+  label: "soft_drawing_bitmap.adb:544:27"
+}
+edge: { sourcename: "soft_drawing_bitmap__draw_circle"
+  targetname: "11:hal__bitmap__bitmap_buffer,soft_drawing_bitmap__soft_drawing_bitmap_buffer"
+  label: "soft_drawing_bitmap.adb:545:27"
+}
+edge: { sourcename: "soft_drawing_bitmap__draw_circle"
+  targetname: "11:hal__bitmap__bitmap_buffer,soft_drawing_bitmap__soft_drawing_bitmap_buffer"
+  label: "soft_drawing_bitmap.adb:546:27"
+}
+edge: { sourcename: "soft_drawing_bitmap__draw_circle"
+  targetname: "11:hal__bitmap__bitmap_buffer,soft_drawing_bitmap__soft_drawing_bitmap_buffer"
+  label: "soft_drawing_bitmap.adb:547:27"
+}
+edge: { sourcename: "soft_drawing_bitmap__draw_circle"
+  targetname: "11:hal__bitmap__bitmap_buffer,soft_drawing_bitmap__soft_drawing_bitmap_buffer"
+  label: "soft_drawing_bitmap.adb:548:27"
+}
+edge: { sourcename: "soft_drawing_bitmap__fill_circle"
+  targetname: "1:hal__bitmap__bitmap_buffer,soft_drawing_bitmap__soft_drawing_bitmap_buffer"
+  label: "soft_drawing_bitmap.adb:562:60"
+}
+edge: { sourcename: "soft_drawing_bitmap__fill_circle"
+  targetname: "2:hal__bitmap__bitmap_buffer,soft_drawing_bitmap__soft_drawing_bitmap_buffer"
+  label: "soft_drawing_bitmap.adb:563:60"
+}
+edge: { sourcename: "soft_drawing_bitmap__fill_circle__draw_horizontal_line"
+  targetname: "19:soft_drawing_bitmap__soft_drawing_bitmap_buffer,soft_drawing_bitmap__soft_drawing_bitmap_buffer"
+  label: "soft_drawing_bitmap.adb:606:27"
+}
+edge: { sourcename: "soft_drawing_bitmap__fill_circle__draw_vertical_line"
+  targetname: "19:soft_drawing_bitmap__soft_drawing_bitmap_buffer,soft_drawing_bitmap__soft_drawing_bitmap_buffer"
+  label: "soft_drawing_bitmap.adb:643:27"
+}
+edge: { sourcename: "soft_drawing_bitmap__cubic_bezier"
+  targetname: "17:soft_drawing_bitmap__soft_drawing_bitmap_buffer,soft_drawing_bitmap__soft_drawing_bitmap_buffer"
+  label: "soft_drawing_bitmap.adb:800:27"
+}
+edge: { sourcename: "soft_drawing_bitmap__bezier"
+  targetname: "17:soft_drawing_bitmap__soft_drawing_bitmap_buffer,soft_drawing_bitmap__soft_drawing_bitmap_buffer"
+  label: "soft_drawing_bitmap.adb:820:27"
+}
+node: { title: "soft_drawing_bitmap__soft_drawing_bitmap_bufferIP" label: "Soft_Drawing_Bitmap_Bufferip\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.ads:42:9\n16 bytes (static)" }
+node: { title: "soft_drawing_bitmap___size__2" label: "Soft_Drawing_Bitmap\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.ads:42:9\n16 bytes (static)" }
+node: { title: "soft_drawing_bitmap__Oeq__2" label: "=\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.ads:42:4\n16 bytes (static)" }
+node: { title: "soft_drawing_bitmap___assign__2" label: "Soft_Drawing_Bitmap\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.ads:42:9\n16 bytes (static)" }
+node: { title: "soft_drawing_bitmap__natural_arrayIP" label: "Natural_Arrayip\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.ads:184:9\n16 bytes (static)" }
+node: { title: "soft_drawing_bitmap__set_source__2" label: "Set_Source\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:43:4\n24 bytes (static)" }
+node: { title: "__indirect_call" label: "Indirect Call Placeholder" shape : ellipse }
+edge: { sourcename: "soft_drawing_bitmap__set_source__2" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:48:49" }
+node: { title: "bitmap_color_conversion__bitmap_color_to_word" label: "Bitmap_Color_To_Word\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\bitmap_color_conversion.ads:37:13" shape : ellipse }
+edge: { sourcename: "soft_drawing_bitmap__set_source__2" targetname: "bitmap_color_conversion__bitmap_color_to_word" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:48:10" }
+edge: { sourcename: "soft_drawing_bitmap__set_source__2" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:47:24" }
+node: { title: "soft_drawing_bitmap__source__2" label: "Source\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:56:4\n24 bytes (static)" }
+edge: { sourcename: "soft_drawing_bitmap__source__2" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:61:53" }
+edge: { sourcename: "soft_drawing_bitmap__source__2" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:62:53" }
+node: { title: "bitmap_color_conversion__word_to_bitmap_color" label: "Word_To_Bitmap_Color\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\bitmap_color_conversion.ads:42:13" shape : ellipse }
+edge: { sourcename: "soft_drawing_bitmap__source__2" targetname: "bitmap_color_conversion__word_to_bitmap_color" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:61:14" }
+node: { title: "soft_drawing_bitmap__set_pixel__2" label: "Set_Pixel\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:70:4\n24 bytes (static)" }
+edge: { sourcename: "soft_drawing_bitmap__set_pixel__2" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:76:24" }
+edge: { sourcename: "soft_drawing_bitmap__set_pixel__2" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:77:24" }
+node: { title: "soft_drawing_bitmap__set_pixel__3" label: "Set_Pixel\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:85:4\n24 bytes (static)" }
+edge: { sourcename: "soft_drawing_bitmap__set_pixel__3" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:91:24" }
+edge: { sourcename: "soft_drawing_bitmap__set_pixel__3" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:92:24" }
+node: { title: "soft_drawing_bitmap__pixel__2" label: "Pixel\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:96:4\n24 bytes (static)" }
+edge: { sourcename: "soft_drawing_bitmap__pixel__2" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:100:47" }
+edge: { sourcename: "soft_drawing_bitmap__pixel__2" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:101:47" }
+edge: { sourcename: "soft_drawing_bitmap__pixel__2" targetname: "bitmap_color_conversion__word_to_bitmap_color" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:100:8" }
+node: { title: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:soft_drawing_bitmap__draw_line__draw_point.6001" label: "Draw_Point\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:128:7\n48 bytes (static)" }
+edge: { sourcename: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:soft_drawing_bitmap__draw_line__draw_point.6001" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:132:33" }
+node: { title: "__gnat_last_chance_handler" label: "gnat_last_chance_handler\n<built-in>" shape : ellipse }
+edge: { sourcename: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:soft_drawing_bitmap__draw_line__draw_point.6001" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:136:25" }
+edge: { sourcename: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:soft_drawing_bitmap__draw_line__draw_point.6001" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:136:25" }
+edge: { sourcename: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:soft_drawing_bitmap__draw_line__draw_point.6001" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:136:48" }
+edge: { sourcename: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:soft_drawing_bitmap__draw_line__draw_point.6001" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:136:48" }
+edge: { sourcename: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:soft_drawing_bitmap__draw_line__draw_point.6001" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:135:33" }
+edge: { sourcename: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:soft_drawing_bitmap__draw_line__draw_point.6001" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:141:30" }
+node: { title: "soft_drawing_bitmap__draw_line" label: "Draw_Line\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:108:4\n96 bytes (static)" }
+edge: { sourcename: "soft_drawing_bitmap__draw_line" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:114:34" }
+edge: { sourcename: "soft_drawing_bitmap__draw_line" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:115:34" }
+edge: { sourcename: "soft_drawing_bitmap__draw_line" targetname: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:soft_drawing_bitmap__draw_line__draw_point.6001" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:157:13" }
+edge: { sourcename: "soft_drawing_bitmap__draw_line" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:160:23" }
+edge: { sourcename: "soft_drawing_bitmap__draw_line" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:160:23" }
+edge: { sourcename: "soft_drawing_bitmap__draw_line" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:163:20" }
+edge: { sourcename: "soft_drawing_bitmap__draw_line" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:163:20" }
+edge: { sourcename: "soft_drawing_bitmap__draw_line" targetname: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:soft_drawing_bitmap__draw_line__draw_point.6001" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:168:13" }
+edge: { sourcename: "soft_drawing_bitmap__draw_line" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:171:23" }
+edge: { sourcename: "soft_drawing_bitmap__draw_line" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:171:23" }
+edge: { sourcename: "soft_drawing_bitmap__draw_line" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:174:20" }
+edge: { sourcename: "soft_drawing_bitmap__draw_line" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:174:20" }
+edge: { sourcename: "soft_drawing_bitmap__draw_line" targetname: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:soft_drawing_bitmap__draw_line__draw_point.6001" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:178:7" }
+node: { title: "soft_drawing_bitmap__fill" label: "Fill\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:186:4\n48 bytes (static)" }
+edge: { sourcename: "soft_drawing_bitmap__fill" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:190:38" }
+edge: { sourcename: "soft_drawing_bitmap__fill" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:191:41" }
+edge: { sourcename: "soft_drawing_bitmap__fill" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:192:30" }
+node: { title: "soft_drawing_bitmap__fill_rect" label: "Fill_Rect\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:202:4\n56 bytes (static)" }
+edge: { sourcename: "soft_drawing_bitmap__fill_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:207:30" }
+edge: { sourcename: "soft_drawing_bitmap__fill_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:207:66" }
+edge: { sourcename: "soft_drawing_bitmap__fill_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:208:33" }
+edge: { sourcename: "soft_drawing_bitmap__fill_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:208:68" }
+edge: { sourcename: "soft_drawing_bitmap__fill_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:209:43" }
+edge: { sourcename: "soft_drawing_bitmap__fill_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:209:47" }
+edge: { sourcename: "soft_drawing_bitmap__fill_rect" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:209:30" }
+node: { title: "soft_drawing_bitmap__copy_rect" label: "Copy_Rect\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:219:4\n96 bytes (dynamic)" }
+node: { title: "__gnat_last_chance_handler" label: "Last_Chance_Handler\nC:\gnat\2020-arm-elf\arm-eabi\lib\gnat\zfp-cortex-m4f\gnat\a-except.adb:43:17" shape : ellipse }
+edge: { sourcename: "soft_drawing_bitmap__copy_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:231:7" }
+edge: { sourcename: "soft_drawing_bitmap__copy_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:231:7" }
+edge: { sourcename: "soft_drawing_bitmap__copy_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:231:7" }
+edge: { sourcename: "soft_drawing_bitmap__copy_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:231:7" }
+edge: { sourcename: "soft_drawing_bitmap__copy_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:231:7" }
+edge: { sourcename: "soft_drawing_bitmap__copy_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:231:7" }
+node: { title: "memcpy" label: "builtin_memcpy\n<built-in>" shape : ellipse }
+edge: { sourcename: "soft_drawing_bitmap__copy_rect" targetname: "memcpy" }
+edge: { sourcename: "soft_drawing_bitmap__copy_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:231:7" }
+edge: { sourcename: "soft_drawing_bitmap__copy_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:231:7" }
+node: { title: "soft_drawing_bitmap__copy_rect__2" label: "Copy_Rect\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:239:4\n224 bytes (dynamic)" }
+edge: { sourcename: "soft_drawing_bitmap__copy_rect__2" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:251:19" }
+edge: { sourcename: "soft_drawing_bitmap__copy_rect__2" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:251:39" }
+edge: { sourcename: "soft_drawing_bitmap__copy_rect__2" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:253:19" }
+edge: { sourcename: "soft_drawing_bitmap__copy_rect__2" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:253:40" }
+edge: { sourcename: "soft_drawing_bitmap__copy_rect__2" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:255:10" }
+edge: { sourcename: "soft_drawing_bitmap__copy_rect__2" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:255:10" }
+edge: { sourcename: "soft_drawing_bitmap__copy_rect__2" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:255:10" }
+edge: { sourcename: "soft_drawing_bitmap__copy_rect__2" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:255:10" }
+edge: { sourcename: "soft_drawing_bitmap__copy_rect__2" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:255:10" }
+edge: { sourcename: "soft_drawing_bitmap__copy_rect__2" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:255:10" }
+edge: { sourcename: "soft_drawing_bitmap__copy_rect__2" targetname: "memcpy" }
+edge: { sourcename: "soft_drawing_bitmap__copy_rect__2" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:255:10" }
+edge: { sourcename: "soft_drawing_bitmap__copy_rect__2" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:255:10" }
+edge: { sourcename: "soft_drawing_bitmap__copy_rect__2" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:258:19" }
+edge: { sourcename: "soft_drawing_bitmap__copy_rect__2" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:258:50" }
+edge: { sourcename: "soft_drawing_bitmap__copy_rect__2" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:260:19" }
+edge: { sourcename: "soft_drawing_bitmap__copy_rect__2" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:260:51" }
+edge: { sourcename: "soft_drawing_bitmap__copy_rect__2" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:262:10" }
+edge: { sourcename: "soft_drawing_bitmap__copy_rect__2" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:262:10" }
+edge: { sourcename: "soft_drawing_bitmap__copy_rect__2" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:262:10" }
+edge: { sourcename: "soft_drawing_bitmap__copy_rect__2" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:262:10" }
+edge: { sourcename: "soft_drawing_bitmap__copy_rect__2" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:262:10" }
+edge: { sourcename: "soft_drawing_bitmap__copy_rect__2" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:262:10" }
+edge: { sourcename: "soft_drawing_bitmap__copy_rect__2" targetname: "memcpy" }
+edge: { sourcename: "soft_drawing_bitmap__copy_rect__2" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:262:10" }
+edge: { sourcename: "soft_drawing_bitmap__copy_rect__2" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:262:10" }
+node: { title: "hal__bitmap__Oadd" label: "+\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\hal\src\hal-bitmap.ads:74:13" shape : ellipse }
+edge: { sourcename: "soft_drawing_bitmap__copy_rect__2" targetname: "hal__bitmap__Oadd" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:267:45" }
+edge: { sourcename: "soft_drawing_bitmap__copy_rect__2" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:267:30" }
+edge: { sourcename: "soft_drawing_bitmap__copy_rect__2" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:268:34" }
+edge: { sourcename: "soft_drawing_bitmap__copy_rect__2" targetname: "hal__bitmap__Oadd" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:269:53" }
+edge: { sourcename: "soft_drawing_bitmap__copy_rect__2" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:269:34" }
+node: { title: "soft_drawing_bitmap__copy_rect_blend" label: "Copy_Rect_Blend\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:279:4\n56 bytes (static)" }
+edge: { sourcename: "soft_drawing_bitmap__copy_rect_blend" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:289:7" }
+node: { title: "soft_drawing_bitmap__draw_vertical_line" label: "Draw_Vertical_Line\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:306:4\n40 bytes (static)" }
+edge: { sourcename: "soft_drawing_bitmap__draw_vertical_line" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:315:31" }
+edge: { sourcename: "soft_drawing_bitmap__draw_vertical_line" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:312:7" }
+node: { title: "soft_drawing_bitmap__draw_horizontal_line" label: "Draw_Horizontal_Line\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:323:4\n40 bytes (static)" }
+edge: { sourcename: "soft_drawing_bitmap__draw_horizontal_line" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:331:31" }
+edge: { sourcename: "soft_drawing_bitmap__draw_horizontal_line" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:329:7" }
+node: { title: "soft_drawing_bitmap__draw_rect" label: "Draw_Rect\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:340:4\n112 bytes (static)" }
+edge: { sourcename: "soft_drawing_bitmap__draw_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:349:42" }
+edge: { sourcename: "soft_drawing_bitmap__draw_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:349:42" }
+edge: { sourcename: "soft_drawing_bitmap__draw_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:350:43" }
+edge: { sourcename: "soft_drawing_bitmap__draw_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:350:43" }
+edge: { sourcename: "soft_drawing_bitmap__draw_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:352:27" }
+edge: { sourcename: "soft_drawing_bitmap__draw_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:352:27" }
+edge: { sourcename: "soft_drawing_bitmap__draw_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:354:35" }
+edge: { sourcename: "soft_drawing_bitmap__draw_rect" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:351:24" }
+edge: { sourcename: "soft_drawing_bitmap__draw_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:356:27" }
+edge: { sourcename: "soft_drawing_bitmap__draw_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:356:27" }
+edge: { sourcename: "soft_drawing_bitmap__draw_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:358:35" }
+edge: { sourcename: "soft_drawing_bitmap__draw_rect" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:355:24" }
+edge: { sourcename: "soft_drawing_bitmap__draw_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:360:31" }
+edge: { sourcename: "soft_drawing_bitmap__draw_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:360:31" }
+edge: { sourcename: "soft_drawing_bitmap__draw_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:361:34" }
+edge: { sourcename: "soft_drawing_bitmap__draw_rect" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:359:24" }
+edge: { sourcename: "soft_drawing_bitmap__draw_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:364:31" }
+edge: { sourcename: "soft_drawing_bitmap__draw_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:364:31" }
+edge: { sourcename: "soft_drawing_bitmap__draw_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:365:35" }
+edge: { sourcename: "soft_drawing_bitmap__draw_rect" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:363:24" }
+node: { title: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:soft_drawing_bitmap__draw_rounded_rect__draw_point.6193" label: "Draw_Point\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:396:7\n56 bytes (static)" }
+edge: { sourcename: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:soft_drawing_bitmap__draw_rounded_rect__draw_point.6193" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:400:32" }
+edge: { sourcename: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:soft_drawing_bitmap__draw_rounded_rect__draw_point.6193" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:400:32" }
+edge: { sourcename: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:soft_drawing_bitmap__draw_rounded_rect__draw_point.6193" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:400:53" }
+edge: { sourcename: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:soft_drawing_bitmap__draw_rounded_rect__draw_point.6193" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:400:53" }
+edge: { sourcename: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:soft_drawing_bitmap__draw_rounded_rect__draw_point.6193" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:399:30" }
+edge: { sourcename: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:soft_drawing_bitmap__draw_rounded_rect__draw_point.6193" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:404:30" }
+node: { title: "soft_drawing_bitmap__draw_rounded_rect" label: "Draw_Rounded_Rect\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:374:4\n144 bytes (static)" }
+edge: { sourcename: "soft_drawing_bitmap__draw_rounded_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:382:31" }
+edge: { sourcename: "soft_drawing_bitmap__draw_rounded_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:385:56" }
+edge: { sourcename: "soft_drawing_bitmap__draw_rounded_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:386:70" }
+edge: { sourcename: "soft_drawing_bitmap__draw_rounded_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:386:74" }
+edge: { sourcename: "soft_drawing_bitmap__draw_rounded_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:386:74" }
+edge: { sourcename: "soft_drawing_bitmap__draw_rounded_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:387:56" }
+edge: { sourcename: "soft_drawing_bitmap__draw_rounded_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:388:69" }
+edge: { sourcename: "soft_drawing_bitmap__draw_rounded_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:388:73" }
+edge: { sourcename: "soft_drawing_bitmap__draw_rounded_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:388:73" }
+edge: { sourcename: "soft_drawing_bitmap__draw_rounded_rect" targetname: "soft_drawing_bitmap__draw_rect" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:410:10" }
+edge: { sourcename: "soft_drawing_bitmap__draw_rounded_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:415:40" }
+edge: { sourcename: "soft_drawing_bitmap__draw_rounded_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:415:40" }
+edge: { sourcename: "soft_drawing_bitmap__draw_rounded_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:417:39" }
+edge: { sourcename: "soft_drawing_bitmap__draw_rounded_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:417:35" }
+edge: { sourcename: "soft_drawing_bitmap__draw_rounded_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:417:35" }
+edge: { sourcename: "soft_drawing_bitmap__draw_rounded_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:415:73" }
+edge: { sourcename: "soft_drawing_bitmap__draw_rounded_rect" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:414:24" }
+edge: { sourcename: "soft_drawing_bitmap__draw_rounded_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:419:40" }
+edge: { sourcename: "soft_drawing_bitmap__draw_rounded_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:419:69" }
+edge: { sourcename: "soft_drawing_bitmap__draw_rounded_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:419:69" }
+edge: { sourcename: "soft_drawing_bitmap__draw_rounded_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:421:39" }
+edge: { sourcename: "soft_drawing_bitmap__draw_rounded_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:421:35" }
+edge: { sourcename: "soft_drawing_bitmap__draw_rounded_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:421:35" }
+edge: { sourcename: "soft_drawing_bitmap__draw_rounded_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:419:90" }
+edge: { sourcename: "soft_drawing_bitmap__draw_rounded_rect" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:418:24" }
+edge: { sourcename: "soft_drawing_bitmap__draw_rounded_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:423:66" }
+edge: { sourcename: "soft_drawing_bitmap__draw_rounded_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:423:66" }
+edge: { sourcename: "soft_drawing_bitmap__draw_rounded_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:424:38" }
+edge: { sourcename: "soft_drawing_bitmap__draw_rounded_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:424:34" }
+edge: { sourcename: "soft_drawing_bitmap__draw_rounded_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:424:34" }
+edge: { sourcename: "soft_drawing_bitmap__draw_rounded_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:423:40" }
+edge: { sourcename: "soft_drawing_bitmap__draw_rounded_rect" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:422:24" }
+edge: { sourcename: "soft_drawing_bitmap__draw_rounded_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:427:66" }
+edge: { sourcename: "soft_drawing_bitmap__draw_rounded_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:427:96" }
+edge: { sourcename: "soft_drawing_bitmap__draw_rounded_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:427:96" }
+edge: { sourcename: "soft_drawing_bitmap__draw_rounded_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:428:38" }
+edge: { sourcename: "soft_drawing_bitmap__draw_rounded_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:428:34" }
+edge: { sourcename: "soft_drawing_bitmap__draw_rounded_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:428:34" }
+edge: { sourcename: "soft_drawing_bitmap__draw_rounded_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:427:40" }
+edge: { sourcename: "soft_drawing_bitmap__draw_rounded_rect" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:426:24" }
+edge: { sourcename: "soft_drawing_bitmap__draw_rounded_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:433:22" }
+edge: { sourcename: "soft_drawing_bitmap__draw_rounded_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:434:28" }
+edge: { sourcename: "soft_drawing_bitmap__draw_rounded_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:435:20" }
+edge: { sourcename: "soft_drawing_bitmap__draw_rounded_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:437:19" }
+edge: { sourcename: "soft_drawing_bitmap__draw_rounded_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:438:25" }
+edge: { sourcename: "soft_drawing_bitmap__draw_rounded_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:439:17" }
+edge: { sourcename: "soft_drawing_bitmap__draw_rounded_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:439:25" }
+edge: { sourcename: "soft_drawing_bitmap__draw_rounded_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:442:33" }
+edge: { sourcename: "soft_drawing_bitmap__draw_rounded_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:442:33" }
+edge: { sourcename: "soft_drawing_bitmap__draw_rounded_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:442:50" }
+edge: { sourcename: "soft_drawing_bitmap__draw_rounded_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:442:50" }
+edge: { sourcename: "soft_drawing_bitmap__draw_rounded_rect" targetname: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:soft_drawing_bitmap__draw_rounded_rect__draw_point.6193" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:442:10" }
+edge: { sourcename: "soft_drawing_bitmap__draw_rounded_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:443:33" }
+edge: { sourcename: "soft_drawing_bitmap__draw_rounded_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:443:33" }
+edge: { sourcename: "soft_drawing_bitmap__draw_rounded_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:443:50" }
+edge: { sourcename: "soft_drawing_bitmap__draw_rounded_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:443:50" }
+edge: { sourcename: "soft_drawing_bitmap__draw_rounded_rect" targetname: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:soft_drawing_bitmap__draw_rounded_rect__draw_point.6193" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:443:10" }
+edge: { sourcename: "soft_drawing_bitmap__draw_rounded_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:444:33" }
+edge: { sourcename: "soft_drawing_bitmap__draw_rounded_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:444:33" }
+edge: { sourcename: "soft_drawing_bitmap__draw_rounded_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:444:50" }
+edge: { sourcename: "soft_drawing_bitmap__draw_rounded_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:444:50" }
+edge: { sourcename: "soft_drawing_bitmap__draw_rounded_rect" targetname: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:soft_drawing_bitmap__draw_rounded_rect__draw_point.6193" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:444:10" }
+edge: { sourcename: "soft_drawing_bitmap__draw_rounded_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:445:33" }
+edge: { sourcename: "soft_drawing_bitmap__draw_rounded_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:445:33" }
+edge: { sourcename: "soft_drawing_bitmap__draw_rounded_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:445:50" }
+edge: { sourcename: "soft_drawing_bitmap__draw_rounded_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:445:50" }
+edge: { sourcename: "soft_drawing_bitmap__draw_rounded_rect" targetname: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:soft_drawing_bitmap__draw_rounded_rect__draw_point.6193" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:445:10" }
+edge: { sourcename: "soft_drawing_bitmap__draw_rounded_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:446:33" }
+edge: { sourcename: "soft_drawing_bitmap__draw_rounded_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:446:33" }
+edge: { sourcename: "soft_drawing_bitmap__draw_rounded_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:446:50" }
+edge: { sourcename: "soft_drawing_bitmap__draw_rounded_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:446:50" }
+edge: { sourcename: "soft_drawing_bitmap__draw_rounded_rect" targetname: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:soft_drawing_bitmap__draw_rounded_rect__draw_point.6193" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:446:10" }
+edge: { sourcename: "soft_drawing_bitmap__draw_rounded_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:447:33" }
+edge: { sourcename: "soft_drawing_bitmap__draw_rounded_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:447:33" }
+edge: { sourcename: "soft_drawing_bitmap__draw_rounded_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:447:50" }
+edge: { sourcename: "soft_drawing_bitmap__draw_rounded_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:447:50" }
+edge: { sourcename: "soft_drawing_bitmap__draw_rounded_rect" targetname: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:soft_drawing_bitmap__draw_rounded_rect__draw_point.6193" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:447:10" }
+edge: { sourcename: "soft_drawing_bitmap__draw_rounded_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:448:33" }
+edge: { sourcename: "soft_drawing_bitmap__draw_rounded_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:448:33" }
+edge: { sourcename: "soft_drawing_bitmap__draw_rounded_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:448:50" }
+edge: { sourcename: "soft_drawing_bitmap__draw_rounded_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:448:50" }
+edge: { sourcename: "soft_drawing_bitmap__draw_rounded_rect" targetname: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:soft_drawing_bitmap__draw_rounded_rect__draw_point.6193" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:448:10" }
+edge: { sourcename: "soft_drawing_bitmap__draw_rounded_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:449:33" }
+edge: { sourcename: "soft_drawing_bitmap__draw_rounded_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:449:33" }
+edge: { sourcename: "soft_drawing_bitmap__draw_rounded_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:449:50" }
+edge: { sourcename: "soft_drawing_bitmap__draw_rounded_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:449:50" }
+edge: { sourcename: "soft_drawing_bitmap__draw_rounded_rect" targetname: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:soft_drawing_bitmap__draw_rounded_rect__draw_point.6193" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:449:10" }
+node: { title: "soft_drawing_bitmap__fill_rounded_rect" label: "Fill_Rounded_Rect\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:458:4\n128 bytes (static)" }
+edge: { sourcename: "soft_drawing_bitmap__fill_rounded_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:465:36" }
+edge: { sourcename: "soft_drawing_bitmap__fill_rounded_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:468:56" }
+edge: { sourcename: "soft_drawing_bitmap__fill_rounded_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:469:70" }
+edge: { sourcename: "soft_drawing_bitmap__fill_rounded_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:469:74" }
+edge: { sourcename: "soft_drawing_bitmap__fill_rounded_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:469:74" }
+edge: { sourcename: "soft_drawing_bitmap__fill_rounded_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:470:56" }
+edge: { sourcename: "soft_drawing_bitmap__fill_rounded_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:474:69" }
+edge: { sourcename: "soft_drawing_bitmap__fill_rounded_rect" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:474:27" }
+edge: { sourcename: "soft_drawing_bitmap__fill_rounded_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:481:39" }
+edge: { sourcename: "soft_drawing_bitmap__fill_rounded_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:481:35" }
+edge: { sourcename: "soft_drawing_bitmap__fill_rounded_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:481:35" }
+edge: { sourcename: "soft_drawing_bitmap__fill_rounded_rect" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:478:24" }
+edge: { sourcename: "soft_drawing_bitmap__fill_rounded_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:485:22" }
+edge: { sourcename: "soft_drawing_bitmap__fill_rounded_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:486:28" }
+edge: { sourcename: "soft_drawing_bitmap__fill_rounded_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:487:20" }
+edge: { sourcename: "soft_drawing_bitmap__fill_rounded_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:490:19" }
+edge: { sourcename: "soft_drawing_bitmap__fill_rounded_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:491:25" }
+edge: { sourcename: "soft_drawing_bitmap__fill_rounded_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:492:17" }
+edge: { sourcename: "soft_drawing_bitmap__fill_rounded_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:492:25" }
+edge: { sourcename: "soft_drawing_bitmap__fill_rounded_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:495:25" }
+edge: { sourcename: "soft_drawing_bitmap__fill_rounded_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:495:25" }
+edge: { sourcename: "soft_drawing_bitmap__fill_rounded_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:495:42" }
+edge: { sourcename: "soft_drawing_bitmap__fill_rounded_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:495:42" }
+edge: { sourcename: "soft_drawing_bitmap__fill_rounded_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:496:28" }
+edge: { sourcename: "soft_drawing_bitmap__fill_rounded_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:496:24" }
+edge: { sourcename: "soft_drawing_bitmap__fill_rounded_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:496:41" }
+edge: { sourcename: "soft_drawing_bitmap__fill_rounded_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:494:27" }
+edge: { sourcename: "soft_drawing_bitmap__fill_rounded_rect" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:494:27" }
+edge: { sourcename: "soft_drawing_bitmap__fill_rounded_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:498:25" }
+edge: { sourcename: "soft_drawing_bitmap__fill_rounded_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:498:25" }
+edge: { sourcename: "soft_drawing_bitmap__fill_rounded_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:498:42" }
+edge: { sourcename: "soft_drawing_bitmap__fill_rounded_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:498:42" }
+edge: { sourcename: "soft_drawing_bitmap__fill_rounded_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:499:28" }
+edge: { sourcename: "soft_drawing_bitmap__fill_rounded_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:499:24" }
+edge: { sourcename: "soft_drawing_bitmap__fill_rounded_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:499:41" }
+edge: { sourcename: "soft_drawing_bitmap__fill_rounded_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:497:27" }
+edge: { sourcename: "soft_drawing_bitmap__fill_rounded_rect" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:497:27" }
+edge: { sourcename: "soft_drawing_bitmap__fill_rounded_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:501:25" }
+edge: { sourcename: "soft_drawing_bitmap__fill_rounded_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:501:25" }
+edge: { sourcename: "soft_drawing_bitmap__fill_rounded_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:501:42" }
+edge: { sourcename: "soft_drawing_bitmap__fill_rounded_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:501:42" }
+edge: { sourcename: "soft_drawing_bitmap__fill_rounded_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:502:28" }
+edge: { sourcename: "soft_drawing_bitmap__fill_rounded_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:502:24" }
+edge: { sourcename: "soft_drawing_bitmap__fill_rounded_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:502:41" }
+edge: { sourcename: "soft_drawing_bitmap__fill_rounded_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:500:27" }
+edge: { sourcename: "soft_drawing_bitmap__fill_rounded_rect" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:500:27" }
+edge: { sourcename: "soft_drawing_bitmap__fill_rounded_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:504:25" }
+edge: { sourcename: "soft_drawing_bitmap__fill_rounded_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:504:25" }
+edge: { sourcename: "soft_drawing_bitmap__fill_rounded_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:504:42" }
+edge: { sourcename: "soft_drawing_bitmap__fill_rounded_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:504:42" }
+edge: { sourcename: "soft_drawing_bitmap__fill_rounded_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:505:28" }
+edge: { sourcename: "soft_drawing_bitmap__fill_rounded_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:505:24" }
+edge: { sourcename: "soft_drawing_bitmap__fill_rounded_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:505:41" }
+edge: { sourcename: "soft_drawing_bitmap__fill_rounded_rect" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:503:27" }
+edge: { sourcename: "soft_drawing_bitmap__fill_rounded_rect" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:503:27" }
+node: { title: "soft_drawing_bitmap__draw_circle" label: "Draw_Circle\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:516:4\n152 bytes (static)" }
+edge: { sourcename: "soft_drawing_bitmap__draw_circle" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:523:31" }
+edge: { sourcename: "soft_drawing_bitmap__draw_circle" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:527:56" }
+edge: { sourcename: "soft_drawing_bitmap__draw_circle" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:527:24" }
+edge: { sourcename: "soft_drawing_bitmap__draw_circle" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:528:56" }
+edge: { sourcename: "soft_drawing_bitmap__draw_circle" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:528:56" }
+edge: { sourcename: "soft_drawing_bitmap__draw_circle" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:528:24" }
+edge: { sourcename: "soft_drawing_bitmap__draw_circle" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:529:46" }
+edge: { sourcename: "soft_drawing_bitmap__draw_circle" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:529:24" }
+edge: { sourcename: "soft_drawing_bitmap__draw_circle" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:530:46" }
+edge: { sourcename: "soft_drawing_bitmap__draw_circle" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:530:46" }
+edge: { sourcename: "soft_drawing_bitmap__draw_circle" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:530:24" }
+edge: { sourcename: "soft_drawing_bitmap__draw_circle" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:534:20" }
+edge: { sourcename: "soft_drawing_bitmap__draw_circle" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:535:28" }
+edge: { sourcename: "soft_drawing_bitmap__draw_circle" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:536:20" }
+edge: { sourcename: "soft_drawing_bitmap__draw_circle" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:538:17" }
+edge: { sourcename: "soft_drawing_bitmap__draw_circle" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:539:25" }
+edge: { sourcename: "soft_drawing_bitmap__draw_circle" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:540:17" }
+edge: { sourcename: "soft_drawing_bitmap__draw_circle" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:540:25" }
+edge: { sourcename: "soft_drawing_bitmap__draw_circle" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:541:49" }
+edge: { sourcename: "soft_drawing_bitmap__draw_circle" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:541:49" }
+edge: { sourcename: "soft_drawing_bitmap__draw_circle" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:541:63" }
+edge: { sourcename: "soft_drawing_bitmap__draw_circle" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:541:63" }
+edge: { sourcename: "soft_drawing_bitmap__draw_circle" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:541:27" }
+edge: { sourcename: "soft_drawing_bitmap__draw_circle" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:542:49" }
+edge: { sourcename: "soft_drawing_bitmap__draw_circle" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:542:49" }
+edge: { sourcename: "soft_drawing_bitmap__draw_circle" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:542:63" }
+edge: { sourcename: "soft_drawing_bitmap__draw_circle" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:542:63" }
+edge: { sourcename: "soft_drawing_bitmap__draw_circle" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:542:27" }
+edge: { sourcename: "soft_drawing_bitmap__draw_circle" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:543:49" }
+edge: { sourcename: "soft_drawing_bitmap__draw_circle" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:543:49" }
+edge: { sourcename: "soft_drawing_bitmap__draw_circle" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:543:63" }
+edge: { sourcename: "soft_drawing_bitmap__draw_circle" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:543:63" }
+edge: { sourcename: "soft_drawing_bitmap__draw_circle" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:543:27" }
+edge: { sourcename: "soft_drawing_bitmap__draw_circle" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:544:49" }
+edge: { sourcename: "soft_drawing_bitmap__draw_circle" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:544:49" }
+edge: { sourcename: "soft_drawing_bitmap__draw_circle" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:544:63" }
+edge: { sourcename: "soft_drawing_bitmap__draw_circle" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:544:63" }
+edge: { sourcename: "soft_drawing_bitmap__draw_circle" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:544:27" }
+edge: { sourcename: "soft_drawing_bitmap__draw_circle" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:545:49" }
+edge: { sourcename: "soft_drawing_bitmap__draw_circle" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:545:49" }
+edge: { sourcename: "soft_drawing_bitmap__draw_circle" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:545:63" }
+edge: { sourcename: "soft_drawing_bitmap__draw_circle" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:545:63" }
+edge: { sourcename: "soft_drawing_bitmap__draw_circle" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:545:27" }
+edge: { sourcename: "soft_drawing_bitmap__draw_circle" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:546:49" }
+edge: { sourcename: "soft_drawing_bitmap__draw_circle" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:546:49" }
+edge: { sourcename: "soft_drawing_bitmap__draw_circle" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:546:63" }
+edge: { sourcename: "soft_drawing_bitmap__draw_circle" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:546:63" }
+edge: { sourcename: "soft_drawing_bitmap__draw_circle" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:546:27" }
+edge: { sourcename: "soft_drawing_bitmap__draw_circle" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:547:49" }
+edge: { sourcename: "soft_drawing_bitmap__draw_circle" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:547:49" }
+edge: { sourcename: "soft_drawing_bitmap__draw_circle" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:547:63" }
+edge: { sourcename: "soft_drawing_bitmap__draw_circle" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:547:63" }
+edge: { sourcename: "soft_drawing_bitmap__draw_circle" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:547:27" }
+edge: { sourcename: "soft_drawing_bitmap__draw_circle" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:548:49" }
+edge: { sourcename: "soft_drawing_bitmap__draw_circle" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:548:49" }
+edge: { sourcename: "soft_drawing_bitmap__draw_circle" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:548:63" }
+edge: { sourcename: "soft_drawing_bitmap__draw_circle" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:548:63" }
+edge: { sourcename: "soft_drawing_bitmap__draw_circle" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:548:27" }
+node: { title: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:soft_drawing_bitmap__fill_circle__draw_horizontal_line.6400" label: "Draw_Horizontal_Line\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:576:7\n48 bytes (static)" }
+edge: { sourcename: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:soft_drawing_bitmap__fill_circle__draw_horizontal_line.6400" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:586:10" }
+edge: { sourcename: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:soft_drawing_bitmap__fill_circle__draw_horizontal_line.6400" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:592:25" }
+edge: { sourcename: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:soft_drawing_bitmap__fill_circle__draw_horizontal_line.6400" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:592:25" }
+edge: { sourcename: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:soft_drawing_bitmap__fill_circle__draw_horizontal_line.6400" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:594:19" }
+edge: { sourcename: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:soft_drawing_bitmap__fill_circle__draw_horizontal_line.6400" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:598:16" }
+edge: { sourcename: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:soft_drawing_bitmap__fill_circle__draw_horizontal_line.6400" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:599:32" }
+edge: { sourcename: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:soft_drawing_bitmap__fill_circle__draw_horizontal_line.6400" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:599:37" }
+edge: { sourcename: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:soft_drawing_bitmap__fill_circle__draw_horizontal_line.6400" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:599:37" }
+edge: { sourcename: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:soft_drawing_bitmap__fill_circle__draw_horizontal_line.6400" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:606:45" }
+edge: { sourcename: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:soft_drawing_bitmap__fill_circle__draw_horizontal_line.6400" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:606:27" }
+node: { title: "soft_drawing_bitmap__fill_circle" label: "Fill_Circle\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:557:4\n72 bytes (static)" }
+edge: { sourcename: "soft_drawing_bitmap__fill_circle" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:562:60" }
+edge: { sourcename: "soft_drawing_bitmap__fill_circle" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:563:60" }
+edge: { sourcename: "soft_drawing_bitmap__fill_circle" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:648:26" }
+edge: { sourcename: "soft_drawing_bitmap__fill_circle" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:653:7" }
+edge: { sourcename: "soft_drawing_bitmap__fill_circle" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:653:7" }
+edge: { sourcename: "soft_drawing_bitmap__fill_circle" targetname: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:soft_drawing_bitmap__fill_circle__draw_vertical_line.6405" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:653:7" }
+edge: { sourcename: "soft_drawing_bitmap__fill_circle" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:657:7" }
+edge: { sourcename: "soft_drawing_bitmap__fill_circle" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:657:7" }
+edge: { sourcename: "soft_drawing_bitmap__fill_circle" targetname: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:soft_drawing_bitmap__fill_circle__draw_horizontal_line.6400" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:657:7" }
+edge: { sourcename: "soft_drawing_bitmap__fill_circle" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:664:20" }
+edge: { sourcename: "soft_drawing_bitmap__fill_circle" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:665:28" }
+edge: { sourcename: "soft_drawing_bitmap__fill_circle" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:666:20" }
+edge: { sourcename: "soft_drawing_bitmap__fill_circle" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:668:17" }
+edge: { sourcename: "soft_drawing_bitmap__fill_circle" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:669:25" }
+edge: { sourcename: "soft_drawing_bitmap__fill_circle" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:670:17" }
+edge: { sourcename: "soft_drawing_bitmap__fill_circle" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:672:62" }
+edge: { sourcename: "soft_drawing_bitmap__fill_circle" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:672:62" }
+edge: { sourcename: "soft_drawing_bitmap__fill_circle" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:672:10" }
+edge: { sourcename: "soft_drawing_bitmap__fill_circle" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:672:10" }
+edge: { sourcename: "soft_drawing_bitmap__fill_circle" targetname: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:soft_drawing_bitmap__fill_circle__draw_horizontal_line.6400" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:672:10" }
+edge: { sourcename: "soft_drawing_bitmap__fill_circle" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:673:62" }
+edge: { sourcename: "soft_drawing_bitmap__fill_circle" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:673:62" }
+edge: { sourcename: "soft_drawing_bitmap__fill_circle" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:673:10" }
+edge: { sourcename: "soft_drawing_bitmap__fill_circle" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:673:10" }
+edge: { sourcename: "soft_drawing_bitmap__fill_circle" targetname: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:soft_drawing_bitmap__fill_circle__draw_horizontal_line.6400" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:673:10" }
+edge: { sourcename: "soft_drawing_bitmap__fill_circle" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:674:62" }
+edge: { sourcename: "soft_drawing_bitmap__fill_circle" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:674:62" }
+edge: { sourcename: "soft_drawing_bitmap__fill_circle" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:674:10" }
+edge: { sourcename: "soft_drawing_bitmap__fill_circle" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:674:10" }
+edge: { sourcename: "soft_drawing_bitmap__fill_circle" targetname: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:soft_drawing_bitmap__fill_circle__draw_horizontal_line.6400" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:674:10" }
+edge: { sourcename: "soft_drawing_bitmap__fill_circle" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:675:62" }
+edge: { sourcename: "soft_drawing_bitmap__fill_circle" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:675:62" }
+edge: { sourcename: "soft_drawing_bitmap__fill_circle" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:675:10" }
+edge: { sourcename: "soft_drawing_bitmap__fill_circle" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:675:10" }
+edge: { sourcename: "soft_drawing_bitmap__fill_circle" targetname: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:soft_drawing_bitmap__fill_circle__draw_horizontal_line.6400" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:675:10" }
+node: { title: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:soft_drawing_bitmap__fill_circle__draw_vertical_line.6405" label: "Draw_Vertical_Line\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:613:7\n48 bytes (static)" }
+edge: { sourcename: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:soft_drawing_bitmap__fill_circle__draw_vertical_line.6405" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:623:10" }
+edge: { sourcename: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:soft_drawing_bitmap__fill_circle__draw_vertical_line.6405" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:629:26" }
+edge: { sourcename: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:soft_drawing_bitmap__fill_circle__draw_vertical_line.6405" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:629:26" }
+edge: { sourcename: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:soft_drawing_bitmap__fill_circle__draw_vertical_line.6405" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:631:19" }
+edge: { sourcename: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:soft_drawing_bitmap__fill_circle__draw_vertical_line.6405" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:635:16" }
+edge: { sourcename: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:soft_drawing_bitmap__fill_circle__draw_vertical_line.6405" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:636:33" }
+edge: { sourcename: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:soft_drawing_bitmap__fill_circle__draw_vertical_line.6405" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:636:38" }
+edge: { sourcename: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:soft_drawing_bitmap__fill_circle__draw_vertical_line.6405" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:636:38" }
+edge: { sourcename: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:soft_drawing_bitmap__fill_circle__draw_vertical_line.6405" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:643:41" }
+edge: { sourcename: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:soft_drawing_bitmap__fill_circle__draw_vertical_line.6405" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:643:27" }
+node: { title: "soft_drawing_bitmap__cubic_bezier_points" label: "Cubic_Bezier_Points\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:683:4\n64 bytes (static)" }
+edge: { sourcename: "soft_drawing_bitmap__cubic_bezier_points" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:699:54" }
+edge: { sourcename: "soft_drawing_bitmap__cubic_bezier_points" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:703:54" }
+node: { title: "soft_drawing_bitmap__binomial_coefficients" label: "Binomial_Coefficients\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:713:4\n64 bytes (static)" }
+edge: { sourcename: "soft_drawing_bitmap__binomial_coefficients" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:716:38" }
+edge: { sourcename: "soft_drawing_bitmap__binomial_coefficients" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:717:38" }
+edge: { sourcename: "soft_drawing_bitmap__binomial_coefficients" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:718:38" }
+edge: { sourcename: "soft_drawing_bitmap__binomial_coefficients" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:724:7" }
+edge: { sourcename: "soft_drawing_bitmap__binomial_coefficients" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:725:7" }
+edge: { sourcename: "soft_drawing_bitmap__binomial_coefficients" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:727:26" }
+edge: { sourcename: "soft_drawing_bitmap__binomial_coefficients" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:727:15" }
+edge: { sourcename: "soft_drawing_bitmap__binomial_coefficients" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:727:36" }
+edge: { sourcename: "soft_drawing_bitmap__binomial_coefficients" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:727:31" }
+edge: { sourcename: "soft_drawing_bitmap__binomial_coefficients" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:727:46" }
+edge: { sourcename: "soft_drawing_bitmap__binomial_coefficients" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:727:41" }
+edge: { sourcename: "soft_drawing_bitmap__binomial_coefficients" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:728:21" }
+edge: { sourcename: "soft_drawing_bitmap__binomial_coefficients" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:728:25" }
+edge: { sourcename: "soft_drawing_bitmap__binomial_coefficients" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:728:10" }
+edge: { sourcename: "soft_drawing_bitmap__binomial_coefficients" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:729:21" }
+edge: { sourcename: "soft_drawing_bitmap__binomial_coefficients" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:729:25" }
+edge: { sourcename: "soft_drawing_bitmap__binomial_coefficients" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:729:29" }
+edge: { sourcename: "soft_drawing_bitmap__binomial_coefficients" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:729:10" }
+node: { title: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:soft_drawing_bitmap__bezier_points__power.6481" label: "Power\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:752:7\n40 bytes (static)" }
+node: { title: "soft_drawing_bitmap__bezier_points" label: "Bezier_Points\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:737:4\n136 bytes (dynamic)" }
+edge: { sourcename: "soft_drawing_bitmap__bezier_points" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:742:54" }
+edge: { sourcename: "soft_drawing_bitmap__bezier_points" targetname: "soft_drawing_bitmap__binomial_coefficients" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:770:7" }
+edge: { sourcename: "soft_drawing_bitmap__bezier_points" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:776:85" }
+edge: { sourcename: "soft_drawing_bitmap__bezier_points" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:776:85" }
+edge: { sourcename: "soft_drawing_bitmap__bezier_points" targetname: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:soft_drawing_bitmap__bezier_points__power.6481" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:776:59" }
+edge: { sourcename: "soft_drawing_bitmap__bezier_points" targetname: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:soft_drawing_bitmap__bezier_points__power.6481" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:776:93" }
+edge: { sourcename: "soft_drawing_bitmap__bezier_points" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:777:89" }
+edge: { sourcename: "soft_drawing_bitmap__bezier_points" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:777:56" }
+edge: { sourcename: "soft_drawing_bitmap__bezier_points" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:778:89" }
+edge: { sourcename: "soft_drawing_bitmap__bezier_points" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:778:56" }
+edge: { sourcename: "soft_drawing_bitmap__bezier_points" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:780:35" }
+edge: { sourcename: "soft_drawing_bitmap__bezier_points" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:781:35" }
+node: { title: "soft_drawing_bitmap__cubic_bezier" label: "Cubic_Bezier\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:790:4\n96 bytes (dynamic)" }
+edge: { sourcename: "soft_drawing_bitmap__cubic_bezier" targetname: "soft_drawing_bitmap__cubic_bezier_points" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:798:7" }
+edge: { sourcename: "soft_drawing_bitmap__cubic_bezier" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:800:61" }
+edge: { sourcename: "soft_drawing_bitmap__cubic_bezier" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:800:51" }
+edge: { sourcename: "soft_drawing_bitmap__cubic_bezier" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:800:27" }
+node: { title: "soft_drawing_bitmap__bezier" label: "Bezier\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:810:4\n88 bytes (dynamic)" }
+edge: { sourcename: "soft_drawing_bitmap__bezier" targetname: "soft_drawing_bitmap__bezier_points" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:818:7" }
+edge: { sourcename: "soft_drawing_bitmap__bezier" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:820:61" }
+edge: { sourcename: "soft_drawing_bitmap__bezier" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:820:51" }
+edge: { sourcename: "soft_drawing_bitmap__bezier" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\soft_drawing_bitmap.adb:820:27" }
+}

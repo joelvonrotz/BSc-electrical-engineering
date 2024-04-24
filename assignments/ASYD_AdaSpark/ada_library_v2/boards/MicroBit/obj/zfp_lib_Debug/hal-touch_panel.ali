@@ -1,0 +1,73 @@
+V "GNAT Lib v2020"
+A -O0
+A -gnatA
+A --RTS=C:\gnat\2020-arm-elf\arm-eabi\lib\gnat\zfp-cortex-m4f\
+A -mlittle-endian
+A -mthumb
+A -mfloat-abi=hard
+A -mcpu=cortex-m4
+A -mfpu=fpv4-sp-d16
+A -gnata
+A -fcallgraph-info=su
+A -fcallgraph-info=su
+A -g
+A -gnatwa
+A -gnatw_A
+A -gnatQ
+A -gnatw.X
+A -ffunction-sections
+A -fdata-sections
+A -march=armv7e-m+fp
+P ZX
+
+RN
+RV NO_DISPATCH
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_IMPLEMENTATION_PRAGMAS
+
+U hal.touch_panel%s	hal-touch_panel.ads	e610ae7f NE OO PK IU
+Z ada.tags%s		a-tags.adb		a-tags.ali
+W hal%s			hal.ads			hal.ali
+Z system%s		system.ads		system.ali
+
+D ada.ads		20200819171400 76789da1 ada%s
+D a-tags.ads		20200819171400 95e09aae ada.tags%s
+D hal.ads		20210108111948 2b42c80e hal%s
+D hal-touch_panel.ads	20210108111948 cd526671 hal.touch_panel%s
+D interfac.ads		20200819171400 5ab55268 interfaces%s
+D system.ads		20200819171400 e69b74bd system%s
+D s-stoele.ads		20200819171400 2dc34a04 system.storage_elements%s
+G a e
+G c Z s s [tp_touch_stateIP hal__touch_panel 34 9 none]
+G c Z s s [tp_stateIP hal__touch_panel 50 9 none]
+X 3 hal.ads
+34K9*HAL 166e8 4|32r9 84r5
+41M9*UInt3 4|42r27
+X 4 hal-touch_panel.ads
+32K13*Touch_Panel 3|34k9 4|80E4 84l9 84e20
+34R9*TP_Touch_State 38e14 40r32 50r58 68r37
+35i7*X{natural}
+36i7*Y{natural}
+37i7*Weight{natural}
+40r4*Null_Touch_State{34R9}
+42M9*Swap_State<3|41M9> 44r24 45r24 46r24 59r35 80r24 81r24 82r24
+44m4*Invert_X{42M9} 80c4
+45m4*Invert_Y{42M9} 81c4
+46m4*Swap_XY{42M9} 82c4
+48I12*Touch_Identifier{natural} 50r28 63r41 67r41
+50A9*TP_State(34R9)<integer> 74r14
+52h9*Touch_Panel_Device 54r39 56p14 56r42 62p13 62r48 66p13 66r48 72p13 73r25
+54P9*Any_Touch_Panel(52R9)
+56x14*Set_Bounds 56=26 57>26 58>26 59>26
+56r26 This{52R9}
+57i26 Width{natural}
+58i26 Height{natural}
+59m26 Swap{42M9}
+62y13*Active_Touch_Points{48I12} 62=34
+62r34 This{52R9}
+66y13*Get_Touch_Point{34R9} 66=30 67>30
+66r30 This{52R9}
+67i30 Touch_Id{48I12}
+72y13*Get_All_Touch_Points{50A9} 73=7
+73r7 This{52R9}
+

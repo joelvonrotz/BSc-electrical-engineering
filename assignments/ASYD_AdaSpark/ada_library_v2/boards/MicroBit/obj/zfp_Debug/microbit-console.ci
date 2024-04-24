@@ -1,0 +1,27 @@
+graph: { title: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\boards\microbit\src\microbit-console.adb"
+node: { title: "microbit__console__get" label: "Get\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\boards\microbit\src\microbit-console.adb:45:4\n16 bytes (static)" }
+node: { title: "nrf__uart__receive" label: "Receive\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-uart.ads:81:14" shape : ellipse }
+edge: { sourcename: "microbit__console__get" targetname: "nrf__uart__receive" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\boards\microbit\src\microbit-console.adb:49:11" }
+node: { title: "microbit__console__put" label: "Put\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\boards\microbit\src\microbit-console.adb:57:4\n32 bytes (static)" }
+node: { title: "nrf__uart__transmit" label: "Transmit\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-uart.ads:74:14" shape : ellipse }
+edge: { sourcename: "microbit__console__put" targetname: "nrf__uart__transmit" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\boards\microbit\src\microbit-console.adb:63:11" }
+node: { title: "microbit__console__put__2" label: "Put\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\boards\microbit\src\microbit-console.adb:70:4\n80 bytes (dynamic)" }
+node: { title: "__gnat_last_chance_handler" label: "gnat_last_chance_handler\n<built-in>" shape : ellipse }
+edge: { sourcename: "microbit__console__put__2" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\boards\microbit\src\microbit-console.adb:71:40" }
+edge: { sourcename: "microbit__console__put__2" targetname: "nrf__uart__transmit" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\boards\microbit\src\microbit-console.adb:78:11" }
+node: { title: "microbit__console__put_line" label: "Put_Line\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\boards\microbit\src\microbit-console.adb:85:4\n80 bytes (dynamic)" }
+edge: { sourcename: "microbit__console__put_line" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\boards\microbit\src\microbit-console.adb:86:52" }
+edge: { sourcename: "microbit__console__put_line" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\boards\microbit\src\microbit-console.adb:86:40" }
+edge: { sourcename: "microbit__console__put_line" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\boards\microbit\src\microbit-console.adb:91:10" }
+edge: { sourcename: "microbit__console__put_line" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\boards\microbit\src\microbit-console.adb:93:23" }
+edge: { sourcename: "microbit__console__put_line" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\boards\microbit\src\microbit-console.adb:93:7" }
+edge: { sourcename: "microbit__console__put_line" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\boards\microbit\src\microbit-console.adb:94:7" }
+edge: { sourcename: "microbit__console__put_line" targetname: "nrf__uart__transmit" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\boards\microbit\src\microbit-console.adb:95:11" }
+node: { title: "microbit__console__new_line" label: "New_Line\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\boards\microbit\src\microbit-console.adb:102:4\n8 bytes (static)" }
+edge: { sourcename: "microbit__console__new_line" targetname: "microbit__console__put__2" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\boards\microbit\src\microbit-console.adb:104:7" }
+node: { title: "microbit__console___elabb" label: "Console\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\boards\microbit\src\microbit-console.adb:37:1\n8 bytes (static)" }
+node: { title: "nrf__uart__configure" label: "Configure\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-uart.ads:48:14" shape : ellipse }
+edge: { sourcename: "microbit__console___elabb" targetname: "nrf__uart__configure" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\boards\microbit\src\microbit-console.adb:108:8" }
+node: { title: "nrf__uart__enable" label: "Enable\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-uart.ads:52:14" shape : ellipse }
+edge: { sourcename: "microbit__console___elabb" targetname: "nrf__uart__enable" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\boards\microbit\src\microbit-console.adb:109:8" }
+}

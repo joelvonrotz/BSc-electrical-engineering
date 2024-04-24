@@ -1,0 +1,27 @@
+\begin{tikzpicture}[line/.style={-Straight Barb,shorten >=1mm,shorten <=1mm,draw=black}, label/.style={fill=white},  node font=\ttfamily]
+
+\node[circle,draw=black, inner sep=0, minimum width=1.4cm] (stateRunning) at (4,6) {running};
+\node[circle,draw=black, inner sep=0, minimum width=1.4cm] (stateStopped) at (4,2) {stopped};
+\node[circle,draw=black, inner sep=0, minimum width=1.4cm] (stateDeleted) at (0,2) {deleted};
+\node[circle,draw=black, inner sep=0, minimum width=1.4cm] (stateCreated) at (0,6) {created};
+\node[circle,draw=black, inner sep=0, minimum width=1.4cm] (statePaused)  at (8,6) {paused};
+
+\node (entry1) at (-3,6) {};
+\node (entry2) at (4,8) {};
+
+\draw [line, rounded corners=5,gray] (stateRunning) .. controls (3.25,4.75) and (3.25,2.75) .. ([yshift=5mm]stateStopped.center) .. controls (4.75,2.75) and (4.75,4.75) .. (stateRunning);
+
+
+\draw [line]                (stateCreated) edge node[label]        {start}  (stateRunning);
+\draw [line,bend right=5mm] (stateRunning) edge node[label,left=1pt]  {stop}   (stateStopped);
+\draw [line,bend right=5mm] (stateStopped) edge node[label,right=1pt] {start}  (stateRunning);
+
+\draw [line,bend right=5mm] (stateRunning) edge node[label]       {pause}   (statePaused);
+\draw [line,bend right=5mm] (statePaused)  edge node[label]       {unpause} (stateRunning);
+\draw [line]                (stateCreated) edge node[label]       {rm}      (stateDeleted);
+\draw [line]                (stateStopped) edge node[label]       {rm}      (stateDeleted);
+
+\draw [line]                (entry1)       edge node[label]       {create}  (stateCreated);
+\draw [line]                (entry2)       edge node[label]       {run}     (stateRunning);
+\node [label,left, fill=none] at (3.25,4.75) {restart};
+\end{tikzpicture}

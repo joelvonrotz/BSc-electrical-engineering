@@ -1,0 +1,96 @@
+V "GNAT Lib v2020"
+A -O0
+A -gnatA
+A --RTS=C:\gnat\2020-arm-elf\arm-eabi\lib\gnat\zfp-cortex-m4f\
+A -mlittle-endian
+A -mthumb
+A -mfloat-abi=hard
+A -mcpu=cortex-m4
+A -mfpu=fpv4-sp-d16
+A -gnata
+A -fcallgraph-info=su
+A -fcallgraph-info=su
+A -g
+A -gnatwa
+A -gnatw_A
+A -gnatQ
+A -gnatw.X
+A -ffunction-sections
+A -fdata-sections
+A -march=armv7e-m+fp
+P ZX
+
+RN
+RV NO_UNCHECKED_CONVERSION
+RV NO_IMPLEMENTATION_PRAGMAS
+
+U cortex_m.dwt%b	cortex_m-dwt.adb	2c84b9c6 NE OO PK
+W ada%s			ada.ads			ada.ali
+W ada.unchecked_conversion%s
+W cortex_m%s		cortex_m.ads		cortex_m.ali
+W cortex_m_svd%s	cortex_m_svd.ads	cortex_m_svd.ali
+W cortex_m_svd.debug%s	cortex_m_svd-debug.ads	cortex_m_svd-debug.ali
+W cortex_m_svd.dwt%s	cortex_m_svd-dwt.ads	cortex_m_svd-dwt.ali
+Z system.assertions%s	s-assert.adb		s-assert.ali
+
+U cortex_m.dwt%s	cortex_m-dwt.ads	b3517470 BN EB NE OO PK
+W cortex_m%s		cortex_m.ads		cortex_m.ali
+W hal%s			hal.ads			hal.ali
+
+D ada.ads		20200819171400 76789da1 ada%s
+D a-unccon.ads		20200819171400 0e9b276f ada.unchecked_conversion%s
+D cortex_m.ads		20210108111948 38b367df cortex_m%s
+D cortex_m-dwt.ads	20210108111948 a0a0dba1 cortex_m.dwt%s
+D cortex_m-dwt.adb	20210108111948 a2b51dd5 cortex_m.dwt%b
+D cortex_m_svd.ads	20210108111948 cd5bf229 cortex_m_svd%s
+D cortex_m_svd-debug.ads  20210108111948 27845f3e cortex_m_svd.debug%s
+D cortex_m_svd-dwt.ads	20210108111948 078e07e3 cortex_m_svd.dwt%s
+D hal.ads		20210108111948 2b42c80e hal%s
+D interfac.ads		20200819171400 5ab55268 interfaces%s
+D system.ads		20200819171400 e69b74bd system%s
+D s-assert.ads		20200819171400 cd8d2c94 system.assertions%s
+D s-stoele.ads		20200819171400 2dc34a04 system.storage_elements%s
+G a e
+G c Z s b [dwt_reset_value cortex_m__dwt 59 13 none]
+G c Z s b [enable_dwt_unit cortex_m__dwt 63 14 none]
+G c Z s b [disable_dwt_unit cortex_m__dwt 69 14 none]
+G c Z s b [dwt_unit_enabled cortex_m__dwt 75 13 none]
+X 1 ada.ads
+16K9*Ada 20e8 5|34r6 76r33
+X 2 a-unccon.ads
+17+9 Source 5|77r10
+18+9 Target 5|77r35
+20v14*Unchecked_Conversion 5|34w10 76r37
+X 3 cortex_m.ads
+32K9*Cortex_M 34e13 4|38r9 77r5 5|36r14 83r5
+X 4 cortex_m-dwt.ads
+38K18*DWT 3|32k9 4|77l14 77e17 5|36b23 83l14 83t17
+53m4*No_DWT_Present{9|97M9}
+54m4*Only_One_Comparator{9|97M9}
+55m4*One_Comparator_Watchpoints{9|97M9}
+56m4*Four_Comparators_Watchpoints_And_Triggers{9|97M9}
+57m4*Four_Comparators_Watchpoints_Only{9|97M9}
+59V13*DWT_Reset_Value{9|97M9} 5|73b13 81l8 81t23
+63U14*Enable_DWT_Unit 5|42b14 47l8 47t23
+69U14*Disable_DWT_Unit 5|53b14 57l8 57t24
+75V13*DWT_Unit_Enabled{boolean} 64s14 70s18 5|63b13 67l8 67t24
+X 5 cortex_m-dwt.adb
+76V16 As_UInt32[2|20]{9|97M9} 80s14
+X 6 cortex_m_svd.ads
+9K9*Cortex_M_SVD 5|32r6 33r6 43r11 54r11 64r11 74r11 6|31e17
+X 7 cortex_m_svd-debug.ads
+10K22*Debug 5|32w19 43r24 54r24 64r24 7|320e23
+260b7*TRCENA{boolean} 5|45m26 46m26 56m26 66r33
+305r7*DEMCR{241R9} 5|45m20 46m20 56m20 66r27
+317r4*Debug_Periph{291R9} 5|45m7 46m7 56m7 66r14
+X 8 cortex_m_svd-dwt.ads
+11K22*DWT 5|33w19 74r24 8|178e21
+25R9*CTRL_Register 5|77r20 8|67e6
+100r7*CTRL{25R9} 5|80r36
+175r4*DWT_Periph{98R9} 5|80r25
+X 9 hal.ads
+34K9*HAL 4|36w6 36r16 9|166e8
+97M9*UInt32<10|74M9> 4|53r57 54r57 55r57 56r57 57r57 59r36 5|73r36 77r45
+X 10 interfac.ads
+74M9*Unsigned_32
+

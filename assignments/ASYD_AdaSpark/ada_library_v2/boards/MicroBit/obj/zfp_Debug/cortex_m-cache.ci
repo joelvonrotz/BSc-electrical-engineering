@@ -1,0 +1,6 @@
+graph: { title: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\cortex_m\src\nocache\cortex_m-cache.adb"
+node: { title: "cortex_m__cache__enable_i_cache" label: "Enable_I_Cache\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\cortex_m\src\nocache\cortex_m-cache.adb:36:4\n4 bytes (static)" }
+node: { title: "cortex_m__cache__enable_d_cache" label: "Enable_D_Cache\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\cortex_m\src\nocache\cortex_m-cache.adb:38:4\n4 bytes (static)" }
+node: { title: "cortex_m__cache__disable_i_cache" label: "Disable_I_Cache\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\cortex_m\src\nocache\cortex_m-cache.adb:40:4\n4 bytes (static)" }
+node: { title: "cortex_m__cache__disable_d_cache" label: "Disable_D_Cache\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\cortex_m\src\nocache\cortex_m-cache.adb:42:4\n4 bytes (static)" }
+}

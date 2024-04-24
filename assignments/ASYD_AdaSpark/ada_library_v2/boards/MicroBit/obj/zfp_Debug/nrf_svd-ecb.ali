@@ -1,0 +1,99 @@
+V "GNAT Lib v2020"
+A -O0
+A -gnatA
+A --RTS=C:\gnat\2020-arm-elf\arm-eabi\lib\gnat\zfp-cortex-m4f\
+A -mlittle-endian
+A -mthumb
+A -mfloat-abi=hard
+A -mcpu=cortex-m4
+A -mfpu=fpv4-sp-d16
+A -gnata
+A -fcallgraph-info=su
+A -fcallgraph-info=su
+A -g
+A -gnatwa
+A -gnatw_A
+A -gnatQ
+A -gnatw.X
+A -ffunction-sections
+A -fdata-sections
+A -march=armv7e-m+fp
+P ZX
+
+RN
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLEMENTATION_RESTRICTIONS
+RR NO_ELABORATION_CODE
+
+U nrf_svd.ecb%s		nrf_svd-ecb.ads		f031a541 NE OO PR PK IU
+W hal%s			hal.ads			hal.ali
+W nrf_svd%s		nrf_svd.ads		nrf_svd.ali
+W system%s		system.ads		system.ali
+
+D hal.ads		20210108111948 2b42c80e hal%s
+D interfac.ads		20200819171400 5ab55268 interfaces%s
+D nrf_svd.ads		20210306183508 87ba21d7 nrf_svd%s
+D nrf_svd-ecb.ads	20210108111948 ba523825 nrf_svd.ecb%s
+D system.ads		20200819171400 e69b74bd system%s
+G a e
+G c Z s s [intenset_registerIP nrf_svd__ecb 100 9 none]
+G c Z s s [intenclr_registerIP nrf_svd__ecb 163 9 none]
+G c Z s s [ecb_peripheralIP nrf_svd__ecb 186 9 none]
+X 1 hal.ads
+34K9*HAL 166e8 4|45w6 107r23 170r23 188r33 190r33 192r33 195r33 201r33
+93M9*UInt30 4|107r27 170r27
+97M9*UInt32<2|74M9> 4|188r37 190r37 192r37 195r37 201r37
+X 2 interfac.ads
+74M9*Unsigned_32
+X 3 nrf_svd.ads
+49K9*NRF_SVD 123e12 4|48r9 219r5
+85m4*ECB_Base{5|90M9} 4|217r30
+X 4 nrf_svd-ecb.ads
+48K17*ECB 3|49k9 4|219l13 219e16
+56E9*INTENSET_ENDECB_Field 61e6 62r8
+58n7*Disabled{56E9} 63r7
+60n7*Enabled{56E9} 64r7
+67E9*INTENSET_ENDECB_Field_1 72e6 73r8 102r23
+69n7*Intenset_Endecb_Field_Reset{67E9} 74r7 102r50
+71n7*Set{67E9} 75r7
+78E9*INTENSET_ERRORECB_Field 83e6 84r8
+80n7*Disabled{78E9} 85r7
+82n7*Enabled{78E9} 86r7
+89E9*INTENSET_ERRORECB_Field_1 94e6 95r8 104r23
+91n7*Intenset_Errorecb_Field_Reset{89E9} 96r7 105r24
+93n7*Set{89E9} 97r7
+100R9*INTENSET_Register 109e6 112r8 197r33
+102e7*ENDECB{67E9} 113r7
+104e7*ERRORECB{89E9} 114r7
+107m7*Reserved_2_31{1|93M9} 115r7
+119E9*INTENCLR_ENDECB_Field 124e6 125r8
+121n7*Disabled{119E9} 126r7
+123n7*Enabled{119E9} 127r7
+130E9*INTENCLR_ENDECB_Field_1 135e6 136r8 165r23
+132n7*Intenclr_Endecb_Field_Reset{130E9} 137r7 165r50
+134n7*Clear{130E9} 138r7
+141E9*INTENCLR_ERRORECB_Field 146e6 147r8
+143n7*Disabled{141E9} 148r7
+145n7*Enabled{141E9} 149r7
+152E9*INTENCLR_ERRORECB_Field_1 157e6 158r8 167r23
+154n7*Intenclr_Errorecb_Field_Reset{152E9} 159r7 168r24
+156n7*Clear{152E9} 160r7
+163R9*INTENCLR_Register 172e6 175r8 199r33
+165e7*ENDECB{130E9} 176r7
+167e7*ERRORECB{152E9} 177r7
+170m7*Reserved_2_31{1|93M9} 178r7
+186R9*ECB_Peripheral 203e6 205r8 216r25
+188m7*TASKS_STARTECB{1|97M9} 206r7
+190m7*TASKS_STOPECB{1|97M9} 207r7
+192m7*EVENTS_ENDECB{1|97M9} 208r7
+195m7*EVENTS_ERRORECB{1|97M9} 209r7
+197r7*INTENSET{100R9} 210r7
+199r7*INTENCLR{163R9} 211r7
+201m7*ECBDATAPTR{1|97M9} 212r7
+216r4*ECB_Periph{186R9}
+X 5 system.ads
+60K9*System 4|46w6 110r24 173r24 5|172e11
+90M9*Address
+114n41*Low_Order_First{114E9} 4|110r31 173r31
+

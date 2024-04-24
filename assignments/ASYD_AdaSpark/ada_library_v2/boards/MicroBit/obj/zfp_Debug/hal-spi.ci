@@ -1,0 +1,14 @@
+graph: { title: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\hal\src\hal-spi.ads"
+class {
+  classname: "hal__spi__spi_port"
+  label: "hal__spi__spi_port\hal-spi.ads:48:9"
+  virtuals: "1:hal__spi__data_size\n
+             2:hal__spi__transmit\n
+             3:hal__spi__transmit__2\n
+             4:hal__spi__receive\n
+             5:hal__spi__receive__2\n
+             -1:hal__spi___size"
+}
+node: { title: "hal__spi__spi_data_8bIP" label: "SPI_DATA_8BIP\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\hal\src\hal-spi.ads:44:9\n16 bytes (static)" }
+node: { title: "hal__spi__spi_data_16bIP" label: "SPI_DATA_16BIP\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\hal\src\hal-spi.ads:46:9\n16 bytes (static)" }
+}

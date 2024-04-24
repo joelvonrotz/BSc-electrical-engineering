@@ -1,0 +1,82 @@
+V "GNAT Lib v2020"
+A -O0
+A -gnatA
+A --RTS=C:\gnat\2020-arm-elf\arm-eabi\lib\gnat\zfp-cortex-m4f\
+A -mlittle-endian
+A -mthumb
+A -mfloat-abi=hard
+A -mcpu=cortex-m4
+A -mfpu=fpv4-sp-d16
+A -gnata
+A -fcallgraph-info=su
+A -fcallgraph-info=su
+A -g
+A -gnatwa
+A -gnatw_A
+A -gnatQ
+A -gnatw.X
+A -ffunction-sections
+A -fdata-sections
+A -march=armv7e-m+fp
+P ZX
+
+RN
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLEMENTATION_RESTRICTIONS
+RR NO_ELABORATION_CODE
+
+U cortex_m_svd.nvic%s	cortex_m_svd-nvic.ads	7c23cea3 NE OO PR PK
+W cortex_m_svd%s	cortex_m_svd.ads	cortex_m_svd.ali
+W hal%s			hal.ads			hal.ali
+W system%s		system.ads		system.ali
+
+D cortex_m_svd.ads	20210108111948 cd5bf229 cortex_m_svd%s
+D cortex_m_svd-nvic.ads	20210108111948 7ca18039 cortex_m_svd.nvic%s
+D hal.ads		20210108111948 2b42c80e hal%s
+D interfac.ads		20200819171400 5ab55268 interfaces%s
+D system.ads		20200819171400 e69b74bd system%s
+G a e
+G c Z s s [Tnvic_iser_registersBIP cortex_m_svd__nvic 20 4 none]
+G c Z s s [Tnvic_icer_registersBIP cortex_m_svd__nvic 26 4 none]
+G c Z s s [Tnvic_ispr_registersBIP cortex_m_svd__nvic 32 4 none]
+G c Z s s [Tnvic_icpr_registersBIP cortex_m_svd__nvic 38 4 none]
+G c Z s s [Tnvic_iabr_registersBIP cortex_m_svd__nvic 44 4 none]
+G c Z s s [Tnvic_ipr_registersBIP cortex_m_svd__nvic 50 4 none]
+G c Z s s [stir_registerIP cortex_m_svd__nvic 56 9 none]
+G c Z s s [nvic_peripheralIP cortex_m_svd__nvic 75 9 none]
+X 1 cortex_m_svd.ads
+9K9*Cortex_M_SVD 31e17 2|10r9 106r5
+16m4*NVIC_Base{5|90M9} 2|104r30
+X 2 cortex_m_svd-nvic.ads
+10K22*NVIC 1|9k9 2|106l18 106e22
+20A9*NVIC_ISER_Registers(3|97M9)<integer> 77r27
+26A9*NVIC_ICER_Registers(3|97M9)<integer> 79r27
+32A9*NVIC_ISPR_Registers(3|97M9)<integer> 81r27
+38A9*NVIC_ICPR_Registers(3|97M9)<integer> 83r27
+44A9*NVIC_IABR_Registers(3|97M9)<integer> 85r27
+50A9*NVIC_IPR_Registers(3|97M9)<integer> 87r27
+53M12*STIR_INTID_Field{3|51M9} 59r23
+56R9*STIR_Register 63e6 66r8 89r27
+59m7*INTID{53M12} 67r7
+61m7*Reserved_9_31{3|79M9} 68r7
+75R9*NVIC_Peripheral 91e6 93r8 103r26
+77a7*NVIC_ISER{20A9} 94r7
+79a7*NVIC_ICER{26A9} 95r7
+81a7*NVIC_ISPR{32A9} 96r7
+83a7*NVIC_ICPR{38A9} 97r7
+85a7*NVIC_IABR{44A9} 98r7
+87a7*NVIC_IPR{50A9} 99r7
+89r7*STIR{56R9} 100r7
+103r4*NVIC_Periph{75R9}
+X 3 hal.ads
+34K9*HAL 2|7w6 20r50 26r50 32r50 38r50 44r50 50r50 53r32 61r23 3|166e8
+51M9*UInt9 2|53r36
+79M9*UInt23 2|61r27
+97M9*UInt32<4|74M9> 2|20r54 26r54 32r54 38r54 44r54 50r54
+X 4 interfac.ads
+74M9*Unsigned_32
+X 5 system.ads
+60K9*System 2|8w6 64r24 5|172e11
+90M9*Address
+114n41*Low_Order_First{114E9} 2|64r31
+

@@ -1,0 +1,65 @@
+graph: { title: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-spi_master.adb"
+class {
+  classname: "nrf__spi_master__spi_master"
+  label: "nrf__spi_master__spi_master\nrf-spi_master.ads:56:9"
+  parent: "hal__spi__spi_port"
+  virtuals: "1:nrf__spi_master__data_size,1:hal__spi__spi_port\n
+             2:nrf__spi_master__transmit,2:hal__spi__spi_port\n
+             3:nrf__spi_master__transmit__2,3:hal__spi__spi_port\n
+             4:nrf__spi_master__receive,4:hal__spi__spi_port\n
+             5:nrf__spi_master__receive__2,5:hal__spi__spi_port\n
+             -1:nrf__spi_master___size__2,-1:hal__spi__spi_port\n
+             6:nrf__spi_master__enable\n
+             7:nrf__spi_master__disable\n
+             8:nrf__spi_master__enabled\n
+             9:nrf__spi_master__configure\n
+             10:nrf__spi_master__disconnect\n
+             -6:nrf__spi_master__Oeq\n
+             -7:nrf__spi_master___assign"
+}
+node: { title: "nrf__spi_master__spi_masterIP" label: "Spi_Masterip\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-spi_master.ads:130:9\n24 bytes (static)" }
+node: { title: "nrf__spi_master___size__2" label: "Spi_Master\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-spi_master.ads:130:9\n16 bytes (static)" }
+node: { title: "nrf__spi_master__Oeq" label: "=\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-spi_master.ads:130:4\n16 bytes (static)" }
+node: { title: "nrf__spi_master___assign" label: "Spi_Master\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-spi_master.ads:130:9\n16 bytes (static)" }
+node: { title: "__gnat_last_chance_handler" label: "gnat_last_chance_handler\n<built-in>" shape : ellipse }
+edge: { sourcename: "nrf__spi_master___assign" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-spi_master.ads:130:9" }
+node: { title: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-spi_master.adb:nrf__spi_master__enable___postconditions.5988" label: "Enable\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-spi_master.adb:71:4\n24 bytes (static)" }
+edge: { sourcename: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-spi_master.adb:nrf__spi_master__enable___postconditions.5988" targetname: "nrf__spi_master__enabled" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-spi_master.ads:61:23" }
+node: { title: "system__assertions__raise_assert_failure" label: "Raise_Assert_Failure\nC:\gnat\2020-arm-elf\arm-eabi\lib\gnat\zfp-cortex-m4f\gnat\s-assert.ads:46:14" shape : ellipse }
+edge: { sourcename: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-spi_master.adb:nrf__spi_master__enable___postconditions.5988" targetname: "system__assertions__raise_assert_failure" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-spi_master.ads:61:19" }
+node: { title: "nrf__spi_master__enable" label: "Enable\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-spi_master.adb:71:4\n24 bytes (static)" }
+edge: { sourcename: "nrf__spi_master__enable" targetname: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-spi_master.adb:nrf__spi_master__enable___postconditions.5988" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-spi_master.adb:74:8" }
+node: { title: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-spi_master.adb:nrf__spi_master__disable___postconditions.5995" label: "Disable\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-spi_master.adb:80:4\n24 bytes (static)" }
+edge: { sourcename: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-spi_master.adb:nrf__spi_master__disable___postconditions.5995" targetname: "nrf__spi_master__enabled" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-spi_master.ads:66:27" }
+edge: { sourcename: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-spi_master.adb:nrf__spi_master__disable___postconditions.5995" targetname: "system__assertions__raise_assert_failure" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-spi_master.ads:66:19" }
+node: { title: "nrf__spi_master__disable" label: "Disable\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-spi_master.adb:80:4\n24 bytes (static)" }
+edge: { sourcename: "nrf__spi_master__disable" targetname: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-spi_master.adb:nrf__spi_master__disable___postconditions.5995" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-spi_master.adb:83:8" }
+node: { title: "nrf__spi_master__enabled" label: "Enabled\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-spi_master.adb:89:4\n16 bytes (static)" }
+node: { title: "nrf__spi_master__configure" label: "Configure\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-spi_master.adb:96:4\n32 bytes (static)" }
+edge: { sourcename: "nrf__spi_master__configure" targetname: "nrf__spi_master__enabled" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-spi_master.ads:78:26" }
+edge: { sourcename: "nrf__spi_master__configure" targetname: "system__assertions__raise_assert_failure" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-spi_master.ads:78:18" }
+edge: { sourcename: "nrf__spi_master__configure" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-spi_master.adb:109:38" }
+edge: { sourcename: "nrf__spi_master__configure" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-spi_master.adb:118:41" }
+edge: { sourcename: "nrf__spi_master__configure" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-spi_master.adb:122:40" }
+edge: { sourcename: "nrf__spi_master__configure" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-spi_master.adb:126:40" }
+node: { title: "nrf__spi_master__disconnect" label: "Disconnect\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-spi_master.adb:135:4\n24 bytes (static)" }
+edge: { sourcename: "nrf__spi_master__disconnect" targetname: "nrf__spi_master__enabled" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-spi_master.ads:90:26" }
+edge: { sourcename: "nrf__spi_master__disconnect" targetname: "system__assertions__raise_assert_failure" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-spi_master.ads:90:18" }
+node: { title: "nrf__spi_master__data_size" label: "Data_Size\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-spi_master.adb:146:15\n16 bytes (static)" }
+node: { title: "nrf__spi_master__transmit" label: "Transmit\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-spi_master.adb:156:4\n64 bytes (static)" }
+edge: { sourcename: "nrf__spi_master__transmit" targetname: "nrf__spi_master__data_size" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\hal\src\hal-spi.ads:60:21" }
+edge: { sourcename: "nrf__spi_master__transmit" targetname: "system__assertions__raise_assert_failure" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\hal\src\hal-spi.ads:60:21" }
+node: { title: "nrf__spi_master__transmit__2" label: "Transmit\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-spi_master.adb:180:4\n88 bytes (static)" }
+edge: { sourcename: "nrf__spi_master__transmit__2" targetname: "nrf__spi_master__data_size" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\hal\src\hal-spi.ads:68:21" }
+edge: { sourcename: "nrf__spi_master__transmit__2" targetname: "system__assertions__raise_assert_failure" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\hal\src\hal-spi.ads:68:21" }
+edge: { sourcename: "nrf__spi_master__transmit__2" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-spi_master.adb:195:42" }
+edge: { sourcename: "nrf__spi_master__transmit__2" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-spi_master.adb:198:46" }
+edge: { sourcename: "nrf__spi_master__transmit__2" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-spi_master.adb:204:46" }
+edge: { sourcename: "nrf__spi_master__transmit__2" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-spi_master.adb:207:42" }
+node: { title: "nrf__spi_master__receive" label: "Receive\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-spi_master.adb:220:4\n56 bytes (static)" }
+edge: { sourcename: "nrf__spi_master__receive" targetname: "nrf__spi_master__data_size" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\hal\src\hal-spi.ads:76:21" }
+edge: { sourcename: "nrf__spi_master__receive" targetname: "system__assertions__raise_assert_failure" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\hal\src\hal-spi.ads:76:21" }
+node: { title: "nrf__spi_master__receive__2" label: "Receive\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-spi_master.adb:243:4\n80 bytes (static)" }
+edge: { sourcename: "nrf__spi_master__receive__2" targetname: "nrf__spi_master__data_size" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\hal\src\hal-spi.ads:84:21" }
+edge: { sourcename: "nrf__spi_master__receive__2" targetname: "system__assertions__raise_assert_failure" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\hal\src\hal-spi.ads:84:21" }
+}

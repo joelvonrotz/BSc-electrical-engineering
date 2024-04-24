@@ -1,0 +1,104 @@
+V "GNAT Lib v2020"
+A -O0
+A -gnatA
+A --RTS=C:\gnat\2020-arm-elf\arm-eabi\lib\gnat\zfp-cortex-m4f\
+A -mlittle-endian
+A -mthumb
+A -mfloat-abi=hard
+A -mcpu=cortex-m4
+A -mfpu=fpv4-sp-d16
+A -gnata
+A -fcallgraph-info=su
+A -fcallgraph-info=su
+A -g
+A -gnatwa
+A -gnatw_A
+A -gnatQ
+A -gnatw.X
+A -ffunction-sections
+A -fdata-sections
+A -march=armv7e-m+fp
+P ZX
+
+RN
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_ATTRIBUTES
+RV NO_IMPLEMENTATION_PRAGMAS
+
+U logging%b		logging.adb		45f1cd71 NE OO PK GE
+W logging_with_categories%s  logging_with_categories.adb  logging_with_categories.ali
+W logging_with_priority%s  logging_with_priority.adb  logging_with_priority.ali
+
+U logging%s		logging.ads		74b31b49 BN EE NE OO PK GE
+
+D logging.ads		20210108111948 74b31b49 logging%s
+D logging.adb		20210108111948 e54aef0a logging%b
+D logging_with_categories.ads  20210108111948 65256baf logging_with_categories%s
+D logging_with_categories.adb  20210108111948 f43c0cb7 logging_with_categories%b
+D logging_with_priority.ads  20210108111948 b12d529d logging_with_priority%s
+D logging_with_priority.adb  20210108111948 a30d5d29 logging_with_priority%b
+D system.ads		20200819171400 e69b74bd system%s
+G a e
+G c Z s b [logging standard 69 9 none]
+X 1 logging.ads
+40E9 Categories 48r23 71r30 80r28 83r28 89r29 103r35 106r36 113r29 116r34
+. 2|42r10 50r30 52r28 53r28 54r29 55r35 56r36 57r29 58r34
+45E9 Priorities 51r23 51r37 113r48 116r53 128r32 2|37r51 43r10 57r48 58r53
+. 62r32
+48*4 Default_Category{40E9} 2|44r10
+51*4 Default_Priority{45E9} 2|45r10
+54b4 Categories_Enabled_By_Default{boolean} 2|46r10
+58b4 Prefix_Enabled_By_Default{boolean} 2|47r10
+62i4 Maximum_Message_Length{positive} 129r31 2|38r51
+66i4 Maximum_Number_Of_Messages{positive} 2|39r51
+69k9*Logging 40z9 45z9 48z4 51z4 54z4 58z4 62z4 66z4 138l5 138e12 2|35b14
+. 67l5 67t12
+71U14*Log_Line 71>24 71>42 2|50b14
+71*24 Cat{40E9} 2|50b24
+71a42 Str{string} 2|50b42
+73U14*Log_Line 73>24 2|51b14
+73a24 Str{string} 2|51b24
+80V13*Enabled{boolean} 80>22 84s19 90s23 2|52b13
+80*22 Cat{40E9} 2|52b22
+83U14*Enable 83>22 2|53b14
+83*22 Cat{40E9} 84r28 2|53b22
+89U14*Disable 89>23 2|54b14
+89*23 Cat{40E9} 90r32 2|54b23
+103U14*Enable_Prefix 103>29 2|55b14
+103*29 Cat{40E9} 2|55b29
+106U14*Disable_Prefix 106>30 2|56b14
+106*30 Cat{40E9} 2|56b30
+113V13*Priority{45E9} 113>23 117s19 2|57b13
+113*23 Cat{40E9} 2|57b23
+116U14*Set_Priority 116>28 116>46 2|58b14
+116*28 Cat{40E9} 117r29 2|58b28
+116*46 Prio{45E9} 117r36 2|58b46
+126U14*Pop 126<19 127<19 128<19 2|60b14
+126a19 Str{string} 129r18 2|60b19
+127i19 Length{natural} 2|61b19
+128*19 Prio{45E9} 2|62b19
+132V13*Full{boolean} 2|64b13
+135V13*Empty{boolean} 2|65b13
+X 2 logging.adb
+37K12 Log_Prio[5|44] 48r43 63r27 64r41 65r42
+41K12 Log_Categories[3|61] 50r64 51r46 52r63 53r48 54r49 55r55 56r56 57r67
+. 58r73
+X 3 logging_with_categories.ads
+55U19 Log_Line_Backend 2|48r10
+61k9*Logging_With_Categories 2|32w6 41r35 3|114e28
+63U14 Log_Line 2|50r79[41]
+65U14 Log_Line 2|51r61[41]
+72V13 Enabled{boolean} 2|52r78[41]
+75U14 Enable 2|53r63[41]
+81U14 Disable 2|54r64[41]
+95U14 Enable_Prefix 2|55r70[41]
+98U14 Disable_Prefix 2|56r71[41]
+105V13 Priority{1|45E9} 2|57r82[41]
+108U14 Set_Priority 2|58r88[41]
+X 5 logging_with_priority.ads
+44k9*Logging_With_Priority 2|33w6 37r28 5|70e26
+46U14 Log_Line 2|48r52[37]
+57U14 Pop 2|63r36[37]
+64V13 Full{boolean} 2|64r50[37]
+67V13 Empty{boolean} 2|65r51[37]
+

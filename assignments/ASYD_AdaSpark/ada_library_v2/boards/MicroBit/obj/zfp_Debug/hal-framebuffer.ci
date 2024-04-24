@@ -1,0 +1,23 @@
+graph: { title: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\hal\src\hal-framebuffer.ads"
+class {
+  classname: "hal__framebuffer__frame_buffer_display"
+  label: "hal__framebuffer__frame_buffer_display\hal-framebuffer.ads:44:9"
+  virtuals: "1:hal__framebuffer__max_layers\n
+             2:hal__framebuffer__supported\n
+             3:hal__framebuffer__set_orientation\n
+             4:hal__framebuffer__set_mode\n
+             5:hal__framebuffer__initialized\n
+             6:hal__framebuffer__width\n
+             7:hal__framebuffer__height\n
+             8:hal__framebuffer__swapped\n
+             9:hal__framebuffer__set_background\n
+             10:hal__framebuffer__initialize_layer\n
+             11:hal__framebuffer__initialized__2\n
+             12:hal__framebuffer__update_layer\n
+             13:hal__framebuffer__update_layers\n
+             14:hal__framebuffer__color_mode\n
+             15:hal__framebuffer__hidden_buffer\n
+             16:hal__framebuffer__pixel_size\n
+             -1:hal__framebuffer___size"
+}
+}

@@ -1,0 +1,106 @@
+V "GNAT Lib v2020"
+A -O0
+A -gnatA
+A --RTS=C:\gnat\2020-arm-elf\arm-eabi\lib\gnat\zfp-cortex-m4f\
+A -mlittle-endian
+A -mthumb
+A -mfloat-abi=hard
+A -mcpu=cortex-m4
+A -mfpu=fpv4-sp-d16
+A -gnata
+A -fcallgraph-info=su
+A -fcallgraph-info=su
+A -g
+A -gnatwa
+A -gnatw_A
+A -gnatQ
+A -gnatw.X
+A -ffunction-sections
+A -fdata-sections
+A -march=armv7e-m+fp
+P ZX
+
+RN
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_PRAGMAS
+
+U microbit.servos%b	microbit-servos.adb	6bce9cae NE OO PK
+W microbit%s		microbit.ads		microbit.ali
+
+U microbit.servos%s	microbit-servos.ads	fd2bbd26 EE NE OO PK
+W microbit%s		microbit.ads		microbit.ali
+W microbit.ios%s	microbit-ios.adb	microbit-ios.ali
+
+D ada.ads		20200819171400 76789da1 ada%s
+D a-tags.ads		20200819171400 95e09aae ada.tags%s
+D hal.ads		20210108111948 2b42c80e hal%s
+D hal-gpio.ads		20210108111948 7f0c2ffe hal.gpio%s
+D hal-i2c.ads		20210108111948 0ed73138 hal.i2c%s
+D hal-spi.ads		20210108111948 fe139819 hal.spi%s
+D hal-uart.ads		20210108111948 d58316b4 hal.uart%s
+D interfac.ads		20200819171400 5ab55268 interfaces%s
+D microbit.ads		20210309072132 033332ef microbit%s
+D microbit-ios.ads	20210308133732 3c9a3981 microbit.ios%s
+D microbit-servos.ads	20210108111948 c282b648 microbit.servos%s
+D microbit-servos.adb	20210108111948 a94c2ae6 microbit.servos%b
+D nrf.ads		20210108111948 74cf72f5 nrf%s
+D nrf-device.ads	20210306183624 0b4647f4 nrf.device%s
+D nrf-gpio.ads		20210306151712 72dee5c2 nrf.gpio%s
+D nrf-rtc.ads		20210108111948 36d88130 nrf.rtc%s
+D nrf-spi_master.ads	20210108111948 a8ff49a3 nrf.spi_master%s
+D nrf-timers.ads	20210108111948 385f1a57 nrf.timers%s
+D nrf-twi.ads		20210306201702 c69c2186 nrf.twi%s
+D nrf-uart.ads		20210307101722 3d63d355 nrf.uart%s
+D nrf_svd.ads		20210306183508 87ba21d7 nrf_svd%s
+D nrf_svd-rtc.ads	20210108111948 57c7ffc8 nrf_svd.rtc%s
+D nrf_svd-spi.ads	20210108111948 6e2ffb69 nrf_svd.spi%s
+D nrf_svd-timer.ads	20210108111948 ba50db1c nrf_svd.timer%s
+D nrf_svd-twi.ads	20210306201806 68301534 nrf_svd.twi%s
+D nrf_svd-uart.ads	20210108111948 83bcebc8 nrf_svd.uart%s
+D system.ads		20200819171400 e69b74bd system%s
+D s-stoele.ads		20200819171400 2dc34a04 system.storage_elements%s
+D s-unstyp.ads		20200819171400 5ecf7212 system.unsigned_types%s
+G a e
+G c Z s b [stop microbit__servos 43 14 none]
+G c Z s b [go microbit__servos 46 14 none]
+G c Z b b [to_pwm microbit__servos 36 13 none]
+G r c none [stop microbit__servos 43 14 none] [supports microbit__ios 40 13 none]
+G r c none [stop microbit__servos 43 14 none] [write microbit__ios 64 14 none]
+G r c none [stop microbit__servos 43 14 none] [set microbit__ios 52 14 none]
+G r c none [go microbit__servos 46 14 none] [set_analog_period_us microbit__ios 60 14 none]
+G r c none [go microbit__servos 46 14 none] [write microbit__ios 64 14 none]
+X 4 hal-gpio.ads
+47h9*GPIO_Point
+X 5 hal-i2c.ads
+48h9*I2C_Port
+X 6 hal-spi.ads
+48h9*SPI_Port
+X 7 hal-uart.ads
+48h9*UART_Port
+X 9 microbit.ads
+35K9*MicroBit 72e13 11|32r6 32r24 34r9 52r5 12|32r14 70r5
+X 10 microbit-ios.ads
+34K18*IOs 98e17 11|32w15 32r33
+36I9*Pin_Id<short_short_integer> 11|38r28
+38n25*Digital{38E9} 12|47r25
+38n34*Analog{38E9} 11|39r48
+40V13*Supports{boolean} 11|39s24 12|47s10
+52U14*Set 12|48s10
+58I9*Analog_Value<short_integer> 12|36r50 37r18
+60U14*Set_Analog_Period_Us 12|63s10
+64U14*Write 12|50s10 67s7
+X 11 microbit-servos.ads
+34K18*Servos 9|35k9 11|52l14 52e20 12|32b23 70l14 70t20
+38I12*Servo_Pin_Id{10|36I9} 43r26 46r24 12|45r26 58r24
+41I9*Servo_Set_Point<short_integer> 46r49 12|36r26 58r49
+43U14*Stop 43>20 12|45b14 52l8 52t12
+43i20 Pin{38I12} 12|45b20 47r20 48r15 50r17
+46U14*Go 46>18 46>38 12|58b14 68l8 68t10
+46i18 Pin{38I12} 12|58b18 67r14
+46i38 Setpoint{41I9} 12|58b38 67r27
+X 12 microbit-servos.adb
+34N4 Servo_0 37r8
+36V13 To_PWM{10|58I9} 36>21 67s19
+36i21 SP{11|41I9} 37r48
+39b4 Analog_Period_Set{boolean} 60r14 64m10
+

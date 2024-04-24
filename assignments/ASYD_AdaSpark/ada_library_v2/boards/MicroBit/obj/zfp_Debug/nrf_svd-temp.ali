@@ -1,0 +1,200 @@
+V "GNAT Lib v2020"
+A -O0
+A -gnatA
+A --RTS=C:\gnat\2020-arm-elf\arm-eabi\lib\gnat\zfp-cortex-m4f\
+A -mlittle-endian
+A -mthumb
+A -mfloat-abi=hard
+A -mcpu=cortex-m4
+A -mfpu=fpv4-sp-d16
+A -gnata
+A -fcallgraph-info=su
+A -fcallgraph-info=su
+A -g
+A -gnatwa
+A -gnatw_A
+A -gnatQ
+A -gnatw.X
+A -ffunction-sections
+A -fdata-sections
+A -march=armv7e-m+fp
+P ZX
+
+RN
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLEMENTATION_RESTRICTIONS
+RR NO_ELABORATION_CODE
+
+U nrf_svd.temp%s	nrf_svd-temp.ads	54d80f9e NE OO PR PK IU
+W hal%s			hal.ads			hal.ali
+W nrf_svd%s		nrf_svd.ads		nrf_svd.ali
+W system%s		system.ads		system.ali
+
+D hal.ads		20210108111948 2b42c80e hal%s
+D interfac.ads		20200819171400 5ab55268 interfaces%s
+D nrf_svd.ads		20210306183508 87ba21d7 nrf_svd%s
+D nrf_svd-temp.ads	20210108111948 1ebb92fa nrf_svd.temp%s
+D system.ads		20200819171400 e69b74bd system%s
+G a e
+G c Z s s [intenset_registerIP nrf_svd__temp 78 9 none]
+G c Z s s [intenclr_registerIP nrf_svd__temp 116 9 none]
+G c Z s s [a0_registerIP nrf_svd__temp 134 9 none]
+G c Z s s [a1_registerIP nrf_svd__temp 151 9 none]
+G c Z s s [a2_registerIP nrf_svd__temp 168 9 none]
+G c Z s s [a3_registerIP nrf_svd__temp 185 9 none]
+G c Z s s [a4_registerIP nrf_svd__temp 202 9 none]
+G c Z s s [a5_registerIP nrf_svd__temp 219 9 none]
+G c Z s s [b0_registerIP nrf_svd__temp 236 9 none]
+G c Z s s [b1_registerIP nrf_svd__temp 253 9 none]
+G c Z s s [b2_registerIP nrf_svd__temp 270 9 none]
+G c Z s s [b3_registerIP nrf_svd__temp 287 9 none]
+G c Z s s [b4_registerIP nrf_svd__temp 304 9 none]
+G c Z s s [b5_registerIP nrf_svd__temp 321 9 none]
+G c Z s s [t0_registerIP nrf_svd__temp 338 9 none]
+G c Z s s [t1_registerIP nrf_svd__temp 355 9 none]
+G c Z s s [t2_registerIP nrf_svd__temp 372 9 none]
+G c Z s s [t3_registerIP nrf_svd__temp 389 9 none]
+G c Z s s [t4_registerIP nrf_svd__temp 406 9 none]
+G c Z s s [temp_peripheralIP nrf_svd__temp 425 9 none]
+X 1 hal.ads
+34K9*HAL 166e8 4|45w6 83r23 121r23 131r27 138r24 148r27 155r24 165r27 172r24
+. 182r27 189r24 199r27 206r24 216r27 223r24 233r27 240r24 250r27 257r24 267r27
+. 274r24 284r27 291r24 301r27 308r24 318r27 325r24 335r27 342r23 352r27 359r23
+. 369r27 376r23 386r27 393r23 403r27 410r23 427r32 429r32 431r32 437r32
+53M9*UInt8<2|63M9> 4|335r31 352r31 369r31 386r31 403r31
+58M9*UInt12 4|131r31 148r31 165r31 182r31 199r31 216r31
+62M9*UInt14 4|233r31 250r31 267r31 284r31 301r31 318r31
+69M9*UInt18 4|240r28 257r28 274r28 291r28 308r28 325r28
+73M9*UInt20 4|138r28 155r28 172r28 189r28 206r28 223r28
+81M9*UInt24 4|342r27 359r27 376r27 393r27 410r27
+95M9*UInt31 4|83r27 121r27
+97M9*UInt32<2|74M9> 4|427r36 429r36 431r36 437r36
+X 2 interfac.ads
+63M9*Unsigned_8
+74M9*Unsigned_32
+X 3 nrf_svd.ads
+49K9*NRF_SVD 123e12 4|48r9 505r5
+83m4*TEMP_Base{5|90M9} 4|503r30
+X 4 nrf_svd-temp.ads
+48K17*TEMP 3|49k9 4|505l13 505e17
+56E9*INTENSET_DATARDY_Field 61e6 62r8
+58n7*Disabled{56E9} 63r7
+60n7*Enabled{56E9} 64r7
+67E9*INTENSET_DATARDY_Field_1 72e6 73r8 80r23
+69n7*Intenset_Datardy_Field_Reset{67E9} 74r7 81r24
+71n7*Set{67E9} 75r7
+78R9*INTENSET_Register 85e6 88r8 433r32
+80e7*DATARDY{67E9} 89r7
+83m7*Reserved_1_31{1|95M9} 90r7
+94E9*INTENCLR_DATARDY_Field 99e6 100r8
+96n7*Disabled{94E9} 101r7
+98n7*Enabled{94E9} 102r7
+105E9*INTENCLR_DATARDY_Field_1 110e6 111r8 118r23
+107n7*Intenclr_Datardy_Field_Reset{105E9} 112r7 119r24
+109n7*Clear{105E9} 113r7
+116R9*INTENCLR_Register 123e6 126r8 435r32
+118e7*DATARDY{105E9} 127r7
+121m7*Reserved_1_31{1|95M9} 128r7
+131M12*A0_A0_Field{1|58M9} 136r24
+134R9*A0_Register 140e6 143r8 439r32
+136m7*A0{131M12} 144r7
+138m7*Reserved_12_31{1|73M9} 145r7
+148M12*A1_A1_Field{1|58M9} 153r24
+151R9*A1_Register 157e6 160r8 441r32
+153m7*A1{148M12} 161r7
+155m7*Reserved_12_31{1|73M9} 162r7
+165M12*A2_A2_Field{1|58M9} 170r24
+168R9*A2_Register 174e6 177r8 443r32
+170m7*A2{165M12} 178r7
+172m7*Reserved_12_31{1|73M9} 179r7
+182M12*A3_A3_Field{1|58M9} 187r24
+185R9*A3_Register 191e6 194r8 445r32
+187m7*A3{182M12} 195r7
+189m7*Reserved_12_31{1|73M9} 196r7
+199M12*A4_A4_Field{1|58M9} 204r24
+202R9*A4_Register 208e6 211r8 447r32
+204m7*A4{199M12} 212r7
+206m7*Reserved_12_31{1|73M9} 213r7
+216M12*A5_A5_Field{1|58M9} 221r24
+219R9*A5_Register 225e6 228r8 449r32
+221m7*A5{216M12} 229r7
+223m7*Reserved_12_31{1|73M9} 230r7
+233M12*B0_B0_Field{1|62M9} 238r24
+236R9*B0_Register 242e6 245r8 451r32
+238m7*B0{233M12} 246r7
+240m7*Reserved_14_31{1|69M9} 247r7
+250M12*B1_B1_Field{1|62M9} 255r24
+253R9*B1_Register 259e6 262r8 453r32
+255m7*B1{250M12} 263r7
+257m7*Reserved_14_31{1|69M9} 264r7
+267M12*B2_B2_Field{1|62M9} 272r24
+270R9*B2_Register 276e6 279r8 455r32
+272m7*B2{267M12} 280r7
+274m7*Reserved_14_31{1|69M9} 281r7
+284M12*B3_B3_Field{1|62M9} 289r24
+287R9*B3_Register 293e6 296r8 457r32
+289m7*B3{284M12} 297r7
+291m7*Reserved_14_31{1|69M9} 298r7
+301M12*B4_B4_Field{1|62M9} 306r24
+304R9*B4_Register 310e6 313r8 459r32
+306m7*B4{301M12} 314r7
+308m7*Reserved_14_31{1|69M9} 315r7
+318M12*B5_B5_Field{1|62M9} 323r24
+321R9*B5_Register 327e6 330r8 461r32
+323m7*B5{318M12} 331r7
+325m7*Reserved_14_31{1|69M9} 332r7
+335M12*T0_T0_Field{1|53M9} 340r23
+338R9*T0_Register 344e6 347r8 463r32
+340m7*T0{335M12} 348r7
+342m7*Reserved_8_31{1|81M9} 349r7
+352M12*T1_T1_Field{1|53M9} 357r23
+355R9*T1_Register 361e6 364r8 465r32
+357m7*T1{352M12} 365r7
+359m7*Reserved_8_31{1|81M9} 366r7
+369M12*T2_T2_Field{1|53M9} 374r23
+372R9*T2_Register 378e6 381r8 467r32
+374m7*T2{369M12} 382r7
+376m7*Reserved_8_31{1|81M9} 383r7
+386M12*T3_T3_Field{1|53M9} 391r23
+389R9*T3_Register 395e6 398r8 469r32
+391m7*T3{386M12} 399r7
+393m7*Reserved_8_31{1|81M9} 400r7
+403M12*T4_T4_Field{1|53M9} 408r23
+406R9*T4_Register 412e6 415r8 471r32
+408m7*T4{403M12} 416r7
+410m7*Reserved_8_31{1|81M9} 417r7
+425R9*TEMP_Peripheral 473e6 475r8 502r26
+427m7*TASKS_START{1|97M9} 476r7
+429m7*TASKS_STOP{1|97M9} 477r7
+431m7*EVENTS_DATARDY{1|97M9} 478r7
+433r7*INTENSET{78R9} 479r7
+435r7*INTENCLR{116R9} 480r7
+437m7*TEMP{1|97M9} 481r7
+439r7*A0{134R9} 482r7
+441r7*A1{151R9} 483r7
+443r7*A2{168R9} 484r7
+445r7*A3{185R9} 485r7
+447r7*A4{202R9} 486r7
+449r7*A5{219R9} 487r7
+451r7*B0{236R9} 488r7
+453r7*B1{253R9} 489r7
+455r7*B2{270R9} 490r7
+457r7*B3{287R9} 491r7
+459r7*B4{304R9} 492r7
+461r7*B5{321R9} 493r7
+463r7*T0{338R9} 494r7
+465r7*T1{355R9} 495r7
+467r7*T2{372R9} 496r7
+469r7*T3{389R9} 497r7
+471r7*T4{406R9} 498r7
+502r4*TEMP_Periph{425R9}
+X 5 system.ads
+60K9*System 4|46w6 86r24 124r24 141r24 158r24 175r24 192r24 209r24 226r24
+. 243r24 260r24 277r24 294r24 311r24 328r24 345r24 362r24 379r24 396r24 413r24
+. 5|172e11
+90M9*Address
+114n41*Low_Order_First{114E9} 4|86r31 124r31 141r31 158r31 175r31 192r31
+. 209r31 226r31 243r31 260r31 277r31 294r31 311r31 328r31 345r31 362r31 379r31
+. 396r31 413r31
+

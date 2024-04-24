@@ -1,0 +1,177 @@
+graph: { title: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.adb"
+class {
+  classname: "wm8994__wm8994_device"
+  label: "wm8994__wm8994_device\wm8994.ads:89:9"
+  parent: "wm8994__wm8994_device"
+  virtuals: "1:wm8994__init\n
+             2:wm8994__read_id\n
+             3:wm8994__play\n
+             4:wm8994__pause\n
+             5:wm8994__resume\n
+             6:wm8994__stop\n
+             7:wm8994__set_volume\n
+             8:wm8994__set_mute\n
+             9:wm8994__set_output_mode\n
+             10:wm8994__set_frequency\n
+             11:wm8994__reset\n
+             12:wm8994__i2c_write\n
+             13:wm8994__i2c_read\n
+             -1:wm8994___size"
+}
+edge: { sourcename: "wm8994__i2c_write"
+  targetname: "3:hal__i2c__i2c_port,hal__i2c__i2c_port"
+  label: "wm8994.adb:57:16"
+}
+edge: { sourcename: "wm8994__i2c_read"
+  targetname: "4:hal__i2c__i2c_port,hal__i2c__i2c_port"
+  label: "wm8994.adb:81:16"
+}
+edge: { sourcename: "wm8994__init"
+  targetname: "2:hal__time__delays,hal__time__delays"
+  label: "wm8994.adb:117:16"
+}
+edge: { sourcename: "wm8994__init"
+  targetname: "2:hal__time__delays,hal__time__delays"
+  label: "wm8994.adb:218:19"
+}
+edge: { sourcename: "wm8994__init"
+  targetname: "2:hal__time__delays,hal__time__delays"
+  label: "wm8994.adb:236:19"
+}
+node: { title: "wm8994__audio_frequencyRP" label: "AUDIO_FREQUENCYRP\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.ads:53:9\n16 bytes (static)" }
+node: { title: "wm8994__wm8994_deviceIP" label: "WM8994_DEVICEIP\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.ads:115:9\n24 bytes (static)" }
+node: { title: "wm8994___size" label: "WM8994\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.ads:115:9\n16 bytes (static)" }
+node: { title: "wm8994__i2c_write" label: "I2C_WRITE\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.adb:45:4\n72 bytes (static)" }
+node: { title: "__gnat_last_chance_handler" label: "gnat_last_chance_handler\n<built-in>" shape : ellipse }
+edge: { sourcename: "wm8994__i2c_write" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.adb:54:26" }
+edge: { sourcename: "wm8994__i2c_write" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.adb:55:32" }
+node: { title: "__indirect_call" label: "Indirect Call Placeholder" shape : ellipse }
+edge: { sourcename: "wm8994__i2c_write" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.adb:57:16" }
+edge: { sourcename: "wm8994__i2c_write" targetname: "wm8994__i2c_read" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.adb:65:19" }
+node: { title: "wm8994__i2c_read" label: "I2C_READ\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.adb:73:4\n64 bytes (static)" }
+edge: { sourcename: "wm8994__i2c_read" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.adb:81:16" }
+node: { title: "wm8994__init" label: "INIT\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.adb:96:4\n24 bytes (static)" }
+edge: { sourcename: "wm8994__init" targetname: "wm8994__i2c_write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.adb:107:7" }
+edge: { sourcename: "wm8994__init" targetname: "wm8994__i2c_write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.adb:108:7" }
+edge: { sourcename: "wm8994__init" targetname: "wm8994__i2c_write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.adb:109:7" }
+edge: { sourcename: "wm8994__init" targetname: "wm8994__i2c_write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.adb:112:7" }
+edge: { sourcename: "wm8994__init" targetname: "wm8994__i2c_write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.adb:115:7" }
+edge: { sourcename: "wm8994__init" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.adb:117:16" }
+edge: { sourcename: "wm8994__init" targetname: "wm8994__set_output_mode" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.adb:122:11" }
+edge: { sourcename: "wm8994__init" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.adb:124:12" }
+edge: { sourcename: "wm8994__init" targetname: "wm8994__i2c_write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.adb:132:13" }
+edge: { sourcename: "wm8994__init" targetname: "wm8994__i2c_write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.adb:135:13" }
+edge: { sourcename: "wm8994__init" targetname: "wm8994__i2c_write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.adb:138:13" }
+edge: { sourcename: "wm8994__init" targetname: "wm8994__i2c_write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.adb:140:13" }
+edge: { sourcename: "wm8994__init" targetname: "wm8994__i2c_write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.adb:142:13" }
+edge: { sourcename: "wm8994__init" targetname: "wm8994__i2c_write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.adb:145:13" }
+edge: { sourcename: "wm8994__init" targetname: "wm8994__i2c_write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.adb:150:13" }
+edge: { sourcename: "wm8994__init" targetname: "wm8994__i2c_write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.adb:153:13" }
+edge: { sourcename: "wm8994__init" targetname: "wm8994__i2c_write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.adb:156:13" }
+edge: { sourcename: "wm8994__init" targetname: "wm8994__i2c_write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.adb:158:13" }
+edge: { sourcename: "wm8994__init" targetname: "wm8994__i2c_write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.adb:160:13" }
+edge: { sourcename: "wm8994__init" targetname: "wm8994__i2c_write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.adb:163:13" }
+edge: { sourcename: "wm8994__init" targetname: "wm8994__set_frequency" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.adb:166:11" }
+edge: { sourcename: "wm8994__init" targetname: "wm8994__i2c_write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.adb:170:7" }
+edge: { sourcename: "wm8994__init" targetname: "wm8994__i2c_write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.adb:172:7" }
+edge: { sourcename: "wm8994__init" targetname: "wm8994__i2c_write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.adb:175:7" }
+edge: { sourcename: "wm8994__init" targetname: "wm8994__i2c_write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.adb:178:7" }
+edge: { sourcename: "wm8994__init" targetname: "wm8994__i2c_write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.adb:185:10" }
+edge: { sourcename: "wm8994__init" targetname: "wm8994__i2c_write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.adb:188:10" }
+edge: { sourcename: "wm8994__init" targetname: "wm8994__i2c_write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.adb:192:10" }
+edge: { sourcename: "wm8994__init" targetname: "wm8994__i2c_write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.adb:196:10" }
+edge: { sourcename: "wm8994__init" targetname: "wm8994__i2c_write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.adb:199:10" }
+edge: { sourcename: "wm8994__init" targetname: "wm8994__i2c_write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.adb:204:10" }
+edge: { sourcename: "wm8994__init" targetname: "wm8994__i2c_write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.adb:209:10" }
+edge: { sourcename: "wm8994__init" targetname: "wm8994__i2c_write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.adb:212:10" }
+edge: { sourcename: "wm8994__init" targetname: "wm8994__i2c_write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.adb:215:10" }
+edge: { sourcename: "wm8994__init" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.adb:218:19" }
+edge: { sourcename: "wm8994__init" targetname: "wm8994__i2c_write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.adb:221:10" }
+edge: { sourcename: "wm8994__init" targetname: "wm8994__i2c_write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.adb:225:10" }
+edge: { sourcename: "wm8994__init" targetname: "wm8994__i2c_write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.adb:229:10" }
+edge: { sourcename: "wm8994__init" targetname: "wm8994__i2c_write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.adb:233:10" }
+edge: { sourcename: "wm8994__init" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.adb:236:19" }
+edge: { sourcename: "wm8994__init" targetname: "wm8994__i2c_write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.adb:240:10" }
+edge: { sourcename: "wm8994__init" targetname: "wm8994__i2c_write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.adb:245:10" }
+edge: { sourcename: "wm8994__init" targetname: "wm8994__i2c_write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.adb:248:10" }
+edge: { sourcename: "wm8994__init" targetname: "wm8994__i2c_write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.adb:251:10" }
+edge: { sourcename: "wm8994__init" targetname: "wm8994__i2c_write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.adb:254:10" }
+edge: { sourcename: "wm8994__init" targetname: "wm8994__i2c_write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.adb:257:10" }
+edge: { sourcename: "wm8994__init" targetname: "wm8994__i2c_write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.adb:260:10" }
+edge: { sourcename: "wm8994__init" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.adb:263:27" }
+edge: { sourcename: "wm8994__init" targetname: "wm8994__set_volume" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.adb:263:14" }
+edge: { sourcename: "wm8994__init" targetname: "wm8994__i2c_write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.adb:270:13" }
+edge: { sourcename: "wm8994__init" targetname: "wm8994__i2c_write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.adb:273:13" }
+edge: { sourcename: "wm8994__init" targetname: "wm8994__i2c_write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.adb:276:13" }
+edge: { sourcename: "wm8994__init" targetname: "wm8994__i2c_write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.adb:281:13" }
+edge: { sourcename: "wm8994__init" targetname: "wm8994__i2c_write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.adb:284:13" }
+edge: { sourcename: "wm8994__init" targetname: "wm8994__i2c_write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.adb:287:13" }
+edge: { sourcename: "wm8994__init" targetname: "wm8994__i2c_write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.adb:290:13" }
+edge: { sourcename: "wm8994__init" targetname: "wm8994__i2c_write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.adb:293:13" }
+edge: { sourcename: "wm8994__init" targetname: "wm8994__i2c_write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.adb:296:13" }
+edge: { sourcename: "wm8994__init" targetname: "wm8994__i2c_write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.adb:299:13" }
+edge: { sourcename: "wm8994__init" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.adb:303:27" }
+edge: { sourcename: "wm8994__init" targetname: "wm8994__set_volume" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.adb:303:14" }
+node: { title: "wm8994__read_id" label: "READ_ID\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.adb:311:4\n16 bytes (static)" }
+edge: { sourcename: "wm8994__read_id" targetname: "wm8994__i2c_read" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.adb:313:18" }
+node: { title: "wm8994__play" label: "PLAY\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.adb:320:4\n16 bytes (static)" }
+edge: { sourcename: "wm8994__play" targetname: "wm8994__set_mute" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.adb:322:11" }
+node: { title: "wm8994__pause" label: "PAUSE\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.adb:329:4\n16 bytes (static)" }
+edge: { sourcename: "wm8994__pause" targetname: "wm8994__set_mute" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.adb:332:11" }
+edge: { sourcename: "wm8994__pause" targetname: "wm8994__i2c_write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.adb:335:7" }
+node: { title: "wm8994__resume" label: "RESUME\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.adb:342:4\n16 bytes (static)" }
+edge: { sourcename: "wm8994__resume" targetname: "wm8994__set_mute" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.adb:344:11" }
+node: { title: "wm8994__stop" label: "STOP\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.adb:351:4\n16 bytes (static)" }
+edge: { sourcename: "wm8994__stop" targetname: "wm8994__set_mute" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.adb:355:14" }
+edge: { sourcename: "wm8994__stop" targetname: "wm8994__i2c_write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.adb:364:10" }
+edge: { sourcename: "wm8994__stop" targetname: "wm8994__i2c_write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.adb:367:10" }
+edge: { sourcename: "wm8994__stop" targetname: "wm8994__i2c_write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.adb:370:10" }
+edge: { sourcename: "wm8994__stop" targetname: "wm8994__i2c_write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.adb:373:10" }
+edge: { sourcename: "wm8994__stop" targetname: "wm8994__i2c_write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.adb:376:10" }
+edge: { sourcename: "wm8994__stop" targetname: "wm8994__i2c_write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.adb:379:10" }
+node: { title: "wm8994__set_volume" label: "SET_VOLUME\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.adb:387:4\n24 bytes (static)" }
+edge: { sourcename: "wm8994__set_volume" targetname: "wm8994__set_mute" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.adb:397:14" }
+edge: { sourcename: "wm8994__set_volume" targetname: "wm8994__set_mute" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.adb:399:14" }
+edge: { sourcename: "wm8994__set_volume" targetname: "wm8994__i2c_write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.adb:402:10" }
+edge: { sourcename: "wm8994__set_volume" targetname: "wm8994__i2c_write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.adb:405:10" }
+edge: { sourcename: "wm8994__set_volume" targetname: "wm8994__i2c_write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.adb:408:10" }
+edge: { sourcename: "wm8994__set_volume" targetname: "wm8994__i2c_write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.adb:411:10" }
+node: { title: "wm8994__set_mute" label: "SET_MUTE\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.adb:419:4\n16 bytes (static)" }
+edge: { sourcename: "wm8994__set_mute" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.adb:422:15" }
+edge: { sourcename: "wm8994__set_mute" targetname: "wm8994__i2c_write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.adb:425:16" }
+edge: { sourcename: "wm8994__set_mute" targetname: "wm8994__i2c_write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.adb:427:16" }
+edge: { sourcename: "wm8994__set_mute" targetname: "wm8994__i2c_write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.adb:430:16" }
+edge: { sourcename: "wm8994__set_mute" targetname: "wm8994__i2c_write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.adb:432:16" }
+node: { title: "wm8994__set_output_mode" label: "SET_OUTPUT_MODE\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.adb:441:4\n16 bytes (static)" }
+edge: { sourcename: "wm8994__set_output_mode" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.adb:445:12" }
+edge: { sourcename: "wm8994__set_output_mode" targetname: "wm8994__i2c_write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.adb:448:13" }
+edge: { sourcename: "wm8994__set_output_mode" targetname: "wm8994__i2c_write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.adb:450:13" }
+edge: { sourcename: "wm8994__set_output_mode" targetname: "wm8994__i2c_write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.adb:452:13" }
+edge: { sourcename: "wm8994__set_output_mode" targetname: "wm8994__i2c_write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.adb:456:13" }
+edge: { sourcename: "wm8994__set_output_mode" targetname: "wm8994__i2c_write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.adb:458:13" }
+edge: { sourcename: "wm8994__set_output_mode" targetname: "wm8994__i2c_write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.adb:460:13" }
+edge: { sourcename: "wm8994__set_output_mode" targetname: "wm8994__i2c_write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.adb:462:13" }
+edge: { sourcename: "wm8994__set_output_mode" targetname: "wm8994__i2c_write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.adb:464:13" }
+edge: { sourcename: "wm8994__set_output_mode" targetname: "wm8994__i2c_write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.adb:469:13" }
+edge: { sourcename: "wm8994__set_output_mode" targetname: "wm8994__i2c_write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.adb:471:13" }
+edge: { sourcename: "wm8994__set_output_mode" targetname: "wm8994__i2c_write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.adb:473:13" }
+edge: { sourcename: "wm8994__set_output_mode" targetname: "wm8994__i2c_write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.adb:475:13" }
+edge: { sourcename: "wm8994__set_output_mode" targetname: "wm8994__i2c_write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.adb:477:13" }
+edge: { sourcename: "wm8994__set_output_mode" targetname: "wm8994__i2c_write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.adb:482:13" }
+edge: { sourcename: "wm8994__set_output_mode" targetname: "wm8994__i2c_write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.adb:484:13" }
+edge: { sourcename: "wm8994__set_output_mode" targetname: "wm8994__i2c_write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.adb:486:13" }
+edge: { sourcename: "wm8994__set_output_mode" targetname: "wm8994__i2c_write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.adb:488:13" }
+edge: { sourcename: "wm8994__set_output_mode" targetname: "wm8994__i2c_write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.adb:490:13" }
+node: { title: "wm8994__set_frequency" label: "SET_FREQUENCY\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.adb:498:4\n16 bytes (static)" }
+edge: { sourcename: "wm8994__set_frequency" targetname: "wm8994__audio_frequencyRP" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.adb:502:12" }
+edge: { sourcename: "wm8994__set_frequency" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.adb:502:12" }
+edge: { sourcename: "wm8994__set_frequency" targetname: "wm8994__i2c_write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.adb:505:13" }
+edge: { sourcename: "wm8994__set_frequency" targetname: "wm8994__i2c_write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.adb:508:13" }
+edge: { sourcename: "wm8994__set_frequency" targetname: "wm8994__i2c_write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.adb:511:13" }
+edge: { sourcename: "wm8994__set_frequency" targetname: "wm8994__i2c_write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.adb:514:13" }
+edge: { sourcename: "wm8994__set_frequency" targetname: "wm8994__i2c_write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.adb:517:13" }
+edge: { sourcename: "wm8994__set_frequency" targetname: "wm8994__i2c_write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.adb:520:13" }
+edge: { sourcename: "wm8994__set_frequency" targetname: "wm8994__i2c_write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.adb:523:13" }
+node: { title: "wm8994__reset" label: "RESET\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.adb:531:4\n16 bytes (static)" }
+edge: { sourcename: "wm8994__reset" targetname: "wm8994__i2c_write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\W8994\wm8994.adb:533:7" }
+}

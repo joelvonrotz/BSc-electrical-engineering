@@ -257,11 +257,21 @@ $$
 
 #### Ziegler-Nichols-Tabelle (via Sprungantwort)
 
-| Typ |      $k_p$       |    $T_i$     |     $T_d$      |
-|:---:|:----------------:|:------------:|:--------------:|
-|  P  |  $\sfrac{1}{a}$  |      \-      |       \-       |
-| PI  | $\sfrac{0.9}{a}$ | $3\cdot\tau$ |       \-       |
-| PID | $\sfrac{1.2}{a}$ | $2\cdot\tau$ | $0.5\cdot\tau$ |
+```{=latex}
+\def\arraystretch{1.2}
+\begin{center}
+    \begin{tabular}{cccc}
+        \hline
+        \textbf{Typ} & $\mathbf{k_p}$ & $\mathbf{T_i}$ & $\mathbf{T_d}$ \\
+        \hline
+        P   & $\sfrac{1}{a}$   & $-$          & $-$            \\
+        PI  & $\sfrac{0.9}{a}$ & $3\cdot\tau$ & $-$            \\
+        PID & $\sfrac{1.2}{a}$ & $2\cdot\tau$ & $0.5\cdot\tau$ \\
+    \end{tabular}
+\end{center}
+
+
+```
 
 ### ...Einstellregeln im Frequenzbereich
 
@@ -271,11 +281,19 @@ Verstärkung $k$ erhöhen, bis sich eine anhaltende Schwingung einstellt. Regelp
 
 #### Ziegler-Nichols-Tabelle (via Kritische Verstärkung)
 
-| Typ |     $k_p$      |     $T_i$      |      $T_d$       |
-|:---:|:--------------:|:--------------:|:----------------:|
-|  P  | $0.5\cdot k_c$ |       $-$      |        $-$       |
-| PI  | $0.4\cdot k_c$ | $0.8\cdot T_c$ |        $-$       |
-| PID | $0.6\cdot k_c$ | $0.5\cdot T_c$ | $0.125\cdot T_c$ |
+```{=latex}
+\begin{center}
+    \begin{tabular}{cccc}
+        \hline
+        \textbf{Typ} & $\mathbf{k_p}$ & $\mathbf{T_i}$ & $\mathbf{T_d}$ \\
+        \hline
+        P   & $0.5\cdot k_c$    & $-$             & $-$                \\
+        PI  & $0.4\cdot k_c$    & $0.8\cdot T_c$  & $-$                \\
+        PID & $0.6\cdot k_c$    & $0.5\cdot T_c$  & $0.125\cdot T_c$   \\
+    \end{tabular}
+\end{center}
+
+```
 
 ## Stellgrössen-Sättigung
 

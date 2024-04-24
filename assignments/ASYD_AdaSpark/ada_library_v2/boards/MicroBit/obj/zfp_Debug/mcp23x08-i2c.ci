@@ -1,0 +1,41 @@
+graph: { title: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\io_expander\MCP23xxx\mcp23x08-i2c.adb"
+class {
+  classname: "mcp23x08__i2c__mcp23008_io_expander"
+  label: "mcp23x08__i2c__mcp23008_io_expander\mcp23x08-i2c.ads:36:9"
+  parent: "mcp23x08__mcp23x08_io_expander"
+  virtuals: "13:mcp23x08__i2c__io_write__2,13:mcp23x08__mcp23x08_io_expander\n
+             14:mcp23x08__i2c__io_read__2,14:mcp23x08__mcp23x08_io_expander\n
+             -1:mcp23x08__i2c___size__2,-1:mcp23x08__mcp23x08_io_expander\n
+             -6:mcp23x08__i2c__Oeq__2,-6:mcp23x08__mcp23x08_io_expander\n
+             -7:mcp23x08__i2c___assign__2,-7:mcp23x08__mcp23x08_io_expander"
+}
+edge: { sourcename: "mcp23x08__i2c__io_write__2"
+  targetname: "3:hal__i2c__i2c_port,hal__i2c__i2c_port"
+  label: "mcp23x08-i2c.adb:48:16"
+}
+edge: { sourcename: "mcp23x08__i2c__io_read__2"
+  targetname: "4:hal__i2c__i2c_port,hal__i2c__i2c_port"
+  label: "mcp23x08-i2c.adb:75:16"
+}
+node: { title: "mcp23x08__i2c__mcp23008_io_expanderIP" label: "Mcp23008_Io_Expanderip\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\io_expander\MCP23xxx\mcp23x08-i2c.ads:42:9\n24 bytes (static)" }
+node: { title: "mcp23x08__mcp23x08_io_expanderIP" label: "Mcp23x08_Io_Expanderip\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\io_expander\MCP23xxx\mcp23x08.ads:165:9" shape : ellipse }
+edge: { sourcename: "mcp23x08__i2c__mcp23008_io_expanderIP" targetname: "mcp23x08__mcp23x08_io_expanderIP" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\io_expander\MCP23xxx\mcp23x08-i2c.ads:44:6" }
+node: { title: "mcp23x08__i2c___size__2" label: "I2c\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\io_expander\MCP23xxx\mcp23x08-i2c.ads:42:9\n16 bytes (static)" }
+node: { title: "mcp23x08__i2c__Oeq__2" label: "=\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\io_expander\MCP23xxx\mcp23x08-i2c.ads:42:4\n16 bytes (static)" }
+node: { title: "mcp23x08__Oeq__2" label: "=\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\io_expander\MCP23xxx\mcp23x08.ads:165:9" shape : ellipse }
+edge: { sourcename: "mcp23x08__i2c__Oeq__2" targetname: "mcp23x08__Oeq__2" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\io_expander\MCP23xxx\mcp23x08-i2c.ads:42:9" }
+node: { title: "mcp23x08__i2c___assign__2" label: "I2c\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\io_expander\MCP23xxx\mcp23x08-i2c.ads:42:9\n24 bytes (static)" }
+node: { title: "__gnat_last_chance_handler" label: "gnat_last_chance_handler\n<built-in>" shape : ellipse }
+edge: { sourcename: "mcp23x08__i2c___assign__2" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\io_expander\MCP23xxx\mcp23x08-i2c.ads:42:9" }
+node: { title: "memcpy" label: "builtin_memcpy\n<built-in>" shape : ellipse }
+edge: { sourcename: "mcp23x08__i2c___assign__2" targetname: "memcpy" }
+node: { title: "mcp23x08__i2c__io_write__2" label: "Io_Write\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\io_expander\MCP23xxx\mcp23x08-i2c.adb:41:4\n72 bytes (static)" }
+edge: { sourcename: "mcp23x08__i2c__io_write__2" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\io_expander\MCP23xxx\mcp23x08-i2c.adb:48:11" }
+node: { title: "__indirect_call" label: "Indirect Call Placeholder" shape : ellipse }
+edge: { sourcename: "mcp23x08__i2c__io_write__2" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\io_expander\MCP23xxx\mcp23x08-i2c.adb:48:16" }
+edge: { sourcename: "mcp23x08__i2c__io_write__2" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\io_expander\MCP23xxx\mcp23x08-i2c.adb:58:10" }
+node: { title: "mcp23x08__i2c__io_read__2" label: "Io_Read\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\io_expander\MCP23xxx\mcp23x08-i2c.adb:67:4\n64 bytes (static)" }
+edge: { sourcename: "mcp23x08__i2c__io_read__2" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\io_expander\MCP23xxx\mcp23x08-i2c.adb:75:11" }
+edge: { sourcename: "mcp23x08__i2c__io_read__2" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\io_expander\MCP23xxx\mcp23x08-i2c.adb:75:16" }
+edge: { sourcename: "mcp23x08__i2c__io_read__2" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\io_expander\MCP23xxx\mcp23x08-i2c.adb:85:10" }
+}

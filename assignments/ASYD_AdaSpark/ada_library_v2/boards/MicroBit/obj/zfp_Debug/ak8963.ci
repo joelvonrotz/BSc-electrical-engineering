@@ -1,0 +1,70 @@
+graph: { title: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\ak8963\ak8963.adb"
+edge: { sourcename: "ak8963__i2c_read"
+  targetname: "4:hal__i2c__i2c_port,hal__i2c__i2c_port"
+  label: "ak8963.adb:104:22"
+}
+edge: { sourcename: "ak8963__i2c_write"
+  targetname: "3:hal__i2c__i2c_port,hal__i2c__i2c_port"
+  label: "ak8963.adb:139:22"
+}
+edge: { sourcename: "ak8963__test_connection"
+  targetname: "4:hal__i2c__i2c_port,hal__i2c__i2c_port"
+  label: "ak8963.adb:198:22"
+}
+edge: { sourcename: "ak8963__self_test__2"
+  targetname: "2:hal__time__delays,hal__time__delays"
+  label: "ak8963.adb:239:21"
+}
+edge: { sourcename: "ak8963__get_heading"
+  targetname: "4:hal__i2c__i2c_port,hal__i2c__i2c_port"
+  label: "ak8963.adb:322:7"
+}
+edge: { sourcename: "ak8963__get_heading"
+  targetname: "4:hal__i2c__i2c_port,hal__i2c__i2c_port"
+  label: "ak8963.adb:346:10"
+}
+node: { title: "ak8963__ak8963_sampling_modeRP" label: "AK8963_SAMPLING_MODERP\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\ak8963\ak8963.ads:41:9\n16 bytes (static)" }
+node: { title: "ak8963__ak8963_operation_modeRP" label: "AK8963_OPERATION_MODERP\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\ak8963\ak8963.ads:45:9\n16 bytes (static)" }
+node: { title: "ak8963__ak8963_deviceIP" label: "AK8963_DEVICEIP\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\ak8963\ak8963.ads:83:9\n24 bytes (static)" }
+node: { title: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\ak8963\ak8963.adb:ak8963__i2c_read" label: "I2C_READ\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\ak8963\ak8963.adb:97:4\n64 bytes (static)" }
+node: { title: "__indirect_call" label: "Indirect Call Placeholder" shape : ellipse }
+edge: { sourcename: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\ak8963\ak8963.adb:ak8963__i2c_read" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\ak8963\ak8963.adb:104:22" }
+node: { title: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\ak8963\ak8963.adb:ak8963__i2c_read__2" label: "I2C_READ\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\ak8963\ak8963.adb:117:4\n32 bytes (static)" }
+edge: { sourcename: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\ak8963\ak8963.adb:ak8963__i2c_read__2" targetname: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\ak8963\ak8963.adb:ak8963__i2c_read" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\ak8963\ak8963.adb:123:32" }
+node: { title: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\ak8963\ak8963.adb:ak8963__i2c_write" label: "I2C_WRITE\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\ak8963\ak8963.adb:132:4\n72 bytes (static)" }
+edge: { sourcename: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\ak8963\ak8963.adb:ak8963__i2c_write" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\ak8963\ak8963.adb:139:22" }
+node: { title: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\ak8963\ak8963.adb:ak8963__i2c_write__2" label: "I2C_WRITE\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\ak8963\ak8963.adb:151:4\n32 bytes (static)" }
+edge: { sourcename: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\ak8963\ak8963.adb:ak8963__i2c_write__2" targetname: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\ak8963\ak8963.adb:ak8963__i2c_read" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\ak8963\ak8963.adb:157:23" }
+edge: { sourcename: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\ak8963\ak8963.adb:ak8963__i2c_write__2" targetname: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\ak8963\ak8963.adb:ak8963__i2c_write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\ak8963\ak8963.adb:166:7" }
+node: { title: "ak8963__initialize" label: "INITIALIZE\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\ak8963\ak8963.adb:173:4\n16 bytes (static)" }
+node: { title: "__gnat_last_chance_handler" label: "gnat_last_chance_handler\n<built-in>" shape : ellipse }
+edge: { sourcename: "ak8963__initialize" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\ak8963\ak8963.adb:181:21" }
+node: { title: "ak8963__test_connection" label: "TEST_CONNECTION\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\ak8963\ak8963.adb:193:4\n64 bytes (static)" }
+edge: { sourcename: "ak8963__test_connection" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\ak8963\ak8963.adb:198:22" }
+node: { title: "ak8963__self_test__2" label: "SELF_TEST\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\ak8963\ak8963.adb:212:4\n48 bytes (static)" }
+edge: { sourcename: "ak8963__self_test__2" targetname: "ak8963__test_connection" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\ak8963\ak8963.adb:221:14" }
+edge: { sourcename: "ak8963__self_test__2" targetname: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\ak8963\ak8963.adb:ak8963__i2c_read" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\ak8963\ak8963.adb:228:20" }
+edge: { sourcename: "ak8963__self_test__2" targetname: "ak8963__set_mode__2" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\ak8963\ak8963.adb:231:7" }
+edge: { sourcename: "ak8963__self_test__2" targetname: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\ak8963\ak8963.adb:ak8963__i2c_write__2" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\ak8963\ak8963.adb:232:7" }
+edge: { sourcename: "ak8963__self_test__2" targetname: "ak8963__get_overflow_status" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\ak8963\ak8963.adb:233:15" }
+edge: { sourcename: "ak8963__self_test__2" targetname: "ak8963__set_mode" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\ak8963\ak8963.adb:234:7" }
+edge: { sourcename: "ak8963__self_test__2" targetname: "ak8963__get_data_ready" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\ak8963\ak8963.adb:237:20" }
+edge: { sourcename: "ak8963__self_test__2" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\ak8963\ak8963.adb:238:25" }
+edge: { sourcename: "ak8963__self_test__2" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\ak8963\ak8963.adb:239:21" }
+edge: { sourcename: "ak8963__self_test__2" targetname: "ak8963__get_heading" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\ak8963\ak8963.adb:246:7" }
+edge: { sourcename: "ak8963__self_test__2" targetname: "ak8963__get_overflow_status" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\ak8963\ak8963.adb:247:15" }
+edge: { sourcename: "ak8963__self_test__2" targetname: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\ak8963\ak8963.adb:ak8963__i2c_write__2" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\ak8963\ak8963.adb:248:7" }
+edge: { sourcename: "ak8963__self_test__2" targetname: "ak8963__set_mode__2" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\ak8963\ak8963.adb:249:7" }
+edge: { sourcename: "ak8963__self_test__2" targetname: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\ak8963\ak8963.adb:ak8963__i2c_write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\ak8963\ak8963.adb:262:7" }
+node: { title: "ak8963__set_mode" label: "SET_MODE\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\ak8963\ak8963.adb:271:4\n24 bytes (static)" }
+edge: { sourcename: "ak8963__set_mode" targetname: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\ak8963\ak8963.adb:ak8963__i2c_write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\ak8963\ak8963.adb:280:7" }
+node: { title: "ak8963__set_mode__2" label: "SET_MODE\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\ak8963\ak8963.adb:287:4\n24 bytes (static)" }
+edge: { sourcename: "ak8963__set_mode__2" targetname: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\ak8963\ak8963.adb:ak8963__i2c_write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\ak8963\ak8963.adb:294:7" }
+node: { title: "ak8963__get_data_ready" label: "GET_DATA_READY\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\ak8963\ak8963.adb:301:4\n16 bytes (static)" }
+edge: { sourcename: "ak8963__get_data_ready" targetname: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\ak8963\ak8963.adb:ak8963__i2c_read__2" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\ak8963\ak8963.adb:305:14" }
+node: { title: "ak8963__get_heading" label: "GET_HEADING\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\ak8963\ak8963.adb:312:4\n120 bytes (static)" }
+edge: { sourcename: "ak8963__get_heading" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\ak8963\ak8963.adb:322:7" }
+edge: { sourcename: "ak8963__get_heading" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\ak8963\ak8963.adb:346:10" }
+node: { title: "ak8963__get_overflow_status" label: "GET_OVERFLOW_STATUS\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\ak8963\ak8963.adb:366:4\n16 bytes (static)" }
+edge: { sourcename: "ak8963__get_overflow_status" targetname: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\ak8963\ak8963.adb:ak8963__i2c_read__2" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\ak8963\ak8963.adb:370:14" }
+}

@@ -1,0 +1,51 @@
+graph: { title: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\audio\simple_synthesizer.adb"
+class {
+  classname: "simple_synthesizer__synthesizer"
+  label: "simple_synthesizer__synthesizer\simple_synthesizer.ads:39:9"
+  parent: "hal__audio__audio_stream"
+  virtuals: "1:simple_synthesizer__set_frequency,1:hal__audio__audio_stream\n
+             2:simple_synthesizer__transmit,2:hal__audio__audio_stream\n
+             3:simple_synthesizer__receive,3:hal__audio__audio_stream\n
+             -1:simple_synthesizer___size__2,-1:hal__audio__audio_stream\n
+             4:simple_synthesizer__set_note_frequency"
+}
+node: { title: "simple_synthesizer__synthesizerIP" label: "Synthesizerip\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\audio\simple_synthesizer.ads:58:9\n24 bytes (static)" }
+node: { title: "simple_synthesizer___size__2" label: "Simple_Synthesizer\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\audio\simple_synthesizer.ads:58:9\n16 bytes (static)" }
+node: { title: "simple_synthesizer__set_note_frequency" label: "Set_Note_Frequency\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\audio\simple_synthesizer.adb:40:4\n16 bytes (static)" }
+node: { title: "simple_synthesizer__set_frequency" label: "Set_Frequency\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\audio\simple_synthesizer.adb:52:15\n16 bytes (static)" }
+node: { title: "simple_synthesizer__transmit" label: "Transmit\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\audio\simple_synthesizer.adb:64:15\n96 bytes (dynamic)" }
+node: { title: "__gnat_last_chance_handler" label: "Last_Chance_Handler\nC:\gnat\2020-arm-elf\arm-eabi\lib\gnat\zfp-cortex-m4f\gnat\a-except.adb:43:17" shape : ellipse }
+edge: { sourcename: "simple_synthesizer__transmit" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\audio\simple_synthesizer.adb:69:7" }
+node: { title: "__gnat_last_chance_handler" label: "gnat_last_chance_handler\n<built-in>" shape : ellipse }
+edge: { sourcename: "simple_synthesizer__transmit" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\audio\simple_synthesizer.adb:69:7" }
+edge: { sourcename: "simple_synthesizer__transmit" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\audio\simple_synthesizer.adb:69:7" }
+edge: { sourcename: "simple_synthesizer__transmit" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\audio\simple_synthesizer.adb:69:7" }
+edge: { sourcename: "simple_synthesizer__transmit" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\audio\simple_synthesizer.adb:69:7" }
+edge: { sourcename: "simple_synthesizer__transmit" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\audio\simple_synthesizer.adb:69:7" }
+node: { title: "memcpy" label: "builtin_memcpy\n<built-in>" shape : ellipse }
+edge: { sourcename: "simple_synthesizer__transmit" targetname: "memcpy" }
+edge: { sourcename: "simple_synthesizer__transmit" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\audio\simple_synthesizer.adb:69:7" }
+edge: { sourcename: "simple_synthesizer__transmit" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\audio\simple_synthesizer.adb:69:7" }
+node: { title: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\audio\simple_synthesizer.adb:simple_synthesizer__receive__next_sample.5815" label: "Next_Sample\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\audio\simple_synthesizer.adb:93:7\n16 bytes (static)" }
+edge: { sourcename: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\audio\simple_synthesizer.adb:simple_synthesizer__receive__next_sample.5815" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\audio\simple_synthesizer.adb:99:46" }
+node: { title: "simple_synthesizer__receive" label: "Receive\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\audio\simple_synthesizer.adb:76:15\n184 bytes (dynamic)" }
+edge: { sourcename: "simple_synthesizer__receive" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\audio\simple_synthesizer.adb:106:13" }
+edge: { sourcename: "simple_synthesizer__receive" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\audio\simple_synthesizer.adb:106:13" }
+edge: { sourcename: "simple_synthesizer__receive" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\audio\simple_synthesizer.adb:106:13" }
+edge: { sourcename: "simple_synthesizer__receive" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\audio\simple_synthesizer.adb:106:13" }
+edge: { sourcename: "simple_synthesizer__receive" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\audio\simple_synthesizer.adb:106:13" }
+edge: { sourcename: "simple_synthesizer__receive" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\audio\simple_synthesizer.adb:106:13" }
+edge: { sourcename: "simple_synthesizer__receive" targetname: "memcpy" }
+edge: { sourcename: "simple_synthesizer__receive" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\audio\simple_synthesizer.adb:106:13" }
+edge: { sourcename: "simple_synthesizer__receive" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\audio\simple_synthesizer.adb:106:13" }
+edge: { sourcename: "simple_synthesizer__receive" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\audio\simple_synthesizer.adb:110:33" }
+edge: { sourcename: "simple_synthesizer__receive" targetname: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\audio\simple_synthesizer.adb:simple_synthesizer__receive__next_sample.5815" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\audio\simple_synthesizer.adb:111:20" }
+edge: { sourcename: "simple_synthesizer__receive" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\audio\simple_synthesizer.adb:112:26" }
+edge: { sourcename: "simple_synthesizer__receive" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\audio\simple_synthesizer.adb:112:31" }
+edge: { sourcename: "simple_synthesizer__receive" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\audio\simple_synthesizer.adb:112:13" }
+edge: { sourcename: "simple_synthesizer__receive" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\audio\simple_synthesizer.adb:113:26" }
+edge: { sourcename: "simple_synthesizer__receive" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\audio\simple_synthesizer.adb:113:31" }
+edge: { sourcename: "simple_synthesizer__receive" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\audio\simple_synthesizer.adb:113:44" }
+edge: { sourcename: "simple_synthesizer__receive" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\audio\simple_synthesizer.adb:113:13" }
+edge: { sourcename: "simple_synthesizer__receive" targetname: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\audio\simple_synthesizer.adb:simple_synthesizer__receive__next_sample.5815" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\audio\simple_synthesizer.adb:117:20" }
+}

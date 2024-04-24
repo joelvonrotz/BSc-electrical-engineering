@@ -1,0 +1,12 @@
+graph: { title: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\hal\src\hal-audio.ads"
+class {
+  classname: "hal__audio__audio_stream"
+  label: "hal__audio__audio_stream\hal-audio.ads:61:9"
+  virtuals: "1:hal__audio__set_frequency\n
+             2:hal__audio__transmit\n
+             3:hal__audio__receive\n
+             -1:hal__audio___size"
+}
+node: { title: "hal__audio__audio_bufferIP" label: "AUDIO_BUFFERIP\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\hal\src\hal-audio.ads:36:9\n16 bytes (static)" }
+node: { title: "hal__audio__audio_frequencyRP" label: "AUDIO_FREQUENCYRP\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\hal\src\hal-audio.ads:41:9\n16 bytes (static)" }
+}

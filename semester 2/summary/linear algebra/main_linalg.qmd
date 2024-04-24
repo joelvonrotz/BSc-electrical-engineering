@@ -238,8 +238,6 @@ Die Matrizen heissen *Koeffizientenmatrix*, bzw. *erweitere Koeffizientenmatrix*
 
 ![](images/visual_infinite_solutions.png){height="2cm"}
 
-
-
 ### "Zu viele" Gleichungen
 
 Im Fall "Zu viele" Gleichungen, gibt es schlicht zu viele Werte und daher gilt das LGS als **inkonsistent**.
@@ -267,7 +265,6 @@ nicht auf eine unwahre Aussage hindeutet. In diesem Fall wäre [$t_2 = 0$]{.unde
 \vfill\null
 \columnbreak
 ```
-
 # Matrix
 
 ::: callout-note
@@ -299,8 +296,6 @@ a_{\textcolor{red}{Z}1} & \cdots & a_{\textcolor{red}{Z}\textcolor{OliveGreen}{S
 \end{matrix}
 $$
 :::
-
-
 
 ## Homogenes Gleichungssystem
 
@@ -402,8 +397,6 @@ $$
 $$
 :::
 
-
-
 ## Matrixmultiplikation
 
 ::: callout-note
@@ -498,8 +491,6 @@ Ansonsten heisst die Matrix $A$ [singulär]{.underline}!
 Eine Matrix $A$ ist invertierbar, wenn $\det{A}\neq0$. $\det{A} = 0$ wäre ähnlich wie eine "Divison durch 0".
 :::
 
-
-
 ::: callout-tip
 ### Vorgehen Berechnung inverse Matrix z.B. $A\cdot X=I_2$
 
@@ -557,8 +548,6 @@ $$
 -   $(A^T)^{-1} = (A^{-1})^T$
 :::
 
-
-
 ### Inverse einer $(2\times2)-$Matrix
 
 $$
@@ -592,7 +581,6 @@ $$
 \vfill\null
 \columnbreak
 ```
-
 ### Eigenschaften
 
 ::: callout-note
@@ -707,8 +695,6 @@ Wird eine Ebene in $\mathbb{R}^{3}$ aufgespannt von drei Vektoren $v_1, v_2, v_3
 
 Die Lineare Unabhängigkeit einer Matrix kann mit den Ermitteln der Treppenform der Matrix geprüft werden.
 
-
-
 ::: callout-tip
 ### Vorgehen
 
@@ -724,7 +710,6 @@ Test der Vektoren $v_1,\ldots, v_k \in \mathbb{R}^{n}$ auf lineare Unabhängigke
 \vfill\null
 \columnbreak
 ```
-
 ## Basis und Koordinaten
 
 ![](images/versch_linearkombi.png)
@@ -838,8 +823,6 @@ A = \{v + t_1v_1+\cdots+t_nv_n\:|\:t_1,\ldots,t_n\in \mathnormal{R}\}
 $$
 :::
 
-
-
 # Lineare Abbildung {#lineare-abbildung}
 
 Eine Abbildung ist in anderen Worte eine Funktion mit Matrizen. Diese Abbildungen können zum Beispiel Vektoren auf einer Ebene rotieren, vergrössern oder verkleinern.
@@ -889,8 +872,6 @@ $$
 L(x) = \begin{bmatrix}a_1 & a_2\end{bmatrix} \begin{bmatrix}x_1 \\ x_2\end{bmatrix} = Ax
 $$
 
-
-
 ::: callout-tip
 ### Vorgehen Matrix bzgl. anderen Basen
 
@@ -932,8 +913,6 @@ Eine Abbildung $F: \mathbb{R}^n \rightarrow \mathbb{R}^m$ heisst *affin*, wenn e
 $$
 F(v) = L(v) + w \quad \text{für alle} \quad v\in\mathbb{R}^n
 $$
-
-
 
 ::: callout-tip
 ### Vorgehen
@@ -1033,8 +1012,6 @@ $$
 \ker{A}= \text{span}\left(\begin{bmatrix}-1\\0\\1\\0\end{bmatrix},\begin{bmatrix}-1\\1\\0\\1\end{bmatrix}\right)
 $$
 :::
-
-
 
 ### Bild (engl. Image)
 
@@ -1159,8 +1136,6 @@ $$
 
 ist ein linearer Unterraum von V. Er heisst *Eigenraum* von $L$ zum Eigenwert $\lambda$.
 :::
-
-
 
 ### Bestimmung von Eigenwerten & -vektoren
 
@@ -1369,8 +1344,6 @@ $\rightarrow$ Eigenvektoren einzeln normieren!
 
 Solche Matrizen werden *orthogonal* genannt (nicht *ortho[normal]{.underline}*)
 :::
-
-
 
 ::: callout-note
 ### Spektralsatz
@@ -2006,8 +1979,6 @@ Dieses Gleichungssystem kann auch mit der inversen Matrix berechnet werden:
 ``` python
 x = np.linalg.inv(A)@b
 ```
-
-
 
 ### Fall: Matrix ist singulär
 

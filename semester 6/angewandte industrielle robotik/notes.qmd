@@ -1,0 +1,17 @@
+# Bewegungsort & Interpolation
+
+Steuerung und Gelenkregelung müssen dafür sorgen, dass die Gelenkkoordinaten die Werte der Zieillage einnehmen.
+
+-   Die Zielwerte für die Gelenke werden nicht sprungförmig geändert
+
+-   Drehmoment auf einem Maximalwert begrenzen (mechanische Belastung, Schwingungen)
+
+## Bahnparameter $s(t)$
+
+Bahnparameter $s(t)$ - Zurückgelegte Wegstrecke bei einem Schubgelenk, bzw. der Winkel bei einem Drehgelenk
+
+![](images/paste-1.png)
+
+$$
+S(t_e)=s_e=\vert q_z-q_{St}\vert
+$$

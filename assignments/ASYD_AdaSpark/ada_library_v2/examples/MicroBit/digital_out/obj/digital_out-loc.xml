@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<Locations>
+  <Project>
+    <vfs_file>C:\Users\JumpStart\Desktop\lehre\asyd\dev\Ada_Drivers_Library-master\examples\MicroBit\digital_out\digital_out.gpr</vfs_file>
+    <file_marker column=" 1" line=" 1" >
+      <vfs_project />
+      <vfs_file>C:\Users\JumpStart\Desktop\lehre\asyd\dev\Ada_Drivers_Library-master\examples\MicroBit\digital_out\digital_out.gpr</vfs_file>
+    </file_marker>
+    <file_marker column=" 22" line=" 10" >
+      <vfs_project />
+      <vfs_file>C:\Users\JumpStart\Desktop\lehre\asyd\dev\Ada_Drivers_Library-master\examples\MicroBit\digital_out\digital_out.gpr</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1" >
+      <vfs_project>C:\Users\JumpStart\Desktop\lehre\asyd\dev\Ada_Drivers_Library-master\examples\MicroBit\digital_out\digital_out.gpr</vfs_project>
+      <vfs_file>C:\Users\JumpStart\Desktop\lehre\asyd\dev\Ada_Drivers_Library-master\examples\MicroBit\digital_out\src\main.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 26" line=" 47" >
+      <vfs_project>C:\Users\JumpStart\Desktop\lehre\asyd\dev\Ada_Drivers_Library-master\examples\MicroBit\digital_out\digital_out.gpr</vfs_project>
+      <vfs_file>C:\Users\JumpStart\Desktop\lehre\asyd\dev\Ada_Drivers_Library-master\examples\MicroBit\digital_out\src\main.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 91" >
+      <vfs_project>C:\Users\JumpStart\Desktop\lehre\asyd\dev\Ada_Drivers_Library-master\boards\MicroBit\microbit_zfp.gpr</vfs_project>
+      <vfs_file>C:\Users\JumpStart\Desktop\lehre\asyd\dev\Ada_Drivers_Library-master\boards\microbit\src\microbit-time.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 26" line=" 47" >
+      <vfs_project>C:\Users\JumpStart\Desktop\lehre\asyd\dev\Ada_Drivers_Library-master\examples\MicroBit\digital_out\digital_out.gpr</vfs_project>
+      <vfs_file>C:\Users\JumpStart\Desktop\lehre\asyd\dev\Ada_Drivers_Library-master\examples\MicroBit\digital_out\src\main.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1" >
+      <vfs_project>C:\Users\JumpStart\Desktop\lehre\asyd\dev\Ada_Drivers_Library-master\examples\MicroBit\digital_out\digital_out.gpr</vfs_project>
+      <vfs_file>C:\Users\JumpStart\Desktop\lehre\asyd\dev\Ada_Drivers_Library-master\examples\MicroBit\digital_out\src\main.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 91" >
+      <vfs_project>C:\Users\JumpStart\Desktop\lehre\asyd\dev\Ada_Drivers_Library-master\boards\MicroBit\microbit_zfp.gpr</vfs_project>
+      <vfs_file>C:\Users\JumpStart\Desktop\lehre\asyd\dev\Ada_Drivers_Library-master\boards\microbit\src\microbit-time.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1" >
+      <vfs_project>C:\Users\JumpStart\Desktop\lehre\asyd\dev\Ada_Drivers_Library-master\examples\MicroBit\digital_out\digital_out.gpr</vfs_project>
+      <vfs_file>C:\Users\JumpStart\Desktop\lehre\asyd\dev\Ada_Drivers_Library-master\examples\MicroBit\digital_out\src\main.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 137" >
+      <vfs_project>C:\Users\JumpStart\Desktop\lehre\asyd\dev\Ada_Drivers_Library-master\boards\MicroBit\microbit_zfp.gpr</vfs_project>
+      <vfs_file>C:\Users\JumpStart\Desktop\lehre\asyd\dev\Ada_Drivers_Library-master\boards\microbit\src\microbit-time.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1" >
+      <vfs_project>C:\Users\JumpStart\Desktop\lehre\asyd\dev\Ada_Drivers_Library-master\examples\MicroBit\digital_out\digital_out.gpr</vfs_project>
+      <vfs_file>C:\Users\JumpStart\Desktop\lehre\asyd\dev\Ada_Drivers_Library-master\examples\MicroBit\digital_out\src\main.adb</vfs_file>
+    </file_marker>
+    <file_marker current="true" column=" 1" line=" 137" >
+      <vfs_project>C:\Users\JumpStart\Desktop\lehre\asyd\dev\Ada_Drivers_Library-master\boards\MicroBit\microbit_zfp.gpr</vfs_project>
+      <vfs_file>C:\Users\JumpStart\Desktop\lehre\asyd\dev\Ada_Drivers_Library-master\boards\microbit\src\microbit-time.adb</vfs_file>
+    </file_marker>
+  </Project>
+</Locations>

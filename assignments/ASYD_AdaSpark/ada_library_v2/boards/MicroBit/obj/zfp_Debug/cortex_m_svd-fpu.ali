@@ -1,0 +1,118 @@
+V "GNAT Lib v2020"
+A -O0
+A -gnatA
+A --RTS=C:\gnat\2020-arm-elf\arm-eabi\lib\gnat\zfp-cortex-m4f\
+A -mlittle-endian
+A -mthumb
+A -mfloat-abi=hard
+A -mcpu=cortex-m4
+A -mfpu=fpv4-sp-d16
+A -gnata
+A -fcallgraph-info=su
+A -fcallgraph-info=su
+A -g
+A -gnatwa
+A -gnatw_A
+A -gnatQ
+A -gnatw.X
+A -ffunction-sections
+A -fdata-sections
+A -march=armv7e-m+fp
+P ZX
+
+RN
+RV NO_IMPLICIT_CONDITIONALS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLEMENTATION_RESTRICTIONS
+RV NO_IMPLICIT_LOOPS
+RR NO_ELABORATION_CODE
+
+U cortex_m_svd.fpu%s	cortex_m_svd-fpu.ads	a98e023a NE OO PR PK
+W cortex_m_svd%s	cortex_m_svd.ads	cortex_m_svd.ali
+W hal%s			hal.ads			hal.ali
+W system%s		system.ads		system.ali
+Z system.unsigned_types%s  s-unstyp.ads		s-unstyp.ali
+
+D cortex_m_svd.ads	20210108111948 cd5bf229 cortex_m_svd%s
+D cortex_m_svd-fpu.ads	20210108111948 a90c4ca0 cortex_m_svd.fpu%s
+D hal.ads		20210108111948 2b42c80e hal%s
+D interfac.ads		20200819171400 5ab55268 interfaces%s
+D system.ads		20200819171400 e69b74bd system%s
+D s-unstyp.ads		20200819171400 5ecf7212 system.unsigned_types%s
+G a e
+G c Z s s [Tcpacr_cp_field_arrayBIP cortex_m_svd__fpu 35 4 none]
+G c Z s s [cpacr_cp_fieldIP cortex_m_svd__fpu 39 9 none]
+G c Z s s [cpacr_registerIP cortex_m_svd__fpu 59 9 none]
+G c Z s s [fpccr_registerIP cortex_m_svd__fpu 77 9 none]
+G c Z s s [fpcar_registerIP cortex_m_svd__fpu 137 9 none]
+G c Z s s [fpdscr_registerIP cortex_m_svd__fpu 155 9 none]
+G c Z s s [fpu_peripheralIP cortex_m_svd__fpu 186 9 none]
+X 1 cortex_m_svd.ads
+9K9*Cortex_M_SVD 31e17 2|11r9 209r5
+22m4*FPU_Base{5|90M9} 2|207r30
+X 2 cortex_m_svd-fpu.ads
+11K22*FPU 1|9k9 2|209l18 209e21
+19E9*CPACR_CP10_Field 28e6 29r8 35r53
+22n7*Access_Denied{19E9} 30r7
+25n7*Privileged{19E9} 31r7
+27n7*Full_Access{19E9} 32r7
+35A9*CPACR_CP_Field_Array(19E9)<integer> 48r19
+39R9*CPACR_CP_Field 40d7 51e6 53r8 63r24
+40b7*As_Array{boolean} 42r12 63m43
+45m13*Val{3|43M9} 54r7 63m62
+48a13*Arr{35A9} 55r7
+59R9*CPACR_Register 67e6 70r8 188r24
+61m7*Reserved_0_19{3|73M9} 71r7
+63r7*CP{39R9} 72r7
+65m7*Reserved_24_31{3|53M9} 73r7
+77R9*FPCCR_Register 116e6 119r8 190r24
+79b7*LSPACT{boolean} 120r7
+82b7*USER{boolean} 121r7
+84m7*Reserved_2_2{3|37M9} 122r7
+87b7*THREAD{boolean} 123r7
+91b7*HFRDY{boolean} 124r7
+95b7*MMRDY{boolean} 125r7
+99b7*BFRDY{boolean} 126r7
+101m7*Reserved_7_7{3|37M9} 127r7
+105b7*MONRDY{boolean} 128r7
+107m7*Reserved_9_29{3|75M9} 129r7
+109b7*LSPEN{boolean} 130r7
+114b7*ASPEN{boolean} 131r7
+134M12*FPCAR_ADDRESS_Field{3|91M9} 142r22
+137R9*FPCAR_Register 144e6 147r8 192r24
+139m7*Reserved_0_2{3|41M9} 148r7
+142m7*ADDRESS{134M12} 149r7
+152M12*FPDSCR_RMode_Field{3|39M9} 159r24
+155R9*FPDSCR_Register 169e6 172r8 194r24
+157m7*Reserved_0_21{3|77M9} 173r7
+159m7*RMode{152M12} 174r7
+161b7*FZ{boolean} 175r7
+163b7*DN{boolean} 176r7
+165b7*AHP{boolean} 177r7
+167m7*Reserved_27_31{3|45M9} 178r7
+186R9*FPU_Peripheral 196e6 198r8 206r25
+188r7*CPACR{59R9} 199r7
+190r7*FPCCR{77R9} 200r7
+192r7*FPCAR{137R9} 201r7
+194r7*FPDSCR{155R9} 202r7
+206r4*FPU_Periph{186R9}
+X 3 hal.ads
+34K9*HAL 2|7w6 45r19 61r24 65r24 84r23 101r23 107r23 134r35 139r22 152r34
+. 157r24 167r24 3|166e8
+37M9*Bit 2|84r27 101r27
+39M9*UInt2 2|152r38
+41M9*UInt3 2|139r26
+43M9*UInt4 2|45r23
+45M9*UInt5 2|167r28
+53M9*UInt8<4|63M9> 2|65r28
+73M9*UInt20 2|61r28
+75M9*UInt21 2|107r27
+77M9*UInt22 2|157r28
+91M9*UInt29 2|134r39
+X 4 interfac.ads
+63M9*Unsigned_8
+X 5 system.ads
+60K9*System 2|8w6 68r24 117r24 145r24 170r24 5|172e11
+90M9*Address
+114n41*Low_Order_First{114E9} 2|68r31 117r31 145r31 170r31
+

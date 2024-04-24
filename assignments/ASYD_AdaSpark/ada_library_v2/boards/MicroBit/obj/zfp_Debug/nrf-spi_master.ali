@@ -1,0 +1,214 @@
+V "GNAT Lib v2020"
+A -O0
+A -gnatA
+A --RTS=C:\gnat\2020-arm-elf\arm-eabi\lib\gnat\zfp-cortex-m4f\
+A -mlittle-endian
+A -mthumb
+A -mfloat-abi=hard
+A -mcpu=cortex-m4
+A -mfpu=fpv4-sp-d16
+A -gnata
+A -fcallgraph-info=su
+A -fcallgraph-info=su
+A -g
+A -gnatwa
+A -gnatw_A
+A -gnatQ
+A -gnatw.X
+A -ffunction-sections
+A -fdata-sections
+A -march=armv7e-m+fp
+P ZX
+
+RN
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_PRAGMAS
+
+U nrf.spi_master%b	nrf-spi_master.adb	684f58f6 NE OO PK
+Z interfaces%s		interfac.ads		interfac.ali
+W nrf%s			nrf.ads			nrf.ali
+W nrf_svd%s		nrf_svd.ads		nrf_svd.ali
+W nrf_svd.spi%s		nrf_svd-spi.ads		nrf_svd-spi.ali
+Z system.assertions%s	s-assert.adb		s-assert.ali
+
+U nrf.spi_master%s	nrf-spi_master.ads	159075ea EE NE OO PK
+Z ada.tags%s		a-tags.adb		a-tags.ali
+W hal%s			hal.ads			hal.ali
+W hal.spi%s		hal-spi.ads		hal-spi.ali
+W nrf%s			nrf.ads			nrf.ali
+W nrf.gpio%s		nrf-gpio.adb		nrf-gpio.ali
+W nrf_svd%s		nrf_svd.ads		nrf_svd.ali
+W nrf_svd.spi%s		nrf_svd-spi.ads		nrf_svd-spi.ali
+Z system%s		system.ads		system.ali
+
+D ada.ads		20200819171400 76789da1 ada%s
+D a-tags.ads		20200819171400 95e09aae ada.tags%s
+D hal.ads		20210108111948 2b42c80e hal%s
+D hal-gpio.ads		20210108111948 7f0c2ffe hal.gpio%s
+D hal-spi.ads		20210108111948 fe139819 hal.spi%s
+D interfac.ads		20200819171400 5ab55268 interfaces%s
+D nrf.ads		20210108111948 74cf72f5 nrf%s
+D nrf-gpio.ads		20210306151712 72dee5c2 nrf.gpio%s
+D nrf-spi_master.ads	20210108111948 a8ff49a3 nrf.spi_master%s
+D nrf-spi_master.adb	20210108111948 ae9fea3c nrf.spi_master%b
+D nrf_svd.ads		20210306183508 87ba21d7 nrf_svd%s
+D nrf_svd-spi.ads	20210108111948 6e2ffb69 nrf_svd.spi%s
+D system.ads		20200819171400 e69b74bd system%s
+D s-assert.ads		20200819171400 cd8d2c94 system.assertions%s
+D s-stoele.ads		20200819171400 2dc34a04 system.storage_elements%s
+G a e
+G c Z s b [enable nrf__spi_master 60 14 none]
+G c Z s b [disable nrf__spi_master 65 14 none]
+G c Z s b [enabled nrf__spi_master 69 13 none]
+G c Z s b [configure nrf__spi_master 72 14 none]
+G c Z s b [disconnect nrf__spi_master 89 14 none]
+G c Z s b [data_size nrf__spi_master 98 13 none]
+G c Z s b [transmit nrf__spi_master 101 14 none]
+G c Z s b [transmit nrf__spi_master 108 14 none]
+G c Z s b [receive nrf__spi_master 115 14 none]
+G c Z s b [receive nrf__spi_master 122 14 none]
+G c Z s s [spi_masterIP nrf__spi_master 130 9 none]
+G c Z b b [transfer nrf__spi_master 36 14 none]
+X 3 hal.ads
+34K9*HAL 166e8 9|32w6 32r23 33r6 33r23 57r10 131r10 10|149r8 172r17 212r17
+. 235r17 271r17
+53M9*UInt8<6|63M9> 10|37r35 38r39 47r35 48r39 163r16 187r16 195r35 198r35
+. 204r35 207r35 250r14
+66M9*UInt16<6|66M9> 10|258r32 260r27 265r27 267r32
+97M9*UInt32<6|74M9> 10|105r30 106r31 107r31 137r30 138r31 139r31
+X 4 hal-gpio.ads
+47h9*GPIO_Point
+X 5 hal-spi.ads
+32K13*SPI 86e12 9|33w10 33r27 57r14 131r14 10|149r12 172r21 212r21 235r21
+. 271r21
+34E9*SPI_Status 38e12 9|104r21 111r21 118r21 125r21 10|159r21 183r21 223r21
+. 246r21
+35n7*Ok{34E9} 10|172r25 212r25 235r25 271r25
+40E9*SPI_Data_Size 42e21 9|98r50 10|148r14
+41n7*Data_Size_8b{40E9} 10|149r16
+44A9*SPI_Data_8b(3|53M9)<integer> 9|103r17 117r21 10|158r17 222r21
+46A9*SPI_Data_16b(3|66M9)<integer> 9|110r17 124r21 10|182r17 245r21
+48h9*SPI_Port 9|57r18 131r18
+X 6 interfac.ads
+63M9*Unsigned_8
+66M9*Unsigned_16
+74M9*Unsigned_32
+101V13*Shift_Left{66M9} 10|195s42 207s42 258s20 267s20
+X 7 nrf.ads
+34K9*nRF 43e8 9|34r6 34r23 37r9 133r5 10|34r14 274r5
+X 8 nrf-gpio.ads
+33K13*GPIO 124e13 9|34w10 34r27
+35I12*GPIO_Pin_Index{natural} 9|73r43 10|98r25
+X 9 nrf-spi_master.ads
+37K13*SPI_Master 7|34k9 9|130E9 133l9 133e19 10|34b18 274l9 274t19
+39E9*Clock_Speed 40e68 74r43 10|99r25
+39n25*SPI_125kbps{39E9} 10|110r41
+39n38*SPI_250kbps{39E9} 10|111r41
+39n51*SPI_500kbps{39E9} 10|112r41
+40n25*SPI_1Mbps{39E9} 10|113r41
+40n36*SPI_2Mbps{39E9} 10|114r41
+40n47*SPI_4Mbps{39E9} 10|115r41
+40n58*SPI_8Mbps{39E9} 10|116r41
+43E9*Data_Bit_Order 44e52 75r43 10|100r25
+43n28*Most_Significant_First{43E9} 10|119r44
+44n28*Least_Significant_First{43E9} 10|120r44
+46E9*Clock_Phase 46e67 77r43 10|102r25
+46n25*Sample_Leading_Edge{46E9} 10|123r43
+46n46*Sample_Trailing_Edge{46E9} 10|124r43
+51E9*Clock_Polarity 51e52 76r43 10|101r25
+51n28*Active_High{51E9} 10|127r43
+51n41*Active_Low{51E9} 10|128r43
+56R9*SPI_Master<5|48R9> 56d21 60p14 60r36 65p14 65r37 69p13 69r29 72p14 72r50
+. 89p14 89r40 98P13 98r31 101P14 102r24 108P14 109r24 115P14 116r24 122P14
+. 123r24 130c9 131e43 10|36r42 46r42 71r36 80r37 89r29 97r32 135r40 147r14
+. 157r24 181r24 221r24 244r24
+60U14*Enable 60=22 10|71b14 74l8 74t14
+60r22 This{56R9} 61r19 10|71b22 73r7
+65U14*Disable 65=23 10|80b14 83l8 83t15
+65r23 This{56R9} 66r23 10|80b23 82r7
+69V13*Enabled{boolean} 61s24 66s28 69>22 78s27 90s27 10|89b13
+69r22 This{56R9} 10|90r8
+72U14*Configure 72=25 73>25 73>30 73>36 74>25 75>25 76>25 77>25 10|96b14
+. 129l8 129t17
+72r25 This{56R9} 78r22 10|97b7 105r7 106r7 107r7 109r7 118r7 122r7 126r7
+73i25 SCK{8|35I12} 10|98b7 105r38
+73i30 MOSI{8|35I12} 10|98b12 106r39
+73i36 MISO{8|35I12} 10|98b18 107r39
+74e25 Speed{39E9} 10|99b7 109r38
+75e25 Bit_Order{43E9} 10|100b7 118r41
+76e25 Polarity{51E9} 10|101b7 126r40
+77e25 Phase{46E9} 10|102b7 122r40
+89U14*Disconnect 89=26 10|135b14 140l8 140t18
+89r26 This{56R9} 90r22 10|135b26 137r7 138r7 139r7
+98V13*Data_Size{5|40E9}<5|52p13> 98>24 10|146b24
+98r24 This{56R9}
+101U14*Transmit<5|54p14> 102=7 103>7 104<7 105>7 10|156b14 173l8 173t16
+102r7 This{56R9} 10|157b7 166r7 169m20
+103a7 Data{5|44A9} 10|158b7 168r18
+104e7 Status{5|34E9} 10|159b7 172m7
+105i7 Timeout{natural} 10|160b7 162r28
+108U14*Transmit<5|62p14> 109=7 110>7 111<7 112>7 10|180b14 213l8 213t16
+109r7 This{56R9} 10|181b7 190r7 192r10 194m23 197m23 203m23 206m23
+110a7 Data{5|46A9} 10|182b7 193r21 202r21
+111e7 Status{5|34E9} 10|183b7 212m7
+112i7 Timeout{natural} 10|184b7 186r28
+115U14*Receive<5|70p14> 116=7 117<7 118<7 119>7 10|220b14 236l8 236t15
+116r7 This{56R9} 10|221b7 229r7 232m20
+117a7 Data{5|44A9} 10|222b7 231m18 231r18
+118e7 Status{5|34E9} 10|223b7 235m7
+119i7 Timeout{natural} 10|224b7 226r28
+122U14*Receive<5|78p14> 123=7 124<7 125<7 126>7 10|243b14 272l8 272t15
+123r7 This{56R9} 10|244b7 253r7 255r10 257m23 259m23 264m23 266m23
+124a7 Data{5|46A9} 10|245b7 256m21 256r21 263m21 263r21
+125e7 Status{5|34E9} 10|246b7 271m7
+126i7 Timeout{natural} 10|247b7 249r28
+X 10 nrf-spi_master.adb
+36U14 Transfer 36=24 37>24 38<24 46b14 65l8 65t16 169s10 194s13 197s13 203s13
+. 206s13 232s10 257s13 259s13 264s13 266s13
+36r24 This{9|56R9} 46b24 53r7 56r13 61r18 64r7
+37m24 Data_Out{3|53M9} 47b24 53r30 169r26 195r23 198r23 204r23 207r23 232r26
+. 257r29 259r29 264r29 266r29
+38m24 Data_In{3|53M9} 48b24 61m7 169r43 196r23 199r23 205r23 208r23 232r41
+. 257r44 259r44 264r44 266r44
+163m7 Unused{3|53M9} 169m54
+168m11 Elt=168:18{3|53M9} 169r38
+187m7 Unused{3|53M9} 196m34 199m34 205m34 208m34
+193m14 Elt=193:21{3|66M9} 195r54 198r42
+202m14 Elt=202:21{3|66M9} 204r42 207r54
+231m11 Elt=231:18{3|53M9} 232r52
+250m7 Byte{3|53M9} 257m55 258r40 259m55 260r35 264m55 265r35 266m55 267r40
+256m14 Elt=256:21{3|66M9} 258r13 260r13 260r20
+263m14 Elt=263:21{3|66M9} 265r13 265r20 267r13
+X 11 nrf_svd.ads
+49K9*NRF_SVD 9|35r6 56r46 130r46 10|32r6 32r23 11|123e12
+X 12 nrf_svd-spi.ads
+48K17*SPI 9|35w14 56r54 130r54 10|32w14 32r31 12|307e16
+138n7*Disabled{136E9} 10|82r36
+140n7*Enabled{136E9} 10|73r36 90r36
+149e7*ENABLE{136E9} 10|73m26 82m26 90r27
+161M12*RXD_RXD_Field{3|53M9}
+167m7*RXD{161M12} 10|61r34
+179M12*TXD_TXD_Field{3|53M9}
+184m7*TXD{179M12} 10|53m23
+199n7*Msbfirst{197E9} 10|119r70 192r37 255r37
+201n7*Lsbfirst{197E9} 10|120r71
+210n7*Leading{208E9} 10|123r66
+212n7*Trailing{208E9} 10|124r67
+221n7*Activehigh{219E9} 10|127r58
+223n7*Activelow{219E9} 10|128r57
+232e7*ORDER{197E9} 10|118m26 192r29 255r29
+234e7*CPHA{208E9} 10|122m26
+236e7*CPOL{219E9} 10|126m26
+255R9*SPI_Peripheral 9|56r58 130r58 12|279e6
+257m7*EVENTS_READY{3|97M9} 10|56r25 64m19 166m19 190m19 229m19 253m19
+263r7*ENABLE{147R9} 10|73m19 82m19 90r20
+265m7*PSELSCK{3|97M9} 10|105m19 137m19
+267m7*PSELMISO{3|97M9} 10|107m19 139m19
+269m7*PSELMOSI{3|97M9} 10|106m19 138m19
+271r7*RXD{164R9} 10|61r30
+273r7*TXD{182R9} 10|53m19
+275m7*FREQUENCY{3|97M9} 10|109m19
+277r7*CONFIG{230R9} 10|118m19 122m19 126m19 192r22 255r22
+

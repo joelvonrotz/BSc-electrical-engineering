@@ -1,0 +1,36 @@
+[Title]
+I welcome you to the RES report presentation about the cadaverine cantilever exercise.
+
+[TOC]
+I'll first talk about what the project is about, then the measurement setup, following up with the results and data processing and finally the conclussion.
+
+[Introduction]
+For the exercise we had to measure the frequency changes of the amplitude and phase of a Cadaverine sensitive cantilever and the time until a frequency difference between the first and last value is -50Hz.
+
+The purpose of the final device is to evalute the freshness of meat and fish in the meat and fish industry.
+
+
+
+[Measurement Setup]
+For the measurement setup, we used the impedance analyzer E4990a from Keysight, eight different cadaverine sensitive cantilevers, an airtight container and cadaverine concentration.
+
+A cantilever and the respective amount of cadaverine is placed into the airtight container with the measurement wires pulled throught the Lid to connect to the analyzer. Then in an interval of 5/2.5 minutes, depending on the amount of cadaverine used, the frequencies at the maximum and minimum amplitudes and the maximum phase are collected in an Excel sheet.
+
+[Results]
+
+Off to the results.
+
+<Data Preparation>	
+After having collected the data, the data preparation was done. With MATLAB the time until the -50Hz difference was extracted using inter- and extrapolation.
+
+<Weibull Plot>
+Then, the time values are inserted into the statistical software *Develve* and the eta and gamma values are extraced, which...
+
+<Weibull Values>
+...are shown here. As seen by the boxplot previously and by comparing the values with oneanother, the 600ppm and 800ppm values seem more similar compared to 1000ppm. Then the weibull variables from 600ppm and 800ppm were inserted into the provided Eyring model and the missing parameters were calculated, resulting in *this* equation.
+
+<Reliability>
+Next was the requirement to calculate the reliability at 100ppm Cadaverine after 100 hours. As we can't calculate the reliability of 100ppm due to missing values, we use the acceleration factor in combination with 600ppm to calculate the reliability. This leads to 0%, which I assume indicates an invalid result as the cantilever would be saturated.
+
+<Warranty>
+Also per exercise description, a warranty time is calculated, of which 5% of all devices would be returned. So a realibilty of 95% is desired, which leads to a results of 47.51 minutes of operation.

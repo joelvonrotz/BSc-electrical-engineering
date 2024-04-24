@@ -1,0 +1,159 @@
+V "GNAT Lib v2020"
+A -O0
+A -gnatA
+A --RTS=C:\gnat\2020-arm-elf\arm-eabi\lib\gnat\zfp-cortex-m4f\
+A -mlittle-endian
+A -mthumb
+A -mfloat-abi=hard
+A -mcpu=cortex-m4
+A -mfpu=fpv4-sp-d16
+A -gnata
+A -fcallgraph-info=su
+A -fcallgraph-info=su
+A -g
+A -gnatwa
+A -gnatw_A
+A -gnatQ
+A -gnatw.X
+A -ffunction-sections
+A -fdata-sections
+A -march=armv7e-m+fp
+P ZX
+
+RN
+RV NO_IMPLICIT_CONDITIONALS
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLEMENTATION_RESTRICTIONS
+RV NO_IMPLICIT_LOOPS
+RR NO_ELABORATION_CODE
+
+U nrf_svd.gpiote%s	nrf_svd-gpiote.ads	6b13d8cd NE OO PR PK IU
+W hal%s			hal.ads			hal.ali
+W nrf_svd%s		nrf_svd.ads		nrf_svd.ali
+W system%s		system.ads		system.ali
+Z system.unsigned_types%s  s-unstyp.ads		s-unstyp.ali
+
+D hal.ads		20210108111948 2b42c80e hal%s
+D interfac.ads		20200819171400 5ab55268 interfaces%s
+D nrf_svd.ads		20210306183508 87ba21d7 nrf_svd%s
+D nrf_svd-gpiote.ads	20210108111948 217045a9 nrf_svd.gpiote%s
+D system.ads		20200819171400 e69b74bd system%s
+D s-unstyp.ads		20200819171400 5ecf7212 system.unsigned_types%s
+G a e
+G c Z s s [Ttasks_out_registersBIP nrf_svd__gpiote 59 4 none]
+G c Z s s [Ttasks_set_registersBIP nrf_svd__gpiote 65 4 none]
+G c Z s s [Ttasks_clr_registersBIP nrf_svd__gpiote 71 4 none]
+G c Z s s [Tevents_in_registersBIP nrf_svd__gpiote 77 4 none]
+G c Z s s [Tintenset_in_field_arrayBIP nrf_svd__gpiote 102 4 none]
+G c Z s s [intenset_in_fieldIP nrf_svd__gpiote 106 9 none]
+G c Z s s [intenset_registerIP nrf_svd__gpiote 148 9 none]
+G c Z s s [Tintenclr_in_field_arrayBIP nrf_svd__gpiote 188 4 none]
+G c Z s s [intenclr_in_fieldIP nrf_svd__gpiote 192 9 none]
+G c Z s s [intenclr_registerIP nrf_svd__gpiote 234 9 none]
+G c Z s s [config_registerIP nrf_svd__gpiote 304 9 none]
+G c Z s s [Tconfig_registersBIP nrf_svd__gpiote 342 4 none]
+G c Z s s [gpiote_peripheralIP nrf_svd__gpiote 349 9 none]
+X 1 hal.ads
+34K9*HAL 166e8 4|45w6 59r50 65r50 71r50 77r50 112r19 152r23 198r19 238r23
+. 265r33 308r24 313r24 319r24 324r24 364r29
+39M9*UInt2 4|319r28
+41M9*UInt3 4|313r28
+45M9*UInt5 4|265r37
+47M9*UInt6 4|308r28
+53M9*UInt8<2|63M9> 4|112r23 198r23
+56M9*UInt11 4|324r28
+79M9*UInt23 4|152r27 238r27
+97M9*UInt32<2|74M9> 4|59r54 65r54 71r54 77r54 364r33
+X 2 interfac.ads
+63M9*Unsigned_8
+74M9*Unsigned_32
+X 3 nrf_svd.ads
+49K9*NRF_SVD 123e12 4|48r9 306r45 317r49 322r48 390r5
+77m4*GPIOTE_Base{5|90M9} 4|388r30
+X 4 nrf_svd-gpiote.ads
+48K17*GPIOTE 3|49k9 4|306r53 317r57 322r56 390l13 390e19
+59A9*TASKS_OUT_Registers(1|97M9)<integer> 352r29
+65A9*TASKS_SET_Registers(1|97M9)<integer> 355r29
+71A9*TASKS_CLR_Registers(1|97M9)<integer> 358r29
+77A9*EVENTS_IN_Registers(1|97M9)<integer> 361r29
+80E9*INTENSET_IN0_Field 85e6 86r8
+82n7*Disabled{80E9} 87r7
+84n7*Enabled{80E9} 88r7
+91E9*INTENSET_IN0_Field_1 96e6 97r8 102r54
+93n7*Intenset_In0_Field_Reset{91E9} 98r7
+95n7*Set{91E9} 99r7
+102A9*INTENSET_IN_Field_Array(91E9)<integer> 115r19
+106R9*INTENSET_IN_Field 107d7 118e6 120r8 150r23
+107b7*As_Array{boolean} 109r12 150m45
+112m13*Val{1|53M9} 121r7 150m64
+115a13*Arr{102A9} 122r7
+126E9*INTENSET_PORT_Field 131e6 132r8
+128n7*Disabled{126E9} 133r7
+130n7*Enabled{126E9} 134r7
+137E9*INTENSET_PORT_Field_1 142e6 143r8 154r23
+139n7*Intenset_Port_Field_Reset{137E9} 144r7 154r48
+141n7*Set{137E9} 145r7
+148R9*INTENSET_Register 156e6 159r8 366r29
+150r7*IN_k{106R9} 160r7
+152m7*Reserved_8_30{1|79M9} 161r7
+154e7*PORT{137E9} 162r7
+166E9*INTENCLR_IN0_Field 171e6 172r8
+168n7*Disabled{166E9} 173r7
+170n7*Enabled{166E9} 174r7
+177E9*INTENCLR_IN0_Field_1 182e6 183r8 188r54
+179n7*Intenclr_In0_Field_Reset{177E9} 184r7
+181n7*Clear{177E9} 185r7
+188A9*INTENCLR_IN_Field_Array(177E9)<integer> 201r19
+192R9*INTENCLR_IN_Field 193d7 204e6 206r8 236r23
+193b7*As_Array{boolean} 195r12 236m45
+198m13*Val{1|53M9} 207r7 236m64
+201a13*Arr{188A9} 208r7
+212E9*INTENCLR_PORT_Field 217e6 218r8
+214n7*Disabled{212E9} 219r7
+216n7*Enabled{212E9} 220r7
+223E9*INTENCLR_PORT_Field_1 228e6 229r8 240r23
+225n7*Intenclr_Port_Field_Reset{223E9} 230r7 240r48
+227n7*Clear{223E9} 231r7
+234R9*INTENCLR_Register 242e6 245r8 368r29
+236r7*IN_k{192R9} 246r7
+238m7*Reserved_8_30{1|79M9} 247r7
+240e7*PORT{223E9} 248r7
+252E9*CONFIG_MODE_Field 259e6 260r8 306r24
+254n7*Disabled{252E9} 261r7 306r60
+256n7*Event{252E9} 262r7
+258n7*Task_k{252E9} 263r7
+265M12*CONFIG_PSEL_Field{1|45M9} 311r24
+270E9*CONFIG_POLARITY_Field 283e6 284r8 317r24
+273n7*None{270E9} 285r7 317r64
+276n7*Lotohi{270E9} 286r7
+279n7*Hitolo{270E9} 287r7
+282n7*Toggle{270E9} 288r7
+292E9*CONFIG_OUTINIT_Field 297e6 298r8 322r24
+294n7*Low{292E9} 299r7 322r63
+296n7*High{292E9} 300r7
+304R9*CONFIG_Register 326e6 329r8 342r47
+306e7*MODE{252E9} 330r7
+308m7*Reserved_2_7{1|47M9} 331r7
+311m7*PSEL{265M12} 332r7
+313m7*Reserved_13_15{1|41M9} 333r7
+317e7*POLARITY{270E9} 334r7
+319m7*Reserved_18_19{1|39M9} 335r7
+322e7*OUTINIT{292E9} 336r7
+324m7*Reserved_21_31{1|56M9} 337r7
+342A9*CONFIG_Registers(304R9)<integer> 371r29
+349R9*GPIOTE_Peripheral 373e6 375r8 387r28
+352a7*TASKS_OUT{59A9} 376r7
+355a7*TASKS_SET{65A9} 377r7
+358a7*TASKS_CLR{71A9} 378r7
+361a7*EVENTS_IN{77A9} 379r7
+364m7*EVENTS_PORT{1|97M9} 380r7
+366r7*INTENSET{148R9} 381r7
+368r7*INTENCLR{234R9} 382r7
+371a7*CONFIG{342A9} 383r7
+387r4*GPIOTE_Periph{349R9}
+X 5 system.ads
+60K9*System 4|46w6 157r24 243r24 327r24 5|172e11
+90M9*Address
+114n41*Low_Order_First{114E9} 4|157r31 243r31 327r31
+

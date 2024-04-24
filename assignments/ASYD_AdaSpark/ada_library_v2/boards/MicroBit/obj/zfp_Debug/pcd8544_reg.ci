@@ -1,0 +1,4 @@
+graph: { title: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\pcd8544\pcd8544_reg.ads"
+node: { title: "pcd8544_reg__pcd8544_function_registerIP" label: "Pcd8544_Function_Registerip\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\pcd8544\pcd8544_reg.ads:50:9\n16 bytes (static)" }
+node: { title: "pcd8544_reg__pcd8544_display_registerIP" label: "Pcd8544_Display_Registerip\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\pcd8544\pcd8544_reg.ads:65:9\n16 bytes (static)" }
+}

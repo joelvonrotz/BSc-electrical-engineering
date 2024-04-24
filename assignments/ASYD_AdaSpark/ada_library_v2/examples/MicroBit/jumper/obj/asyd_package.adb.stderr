@@ -1,0 +1,1 @@
+asyd_package.adb:51:07: warning: "my_var" is not modified, could be declared constant

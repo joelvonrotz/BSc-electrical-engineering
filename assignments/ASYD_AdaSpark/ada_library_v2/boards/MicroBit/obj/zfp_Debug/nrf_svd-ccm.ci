@@ -1,0 +1,15 @@
+graph: { title: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\svd\nrf52\nrf_svd-ccm.ads"
+node: { title: "nrf_svd__ccm__enable_enable_fieldRP" label: "ENABLE_ENABLE_FIELDRP\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\svd\nrf52\nrf_svd-ccm.ads:288:9\n16 bytes (static)" }
+node: { title: "nrf_svd__ccm__shorts_registerIP" label: "SHORTS_REGISTERIP\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\svd\nrf52\nrf_svd-ccm.ads:67:9\n16 bytes (static)" }
+node: { title: "nrf_svd__ccm__intenset_registerIP" label: "INTENSET_REGISTERIP\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\svd\nrf52\nrf_svd-ccm.ads:148:9\n16 bytes (static)" }
+node: { title: "nrf_svd__ccm__intenclr_registerIP" label: "INTENCLR_REGISTERIP\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\svd\nrf52\nrf_svd-ccm.ads:237:9\n16 bytes (static)" }
+node: { title: "nrf_svd__ccm__micstatus_registerIP" label: "MICSTATUS_REGISTERIP\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\svd\nrf52\nrf_svd-ccm.ads:272:9\n16 bytes (static)" }
+node: { title: "nrf_svd__ccm__enable_registerIP" label: "ENABLE_REGISTERIP\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\svd\nrf52\nrf_svd-ccm.ads:299:9\n16 bytes (static)" }
+node: { title: "nrf_svd__ccm__mode_registerIP" label: "MODE_REGISTERIP\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\svd\nrf52\nrf_svd-ccm.ads:347:9\n16 bytes (static)" }
+node: { title: "nrf_svd__ccm__ccm_peripheralIP" label: "CCM_PERIPHERALIP\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\svd\nrf52\nrf_svd-ccm.ads:378:9\n16 bytes (static)" }
+edge: { sourcename: "nrf_svd__ccm__ccm_peripheralIP" targetname: "nrf_svd__ccm__shorts_registerIP" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\svd\nrf52\nrf_svd-ccm.ads:394:7" }
+edge: { sourcename: "nrf_svd__ccm__ccm_peripheralIP" targetname: "nrf_svd__ccm__intenset_registerIP" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\svd\nrf52\nrf_svd-ccm.ads:396:7" }
+edge: { sourcename: "nrf_svd__ccm__ccm_peripheralIP" targetname: "nrf_svd__ccm__intenclr_registerIP" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\svd\nrf52\nrf_svd-ccm.ads:398:7" }
+edge: { sourcename: "nrf_svd__ccm__ccm_peripheralIP" targetname: "nrf_svd__ccm__enable_registerIP" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\svd\nrf52\nrf_svd-ccm.ads:402:7" }
+edge: { sourcename: "nrf_svd__ccm__ccm_peripheralIP" targetname: "nrf_svd__ccm__mode_registerIP" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\svd\nrf52\nrf_svd-ccm.ads:404:7" }
+}

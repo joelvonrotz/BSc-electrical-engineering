@@ -1,0 +1,9 @@
+graph: { title: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\hal\src\hal-block_drivers.ads"
+class {
+  classname: "hal__block_drivers__block_driver"
+  label: "hal__block_drivers__block_driver\hal-block_drivers.ads:34:9"
+  virtuals: "1:hal__block_drivers__read\n
+             2:hal__block_drivers__write\n
+             -1:hal__block_drivers___size"
+}
+}

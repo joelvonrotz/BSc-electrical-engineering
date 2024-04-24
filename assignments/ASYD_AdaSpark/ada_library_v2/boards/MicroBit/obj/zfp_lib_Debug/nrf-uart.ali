@@ -1,0 +1,205 @@
+V "GNAT Lib v2020"
+A -O0
+A -gnatA
+A --RTS=C:\gnat\2020-arm-elf\arm-eabi\lib\gnat\zfp-cortex-m4f\
+A -mlittle-endian
+A -mthumb
+A -mfloat-abi=hard
+A -mcpu=cortex-m4
+A -mfpu=fpv4-sp-d16
+A -gnata
+A -fcallgraph-info=su
+A -fcallgraph-info=su
+A -g
+A -gnatwa
+A -gnatw_A
+A -gnatQ
+A -gnatw.X
+A -ffunction-sections
+A -fdata-sections
+A -march=armv7e-m+fp
+P ZX
+
+RN
+RV NO_EXCEPTIONS
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_ATTRIBUTES
+RV NO_IMPLEMENTATION_PRAGMAS
+
+U nrf.uart%b		nrf-uart.adb		bfade916 NE OO PK
+W nrf%s			nrf.ads			nrf.ali
+W nrf_svd%s		nrf_svd.ads		nrf_svd.ali
+W nrf_svd.uart%s	nrf_svd-uart.ads	nrf_svd-uart.ali
+Z system.assertions%s	s-assert.adb		s-assert.ali
+
+U nrf.uart%s		nrf-uart.ads		460f7110 EE NE OO PK
+Z ada.tags%s		a-tags.adb		a-tags.ali
+W hal%s			hal.ads			hal.ali
+W hal.uart%s		hal-uart.ads		hal-uart.ali
+W nrf%s			nrf.ads			nrf.ali
+W nrf.gpio%s		nrf-gpio.adb		nrf-gpio.ali
+W nrf_svd%s		nrf_svd.ads		nrf_svd.ali
+W nrf_svd.uart%s	nrf_svd-uart.ads	nrf_svd-uart.ali
+Z system%s		system.ads		system.ali
+Z system.unsigned_types%s  s-unstyp.ads		s-unstyp.ali
+
+D ada.ads		20200819171400 76789da1 ada%s
+D a-tags.ads		20200819171400 95e09aae ada.tags%s
+D hal.ads		20210108111948 2b42c80e hal%s
+D hal-gpio.ads		20210108111948 7f0c2ffe hal.gpio%s
+D hal-uart.ads		20210108111948 d58316b4 hal.uart%s
+D interfac.ads		20200819171400 5ab55268 interfaces%s
+D nrf.ads		20210108111948 74cf72f5 nrf%s
+D nrf-gpio.ads		20210306151712 72dee5c2 nrf.gpio%s
+D nrf-uart.ads		20210307101722 3d63d355 nrf.uart%s
+D nrf-uart.adb		20210307101744 0172d18b nrf.uart%b
+D nrf_svd.ads		20210306183508 87ba21d7 nrf_svd%s
+D nrf_svd-uart.ads	20210108111948 83bcebc8 nrf_svd.uart%s
+D system.ads		20200819171400 e69b74bd system%s
+D s-assert.ads		20200819171400 cd8d2c94 system.assertions%s
+D s-stoele.ads		20200819171400 2dc34a04 system.storage_elements%s
+D s-unstyp.ads		20200819171400 5ecf7212 system.unsigned_types%s
+G a e
+G c Z s b [configure nrf__uart 48 14 none]
+G c Z s b [enable nrf__uart 52 14 none]
+G c Z s b [disable nrf__uart 56 14 none]
+G c Z s b [enable_flow_control nrf__uart 59 14 none]
+G c Z s b [disable_flow_control nrf__uart 63 14 none]
+G c Z s s [data_size nrf__uart 69 13 none]
+G c Z s b [transmit nrf__uart 74 14 none]
+G c Z s b [receive nrf__uart 81 14 none]
+G c Z s b [transmit nrf__uart 88 14 none]
+G c Z s b [receive nrf__uart 96 14 none]
+G c Z s s [uart_deviceIP nrf__uart 105 9 none]
+X 3 hal.ads
+34K9*HAL 166e8 9|32w6 32r25 33r6 33r25 41r10 70r8 107r10 10|121r20 138r17
+. 155r20 172r17
+51M9*UInt9
+53M9*UInt8<6|63M9>
+97M9*UInt32<6|74M9> 10|55r30 55r51 56r30 56r51 91r30 92r30
+X 4 hal-gpio.ads
+47h9*GPIO_Point
+X 5 hal-uart.ads
+32K13*UART 86e13 9|33w10 33r29 41r14 70r12 107r14 10|121r24 138r21 155r24
+. 172r21
+34E9*UART_Status 38e12 9|77r21 84r21 91r21 99r21 10|115r24 149r24 183r24
+. 198r24
+35n7*Ok{34E9} 10|121r29 138r26 155r29 172r26
+40E9*UART_Data_Size 42e20 9|69r51
+41n7*Data_Size_8b{40E9} 9|70r17
+44A9*UART_Data_8b(3|53M9)<integer> 9|76r17 83r21 10|114r24 148r24
+46A9*UART_Data_9b(3|51M9)<integer> 9|90r17 98r21 10|182r24 197r24
+48h9*UART_Port 9|41r19 107r19
+X 6 interfac.ads
+63M9*Unsigned_8
+74M9*Unsigned_32
+X 7 nrf.ads
+34K9*nRF 43e8 9|34r6 34r23 37r9 129r5 10|34r14 205r5
+X 8 nrf-gpio.ads
+33K13*GPIO 124e13 9|34w10 34r27
+35I12*GPIO_Pin_Index{natural} 9|60r46 10|88r18
+37I12*GPIO_Port{natural}
+67R9*GPIO_Point<4|47R9> 70e14 9|53r31 10|53r31
+68i7*Port{37I12} 10|55r61 56r61
+69i7*Pin{35I12} 10|55r41 56r41
+X 9 nrf-uart.ads
+37K13*UART 7|34k9 9|105E9 129l9 129e13 10|34b18 205l9 205t13
+39R9*UART_Device<5|48R9> 39d22 48p14 48r41 52p14 52r38 56p14 56r37 59p14
+. 59r53 63p14 63r54 69P13 69r31 74P14 75r24 81P14 82r24 88P14 89r24 96P14
+. 97r24 105c9 109e14 10|41r21 52r36 71r37 87r25 100r50 113r24 147r24 181r24
+. 196r24
+43E9*Baud_Rate 46e42 49r34 111r8 10|41r41
+43n23*Baud1200{43E9} 112r7
+43n33*Baud2400{43E9} 113r7
+43n43*Baud4800{43E9} 114r7
+43n53*Baud9600{43E9} 115r7
+43n63*Baud14400{43E9} 116r7
+44n23*Baud19200{43E9} 117r7
+44n34*Baud28800{43E9} 118r7
+44n45*Baud38400{43E9} 119r7
+44n56*Baud57600{43E9} 120r7
+44n67*Baud76800{43E9} 121r7
+45n23*Baud115200{43E9} 122r7
+45n35*Baud230400{43E9} 123r7
+45n47*Baud250000{43E9} 124r7
+45n59*Baud460800{43E9} 125r7
+46n23*Baud921600{43E9} 126r7
+46n35*Baud1M{43E9} 127r7
+48U14*Configure 48=25 49>25 50>25 10|40b14 46l8 46t17
+48r25 This{39R9} 10|41b7 44r7 45r7
+49e25 Baud{43E9} 10|41b34 44r31
+50b25 Parity{boolean} 10|41b52 45r40
+52U14*Enable 52=22 53>22 53>26 10|52b14 66l8 66t14
+52r22 This{39R9} 10|52b22 55r7 56r7 57r7 60r7 61r7 65r7
+53r22 Tx{8|67R9} 10|53b22 55r38 55r58
+53r26 Rx{8|67R9} 10|53b26 56r38 56r58
+56U14*Disable 56=23 10|71b14 80l8 80t15
+56r23 This{39R9} 10|71b23 73r7 74r7 75r7 78r7 79r7
+59U14*Enable_Flow_Control 59=35 60>35 60>40 10|86b14 94l8 94t27
+59r35 This{39R9} 10|87b7 91r7 92r7 93r7
+60i35 RTS{8|35I12} 10|88b7 91r38
+60i40 CTS{8|35I12} 10|88b12 92r38
+63U14*Disable_Flow_Control 63=36 10|100b14 105l8 105t28
+63r36 This{39R9} 10|100b36 102r7 103r7 104r7
+69V13*Data_Size{5|40E9}<5|52p13> 69>24
+69r24 Port{39R9}
+74U14*Transmit<5|54p14> 75=7 76>7 77<7 78>7 10|112b14 139l8 139t16
+75r7 This{39R9} 10|113b7 132r10 135r10
+76a7 Data{5|44A9} 10|114b7 120r10 125r16
+77e7 Status{5|34E9} 10|115b7 121m10 138m7
+78i7 Timeout{natural} 10|116b7 118r28
+81U14*Receive<5|70p14> 82=7 83<7 84<7 85>7 10|146b14 173l8 173t15
+82r7 This{39R9} 10|147b7 166r15
+83a7 Data{5|44A9} 10|148b7 154r10 159m16 159r16
+84e7 Status{5|34E9} 10|149b7 155m10 172m7
+85i7 Timeout{natural} 10|150b7 152r28
+88U14*Transmit<5|62p14> 89=7 90>7 91<7 92>7 10|180b14 188l8 188t16
+89r7 This{39R9} 10|181b7
+90a7 Data{5|46A9} 10|182b7
+91e7 Status{5|34E9} 10|183b7
+92i7 Timeout{natural} 10|184b7
+96U14*Receive<5|78p14> 97=7 98<7 99<7 100>7 10|195b14 203l8 203t15
+97r7 This{39R9} 10|196b7
+98a7 Data{5|46A9} 10|197b7
+99e7 Status{5|34E9} 10|198b7
+100i7 Timeout{natural} 10|199b7
+108b7 Do_Stop_Sequence{boolean}
+X 10 nrf-uart.adb
+125m11 C=125:16{3|53M9} 135r33
+159m11 C=159:16{3|53M9} 166r10
+X 11 nrf_svd.ads
+49K9*NRF_SVD 9|35r6 39r47 105r47 10|32r6 32r24 11|123e12
+X 12 nrf_svd-uart.ads
+48K17*UART 9|35w14 39r55 105r55 10|32w14 32r32 12|697e17
+511n7*Disabled{509E9} 10|73r36
+513n7*Enabled{509E9} 10|57r36
+522e7*ENABLE{509E9} 10|57m26 73m26
+534M12*RXD_RXD_Field{3|53M9}
+540m7*RXD{534M12} 10|166r31
+552M12*TXD_TXD_Field{3|53M9}
+557m7*TXD{552M12} 10|65m23 135m26
+572n7*Disabled{570E9} 10|102r34
+574n7*Enabled{570E9} 10|93r34
+583n7*Excluded{581E9} 10|45r66
+585n7*Included{581E9} 10|45r52
+594e7*HWFC{570E9} 10|93m26 102m26
+596e7*PARITY{581E9} 10|45m26
+614R9*UART_Peripheral 9|39r60 105r60 12|664e6
+616m7*TASKS_STARTRX{3|97M9} 10|60m19
+618m7*TASKS_STOPRX{3|97M9} 10|79m19
+620m7*TASKS_STARTTX{3|97M9} 10|61m19
+622m7*TASKS_STOPTX{3|97M9} 10|78m19
+630m7*EVENTS_RXDRDY{3|97M9} 10|161r29 169m23
+632m7*EVENTS_TXDRDY{3|97M9} 10|127r29 132m22
+646r7*ENABLE{520R9} 10|57m19 73m19
+648m7*PSELRTS{3|97M9} 10|91m19 103m19
+650m7*PSELTXD{3|97M9} 10|55m19 74m19
+652m7*PSELCTS{3|97M9} 10|92m19 104m19
+654m7*PSELRXD{3|97M9} 10|56m19 75m19
+656r7*RXD{537R9} 10|166r27
+658r7*TXD{555R9} 10|65m19 135m22
+660m7*BAUDRATE{3|97M9} 10|44m19
+662r7*CONFIG{592R9} 10|45m19 93m19 102m19
+694r4*UART0_Periph{614R9} 10|127r16 161r16 169m10
+

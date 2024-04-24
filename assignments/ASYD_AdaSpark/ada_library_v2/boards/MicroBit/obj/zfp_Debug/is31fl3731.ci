@@ -1,0 +1,116 @@
+graph: { title: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\is31fl3731.adb"
+class {
+  classname: "is31fl3731__device"
+  label: "is31fl3731__device\is31fl3731.ads:39:9"
+  parent: "is31fl3731__device"
+  virtuals: "1:is31fl3731__initialize\n
+             2:is31fl3731__display_frame\n
+             3:is31fl3731__select_frame\n
+             4:is31fl3731__fill\n
+             5:is31fl3731__clear\n
+             6:is31fl3731__enable\n
+             7:is31fl3731__disable\n
+             8:is31fl3731__set_brightness\n
+             9:is31fl3731__enable_blink\n
+             10:is31fl3731__disable_blink\n
+             11:is31fl3731__set_blink_rate\n
+             12:is31fl3731__led_address\n
+             -1:is31fl3731___size"
+}
+edge: { sourcename: "is31fl3731__write"
+  targetname: "1:hal__i2c__i2c_port,hal__i2c__i2c_port"
+  label: "is31fl3731.adb:65:16"
+}
+edge: { sourcename: "is31fl3731__read"
+  targetname: "2:hal__i2c__i2c_port,hal__i2c__i2c_port"
+  label: "is31fl3731.adb:84:16"
+}
+edge: { sourcename: "is31fl3731__enable"
+  targetname: "12:is31fl3731__device,is31fl3731__device"
+  label: "is31fl3731.adb:209:54"
+}
+edge: { sourcename: "is31fl3731__disable"
+  targetname: "12:is31fl3731__device,is31fl3731__device"
+  label: "is31fl3731.adb:228:54"
+}
+edge: { sourcename: "is31fl3731__set_brightness"
+  targetname: "12:is31fl3731__device,is31fl3731__device"
+  label: "is31fl3731.adb:248:47"
+}
+edge: { sourcename: "is31fl3731__enable_blink"
+  targetname: "12:is31fl3731__device,is31fl3731__device"
+  label: "is31fl3731.adb:262:54"
+}
+edge: { sourcename: "is31fl3731__disable_blink"
+  targetname: "12:is31fl3731__device,is31fl3731__device"
+  label: "is31fl3731.adb:281:54"
+}
+node: { title: "is31fl3731__Tled_bitmask_arrayBIP" label: "TLED_BITMASK_ARRAYBIP\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\is31fl3731.ads:116:4\n16 bytes (static)" }
+node: { title: "is31fl3731__Tled_bitmasksBIP" label: "TLED_BITMASKSBIP\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\is31fl3731.ads:117:4\n16 bytes (static)" }
+node: { title: "is31fl3731__deviceIP" label: "DEVICEIP\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\is31fl3731.ads:119:9\n24 bytes (static)" }
+node: { title: "is31fl3731___size" label: "IS31FL3731\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\is31fl3731.ads:119:9\n16 bytes (static)" }
+node: { title: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\is31fl3731.adb:is31fl3731__write" label: "WRITE\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\is31fl3731.adb:60:4\n48 bytes (static)" }
+edge: { sourcename: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\is31fl3731.adb:is31fl3731__write" targetname: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\is31fl3731.adb:is31fl3731__dev_address" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\is31fl3731.adb:65:38" }
+node: { title: "__indirect_call" label: "Indirect Call Placeholder" shape : ellipse }
+edge: { sourcename: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\is31fl3731.adb:is31fl3731__write" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\is31fl3731.adb:65:16" }
+node: { title: "__gnat_last_chance_handler" label: "gnat_last_chance_handler\n<built-in>" shape : ellipse }
+edge: { sourcename: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\is31fl3731.adb:is31fl3731__write" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\is31fl3731.adb:67:10" }
+node: { title: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\is31fl3731.adb:is31fl3731__read" label: "READ\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\is31fl3731.adb:75:4\n56 bytes (static)" }
+edge: { sourcename: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\is31fl3731.adb:is31fl3731__read" targetname: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\is31fl3731.adb:is31fl3731__write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\is31fl3731.adb:82:11" }
+edge: { sourcename: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\is31fl3731.adb:is31fl3731__read" targetname: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\is31fl3731.adb:is31fl3731__dev_address" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\is31fl3731.adb:84:37" }
+edge: { sourcename: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\is31fl3731.adb:is31fl3731__read" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\is31fl3731.adb:84:16" }
+edge: { sourcename: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\is31fl3731.adb:is31fl3731__read" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\is31fl3731.adb:86:10" }
+node: { title: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\is31fl3731.adb:is31fl3731__select_bank" label: "SELECT_BANK\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\is31fl3731.adb:96:4\n24 bytes (static)" }
+edge: { sourcename: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\is31fl3731.adb:is31fl3731__select_bank" targetname: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\is31fl3731.adb:is31fl3731__write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\is31fl3731.adb:100:11" }
+node: { title: "is31fl3731__initialize" label: "INITIALIZE\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\is31fl3731.adb:107:4\n56 bytes (static)" }
+edge: { sourcename: "is31fl3731__initialize" targetname: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\is31fl3731.adb:is31fl3731__select_bank" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\is31fl3731.adb:109:11" }
+edge: { sourcename: "is31fl3731__initialize" targetname: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\is31fl3731.adb:is31fl3731__write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\is31fl3731.adb:112:11" }
+edge: { sourcename: "is31fl3731__initialize" targetname: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\is31fl3731.adb:is31fl3731__write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\is31fl3731.adb:115:11" }
+edge: { sourcename: "is31fl3731__initialize" targetname: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\is31fl3731.adb:is31fl3731__write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\is31fl3731.adb:118:11" }
+edge: { sourcename: "is31fl3731__initialize" targetname: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\is31fl3731.adb:is31fl3731__select_bank" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\is31fl3731.adb:121:14" }
+edge: { sourcename: "is31fl3731__initialize" targetname: "is31fl3731__clear" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\is31fl3731.adb:122:14" }
+edge: { sourcename: "is31fl3731__initialize" targetname: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\is31fl3731.adb:is31fl3731__select_bank" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\is31fl3731.adb:125:11" }
+node: { title: "is31fl3731__display_frame" label: "DISPLAY_FRAME\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\is31fl3731.adb:132:4\n32 bytes (static)" }
+edge: { sourcename: "is31fl3731__display_frame" targetname: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\is31fl3731.adb:is31fl3731__select_bank" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\is31fl3731.adb:136:11" }
+edge: { sourcename: "is31fl3731__display_frame" targetname: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\is31fl3731.adb:is31fl3731__write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\is31fl3731.adb:138:11" }
+edge: { sourcename: "is31fl3731__display_frame" targetname: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\is31fl3731.adb:is31fl3731__select_bank" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\is31fl3731.adb:140:11" }
+node: { title: "is31fl3731__select_frame" label: "SELECT_FRAME\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\is31fl3731.adb:147:4\n16 bytes (static)" }
+edge: { sourcename: "is31fl3731__select_frame" targetname: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\is31fl3731.adb:is31fl3731__select_bank" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\is31fl3731.adb:152:11" }
+node: { title: "is31fl3731__fill" label: "FILL\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\is31fl3731.adb:159:4\n232 bytes (static)" }
+edge: { sourcename: "is31fl3731__fill" targetname: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\is31fl3731.adb:is31fl3731__write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\is31fl3731.adb:165:11" }
+edge: { sourcename: "is31fl3731__fill" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\is31fl3731.adb:167:32" }
+edge: { sourcename: "is31fl3731__fill" targetname: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\is31fl3731.adb:is31fl3731__write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\is31fl3731.adb:170:11" }
+edge: { sourcename: "is31fl3731__fill" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\is31fl3731.adb:172:31" }
+edge: { sourcename: "is31fl3731__fill" targetname: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\is31fl3731.adb:is31fl3731__write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\is31fl3731.adb:176:11" }
+node: { title: "is31fl3731__clear" label: "CLEAR\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\is31fl3731.adb:184:4\n32 bytes (static)" }
+edge: { sourcename: "is31fl3731__clear" targetname: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\is31fl3731.adb:is31fl3731__write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\is31fl3731.adb:187:11" }
+edge: { sourcename: "is31fl3731__clear" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\is31fl3731.adb:189:32" }
+edge: { sourcename: "is31fl3731__clear" targetname: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\is31fl3731.adb:is31fl3731__write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\is31fl3731.adb:192:11" }
+edge: { sourcename: "is31fl3731__clear" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\is31fl3731.adb:194:31" }
+edge: { sourcename: "is31fl3731__clear" targetname: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\is31fl3731.adb:is31fl3731__write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\is31fl3731.adb:197:11" }
+node: { title: "is31fl3731__enable" label: "ENABLE\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\is31fl3731.adb:205:4\n56 bytes (static)" }
+edge: { sourcename: "is31fl3731__enable" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\is31fl3731.adb:209:54" }
+edge: { sourcename: "is31fl3731__enable" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\is31fl3731.adb:214:46" }
+edge: { sourcename: "is31fl3731__enable" targetname: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\is31fl3731.adb:is31fl3731__write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\is31fl3731.adb:217:11" }
+node: { title: "is31fl3731__disable" label: "DISABLE\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\is31fl3731.adb:224:4\n56 bytes (static)" }
+edge: { sourcename: "is31fl3731__disable" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\is31fl3731.adb:228:54" }
+edge: { sourcename: "is31fl3731__disable" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\is31fl3731.adb:233:46" }
+edge: { sourcename: "is31fl3731__disable" targetname: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\is31fl3731.adb:is31fl3731__write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\is31fl3731.adb:236:11" }
+node: { title: "is31fl3731__set_brightness" label: "SET_BRIGHTNESS\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\is31fl3731.adb:243:4\n40 bytes (static)" }
+edge: { sourcename: "is31fl3731__set_brightness" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\is31fl3731.adb:248:47" }
+edge: { sourcename: "is31fl3731__set_brightness" targetname: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\is31fl3731.adb:is31fl3731__write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\is31fl3731.adb:250:11" }
+node: { title: "is31fl3731__enable_blink" label: "ENABLE_BLINK\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\is31fl3731.adb:258:4\n56 bytes (static)" }
+edge: { sourcename: "is31fl3731__enable_blink" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\is31fl3731.adb:262:54" }
+edge: { sourcename: "is31fl3731__enable_blink" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\is31fl3731.adb:267:46" }
+edge: { sourcename: "is31fl3731__enable_blink" targetname: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\is31fl3731.adb:is31fl3731__write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\is31fl3731.adb:270:11" }
+node: { title: "is31fl3731__disable_blink" label: "DISABLE_BLINK\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\is31fl3731.adb:277:4\n56 bytes (static)" }
+edge: { sourcename: "is31fl3731__disable_blink" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\is31fl3731.adb:281:54" }
+edge: { sourcename: "is31fl3731__disable_blink" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\is31fl3731.adb:286:46" }
+edge: { sourcename: "is31fl3731__disable_blink" targetname: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\is31fl3731.adb:is31fl3731__write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\is31fl3731.adb:289:11" }
+node: { title: "is31fl3731__set_blink_rate" label: "SET_BLINK_RATE\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\is31fl3731.adb:296:4\n40 bytes (static)" }
+edge: { sourcename: "is31fl3731__set_blink_rate" targetname: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\is31fl3731.adb:is31fl3731__select_bank" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\is31fl3731.adb:300:11" }
+edge: { sourcename: "is31fl3731__set_blink_rate" targetname: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\is31fl3731.adb:is31fl3731__write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\is31fl3731.adb:303:14" }
+edge: { sourcename: "is31fl3731__set_blink_rate" targetname: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\is31fl3731.adb:is31fl3731__write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\is31fl3731.adb:306:14" }
+edge: { sourcename: "is31fl3731__set_blink_rate" targetname: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\is31fl3731.adb:is31fl3731__select_bank" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\is31fl3731.adb:310:11" }
+node: { title: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\is31fl3731.adb:is31fl3731__dev_address" label: "DEV_ADDRESS\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\is31fl3731.adb:53:4\n16 bytes (static)" }
+}

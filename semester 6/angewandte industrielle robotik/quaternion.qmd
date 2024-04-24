@@ -1,0 +1,8 @@
+$$
+q = \begin{bmatrix}qt_1 \\ qt_2 \\ qt_3 \\ qt_4\end{bmatrix}
+$$
+
+
+$$
+\dot{Q} = 
+$$

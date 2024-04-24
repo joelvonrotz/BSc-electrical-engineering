@@ -1,0 +1,180 @@
+V "GNAT Lib v2020"
+A -O0
+A -gnatA
+A --RTS=C:\gnat\2020-arm-elf\arm-eabi\lib\gnat\zfp-cortex-m4f\
+A -mlittle-endian
+A -mthumb
+A -mfloat-abi=hard
+A -mcpu=cortex-m4
+A -mfpu=fpv4-sp-d16
+A -gnata
+A -fcallgraph-info=su
+A -fcallgraph-info=su
+A -g
+A -gnatwa
+A -gnatw_A
+A -gnatQ
+A -gnatw.X
+A -ffunction-sections
+A -fdata-sections
+A -march=armv7e-m+fp
+P ZX
+
+RN
+RV NO_DISPATCH
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_IMPLEMENTATION_PRAGMAS
+
+U hal.filesystem%s	hal-filesystem.ads	a4410998 NE OO PK IU
+Z ada.tags%s		a-tags.adb		a-tags.ali
+W hal%s			hal.ads			hal.ali
+W system%s		system.ads		system.ali
+
+D ada.ads		20200819171400 76789da1 ada%s
+D a-tags.ads		20200819171400 95e09aae ada.tags%s
+D hal.ads		20210108111948 2b42c80e hal%s
+D hal-filesystem.ads	20210108111948 6998b52b hal.filesystem%s
+D interfac.ads		20200819171400 5ab55268 interfaces%s
+D system.ads		20200819171400 e69b74bd system%s
+D s-stoele.ads		20200819171400 2dc34a04 system.storage_elements%s
+G a e
+X 3 hal.ads
+34K9*HAL 166e8 4|34r9 74r26 227r5
+160M9*UInt64<5|77M9> 4|74r30
+X 4 hal-filesystem.ads
+34K13*Filesystem 3|34k9 4|227l9 227e19
+35E9*Status_Code 60e31 99r14 104r33 108r28 113r38 125r14 131r14 170r14 178r14
+. 194r14 201r14 211r14 217r14
+36n7*OK{35E9}
+37n7*Non_Empty_Directory{35E9}
+38n7*Disk_Error{35E9}
+39n7*Disk_Full{35E9}
+40n7*Internal_Error{35E9}
+41n7*Drive_Not_Ready{35E9}
+42n7*No_Such_File{35E9}
+43n7*No_Such_Path{35E9}
+44n7*Not_Mounted{35E9}
+45n7*Invalid_Name{35E9}
+46n7*Access_Denied{35E9}
+47n7*Already_Exists{35E9}
+48n7*Invalid_Object_Entry{35E9}
+49n7*Write_Protected{35E9}
+50n7*Invalid_Drive{35E9}
+51n7*No_Filesystem{35E9}
+52n7*Locked{35E9}
+53n7*Too_Many_Open_Files{35E9}
+54n7*Invalid_Parameter{35E9}
+55n7*Input_Output_Error{35E9}
+56n7*No_MBR_Found{35E9}
+57n7*No_Partition_Found{35E9}
+58n7*No_More_Entries{35E9}
+59n7*Read_Only_File_System{35E9}
+60n7*Operation_Not_Permitted{35E9}
+62E9*File_Mode 62e57 168r16 176r16 188r34
+62n23*Read_Only{62E9} 195r39
+62n34*Write_Only{62E9} 203r36
+62n46*Read_Write{62E9} 195r51 203r49
+63E9*Seek_Mode 72e16 215r16
+66n7*From_Start{63E9}
+68n7*From_End{63E9}
+70n7*Forward{63E9}
+72n7*Backward{63E9}
+74M9*File_Size<3|160M9> 157r46 185r34 193r23 200r16 207r14 216r23
+79h9*Filesystem_Driver 80r45 95p13 96r23 102p13 102r40 106p13 106r35 111p13
+. 111r45 121p13 122r23 165p13 166r23 225p14 225r35
+80P9*Any_Filesystem_Driver(79R9) 117r39 145r48 182r41
+82h9*Directory_Handle 83r44 116p13 117r14 128p13 129r23 135p14 135r35 138p14
+. 138r35
+83P9*Any_Directory_Handle(82R9) 98r20
+85h9*File_Handle 86r39 181p13 182r21 184p13 185r14 187p13 188r14 190p13 191r23
+. 197p13 198r23 205p13 206r14 209p13 210r21 213p13 214r23 219p14 219r35
+86P9*Any_File_Handle(85R9) 169r20 177r20
+88r9 Node_Handle{88R9}
+88r9 Node_Handle{88R9}
+88h9*Node_Handle 89r39 145p13 145r28 147p13 147r30 149p13 149r34 151p13 151r31
+. 153p13 153r37 155p13 155r32 157p13 157r26 159p14 159r35 173p13 174r16
+89P9*Any_Node_Handle(88R9) 124r20 130r20
+95y13*Open{35E9} 96=7 97>7 98<7
+96r7 This{79R9}
+97a7 Path{string}
+98p7 Handle{83P9}
+102y13*Create_File{35E9} 102=26 103>26
+102r26 This{79R9}
+103a26 Path{string}
+106y13*Unlink{35E9} 106=21 107>21
+106r21 This{79R9}
+107a21 Path{string}
+111y13*Remove_Directory{35E9} 111=31 112>31
+111r31 This{79R9}
+112a31 Path{string}
+116y13*Get_FS{80P9} 117>7
+117r7 This{82R9}
+121y13*Root_Node{35E9} 122=7 123>7 124<7
+122r7 This{79R9}
+123a7 As{string}
+124p7 Handle{89P9}
+128y13*Read{35E9} 129=7 130<7
+129r7 This{82R9}
+130p7 Handle{89P9}
+135x14*Reset 135=21
+135r21 This{82R9}
+138x14*Close 138=21
+138r21 This{82R9}
+145y13*Get_FS{80P9} 145>21
+145r21 This{88R9}
+147y13*Basename{string} 147>23
+147r23 This{88R9}
+149y13*Is_Read_Only{boolean} 149>27
+149r27 This{88R9}
+151y13*Is_Hidden{boolean} 151>24
+151r24 This{88R9}
+153y13*Is_Subdirectory{boolean} 153>30 179s24
+153r30 This{88R9}
+155y13*Is_Symlink{boolean} 155>25
+155r25 This{88R9}
+157y13*Size{74M9} 157>19
+157r19 This{88R9}
+159x14*Close 159=21
+159r21 This{88R9}
+165y13*Open{35E9} 166=7 167>7 168>7 169<7
+166r7 This{79R9}
+167a7 Path{string}
+168e7 Mode{62E9}
+169p7 Handle{86P9}
+173y13*Open{35E9} 174>7 175>7 176>7 177<7
+174r7 This{88R9} 179r41
+175a7 Name{string}
+176e7 Mode{62E9}
+177p7 Handle{86P9}
+181y13*Get_FS{80P9} 182=7
+182r7 This{85R9}
+184y13*Size{74M9} 185>7
+185r7 This{85R9}
+187y13*Mode{62E9} 188>7 195s24 203s21
+188r7 This{85R9}
+190y13*Read{35E9} 191=7 192>7 193=7
+191r7 This{85R9} 195r30
+192m7 Addr{6|90M9}
+193m7 Length{74M9}
+197y13*Write{35E9} 198=7 199>7 200>7
+198r7 This{85R9} 203r27
+199m7 Addr{6|90M9}
+200m7 Length{74M9}
+205y13*Offset{74M9} 206>7
+206r7 This{85R9}
+209y13*Flush{35E9} 210=7
+210r7 This{85R9}
+213y13*Seek{35E9} 214=7 215>7 216=7
+214r7 This{85R9}
+215e7 Origin{63E9}
+216m7 Amount{74M9}
+219x14*Close 219=21
+219r21 This{85R9}
+225x14*Close 225=21
+225r21 This{79R9}
+X 5 interfac.ads
+77M9*Unsigned_64
+X 6 system.ads
+60K9*System 4|32w6 192r16 199r16 6|172e11
+90M9*Address 4|192r23 199r23
+

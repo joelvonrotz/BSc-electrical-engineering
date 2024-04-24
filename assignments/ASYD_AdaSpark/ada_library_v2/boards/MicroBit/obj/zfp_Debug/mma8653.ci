@@ -1,0 +1,54 @@
+graph: { title: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\mma8653\mma8653.adb"
+class {
+  classname: "mma8653__mma8653_accelerometer"
+  label: "mma8653__mma8653_accelerometer\mma8653.ads:39:9"
+  parent: "mma8653__mma8653_accelerometer"
+  virtuals: "1:mma8653__configure\n
+             2:mma8653__check_device_id\n
+             3:mma8653__read_data\n
+             -1:mma8653___size"
+}
+edge: { sourcename: "mma8653__read_register"
+  targetname: "4:hal__i2c__i2c_port,hal__i2c__i2c_port"
+  label: "mma8653.adb:53:16"
+}
+edge: { sourcename: "mma8653__write_register"
+  targetname: "3:hal__i2c__i2c_port,hal__i2c__i2c_port"
+  label: "mma8653.adb:76:16"
+}
+edge: { sourcename: "mma8653__read_data"
+  targetname: "4:hal__i2c__i2c_port,hal__i2c__i2c_port"
+  label: "mma8653.adb:148:16"
+}
+node: { title: "mma8653__ctrl_reg1_registerIP" label: "CTRL_REG1_REGISTERIP\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\mma8653\mma8653.ads:100:9\n16 bytes (static)" }
+node: { title: "mma8653__ctrl_reg2_registerIP" label: "CTRL_REG2_REGISTERIP\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\mma8653\mma8653.ads:121:9\n16 bytes (static)" }
+node: { title: "mma8653__mma8653_accelerometerIP" label: "MMA8653_ACCELEROMETERIP\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\mma8653\mma8653.ads:65:9\n24 bytes (static)" }
+node: { title: "mma8653___size" label: "MMA8653\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\mma8653\mma8653.ads:65:9\n16 bytes (static)" }
+node: { title: "mma8653__all_axes_dataIP" label: "ALL_AXES_DATAIP\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\mma8653\mma8653.ads:58:9\n16 bytes (static)" }
+node: { title: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\mma8653\mma8653.adb:mma8653__read_register" label: "READ_REGISTER\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\mma8653\mma8653.adb:47:4\n64 bytes (static)" }
+node: { title: "__indirect_call" label: "Indirect Call Placeholder" shape : ellipse }
+edge: { sourcename: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\mma8653\mma8653.adb:mma8653__read_register" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\mma8653\mma8653.adb:53:16" }
+node: { title: "__gnat_last_chance_handler" label: "gnat_last_chance_handler\n<built-in>" shape : ellipse }
+edge: { sourcename: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\mma8653\mma8653.adb:mma8653__read_register" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\mma8653\mma8653.adb:61:10" }
+node: { title: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\mma8653\mma8653.adb:mma8653__write_register" label: "WRITE_REGISTER\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\mma8653\mma8653.adb:70:4\n72 bytes (static)" }
+edge: { sourcename: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\mma8653\mma8653.adb:mma8653__write_register" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\mma8653\mma8653.adb:76:16" }
+edge: { sourcename: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\mma8653\mma8653.adb:mma8653__write_register" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\mma8653\mma8653.adb:84:10" }
+node: { title: "mma8653__configure" label: "CONFIGURE\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\mma8653\mma8653.adb:92:4\n24 bytes (static)" }
+edge: { sourcename: "mma8653__configure" targetname: "mma8653__ctrl_reg1_registerIP" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\mma8653\mma8653.adb:97:7" }
+edge: { sourcename: "mma8653__configure" targetname: "mma8653__ctrl_reg2_registerIP" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\mma8653\mma8653.adb:98:7" }
+edge: { sourcename: "mma8653__configure" targetname: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\mma8653\mma8653.adb:mma8653__write_register" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\mma8653\mma8653.adb:103:11" }
+edge: { sourcename: "mma8653__configure" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\mma8653\mma8653.adb:105:21" }
+edge: { sourcename: "mma8653__configure" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\mma8653\mma8653.adb:106:22" }
+edge: { sourcename: "mma8653__configure" targetname: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\mma8653\mma8653.adb:mma8653__write_register" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\mma8653\mma8653.adb:107:11" }
+edge: { sourcename: "mma8653__configure" targetname: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\mma8653\mma8653.adb:mma8653__write_register" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\mma8653\mma8653.adb:109:11" }
+edge: { sourcename: "mma8653__configure" targetname: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\mma8653\mma8653.adb:mma8653__write_register" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\mma8653\mma8653.adb:112:11" }
+node: { title: "mma8653__check_device_id" label: "CHECK_DEVICE_ID\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\mma8653\mma8653.adb:120:4\n16 bytes (static)" }
+edge: { sourcename: "mma8653__check_device_id" targetname: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\mma8653\mma8653.adb:mma8653__read_register" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\mma8653\mma8653.adb:122:14" }
+node: { title: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\mma8653\mma8653.adb:mma8653__read_data__convert.5941" label: "CONVERT\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\mma8653\mma8653.adb:136:7\n24 bytes (static)" }
+node: { title: "mma8653__read_data" label: "READ_DATA\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\mma8653\mma8653.adb:129:4\n72 bytes (static)" }
+edge: { sourcename: "mma8653__read_data" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\mma8653\mma8653.adb:148:16" }
+edge: { sourcename: "mma8653__read_data" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\mma8653\mma8653.adb:156:10" }
+edge: { sourcename: "mma8653__read_data" targetname: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\mma8653\mma8653.adb:mma8653__read_data__convert.5941" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\mma8653\mma8653.adb:159:16" }
+edge: { sourcename: "mma8653__read_data" targetname: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\mma8653\mma8653.adb:mma8653__read_data__convert.5941" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\mma8653\mma8653.adb:160:16" }
+edge: { sourcename: "mma8653__read_data" targetname: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\mma8653\mma8653.adb:mma8653__read_data__convert.5941" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\mma8653\mma8653.adb:161:16" }
+}

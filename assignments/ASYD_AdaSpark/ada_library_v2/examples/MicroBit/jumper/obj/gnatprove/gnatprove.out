@@ -1,0 +1,670 @@
+Summary of SPARK analysis
+=========================
+
+----------------------------------------------------------------------------------------------------
+SPARK Analysis results        Total      Flow   Interval   CodePeer   Provers   Justified   Unproved
+----------------------------------------------------------------------------------------------------
+Data Dependencies                 .         .          .          .         .           .          .
+Flow Dependencies                 .         .          .          .         .           .          .
+Initialization                    .         .          .          .         .           .          .
+Non-Aliasing                      .         .          .          .         .           .          .
+Run-time Checks                   .         .          .          .         .           .          .
+Assertions                        .         .          .          .         .           .          .
+Functional Contracts              .         .          .          .         .           .          .
+LSP Verification                  .         .          .          .         .           .          .
+----------------------------------------------------------------------------------------------------
+Total                             .         .          .          .         .           .          .
+
+
+max steps used for successful proof: 0
+
+Analyzed 79 units
+in unit adafruit-thermal_printer, 0 subprograms and packages out of 2 analyzed
+  AdaFruit.Thermal_Printer.to_charGP2549.To_Char at adafruit-thermal_printer.adb:38 skipped
+  AdaFruit.Thermal_Printer.to_uint8GP2694.To_UInt8 at adafruit-thermal_printer.adb:40 skipped
+in unit bit_fields, 0 subprograms and packages out of 6 analyzed
+  Bit_Fields.To_Bit_Field at bit_fields.ads:42 skipped
+  Bit_Fields.To_Bit_Field at bit_fields.ads:46 skipped
+  Bit_Fields.To_Bit_Field at bit_fields.ads:50 skipped
+  Bit_Fields.To_UInt16 at bit_fields.ads:39 skipped
+  Bit_Fields.To_UInt8 at bit_fields.ads:40 skipped
+  Bit_Fields.To_Word at bit_fields.ads:38 skipped
+in unit bitmap_color_conversion, 0 subprograms and packages out of 2 analyzed
+  Bitmap_Color_Conversion.Bitmap_Color_To_Word at bitmap_color_conversion.ads:37 skipped
+  Bitmap_Color_Conversion.Word_To_Bitmap_Color at bitmap_color_conversion.ads:42 skipped
+in unit bitmap_file_output, 0 subprograms and packages out of 1 analyzed
+  Bitmap_File_Output.Write_BMP_File at bitmap_file_output.ads:37 skipped
+in unit bluetooth_low_energy, 0 subprograms and packages out of 3 analyzed
+  Bluetooth_Low_Energy.Make_UUID at bluetooth_low_energy.ads:75 skipped
+  Bluetooth_Low_Energy.Make_UUID at bluetooth_low_energy.ads:76 skipped
+  Bluetooth_Low_Energy.Make_UUID at bluetooth_low_energy.ads:77 skipped
+in unit bluetooth_low_energy-beacon, 0 subprograms and packages out of 1 analyzed
+  Bluetooth_Low_Energy.Beacon.Make_Beacon_Packet at bluetooth_low_energy-beacon.ads:37 skipped
+in unit bluetooth_low_energy-packets, 1 subprograms and packages out of 10 analyzed
+  Bluetooth_Low_Energy.Packets.BLE_Packet at bluetooth_low_energy-packets.ads:37 flow analyzed (0 errors, 0 checks and 0 warnings)
+  Bluetooth_Low_Energy.Packets.Memory_Address at bluetooth_low_energy-packets.ads:39 skipped
+  Bluetooth_Low_Energy.Packets.Push at bluetooth_low_energy-packets.ads:45 skipped
+  Bluetooth_Low_Energy.Packets.Push at bluetooth_low_energy-packets.ads:48 skipped
+  Bluetooth_Low_Energy.Packets.Push at bluetooth_low_energy-packets.ads:51 skipped
+  Bluetooth_Low_Energy.Packets.Push at bluetooth_low_energy-packets.ads:54 skipped
+  Bluetooth_Low_Energy.Packets.Push at bluetooth_low_energy-packets.ads:57 skipped
+  Bluetooth_Low_Energy.Packets.Push_UUID at bluetooth_low_energy-packets.ads:60 skipped
+  Bluetooth_Low_Energy.Packets.Set_Header at bluetooth_low_energy-packets.ads:42 skipped
+  Bluetooth_Low_Energy.Packets.as_uint8GP2461.As_UInt8 at bluetooth_low_energy-packets.adb:36 skipped
+in unit command_line, 0 subprograms and packages out of 7 analyzed
+  Command_Line.Arguments at command_line.ads:41 skipped
+  Command_Line.Command at command_line.ads:54 skipped
+  Command_Line.Make_Delims at command_line.adb:41 skipped
+  Command_Line.Name at command_line.ads:58 skipped
+  Command_Line.Name at command_line.ads:115 skipped
+  Command_Line.Name at command_line.ads:133 skipped
+  Command_Line.Remaining at command_line.ads:44 skipped
+in unit command_line-filesystem, 0 subprograms and packages out of 1 analyzed
+  Command_Line.Filesystem.Register_All at command_line-filesystem.ads:34 skipped
+in unit command_line-filesystem-cat, 1 subprograms and packages out of 2 analyzed
+  Command_Line.Filesystem.Cat.Cat_Cmd at command_line-filesystem-cat.ads:34 flow analyzed (0 errors, 0 checks and 0 warnings)
+  Command_Line.Filesystem.Cat.Name at command_line-filesystem-cat.ads:37 skipped
+in unit command_line-filesystem-list_directory, 1 subprograms and packages out of 2 analyzed
+  Command_Line.Filesystem.List_Directory.Ls_Cmd at command_line-filesystem-list_directory.ads:34 flow analyzed (0 errors, 0 checks and 0 warnings)
+  Command_Line.Filesystem.List_Directory.Name at command_line-filesystem-list_directory.ads:37 skipped
+in unit command_line-filesystem-remove_directory, 1 subprograms and packages out of 2 analyzed
+  Command_Line.Filesystem.Remove_Directory.Name at command_line-filesystem-remove_directory.ads:37 skipped
+  Command_Line.Filesystem.Remove_Directory.Rmdir_Cmd at command_line-filesystem-remove_directory.ads:34 flow analyzed (0 errors, 0 checks and 0 warnings)
+in unit command_line-filesystem-touch, 1 subprograms and packages out of 2 analyzed
+  Command_Line.Filesystem.Touch.Name at command_line-filesystem-touch.ads:37 skipped
+  Command_Line.Filesystem.Touch.Touch_Cmd at command_line-filesystem-touch.ads:34 flow analyzed (0 errors, 0 checks and 0 warnings)
+in unit cortex_m-cache, 0 subprograms and packages out of 9 analyzed
+  Cortex_M.Cache.Clean_DCache at cortex_m-cache.ads:53 skipped
+  Cortex_M.Cache.Clean_Invalidate_DCache at cortex_m-cache.ads:74 skipped
+  Cortex_M.Cache.D_Cache_Enabled at cortex_m-cache.ads:50 skipped
+  Cortex_M.Cache.Disable_D_Cache at cortex_m-cache.ads:45 skipped
+  Cortex_M.Cache.Disable_I_Cache at cortex_m-cache.ads:43 skipped
+  Cortex_M.Cache.Enable_D_Cache at cortex_m-cache.ads:41 skipped
+  Cortex_M.Cache.Enable_I_Cache at cortex_m-cache.ads:39 skipped
+  Cortex_M.Cache.I_Cache_Enabled at cortex_m-cache.ads:47 skipped
+  Cortex_M.Cache.Invalidate_DCache at cortex_m-cache.ads:63 skipped
+in unit cortex_m-debug, 0 subprograms and packages out of 1 analyzed
+  Cortex_M.Debug.Halting_Debug_Enabled at cortex_m-debug.ads:34 skipped
+in unit cortex_m-dwt, 0 subprograms and packages out of 4 analyzed
+  Cortex_M.DWT.DWT_Reset_Value at cortex_m-dwt.ads:59 skipped
+  Cortex_M.DWT.DWT_Unit_Enabled at cortex_m-dwt.ads:75 skipped
+  Cortex_M.DWT.Disable_DWT_Unit at cortex_m-dwt.ads:69 skipped
+  Cortex_M.DWT.Enable_DWT_Unit at cortex_m-dwt.ads:63 skipped
+in unit cortex_m-nvic, 0 subprograms and packages out of 7 analyzed
+  Cortex_M.NVIC.Clear_Pending at cortex_m-nvic.ads:66 skipped
+  Cortex_M.NVIC.Disable at cortex_m-nvic.ads:58 skipped
+  Cortex_M.NVIC.Enable at cortex_m-nvic.ads:56 skipped
+  Cortex_M.NVIC.Enabled at cortex_m-nvic.ads:60 skipped
+  Cortex_M.NVIC.Pending at cortex_m-nvic.ads:62 skipped
+  Cortex_M.NVIC.Set_Pending at cortex_m-nvic.ads:64 skipped
+  Cortex_M.NVIC.Set_Priority at cortex_m-nvic.ads:52 skipped
+in unit file_block_drivers, 1 subprograms and packages out of 2 analyzed
+  File_Block_Drivers.Close at file_block_drivers.ads:48 skipped
+  File_Block_Drivers.File_Block_Driver at file_block_drivers.ads:40 flow analyzed (0 errors, 0 checks and 0 warnings)
+in unit file_io, 1 subprograms and packages out of 24 analyzed
+  File_IO.Close at file_io.adb:77 skipped
+  File_IO.Close at file_io.ads:97 skipped
+  File_IO.Close at file_io.ads:145 skipped
+  File_IO.Copy_File at file_io.ads:169 skipped
+  File_IO.Create_File at file_io.ads:163 skipped
+  File_IO.Directory_Descriptor at file_io.ads:138 skipped
+  File_IO.File_Descriptor at file_io.ads:89 skipped
+  File_IO.Flush at file_io.ads:102 skipped
+  File_IO.Is_Open at file_io.ads:99 skipped
+  File_IO.Mount_PathPredicate at file_io.ads:180 flow analyzed (0 errors, 0 checks and 0 warnings)
+  File_IO.Offset at file_io.ads:118 skipped
+  File_IO.Read at file_io.ads:108 skipped
+  File_IO.Remove_Directory at file_io.ads:167 skipped
+  File_IO.Reset at file_io.adb:74 skipped
+  File_IO.Reset at file_io.ads:161 skipped
+  File_IO.Size at file_io.ads:105 skipped
+  File_IO.Unlink at file_io.ads:165 skipped
+  File_IO.Unmount at file_io.ads:191 skipped
+  File_IO.Write at file_io.ads:113 skipped
+  File_IO.convertGP2682.Convert at file_io.adb:42 skipped
+  File_IO.convertGP2768.Convert at file_io.adb:43 skipped
+  File_IO.convertGP2850.Convert at file_io.adb:44 skipped
+  File_IO.convertGP2932.Convert at file_io.adb:45 skipped
+  File_IO.convertGP3014.Convert at file_io.adb:46 skipped
+in unit filesystem-fat, 1 subprograms and packages out of 50 analyzed
+  Filesystem.FAT.Basename at filesystem-fat.ads:79 skipped
+  Filesystem.FAT.Basename at filesystem-fat.ads:100 skipped
+  Filesystem.FAT.Block_Size at filesystem-fat.ads:185 skipped
+  Filesystem.FAT.Blocks_Per_Cluster at filesystem-fat.ads:187 skipped
+  Filesystem.FAT.Close at filesystem-fat.ads:109 skipped
+  Filesystem.FAT.Close at filesystem-fat.ads:143 skipped
+  Filesystem.FAT.Cluster_Size at filesystem-fat.ads:189 skipped
+  Filesystem.FAT.Cluster_To_Block at filesystem-fat.ads:328 skipped
+  Filesystem.FAT.FAT16_Root_Dir_Num_Entries at filesystem-fat.ads:203 skipped
+  Filesystem.FAT.FAT_Filesystem at filesystem-fat.ads:59 skipped
+  Filesystem.FAT.FAT_Name at filesystem-fat.ads:57 flow analyzed (0 errors, 0 checks and 0 warnings)
+  Filesystem.FAT.FAT_Node at filesystem-fat.ads:63 skipped
+  Filesystem.FAT.FAT_Table_Size_In_Blocks at filesystem-fat.ads:197 skipped
+  Filesystem.FAT.File_System_Type at filesystem-fat.ads:165 skipped
+  Filesystem.FAT.Get_Num_VFAT_Entries at filesystem-fat.ads:708 skipped
+  Filesystem.FAT.Get_Start_Cluster at filesystem-fat.ads:181 skipped
+  Filesystem.FAT.Initialize_FS at filesystem-fat.adb:54 skipped
+  Filesystem.FAT.Is_Archive at filesystem-fat.ads:107 skipped
+  Filesystem.FAT.Is_Bad_Cluster at filesystem-fat.ads:373 skipped
+  Filesystem.FAT.Is_Free_Cluster at filesystem-fat.ads:381 skipped
+  Filesystem.FAT.Is_Hidden at filesystem-fat.ads:102 skipped
+  Filesystem.FAT.Is_Last_Cluster at filesystem-fat.ads:357 skipped
+  Filesystem.FAT.Is_Read_Only at filesystem-fat.ads:101 skipped
+  Filesystem.FAT.Is_Reserved_Cluster at filesystem-fat.ads:365 skipped
+  Filesystem.FAT.Is_Root at filesystem-fat.ads:76 skipped
+  Filesystem.FAT.Is_Subdirectory at filesystem-fat.ads:105 skipped
+  Filesystem.FAT.Is_Symlink at filesystem-fat.ads:104 skipped
+  Filesystem.FAT.Is_System_File at filesystem-fat.ads:103 skipped
+  Filesystem.FAT.Is_Volume at filesystem-fat.ads:159 skipped
+  Filesystem.FAT.Long_Name at filesystem-fat.ads:98 skipped
+  Filesystem.FAT.Normalize at filesystem-fat.ads:81 skipped
+  Filesystem.FAT.Number_Of_FATs at filesystem-fat.ads:193 skipped
+  Filesystem.FAT.Number_Of_Hidden_Blocks at filesystem-fat.ads:199 skipped
+  Filesystem.FAT.OEM_Name at filesystem-fat.ads:156 skipped
+  Filesystem.FAT.Oadd at filesystem-fat.ads:333 skipped
+  Filesystem.FAT.Oeq at filesystem-fat.ads:74 skipped
+  Filesystem.FAT.Osubtract at filesystem-fat.ads:69 skipped
+  Filesystem.FAT.Osubtract at filesystem-fat.ads:71 skipped
+  Filesystem.FAT.Parent at filesystem-fat.ads:78 skipped
+  Filesystem.FAT.Reserved_Blocks at filesystem-fat.ads:191 skipped
+  Filesystem.FAT.Root_Dir_Cluster at filesystem-fat.ads:201 skipped
+  Filesystem.FAT.Short_Name at filesystem-fat.ads:99 skipped
+  Filesystem.FAT.Size at filesystem-fat.ads:108 skipped
+  Filesystem.FAT.Size at filesystem-fat.ads:183 skipped
+  Filesystem.FAT.Total_Number_Of_Blocks at filesystem-fat.ads:195 skipped
+  Filesystem.FAT.Trim at filesystem-fat.ads:286 skipped
+  Filesystem.FAT.Version at filesystem-fat.ads:153 skipped
+  Filesystem.FAT.Volume_ID at filesystem-fat.ads:161 skipped
+  Filesystem.FAT.Volume_Label at filesystem-fat.ads:163 skipped
+  Filesystem.FAT.Write_FSInfo at filesystem-fat.ads:353 skipped
+in unit filesystem-fat-directories, 0 subprograms and packages out of 6 analyzed
+  Filesystem.FAT.Directories.Adjust_Clusters at filesystem-fat-directories.ads:93 skipped
+  Filesystem.FAT.Directories.Delete_Entry at filesystem-fat-directories.ads:88 skipped
+  Filesystem.FAT.Directories.Delete_Subdir at filesystem-fat-directories.ads:84 skipped
+  Filesystem.FAT.Directories.Set_Size at filesystem-fat-directories.ads:101 skipped
+  Filesystem.FAT.Directories.to_dataGP2774.To_Data at filesystem-fat-directories.adb:42 skipped
+  Filesystem.FAT.Directories.to_dataGP2866.To_Data at filesystem-fat-directories.adb:44 skipped
+in unit filesystem-mbr, 2 subprograms and packages out of 12 analyzed
+  Filesystem.MBR.Active at filesystem-mbr.ads:49 skipped
+  Filesystem.MBR.Extended_Boot_Record at filesystem-mbr.ads:39 flow analyzed (0 errors, 0 checks and 0 warnings)
+  Filesystem.MBR.Get_Type at filesystem-mbr.ads:53 skipped
+  Filesystem.MBR.Get_Type at filesystem-mbr.ads:70 skipped
+  Filesystem.MBR.Has_Next at filesystem-mbr.ads:74 skipped
+  Filesystem.MBR.Is_Extended at filesystem-mbr.ads:60 skipped
+  Filesystem.MBR.LBA at filesystem-mbr.ads:55 skipped
+  Filesystem.MBR.LBA at filesystem-mbr.ads:71 skipped
+  Filesystem.MBR.Master_Boot_Record at filesystem-mbr.ads:38 flow analyzed (0 errors, 0 checks and 0 warnings)
+  Filesystem.MBR.Sectors at filesystem-mbr.ads:57 skipped
+  Filesystem.MBR.Sectors at filesystem-mbr.ads:72 skipped
+  Filesystem.MBR.Valid at filesystem-mbr.ads:51 skipped
+in unit hal-audio, 0 subprograms and packages out of 3 analyzed
+  HAL.Audio.Receive at hal-audio.ads:69 skipped
+  HAL.Audio.Set_Frequency at hal-audio.ads:63 skipped
+  HAL.Audio.Transmit at hal-audio.ads:66 skipped
+in unit hal-bitmap, 0 subprograms and packages out of 35 analyzed
+  HAL.Bitmap.Bezier at hal-bitmap.ads:283 skipped
+  HAL.Bitmap.Bits_Per_Pixel at hal-bitmap.ads:58 skipped
+  HAL.Bitmap.Buffer_Size at hal-bitmap.ads:289 skipped
+  HAL.Bitmap.Color_Mode at hal-bitmap.ads:129 skipped
+  HAL.Bitmap.Copy_Rect at hal-bitmap.ads:211 skipped
+  HAL.Bitmap.Copy_Rect at hal-bitmap.ads:222 skipped
+  HAL.Bitmap.Copy_Rect_Blend at hal-bitmap.ads:231 skipped
+  HAL.Bitmap.Cubic_Bezier at hal-bitmap.ads:277 skipped
+  HAL.Bitmap.Draw_Circle at hal-bitmap.ads:267 skipped
+  HAL.Bitmap.Draw_Horizontal_Line at hal-bitmap.ads:245 skipped
+  HAL.Bitmap.Draw_Line at hal-bitmap.ads:193 skipped
+  HAL.Bitmap.Draw_Rect at hal-bitmap.ads:250 skipped
+  HAL.Bitmap.Draw_Rounded_Rect at hal-bitmap.ads:256 skipped
+  HAL.Bitmap.Draw_Vertical_Line at hal-bitmap.ads:240 skipped
+  HAL.Bitmap.Fill at hal-bitmap.ads:202 skipped
+  HAL.Bitmap.Fill_Circle at hal-bitmap.ads:272 skipped
+  HAL.Bitmap.Fill_Rect at hal-bitmap.ads:206 skipped
+  HAL.Bitmap.Fill_Rounded_Rect at hal-bitmap.ads:262 skipped
+  HAL.Bitmap.Height at hal-bitmap.ads:108 skipped
+  HAL.Bitmap.Mapped_In_RAM at hal-bitmap.ads:134 skipped
+  HAL.Bitmap.Memory_Address at hal-bitmap.ads:137 skipped
+  HAL.Bitmap.Oadd at hal-bitmap.ads:74 skipped
+  HAL.Bitmap.Osubtract at hal-bitmap.ads:77 skipped
+  HAL.Bitmap.Pixel at hal-bitmap.ads:181 skipped
+  HAL.Bitmap.Pixel at hal-bitmap.ads:187 skipped
+  HAL.Bitmap.Set_Pixel at hal-bitmap.ads:160 skipped
+  HAL.Bitmap.Set_Pixel at hal-bitmap.ads:165 skipped
+  HAL.Bitmap.Set_Pixel at hal-bitmap.ads:171 skipped
+  HAL.Bitmap.Set_Pixel_Blend at hal-bitmap.ads:177 skipped
+  HAL.Bitmap.Set_Source at hal-bitmap.ads:142 skipped
+  HAL.Bitmap.Set_Source at hal-bitmap.ads:146 skipped
+  HAL.Bitmap.Source at hal-bitmap.ads:150 skipped
+  HAL.Bitmap.Source at hal-bitmap.ads:155 skipped
+  HAL.Bitmap.Swapped at hal-bitmap.ads:112 skipped
+  HAL.Bitmap.Width at hal-bitmap.ads:104 skipped
+in unit hal-dsi, 0 subprograms and packages out of 2 analyzed
+  HAL.DSI.DSI_Long_Write at hal-dsi.ads:70 skipped
+  HAL.DSI.DSI_Short_Write at hal-dsi.ads:63 skipped
+in unit hal-filesystem, 0 subprograms and packages out of 14 analyzed
+  HAL.Filesystem.Basename at hal-filesystem.ads:147 skipped
+  HAL.Filesystem.Close at hal-filesystem.ads:138 skipped
+  HAL.Filesystem.Close at hal-filesystem.ads:159 skipped
+  HAL.Filesystem.Close at hal-filesystem.ads:219 skipped
+  HAL.Filesystem.Close at hal-filesystem.ads:225 skipped
+  HAL.Filesystem.Is_Hidden at hal-filesystem.ads:151 skipped
+  HAL.Filesystem.Is_Read_Only at hal-filesystem.ads:149 skipped
+  HAL.Filesystem.Is_Subdirectory at hal-filesystem.ads:153 skipped
+  HAL.Filesystem.Is_Symlink at hal-filesystem.ads:155 skipped
+  HAL.Filesystem.Mode at hal-filesystem.ads:187 skipped
+  HAL.Filesystem.Offset at hal-filesystem.ads:205 skipped
+  HAL.Filesystem.Reset at hal-filesystem.ads:135 skipped
+  HAL.Filesystem.Size at hal-filesystem.ads:157 skipped
+  HAL.Filesystem.Size at hal-filesystem.ads:184 skipped
+in unit hal-framebuffer, 0 subprograms and packages out of 15 analyzed
+  HAL.Framebuffer.Color_Mode at hal-framebuffer.ads:111 skipped
+  HAL.Framebuffer.Height at hal-framebuffer.ads:71 skipped
+  HAL.Framebuffer.Initialize_Layer at hal-framebuffer.ads:83 skipped
+  HAL.Framebuffer.Initialized at hal-framebuffer.ads:65 skipped
+  HAL.Framebuffer.Initialized at hal-framebuffer.ads:96 skipped
+  HAL.Framebuffer.Max_Layers at hal-framebuffer.ads:48 skipped
+  HAL.Framebuffer.Pixel_Size at hal-framebuffer.ads:122 skipped
+  HAL.Framebuffer.Set_Background at hal-framebuffer.ads:80 skipped
+  HAL.Framebuffer.Set_Mode at hal-framebuffer.ads:61 skipped
+  HAL.Framebuffer.Set_Orientation at hal-framebuffer.ads:57 skipped
+  HAL.Framebuffer.Supported at hal-framebuffer.ads:52 skipped
+  HAL.Framebuffer.Swapped at hal-framebuffer.ads:74 skipped
+  HAL.Framebuffer.Update_Layer at hal-framebuffer.ads:100 skipped
+  HAL.Framebuffer.Update_Layers at hal-framebuffer.ads:106 skipped
+  HAL.Framebuffer.Width at hal-framebuffer.ads:68 skipped
+in unit hal-gpio, 0 subprograms and packages out of 9 analyzed
+  HAL.GPIO.Clear at hal-gpio.ads:90 skipped
+  HAL.GPIO.Mode at hal-gpio.ads:57 skipped
+  HAL.GPIO.Pull_Resistor at hal-gpio.ads:66 skipped
+  HAL.GPIO.Set at hal-gpio.ads:76 skipped
+  HAL.GPIO.Set at hal-gpio.ads:88 skipped
+  HAL.GPIO.Set_Mode at hal-gpio.ads:60 skipped
+  HAL.GPIO.Set_Pull_Resistor at hal-gpio.ads:70 skipped
+  HAL.GPIO.Support at hal-gpio.ads:51 skipped
+  HAL.GPIO.Toggle at hal-gpio.ads:92 skipped
+in unit hal-i2c, 0 subprograms and packages out of 4 analyzed
+  HAL.I2C.Master_Receive at hal-i2c.ads:59 skipped
+  HAL.I2C.Master_Transmit at hal-i2c.ads:52 skipped
+  HAL.I2C.Mem_Read at hal-i2c.ads:75 skipped
+  HAL.I2C.Mem_Write at hal-i2c.ads:66 skipped
+in unit hal-real_time_clock, 0 subprograms and packages out of 4 analyzed
+  HAL.Real_Time_Clock.Get at hal-real_time_clock.ads:86 skipped
+  HAL.Real_Time_Clock.Get_Date at hal-real_time_clock.ads:95 skipped
+  HAL.Real_Time_Clock.Get_Time at hal-real_time_clock.ads:91 skipped
+  HAL.Real_Time_Clock.Set at hal-real_time_clock.ads:82 skipped
+in unit hal-sdmmc, 0 subprograms and packages out of 10 analyzed
+  HAL.SDMMC.Delay_Milliseconds at hal-sdmmc.ads:382 skipped
+  HAL.SDMMC.Read_Cmd at hal-sdmmc.ads:410 skipped
+  HAL.SDMMC.Read_Rsp136 at hal-sdmmc.ads:425 skipped
+  HAL.SDMMC.Read_Rsp48 at hal-sdmmc.ads:418 skipped
+  HAL.SDMMC.Reset at hal-sdmmc.ads:388 skipped
+  HAL.SDMMC.Send_ACmd at hal-sdmmc.ads:439 skipped
+  HAL.SDMMC.Send_Cmd at hal-sdmmc.ads:403 skipped
+  HAL.SDMMC.Send_Cmd at hal-sdmmc.ads:432 skipped
+  HAL.SDMMC.Set_Bus_Size at hal-sdmmc.ads:398 skipped
+  HAL.SDMMC.Set_Clock at hal-sdmmc.ads:393 skipped
+in unit hal-spi, 0 subprograms and packages out of 5 analyzed
+  HAL.SPI.Data_Size at hal-spi.ads:52 skipped
+  HAL.SPI.Receive at hal-spi.ads:70 skipped
+  HAL.SPI.Receive at hal-spi.ads:78 skipped
+  HAL.SPI.Transmit at hal-spi.ads:54 skipped
+  HAL.SPI.Transmit at hal-spi.ads:62 skipped
+in unit hal-time, 0 subprograms and packages out of 3 analyzed
+  HAL.Time.Delay_Microseconds at hal-time.ads:38 skipped
+  HAL.Time.Delay_Milliseconds at hal-time.ads:41 skipped
+  HAL.Time.Delay_Seconds at hal-time.ads:44 skipped
+in unit hal-touch_panel, 0 subprograms and packages out of 1 analyzed
+  HAL.Touch_Panel.Set_Bounds at hal-touch_panel.ads:56 skipped
+in unit hal-uart, 0 subprograms and packages out of 5 analyzed
+  HAL.UART.Data_Size at hal-uart.ads:52 skipped
+  HAL.UART.Receive at hal-uart.ads:70 skipped
+  HAL.UART.Receive at hal-uart.ads:78 skipped
+  HAL.UART.Transmit at hal-uart.ads:54 skipped
+  HAL.UART.Transmit at hal-uart.ads:62 skipped
+in unit ili9341, 0 subprograms and packages out of 1 analyzed
+  ILI9341.as_uint16GP3427.As_UInt16 at ili9341.adb:50 skipped
+in unit l3gd20, 0 subprograms and packages out of 60 analyzed
+  L3GD20.Configure at l3gd20.ads:157 skipped
+  L3GD20.Configure_High_Pass_Filter at l3gd20.ads:239 skipped
+  L3GD20.Configure_Interrupt1 at l3gd20.ads:437 skipped
+  L3GD20.Current_FIFO_Depth at l3gd20.ads:350 skipped
+  L3GD20.Data_Rate_Hertz at l3gd20.ads:91 skipped
+  L3GD20.Data_Status at l3gd20.ads:284 skipped
+  L3GD20.Device_Id at l3gd20.ads:522 skipped
+  L3GD20.Disable_Data_Ready_Interrupt at l3gd20.ads:365 skipped
+  L3GD20.Disable_Event at l3gd20.ads:407 skipped
+  L3GD20.Disable_FIFO at l3gd20.ads:332 skipped
+  L3GD20.Disable_FIFO_Empty_Interrupt at l3gd20.ads:379 skipped
+  L3GD20.Disable_FIFO_Overrun_Interrupt at l3gd20.ads:375 skipped
+  L3GD20.Disable_FIFO_Watermark_Interrupt at l3gd20.ads:370 skipped
+  L3GD20.Disable_High_Pass_Filter at l3gd20.ads:248 skipped
+  L3GD20.Disable_Int1_Interrupts at l3gd20.ads:383 skipped
+  L3GD20.Disable_Int2_Interrupts at l3gd20.ads:361 skipped
+  L3GD20.Disable_Interrupt1 at l3gd20.ads:477 skipped
+  L3GD20.Disable_Low_Pass_Filter at l3gd20.ads:177 skipped
+  L3GD20.Enable_Data_Ready_Interrupt at l3gd20.ads:363 skipped
+  L3GD20.Enable_Event at l3gd20.ads:403 skipped
+  L3GD20.Enable_FIFO at l3gd20.ads:330 skipped
+  L3GD20.Enable_FIFO_Empty_Interrupt at l3gd20.ads:377 skipped
+  L3GD20.Enable_FIFO_Overrun_Interrupt at l3gd20.ads:373 skipped
+  L3GD20.Enable_FIFO_Watermark_Interrupt at l3gd20.ads:367 skipped
+  L3GD20.Enable_High_Pass_Filter at l3gd20.ads:244 skipped
+  L3GD20.Enable_Interrupt1 at l3gd20.ads:475 skipped
+  L3GD20.Enable_Low_Pass_Filter at l3gd20.ads:167 skipped
+  L3GD20.FIFO_Below_Watermark at l3gd20.ads:353 skipped
+  L3GD20.FIFO_Empty at l3gd20.ads:355 skipped
+  L3GD20.FIFO_Overrun at l3gd20.ads:357 skipped
+  L3GD20.Full_Scale_Sensitivity at l3gd20.ads:179 skipped
+  L3GD20.Get_Raw_Angle_Rates at l3gd20.ads:302 skipped
+  L3GD20.Get_Raw_Angle_Rates_FIFO at l3gd20.ads:342 skipped
+  L3GD20.Interrupt1_Source at l3gd20.ads:508 skipped
+  L3GD20.Read at l3gd20.ads:544 skipped
+  L3GD20.Read_UInt8s at l3gd20.ads:551 skipped
+  L3GD20.Reboot at l3gd20.ads:515 skipped
+  L3GD20.Reference_Value at l3gd20.ads:250 skipped
+  L3GD20.Reset at l3gd20.ads:517 skipped
+  L3GD20.SPI_Mode at l3gd20.adb:141 skipped
+  L3GD20.Set_Duration_Counter at l3gd20.ads:387 skipped
+  L3GD20.Set_FIFO_Mode at l3gd20.ads:327 skipped
+  L3GD20.Set_FIFO_Watermark at l3gd20.ads:336 skipped
+  L3GD20.Set_Interrupt_Pin_Mode at l3gd20.ads:483 skipped
+  L3GD20.Set_Reference at l3gd20.ads:255 skipped
+  L3GD20.Set_Threshold at l3gd20.ads:414 skipped
+  L3GD20.Sleep at l3gd20.ads:512 skipped
+  L3GD20.Swap2 at l3gd20.adb:138 skipped
+  L3GD20.Temperature at l3gd20.ads:525 skipped
+  L3GD20.Three_Axis_Gyroscope at l3gd20.ads:57 skipped
+  L3GD20.Write at l3gd20.ads:537 skipped
+  L3GD20.as_uint8GP5597.As_UInt8 at l3gd20.adb:104 skipped
+  L3GD20.as_uint8GP5708.As_UInt8 at l3gd20.adb:107 skipped
+  L3GD20.as_uint8GP5824.As_UInt8 at l3gd20.adb:110 skipped
+  L3GD20.as_uint8GP5934.As_UInt8 at l3gd20.adb:113 skipped
+  L3GD20.as_uint8GP6050.As_UInt8 at l3gd20.adb:116 skipped
+  L3GD20.as_uint8GP6154.As_UInt8 at l3gd20.adb:119 skipped
+  L3GD20.as_uint8GP6263.As_UInt8 at l3gd20.adb:122 skipped
+  L3GD20.as_uint8GP6380.As_UInt8 at l3gd20.adb:125 skipped
+  L3GD20.as_uint8GP6491.As_UInt8 at l3gd20.adb:128 skipped
+in unit lis3dsh, 1 subprograms and packages out of 11 analyzed
+  LIS3DSH.Configure at lis3dsh.ads:173 skipped
+  LIS3DSH.Configured at lis3dsh.ads:267 skipped
+  LIS3DSH.Device_Id at lis3dsh.ads:80 skipped
+  LIS3DSH.IO_Read at lis3dsh.ads:281 skipped
+  LIS3DSH.IO_Write at lis3dsh.ads:276 skipped
+  LIS3DSH.Loc_IO_Read at lis3dsh.adb:61 skipped
+  LIS3DSH.Loc_IO_Write at lis3dsh.adb:55 skipped
+  LIS3DSH.Reboot at lis3dsh.ads:211 skipped
+  LIS3DSH.Temperature at lis3dsh.ads:264 skipped
+  LIS3DSH.Three_Axis_Accelerometer at lis3dsh.ads:51 flow analyzed (0 errors, 0 checks and 0 warnings)
+  LIS3DSH.as_full_scaleGP12251.As_Full_Scale at lis3dsh.adb:347 skipped
+in unit lsm303, 0 subprograms and packages out of 1 analyzed
+  LSM303.to_axis_dataGP2407.To_Axis_Data at lsm303.adb:34 skipped
+in unit main, 0 subprograms and packages out of 1 analyzed
+  Main at main.adb:16 skipped
+in unit mcp23x08, 0 subprograms and packages out of 19 analyzed
+  MCP23x08.Clear at mcp23x08.ads:82 skipped
+  MCP23x08.Clear_Bit at mcp23x08.adb:60 skipped
+  MCP23x08.Configure at mcp23x08.ads:49 skipped
+  MCP23x08.Configure_Mode at mcp23x08.ads:56 skipped
+  MCP23x08.Configure_Pull at mcp23x08.ads:65 skipped
+  MCP23x08.IO_Read at mcp23x08.ads:181 skipped
+  MCP23x08.IO_Write at mcp23x08.ads:175 skipped
+  MCP23x08.Loc_IO_Read at mcp23x08.adb:49 skipped
+  MCP23x08.Loc_IO_Write at mcp23x08.adb:43 skipped
+  MCP23x08.MCP23x08_IO_Expander at mcp23x08.ads:47 skipped
+  MCP23x08.Pull_Up at mcp23x08.ads:70 skipped
+  MCP23x08.Read_Bit at mcp23x08.adb:65 skipped
+  MCP23x08.Set at mcp23x08.ads:74 skipped
+  MCP23x08.Set at mcp23x08.ads:78 skipped
+  MCP23x08.Set_All_IO at mcp23x08.ads:96 skipped
+  MCP23x08.Set_Bit at mcp23x08.adb:55 skipped
+  MCP23x08.Toggle at mcp23x08.ads:86 skipped
+  MCP23x08.to_all_io_arrayGP2626.To_All_IO_Array at mcp23x08.adb:40 skipped
+  MCP23x08.to_uint8GP2488.To_UInt8 at mcp23x08.adb:37 skipped
+in unit memory_barriers, 0 subprograms and packages out of 1 analyzed
+  Memory_Barriers.Data_Synchronization_Barrier at memory_barriers.ads:36 skipped
+in unit memory_mapped_bitmap, 0 subprograms and packages out of 1 analyzed
+  Memory_Mapped_Bitmap.Handle_Swap at memory_mapped_bitmap.adb:37 skipped
+in unit microbit-accelerometer, 0 subprograms and packages out of 2 analyzed
+  MicroBit.Accelerometer.Data at microbit-accelerometer.ads:38 skipped
+  MicroBit.Accelerometer.Initialize at microbit-accelerometer.adb:39 skipped
+in unit microbit-buttons, 0 subprograms and packages out of 3 analyzed
+  MicroBit.Buttons.Initialize at microbit-buttons.adb:42 skipped
+  MicroBit.Buttons.State at microbit-buttons.ads:37 skipped
+  MicroBit.Buttons.Tick_Handler at microbit-buttons.adb:43 skipped
+in unit microbit-console, 0 subprograms and packages out of 5 analyzed
+  MicroBit.Console.Get at microbit-console.ads:34 skipped
+  MicroBit.Console.New_Line at microbit-console.ads:46 skipped
+  MicroBit.Console.Put at microbit-console.ads:37 skipped
+  MicroBit.Console.Put at microbit-console.ads:40 skipped
+  MicroBit.Console.Put_Line at microbit-console.ads:43 skipped
+in unit microbit-display, 0 subprograms and packages out of 13 analyzed
+  MicroBit.Display.Animation_In_Progress at microbit-display.ads:66 skipped
+  MicroBit.Display.Clear at microbit-display.ads:39 skipped
+  MicroBit.Display.Clear at microbit-display.ads:42 skipped
+  MicroBit.Display.Display at microbit-display.ads:45 skipped
+  MicroBit.Display.Display at microbit-display.ads:51 skipped
+  MicroBit.Display.Display_Async at microbit-display.ads:55 skipped
+  MicroBit.Display.Initialize at microbit-display.adb:586 skipped
+  MicroBit.Display.Print_C at microbit-display.adb:584 skipped
+  MicroBit.Display.Set at microbit-display.ads:36 skipped
+  MicroBit.Display.Set_Animation_Step_Duration at microbit-display.ads:63 skipped
+  MicroBit.Display.Shift_Left at microbit-display.ads:60 skipped
+  MicroBit.Display.Tick_Handler at microbit-display.adb:587 skipped
+  MicroBit.Display.Update_Animation at microbit-display.adb:588 skipped
+in unit microbit-display-symbols, 0 subprograms and packages out of 5 analyzed
+  MicroBit.Display.Symbols.Down_Arrow at microbit-display-symbols.ads:40 skipped
+  MicroBit.Display.Symbols.Left_Arrow at microbit-display-symbols.ads:37 skipped
+  MicroBit.Display.Symbols.Right_Arrow at microbit-display-symbols.ads:38 skipped
+  MicroBit.Display.Symbols.Smile at microbit-display-symbols.ads:41 skipped
+  MicroBit.Display.Symbols.Up_Arrow at microbit-display-symbols.ads:39 skipped
+in unit microbit-i2c, 0 subprograms and packages out of 2 analyzed
+  MicroBit.I2C.Initialize at microbit-i2c.ads:41 skipped
+  MicroBit.I2C.Initialized at microbit-i2c.ads:38 skipped
+in unit microbit-ios, 0 subprograms and packages out of 14 analyzed
+  MicroBit.IOs.Allocate_PWM at microbit-ios.adb:128 skipped
+  MicroBit.IOs.Analog at microbit-ios.ads:67 skipped
+  MicroBit.IOs.Configure_GPIOTE at microbit-ios.adb:135 skipped
+  MicroBit.IOs.Configure_PPI at microbit-ios.adb:134 skipped
+  MicroBit.IOs.Deallocate_PWM at microbit-ios.adb:131 skipped
+  MicroBit.IOs.Has_PWM at microbit-ios.adb:126 skipped
+  MicroBit.IOs.Init_PWM_Timer at microbit-ios.adb:136 skipped
+  MicroBit.IOs.PWM_Timer_Handler at microbit-ios.adb:138 skipped
+  MicroBit.IOs.Set at microbit-ios.ads:52 skipped
+  MicroBit.IOs.Set at microbit-ios.ads:55 skipped
+  MicroBit.IOs.Set_Analog_Period_Us at microbit-ios.ads:60 skipped
+  MicroBit.IOs.Supports at microbit-ios.ads:40 skipped
+  MicroBit.IOs.To_Compare_Value at microbit-ios.adb:137 skipped
+  MicroBit.IOs.Write at microbit-ios.ads:64 skipped
+in unit microbit-ios-neopixel, 0 subprograms and packages out of 1 analyzed
+  MicroBit.IOs.NeoPixel.Write at microbit-ios-neopixel.ads:39 skipped
+in unit microbit-music, 0 subprograms and packages out of 3 analyzed
+  MicroBit.Music.Play at microbit-music.ads:46 skipped
+  MicroBit.Music.Play at microbit-music.ads:49 skipped
+  MicroBit.Music.Play at microbit-music.ads:52 skipped
+in unit microbit-servos, 1 subprograms and packages out of 4 analyzed
+  MicroBit.Servos.Go at microbit-servos.ads:46 skipped
+  MicroBit.Servos.Servo_Pin_IdPredicate at microbit-servos.ads:38 flow analyzed (0 errors, 0 checks and 0 warnings)
+  MicroBit.Servos.Stop at microbit-servos.ads:43 skipped
+  MicroBit.Servos.To_PWM at microbit-servos.adb:36 skipped
+in unit microbit-spi, 0 subprograms and packages out of 2 analyzed
+  MicroBit.SPI.Initialize at microbit-spi.ads:43 skipped
+  MicroBit.SPI.Initialized at microbit-spi.ads:40 skipped
+in unit microbit-time, 0 subprograms and packages out of 9 analyzed
+  MicroBit.Time.Clock at microbit-time.ads:39 skipped
+  MicroBit.Time.Delay_Microseconds at microbit-time.ads:70 skipped
+  MicroBit.Time.Delay_Milliseconds at microbit-time.ads:74 skipped
+  MicroBit.Time.Delay_Ms at microbit-time.ads:41 skipped
+  MicroBit.Time.Delay_Seconds at microbit-time.ads:78 skipped
+  MicroBit.Time.Initialize at microbit-time.adb:48 skipped
+  MicroBit.Time.RTC1_IRQHandler at microbit-time.adb:50 skipped
+  MicroBit.Time.Tick_Period at microbit-time.ads:45 skipped
+  MicroBit.Time.Update_Clock at microbit-time.adb:49 skipped
+in unit mma8653, 0 subprograms and packages out of 5 analyzed
+  MMA8653.to_axis_dataGP2408.To_Axis_Data at mma8653.adb:34 skipped
+  MMA8653.to_regGP5280.To_Reg at mma8653.ads:118 skipped
+  MMA8653.to_regGP5973.To_Reg at mma8653.ads:141 skipped
+  MMA8653.to_uint8GP5193.To_UInt8 at mma8653.ads:116 skipped
+  MMA8653.to_uint8GP5886.To_UInt8 at mma8653.ads:139 skipped
+in unit mpu9250, 0 subprograms and packages out of 1 analyzed
+  MPU9250.Fuse_Low_And_High_Register_Parts at mpu9250.ads:683 skipped
+in unit neopixel, 0 subprograms and packages out of 2 analyzed
+  NeoPixel.Create at neopixel.ads:57 skipped
+  NeoPixel.Set_Color at neopixel.ads:59 skipped
+in unit nrf51, 2 subprograms and packages out of 2 analyzed
+  nRF51.Event_Type at nrf51.ads:36 flow analyzed (0 errors, 0 checks and 0 warnings)
+  nRF51.Task_Type at nrf51.ads:38 flow analyzed (0 errors, 0 checks and 0 warnings)
+in unit nrf51-adc, 0 subprograms and packages out of 6 analyzed
+  nRF51.ADC.Busy at nrf51-adc.ads:57 skipped
+  nRF51.ADC.Set_Reference at nrf51-adc.adb:38 skipped
+  nRF51.ADC.Set_Resolution at nrf51-adc.adb:37 skipped
+  nRF51.ADC.Start_Pin_Conversion at nrf51-adc.ads:46 skipped
+  nRF51.ADC.Start_VDD_Conversion at nrf51-adc.ads:52 skipped
+  nRF51.ADC.Wait_For_Result at nrf51-adc.ads:59 skipped
+in unit nrf51-clock, 0 subprograms and packages out of 11 analyzed
+  nRF51.Clock.High_Freq_Running at nrf51-clock.ads:47 skipped
+  nRF51.Clock.High_Freq_Source at nrf51-clock.ads:45 skipped
+  nRF51.Clock.Low_Freq_Running at nrf51-clock.ads:63 skipped
+  nRF51.Clock.Low_Freq_Source at nrf51-clock.ads:61 skipped
+  nRF51.Clock.Set_High_Freq_External_Frequency at nrf51-clock.ads:41 skipped
+  nRF51.Clock.Set_High_Freq_Source at nrf51-clock.ads:43 skipped
+  nRF51.Clock.Set_Low_Freq_Source at nrf51-clock.ads:59 skipped
+  nRF51.Clock.Start_High_Freq at nrf51-clock.ads:49 skipped
+  nRF51.Clock.Start_Low_Freq at nrf51-clock.ads:65 skipped
+  nRF51.Clock.Stop_High_Freq at nrf51-clock.ads:51 skipped
+  nRF51.Clock.Stop_Low_Freq at nrf51-clock.ads:67 skipped
+in unit nrf51-events, 0 subprograms and packages out of 6 analyzed
+  nRF51.Events.Clear at nrf51-events.ads:61 skipped
+  nRF51.Events.Disable_Interrupt at nrf51-events.ads:59 skipped
+  nRF51.Events.Enable_Interrupt at nrf51-events.ads:57 skipped
+  nRF51.Events.Get_Address at nrf51-events.ads:64 skipped
+  nRF51.Events.Get_Address at nrf51-events.ads:65 skipped
+  nRF51.Events.Triggered at nrf51-events.ads:55 skipped
+in unit nrf51-gpio, 0 subprograms and packages out of 10 analyzed
+  nRF51.GPIO.Clear at nrf51-gpio.ads:106 skipped
+  nRF51.GPIO.Configure_IO at nrf51-gpio.ads:117 skipped
+  nRF51.GPIO.Mode at nrf51-gpio.ads:79 skipped
+  nRF51.GPIO.Pull_Resistor at nrf51-gpio.ads:86 skipped
+  nRF51.GPIO.Set at nrf51-gpio.ads:94 skipped
+  nRF51.GPIO.Set at nrf51-gpio.ads:100 skipped
+  nRF51.GPIO.Set_Mode at nrf51-gpio.ads:82 skipped
+  nRF51.GPIO.Set_Pull_Resistor at nrf51-gpio.ads:90 skipped
+  nRF51.GPIO.Support at nrf51-gpio.ads:71 skipped
+  nRF51.GPIO.Toggle at nrf51-gpio.ads:112 skipped
+in unit nrf51-gpio-tasks_and_events, 0 subprograms and packages out of 5 analyzed
+  nRF51.GPIO.Tasks_And_Events.Disable at nrf51-gpio-tasks_and_events.ads:36 skipped
+  nRF51.GPIO.Tasks_And_Events.Enable_Event at nrf51-gpio-tasks_and_events.ads:40 skipped
+  nRF51.GPIO.Tasks_And_Events.Enable_Task at nrf51-gpio-tasks_and_events.ads:48 skipped
+  nRF51.GPIO.Tasks_And_Events.In_Event at nrf51-gpio-tasks_and_events.ads:58 skipped
+  nRF51.GPIO.Tasks_And_Events.Out_Task at nrf51-gpio-tasks_and_events.ads:55 skipped
+in unit nrf51-interrupts, 0 subprograms and packages out of 5 analyzed
+  nRF51.Interrupts.Disable at nrf51-interrupts.ads:73 skipped
+  nRF51.Interrupts.Enable at nrf51-interrupts.ads:72 skipped
+  nRF51.Interrupts.GNAT_IRQ_Handler at nrf51-interrupts.adb:40 skipped
+  nRF51.Interrupts.Pending at nrf51-interrupts.ads:74 skipped
+  nRF51.Interrupts.Set_Priority at nrf51-interrupts.ads:71 skipped
+in unit nrf51-ppi, 0 subprograms and packages out of 7 analyzed
+  nRF51.PPI.Add_To_Group at nrf51-ppi.ads:44 skipped
+  nRF51.PPI.Configure at nrf51-ppi.ads:37 skipped
+  nRF51.PPI.Disable_Channel at nrf51-ppi.ads:42 skipped
+  nRF51.PPI.Disable_Group at nrf51-ppi.ads:50 skipped
+  nRF51.PPI.Enable_Channel at nrf51-ppi.ads:41 skipped
+  nRF51.PPI.Enable_Group at nrf51-ppi.ads:49 skipped
+  nRF51.PPI.Remove_From_Group at nrf51-ppi.ads:46 skipped
+in unit nrf51-radio, 0 subprograms and packages out of 17 analyzed
+  nRF51.Radio.CRC_Error at nrf51-radio.ads:153 skipped
+  nRF51.Radio.Configure_CRC at nrf51-radio.ads:146 skipped
+  nRF51.Radio.Configure_Packet at nrf51-radio.ads:161 skipped
+  nRF51.Radio.Configure_Whitening at nrf51-radio.ads:156 skipped
+  nRF51.Radio.Disable_Shortcut at nrf51-radio.ads:96 skipped
+  nRF51.Radio.Enable_Shortcut at nrf51-radio.ads:93 skipped
+  nRF51.Radio.RX_Match_Address at nrf51-radio.ads:139 skipped
+  nRF51.Radio.Set_Frequency at nrf51-radio.ads:102 skipped
+  nRF51.Radio.Set_Logic_Addresses at nrf51-radio.ads:113 skipped
+  nRF51.Radio.Set_Mode at nrf51-radio.ads:108 skipped
+  nRF51.Radio.Set_Packet at nrf51-radio.ads:99 skipped
+  nRF51.Radio.Set_Power at nrf51-radio.ads:105 skipped
+  nRF51.Radio.Set_RX_Addresses at nrf51-radio.ads:143 skipped
+  nRF51.Radio.Set_TX_Address at nrf51-radio.ads:127 skipped
+  nRF51.Radio.Setup_For_Bluetooth_Low_Energy at nrf51-radio.ads:36 skipped
+  nRF51.Radio.State at nrf51-radio.ads:90 skipped
+  nRF51.Radio.Translate_Logic_Address at nrf51-radio.ads:122 skipped
+in unit nrf51-rng, 0 subprograms and packages out of 3 analyzed
+  nRF51.RNG.Disable_Digital_Error_Correction at nrf51-rng.ads:38 skipped
+  nRF51.RNG.Enable_Digital_Error_Correction at nrf51-rng.ads:36 skipped
+  nRF51.RNG.Read at nrf51-rng.ads:40 skipped
+in unit nrf51-tasks, 0 subprograms and packages out of 3 analyzed
+  nRF51.Tasks.Get_Address at nrf51-tasks.ads:58 skipped
+  nRF51.Tasks.Get_Address at nrf51-tasks.ads:59 skipped
+  nRF51.Tasks.Trigger at nrf51-tasks.ads:55 skipped
+in unit nrf51-temperature, 0 subprograms and packages out of 1 analyzed
+  nRF51.Temperature.Read at nrf51-temperature.ads:37 skipped
+in unit partitions, 0 subprograms and packages out of 2 analyzed
+  Partitions.Is_Valid at partitions.ads:78 skipped
+  Partitions.Read_Entry_In_MBR at partitions.adb:41 skipped
+in unit pathname_manipulation, 0 subprograms and packages out of 2 analyzed
+  Pathname_Manipulation.Root_Dir at pathname_manipulation.ads:34 skipped
+  Pathname_Manipulation.Root_Dir at pathname_manipulation.ads:37 skipped
+in unit sdmmc_init, 0 subprograms and packages out of 10 analyzed
+  SDMMC_Init.BE32_To_Host at sdmmc_init.adb:68 skipped
+  SDMMC_Init.Card_Identification_Process at sdmmc_init.ads:37 skipped
+  SDMMC_Init.Compute_Card_Block_Size at sdmmc_init.adb:57 skipped
+  SDMMC_Init.Compute_Card_Capacity at sdmmc_init.adb:52 skipped
+  SDMMC_Init.Convert_Card_Identification_Data_Register at sdmmc_init.adb:36 skipped
+  SDMMC_Init.Convert_Card_Specific_Data_Register at sdmmc_init.adb:41 skipped
+  SDMMC_Init.Convert_SDCard_Configuration_Register at sdmmc_init.adb:47 skipped
+  SDMMC_Init.Get_Transfer_Rate at sdmmc_init.adb:62 skipped
+  SDMMC_Init.Read_SCR at sdmmc_init.ads:42 skipped
+  SDMMC_Init.Swap32 at sdmmc_init.adb:66 skipped
+in unit semihosting, 0 subprograms and packages out of 16 analyzed
+  Semihosting.Close at semihosting.ads:56 skipped
+  Semihosting.Errno at semihosting.ads:67 skipped
+  Semihosting.Generic_SH_Call at semihosting.adb:74 skipped
+  Semihosting.Generic_SH_Call at semihosting.adb:75 skipped
+  Semihosting.Log_Line at semihosting.ads:71 skipped
+  Semihosting.Log_New_Line at semihosting.ads:72 skipped
+  Semihosting.Open at semihosting.ads:57 skipped
+  Semihosting.Read at semihosting.ads:58 skipped
+  Semihosting.Remove at semihosting.ads:64 skipped
+  Semihosting.Seek at semihosting.ads:65 skipped
+  Semihosting.Semihosting_Enabled at semihosting.adb:72 skipped
+  Semihosting.Write at semihosting.ads:61 skipped
+  Semihosting.Write_0 at semihosting.ads:55 skipped
+  Semihosting.Write_C at semihosting.ads:54 skipped
+  Semihosting.to_sh_u32GP2687.To_SH_u32 at semihosting.adb:43 skipped
+  Semihosting.to_sh_u32GP2793.To_SH_u32 at semihosting.adb:45 skipped
+in unit semihosting-filesystem, 0 subprograms and packages out of 2 analyzed
+  Semihosting.Filesystem.Close at semihosting-filesystem.ads:106 skipped
+  Semihosting.Filesystem.SHFS at semihosting-filesystem.ads:42 skipped
+in unit soft_drawing_bitmap, 0 subprograms and packages out of 23 analyzed
+  Soft_Drawing_Bitmap.Bezier at soft_drawing_bitmap.ads:176 skipped
+  Soft_Drawing_Bitmap.Bezier_Points at soft_drawing_bitmap.ads:191 skipped
+  Soft_Drawing_Bitmap.Binomial_Coefficients at soft_drawing_bitmap.ads:196 skipped
+  Soft_Drawing_Bitmap.Copy_Rect at soft_drawing_bitmap.ads:93 skipped
+  Soft_Drawing_Bitmap.Copy_Rect at soft_drawing_bitmap.ads:105 skipped
+  Soft_Drawing_Bitmap.Copy_Rect_Blend at soft_drawing_bitmap.ads:115 skipped
+  Soft_Drawing_Bitmap.Cubic_Bezier at soft_drawing_bitmap.ads:169 skipped
+  Soft_Drawing_Bitmap.Cubic_Bezier_Points at soft_drawing_bitmap.ads:186 skipped
+  Soft_Drawing_Bitmap.Draw_Circle at soft_drawing_bitmap.ads:157 skipped
+  Soft_Drawing_Bitmap.Draw_Horizontal_Line at soft_drawing_bitmap.ads:131 skipped
+  Soft_Drawing_Bitmap.Draw_Line at soft_drawing_bitmap.ads:75 skipped
+  Soft_Drawing_Bitmap.Draw_Rect at soft_drawing_bitmap.ads:137 skipped
+  Soft_Drawing_Bitmap.Draw_Rounded_Rect at soft_drawing_bitmap.ads:144 skipped
+  Soft_Drawing_Bitmap.Draw_Vertical_Line at soft_drawing_bitmap.ads:125 skipped
+  Soft_Drawing_Bitmap.Fill at soft_drawing_bitmap.ads:82 skipped
+  Soft_Drawing_Bitmap.Fill_Circle at soft_drawing_bitmap.ads:163 skipped
+  Soft_Drawing_Bitmap.Fill_Rect at soft_drawing_bitmap.ads:87 skipped
+  Soft_Drawing_Bitmap.Fill_Rounded_Rect at soft_drawing_bitmap.ads:151 skipped
+  Soft_Drawing_Bitmap.Pixel at soft_drawing_bitmap.ads:69 skipped
+  Soft_Drawing_Bitmap.Set_Pixel at soft_drawing_bitmap.ads:57 skipped
+  Soft_Drawing_Bitmap.Set_Pixel at soft_drawing_bitmap.ads:63 skipped
+  Soft_Drawing_Bitmap.Set_Source at soft_drawing_bitmap.ads:48 skipped
+  Soft_Drawing_Bitmap.Source at soft_drawing_bitmap.ads:52 skipped
+in unit st7735r, 0 subprograms and packages out of 1 analyzed
+  ST7735R.to_uint8GP3173.To_UInt8 at st7735r.adb:61 skipped
+in unit stmpe1600, 0 subprograms and packages out of 2 analyzed
+  STMPE1600.from_pinsGP2579.From_Pins at stmpe1600.adb:40 skipped
+  STMPE1600.to_pinsGP2503.To_Pins at stmpe1600.adb:39 skipped
+in unit vl53l0x, 0 subprograms and packages out of 4 analyzed
+  VL53L0X.Decode_Timeout at vl53l0x.adb:50 skipped
+  VL53L0X.Encode_Timeout at vl53l0x.adb:51 skipped
+  VL53L0X.To_Timeout_Mclks at vl53l0x.adb:57 skipped
+  VL53L0X.To_Timeout_Microseconds at vl53l0x.adb:53 skipped

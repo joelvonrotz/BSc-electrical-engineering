@@ -1,0 +1,84 @@
+V "GNAT Lib v2020"
+A -O0
+A -gnatA
+A --RTS=C:\gnat\2020-arm-elf\arm-eabi\lib\gnat\zfp-cortex-m4f\
+A -mlittle-endian
+A -mthumb
+A -mfloat-abi=hard
+A -mcpu=cortex-m4
+A -mfpu=fpv4-sp-d16
+A -gnata
+A -fcallgraph-info=su
+A -fcallgraph-info=su
+A -g
+A -gnatwa
+A -gnatw_A
+A -gnatQ
+A -gnatw.X
+A -ffunction-sections
+A -fdata-sections
+A -march=armv7e-m+fp
+P ZX
+
+RN
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_PRAGMAS
+
+U cortex_m.cache%b	cortex_m-cache.adb	7abcf6ad NE OO PK
+W cortex_m%s		cortex_m.ads		cortex_m.ali
+
+U cortex_m.cache%s	cortex_m-cache.ads	7761c3f1 BN EE NE OO PK
+W cortex_m%s		cortex_m.ads		cortex_m.ali
+W system%s		system.ads		system.ali
+
+D cortex_m.ads		20210108111948 38b367df cortex_m%s
+D cortex_m-cache.ads	20210108111948 a949d093 cortex_m.cache%s
+D cortex_m-cache.adb	20210108111948 d3f5263e cortex_m.cache%b
+D system.ads		20200819171400 e69b74bd system%s
+G a e
+G c Z s b [enable_i_cache cortex_m__cache 39 14 none]
+G c Z s b [enable_d_cache cortex_m__cache 41 14 none]
+G c Z s b [disable_i_cache cortex_m__cache 43 14 none]
+G c Z s b [disable_d_cache cortex_m__cache 45 14 none]
+G c Z s b [i_cache_enabled cortex_m__cache 47 13 none]
+G c Z s b [d_cache_enabled cortex_m__cache 50 13 none]
+G c Z s b [clean_dcache cortex_m__cache 53 14 none]
+G c Z s b [invalidate_dcache cortex_m__cache 63 14 none]
+G c Z s b [clean_invalidate_dcache cortex_m__cache 74 14 none]
+X 1 cortex_m.ads
+32K9*Cortex_M 34e13 2|37r9 80r5 3|34r14 62r5
+X 2 cortex_m-cache.ads
+37K18*Cache 1|32k9 2|80l14 80e19 3|34b23 62l14 62t19
+39U14*Enable_I_Cache
+41U14*Enable_D_Cache
+43U14*Disable_I_Cache
+45U14*Disable_D_Cache
+47V13*I_Cache_Enabled{boolean} 3|44b13
+50V13*D_Cache_Enabled{boolean} 3|47b13
+53U14*Clean_DCache 54>7 55>7
+54m7 Start{4|90M9}
+55i7 Len{natural}
+63U14*Invalidate_DCache 64>7 65>7
+64m7 Start{4|90M9}
+65i7 Len{natural}
+74U14*Clean_Invalidate_DCache 75>7 76>7
+75m7 Start{4|90M9}
+76i7 Len{natural}
+X 3 cortex_m-cache.adb
+36U14 Enable_I_Cache
+38U14 Enable_D_Cache
+40U14 Disable_I_Cache
+42U14 Disable_D_Cache
+50U14 Clean_DCache
+51m7 Start{4|90M9}
+52i7 Len{natural}
+54U14 Invalidate_DCache
+55m7 Start{4|90M9}
+56i7 Len{natural}
+58U14 Clean_Invalidate_DCache
+59m7 Start{4|90M9}
+60i7 Len{natural}
+X 4 system.ads
+60K9*System 2|35w6 54r15 64r15 75r15 3|51r15 55r15 59r15 4|172e11
+90M9*Address 2|54r22 64r22 75r22 3|51r22 55r22 59r22
+

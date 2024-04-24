@@ -1,0 +1,35 @@
+graph: { title: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\ST7735R\st7735r-ram_framebuffer.adb"
+class {
+  classname: "st7735r__ram_framebuffer__st7735r_ram_framebuffer_screen"
+  label: "st7735r__ram_framebuffer__st7735r_ram_framebuffer_screen\st7735r-ram_framebuffer.ads:43:9"
+  parent: "st7735r__st7735r_screen"
+  virtuals: "10:st7735r__ram_framebuffer__initialize_layer,10:st7735r__st7735r_screen\n
+             11:st7735r__ram_framebuffer__initialized__2,11:st7735r__st7735r_screen\n
+             12:st7735r__ram_framebuffer__update_layer,12:st7735r__st7735r_screen\n
+             13:st7735r__ram_framebuffer__update_layers,13:st7735r__st7735r_screen\n
+             15:st7735r__ram_framebuffer__hidden_buffer,15:st7735r__st7735r_screen\n
+             -1:st7735r__ram_framebuffer___size__2,-1:st7735r__st7735r_screen"
+}
+node: { title: "st7735r__ram_framebuffer__st7735r_ram_framebuffer_screenIP" label: "ST7735R_RAM_FRAMEBUFFER_SCREENIP\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\ST7735R\st7735r-ram_framebuffer.ads:93:9\n40 bytes (static)" }
+node: { title: "st7735r__st7735r_screenIP" label: "ST7735R_SCREENIP\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\ST7735R\st7735r.ads:373:9" shape : ellipse }
+edge: { sourcename: "st7735r__ram_framebuffer__st7735r_ram_framebuffer_screenIP" targetname: "st7735r__st7735r_screenIP" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\ST7735R\st7735r-ram_framebuffer.ads:99:15" }
+node: { title: "memory_mapped_bitmap__memory_mapped_bitmap_bufferIP" label: "Memory_Mapped_Bitmap_Bufferip\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\memory_mapped_bitmap.ads:41:9" shape : ellipse }
+edge: { sourcename: "st7735r__ram_framebuffer__st7735r_ram_framebuffer_screenIP" targetname: "memory_mapped_bitmap__memory_mapped_bitmap_bufferIP" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\ST7735R\st7735r-ram_framebuffer.ads:100:7" }
+node: { title: "st7735r__ram_framebuffer___size__2" label: "RAM_FRAMEBUFFER\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\ST7735R\st7735r-ram_framebuffer.ads:93:9\n16 bytes (static)" }
+node: { title: "st7735r__ram_framebuffer__initialize_layer" label: "INITIALIZE_LAYER\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\ST7735R\st7735r-ram_framebuffer.adb:39:4\n24 bytes (static)" }
+node: { title: "__gnat_last_chance_handler" label: "gnat_last_chance_handler\n<built-in>" shape : ellipse }
+edge: { sourcename: "st7735r__ram_framebuffer__initialize_layer" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\ST7735R\st7735r-ram_framebuffer.adb:51:10" }
+node: { title: "st7735r__ram_framebuffer__initialized__2" label: "INITIALIZED\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\ST7735R\st7735r-ram_framebuffer.adb:66:4\n16 bytes (static)" }
+node: { title: "st7735r__ram_framebuffer__update_layer" label: "UPDATE_LAYER\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\ST7735R\st7735r-ram_framebuffer.adb:79:4\n40 bytes (static)" }
+edge: { sourcename: "st7735r__ram_framebuffer__update_layer" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\ST7735R\st7735r-ram_framebuffer.adb:87:10" }
+edge: { sourcename: "st7735r__ram_framebuffer__update_layer" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\ST7735R\st7735r-ram_framebuffer.adb:91:59" }
+edge: { sourcename: "st7735r__ram_framebuffer__update_layer" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\ST7735R\st7735r-ram_framebuffer.adb:93:60" }
+node: { title: "st7735r__set_address" label: "SET_ADDRESS\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\ST7735R\st7735r.ads:153:14" shape : ellipse }
+edge: { sourcename: "st7735r__ram_framebuffer__update_layer" targetname: "st7735r__set_address" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\ST7735R\st7735r-ram_framebuffer.adb:89:7" }
+node: { title: "st7735r__write_raw_pixels__2" label: "WRITE_RAW_PIXELS\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\ST7735R\st7735r.ads:166:14" shape : ellipse }
+edge: { sourcename: "st7735r__ram_framebuffer__update_layer" targetname: "st7735r__write_raw_pixels__2" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\ST7735R\st7735r-ram_framebuffer.adb:94:14" }
+node: { title: "st7735r__ram_framebuffer__update_layers" label: "UPDATE_LAYERS\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\ST7735R\st7735r-ram_framebuffer.adb:103:4\n16 bytes (static)" }
+edge: { sourcename: "st7735r__ram_framebuffer__update_layers" targetname: "st7735r__ram_framebuffer__update_layer" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\ST7735R\st7735r-ram_framebuffer.adb:107:14" }
+node: { title: "st7735r__ram_framebuffer__hidden_buffer" label: "HIDDEN_BUFFER\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\ST7735R\st7735r-ram_framebuffer.adb:115:4\n16 bytes (static)" }
+edge: { sourcename: "st7735r__ram_framebuffer__hidden_buffer" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\ST7735R\st7735r-ram_framebuffer.adb:121:10" }
+}

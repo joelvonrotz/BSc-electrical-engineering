@@ -1,0 +1,98 @@
+V "GNAT Lib v2020"
+A -O0
+A -gnatA
+A --RTS=C:\gnat\2020-arm-elf\arm-eabi\lib\gnat\zfp-cortex-m4f\
+A -mlittle-endian
+A -mthumb
+A -mfloat-abi=hard
+A -mcpu=cortex-m4
+A -mfpu=fpv4-sp-d16
+A -gnata
+A -fcallgraph-info=su
+A -fcallgraph-info=su
+A -g
+A -gnatwa
+A -gnatw_A
+A -gnatQ
+A -gnatw.X
+A -ffunction-sections
+A -fdata-sections
+A -march=armv7e-m+fp
+P ZX
+
+RN
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_PRAGMAS
+
+U adafruit.charliewing%b  adafruit-charliewing.adb  351481cf NE OO PK
+W adafruit%s		adafruit.ads		adafruit.ali
+Z system.assertions%s	s-assert.adb		s-assert.ali
+
+U adafruit.charliewing%s  adafruit-charliewing.ads  9ec66ecf EE NE OO PK
+Z ada.tags%s		a-tags.adb		a-tags.ali
+W adafruit%s		adafruit.ads		adafruit.ali
+W hal%s			hal.ads			hal.ali
+W hal.i2c%s		hal-i2c.ads		hal-i2c.ali
+W is31fl3731%s		is31fl3731.adb		is31fl3731.ali
+Z system%s		system.ads		system.ali
+
+D ada.ads		20200819171400 76789da1 ada%s
+D a-tags.ads		20200819171400 95e09aae ada.tags%s
+D adafruit.ads		20210108111948 deca3367 adafruit%s
+D adafruit-charliewing.ads  20210108111948 9bfff33a adafruit.charliewing%s
+D adafruit-charliewing.adb  20210108111948 aeeb72f5 adafruit.charliewing%b
+D hal.ads		20210108111948 2b42c80e hal%s
+D hal-i2c.ads		20210108111948 0ed73138 hal.i2c%s
+D interfac.ads		20200819171400 5ab55268 interfaces%s
+D is31fl3731.ads	20210108111948 fe6657a4 is31fl3731%s
+D system.ads		20200819171400 e69b74bd system%s
+D s-assert.ads		20200819171400 cd8d2c94 system.assertions%s
+D s-stoele.ads		20200819171400 2dc34a04 system.storage_elements%s
+G a e
+G c Z s b [led_address adafruit__charliewing 52 13 none]
+G c Z s s [deviceIP adafruit__charliewing 62 9 none]
+G r s device [deviceIP adafruit__charliewing 62 9 none] [deviceIP is31fl3731 119 9 none]
+X 3 adafruit.ads
+33K9*AdaFruit 34e13 4|40r9 68r5 5|32r14 57r5
+X 4 adafruit-charliewing.ads
+40K18*CharlieWing 3|33k9 4|62E9 68l14 68e25 5|32b23 57l14 57t25
+42I12*X_Coord{9|44I12} 56r23
+43I12*Y_Coord{9|45I12} 56r45
+45R9*Device<9|39R9> 46d7 47d7 52P13 52r33 62c9 66e20 5|39r33 9|50p14 53p14
+. 57p14 61p14 66p14 69p14 74p14 79p14 85p14 90p14 95p14
+46p7*Port{7|50P9} 63r7 65r30
+47m7*AD{6|39M9} 64r7 65r36
+52V13*LED_Address{9|102I9}<9|106p13> 52>26 53>26 54>26 5|39b13 55l8 55t19
+52r26 This{45R9} 5|39b26 44r28
+53i26 X{9|44I12} 56r18 5|40b26 45r23
+54i26 Y{9|45I12} 56r40 5|41b26 46r23
+X 5 adafruit-charliewing.adb
+45i7 X2{natural} 48r10 49m13 49r24 54r33
+46i7 Y2{natural} 50m13 50r19 52m10 52r20 54r43
+X 6 hal.ads
+34K9*HAL 4|35w6 36r6 46r23 47r14 63r23 64r14 6|166e8
+39M9*UInt2 4|47r18 64r18
+X 7 hal-i2c.ads
+32K13*I2C 4|36w10 46r27 63r27 7|84e12
+48h9*I2C_Port
+50P9*Any_I2C_Port(48R9) 4|46r31 63r31
+X 9 is31fl3731.ads
+37K9*IS31FL3731 4|38w6 42r23 43r23 48r11 53r33 54r33 55r33 65r11 5|40r33
+. 41r33 42r33 54r14 9|134e15
+39H9*Device 4|48r22 65r22 9|132e14
+44I12*X_Coord{natural} 4|42r34 53r44 5|40r44
+45I12*Y_Coord{natural} 4|43r34 54r44 5|41r44
+50U14*Initialize
+53U14*Display_Frame
+57U14*Select_Frame
+61U14*Fill
+66U14*Clear
+69U14*Enable
+74U14*Disable
+79U14*Set_Brightness
+85U14*Enable_Blink
+90U14*Disable_Blink
+95U14*Set_Blink_Rate
+102I9*LED_Id<short_integer> 4|55r44 5|42r44 54r25
+

@@ -1,0 +1,3 @@
+nrf52_dk-ios.ads:35:17: file "nrf52_dk.ads" not found
+nrf52_dk-ios.ads:35:17: "NRF52_DK.IOS (body)" depends on "NRF52_DK.IOS (spec)"
+nrf52_dk-ios.ads:35:17: "NRF52_DK.IOS (spec)" depends on "NRF52_DK (spec)"

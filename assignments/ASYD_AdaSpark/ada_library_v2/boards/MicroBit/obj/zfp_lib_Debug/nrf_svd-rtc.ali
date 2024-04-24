@@ -1,0 +1,261 @@
+V "GNAT Lib v2020"
+A -O0
+A -gnatA
+A --RTS=C:\gnat\2020-arm-elf\arm-eabi\lib\gnat\zfp-cortex-m4f\
+A -mlittle-endian
+A -mthumb
+A -mfloat-abi=hard
+A -mcpu=cortex-m4
+A -mfpu=fpv4-sp-d16
+A -gnata
+A -fcallgraph-info=su
+A -fcallgraph-info=su
+A -g
+A -gnatwa
+A -gnatw_A
+A -gnatQ
+A -gnatw.X
+A -ffunction-sections
+A -fdata-sections
+A -march=armv7e-m+fp
+P ZX
+
+RN
+RV NO_IMPLICIT_CONDITIONALS
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLEMENTATION_RESTRICTIONS
+RV NO_IMPLICIT_LOOPS
+RR NO_ELABORATION_CODE
+
+U nrf_svd.rtc%s		nrf_svd-rtc.ads		1da462ac NE OO PR PK IU
+W hal%s			hal.ads			hal.ali
+W nrf_svd%s		nrf_svd.ads		nrf_svd.ali
+W system%s		system.ads		system.ali
+Z system.unsigned_types%s  s-unstyp.ads		s-unstyp.ali
+
+D hal.ads		20210108111948 2b42c80e hal%s
+D interfac.ads		20200819171400 5ab55268 interfaces%s
+D nrf_svd.ads		20210306183508 87ba21d7 nrf_svd%s
+D nrf_svd-rtc.ads	20210108111948 57c7ffc8 nrf_svd.rtc%s
+D system.ads		20200819171400 e69b74bd system%s
+D s-unstyp.ads		20200819171400 5ecf7212 system.unsigned_types%s
+G a e
+G c Z s s [Tevents_compare_registersBIP nrf_svd__rtc 58 4 none]
+G c Z s s [Tintenset_compare_field_arrayBIP nrf_svd__rtc 127 4 none]
+G c Z s s [intenset_compare_fieldIP nrf_svd__rtc 132 9 none]
+G c Z s s [intenset_registerIP nrf_svd__rtc 152 9 none]
+G c Z s s [Tintenclr_compare_field_arrayBIP nrf_svd__rtc 243 4 none]
+G c Z s s [intenclr_compare_fieldIP nrf_svd__rtc 248 9 none]
+G c Z s s [intenclr_registerIP nrf_svd__rtc 268 9 none]
+G c Z s s [Tevten_compare_field_arrayBIP nrf_svd__rtc 326 4 none]
+G c Z s s [evten_compare_fieldIP nrf_svd__rtc 330 9 none]
+G c Z s s [evten_registerIP nrf_svd__rtc 350 9 none]
+G c Z s s [Tevtenset_compare_field_arrayBIP nrf_svd__rtc 441 4 none]
+G c Z s s [evtenset_compare_fieldIP nrf_svd__rtc 446 9 none]
+G c Z s s [evtenset_registerIP nrf_svd__rtc 466 9 none]
+G c Z s s [Tevtenclr_compare_field_arrayBIP nrf_svd__rtc 557 4 none]
+G c Z s s [evtenclr_compare_fieldIP nrf_svd__rtc 562 9 none]
+G c Z s s [evtenclr_registerIP nrf_svd__rtc 582 9 none]
+G c Z s s [counter_registerIP nrf_svd__rtc 609 9 none]
+G c Z s s [prescaler_registerIP nrf_svd__rtc 627 9 none]
+G c Z s s [cc_registerIP nrf_svd__rtc 644 9 none]
+G c Z s s [Tcc_registersBIP nrf_svd__rtc 659 4 none]
+G c Z s s [rtc_peripheralIP nrf_svd__rtc 666 9 none]
+X 1 hal.ads
+34K9*HAL 166e8 4|45w6 58r55 138r19 158r24 163r24 254r19 274r24 279r24 336r19
+. 356r24 361r24 452r19 472r24 477r24 568r19 588r24 593r24 606r37 613r24 623r41
+. 631r24 641r32 648r24 668r34 670r34 672r34 674r34 676r34 678r34
+43M9*UInt4 4|138r23 254r23 336r23 452r23 568r23
+53M9*UInt8<2|63M9> 4|613r28 648r28
+58M9*UInt12 4|163r28 279r28 361r28 477r28 593r28 623r45
+62M9*UInt14 4|158r28 274r28 356r28 472r28 588r28
+73M9*UInt20 4|631r28
+81M9*UInt24 4|606r41 641r36
+97M9*UInt32<2|74M9> 4|58r59 668r38 670r38 672r38 674r38 676r38 678r38
+X 2 interfac.ads
+63M9*Unsigned_8
+74M9*Unsigned_32
+X 3 nrf_svd.ads
+49K9*NRF_SVD 123e12 4|48r9 352r44 354r46 731r5
+82m4*RTC0_Base{5|90M9} 4|721r30
+89m4*RTC1_Base{5|90M9} 4|725r30
+117m4*RTC2_Base{5|90M9} 4|729r30
+X 4 nrf_svd-rtc.ads
+48K17*RTC 3|49k9 4|352r52 354r54 731l13 731e16
+58A9*EVENTS_COMPARE_Registers(1|97M9)<integer> 680r34
+61E9*INTENSET_TICK_Field 66e6 67r8
+63n7*Disabled{61E9} 68r7
+65n7*Enabled{61E9} 69r7
+72E9*INTENSET_TICK_Field_1 77e6 78r8 154r24
+74n7*Intenset_Tick_Field_Reset{72E9} 79r7 154r49
+76n7*Set{72E9} 80r7
+83E9*INTENSET_OVRFLW_Field 88e6 89r8
+85n7*Disabled{83E9} 90r7
+87n7*Enabled{83E9} 91r7
+94E9*INTENSET_OVRFLW_Field_1 99e6 100r8 156r24
+96n7*Intenset_Ovrflw_Field_Reset{94E9} 101r7 156r51
+98n7*Set{94E9} 102r7
+105E9*INTENSET_COMPARE0_Field 110e6 111r8
+107n7*Disabled{105E9} 112r7
+109n7*Enabled{105E9} 113r7
+116E9*INTENSET_COMPARE0_Field_1 121e6 122r8 128r9
+118n7*Intenset_Compare0_Field_Reset{116E9} 123r7
+120n7*Set{116E9} 124r7
+127A9*INTENSET_COMPARE_Field_Array(116E9)<integer> 141r19
+132R9*INTENSET_COMPARE_Field 133d7 144e6 146r8 160r24
+133b7*As_Array{boolean} 135r12 161m26
+138m13*Val{1|43M9} 147r7 161m45
+141a13*Arr{127A9} 148r7
+152R9*INTENSET_Register 165e6 168r8 682r34
+154e7*TICK{72E9} 169r7
+156e7*OVRFLW{94E9} 170r7
+158m7*Reserved_2_15{1|62M9} 171r7
+160r7*COMPARE{132R9} 172r7
+163m7*Reserved_20_31{1|58M9} 173r7
+177E9*INTENCLR_TICK_Field 182e6 183r8
+179n7*Disabled{177E9} 184r7
+181n7*Enabled{177E9} 185r7
+188E9*INTENCLR_TICK_Field_1 193e6 194r8 270r24
+190n7*Intenclr_Tick_Field_Reset{188E9} 195r7 270r49
+192n7*Clear{188E9} 196r7
+199E9*INTENCLR_OVRFLW_Field 204e6 205r8
+201n7*Disabled{199E9} 206r7
+203n7*Enabled{199E9} 207r7
+210E9*INTENCLR_OVRFLW_Field_1 215e6 216r8 272r24
+212n7*Intenclr_Ovrflw_Field_Reset{210E9} 217r7 272r51
+214n7*Clear{210E9} 218r7
+221E9*INTENCLR_COMPARE0_Field 226e6 227r8
+223n7*Disabled{221E9} 228r7
+225n7*Enabled{221E9} 229r7
+232E9*INTENCLR_COMPARE0_Field_1 237e6 238r8 244r9
+234n7*Intenclr_Compare0_Field_Reset{232E9} 239r7
+236n7*Clear{232E9} 240r7
+243A9*INTENCLR_COMPARE_Field_Array(232E9)<integer> 257r19
+248R9*INTENCLR_COMPARE_Field 249d7 260e6 262r8 276r24
+249b7*As_Array{boolean} 251r12 277m26
+254m13*Val{1|43M9} 263r7 277m45
+257a13*Arr{243A9} 264r7
+268R9*INTENCLR_Register 281e6 284r8 684r34
+270e7*TICK{188E9} 285r7
+272e7*OVRFLW{210E9} 286r7
+274m7*Reserved_2_15{1|62M9} 287r7
+276r7*COMPARE{248R9} 288r7
+279m7*Reserved_20_31{1|58M9} 289r7
+293E9*EVTEN_TICK_Field 298e6 299r8 352r24
+295n7*Disabled{293E9} 300r7 352r56
+297n7*Enabled{293E9} 301r7
+304E9*EVTEN_OVRFLW_Field 309e6 310r8 354r24
+306n7*Disabled{304E9} 311r7 354r58
+308n7*Enabled{304E9} 312r7
+315E9*EVTEN_COMPARE0_Field 320e6 321r8 326r56
+317n7*Disabled{315E9} 322r7
+319n7*Enabled{315E9} 323r7
+326A9*EVTEN_COMPARE_Field_Array(315E9)<integer> 339r19
+330R9*EVTEN_COMPARE_Field 331d7 342e6 344r8 358r24
+331b7*As_Array{boolean} 333r12 359m26
+336m13*Val{1|43M9} 345r7 359m45
+339a13*Arr{326A9} 346r7
+350R9*EVTEN_Register 363e6 366r8 686r34
+352e7*TICK{293E9} 367r7
+354e7*OVRFLW{304E9} 368r7
+356m7*Reserved_2_15{1|62M9} 369r7
+358r7*COMPARE{330R9} 370r7
+361m7*Reserved_20_31{1|58M9} 371r7
+375E9*EVTENSET_TICK_Field 380e6 381r8
+377n7*Disabled{375E9} 382r7
+379n7*Enabled{375E9} 383r7
+386E9*EVTENSET_TICK_Field_1 391e6 392r8 468r24
+388n7*Evtenset_Tick_Field_Reset{386E9} 393r7 468r49
+390n7*Set{386E9} 394r7
+397E9*EVTENSET_OVRFLW_Field 402e6 403r8
+399n7*Disabled{397E9} 404r7
+401n7*Enabled{397E9} 405r7
+408E9*EVTENSET_OVRFLW_Field_1 413e6 414r8 470r24
+410n7*Evtenset_Ovrflw_Field_Reset{408E9} 415r7 470r51
+412n7*Set{408E9} 416r7
+419E9*EVTENSET_COMPARE0_Field 424e6 425r8
+421n7*Disabled{419E9} 426r7
+423n7*Enabled{419E9} 427r7
+430E9*EVTENSET_COMPARE0_Field_1 435e6 436r8 442r9
+432n7*Evtenset_Compare0_Field_Reset{430E9} 437r7
+434n7*Set{430E9} 438r7
+441A9*EVTENSET_COMPARE_Field_Array(430E9)<integer> 455r19
+446R9*EVTENSET_COMPARE_Field 447d7 458e6 460r8 474r24
+447b7*As_Array{boolean} 449r12 475m26
+452m13*Val{1|43M9} 461r7 475m45
+455a13*Arr{441A9} 462r7
+466R9*EVTENSET_Register 479e6 482r8 688r34
+468e7*TICK{386E9} 483r7
+470e7*OVRFLW{408E9} 484r7
+472m7*Reserved_2_15{1|62M9} 485r7
+474r7*COMPARE{446R9} 486r7
+477m7*Reserved_20_31{1|58M9} 487r7
+491E9*EVTENCLR_TICK_Field 496e6 497r8
+493n7*Disabled{491E9} 498r7
+495n7*Enabled{491E9} 499r7
+502E9*EVTENCLR_TICK_Field_1 507e6 508r8 584r24
+504n7*Evtenclr_Tick_Field_Reset{502E9} 509r7 584r49
+506n7*Clear{502E9} 510r7
+513E9*EVTENCLR_OVRFLW_Field 518e6 519r8
+515n7*Disabled{513E9} 520r7
+517n7*Enabled{513E9} 521r7
+524E9*EVTENCLR_OVRFLW_Field_1 529e6 530r8 586r24
+526n7*Evtenclr_Ovrflw_Field_Reset{524E9} 531r7 586r51
+528n7*Clear{524E9} 532r7
+535E9*EVTENCLR_COMPARE0_Field 540e6 541r8
+537n7*Disabled{535E9} 542r7
+539n7*Enabled{535E9} 543r7
+546E9*EVTENCLR_COMPARE0_Field_1 551e6 552r8 558r9
+548n7*Evtenclr_Compare0_Field_Reset{546E9} 553r7
+550n7*Clear{546E9} 554r7
+557A9*EVTENCLR_COMPARE_Field_Array(546E9)<integer> 571r19
+562R9*EVTENCLR_COMPARE_Field 563d7 574e6 576r8 590r24
+563b7*As_Array{boolean} 565r12 591m26
+568m13*Val{1|43M9} 577r7 591m45
+571a13*Arr{557A9} 578r7
+582R9*EVTENCLR_Register 595e6 598r8 690r34
+584e7*TICK{502E9} 599r7
+586e7*OVRFLW{524E9} 600r7
+588m7*Reserved_2_15{1|62M9} 601r7
+590r7*COMPARE{562R9} 602r7
+593m7*Reserved_20_31{1|58M9} 603r7
+606M12*COUNTER_COUNTER_Field{1|81M9} 611r24
+609R9*COUNTER_Register 615e6 618r8 692r34
+611m7*COUNTER{606M12} 619r7
+613m7*Reserved_24_31{1|53M9} 620r7
+623M12*PRESCALER_PRESCALER_Field{1|58M9} 629r24
+627R9*PRESCALER_Register 633e6 636r8 695r34
+629m7*PRESCALER{623M12} 637r7
+631m7*Reserved_12_31{1|73M9} 638r7
+641M12*CC_COMPARE_Field{1|81M9} 646r24
+644R9*CC_Register 650e6 653r8 659r43
+646m7*COMPARE{641M12} 654r7
+648m7*Reserved_24_31{1|53M9} 655r7
+659A9*CC_Registers(644R9)<integer> 697r34
+666R9*RTC_Peripheral 699e6 701r8 720r26 724r26 728r26
+668m7*TASKS_START{1|97M9} 702r7
+670m7*TASKS_STOP{1|97M9} 703r7
+672m7*TASKS_CLEAR{1|97M9} 704r7
+674m7*TASKS_TRIGOVRFLW{1|97M9} 705r7
+676m7*EVENTS_TICK{1|97M9} 706r7
+678m7*EVENTS_OVRFLW{1|97M9} 707r7
+680a7*EVENTS_COMPARE{58A9} 708r7
+682r7*INTENSET{152R9} 709r7
+684r7*INTENCLR{268R9} 710r7
+686r7*EVTEN{350R9} 711r7
+688r7*EVTENSET{466R9} 712r7
+690r7*EVTENCLR{582R9} 713r7
+692r7*COUNTER{609R9} 714r7
+695r7*PRESCALER{627R9} 715r7
+697a7*CC{659A9} 716r7
+720r4*RTC0_Periph{666R9}
+724r4*RTC1_Periph{666R9}
+728r4*RTC2_Periph{666R9}
+X 5 system.ads
+60K9*System 4|46w6 166r24 282r24 364r24 480r24 596r24 616r24 634r24 651r24
+. 5|172e11
+90M9*Address
+114n41*Low_Order_First{114E9} 4|166r31 282r31 364r31 480r31 596r31 616r31
+. 634r31 651r31
+

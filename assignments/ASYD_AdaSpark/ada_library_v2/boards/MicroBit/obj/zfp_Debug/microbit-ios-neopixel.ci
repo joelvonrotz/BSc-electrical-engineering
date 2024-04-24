@@ -1,0 +1,13 @@
+graph: { title: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\boards\microbit\src\microbit-ios-neopixel.adb"
+node: { title: "microbit__ios__neopixel__write" label: "Write\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\boards\microbit\src\microbit-ios-neopixel.adb:46:4\n88 bytes (static)" }
+node: { title: "microbit__ios__supports" label: "Supports\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\boards\microbit\src\microbit-ios.ads:40:13" shape : ellipse }
+edge: { sourcename: "microbit__ios__neopixel__write" targetname: "microbit__ios__supports" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\boards\microbit\src\microbit-ios-neopixel.ads:40:18" }
+node: { title: "system__assertions__raise_assert_failure" label: "Raise_Assert_Failure\nC:\gnat\2020-arm-elf\arm-eabi\lib\gnat\zfp-cortex-m4f\gnat\s-assert.ads:46:14" shape : ellipse }
+edge: { sourcename: "microbit__ios__neopixel__write" targetname: "system__assertions__raise_assert_failure" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\boards\microbit\src\microbit-ios-neopixel.ads:40:18" }
+node: { title: "microbit__ios__set" label: "Set\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\boards\microbit\src\microbit-ios.ads:52:14" shape : ellipse }
+edge: { sourcename: "microbit__ios__neopixel__write" targetname: "microbit__ios__set" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\boards\microbit\src\microbit-ios-neopixel.adb:53:7" }
+node: { title: "microbit__time__delay_ms" label: "Delay_Ms\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\boards\microbit\src\microbit-time.ads:41:14" shape : ellipse }
+edge: { sourcename: "microbit__ios__neopixel__write" targetname: "microbit__time__delay_ms" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\boards\microbit\src\microbit-ios-neopixel.adb:54:20" }
+node: { title: "__gnat_last_chance_handler" label: "gnat_last_chance_handler\n<built-in>" shape : ellipse }
+edge: { sourcename: "microbit__ios__neopixel__write" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\boards\microbit\src\microbit-ios-neopixel.adb:107:53" }
+}

@@ -10,6 +10,7 @@ format:
     - text: "\\usepackage[datesep=.]{datetime2}"
     - text: "\\DTMsetdatestyle{ddmmyyyy}"
     toc: true
+    keep-tex: true
     classoption: twocolumn
     fig-align: center
 

@@ -1,0 +1,13 @@
+graph: { title: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\examples\MicroBit\buttons\src\main.adb"
+node: { title: "_ada_main" label: "Main\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\examples\MicroBit\buttons\src\main.adb:36:1\n8 bytes (static)" }
+node: { title: "microbit__display__clear__2" label: "Clear\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\boards\microbit\src\microbit-display.ads:42:14" shape : ellipse }
+edge: { sourcename: "_ada_main" targetname: "microbit__display__clear__2" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\examples\MicroBit\buttons\src\main.adb:40:23" }
+node: { title: "microbit__buttons__state" label: "State\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\boards\microbit\src\microbit-buttons.ads:37:13" shape : ellipse }
+edge: { sourcename: "_ada_main" targetname: "microbit__buttons__state" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\examples\MicroBit\buttons\src\main.adb:42:26" }
+node: { title: "microbit__display__display" label: "Display\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\boards\microbit\src\microbit-display.ads:45:14" shape : ellipse }
+edge: { sourcename: "_ada_main" targetname: "microbit__display__display" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\examples\MicroBit\buttons\src\main.adb:46:26" }
+edge: { sourcename: "_ada_main" targetname: "microbit__buttons__state" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\examples\MicroBit\buttons\src\main.adb:48:29" }
+edge: { sourcename: "_ada_main" targetname: "microbit__display__display" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\examples\MicroBit\buttons\src\main.adb:52:26" }
+node: { title: "microbit__time__delay_ms" label: "Delay_Ms\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\boards\microbit\src\microbit-time.ads:41:14" shape : ellipse }
+edge: { sourcename: "_ada_main" targetname: "microbit__time__delay_ms" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\examples\MicroBit\buttons\src\main.adb:55:20" }
+}

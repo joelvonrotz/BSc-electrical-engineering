@@ -1,0 +1,79 @@
+V "GNAT Lib v2020"
+A -O0
+A -gnatA
+A --RTS=C:\gnat\2020-arm-elf\arm-eabi\lib\gnat\zfp-cortex-m4f\
+A -mlittle-endian
+A -mthumb
+A -mfloat-abi=hard
+A -mcpu=cortex-m4
+A -mfpu=fpv4-sp-d16
+A -gnata
+A -fcallgraph-info=su
+A -fcallgraph-info=su
+A -g
+A -gnatwa
+A -gnatw_A
+A -gnatQ
+A -gnatw.X
+A -ffunction-sections
+A -fdata-sections
+A -march=armv7e-m+fp
+P ZX
+
+RN
+RV NO_DISPATCH
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_IMPLEMENTATION_PRAGMAS
+
+U hal.gpio%s		hal-gpio.ads		544ee7f0 NE OO PK IU
+Z ada.tags%s		a-tags.adb		a-tags.ali
+W hal%s			hal.ads			hal.ali
+Z system%s		system.ads		system.ali
+
+D ada.ads		20200819171400 76789da1 ada%s
+D a-tags.ads		20200819171400 95e09aae ada.tags%s
+D hal.ads		20210108111948 2b42c80e hal%s
+D hal-gpio.ads		20210108111948 7f0c2ffe hal.gpio%s
+D interfac.ads		20200819171400 5ab55268 interfaces%s
+D system.ads		20200819171400 e69b74bd system%s
+D s-stoele.ads		20200819171400 2dc34a04 system.storage_elements%s
+G a e
+X 3 hal.ads
+34K9*HAL 166e8 4|32r9 95r5
+X 4 hal-gpio.ads
+32K13*GPIO 3|34k9 4|95l9 95e13
+34E9*Capability 35e53 37r25 45r34 52r29
+34n24*Unknown_Mode{34E9} 37r42
+34n38*Input{34E9} 42r48
+34n45*Output{34E9} 37r58 42r57 93r36
+35n24*Floating{34E9} 45r51
+35n34*Pull_Up{34E9}
+35n43*Pull_Down{34E9} 45r63
+37E12*GPIO_Mode{34E9} 42r32 57r45
+42E12*GPIO_Config_Mode{37E12} 61r31
+45E12*GPIO_Pull_Resistor{34E9} 67r35 71r40
+47h9*GPIO_Point 49r38 51p13 51r29 57p13 57r26 60p14 60r38 66p13 66r35 70p14
+. 70r47 76p13 76r25 88p14 88r33 90p14 90r35 92p14 92r36
+49P9*Any_GPIO_Point(47R9)
+51y13*Support{boolean} 51>22 52>22 63s29 73s29
+51r22 This{47R9}
+52e22 Capa{34E9}
+57y13*Mode{37E12} 57>19 93s29
+57r19 This{47R9}
+60x14*Set_Mode 60=24 61>24
+60r24 This{47R9} 63r24
+61e24 Mode{42E12} 63r38
+66y13*Pull_Resistor{45E12} 66>28
+66r28 This{47R9}
+70x14*Set_Pull_Resistor 70=33 71>33
+70r33 This{47R9} 73r24
+71e33 Pull{45E12} 73r38
+76y13*Set{boolean} 76>18
+76r18 This{47R9}
+88x14*Set 88=19
+88r19 This{47R9}
+90x14*Clear 90=21
+90r21 This{47R9}
+92x14*Toggle 92=22
+92r22 This{47R9} 93r24
+

@@ -1,0 +1,271 @@
+V "GNAT Lib v2020"
+A -O0
+A -gnatA
+A --RTS=C:\gnat\2020-arm-elf\arm-eabi\lib\gnat\zfp-cortex-m4f\
+A -mlittle-endian
+A -mthumb
+A -mfloat-abi=hard
+A -mcpu=cortex-m4
+A -mfpu=fpv4-sp-d16
+A -gnata
+A -fcallgraph-info=su
+A -fcallgraph-info=su
+A -g
+A -gnatwa
+A -gnatw_A
+A -gnatQ
+A -gnatw.X
+A -ffunction-sections
+A -fdata-sections
+A -march=armv7e-m+fp
+P ZX
+
+RN
+RV NO_DISPATCHING_CALLS
+RV NO_EXCEPTIONS
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_UNCHECKED_CONVERSION
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_OBSOLESCENT_FEATURES
+
+U adafruit.thermal_printer%b  adafruit-thermal_printer.adb  bc873098 NE OO PK
+W ada%s			ada.ads			ada.ali
+Z ada.tags%s		a-tags.adb		a-tags.ali
+W ada.unchecked_conversion%s
+W adafruit%s		adafruit.ads		adafruit.ali
+W hal%s			hal.ads			hal.ali
+W hal.bitmap%s		hal-bitmap.ads		hal-bitmap.ali
+W hal.uart%s		hal-uart.ads		hal-uart.ali
+Z interfaces%s		interfac.ads		interfac.ali
+Z system.assertions%s	s-assert.adb		s-assert.ali
+Z system.unsigned_types%s  s-unstyp.ads		s-unstyp.ali
+
+U adafruit.thermal_printer%s  adafruit-thermal_printer.ads  4376e5c7 EE NE OO PK
+Z ada.tags%s		a-tags.adb		a-tags.ali
+W adafruit%s		adafruit.ads		adafruit.ali
+W hal%s			hal.ads			hal.ali
+W hal.bitmap%s		hal-bitmap.ads		hal-bitmap.ali
+W hal.time%s		hal-time.ads		hal-time.ali
+W hal.uart%s		hal-uart.ads		hal-uart.ali
+Z system%s		system.ads		system.ali
+Z system.unsigned_types%s  s-unstyp.ads		s-unstyp.ali
+
+D ada.ads		20200819171400 76789da1 ada%s
+D a-tags.ads		20200819171400 95e09aae ada.tags%s
+D a-unccon.ads		20200819171400 0e9b276f ada.unchecked_conversion%s
+D adafruit.ads		20210108111948 deca3367 adafruit%s
+D adafruit-thermal_printer.ads  20210108111948 13f2c5de adafruit.thermal_printer%s
+D adafruit-thermal_printer.adb  20210108111948 f1cb558e adafruit.thermal_printer%b
+D hal.ads		20210108111948 2b42c80e hal%s
+D hal-bitmap.ads	20210108111948 85a69113 hal.bitmap%s
+D hal-time.ads		20210108111948 f5295cd7 hal.time%s
+D hal-uart.ads		20210108111948 d58316b4 hal.uart%s
+D interfac.ads		20200819171400 5ab55268 interfaces%s
+D system.ads		20200819171400 e69b74bd system%s
+D s-assert.ads		20200819171400 cd8d2c94 system.assertions%s
+D s-stoele.ads		20200819171400 2dc34a04 system.storage_elements%s
+D s-unstyp.ads		20200819171400 5ecf7212 system.unsigned_types%s
+G a e
+G c Z s b [set_line_spacing adafruit__thermal_printer 47 14 none]
+G c Z s b [set_align adafruit__thermal_printer 50 14 none]
+G c Z s b [set_font_enlarge adafruit__thermal_printer 52 14 none]
+G c Z s b [set_bold adafruit__thermal_printer 54 14 none]
+G c Z s b [set_double_width adafruit__thermal_printer 56 14 none]
+G c Z s b [set_updown adafruit__thermal_printer 58 14 none]
+G c Z s b [set_reversed adafruit__thermal_printer 60 14 none]
+G c Z s b [set_underline_height adafruit__thermal_printer 63 14 none]
+G c Z s b [set_character_set adafruit__thermal_printer 68 14 none]
+G c Z s b [feed adafruit__thermal_printer 70 14 none]
+G c Z s b [print_bitmap adafruit__thermal_printer 76 14 none]
+G c Z s b [print_bitmap adafruit__thermal_printer 80 14 none]
+G c Z s b [wake adafruit__thermal_printer 84 14 none]
+G c Z s b [reset adafruit__thermal_printer 85 14 none]
+G c Z s b [print adafruit__thermal_printer 87 14 none]
+G c Z s b [get_status adafruit__thermal_printer 94 13 none]
+G c Z s b [set_density adafruit__thermal_printer 105 14 none]
+G c Z s b [set_printer_settings adafruit__thermal_printer 106 14 none]
+G c Z s b [print_test_page adafruit__thermal_printer 108 14 none]
+G c Z s s [tp_deviceIP adafruit__thermal_printer 111 9 none]
+G c Z s s [thermal_printer_bitmapIP adafruit__thermal_printer 72 9 none]
+G c Z s s [printer_statusIP adafruit__thermal_printer 89 9 none]
+G c Z s s [printer_settingsIP adafruit__thermal_printer 96 9 none]
+G c Z b b [to_char adafruit__thermal_printer 38 13 none]
+G c Z b b [to_uint8 adafruit__thermal_printer 40 13 none]
+G c Z b b [write adafruit__thermal_printer 43 14 none]
+G c Z b b [read adafruit__thermal_printer 44 14 none]
+X 1 ada.ads
+16K9*Ada 20e8 6|32r6 38r28 40r29
+X 3 a-unccon.ads
+17+9 Source 6|38r54 40r55
+18+9 Target 6|39r54 41r54
+20v14*Unchecked_Conversion 6|32w10 38r32 40r33
+X 4 adafruit.ads
+33K9*AdaFruit 34e13 5|37r9 115r5 6|36r14 355r5
+X 5 adafruit-thermal_printer.ads
+37K18*Thermal_Printer 4|33k9 5|111E9 115l14 115e29 6|36b23 355l14 355t29
+39R9*TP_Device 39d20 40d20 47p14 47r46 50p14 50r39 52p14 52r46 54p14 54r38
+. 56p14 56r46 58p14 58r40 60p14 60r42 63p14 63r50 68p14 68r47 70p14 70r34
+. 76p14 76r42 80p14 80r42 84p14 84r34 85p14 85r35 87p14 87r35 94p13 94r39
+. 105p14 105r41 106p14 106r50 108p14 108r45 111c9 113e24 6|43r35 44r34 50r35
+. 72r34 91r46 100r39 115r46 131r38 140r46 153r40 162r42 171r50 180r47 189r34
+. 198r42 235r42 270r34 279r35 297r35 306r39 327r50 340r41 350r45
+39p20 Port{10|50P9} 111r20 6|59r12 76r12
+40p20 Time{9|36P9} 112r20 6|227r15 262r15 282r12 287r15
+47U14*Set_Line_Spacing 47=32 47>57 6|91b14 94l8 94t24
+47r32 This{39R9} 6|91b32 93m14
+47m57 Spacing{7|53M9} 6|91b57 93r47
+49E9*Text_Align 49e44 50r58 6|100r58
+49n24*Right{49E9} 6|106r15
+49n31*Center{49E9} 6|105r15
+49n39*Left{49E9} 6|104r15
+50U14*Set_Align 50=25 50>50 6|100b14 109l8 109t17
+50r25 This{39R9} 6|100b25 108m14
+50e50 Align{49E9} 6|100b50 103r12
+52U14*Set_Font_Enlarge 52=32 52>57 52>65 6|115b14 125l8 125t24
+52r32 This{39R9} 6|115b32 124m14
+52b57 Height{boolean} 6|115b57 118r10
+52b65 Width{boolean} 6|115b65 121r10
+54U14*Set_Bold 54=24 54>49 6|131b14 134l8 134t16
+54r24 This{39R9} 6|131b24 133m14
+54b49 Bold{boolean} 6|131b49 133r50
+56U14*Set_Double_Width 56=32 56>57 6|140b14 147l8 147t24
+56r32 This{39R9} 6|140b32 143m17 145m17
+56b57 Double{boolean} 6|140b57 142r10
+58U14*Set_UpDown 58=26 58>51 6|153b14 156l8 156t18
+58r26 This{39R9} 6|153b26 155m14
+58b51 UpDown{boolean} 6|153b51 155r50
+60U14*Set_Reversed 60=28 60>53 6|162b14 165l8 165t20
+60r28 This{39R9} 6|162b28 164m14
+60b53 Reversed{boolean} 6|162b53 164r49
+62M12*Underline_Height{7|53M9} 63r70 6|171r70
+63U14*Set_Underline_Height 63=36 63>61 6|171b14 174l8 174t28
+63r36 This{39R9} 6|171b36 173m14
+63m61 Height{62M12} 6|171b61 173r47
+65E9*Character_Set 67e49 68r64 6|180r64 182r47
+65n27*USA{65E9}
+65n32*France{65E9}
+65n40*Germany{65E9}
+65n49*UK{65E9}
+65n53*Denmark1{65E9}
+65n63*Sweden{65E9}
+65n71*Italy{65E9}
+66n27*Spain1{65E9}
+66n35*Japan{65E9}
+66n42*Norway{65E9}
+66n50*Denmark2{65E9}
+66n60*Spain2{65E9}
+67n27*Latin_Americam{65E9}
+67n43*Korea{65E9}
+68U14*Set_Character_Set 68=33 68>58 6|180b14 183l8 183t25
+68r33 This{39R9} 6|180b33 182m14
+68e58 Set{65E9} 6|180b58 182r66
+70U14*Feed 70=20 70>45 6|189b14 192l8 192t12
+70r20 This{39R9} 6|189b20 191m14
+70m45 Rows{7|53M9} 6|189b45 191r47
+72A9*Thermal_Printer_Bitmap(boolean)<integer><integer> 77r35 6|199r35
+76U14*Print_Bitmap 76=28 77>28 6|198b14 229l8 229t20
+76r28 This{39R9} 6|198b28 206m14 225m17 227r10
+77a28 BM{72A9} 78r18 6|199b28 201r44 202r44 213r48 218r33 219r37
+80U14*Print_Bitmap 80=28 81>28 6|235b14 264l8 264t20
+80r28 This{39R9} 6|235b28 243m14 260m17 262r10
+81p28 BM{8|102P9} 82r18 6|236b28 238r44 239r44 254r33
+84U14*Wake 84=20 6|270b14 273l8 273t12
+84r20 This{39R9} 6|270b20 272m14
+85U14*Reset 85=21 6|279b14 291l8 291t13
+85r21 This{39R9} 6|279b21 281m14 282r7 284m14 287r10 288m17
+87U14*Print 87=21 87>46 6|297b14 300l8 300t13
+87r21 This{39R9} 6|297b21 299m14
+87a46 Text{string} 6|297b46 299r20
+89R9*Printer_Status 93e14 94r57 6|306r57 307r13
+90b7*Paper{boolean} 6|310m11
+91i7*Voltage{integer} 6|311m11
+92i7*Temperature{integer} 6|312m11
+94V13*Get_Status{89R9} 94=25 6|306b13 321l8 321t18
+94r25 This{39R9} 6|306b25 313m14 314m13
+96R9*Printer_Settings 103e14 106r72 6|327r72
+98m7*Max_Printing_Dots{7|53M9} 6|330r34
+100m7*Heating_Time{7|53M9} 6|331r37 332r37
+102m7*Heating_Interval{7|53M9} 6|333r34
+105U14*Set_Density 105=27 105>52 105>61 6|340b14 344l8 344t19
+105r27 This{39R9} 6|340b27 342m14
+105m52 Density{7|53M9} 6|340b52 343r70
+105m61 Breaktime{7|53M9} 6|340b61 343r53
+106U14*Set_Printer_Settings 106=36 106>61 6|327b14 334l8 334t28
+106r36 This{39R9} 6|327b36 329m14
+106r61 Settings{96R9} 6|327b61 330r25 331r28 332r28 333r25
+108U14*Print_Test_Page 108=31 6|350b14 353l8 353t23
+108r31 This{39R9} 6|350b31 352m14
+X 6 adafruit-thermal_printer.adb
+38V13 To_Char[3|20]{character} 83s25 93s38 124s37 133s38 155s38 164s37 173s38
+. 182s38 191s38 207s16 208s16 222s35 244s16 245s16 257s35 281s25 330s16 331s16
+. 333s16 343s32
+40V13 To_UInt8[3|20]{7|53M9} 56s26
+43U14 Write 43=21 43>46 50b14 66l8 66t13 93s7 108s7 124s7 133s7 143s10 145s10
+. 155s7 164s7 173s7 182s7 191s7 206s7 225s10 243s7 260s10 272s7 281s7 284s7
+. 288s10 299s7 313s7 329s7 342s7 352s7
+43r21 This{5|39R9} 50b21 59r7
+43a46 Cmd{string} 50b46 52r28 55r20 56r36
+44U14 Read 44=20 44<45 72b14 85l8 85t12 314s7
+44r20 This{5|39R9} 72b20 76r7
+44a45 Str{string} 72b45 74r28 82r20 83m10
+51e7 Status{10|34E9} 59m33 61r10
+52a7 Data{10|44A9} 56m10 59r27
+55i11 Index{integer} 56r16 56r41
+73e7 Status{10|34E9} 76m32 77r10
+74a7 Data{10|44A9} 76m26 83r34
+82i11 Index{integer} 83r15 83r40
+101e7 Mode{character} 104m25 105m25 106m25 108r38
+116m7 Data{7|53M9} 119m10 119r18 122m10 122r18 124r46
+201i7 Nbr_Of_Rows{natural} 207r32 208r32 210r23
+202i7 Nbr_Of_Columns{natural} 203r26 211r29
+203a7 Str{string} 214r48 222m16 225r23 227r46
+210i11 Row{integer} 219r52
+211i14 Colum{integer} 213r63 214r60
+213i16 BM_Index{natural} 218r37
+214i16 Str_Index{natural} 222r21
+215m16 B{7|53M9} 218m19 218r24 222r44
+217i20 X{integer} 218r48 220r38
+238i7 Nbr_Of_Rows{natural} 244r32 245r32 247r23
+239i7 Nbr_Of_Columns{natural} 240r26 248r29
+240a7 Str{string} 251r48 257m16 260r23 262r46
+247i11 Row{integer} 254r61
+248i14 Colum{integer} 251r60 254r45
+250m16 B{7|53M9} 254m19 254r24 257r44
+251i16 Str_Index{natural} 257r21
+253i20 X{integer} 254r58 255r38
+286i11 X{integer}
+307r7 Ret{5|89R9} 310m7 311m7 312m7 320r14
+308a7 Status{string} 314m19
+X 7 hal.ads
+34K9*HAL 5|32w6 32r22 33r6 34r6 35r6 39r36 40r36 81r44 111r36 112r36 6|33r6
+. 33r36 34r6 34r36 236r44 7|166e8
+53M9*UInt8<11|63M9> 5|47r67 62r32 70r52 98r27 100r27 102r27 105r73 6|38r64
+. 41r64 91r67 116r14 189r52 207r25 208r25 215r20 244r25 245r25 250r20 340r73
+X 8 hal-bitmap.ads
+34K13*Bitmap 5|35w10 81r48 6|34w10 34r40 236r48 8|432e15
+88m7*Red{7|53M9} 6|254r67
+100h9*Bitmap_Buffer
+102P9*Any_Bitmap_Buffer(100R9) 5|81r55 6|236r55
+104y13*Width{natural} 5|82R21 6|239R47
+108y13*Height{natural} 6|238R47
+181y13*Pixel{86R9} 6|254R36
+X 9 hal-time.ads
+32K13*Time 5|34w10 40r40 112r40 9|46e13
+34h9*Delays
+36P9*Any_Delays(34R9) 5|40r45 112r45
+38x14*Delay_Microseconds 6|227R20 262R20 287R20
+41x14*Delay_Milliseconds 6|282R17
+X 10 hal-uart.ads
+32K13*UART 5|33w10 39r40 111r40 6|33w10 33r40 10|86e13
+34E9*UART_Status 6|51r16 73r16 10|38e12
+35n7*Ok{34E9} 6|61r20 77r20
+44A9*UART_Data_8b(7|53M9)<integer> 6|52r14 74r14
+48h9*UART_Port
+50P9*Any_UART_Port(48R9) 5|39r45 111r45
+54x14*Transmit 6|59R17
+70x14*Receive 6|76R17
+X 11 interfac.ads
+63M9*Unsigned_8
+81V13*Shift_Left{63M9} 6|343s41
+

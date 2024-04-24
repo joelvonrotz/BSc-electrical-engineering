@@ -1,0 +1,24 @@
+graph: { title: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf52\nrf-ppi.adb"
+node: { title: "nrf__ppi__configure" label: "Configure\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf52\nrf-ppi.adb:42:4\n32 bytes (static)" }
+node: { title: "__gnat_last_chance_handler" label: "gnat_last_chance_handler\n<built-in>" shape : ellipse }
+edge: { sourcename: "nrf__ppi__configure" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf52\nrf-ppi.adb:48:22" }
+node: { title: "nrf__events__get_address__2" label: "Get_Address\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf52\nrf-events.ads:64:13" shape : ellipse }
+edge: { sourcename: "nrf__ppi__configure" targetname: "nrf__events__get_address__2" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf52\nrf-ppi.adb:48:35" }
+edge: { sourcename: "nrf__ppi__configure" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf52\nrf-ppi.adb:49:22" }
+node: { title: "nrf__tasks__get_address__2" label: "Get_Address\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf52\nrf-tasks.ads:58:13" shape : ellipse }
+edge: { sourcename: "nrf__ppi__configure" targetname: "nrf__tasks__get_address__2" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf52\nrf-ppi.adb:49:35" }
+node: { title: "nrf__ppi__enable_channel" label: "Enable_Channel\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf52\nrf-ppi.adb:56:4\n24 bytes (static)" }
+edge: { sourcename: "nrf__ppi__enable_channel" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf52\nrf-ppi.adb:59:12" }
+node: { title: "nrf__ppi__disable_channel" label: "Disable_Channel\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf52\nrf-ppi.adb:67:4\n24 bytes (static)" }
+edge: { sourcename: "nrf__ppi__disable_channel" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf52\nrf-ppi.adb:70:12" }
+node: { title: "nrf__ppi__add_to_group" label: "Add_To_Group\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf52\nrf-ppi.adb:78:4\n24 bytes (static)" }
+edge: { sourcename: "nrf__ppi__add_to_group" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf52\nrf-ppi.adb:83:35" }
+edge: { sourcename: "nrf__ppi__add_to_group" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf52\nrf-ppi.adb:83:23" }
+node: { title: "nrf__ppi__remove_from_group" label: "Remove_From_Group\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf52\nrf-ppi.adb:90:4\n24 bytes (static)" }
+edge: { sourcename: "nrf__ppi__remove_from_group" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf52\nrf-ppi.adb:95:35" }
+edge: { sourcename: "nrf__ppi__remove_from_group" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf52\nrf-ppi.adb:95:23" }
+node: { title: "nrf__ppi__enable_group" label: "Enable_Group\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf52\nrf-ppi.adb:102:4\n16 bytes (static)" }
+edge: { sourcename: "nrf__ppi__enable_group" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf52\nrf-ppi.adb:104:29" }
+node: { title: "nrf__ppi__disable_group" label: "Disable_Group\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf52\nrf-ppi.adb:111:4\n16 bytes (static)" }
+edge: { sourcename: "nrf__ppi__disable_group" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf52\nrf-ppi.adb:113:29" }
+}

@@ -1,0 +1,5 @@
+graph: { title: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-rng.adb"
+node: { title: "nrf__rng__enable_digital_error_correction" label: "Enable_Digital_Error_Correction\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-rng.adb:40:4\n4 bytes (static)" }
+node: { title: "nrf__rng__disable_digital_error_correction" label: "Disable_Digital_Error_Correction\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-rng.adb:49:4\n4 bytes (static)" }
+node: { title: "nrf__rng__read" label: "Read\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-rng.adb:58:4\n4 bytes (static)" }
+}

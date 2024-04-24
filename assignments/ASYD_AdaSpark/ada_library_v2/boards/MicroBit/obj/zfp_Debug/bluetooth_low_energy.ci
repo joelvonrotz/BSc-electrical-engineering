@@ -1,0 +1,17 @@
+graph: { title: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\BLE\bluetooth_low_energy.adb"
+node: { title: "bluetooth_low_energy__ble_uuidD2" label: "Ble_Uuidd2\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\BLE\bluetooth_low_energy.ads:64:4\n16 bytes (static)" }
+node: { title: "bluetooth_low_energy__ble_uuidD3" label: "Ble_Uuidd3\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\BLE\bluetooth_low_energy.ads:64:4\n16 bytes (static)" }
+node: { title: "bluetooth_low_energy__ble_uuidD4" label: "Ble_Uuidd4\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\BLE\bluetooth_low_energy.ads:64:4\n16 bytes (static)" }
+node: { title: "bluetooth_low_energy__ble_uuidEQ" label: "Ble_Uuideq\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\BLE\bluetooth_low_energy.ads:64:9\n16 bytes (static)" }
+node: { title: "memcmp" label: "builtin_memcmp\n<built-in>" shape : ellipse }
+edge: { sourcename: "bluetooth_low_energy__ble_uuidEQ" targetname: "memcmp" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\BLE\bluetooth_low_energy.ads:64:9" }
+node: { title: "bluetooth_low_energy__ble_uuidIP" label: "Ble_Uuidip\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\BLE\bluetooth_low_energy.ads:64:9\n16 bytes (static)" }
+node: { title: "bluetooth_low_energy__make_uuid" label: "Make_Uuid\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\BLE\bluetooth_low_energy.adb:7:4\n16 bytes (static)" }
+node: { title: "system__secondary_stack__ss_allocate" label: "Ss_Allocate\nC:\gnat\2020-arm-elf\arm-eabi\lib\gnat\zfp-cortex-m4f\gnat\s-secsta.ads:58:14" shape : ellipse }
+edge: { sourcename: "bluetooth_low_energy__make_uuid" targetname: "system__secondary_stack__ss_allocate" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\BLE\bluetooth_low_energy.adb:9:7" }
+node: { title: "bluetooth_low_energy__make_uuid__2" label: "Make_Uuid\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\BLE\bluetooth_low_energy.adb:17:4\n16 bytes (static)" }
+edge: { sourcename: "bluetooth_low_energy__make_uuid__2" targetname: "system__secondary_stack__ss_allocate" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\BLE\bluetooth_low_energy.adb:19:7" }
+node: { title: "bluetooth_low_energy__make_uuid__3" label: "Make_Uuid\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\BLE\bluetooth_low_energy.adb:27:4\n24 bytes (static)" }
+edge: { sourcename: "bluetooth_low_energy__make_uuid__3" targetname: "system__secondary_stack__ss_allocate" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\BLE\bluetooth_low_energy.adb:29:7" }
+node: { title: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\BLE\bluetooth_low_energy.adb:_GLOBAL__SZ7_bluetooth_low_energy" label: "Sz7_Bluetooth_Low_Energy\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\BLE\bluetooth_low_energy.ads:68:15\n16 bytes (static)" }
+}

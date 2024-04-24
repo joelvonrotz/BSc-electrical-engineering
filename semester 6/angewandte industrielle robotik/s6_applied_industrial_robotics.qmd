@@ -1,3 +1,21 @@
 # Repetition Linear Algebra
 
 {{< include repetition_linear_algebra.qmd >}}
+
+# Quaternion
+
+{{< include quaternion.qmd >}}
+
+$$
+\begin{array}{l}
+Q \longrightarrow EA \\
+EA \longrightarrow Q \\
+Q \longrightarrow DCM\ /\ ^w_0A \\
+DCM\ /\ ^w_0A \longrightarrow Q \\
+EA \longrightarrow DCM\ /\ ^w_0A \\
+DCM\ /\ ^w_0A \longrightarrow EA
+\end{array}
+$$
+
+
+{{< include notes.qmd >}}

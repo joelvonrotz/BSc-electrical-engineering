@@ -1,0 +1,144 @@
+V "GNAT Lib v2020"
+A -O0
+A -gnatA
+A --RTS=C:\gnat\2020-arm-elf\arm-eabi\lib\gnat\zfp-cortex-m4f\
+A -mlittle-endian
+A -mthumb
+A -mfloat-abi=hard
+A -mcpu=cortex-m4
+A -mfpu=fpv4-sp-d16
+A -gnata
+A -fcallgraph-info=su
+A -fcallgraph-info=su
+A -g
+A -gnatwa
+A -gnatw_A
+A -gnatQ
+A -gnatw.X
+A -ffunction-sections
+A -fdata-sections
+A -march=armv7e-m+fp
+P ZX
+
+RN
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLEMENTATION_RESTRICTIONS
+RR NO_ELABORATION_CODE
+
+U nrf_svd.aar%s		nrf_svd-aar.ads		4d5c323a NE OO PR PK IU
+W hal%s			hal.ads			hal.ali
+W nrf_svd%s		nrf_svd.ads		nrf_svd.ali
+W system%s		system.ads		system.ali
+Z system.unsigned_types%s  s-unstyp.ads		s-unstyp.ali
+
+D hal.ads		20210108111948 2b42c80e hal%s
+D interfac.ads		20200819171400 5ab55268 interfaces%s
+D nrf_svd.ads		20210306183508 87ba21d7 nrf_svd%s
+D nrf_svd-aar.ads	20210108111948 073faf5e nrf_svd.aar%s
+D system.ads		20200819171400 e69b74bd system%s
+D s-unstyp.ads		20200819171400 5ecf7212 system.unsigned_types%s
+G a e
+G c Z s s [intenset_registerIP nrf_svd__aar 122 9 none]
+G c Z s s [intenclr_registerIP nrf_svd__aar 211 9 none]
+G c Z s s [status_registerIP nrf_svd__aar 236 9 none]
+G c Z s s [enable_registerIP nrf_svd__aar 262 9 none]
+G c Z s s [nirk_registerIP nrf_svd__aar 279 9 none]
+G c Z s s [aar_peripheralIP nrf_svd__aar 298 9 none]
+X 1 hal.ads
+34K9*HAL 166e8 4|45w6 132r23 221r23 233r35 240r23 266r23 276r31 283r23 301r36
+. 303r36 305r36 307r36 309r36 321r36 323r36 325r36
+43M9*UInt4 4|233r39
+45M9*UInt5 4|276r35
+87M9*UInt27 4|283r27
+89M9*UInt28 4|240r27
+91M9*UInt29 4|132r27 221r27
+93M9*UInt30 4|266r27
+97M9*UInt32<2|74M9> 4|301r40 303r40 305r40 307r40 309r40 321r40 323r40 325r40
+X 2 interfac.ads
+74M9*Unsigned_32
+X 3 nrf_svd.ads
+49K9*NRF_SVD 123e12 4|48r9 264r46 349r5
+87m4*AAR_Base{5|90M9} 4|347r30
+X 4 nrf_svd-aar.ads
+48K17*AAR 3|49k9 4|264r54 349l13 349e16
+56E9*INTENSET_END_Field 61e6 62r8
+58n7*Disabled{56E9} 63r7
+60n7*Enabled{56E9} 64r7
+67E9*INTENSET_END_Field_1 72e6 73r8 124r23
+69n7*Intenset_End_Field_Reset{67E9} 74r7 124r47
+71n7*Set{67E9} 75r7
+78E9*INTENSET_RESOLVED_Field 83e6 84r8
+80n7*Disabled{78E9} 85r7
+82n7*Enabled{78E9} 86r7
+89E9*INTENSET_RESOLVED_Field_1 94e6 95r8 126r23
+91n7*Intenset_Resolved_Field_Reset{89E9} 96r7 127r24
+93n7*Set{89E9} 97r7
+100E9*INTENSET_NOTRESOLVED_Field 105e6 106r8
+102n7*Disabled{100E9} 107r7
+104n7*Enabled{100E9} 108r7
+111E9*INTENSET_NOTRESOLVED_Field_1 116e6 117r8 129r23
+113n7*Intenset_Notresolved_Field_Reset{111E9} 118r7 130r24
+115n7*Set{111E9} 119r7
+122R9*INTENSET_Register 134e6 137r8 311r36
+124e7*END_k{67E9} 138r7
+126e7*RESOLVED{89E9} 139r7
+129e7*NOTRESOLVED{111E9} 140r7
+132m7*Reserved_3_31{1|91M9} 141r7
+145E9*INTENCLR_END_Field 150e6 151r8
+147n7*Disabled{145E9} 152r7
+149n7*Enabled{145E9} 153r7
+156E9*INTENCLR_END_Field_1 161e6 162r8 213r23
+158n7*Intenclr_End_Field_Reset{156E9} 163r7 213r47
+160n7*Clear{156E9} 164r7
+167E9*INTENCLR_RESOLVED_Field 172e6 173r8
+169n7*Disabled{167E9} 174r7
+171n7*Enabled{167E9} 175r7
+178E9*INTENCLR_RESOLVED_Field_1 183e6 184r8 215r23
+180n7*Intenclr_Resolved_Field_Reset{178E9} 185r7 216r24
+182n7*Clear{178E9} 186r7
+189E9*INTENCLR_NOTRESOLVED_Field 194e6 195r8
+191n7*Disabled{189E9} 196r7
+193n7*Enabled{189E9} 197r7
+200E9*INTENCLR_NOTRESOLVED_Field_1 205e6 206r8 218r23
+202n7*Intenclr_Notresolved_Field_Reset{200E9} 207r7 219r24
+204n7*Clear{200E9} 208r7
+211R9*INTENCLR_Register 223e6 226r8 313r36
+213e7*END_k{156E9} 227r7
+215e7*RESOLVED{178E9} 228r7
+218e7*NOTRESOLVED{200E9} 229r7
+221m7*Reserved_3_31{1|91M9} 230r7
+233M12*STATUS_STATUS_Field{1|43M9} 238r23
+236R9*STATUS_Register 242e6 245r8 315r36
+238m7*STATUS{233M12} 246r7
+240m7*Reserved_4_31{1|89M9} 247r7
+251E9*ENABLE_ENABLE_Field 256e6 257r8 264r23
+253n7*Disabled{251E9} 258r7 264r58
+255n7*Enabled{251E9} 259r7
+262R9*ENABLE_Register 268e6 271r8 317r36
+264e7*ENABLE{251E9} 272r7
+266m7*Reserved_2_31{1|93M9} 273r7
+276M12*NIRK_NIRK_Field{1|45M9} 281r23
+279R9*NIRK_Register 285e6 288r8 319r36
+281m7*NIRK{276M12} 289r7
+283m7*Reserved_5_31{1|87M9} 290r7
+298R9*AAR_Peripheral 327e6 329r8 346r25
+301m7*TASKS_START{1|97M9} 330r7
+303m7*TASKS_STOP{1|97M9} 331r7
+305m7*EVENTS_END{1|97M9} 332r7
+307m7*EVENTS_RESOLVED{1|97M9} 333r7
+309m7*EVENTS_NOTRESOLVED{1|97M9} 334r7
+311r7*INTENSET{122R9} 335r7
+313r7*INTENCLR{211R9} 336r7
+315r7*STATUS{236R9} 337r7
+317r7*ENABLE{262R9} 338r7
+319r7*NIRK{279R9} 339r7
+321m7*IRKPTR{1|97M9} 340r7
+323m7*ADDRPTR{1|97M9} 341r7
+325m7*SCRATCHPTR{1|97M9} 342r7
+346r4*AAR_Periph{298R9}
+X 5 system.ads
+60K9*System 4|46w6 135r24 224r24 243r24 269r24 286r24 5|172e11
+90M9*Address
+114n41*Low_Order_First{114E9} 4|135r31 224r31 243r31 269r31 286r31
+

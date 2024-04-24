@@ -1,0 +1,165 @@
+V "GNAT Lib v2020"
+A -O0
+A -gnatA
+A --RTS=C:\gnat\2020-arm-elf\arm-eabi\lib\gnat\zfp-cortex-m4f\
+A -mlittle-endian
+A -mthumb
+A -mfloat-abi=hard
+A -mcpu=cortex-m4
+A -mfpu=fpv4-sp-d16
+A -gnata
+A -fcallgraph-info=su
+A -fcallgraph-info=su
+A -g
+A -gnatwa
+A -gnatw_A
+A -gnatQ
+A -gnatw.X
+A -ffunction-sections
+A -fdata-sections
+A -march=armv7e-m+fp
+P ZX
+
+RN
+RV NO_DISPATCH
+RV NO_DISPATCHING_CALLS
+RV NO_EXCEPTIONS
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_UNCHECKED_CONVERSION
+RV NO_DEFAULT_INITIALIZATION
+RV NO_IMPLEMENTATION_ATTRIBUTES
+RV NO_IMPLEMENTATION_PRAGMAS
+
+U lsm303%b		lsm303.adb		6f10098e NE OO PK IU
+Z ada.tags%s		a-tags.adb		a-tags.ali
+
+U lsm303%s		lsm303.ads		37d8f802 EE NE OO PK IU
+W ada%s			ada.ads			ada.ali
+Z ada.tags%s		a-tags.adb		a-tags.ali
+W ada.unchecked_conversion%s
+W hal%s			hal.ads			hal.ali
+W hal.i2c%s		hal-i2c.ads		hal-i2c.ali
+Z system%s		system.ads		system.ali
+Z system.unsigned_types%s  s-unstyp.ads		s-unstyp.ali
+
+D ada.ads		20200819171400 76789da1 ada%s
+D a-tags.ads		20200819171400 95e09aae ada.tags%s
+D a-unccon.ads		20200819171400 0e9b276f ada.unchecked_conversion%s
+D hal.ads		20210108111948 2b42c80e hal%s
+D hal-i2c.ads		20210108111948 0ed73138 hal.i2c%s
+D interfac.ads		20200819171400 5ab55268 interfaces%s
+D lsm303.ads		20210307192450 1cd6265b lsm303%s
+D lsm303.adb		20210307183730 73c62fd5 lsm303%b
+D system.ads		20200819171400 e69b74bd system%s
+D s-stoele.ads		20200819171400 2dc34a04 system.storage_elements%s
+D s-unstyp.ads		20200819171400 5ecf7212 system.unsigned_types%s
+G a e
+G c Z s b [configure lsm303 46 14 none]
+G c Z s b [check_device_id lsm303 48 13 none]
+G c Z s b [read_data lsm303 58 13 none]
+G c Z s s [ctrl_reg1_registerIP lsm303 85 9 none]
+G c Z s s [to_uint8 lsm303 101 13 none]
+G c Z s s [to_reg lsm303 103 13 none]
+G c Z s s [lsm303_accelerometerIP lsm303 61 9 none]
+G c Z s s [all_axes_dataIP lsm303 54 9 none]
+G c Z b b [to_axis_data lsm303 34 13 none]
+G c Z b b [read_register lsm303 36 13 none]
+G c Z b b [write_register lsm303 39 14 none]
+X 1 ada.ads
+16K9*Ada 20e8 7|35r14 101r29 103r27 8|34r33
+X 3 a-unccon.ads
+20v14*Unchecked_Conversion 7|35w18 101r33 103r31 8|34r37
+X 4 hal.ads
+34K9*HAL 166e8 7|32w6 32r22 33r6 33r22
+43M9*UInt4 7|90r19
+53M9*UInt8<6|63M9> 7|73r34 102r27 104r7 8|37r61 41r37 48r61 72r37 114r36
+. 120r36
+54M9*UInt10 8|34r59 121r16 123r17 124r24
+66M9*UInt16<6|66M9> 8|54r44 77r45 133r44
+162A9*UInt8_Array(53M9)<integer>
+X 5 hal-i2c.ads
+32K13*I2C 84e12 7|33w10 33r26
+34E9*I2C_Status 38e12 8|51r16 74r16 128r16
+35n7*Ok{34E9} 8|59r20 82r20 138r20
+40A12*I2C_Data{4|162A9}<integer> 8|50r16 129r16
+43n7*Memory_Size_8b{42E9} 8|55r44 78r45 134r44
+46M12*I2C_Address{4|54M9} 7|77r30
+48h9*I2C_Port
+50P9*Any_I2C_Port(48R9) 7|39r47 61r47
+66x14*Mem_Write 8|76R17
+68m7 Addr{46M12} 8|76r28
+69m7 Mem_Addr{4|66M9} 8|77r28
+70e7 Mem_Addr_Size{42E9} 8|78r28
+71a7 Data{40A12} 8|79r28
+72e7 Status{34E9} 8|80r28
+75x14*Mem_Read 8|53R17 132R17
+77m7 Addr{46M12} 8|53r27 132r27
+78m7 Mem_Addr{4|66M9} 8|54r27 133r27
+79e7 Mem_Addr_Size{42E9} 8|55r27 134r27
+80a7 Data{40A12} 8|56r27 135r27
+81e7 Status{34E9} 8|57r27 136r27
+X 6 interfac.ads
+63M9*Unsigned_8
+66M9*Unsigned_16
+85V13*Shift_Right{63M9} 8|123s25
+X 7 lsm303.ads
+37K9*LSM303 61E9 106l5 106e11 8|32b14 149l5 149t11
+39R9*LSM303_Accelerometer 39d31 46p14 46r54 48p13 48r37 58p13 58r31 61c9
+. 62e17 8|36r35 39r37 47r35 70r37 92r54 104r37 113r31
+39p31 Port{5|50P9} 61r31 8|53r12 76r12 132r12
+43E9*Data_Rate 44e65 65r8
+43n23*DR_1_Hz{43E9} 65r23
+43n32*DR_10_Hz{43E9} 66r23
+43n42*DR_25_Hz{43E9} 67r23
+44n23*DR_50_Hz{43E9} 68r23
+44n33*DR_100_Hz{43E9} 69r23 90r30
+44n44*DR_200_Hz{43E9} 70r23
+44n55*DR_400_Hz{43E9} 71r23
+46U14*Configure 46=25 8|92b14 98l8 98t17
+46r25 This{39R9} 8|92b25 97r7
+48V13*Check_Device_Id{boolean} 48>30 8|104b13 107l8 107t23
+48r30 This{39R9} 8|104b30 106r29
+51I9*Axis_Data<short_integer> 55r17 8|34r67 114r50 120r50
+54R9*All_Axes_Data 56e14 58r60 8|113r60 130r16
+55i7*X{51I9} 8|143m11
+55i10*Y{51I9} 8|144m11
+55i13*Z{51I9} 8|145m11
+58V13*Read_Data{54R9} 58>24 8|113b13 147l8 147t17
+58r24 This{39R9} 8|113b24 132r7
+73M9 Register_Addresss<4|53M9> 80r26 81r26 82r26 83r26 8|37r35 40r37 48r35
+. 71r37
+75N4 Device_Id 8|106r47
+77m4 Device_Address{5|46M12} 8|53r44 76r45 132r44
+80m4 STATUS_REG{73M9} 8|133r52
+81m4 Who_Am_I{73M9} 8|106r35
+82m4 CTRL_REG1{73M9} 8|97r28
+83m4 AUTO_INC{73M9} 8|133r66
+85R9 CTRL_REG1_Register 91e14 93r8 102r7 104r14 8|94r15
+86b7*X_en{boolean} 94r7
+87b7*Y_en{boolean} 95r7
+88b7*Z_en{boolean} 96r7
+89b7*LP_en{boolean} 97r7
+90m7*Data_Rate{4|43M9} 98r7
+101V13 To_UInt8[3|20]{4|53M9} 8|97s39
+103V13 To_Reg[3|20]{85R9}
+X 8 lsm303.adb
+34V13 To_Axis_Data[3|20]{7|51I9} 125s17
+36V13 Read_Register{4|53M9} 36>28 37>28 47b13 64l8 64t21 106s14
+36c28 This<7|39R9> 47b28 53r7
+37m28 Addr{7|73M9} 48b28 54r52
+39U14 Write_Register 39>30 40>30 41>30 70b14 86l8 86t22 97s12
+39c30 This<7|39R9> 70b30 76r7
+40m30 Addr{7|73M9} 71b30 77r53
+41m30 Val{4|53M9} 72b30 79r51
+50a7 Data{5|40A12} 56m44 63r14 63r20
+51e7 Status{5|34E9} 57m44 59r10
+74e7 Status{5|34E9} 80m45 82r10
+94r7 CTRL1{7|85R9} 97r49
+114V16 Convert{7|51I9} 114>25 114>30 120b16 126l11 126t18 143s16 144s16 145s16
+114m25 MSB{4|53M9} 120b25 124r32
+114m30 LSB{4|53M9} 120b30 123r38
+121m10 Tmp{4|54M9} 123m10 124m10 124r17 125r31
+128e7 Status{5|34E9} 136m44 138r10
+129a7 Data{5|40A12} 135m44 143r25 143r35 144r25 144r35 145r25 145r35
+130r7 Ret{7|54R9} 143m7 144m7 145m7 146r14
+

@@ -1,0 +1,119 @@
+V "GNAT Lib v2020"
+A -O0
+A -gnatA
+A --RTS=C:\gnat\2020-arm-elf\arm-eabi\lib\gnat\zfp-cortex-m4f\
+A -mlittle-endian
+A -mthumb
+A -mfloat-abi=hard
+A -mcpu=cortex-m4
+A -mfpu=fpv4-sp-d16
+A -gnata
+A -fcallgraph-info=su
+A -fcallgraph-info=su
+A -g
+A -gnatwa
+A -gnatw_A
+A -gnatQ
+A -gnatw.X
+A -ffunction-sections
+A -fdata-sections
+A -march=armv7e-m+fp
+P ZX
+
+RN
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV STATIC_DISPATCH_TABLES
+
+U ssd1306.standard_resolutions%s  ssd1306-standard_resolutions.ads  0ca7cdd4 NE OO PK IU
+Z ada.tags%s		a-tags.adb		a-tags.ali
+W ssd1306%s		ssd1306.adb		ssd1306.ali
+Z system%s		system.ads		system.ali
+
+D ada.ads		20200819171400 76789da1 ada%s
+D a-tags.ads		20200819171400 95e09aae ada.tags%s
+D hal.ads		20210108111948 2b42c80e hal%s
+D hal-bitmap.ads	20210108111948 85a69113 hal.bitmap%s
+D hal-framebuffer.ads	20210108111948 9811b908 hal.framebuffer%s
+D hal-gpio.ads		20210108111948 7f0c2ffe hal.gpio%s
+D hal-i2c.ads		20210108111948 0ed73138 hal.i2c%s
+D hal-time.ads		20210108111948 f5295cd7 hal.time%s
+D interfac.ads		20200819171400 5ab55268 interfaces%s
+D memory_mapped_bitmap.ads  20210108111948 b0310810 memory_mapped_bitmap%s
+D soft_drawing_bitmap.ads  20210108111948 e11f4ff7 soft_drawing_bitmap%s
+D ssd1306.ads		20210108111948 47510ce0 ssd1306%s
+D ssd1306-standard_resolutions.ads  20210108111948 4bf6c134 ssd1306.standard_resolutions%s
+D system.ads		20200819171400 e69b74bd system%s
+D s-assert.ads		20200819171400 cd8d2c94 system.assertions%s
+D s-stoele.ads		20200819171400 2dc34a04 system.storage_elements%s
+D s-unstyp.ads		20200819171400 5ecf7212 system.unsigned_types%s
+G a e
+G c Z s s [ssd1306_96x16_screenIP ssd1306__standard_resolutions 34 9 none]
+G c Z s s [ssd1306_128x32_screenIP ssd1306__standard_resolutions 40 9 none]
+G c Z s s [ssd1306_128x64_screenIP ssd1306__standard_resolutions 46 9 none]
+G r s ssd1306_screen [ssd1306_96x16_screenIP ssd1306__standard_resolutions 34 9 none] [ssd1306_screenIP ssd1306 216 9 none]
+G r s ssd1306_screen [ssd1306_128x32_screenIP ssd1306__standard_resolutions 40 9 none] [ssd1306_screenIP ssd1306 216 9 none]
+G r s ssd1306_screen [ssd1306_128x64_screenIP ssd1306__standard_resolutions 46 9 none] [ssd1306_screenIP ssd1306 216 9 none]
+X 3 hal.ads
+34K9*HAL 166e8 13|37r35 43r35 49r35
+X 4 hal-bitmap.ads
+100h9*Bitmap_Buffer
+102P9*Any_Bitmap_Buffer(100R9)
+X 5 hal-framebuffer.ads
+44h9*Frame_Buffer_Display
+X 6 hal-gpio.ads
+47h9*GPIO_Point
+49P9*Any_GPIO_Point(47R9) 13|36r35 42r35 48r35
+X 7 hal-i2c.ads
+48h9*I2C_Port
+50P9*Any_I2C_Port(48R9) 13|35r35 41r35 47r35
+X 8 hal-time.ads
+32K13*Time 46e13 13|37r39 43r39 49r39
+34h9*Delays
+36P9*Any_Delays(34R9) 13|37r44 43r44 49r44
+X 12 ssd1306.ads
+42K9*SSD1306 258e12 13|32r9 51r5
+46R9*SSD1306_Screen<5|44R9> 228e17 13|38r11 44r11 50r11
+68U14*Initialize
+72V13*Initialized{boolean}<5|65p13>
+74U14*Turn_On
+75U14*Turn_Off
+76U14*Display_Inversion_On
+77U14*Display_Inversion_Off
+79U14*Write_Raw_Pixels
+83V13*Max_Layers{positive}<5|48p13>
+87V13*Supported{boolean}<5|52p13>
+92U14*Set_Orientation<5|57p14>
+97U14*Set_Mode<5|61p14>
+102V13*Width{positive}<5|68p13>
+106V13*Height{positive}<5|71p13>
+110V13*Swapped{boolean}<5|74p13>
+117U14*Set_Background<5|80p14>
+121U14*Initialize_Layer<5|83p14>
+135V13*Initialized{boolean}<5|96p13>
+140U14*Update_Layer<5|100p14>
+147U14*Update_Layers<5|106p14>
+153V13*Color_Mode{5|36E12}<5|111p13>
+159V13*Hidden_Buffer{4|102P9}<5|116p13>
+165V13*Pixel_Size{positive}<5|122p13>
+X 13 ssd1306-standard_resolutions.ads
+32K17*Standard_Resolutions 12|42k9 13|51l13 51e33
+34R9*SSD1306_96x16_Screen<12|46R9> 12|68p14 72P13 74p14 75p14 76p14 77p14
+. 79p14 83P13 87P13 92P14 97P14 102P13 106P13 110P13 117P14 121P14 135P13
+. 140P14 147P14 153P13 159P13 165P13 13|35d7 36d7 37d7 38e83
+35p7*Port{7|50P9} 38r50
+36p7*RST{6|49P9} 38r56
+37p7*Time{8|36P9} 38r61
+40R9*SSD1306_128x32_Screen<12|46R9> 12|68p14 72P13 74p14 75p14 76p14 77p14
+. 79p14 83P13 87P13 92P14 97P14 102P13 106P13 110P13 117P14 121P14 135P13
+. 140P14 147P14 153P13 159P13 165P13 13|41d7 42d7 43d7 44e85
+41p7*Port{7|50P9} 44r52
+42p7*RST{6|49P9} 44r58
+43p7*Time{8|36P9} 44r63
+46R9*SSD1306_128x64_Screen<12|46R9> 12|68p14 72P13 74p14 75p14 76p14 77p14
+. 79p14 83P13 87P13 92P14 97P14 102P13 106P13 110P13 117P14 121P14 135P13
+. 140P14 147P14 153P13 159P13 165P13 13|47d7 48d7 49d7 50e85
+47p7*Port{7|50P9} 50r52
+48p7*RST{6|49P9} 50r58
+49p7*Time{8|36P9} 50r63
+

@@ -1,0 +1,33 @@
+## Cache
+
+::: callout-note
+## Was Cache?
+:::
+
+### Trashing
+
+### Thrashing / [Seitenflattern](https://de.wikipedia.org/wiki/Seitenflattern)
+
+### Cache Struktur
+
+![Struktur einer Cache-Zeilen](images/performance\cache-line-structure.png){#fig-performance-cache-line-structure}
+
+## GCC Optimization
+
+`-O0` no optimization
+`-O3` all optimization (`-O1`,`-O2`) + function inlining and more
+
+`funroll-loops`
+
+::: {.callout-tip}
+### Enabling Optimization
+
+```c
+#pragma GCC optimize ("O0")
+```
+:::
+
+
+<!--[CPU/MCU MMU]------------------------------------------------------------------------>
+
+##

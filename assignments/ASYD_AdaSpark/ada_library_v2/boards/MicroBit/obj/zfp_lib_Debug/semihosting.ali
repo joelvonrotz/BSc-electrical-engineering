@@ -1,0 +1,216 @@
+V "GNAT Lib v2020"
+A -O0
+A -gnatA
+A --RTS=C:\gnat\2020-arm-elf\arm-eabi\lib\gnat\zfp-cortex-m4f\
+A -mlittle-endian
+A -mthumb
+A -mfloat-abi=hard
+A -mcpu=cortex-m4
+A -mfpu=fpv4-sp-d16
+A -gnata
+A -fcallgraph-info=su
+A -fcallgraph-info=su
+A -g
+A -gnatwa
+A -gnatw_A
+A -gnatQ
+A -gnatw.X
+A -ffunction-sections
+A -fdata-sections
+A -march=armv7e-m+fp
+P ZX
+
+RN
+RV NO_UNCHECKED_CONVERSION
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_ATTRIBUTES
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_OBSOLESCENT_FEATURES
+
+U semihosting%b		semihosting.adb		34fbaca4 NE OO PK
+W ada%s			ada.ads			ada.ali
+W ada.unchecked_conversion%s
+W cortex_m%s		cortex_m.ads		cortex_m.ali
+W cortex_m.debug%s	cortex_m-debug.adb	cortex_m-debug.ali
+W hal%s			hal.ads			hal.ali
+W interfaces%s		interfac.ads		interfac.ali
+W interfaces.c%s	i-c.ads			i-c.ali
+W system%s		system.ads		system.ali
+W system.machine_code%s	s-maccod.ads		s-maccod.ali
+
+U semihosting%s		semihosting.ads		079752ea EE NE OO PK
+W hal%s			hal.ads			hal.ali
+W system%s		system.ads		system.ali
+
+D ada.ads		20200819171400 76789da1 ada%s
+D a-unccon.ads		20200819171400 0e9b276f ada.unchecked_conversion%s
+D cortex_m.ads		20210108111948 38b367df cortex_m%s
+D cortex_m-debug.ads	20210108111948 4e93aeeb cortex_m.debug%s
+D hal.ads		20210108111948 2b42c80e hal%s
+D interfac.ads		20200819171400 5ab55268 interfaces%s
+D i-c.ads		20200819171400 ef84921c interfaces.c%s
+D semihosting.ads	20210108111948 ca4eee59 semihosting%s
+D semihosting.adb	20210108111948 1713366a semihosting%b
+D system.ads		20200819171400 e69b74bd system%s
+D s-maccod.ads		20200819171400 6d68a701 system.machine_code%s
+G a e
+G c Z s b [write_c semihosting 54 14 none]
+G c Z s b [write_0 semihosting 55 14 none]
+G c Z s b [close semihosting 56 13 none]
+G c Z s b [open semihosting 57 13 none]
+G c Z s b [read semihosting 58 13 none]
+G c Z s b [write semihosting 61 13 none]
+G c Z s b [remove semihosting 64 13 none]
+G c Z s b [seek semihosting 65 13 none]
+G c Z s b [errno semihosting 67 13 none]
+G c Z s b [log_line semihosting 71 14 none]
+G c Z s b [log_new_line semihosting 72 14 none]
+G c Z b b [to_sh_u32 semihosting 43 13 none]
+G c Z b b [to_sh_u32 semihosting 45 13 none]
+G c Z b b [semihosting_enabled semihosting 72 13 none]
+G c Z b b [generic_sh_call semihosting 74 13 none]
+G c Z b b [generic_sh_call semihosting 75 13 none]
+G c Z b b [sh_u32_arrayIP semihosting 40 9 none]
+G r c none [write_c semihosting 54 14 none] [halting_debug_enabled cortex_m__debug 34 13 none]
+G r c none [write_0 semihosting 55 14 none] [halting_debug_enabled cortex_m__debug 34 13 none]
+G r c none [close semihosting 56 13 none] [halting_debug_enabled cortex_m__debug 34 13 none]
+G r c none [open semihosting 57 13 none] [halting_debug_enabled cortex_m__debug 34 13 none]
+G r c none [read semihosting 58 13 none] [halting_debug_enabled cortex_m__debug 34 13 none]
+G r c none [write semihosting 61 13 none] [halting_debug_enabled cortex_m__debug 34 13 none]
+G r c none [remove semihosting 64 13 none] [halting_debug_enabled cortex_m__debug 34 13 none]
+G r c none [seek semihosting 65 13 none] [halting_debug_enabled cortex_m__debug 34 13 none]
+G r c none [log_line semihosting 71 14 none] [halting_debug_enabled cortex_m__debug 34 13 none]
+G r c none [log_new_line semihosting 72 14 none] [halting_debug_enabled cortex_m__debug 34 13 none]
+G r c none [semihosting_enabled semihosting 72 13 none] [halting_debug_enabled cortex_m__debug 34 13 none]
+X 1 ada.ads
+16K9*Ada 20e8 9|35r6 43r30 45r30
+X 2 a-unccon.ads
+17+9 Source 9|44r7 46r7
+18+9 Target 9|44r33 46r26
+20v14*Unchecked_Conversion 9|35w10 43r34 45r34
+X 3 cortex_m.ads
+32K9*Cortex_M 34e13 9|32r6 73r7
+X 4 cortex_m-debug.ads
+32K18*Debug 36e19 9|32w15 73r16
+34V13*Halting_Debug_Enabled{boolean} 9|73s22
+X 5 hal.ads
+34K9*HAL 166e8 8|33w6 37r24 9|34w6 34r15
+53M9*UInt8<6|63M9>
+97M9*UInt32<6|74M9> 8|37r28
+162A9*UInt8_Array(53M9)<integer> 9|265r30
+X 6 interfac.ads
+38K9*Interfaces 184e15 9|36r6 36r24
+63M9*Unsigned_8
+74M9*Unsigned_32
+X 7 i-c.ads
+39K20*C 103e17 9|36w17 36r35
+73M9*size_t 9|135r18 205r18
+85E9*char<character> 9|136r12 206r12
+87e4*nul{85E9} 9|138r31 208r31
+89A9*char_array(85E9)<73M9> 9|127r16 197r16
+X 8 semihosting.ads
+35K9*Semihosting 74l5 74e16 9|38b14 304l5 304t16
+37M9*SH_Word<5|97M9> 39r20 56r34 56r50 57r58 58r37 60r37 60r53 61r38 63r38
+. 63r54 64r47 65r33 66r39 66r55 67r26 9|40r53 44r43 46r36 48r23 74r39 74r55
+. 75r35 75r72 81r39 81r55 82r13 88r25 89r25 90r25 100r35 100r72 109r34 109r50
+. 114r17 125r58 131r17 151r37 153r37 153r53 173r38 175r38 175r54 195r47 201r17
+. 220r39 221r39 221r55 227r17 240r26 250r13 267r14
+39M12*Flag{37M9} 41r35 42r35 43r35 44r35 45r35 46r35 47r35 48r35 49r35 50r35
+. 51r35 52r35 57r45 9|125r45
+41m4*OPEN_FLAG_R{39M12}
+42m4*OPEN_FLAG_RB{39M12}
+43m4*OPEN_FLAG_R_PLUS{39M12}
+44m4*OPEN_FLAG_R_PLUS_B{39M12}
+45m4*OPEN_FLAG_W{39M12}
+46m4*OPEN_FLAG_WB{39M12}
+47m4*OPEN_FLAG_W_PLUS{39M12}
+48m4*OPEN_FLAG_W_PLUS_B{39M12}
+49m4*OPEN_FLAG_A{39M12}
+50m4*OPEN_FLAG_AB{39M12}
+51m4*OPEN_FLAG_A_PLUS{39M12}
+52m4*OPEN_FLAG_A_PLUS_B{39M12}
+54U14*Write_C 54>23 69r42 9|249b14 258l8 258t15 300s7
+54e23 C{character} 9|249b23 257r43
+55U14*Write_0 55>23 70r41 9|264b14 282l8 282t15
+55a23 Str{string} 9|264b23 266r26 266r39 274r20 275r41 279r13
+56V13*Close{37M9} 56>20 9|109b13 119l8 119t13
+56m20 File_Handle{37M9} 9|109b20 117r20
+57V13*Open{37M9} 57>19 57>38 9|125b13 145l8 145t12
+57a19 Filename{string} 9|125b19 127r33 134r16 135r30 136r37 142r20
+57m38 Mode{39M12} 9|125b38 141r20
+58V13*Read{37M9} 58>19 59>19 60>19 9|151b13 167l8 167t12
+58m19 File_Handle{37M9} 9|151b19 162r20
+59m19 Buffer_Address{10|90M9} 9|152b19 163r31
+60m19 Buffer_Size{37M9} 9|153b19 159r17 164r20
+61V13*Write{37M9} 61>20 62>20 63>20 9|173b13 189l8 189t13
+61m20 File_Handle{37M9} 9|173b20 184r20
+62m20 Buffer_Address{10|90M9} 9|174b20 185r31
+63m20 Buffer_Size{37M9} 9|175b20 181r17 186r20
+64V13*Remove{37M9} 64>21 9|195b13 214l8 214t14
+64a21 Filename{string} 9|195b21 197r33 204r16 205r30 206r37 211r31
+65V13*Seek{37M9} 65>19 66>19 9|220b13 234l8 234t12
+65m19 File_Handle{37M9} 9|220b19 230r20
+66m19 Absolute_Position{37M9} 9|221b19 231r20
+67V13*Errno{37M9} 9|240b13 243l8 243t13
+69U14*Log=69:42
+69e19 C{character}
+70U14*Log=70:41 9|290s7
+70a19 Str{string}
+71U14*Log_Line 71>24 9|288b14 292l8 292t16
+71a24 Str{string} 9|288b24 290r12
+72U14*Log_New_Line 9|291s7 298b14 301l8 301t20
+X 9 semihosting.adb
+40A9 SH_u32_Array(8|37M9)<integer> 110r15 126r16 155r16 177r16 196r16 223r16
+43V13 To_SH_u32[2|20]{8|37M9} 102s35 140s20 163s20 185s20 210s20
+45V13 To_SH_u32[2|20]{8|37M9} 211s20
+48M12 Syscall{8|37M9} 50r28 51r28 52r28 53r28 54r28 55r28 59r28 62r28 66r28
+50m4 SYS_OPEN{48M12} 144r31
+51m4 SYS_CLOSE{48M12} 118r31
+52m4 SYS_WRITEC{48M12} 257r31
+53m4 SYS_WRITE0{48M12} 281r31
+54m4 SYS_WRITE{48M12} 188r31
+55m4 SYS_READ{48M12} 166r31
+59m4 SYS_SEEK{48M12} 233r31
+62m4 SYS_REMOVE{48M12} 213r31
+66m4 SYS_ERRNO{48M12} 242r31
+72V13 Semihosting_Enabled{boolean} 112s14 129s14 157s14 179s14 199s14 225s14
+. 252s14 269s14
+74V13 Generic_SH_Call{8|37M9} 74>30 74>34 81b13 94l8 94t23 102s14 242s14
+74m30 R0{8|37M9} 81b30 89r49
+74m34 R1{8|37M9} 81b34 90r49
+75V13 Generic_SH_Call{8|37M9} 75>30 75>44 100b13 103l8 103t23 118s14 144s14
+. 166s14 188s14 213s14 233s14 257s14 281s14
+75m30 R0{8|37M9} 100b30 102r31
+75m44 R1{10|90M9} 100b44 102r46
+82m7 Ret{8|37M9} 88m51 88r51 93r14
+110a7 Block{40A9} 117m7 118m42 118r42
+126a7 Block{40A9} 140m7 141m7 142m7 144m41 144r41
+127a7 C_Name{7|89A9} 135m10 138m7 138r15 140m31 140r31
+134i11 J{integer} 135r26 136r47
+155a7 Block{40A9} 162m7 163m7 164m7 166m41 166r41
+177a7 Block{40A9} 184m7 185m7 186m7 188m42 188r42
+196a7 Block{40A9} 210m7 211m7 213m43 213r43
+197a7 C_Name{7|89A9} 205m10 208m7 208r15 210m31 210r31
+204i11 J{integer} 205r26 206r47
+223a7 Block{40A9} 230m7 231m7 233m41 233r41
+250m7 Ret{8|37M9} 257m7
+265A12 Byte_Array<5|162A9>(5|53M9)<integer> 266r14
+266a7 Data{265A12} 275m10 279m7 281m43 281r43
+267m7 Ret{8|37M9} 281m7
+274i11 Index{integer} 275r16 275r46
+X 10 system.ads
+60K9*System 8|32w6 59r37 62r38 9|33r6 33r31 44r17 75r49 100r49 152r37 174r38
+. 10|172e11
+90M9*Address 8|59r44 62r45 9|44r24 75r56 100r56 152r44 174r45
+X 11 s-maccod.ads
+36K16*Machine_Code 9|33w13 33r38 11|131e24
+44I9*Asm_Input_Operand<integer>
+45I9*Asm_Output_Operand<integer>
+52A9*Asm_Input_Operand_List(44I9)<integer>
+69U14*Asm 9|84s7
+71i6 Outputs{45I9} 9|88r12
+72a6 Inputs{52A9} 9|89r12
+73a6 Clobber{string} 9|92r12
+74b6 Volatile{boolean} 9|91r12
+

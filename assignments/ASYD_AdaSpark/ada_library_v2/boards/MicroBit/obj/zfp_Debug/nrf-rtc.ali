@@ -1,0 +1,145 @@
+V "GNAT Lib v2020"
+A -O0
+A -gnatA
+A --RTS=C:\gnat\2020-arm-elf\arm-eabi\lib\gnat\zfp-cortex-m4f\
+A -mlittle-endian
+A -mthumb
+A -mfloat-abi=hard
+A -mcpu=cortex-m4
+A -mfpu=fpv4-sp-d16
+A -gnata
+A -fcallgraph-info=su
+A -fcallgraph-info=su
+A -g
+A -gnatwa
+A -gnatw_A
+A -gnatQ
+A -gnatw.X
+A -ffunction-sections
+A -fdata-sections
+A -march=armv7e-m+fp
+P ZX
+
+RN
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_IMPLEMENTATION_PRAGMAS
+
+U nrf.rtc%b		nrf-rtc.adb		8082e11f NE OO PK
+Z interfaces%s		interfac.ads		interfac.ali
+W nrf%s			nrf.ads			nrf.ali
+W nrf_svd%s		nrf_svd.ads		nrf_svd.ali
+W nrf_svd.rtc%s		nrf_svd-rtc.ads		nrf_svd-rtc.ali
+Z system%s		system.ads		system.ali
+
+U nrf.rtc%s		nrf-rtc.ads		3e92c403 EE NE OO PK
+W hal%s			hal.ads			hal.ali
+W nrf%s			nrf.ads			nrf.ali
+W nrf_svd%s		nrf_svd.ads		nrf_svd.ali
+W nrf_svd.rtc%s		nrf_svd-rtc.ads		nrf_svd-rtc.ali
+
+D hal.ads		20210108111948 2b42c80e hal%s
+D interfac.ads		20200819171400 5ab55268 interfaces%s
+D nrf.ads		20210108111948 74cf72f5 nrf%s
+D nrf-rtc.ads		20210108111948 36d88130 nrf.rtc%s
+D nrf-rtc.adb		20210108111948 e19d9fe7 nrf.rtc%b
+D nrf_svd.ads		20210306183508 87ba21d7 nrf_svd%s
+D nrf_svd-rtc.ads	20210108111948 57c7ffc8 nrf_svd.rtc%s
+D system.ads		20200819171400 e69b74bd system%s
+D s-stoele.ads		20200819171400 2dc34a04 system.storage_elements%s
+D s-unstyp.ads		20200819171400 5ecf7212 system.unsigned_types%s
+G a e
+G c Z s b [start nrf__rtc 44 14 none]
+G c Z s b [stop nrf__rtc 45 14 none]
+G c Z s b [clear nrf__rtc 46 14 none]
+G c Z s b [set_prescaler nrf__rtc 48 14 none]
+G c Z s b [counter nrf__rtc 51 13 none]
+G c Z s b [set_compare nrf__rtc 53 14 none]
+G c Z s b [event nrf__rtc 57 13 none]
+G c Z s b [enable_event nrf__rtc 60 14 none]
+G c Z s b [disable_event nrf__rtc 62 14 none]
+G c Z s s [real_time_counterIP nrf__rtc 65 9 none]
+X 1 hal.ads
+34K9*HAL 166e8 4|33w6 33r15
+58M9*UInt12 4|49r41 5|68r19
+81M9*UInt24 4|51r55 55r37 5|78r55 90r17
+97M9*UInt32<2|74M9>
+X 2 interfac.ads
+74M9*Unsigned_32
+X 3 nrf.ads
+34K9*nRF 43e8 4|35r9 66r5 5|34r14 172r5
+36M9*Event_Type<8|90M9> 4|58r46 5|103r14 108r20 110r20 112r20 114r20 116r20
+. 118r20
+X 4 nrf-rtc.ads
+35K13*RTC 3|34k9 4|65E9 66l9 66e12 5|34b18 172l9 172t12
+37E9*RTC_Events 38e73 58r27 61r35 63r36 5|102r14 128r14 153r14
+37n24*Tick_Event{37E9} 5|107r15 132r15 157r15
+37n36*Overflow_Event{37E9} 5|109r15 134r15 159r15
+37n52*Compare_0_Event{37E9} 5|111r15 136r15 161r15
+38n23*Compare_1_Event{37E9} 5|113r15 138r15 163r15
+38n40*Compare_2_Event{37E9} 5|115r15 140r15 165r15
+38n57*Compare_3_Event{37E9} 5|117r15 142r15 167r15
+40I9*Compare_Channel<short_short_integer> 54r37 5|89r17
+42R9*Real_Time_Counter 42d28 44r28 45r27 46r28 48r41 51r29 53r37 57r27 60r35
+. 62r36 65c9 5|40r28 48r27 57r28 67r19 78r29 88r17 101r14 127r14 152r14
+44U14*Start 44>21 5|40b14 43l8 43t13
+44r21 This{42R9} 5|40b21 42r7
+45U14*Stop 45>20 5|48b14 51l8 51t12
+45r20 This{42R9} 5|48b20 50r7
+46U14*Clear 46>21 5|57b14 60l8 60t13
+46r21 This{42R9} 5|57b21 59r7
+48U14*Set_Prescaler 48>29 49>29 5|66b14 72l8 72t21
+48r29 This{42R9} 5|67b7 71r7
+49m29 Prescaler{1|58M9} 5|68b7 71r42
+51V13*Counter{1|81M9} 51>22 5|78b13 81l8 81t15
+51r22 This{42R9} 5|78b22 80r14
+53U14*Set_Compare 53>27 54>27 55>27 5|87b14 94l8 94t19
+53r27 This{42R9} 5|88b7 93r7
+54i27 Compare{40I9} 5|89b7 93r32
+55m27 Value{1|81M9} 5|90b7 93r53
+57V13*Event{3|36M9} 57>20 58>20 5|100b13 120l8 120t13
+57r20 This{42R9} 5|101b7 108r32 110r32 112r32 114r32 116r32 118r32
+58e20 Evt{37E9} 5|102b7 106r12
+60U14*Enable_Event 60>28 61>28 5|126b14 145l8 145t20
+60r28 This{42R9} 5|127b7 133r13 135r13 137r13 139r13 141r13 143r13
+61e28 Evt{37E9} 5|128b7 131r12
+62U14*Disable_Event 62>29 63>29 5|151b14 170l8 170t21
+62r29 This{42R9} 5|152b7 158r13 160r13 162r13 164r13 166r13 168r13
+63e29 Evt{37E9} 5|153b7 156r12
+X 6 nrf_svd.ads
+49K9*NRF_SVD 4|32r6 42r53 65r53 5|32r6 32r23 6|123e12
+X 7 nrf_svd-rtc.ads
+48K17*RTC 4|32w14 42r61 65r61 5|32w14 32r31 7|731e16
+58A9*EVENTS_COMPARE_Registers(1|97M9)<integer>
+295n7*Disabled{293E9} 5|158r39
+297n7*Enabled{293E9} 5|133r39
+306n7*Disabled{304E9} 5|160r41
+308n7*Enabled{304E9} 5|135r41
+317n7*Disabled{315E9} 5|162r50 164r50 166r50 168r50
+319n7*Enabled{315E9} 5|137r50 139r50 141r50 143r50
+326A9*EVTEN_COMPARE_Field_Array(315E9)<integer>
+339a13*Arr{326A9} 5|137m39 137r39 139m39 139r39 141m39 141r39 143m39 143r39
+. 162m39 162r39 164m39 164r39 166m39 166r39 168m39 168r39
+352e7*TICK{293E9} 5|133m31 158m31
+354e7*OVRFLW{304E9} 5|135m31 160m31
+358r7*COMPARE{330R9} 5|137m31 137r31 139m31 139r31 141m31 141r31 143m31 143r31
+. 162m31 162r31 164m31 164r31 166m31 166r31 168m31 168r31
+611m7*COUNTER{606M12} 5|80r34
+629m7*PRESCALER{623M12} 5|71m29
+646m7*COMPARE{641M12} 5|93m42
+659A9*CC_Registers(644R9)<integer>
+666R9*RTC_Peripheral 4|42r65 65r65 7|699e6
+668m7*TASKS_START{1|97M9} 5|42m19
+670m7*TASKS_STOP{1|97M9} 5|50m19
+672m7*TASKS_CLEAR{1|97M9} 5|59m19
+676m7*EVENTS_TICK{1|97M9} 5|108m44
+678m7*EVENTS_OVRFLW{1|97M9} 5|110m44
+680a7*EVENTS_COMPARE{58A9} 5|112m44 114m44 116m44 118m44
+686r7*EVTEN{350R9} 5|133m25 135m25 137m25 137r25 139m25 139r25 141m25 141r25
+. 143m25 143r25 158m25 160m25 162m25 162r25 164m25 164r25 166m25 166r25 168m25
+. 168r25
+692r7*COUNTER{609R9} 5|80r26
+695r7*PRESCALER{627R9} 5|71m19
+697a7*CC{659A9} 5|93m19
+X 8 system.ads
+90M9*Address
+

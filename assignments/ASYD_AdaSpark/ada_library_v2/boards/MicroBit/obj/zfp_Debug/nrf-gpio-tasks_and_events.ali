@@ -1,0 +1,177 @@
+V "GNAT Lib v2020"
+A -O0
+A -gnatA
+A --RTS=C:\gnat\2020-arm-elf\arm-eabi\lib\gnat\zfp-cortex-m4f\
+A -mlittle-endian
+A -mthumb
+A -mfloat-abi=hard
+A -mcpu=cortex-m4
+A -mfpu=fpv4-sp-d16
+A -gnata
+A -fcallgraph-info=su
+A -fcallgraph-info=su
+A -g
+A -gnatwa
+A -gnatw_A
+A -gnatQ
+A -gnatw.X
+A -ffunction-sections
+A -fdata-sections
+A -march=armv7e-m+fp
+P ZX
+
+RN
+RV NO_IMPLEMENTATION_PRAGMAS
+
+U nrf.gpio.tasks_and_events%b  nrf-gpio-tasks_and_events.adb  6b4be5a8 NE OO PK
+W hal%s			hal.ads			hal.ali
+Z interfaces%s		interfac.ads		interfac.ali
+W nrf.gpio%s		nrf-gpio.adb		nrf-gpio.ali
+W nrf_svd%s		nrf_svd.ads		nrf_svd.ali
+W nrf_svd.gpiote%s	nrf_svd-gpiote.ads	nrf_svd-gpiote.ali
+Z system%s		system.ads		system.ali
+Z system.assertions%s	s-assert.adb		s-assert.ali
+
+U nrf.gpio.tasks_and_events%s  nrf-gpio-tasks_and_events.ads  ebddfee6 BN EE NE OO PK
+W nrf.gpio%s		nrf-gpio.adb		nrf-gpio.ali
+
+D ada.ads		20200819171400 76789da1 ada%s
+D a-tags.ads		20200819171400 95e09aae ada.tags%s
+D hal.ads		20210108111948 2b42c80e hal%s
+D hal-gpio.ads		20210108111948 7f0c2ffe hal.gpio%s
+D interfac.ads		20200819171400 5ab55268 interfaces%s
+D nrf.ads		20210108111948 74cf72f5 nrf%s
+D nrf-gpio.ads		20210306151712 72dee5c2 nrf.gpio%s
+D nrf-gpio-tasks_and_events.ads  20210108111948 99031b24 nrf.gpio.tasks_and_events%s
+D nrf-gpio-tasks_and_events.adb  20210108111948 f87a732b nrf.gpio.tasks_and_events%b
+D nrf_svd.ads		20210306183508 87ba21d7 nrf_svd%s
+D nrf_svd-gpiote.ads	20210108111948 217045a9 nrf_svd.gpiote%s
+D system.ads		20200819171400 e69b74bd system%s
+D s-assert.ads		20200819171400 cd8d2c94 system.assertions%s
+D s-stoele.ads		20200819171400 2dc34a04 system.storage_elements%s
+D s-unstyp.ads		20200819171400 5ecf7212 system.unsigned_types%s
+G a e
+G c Z s b [disable nrf__gpio__tasks_and_events 36 14 none]
+G c Z s b [enable_event nrf__gpio__tasks_and_events 40 14 none]
+G c Z s b [enable_channel_interrupt nrf__gpio__tasks_and_events 46 14 none]
+G c Z s b [channel_event_set nrf__gpio__tasks_and_events 50 13 none]
+G c Z s b [acknowledge_channel_interrupt nrf__gpio__tasks_and_events 53 14 none]
+G c Z s b [disable_channel_interrupt nrf__gpio__tasks_and_events 58 14 none]
+G c Z s b [enable_port_interrupt nrf__gpio__tasks_and_events 60 14 none]
+G c Z s b [port_event_set nrf__gpio__tasks_and_events 65 13 none]
+G c Z s b [acknowledge_port_interrupt nrf__gpio__tasks_and_events 68 14 none]
+G c Z s b [disable_port_interrupt nrf__gpio__tasks_and_events 70 14 none]
+G c Z s b [enable_task nrf__gpio__tasks_and_events 75 14 none]
+G c Z s b [out_task nrf__gpio__tasks_and_events 82 13 none]
+G c Z s b [in_event nrf__gpio__tasks_and_events 85 13 none]
+X 3 hal.ads
+34K9*HAL 166e8 9|33w6 33r28
+45M9*UInt5 9|118r22 149r22
+97M9*UInt32<5|74M9>
+X 4 hal-gpio.ads
+47h9*GPIO_Point
+X 5 interfac.ads
+74M9*Unsigned_32
+X 6 nrf.ads
+34K9*nRF 43e8 8|32r9 88r5 9|35r14 181r5
+36M9*Event_Type<12|90M9> 8|85r53 9|178r53 179r8
+38M9*Task_Type<12|90M9> 8|82r53 9|164r53 165r8
+X 7 nrf-gpio.ads
+33K13*GPIO 6|34k9 7|124e13 8|32r13 88r9 9|35r18 181r9
+35I12*GPIO_Pin_Index{natural} 8|41r39 76r43 9|113r18 143r23
+X 8 nrf-gpio-tasks_and_events.ads
+32K18*Tasks_And_Events 7|33k13 8|88l14 88e30 9|35b23 181l14 181t30
+34I9*GPIOTE_Channel<short_short_integer> 36r30 40r39 46r47 50r39 53r52 58r48
+. 75r43 82r30 85r30 9|41r52 61r39 68r30 78r48 100r47 112r18 142r23 164r30
+. 178r30
+36U14*Disable 36>23 9|68b14 72l8 72t15
+36i23 Chan{34I9} 9|68b23 71r38
+38E9*Event_Polarity 38e66 42r39 9|114r18
+38n28*Rising_Edge{38E9} 9|120r32
+38n41*Falling_Edge{38E9} 9|121r32
+38n55*Any_Change{38E9} 9|122r32
+40U14*Enable_Event 40>28 41>28 42>28 9|111b14 124l8 124t20
+40i28 Chan{34I9} 9|112b7 116r71
+41i28 GPIO_Pin{7|35I12} 9|113b7 118r29
+42e28 Polarity{38E9} 9|114b7 119r32
+46U14*Enable_Channel_Interrupt 46>40 9|100b14 105l8 105t32
+46i40 Chan{34I9} 9|100b40 104r35
+50V13*Channel_Event_Set{boolean} 50>32 54s16 9|61b13
+50i32 Chan{34I9} 9|62r42
+53U14*Acknowledge_Channel_Interrupt 53>45 9|41b14 45l8 45t37
+53i45 Chan{34I9} 54r35 9|41b45 44r41
+58U14*Disable_Channel_Interrupt 58>41 9|78b14 83l8 83t33
+58i41 Chan{34I9} 9|78b41 82r35
+60U14*Enable_Port_Interrupt 9|130b14 135l8 135t29
+65V13*Port_Event_Set{boolean} 9|171b13
+68U14*Acknowledge_Port_Interrupt 9|51b14 55l8 55t34
+70U14*Disable_Port_Interrupt 9|89b14 94l8 94t30
+72E9*Task_Action 72e56 77r43 9|144r23
+72n25*Set_Pin{72E9} 9|151r32
+72n34*Clear_Pin{72E9} 9|152r32
+72n45*Toggle_Pin{72E9} 9|153r35
+73E9*Init_Value 73e45 78r43 9|145r23
+73n24*Init_Set{73E9} 9|155r34
+73n34*Init_Clear{73E9} 9|156r34
+75U14*Enable_Task 75>27 76>27 77>27 78>27 9|141b14 158l8 158t19
+75i27 Chan{34I9} 9|142b7 147r71
+76i27 GPIO_Pin{7|35I12} 9|143b7 149r29
+77e27 Action{72E9} 9|144b7 150r32
+78e27 Initial_Value{73E9} 9|145b7 154r31
+82V13*Out_Task{6|38M9} 82>23 9|164b13
+82i23 Chan{34I9} 9|165r53
+85V13*In_Event{6|36M9} 85>23 9|178b13
+85i23 Chan{34I9} 9|179r54
+X 9 nrf-gpio-tasks_and_events.adb
+80r7 INTENCLR{11|234R9} 82r7
+91r7 INTENCLR{11|234R9} 93r7
+102r7 INTENSET{11|148R9} 104r7
+116r7 CONFIG{11|304R9} 118r7 119r7 123r7
+132r7 INTENSET{11|148R9} 134r7
+147r7 CONFIG{11|304R9} 149r7 150r7 154r7 157r7
+X 10 nrf_svd.ads
+49K9*NRF_SVD 9|32r6 32r26 10|123e12
+X 11 nrf_svd-gpiote.ads
+48K17*GPIOTE 9|32w14 32r34 11|390e19
+59A9*TASKS_OUT_Registers(3|97M9)<integer>
+77A9*EVENTS_IN_Registers(3|97M9)<integer>
+95n7*Set{91E9} 9|104r45
+102A9*INTENSET_IN_Field_Array(91E9)<integer>
+115a13*Arr{102A9} 9|104m21 104r21
+141n7*Set{137E9} 9|134r24
+148R9*INTENSET_Register 9|102r18 132r18 11|156e6
+150r7*IN_k{106R9} 9|104m16 104r16
+154e7*PORT{137E9} 9|134m16
+181n7*Clear{177E9} 9|82r45
+188A9*INTENCLR_IN_Field_Array(177E9)<integer>
+201a13*Arr{188A9} 9|82m21 82r21
+227n7*Clear{223E9} 9|93r24
+234R9*INTENCLR_Register 9|80r18 91r18 11|242e6
+236r7*IN_k{192R9} 9|82m16 82r16
+240e7*PORT{223E9} 9|93m16
+254n7*Disabled{252E9} 9|71r53
+256n7*Event{252E9} 9|123r22
+258n7*Task_k{252E9} 9|157r22
+276n7*Lotohi{270E9} 9|120r48 151r46
+279n7*Hitolo{270E9} 9|121r48 152r46
+282n7*Toggle{270E9} 9|122r48 153r49
+294n7*Low{292E9} 9|156r48
+296n7*High{292E9} 9|155r46
+304R9*CONFIG_Register 9|116r16 147r16 11|326e6
+306e7*MODE{252E9} 9|71m45 123m14 157m14
+311m7*PSEL{265M12} 9|118m14 149m14
+317e7*POLARITY{270E9} 9|119m14 150m14
+322e7*OUTINIT{292E9} 9|154m14
+342A9*CONFIG_Registers(304R9)<integer>
+352a7*TASKS_OUT{59A9} 9|165m33
+361a7*EVENTS_IN{77A9} 9|44m21 62r22 179m34
+364m7*EVENTS_PORT{3|97M9} 9|54m21 172r22
+366r7*INTENSET{148R9} 9|102m58 102r58 132m58
+368r7*INTENCLR{234R9} 9|80m58 80r58 91m58
+371a7*CONFIG{342A9} 9|71m21 116m54 147m54
+387r4*GPIOTE_Periph{349R9} 9|44m7 54m7 62r8 71m7 80m44 80r44 91m44 91r44
+. 102m44 102r44 116m40 116r40 132m44 132r44 147m40 147r40 165m19 165r19 172r8
+. 179m20 179r20
+X 12 system.ads
+90M9*Address
+

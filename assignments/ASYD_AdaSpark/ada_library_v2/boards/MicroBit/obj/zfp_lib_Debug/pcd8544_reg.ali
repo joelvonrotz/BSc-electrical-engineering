@@ -1,0 +1,76 @@
+V "GNAT Lib v2020"
+A -O0
+A -gnatA
+A --RTS=C:\gnat\2020-arm-elf\arm-eabi\lib\gnat\zfp-cortex-m4f\
+A -mlittle-endian
+A -mthumb
+A -mfloat-abi=hard
+A -mcpu=cortex-m4
+A -mfpu=fpv4-sp-d16
+A -gnata
+A -fcallgraph-info=su
+A -fcallgraph-info=su
+A -g
+A -gnatwa
+A -gnatw_A
+A -gnatQ
+A -gnatw.X
+A -ffunction-sections
+A -fdata-sections
+A -march=armv7e-m+fp
+P ZX
+
+RN
+RV NO_UNCHECKED_CONVERSION
+RV NO_IMPLEMENTATION_PRAGMAS
+
+U pcd8544_reg%s		pcd8544_reg.ads		a43e4266 NE OO PK
+W ada%s			ada.ads			ada.ali
+W ada.unchecked_conversion%s
+W hal%s			hal.ads			hal.ali
+
+D ada.ads		20200819171400 76789da1 ada%s
+D a-unccon.ads		20200819171400 0e9b276f ada.unchecked_conversion%s
+D hal.ads		20210108111948 2b42c80e hal%s
+D interfac.ads		20200819171400 5ab55268 interfaces%s
+D pcd8544_reg.ads	20210108111948 81e7ad07 pcd8544_reg%s
+D system.ads		20200819171400 e69b74bd system%s
+G a e
+G c Z s s [pcd8544_function_registerIP pcd8544_reg 50 9 none]
+G c Z s s [convert pcd8544_reg 80 13 none]
+G c Z s s [pcd8544_display_registerIP pcd8544_reg 65 9 none]
+G c Z s s [convert pcd8544_reg 82 13 none]
+X 1 ada.ads
+16K9*Ada 20e8 5|32r6 80r28 82r28
+X 2 a-unccon.ads
+20v14*Unchecked_Conversion 5|32w10 80r32 82r32
+X 3 hal.ads
+34K9*HAL 166e8 5|33w6 81r34 83r33
+53M9*UInt8<4|63M9> 5|81r38 83r37
+X 4 interfac.ads
+63M9*Unsigned_8
+X 5 pcd8544_reg.ads
+35K9*PCD8544_Reg 85l5 85e16
+38N4*PCD8544_CMD_FUNCTION
+39N4*PCD8544_CMD_DISPLAY
+40N4*PCD8544_CMD_SET_X
+41N4*PCD8544_CMD_SET_Y
+44N4*PCD8544_CMD_SET_TC
+45N4*PCD8544_CMD_SET_BIAS
+46N4*PCD8544_CMD_SET_VOP
+48E9*PCD8544_Address_Mode 48e55 52r23
+48n34*Horizontal{48E9} 52r47
+48n46*Vertical{48E9}
+50R9*PCD8544_Function_Register 55e14 57r8 63r8 81r7
+51b7*Power_Down{boolean} 59r7
+52e7*Address_Mode{48E9} 60r7
+53b7*Extended_Mode{boolean} 61r7
+54b7*Reserved{boolean} 58r7
+65R9*PCD8544_Display_Register 70e14 72r8 78r8 83r7
+66b7*Enable{boolean} 75r7
+67b7*Invert{boolean} 76r7
+68b7*Reserved1{boolean} 74r7
+69b7*Reserved2{boolean} 73r7
+80V13*Convert[2|20]{3|53M9}
+82V13*Convert[2|20]{3|53M9}
+

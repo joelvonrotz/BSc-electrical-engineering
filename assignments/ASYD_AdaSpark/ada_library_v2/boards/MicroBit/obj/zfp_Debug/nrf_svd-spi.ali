@@ -1,0 +1,133 @@
+V "GNAT Lib v2020"
+A -O0
+A -gnatA
+A --RTS=C:\gnat\2020-arm-elf\arm-eabi\lib\gnat\zfp-cortex-m4f\
+A -mlittle-endian
+A -mthumb
+A -mfloat-abi=hard
+A -mcpu=cortex-m4
+A -mfpu=fpv4-sp-d16
+A -gnata
+A -fcallgraph-info=su
+A -fcallgraph-info=su
+A -g
+A -gnatwa
+A -gnatw_A
+A -gnatQ
+A -gnatw.X
+A -ffunction-sections
+A -fdata-sections
+A -march=armv7e-m+fp
+P ZX
+
+RN
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLEMENTATION_RESTRICTIONS
+RR NO_ELABORATION_CODE
+
+U nrf_svd.spi%s		nrf_svd-spi.ads		244c660d NE OO PR PK IU
+W hal%s			hal.ads			hal.ali
+W nrf_svd%s		nrf_svd.ads		nrf_svd.ali
+W system%s		system.ads		system.ali
+
+D hal.ads		20210108111948 2b42c80e hal%s
+D interfac.ads		20200819171400 5ab55268 interfaces%s
+D nrf_svd.ads		20210306183508 87ba21d7 nrf_svd%s
+D nrf_svd-spi.ads	20210108111948 6e2ffb69 nrf_svd.spi%s
+D system.ads		20200819171400 e69b74bd system%s
+G a e
+G c Z s s [intenset_registerIP nrf_svd__spi 78 9 none]
+G c Z s s [intenclr_registerIP nrf_svd__spi 118 9 none]
+G c Z s s [enable_registerIP nrf_svd__spi 147 9 none]
+G c Z s s [rxd_registerIP nrf_svd__spi 164 9 none]
+G c Z s s [txd_registerIP nrf_svd__spi 182 9 none]
+G c Z s s [config_registerIP nrf_svd__spi 230 9 none]
+G c Z s s [spi_peripheralIP nrf_svd__spi 255 9 none]
+X 1 hal.ads
+34K9*HAL 166e8 4|45w6 80r23 84r23 120r23 124r23 151r23 161r29 169r23 179r29
+. 186r23 238r23 257r30 265r30 267r30 269r30 275r30
+39M9*UInt2 4|80r27 120r27
+53M9*UInt8<2|63M9> 4|161r33 179r33
+81M9*UInt24 4|169r27 186r27
+89M9*UInt28 4|151r27
+91M9*UInt29 4|84r27 124r27 238r27
+97M9*UInt32<2|74M9> 4|257r34 265r34 267r34 269r34 275r34
+X 2 interfac.ads
+63M9*Unsigned_8
+74M9*Unsigned_32
+X 3 nrf_svd.ads
+49K9*NRF_SVD 123e12 4|48r9 149r46 232r45 234r44 236r44 307r5
+68m4*SPI0_Base{5|90M9} 4|297r30
+74m4*SPI1_Base{5|90M9} 4|301r30
+116m4*SPI2_Base{5|90M9} 4|305r30
+X 4 nrf_svd-spi.ads
+48K17*SPI 3|49k9 4|149r54 232r53 234r52 236r52 307l13 307e16
+56E9*INTENSET_READY_Field 61e6 62r8
+58n7*Disabled{56E9} 63r7
+60n7*Enabled{56E9} 64r7
+67E9*INTENSET_READY_Field_1 72e6 73r8 82r23
+69n7*Intenset_Ready_Field_Reset{67E9} 74r7 82r49
+71n7*Set{67E9} 75r7
+78R9*INTENSET_Register 86e6 89r8 259r30
+80m7*Reserved_0_1{1|39M9} 90r7
+82e7*READY{67E9} 91r7
+84m7*Reserved_3_31{1|91M9} 92r7
+96E9*INTENCLR_READY_Field 101e6 102r8
+98n7*Disabled{96E9} 103r7
+100n7*Enabled{96E9} 104r7
+107E9*INTENCLR_READY_Field_1 112e6 113r8 122r23
+109n7*Intenclr_Ready_Field_Reset{107E9} 114r7 122r49
+111n7*Clear{107E9} 115r7
+118R9*INTENCLR_Register 126e6 129r8 261r30
+120m7*Reserved_0_1{1|39M9} 130r7
+122e7*READY{107E9} 131r7
+124m7*Reserved_3_31{1|91M9} 132r7
+136E9*ENABLE_ENABLE_Field 141e6 142r8 149r23
+138n7*Disabled{136E9} 143r7 149r58
+140n7*Enabled{136E9} 144r7
+147R9*ENABLE_Register 153e6 156r8 263r30
+149e7*ENABLE{136E9} 157r7
+151m7*Reserved_4_31{1|89M9} 158r7
+161M12*RXD_RXD_Field{1|53M9} 167r23
+164R9*RXD_Register 171e6 174r8 271r30
+167m7*RXD{161M12} 175r7
+169m7*Reserved_8_31{1|81M9} 176r7
+179M12*TXD_TXD_Field{1|53M9} 184r23
+182R9*TXD_Register 188e6 191r8 273r30
+184m7*TXD{179M12} 192r7
+186m7*Reserved_8_31{1|81M9} 193r7
+197E9*CONFIG_ORDER_Field 202e6 203r8 232r23
+199n7*Msbfirst{197E9} 204r7 232r57
+201n7*Lsbfirst{197E9} 205r7
+208E9*CONFIG_CPHA_Field 213e6 214r8 234r23
+210n7*Leading{208E9} 215r7 234r56
+212n7*Trailing{208E9} 216r7
+219E9*CONFIG_CPOL_Field 224e6 225r8 236r23
+221n7*Activehigh{219E9} 226r7 236r56
+223n7*Activelow{219E9} 227r7
+230R9*CONFIG_Register 240e6 243r8 277r30
+232e7*ORDER{197E9} 244r7
+234e7*CPHA{208E9} 245r7
+236e7*CPOL{219E9} 246r7
+238m7*Reserved_3_31{1|91M9} 247r7
+255R9*SPI_Peripheral 279e6 281r8 296r26 300r26 304r26
+257m7*EVENTS_READY{1|97M9} 282r7
+259r7*INTENSET{78R9} 283r7
+261r7*INTENCLR{118R9} 284r7
+263r7*ENABLE{147R9} 285r7
+265m7*PSELSCK{1|97M9} 286r7
+267m7*PSELMISO{1|97M9} 287r7
+269m7*PSELMOSI{1|97M9} 288r7
+271r7*RXD{164R9} 289r7
+273r7*TXD{182R9} 290r7
+275m7*FREQUENCY{1|97M9} 291r7
+277r7*CONFIG{230R9} 292r7
+296r4*SPI0_Periph{255R9}
+300r4*SPI1_Periph{255R9}
+304r4*SPI2_Periph{255R9}
+X 5 system.ads
+60K9*System 4|46w6 87r24 127r24 154r24 172r24 189r24 241r24 5|172e11
+90M9*Address
+114n41*Low_Order_First{114E9} 4|87r31 127r31 154r31 172r31 189r31 241r31
+

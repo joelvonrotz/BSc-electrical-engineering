@@ -1,0 +1,110 @@
+graph: { title: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\SGTL5000\sgtl5000.adb"
+class {
+  classname: "sgtl5000__sgtl5000_dac"
+  label: "sgtl5000__sgtl5000_dac\sgtl5000.ads:38:9"
+  parent: "sgtl5000__sgtl5000_dac"
+  virtuals: "1:sgtl5000__valid_id\n
+             2:sgtl5000__set_dac_volume\n
+             3:sgtl5000__set_adc_volume\n
+             4:sgtl5000__set_headphones_volume\n
+             5:sgtl5000__set_line_out_volume\n
+             6:sgtl5000__mute_headphones\n
+             7:sgtl5000__mute_line_out\n
+             8:sgtl5000__mute_adc\n
+             9:sgtl5000__mute_dac\n
+             10:sgtl5000__set_power_control\n
+             11:sgtl5000__set_reference_control\n
+             12:sgtl5000__set_short_detectors\n
+             13:sgtl5000__set_linereg_control\n
+             14:sgtl5000__set_analog_power\n
+             15:sgtl5000__set_clock_control\n
+             16:sgtl5000__set_i2s_control\n
+             17:sgtl5000__select_adc_source\n
+             18:sgtl5000__select_dap_source\n
+             19:sgtl5000__select_dap_mix_source\n
+             20:sgtl5000__select_dac_source\n
+             21:sgtl5000__select_hp_source\n
+             22:sgtl5000__select_i2s_out_source\n
+             23:sgtl5000__i2c_write\n
+             24:sgtl5000__i2c_read\n
+             25:sgtl5000__modify\n
+             -1:sgtl5000___size"
+}
+edge: { sourcename: "sgtl5000__i2c_write"
+  targetname: "3:hal__i2c__i2c_port,hal__i2c__i2c_port"
+  label: "sgtl5000.adb:63:16"
+}
+edge: { sourcename: "sgtl5000__i2c_read"
+  targetname: "4:hal__i2c__i2c_port,hal__i2c__i2c_port"
+  label: "sgtl5000.adb:84:16"
+}
+node: { title: "sgtl5000__sgtl5000_dacIP" label: "SGTL5000_DACIP\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\SGTL5000\sgtl5000.ads:256:9\n24 bytes (static)" }
+node: { title: "sgtl5000___size" label: "SGTL5000\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\SGTL5000\sgtl5000.ads:256:9\n16 bytes (static)" }
+node: { title: "sgtl5000__modify" label: "MODIFY\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\SGTL5000\sgtl5000.adb:38:4\n32 bytes (static)" }
+edge: { sourcename: "sgtl5000__modify" targetname: "sgtl5000__i2c_read" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\SGTL5000\sgtl5000.adb:43:27" }
+edge: { sourcename: "sgtl5000__modify" targetname: "sgtl5000__i2c_write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\SGTL5000\sgtl5000.adb:49:11" }
+node: { title: "sgtl5000__i2c_write" label: "I2C_WRITE\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\SGTL5000\sgtl5000.adb:56:4\n72 bytes (static)" }
+node: { title: "__gnat_last_chance_handler" label: "gnat_last_chance_handler\n<built-in>" shape : ellipse }
+edge: { sourcename: "sgtl5000__i2c_write" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\SGTL5000\sgtl5000.adb:67:63" }
+edge: { sourcename: "sgtl5000__i2c_write" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\SGTL5000\sgtl5000.adb:68:46" }
+node: { title: "__indirect_call" label: "Indirect Call Placeholder" shape : ellipse }
+edge: { sourcename: "sgtl5000__i2c_write" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\SGTL5000\sgtl5000.adb:63:16" }
+node: { title: "sgtl5000__i2c_read" label: "I2C_READ\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\SGTL5000\sgtl5000.adb:76:4\n64 bytes (static)" }
+edge: { sourcename: "sgtl5000__i2c_read" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\SGTL5000\sgtl5000.adb:84:16" }
+node: { title: "sgtl5000__valid_id" label: "VALID_ID\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\SGTL5000\sgtl5000.adb:97:4\n24 bytes (static)" }
+edge: { sourcename: "sgtl5000__valid_id" targetname: "sgtl5000__i2c_read" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\SGTL5000\sgtl5000.adb:98:35" }
+node: { title: "sgtl5000__set_dac_volume" label: "SET_DAC_VOLUME\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\SGTL5000\sgtl5000.adb:108:4\n16 bytes (static)" }
+edge: { sourcename: "sgtl5000__set_dac_volume" targetname: "sgtl5000__i2c_write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\SGTL5000\sgtl5000.adb:112:11" }
+node: { title: "sgtl5000__set_adc_volume" label: "SET_ADC_VOLUME\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\SGTL5000\sgtl5000.adb:120:4\n16 bytes (static)" }
+edge: { sourcename: "sgtl5000__set_adc_volume" targetname: "sgtl5000__modify" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\SGTL5000\sgtl5000.adb:125:11" }
+node: { title: "sgtl5000__set_headphones_volume" label: "SET_HEADPHONES_VOLUME\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\SGTL5000\sgtl5000.adb:135:4\n16 bytes (static)" }
+edge: { sourcename: "sgtl5000__set_headphones_volume" targetname: "sgtl5000__modify" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\SGTL5000\sgtl5000.adb:139:11" }
+node: { title: "sgtl5000__set_line_out_volume" label: "SET_LINE_OUT_VOLUME\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\SGTL5000\sgtl5000.adb:148:4\n16 bytes (static)" }
+edge: { sourcename: "sgtl5000__set_line_out_volume" targetname: "sgtl5000__modify" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\SGTL5000\sgtl5000.adb:152:11" }
+node: { title: "sgtl5000__mute_headphones" label: "MUTE_HEADPHONES\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\SGTL5000\sgtl5000.adb:161:4\n16 bytes (static)" }
+edge: { sourcename: "sgtl5000__mute_headphones" targetname: "sgtl5000__modify" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\SGTL5000\sgtl5000.adb:165:11" }
+node: { title: "sgtl5000__mute_line_out" label: "MUTE_LINE_OUT\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\SGTL5000\sgtl5000.adb:174:4\n16 bytes (static)" }
+edge: { sourcename: "sgtl5000__mute_line_out" targetname: "sgtl5000__modify" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\SGTL5000\sgtl5000.adb:178:11" }
+node: { title: "sgtl5000__mute_adc" label: "MUTE_ADC\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\SGTL5000\sgtl5000.adb:187:4\n16 bytes (static)" }
+edge: { sourcename: "sgtl5000__mute_adc" targetname: "sgtl5000__modify" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\SGTL5000\sgtl5000.adb:191:11" }
+node: { title: "sgtl5000__mute_dac" label: "MUTE_DAC\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\SGTL5000\sgtl5000.adb:200:4\n16 bytes (static)" }
+edge: { sourcename: "sgtl5000__mute_dac" targetname: "sgtl5000__modify" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\SGTL5000\sgtl5000.adb:204:11" }
+node: { title: "sgtl5000__set_power_control" label: "SET_POWER_CONTROL\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\SGTL5000\sgtl5000.adb:213:4\n24 bytes (static)" }
+edge: { sourcename: "sgtl5000__set_power_control" targetname: "sgtl5000__modify" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\SGTL5000\sgtl5000.adb:237:11" }
+node: { title: "sgtl5000__set_reference_control" label: "SET_REFERENCE_CONTROL\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\SGTL5000\sgtl5000.adb:246:4\n24 bytes (static)" }
+edge: { sourcename: "sgtl5000__set_reference_control" targetname: "sgtl5000__i2c_write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\SGTL5000\sgtl5000.adb:258:11" }
+node: { title: "sgtl5000__set_short_detectors" label: "SET_SHORT_DETECTORS\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\SGTL5000\sgtl5000.adb:265:4\n24 bytes (static)" }
+edge: { sourcename: "sgtl5000__set_short_detectors" targetname: "sgtl5000__i2c_write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\SGTL5000\sgtl5000.adb:280:11" }
+node: { title: "sgtl5000__set_linereg_control" label: "SET_LINEREG_CONTROL\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\SGTL5000\sgtl5000.adb:287:4\n24 bytes (static)" }
+edge: { sourcename: "sgtl5000__set_linereg_control" targetname: "sgtl5000__i2c_write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\SGTL5000\sgtl5000.adb:303:11" }
+node: { title: "sgtl5000__set_analog_power" label: "SET_ANALOG_POWER\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\SGTL5000\sgtl5000.adb:310:4\n24 bytes (static)" }
+edge: { sourcename: "sgtl5000__set_analog_power" targetname: "sgtl5000__i2c_write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\SGTL5000\sgtl5000.adb:374:11" }
+node: { title: "sgtl5000__set_clock_control" label: "SET_CLOCK_CONTROL\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\SGTL5000\sgtl5000.adb:381:4\n24 bytes (static)" }
+edge: { sourcename: "sgtl5000__set_clock_control" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\SGTL5000\sgtl5000.adb:388:31" }
+edge: { sourcename: "sgtl5000__set_clock_control" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\SGTL5000\sgtl5000.adb:394:31" }
+edge: { sourcename: "sgtl5000__set_clock_control" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\SGTL5000\sgtl5000.adb:400:31" }
+edge: { sourcename: "sgtl5000__set_clock_control" targetname: "sgtl5000__i2c_write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\SGTL5000\sgtl5000.adb:406:11" }
+node: { title: "sgtl5000__set_i2s_control" label: "SET_I2S_CONTROL\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\SGTL5000\sgtl5000.adb:413:4\n24 bytes (static)" }
+edge: { sourcename: "sgtl5000__set_i2s_control" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\SGTL5000\sgtl5000.adb:424:31" }
+edge: { sourcename: "sgtl5000__set_i2s_control" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\SGTL5000\sgtl5000.adb:436:31" }
+edge: { sourcename: "sgtl5000__set_i2s_control" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\SGTL5000\sgtl5000.adb:442:31" }
+edge: { sourcename: "sgtl5000__set_i2s_control" targetname: "sgtl5000__i2c_write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\SGTL5000\sgtl5000.adb:455:11" }
+node: { title: "sgtl5000__select_adc_source" label: "SELECT_ADC_SOURCE\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\SGTL5000\sgtl5000.adb:462:4\n16 bytes (static)" }
+edge: { sourcename: "sgtl5000__select_adc_source" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\SGTL5000\sgtl5000.adb:469:26" }
+edge: { sourcename: "sgtl5000__select_adc_source" targetname: "sgtl5000__modify" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\SGTL5000\sgtl5000.adb:467:11" }
+node: { title: "sgtl5000__select_dap_source" label: "SELECT_DAP_SOURCE\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\SGTL5000\sgtl5000.adb:479:4\n16 bytes (static)" }
+edge: { sourcename: "sgtl5000__select_dap_source" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\SGTL5000\sgtl5000.adb:485:26" }
+edge: { sourcename: "sgtl5000__select_dap_source" targetname: "sgtl5000__modify" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\SGTL5000\sgtl5000.adb:483:11" }
+node: { title: "sgtl5000__select_dap_mix_source" label: "SELECT_DAP_MIX_SOURCE\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\SGTL5000\sgtl5000.adb:494:4\n16 bytes (static)" }
+edge: { sourcename: "sgtl5000__select_dap_mix_source" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\SGTL5000\sgtl5000.adb:500:26" }
+edge: { sourcename: "sgtl5000__select_dap_mix_source" targetname: "sgtl5000__modify" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\SGTL5000\sgtl5000.adb:498:11" }
+node: { title: "sgtl5000__select_dac_source" label: "SELECT_DAC_SOURCE\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\SGTL5000\sgtl5000.adb:509:4\n16 bytes (static)" }
+edge: { sourcename: "sgtl5000__select_dac_source" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\SGTL5000\sgtl5000.adb:515:26" }
+edge: { sourcename: "sgtl5000__select_dac_source" targetname: "sgtl5000__modify" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\SGTL5000\sgtl5000.adb:513:11" }
+node: { title: "sgtl5000__select_hp_source" label: "SELECT_HP_SOURCE\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\SGTL5000\sgtl5000.adb:525:4\n16 bytes (static)" }
+edge: { sourcename: "sgtl5000__select_hp_source" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\SGTL5000\sgtl5000.adb:532:26" }
+edge: { sourcename: "sgtl5000__select_hp_source" targetname: "sgtl5000__modify" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\SGTL5000\sgtl5000.adb:530:11" }
+node: { title: "sgtl5000__select_i2s_out_source" label: "SELECT_I2S_OUT_SOURCE\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\SGTL5000\sgtl5000.adb:542:4\n16 bytes (static)" }
+edge: { sourcename: "sgtl5000__select_i2s_out_source" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\SGTL5000\sgtl5000.adb:548:26" }
+edge: { sourcename: "sgtl5000__select_i2s_out_source" targetname: "sgtl5000__modify" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\SGTL5000\sgtl5000.adb:546:11" }
+}

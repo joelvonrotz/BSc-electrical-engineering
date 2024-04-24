@@ -1,0 +1,86 @@
+V "GNAT Lib v2020"
+A -O0
+A -gnatA
+A --RTS=C:\gnat\2020-arm-elf\arm-eabi\lib\gnat\zfp-cortex-m4f\
+A -mlittle-endian
+A -mthumb
+A -mfloat-abi=hard
+A -mcpu=cortex-m4
+A -mfpu=fpv4-sp-d16
+A -gnata
+A -fcallgraph-info=su
+A -fcallgraph-info=su
+A -g
+A -gnatwa
+A -gnatw_A
+A -gnatQ
+A -gnatw.X
+A -ffunction-sections
+A -fdata-sections
+A -march=armv7e-m+fp
+P ZX
+
+RN
+RV NO_DEFAULT_INITIALIZATION
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_PRAGMAS
+
+U bluetooth_low_energy.beacon%b  bluetooth_low_energy-beacon.adb  67a6ca8f NE OO PK
+W bluetooth_low_energy%s  bluetooth_low_energy.adb  bluetooth_low_energy.ali
+
+U bluetooth_low_energy.beacon%s  bluetooth_low_energy-beacon.ads  d7214da4 EE NE OO PK
+W bluetooth_low_energy%s  bluetooth_low_energy.adb  bluetooth_low_energy.ali
+W bluetooth_low_energy.packets%s  bluetooth_low_energy-packets.adb  bluetooth_low_energy-packets.ali
+W interfaces%s		interfac.ads		interfac.ali
+
+D bluetooth_low_energy.ads  20210108111948 e975ac50 bluetooth_low_energy%s
+D bluetooth_low_energy-beacon.ads  20210108111948 de592a0e bluetooth_low_energy.beacon%s
+D bluetooth_low_energy-beacon.adb  20210108111948 b9ffe081 bluetooth_low_energy.beacon%b
+D bluetooth_low_energy-packets.ads  20210108111948 bab89992 bluetooth_low_energy.packets%s
+D hal.ads		20210108111948 2b42c80e hal%s
+D interfac.ads		20200819171400 5ab55268 interfaces%s
+D system.ads		20200819171400 e69b74bd system%s
+G a e
+G c Z s b [make_beacon_packet bluetooth_low_energy__beacon 37 13 none]
+G r s ble_packet [make_beacon_packet bluetooth_low_energy__beacon 37 13 none] [ble_packetIP bluetooth_low_energy__packets 74 9 none]
+G r c none [make_beacon_packet bluetooth_low_energy__beacon 37 13 none] [set_header bluetooth_low_energy__packets 42 14 none]
+G r c none [make_beacon_packet bluetooth_low_energy__beacon 37 13 none] [push bluetooth_low_energy__packets 57 14 none]
+G r c none [make_beacon_packet bluetooth_low_energy__beacon 37 13 none] [push bluetooth_low_energy__packets 45 14 none]
+G r c none [make_beacon_packet bluetooth_low_energy__beacon 37 13 none] [push_uuid bluetooth_low_energy__packets 60 14 none]
+G r c none [make_beacon_packet bluetooth_low_energy__beacon 37 13 none] [push bluetooth_low_energy__packets 51 14 none]
+G r c none [make_beacon_packet bluetooth_low_energy__beacon 37 13 none] [push bluetooth_low_energy__packets 48 14 none]
+X 1 bluetooth_low_energy.ads
+34K9*Bluetooth_Low_Energy 79e25 2|32r6 32r40 35r9 41r5 3|33r14 69r5
+64R9*BLE_UUID 73e14 2|38r48 3|36r48
+X 2 bluetooth_low_energy-beacon.ads
+35K30*Beacon 1|34k9 2|41l26 41e32 3|33b35 69l26 69t32
+37V13*Make_Beacon_Packet{4|37R9} 37>33 38>33 39>33 39>40 40>33 3|35b13 67l8
+. 67t26
+37a33 MAC{5|162A9} 3|35b33 45r18
+38r33 UUID{1|64R9} 3|36b33 59r23
+39m33 Major{5|66M9} 3|37b33 61r18
+39m40 Minor{5|66M9} 3|37b40 63r18
+40i33 Power{6|46I9} 3|38b33 65r18
+X 3 bluetooth_low_energy-beacon.adb
+41r7 Pck{4|37R9} 43m19 43r19 45m13 45r13 47m13 47r13 49m13 49r13 51m13 51r13
+. 53m13 53r13 55m13 55r13 57m13 57r13 59m18 59r18 61m13 61r13 63m13 63r13
+. 65m13 65r13 66r14
+X 4 bluetooth_low_energy-packets.ads
+35K30*Packets 2|32w27 32r61 4|81e33
+37R9*BLE_Packet 2|40r66 3|39r40 41r13 4|78e15
+42U14*Set_Header 3|43s7
+45U14*Push 3|47s7 49s7 51s7 53s7 55s7
+48U14*Push 3|65s7
+51U14*Push 3|61s7 63s7
+57U14*Push 3|45s7 57s7
+60U14*Push_UUID 3|59s7
+X 5 hal.ads
+53M9*UInt8<6|63M9> 3|47r18 49r18 51r18 53r18 55r18
+66M9*UInt16<6|66M9> 2|39r48 3|37r48
+162A9*UInt8_Array(53M9)<integer> 2|37r48 3|35r48
+X 6 interfac.ads
+38K9*Interfaces 2|33w6 33r40 6|184e15
+46I9*Integer_8<short_short_integer> 2|40r48 3|38r48
+63M9*Unsigned_8
+66M9*Unsigned_16
+

@@ -1,0 +1,369 @@
+V "GNAT Lib v2020"
+A -O0
+A -gnatA
+A --RTS=C:\gnat\2020-arm-elf\arm-eabi\lib\gnat\zfp-cortex-m4f\
+A -mlittle-endian
+A -mthumb
+A -mfloat-abi=hard
+A -mcpu=cortex-m4
+A -mfpu=fpv4-sp-d16
+A -gnata
+A -fcallgraph-info=su
+A -fcallgraph-info=su
+A -g
+A -gnatwa
+A -gnatw_A
+A -gnatQ
+A -gnatw.X
+A -ffunction-sections
+A -fdata-sections
+A -march=armv7e-m+fp
+P ZX
+
+RN
+RV NO_DISPATCH
+RV NO_DISPATCHING_CALLS
+RV NO_EXCEPTIONS
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_UNCHECKED_ACCESS
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_PRAGMAS
+
+U ssd1306%b		ssd1306.adb		21824422 NE OO PK IU
+Z ada.exceptions%s	a-except.adb		a-except.ali
+Z ada.tags%s		a-tags.adb		a-tags.ali
+Z system%s		system.ads		system.ali
+
+U ssd1306%s		ssd1306.ads		4567a6f4 EE NE OO PK IU
+Z ada.tags%s		a-tags.adb		a-tags.ali
+W hal%s			hal.ads			hal.ali
+W hal.bitmap%s		hal-bitmap.ads		hal-bitmap.ali
+W hal.framebuffer%s	hal-framebuffer.ads	hal-framebuffer.ali
+W hal.gpio%s		hal-gpio.ads		hal-gpio.ali
+W hal.i2c%s		hal-i2c.ads		hal-i2c.ali
+W hal.time%s		hal-time.ads		hal-time.ali
+W memory_mapped_bitmap%s  memory_mapped_bitmap.adb  memory_mapped_bitmap.ali
+Z system%s		system.ads		system.ali
+Z system.unsigned_types%s  s-unstyp.ads		s-unstyp.ali
+
+D ada.ads		20200819171400 76789da1 ada%s
+D a-except.ads		20200819171400 5b5f0f2f ada.exceptions%s
+D a-except.adb		20200819171400 85a38458 ada.exceptions%b
+D a-tags.ads		20200819171400 95e09aae ada.tags%s
+D hal.ads		20210108111948 2b42c80e hal%s
+D hal-bitmap.ads	20210108111948 85a69113 hal.bitmap%s
+D hal-framebuffer.ads	20210108111948 9811b908 hal.framebuffer%s
+D hal-gpio.ads		20210108111948 7f0c2ffe hal.gpio%s
+D hal-i2c.ads		20210108111948 0ed73138 hal.i2c%s
+D hal-time.ads		20210108111948 f5295cd7 hal.time%s
+D interfac.ads		20200819171400 5ab55268 interfaces%s
+D memory_mapped_bitmap.ads  20210108111948 b0310810 memory_mapped_bitmap%s
+D soft_drawing_bitmap.ads  20210108111948 e11f4ff7 soft_drawing_bitmap%s
+D ssd1306.ads		20210108111948 47510ce0 ssd1306%s
+D ssd1306.adb		20210108111948 66d348c2 ssd1306%b
+D system.ads		20200819171400 e69b74bd system%s
+D s-assert.ads		20200819171400 cd8d2c94 system.assertions%s
+D s-stoele.ads		20200819171400 2dc34a04 system.storage_elements%s
+D s-unstyp.ads		20200819171400 5ecf7212 system.unsigned_types%s
+G a e
+G c Z s b [initialize ssd1306 68 14 none]
+G c Z s b [initialized ssd1306 72 13 none]
+G c Z s b [turn_on ssd1306 74 14 none]
+G c Z s b [turn_off ssd1306 75 14 none]
+G c Z s b [display_inversion_on ssd1306 76 14 none]
+G c Z s b [display_inversion_off ssd1306 77 14 none]
+G c Z s b [write_raw_pixels ssd1306 79 14 none]
+G c Z s b [max_layers ssd1306 83 13 none]
+G c Z s b [supported ssd1306 87 13 none]
+G c Z s b [set_orientation ssd1306 92 14 none]
+G c Z s b [set_mode ssd1306 97 14 none]
+G c Z s b [width ssd1306 102 13 none]
+G c Z s b [height ssd1306 106 13 none]
+G c Z s b [swapped ssd1306 110 13 none]
+G c Z s b [set_background ssd1306 117 14 none]
+G c Z s b [initialize_layer ssd1306 121 14 none]
+G c Z s b [initialized ssd1306 135 13 none]
+G c Z s b [update_layer ssd1306 140 14 none]
+G c Z s b [update_layers ssd1306 147 14 none]
+G c Z s b [color_mode ssd1306 153 13 none]
+G c Z s b [hidden_buffer ssd1306 159 13 none]
+G c Z s b [pixel_size ssd1306 165 13 none]
+G c Z s b [set_pixel ssd1306 180 14 none]
+G c Z s b [set_pixel ssd1306 185 14 none]
+G c Z s b [set_pixel ssd1306 191 14 none]
+G c Z s b [pixel ssd1306 197 13 none]
+G c Z s b [pixel ssd1306 203 13 none]
+G c Z s b [fill ssd1306 209 14 none]
+G c Z s s [ssd1306_bitmap_bufferIP ssd1306 174 9 none]
+G c Z s s [ssd1306_screenIP ssd1306 216 9 none]
+G c Z s s [bit_arrayIP ssd1306 214 9 none]
+G c Z b b [write_command ssd1306 34 14 none]
+G c Z b b [write_data ssd1306 37 14 none]
+G r c none [set_pixel ssd1306 180 14 none] [width memory_mapped_bitmap 78 13 none]
+G r c none [set_pixel ssd1306 180 14 none] [height memory_mapped_bitmap 82 13 none]
+G r c none [set_pixel ssd1306 185 14 none] [width memory_mapped_bitmap 78 13 none]
+G r c none [set_pixel ssd1306 185 14 none] [height memory_mapped_bitmap 82 13 none]
+G r c none [set_pixel ssd1306 191 14 none] [width memory_mapped_bitmap 78 13 none]
+G r c none [set_pixel ssd1306 191 14 none] [height memory_mapped_bitmap 82 13 none]
+G r c none [pixel ssd1306 197 13 none] [width memory_mapped_bitmap 78 13 none]
+G r c none [pixel ssd1306 197 13 none] [height memory_mapped_bitmap 82 13 none]
+G r c none [pixel ssd1306 203 13 none] [width memory_mapped_bitmap 78 13 none]
+G r c none [pixel ssd1306 203 13 none] [height memory_mapped_bitmap 82 13 none]
+G r s memory_mapped_bitmap_buffer [ssd1306_bitmap_bufferIP ssd1306 174 9 none] [memory_mapped_bitmap_bufferIP memory_mapped_bitmap 41 9 none]
+G r s memory_mapped_bitmap_buffer [ssd1306_screenIP ssd1306 216 9 none] [memory_mapped_bitmap_bufferIP memory_mapped_bitmap 41 9 none]
+X 5 hal.ads
+34K9*HAL 166e8 14|34w6 34r32 35r6 35r32 36r6 36r32 37r6 37r32 38r6 38r32
+. 39r6 63r38 64r19 80r39 161r41 222r38 223r19 15|191r39 221r14 380r41
+37M9*Bit 14|214r50
+53M9*UInt8<11|63M9> 14|118r40 15|35r36 45r36 100r28 196r28 200r28 279r40
+. 410r15 476r15 494r22
+54M9*UInt10
+97M9*UInt32<11|74M9> 14|194r17 206r14 15|442r17 471r14
+162A9*UInt8_Array(53M9)<integer> 14|80r43 176r14 15|38r33 63r33 191r43
+X 6 hal-bitmap.ads
+34K13*Bitmap 432e15 14|38w10 38r36 161r45 15|221r18 380r45
+46n7*RGB_565{43E9} 15|221r25
+55n7*M_1{43E9} 15|302r37 370r14
+67R9*Point 70e14 14|182r17 187r17 193r17 199r16 205r16 15|405r17 427r17 441r17
+. 456r16 470r16
+68i7*X{natural} 15|407r57 473r57
+69i7*Y{natural} 15|408r58 474r58
+86R9*Bitmap_Color 91e15 14|188r17 200r14 15|428r17 457r14
+100h9*Bitmap_Buffer
+102P9*Any_Bitmap_Buffer(100R9) 14|161r52 15|380r52
+421r4*Black{86R9} 15|431r41 460r45
+430r4*White{86R9} 15|460r56
+X 7 hal-framebuffer.ads
+34K13*Framebuffer 127e20 14|37w10 37r36 64r23 223r23
+36E12*FB_Color_Mode{6|43E9} 14|89r14 124r17 155r32 15|220r14 294r16 363r32
+39E9*Display_Orientation 40e36 14|94r21 15|230r21
+42E9*Wait_Mode 42e42 14|99r14 15|243r14
+44h9*Frame_Buffer_Display 14|64r35 223r35
+X 8 hal-gpio.ads
+32K13*GPIO 95e13 14|36w10 36r36
+47h9*GPIO_Point
+49P9*Any_GPIO_Point(47R9) 14|60r38 221r38
+88x14*Set 15|91R16
+90x14*Clear 15|89R16
+X 9 hal-i2c.ads
+32K13*I2C 84e12 14|35w10 35r36
+34E9*I2C_Status 38e12 15|47r16 65r16
+35n7*Ok{34E9} 15|52r20 70r20
+46M12*I2C_Address{5|54M9}
+48h9*I2C_Port
+50P9*Any_I2C_Port(48R9) 14|56r38 220r38
+52x14*Master_Transmit 15|49R17 67R17
+54m7 Addr{46M12} 15|49r34 67r34
+55a7 Data{40A12} 15|50r34 68r34
+56e7 Status{34E9} 15|51r34 69r34
+X 10 hal-time.ads
+32K13*Time 46e13 14|39w10 63r42 222r42
+34h9*Delays
+36P9*Any_Delays(34R9) 14|63r47 222r47
+41x14*Delay_Milliseconds 15|90R17 92R17
+X 11 interfac.ads
+63M9*Unsigned_8
+74M9*Unsigned_32
+81V13*Shift_Left{63M9} 15|414s32 416s26 479s21
+X 12 memory_mapped_bitmap.ads
+37K9*Memory_Mapped_Bitmap 154e25 14|40w6 40r32
+41R9*Memory_Mapped_Bitmap_Buffer<13|42R9> 73e14 14|175r10
+42m7*Addr{16|90M9} 15|307m25
+44i7*Actual_Width{natural} 15|305m25 409r56 475r57
+45i7*Actual_Height{natural} 15|306m25
+49e7*Actual_Color_Mode{6|43E9} 15|308m25
+71m7*Native_Source{5|97M9} 15|413r17 445m14 494r42
+78V13*Width{natural}<6|104p13> 15|407s42 473s42
+82V13*Height{natural}<6|108p13> 15|408s42 474s42
+86V13*Swapped{boolean}<6|112p13>
+90V13*Color_Mode{6|43E9}<6|129p13>
+94V13*Mapped_In_RAM{boolean}<6|134p13>
+98V13*Memory_Address{16|90M9}<6|137p13>
+102U14*Set_Source<13|48p14>
+106U14*Set_Source<6|146p14>
+110V13*Source{6|86R9}<13|52p13>
+114V13*Source{5|97M9}<6|155p13>
+135U14*Set_Pixel_Blend<6|177p14>
+152V13*Buffer_Size{natural}<6|289p13>
+X 13 soft_drawing_bitmap.ads
+75U14*Draw_Line<6|193p14>
+87U14*Fill_Rect<6|206p14>
+93U14*Copy_Rect<6|211p14>
+105U14*Copy_Rect<6|222p14>
+115U14*Copy_Rect_Blend<6|231p14>
+125U14*Draw_Vertical_Line<6|240p14>
+131U14*Draw_Horizontal_Line<6|245p14>
+137U14*Draw_Rect<6|250p14>
+144U14*Draw_Rounded_Rect<6|256p14>
+151U14*Fill_Rounded_Rect<6|262p14>
+157U14*Draw_Circle<6|267p14>
+163U14*Fill_Circle<6|272p14>
+169U14*Cubic_Bezier<6|277p14>
+176U14*Bezier<6|283p14>
+X 14 ssd1306.ads
+42K9*SSD1306 174E9 258l5 258e12 15|32b14 499l5 499t12
+46R9*SSD1306_Screen<7|44R9> 47d7 50d7 53d7 56d7 60d7 63d7 66r42 68p14 68r48
+. 72P13 72r33 74p14 74r30 75p14 75r31 76p14 76r43 77p14 77r44 79p14 79r39
+. 83P13 84r14 87P13 88r14 92P14 93r28 97P14 98r21 102P13 103r14 106P13 107r14
+. 110P13 111r14 117P14 118r14 121P14 122r21 135P13 136r15 140P14 141r26 147P14
+. 148r21 153P13 154r15 159P13 160r22 165P13 166r15 216c9 228e17 15|34r36
+. 37r33 44r36 62r33 80r48 145r33 152r30 161r31 171r43 181r44 190r40 211r14
+. 219r14 229r28 242r21 255r14 263r14 271r14 279r14 292r23 318r15 331r26 350r21
+. 362r15 379r22 395r15
+47i7*Buffer_Size_In_Byte{positive} 217r7 225r62 15|85r44
+50i7*Width{positive} 218r7 15|85r15 196r40 255r55 305r47
+53i7*Height{positive} 219r7 15|85r28 100r40 118r15 200r40 263r55 306r47
+56p7*Port{9|50P9} 220r7 15|49r12 67r12
+60p7*RST{8|49P9} 221r7 15|89r12 91r12
+63p7*Time{10|36P9} 222r7 15|90r12 92r12
+66P9*Any_SSD1306_Screen(46R9)
+68U14*Initialize 68=26 69>26 15|80b14 138l8 138t18
+68r26 This{46R9} 15|80b26 85r10 85r23 85r39 89r7 90r7 91r7 92r7 94r22 96r22
+. 97r22 99r22 100r22 100r35 102r22 103r22 105r22 107r22 108r22 110r22 111r22
+. 113r22 115r22 117r22 118r10 119r25 121r25 124r22 125r22 127r22 128r22 130r22
+. 131r22 133r22 134r22 135r22 137m7
+69b26 External_VCC{boolean} 15|81b26 108r32 128r32
+72V13*Initialized{boolean}<7|65p13> 72>26 15|145b13
+72r26 This{46R9} 15|146r7
+74U14*Turn_On 74>23 15|152b14 155l8 155t15
+74r23 This{46R9} 15|152b23 154r22
+75U14*Turn_Off 75>24 15|161b14 164l8 164t16
+75r24 This{46R9} 15|161b24 163r22
+76U14*Display_Inversion_On 76>36 15|171b14 174l8 174t28
+76r36 This{46R9} 15|171b36 173r22
+77U14*Display_Inversion_Off 77>37 15|181b14 184l8 184t29
+77r37 This{46R9} 15|181b37 183r22
+79U14*Write_Raw_Pixels 79>32 80>32 15|190b14 203l8 203t24 341s12
+79r32 This{46R9} 15|190b32 194r22 195r22 196r22 196r35 198r22 199r22 200r22
+. 200r35 202r19
+80a32 Data{5|162A9} 15|191b32 202r41
+83V13*Max_Layers{positive}<7|48p13> 84>7 15|210b13
+84r7 This{46R9}
+87V13*Supported{boolean}<7|52p13> 88>7 89>7 15|218b13
+88r7 This{46R9}
+89e7 Mode{7|36E12} 15|221r7
+92U14*Set_Orientation<7|57p14> 93=7 94>7 15|228b14 234l8 234t23
+93r7 This{46R9} 15|229b7
+94e7 Orientation{7|39E9} 15|230b7
+97U14*Set_Mode<7|61p14> 98=7 99>7 15|241b14 247l8 247t16
+98r7 This{46R9} 15|242b7
+99e7 Mode{7|42E9} 15|243b7
+102V13*Width{positive}<7|68p13> 103>7 15|254b13
+103r7 This{46R9} 15|255r50
+106V13*Height{positive}<7|71p13> 107>7 15|262b13
+107r7 This{46R9} 15|263r50
+110V13*Swapped{boolean}<7|74p13> 111>7 15|270b13
+111r7 This{46R9}
+117U14*Set_Background<7|80p14> 118>7 118>30 118>33 118>36 15|278b14 284l8
+. 284t22
+118r7 This{46R9} 15|279b7
+118m30 R{5|53M9} 15|279b30
+118m33 G{5|53M9} 15|279b33
+118m36 B{5|53M9} 15|279b36
+121U14*Initialize_Layer<7|83p14> 122=7 123>7 124>7 125>7 126>7 127>7 128>7
+. 15|291b14 310l8 310t24
+122r7 This{46R9} 15|292b7 305m7 305r7 305r42 306m7 306r7 306r42 307m7 307r7
+. 307m33 307r33 308m7 308r7 309m7
+123i7 Layer{positive} 15|293b7 302r10
+124e7 Mode{7|36E12} 15|294b7 302r29 308r46
+125i7 X{natural} 15|295b7 300r28
+126i7 Y{natural} 15|296b7 300r31
+127i7 Width{positive} 15|297b7 300r34
+128i7 Height{positive} 15|298b7 300r41
+135V13*Initialized{boolean}<7|96p13> 136>7 137>7 15|317b13 323l8 323t19
+136r7 This{46R9} 15|318b7 322r33
+137i7 Layer{positive} 15|319b7 322r14
+140U14*Update_Layer<7|100p14> 141=7 142>7 143>7 15|330b14 342l8 342t20 353s12
+141r7 This{46R9} 15|331b7 341r7 341m30 341r30
+142i7 Layer{positive} 15|332b7 337r10
+143b7 Copy_Back{boolean} 15|333b7 335r28
+147U14*Update_Layers<7|106p14> 148=7 15|349b14 354l9 354t22
+148r7 This{46R9} 15|350b7 353m7 353r7
+153V13*Color_Mode{7|36E12}<7|111p13> 154>7 155>7 15|361b13 371l8 371t18
+154r7 This{46R9} 15|362b7 365r28
+155i7 Layer{positive} 15|363b7 367r10
+159V13*Hidden_Buffer{6|102P9}<7|116p13> 160=7 161>7 15|378b13 387l8 387t21
+160r7 This{46R9} 15|379b7 386m14 386r14
+161i7 Layer{positive} 15|380b7 383r10
+165V13*Pixel_Size{positive}<7|122p13> 166>7 167>7 15|394b13
+166r7 This{46R9}
+167i7 Layer{positive}
+174R9 SSD1306_Bitmap_Buffer<12|41R9> 12|78P13 82P13 86P13 90P13 94P13 98P13
+. 102P14 106P14 110P13 114P13 135P14 152P13 13|75P14 87P14 93P14 105P14 115P14
+. 125P14 131P14 137P14 144P14 151P14 157P14 163P14 169P14 176P14 14|174d32
+. 177e16 180P14 181r24 185P14 186r24 191P14 192r24 197P13 198r16 203P13 204r16
+. 209P14 210r23 225r39 15|404r24 426r24 440r24 455r16 469r16 492r23
+174i32*Buffer_Size_In_Byte{positive} 176r32
+176a7*Data{5|162A9} 15|307m51 341r48 410m36 410r49 476m36 476r49 496m14
+180U14 Set_Pixel<12|118p14> 181=7 182>7 15|403b14 418l8 418t17 446s14
+181r7 Buffer{174R9} 15|404b7 407r35 408r35 409r49 410m29 410r29 410r42 413r10
+182r7 Pt{6|67R9} 15|405b7 407r54 408r55
+185U14 Set_Pixel<12|123p14> 186=7 187>7 188>7 15|425b14 432l8 432t17
+186r7 Buffer{174R9} 15|426b7 431m7 431r7
+187r7 Pt{6|67R9} 15|427b7 431r25
+188r7 Color{6|86R9} 15|428b7 431r33
+191U14 Set_Pixel<12|129p14> 192=7 193>7 194>7 15|431s14 439b14 447l8 447t17
+192r7 Buffer{174R9} 15|440b7 445m7 446m7 446r7
+193r7 Pt{6|67R9} 15|441b7 446r25
+194m7 Raw{5|97M9} 15|442b7 445r31
+197V13 Pixel{6|86R9}<12|140p13> 198>7 199>7 15|454b13 461l8 461t13
+198r7 Buffer{174R9} 15|455b7 460r18
+199r7 Pt{6|67R9} 15|456b7 460r32
+203V13 Pixel{5|97M9}<12|146p13> 204>7 205>7 15|460s25 468b13 484l8 484t13
+204r7 Buffer{174R9} 15|469b7 473r35 474r35 475r50 476m29 476r29 476r42
+205r7 Pt{6|67R9} 15|470b7 473r54 474r55
+209U14 Fill<13|82p14> 210=7 15|491b14 497l8 497t12
+210r7 Buffer{174R9} 15|492b7 494r35 496m7
+212N4 SSD1306_I2C_Addr 15|49r45 67r45
+214A9 Bit_Array(5|37M9)<integer>
+225r10 Memory_Layer{174R9} 15|305m12 306m12 307m12 307m38 308m12 341m35 386m19
+226b10 Layer_Initialized{boolean} 15|309m12 322r38
+227b10 Device_Initialized{boolean} 15|137m12 146r12
+234N4 DEACTIVATE_SCROLL 15|135r28
+235N4 SET_CONTRAST 15|124r28
+236N4 DISPLAY_ALL_ON_RESUME 15|133r28
+237N4 DISPLAY_ALL_ON
+238N4 NORMAL_DISPLAY 15|134r28 183r28
+239N4 INVERT_DISPLAY 15|173r28
+240N4 DISPLAY_OFF 15|94r28 163r28
+241N4 DISPLAY_ON 15|154r28
+242N4 SET_DISPLAY_OFFSET 15|102r28
+243N4 SET_COMPINS 15|117r28
+244N4 SET_VCOM_DETECT 15|130r28
+245N4 SET_DISPLAY_CLOCK_DIV 15|96r28
+246N4 SET_PRECHARGE 15|127r28
+247N4 SET_MULTIPLEX 15|99r28
+248N4 SET_LOW_COLUMN
+249N4 SET_HIGH_COLUMN
+250N4 SET_START_LINE 15|105r28
+251N4 MEMORY_MODE 15|110r28
+252N4 COLUMN_ADDR 15|194r28
+253N4 PAGE_ADDR 15|198r28
+254N4 COM_SCAN_INC
+255N4 COM_SCAN_DEC 15|115r28
+256N4 SEGREMAP 15|113r28
+257N4 CHARGE_PUMP 15|107r28
+X 15 ssd1306.adb
+34U14 Write_Command 34>29 35>29 44b14 56l8 56t21 94s7 96s7 97s7 99s7 100s7
+. 102s7 103s7 105s7 107s7 108s7 110s7 111s7 113s7 115s7 117s7 119s10 121s10
+. 124s7 125s7 127s7 128s7 130s7 131s7 133s7 134s7 135s7 154s7 163s7 173s7
+. 183s7 194s7 195s7 196s7 198s7 199s7 200s7
+34r29 This{14|46R9} 44b29 49r7
+35m29 Cmd{5|53M9} 45b29 50r60
+37U14 Write_Data 37>26 38>26 62b14 74l8 74t18 202s7
+37r26 This{14|46R9} 62b26 67r7
+38a26 Data{5|162A9} 63b26 68r45
+47e7 Status{9|34E9} 51m45 52r10
+65e7 Status{9|34E9} 69m45 70r10
+407i7 X{natural} 409r35
+408i7 Y{natural} 409r40 414r47 416r41
+409i7 Index{natural} 410r62
+410m7 Byte{5|53M9} 414r10 414r18 416r10 416r18
+473i7 X{natural} 475r36
+474i7 Y{natural} 475r41 479r36
+475i7 Index{natural} 476r62
+476m7 Byte{5|53M9} 479r11
+494m7 Val{5|53M9} 496r33
+X 16 system.ads
+90M9*Address
+

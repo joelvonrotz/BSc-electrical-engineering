@@ -1,0 +1,105 @@
+V "GNAT Lib v2020"
+A -O0
+A -gnatA
+A --RTS=C:\gnat\2020-arm-elf\arm-eabi\lib\gnat\zfp-cortex-m4f\
+A -mlittle-endian
+A -mthumb
+A -mfloat-abi=hard
+A -mcpu=cortex-m4
+A -mfpu=fpv4-sp-d16
+A -gnata
+A -fcallgraph-info=su
+A -fcallgraph-info=su
+A -g
+A -gnatwa
+A -gnatw_A
+A -gnatQ
+A -gnatw.X
+A -ffunction-sections
+A -fdata-sections
+A -march=armv7e-m+fp
+P ZX
+
+RN
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_PRAGMAS
+
+U adafruit.trellis%b	adafruit-trellis.adb	e784e1eb NE OO PK
+Z ada.tags%s		a-tags.adb		a-tags.ali
+W adafruit%s		adafruit.ads		adafruit.ali
+
+U adafruit.trellis%s	adafruit-trellis.ads	1633b071 EE NE OO PK
+Z ada.tags%s		a-tags.adb		a-tags.ali
+W adafruit%s		adafruit.ads		adafruit.ali
+W hal%s			hal.ads			hal.ali
+W ht16k33%s		ht16k33.adb		ht16k33.ali
+Z system%s		system.ads		system.ali
+
+D ada.ads		20200819171400 76789da1 ada%s
+D a-tags.ads		20200819171400 95e09aae ada.tags%s
+D adafruit.ads		20210108111948 deca3367 adafruit%s
+D adafruit-trellis.ads	20210108111948 48eb01ee adafruit.trellis%s
+D adafruit-trellis.adb	20210108111948 af6fe005 adafruit.trellis%b
+D hal.ads		20210108111948 2b42c80e hal%s
+D hal-i2c.ads		20210108111948 0ed73138 hal.i2c%s
+D ht16k33.ads		20210108111948 ab504af6 ht16k33%s
+D interfac.ads		20200819171400 5ab55268 interfaces%s
+D system.ads		20200819171400 e69b74bd system%s
+D s-stoele.ads		20200819171400 2dc34a04 system.storage_elements%s
+G a e
+G c Z s b [set_led adafruit__trellis 41 14 none]
+G c Z s b [key adafruit__trellis 47 13 none]
+G c Z s s [trellis_deviceIP adafruit__trellis 53 9 none]
+G c Z b b [led_addressIP adafruit__trellis 34 9 none]
+G c Z b b [key_addressIP adafruit__trellis 47 9 none]
+G r c none [set_led adafruit__trellis 41 14 none] [set_led ht16k33 58 14 none]
+G r c none [key adafruit__trellis 47 13 none] [get_key ht16k33 71 13 none]
+G r s ht16k33_device [trellis_deviceIP adafruit__trellis 53 9 none] [ht16k33_deviceIP ht16k33 92 9 none]
+X 3 adafruit.ads
+33K9*AdaFruit 34e13 4|35r9 54r5 5|32r14 82r5
+X 4 adafruit-trellis.ads
+35K18*Trellis 3|33k9 4|53E9 54l14 54e21 5|32b23 82l14 82t21
+37R9*Trellis_Device<8|37R9> 41p14 41r39 47p13 47r32 53c9 53e62 5|62r39 76r32
+. 8|49p14 50p14 52p14 55p14 58p14 65p14 71p13 77p14 80p14
+39M9*Trellis_Coord<6|39M9> 42r32 48r25 5|39r34 39r49 52r34 52r49 63r32 77r25
+41U14*Set_LED 41=23 42>23 42>26 43>23 5|62b14 70l8 70t15
+41r23 This{37R9} 5|62b23 67m7 67r7
+42m23 X{39M9} 5|63b23 67r34 68r34
+42m26 Y{39M9} 5|63b26 67r37 68r37
+43b23 Enable{boolean} 5|64b23 69r21
+47V13*Key{boolean} 47=18 48>18 48>21 5|76b13 81l8 81t11
+47r18 This{37R9} 5|76b18 80m14 80r14
+48m18 X{39M9} 5|77b18 80r41 80r65
+48m21 Y{39M9} 5|77b21 80r44 80r68
+X 5 adafruit-trellis.adb
+34R9 LED_Address 37e14 39r67
+35m7*Row{8|43M12} 67r40
+36m7*Column{8|44M12} 68r40
+39a4 LED_Mapping(34R9) 67r21 68r21
+47R9 Key_Address 50e14 52r67
+48i7*Row{8|46I12} 80r47
+49m7*Column{8|47M12} 80r71
+52a4 Key_Mapping(47R9) 80r28 80r52
+X 6 hal.ads
+34K9*HAL 4|33w6 33r19 6|166e8
+39M9*UInt2 4|39r30
+41M9*UInt3
+43M9*UInt4
+X 8 ht16k33.ads
+35K9*HT16K33 4|32w6 32r19 5|35r13 36r16 48r13 49r16 8|100e12
+37R9*HT16K33_Device 4|37r31 53r31 8|99e14
+43M12*LED_Row_Addr{6|43M9} 5|35r21
+44M12*LED_Column_Addr{6|41M9} 5|36r24
+46I12*Key_Row_Addr{integer} 5|48r21
+47M12*Key_Column_Addr{6|41M9} 5|49r24
+49U14*Enable
+50U14*Disable
+52U14*Set_Brightness
+55U14*Set_Blink
+58U14*Set_LED 5|67s12
+65U14*Set_Row
+71V13*Get_Key{boolean} 5|80s19
+77U14*Update_LEDs
+80U14*Update_Keys
+

@@ -1,0 +1,34 @@
+graph: { title: "b__main.adb"
+node: { title: "ada_main__Tsec_default_sized_stacksBIP" label: "tsec_default_sized_stacksbip\nb__main.adb:34:4\n32 bytes (static)" }
+node: { title: "system__secondary_stack__ss_stackIP" label: "Ss_Stackip\nC:\gnat\2020-arm-elf\arm-eabi\lib\gnat\zfp-cortex-m4f\gnat\s-secsta.ads:106:9" shape : ellipse }
+edge: { sourcename: "ada_main__Tsec_default_sized_stacksBIP" targetname: "system__secondary_stack__ss_stackIP" label: "b__main.adb:34:4" }
+node: { title: "adainit" label: "adainit\nb__main.adb:37:4\n8 bytes (static)" }
+node: { title: "ada_main___elabb" label: "e34b\nb__main.adb:49:15" shape : ellipse }
+edge: { sourcename: "adainit" targetname: "ada_main___elabb" label: "b__main.adb:49:15" }
+node: { title: "cortex_m__nvic___elabs" label: "e36b\nb__main.adb:58:20" shape : ellipse }
+edge: { sourcename: "adainit" targetname: "cortex_m__nvic___elabs" label: "b__main.adb:58:20" }
+node: { title: "nrf__interrupts___elabb" label: "e38b\nb__main.adb:63:21" shape : ellipse }
+edge: { sourcename: "adainit" targetname: "nrf__interrupts___elabb" label: "b__main.adb:63:21" }
+node: { title: "nrf__device___elabs" label: "e40b\nb__main.adb:74:17" shape : ellipse }
+edge: { sourcename: "adainit" targetname: "nrf__device___elabs" label: "b__main.adb:74:17" }
+node: { title: "nrf__device___elabb" label: "e42b\nb__main.adb:75:17" shape : ellipse }
+edge: { sourcename: "adainit" targetname: "nrf__device___elabb" label: "b__main.adb:75:17" }
+node: { title: "microbit__console___elabb" label: "e44b\nb__main.adb:77:23" shape : ellipse }
+edge: { sourcename: "adainit" targetname: "microbit__console___elabb" label: "b__main.adb:77:23" }
+node: { title: "microbit__accelerometer___elabb" label: "e46b\nb__main.adb:80:29" shape : ellipse }
+edge: { sourcename: "adainit" targetname: "microbit__accelerometer___elabb" label: "b__main.adb:80:29" }
+node: { title: "microbit__ios___elabs" label: "e48b\nb__main.adb:82:19" shape : ellipse }
+edge: { sourcename: "adainit" targetname: "microbit__ios___elabs" label: "b__main.adb:82:19" }
+node: { title: "microbit__ios___elabb" label: "e50b\nb__main.adb:83:19" shape : ellipse }
+edge: { sourcename: "adainit" targetname: "microbit__ios___elabb" label: "b__main.adb:83:19" }
+node: { title: "microbit__time___elabb" label: "e52b\nb__main.adb:85:20" shape : ellipse }
+edge: { sourcename: "adainit" targetname: "microbit__time___elabb" label: "b__main.adb:85:20" }
+node: { title: "microbit__display___elabb" label: "e54b\nb__main.adb:87:23" shape : ellipse }
+edge: { sourcename: "adainit" targetname: "microbit__display___elabb" label: "b__main.adb:87:23" }
+node: { title: "main" label: "main\nb__main.adb:94:4\n16 bytes (static)" }
+edge: { sourcename: "main" targetname: "adainit" label: "b__main.adb:99:7" }
+node: { title: "_ada_main" label: "ada_main_program\nb__main.adb:91:14" shape : ellipse }
+edge: { sourcename: "main" targetname: "_ada_main" label: "b__main.adb:100:7" }
+node: { title: "ada_main___elabb" label: "ada_main\nb__main.adb:7:1\n8 bytes (static)" }
+edge: { sourcename: "ada_main___elabb" targetname: "ada_main__Tsec_default_sized_stacksBIP" label: "b__main.adb:34:4" }
+}

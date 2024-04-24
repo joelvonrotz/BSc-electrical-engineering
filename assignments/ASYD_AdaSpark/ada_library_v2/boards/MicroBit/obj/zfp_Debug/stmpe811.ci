@@ -1,0 +1,169 @@
+graph: { title: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\stmpe811\stmpe811.adb"
+class {
+  classname: "stmpe811__stmpe811_device"
+  label: "stmpe811__stmpe811_device\stmpe811.ads:39:9"
+  parent: "hal__touch_panel__touch_panel_device"
+  virtuals: "1:stmpe811__set_bounds,1:hal__touch_panel__touch_panel_device\n
+             2:stmpe811__active_touch_points,2:hal__touch_panel__touch_panel_device\n
+             3:stmpe811__get_touch_point,3:hal__touch_panel__touch_panel_device\n
+             4:stmpe811__get_all_touch_points,4:hal__touch_panel__touch_panel_device\n
+             -1:stmpe811___size__2,-1:hal__touch_panel__touch_panel_device\n
+             5:stmpe811__initialize\n
+             6:stmpe811__read_data\n
+             7:stmpe811__read_register\n
+             8:stmpe811__write_register\n
+             9:stmpe811__ioe_reset\n
+             10:stmpe811__ioe_function_command\n
+             11:stmpe811__ioe_af_config\n
+             12:stmpe811__get_ioe_id"
+}
+edge: { sourcename: "stmpe811__read_data"
+  targetname: "4:hal__i2c__i2c_port,hal__i2c__i2c_port"
+  label: "stmpe811.adb:129:16"
+}
+edge: { sourcename: "stmpe811__read_register"
+  targetname: "4:hal__i2c__i2c_port,hal__i2c__i2c_port"
+  label: "stmpe811.adb:152:16"
+}
+edge: { sourcename: "stmpe811__write_register"
+  targetname: "3:hal__i2c__i2c_port,hal__i2c__i2c_port"
+  label: "stmpe811.adb:175:16"
+}
+edge: { sourcename: "stmpe811__ioe_reset"
+  targetname: "2:hal__time__delays,hal__time__delays"
+  label: "stmpe811.adb:195:16"
+}
+edge: { sourcename: "stmpe811__initialize"
+  targetname: "2:hal__time__delays,hal__time__delays"
+  label: "stmpe811.adb:257:16"
+}
+edge: { sourcename: "stmpe811__initialize"
+  targetname: "2:hal__time__delays,hal__time__delays"
+  label: "stmpe811.adb:270:16"
+}
+node: { title: "stmpe811__stmpe811_deviceIP" label: "STMPE811_DEVICEIP\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\stmpe811\stmpe811.ads:74:9\n24 bytes (static)" }
+node: { title: "stmpe811___size__2" label: "STMPE811\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\stmpe811\stmpe811.ads:74:9\n16 bytes (static)" }
+node: { title: "stmpe811__read_data" label: "READ_DATA\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\stmpe811\stmpe811.adb:121:4\n168 bytes (dynamic)" }
+node: { title: "__indirect_call" label: "Indirect Call Placeholder" shape : ellipse }
+edge: { sourcename: "stmpe811__read_data" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\stmpe811\stmpe811.adb:129:16" }
+node: { title: "__gnat_last_chance_handler" label: "Last_Chance_Handler\nC:\gnat\2020-arm-elf\arm-eabi\lib\gnat\zfp-cortex-m4f\gnat\a-except.adb:43:17" shape : ellipse }
+edge: { sourcename: "stmpe811__read_data" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\stmpe811\stmpe811.adb:135:10" }
+node: { title: "__gnat_last_chance_handler" label: "gnat_last_chance_handler\n<built-in>" shape : ellipse }
+edge: { sourcename: "stmpe811__read_data" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\stmpe811\stmpe811.adb:135:10" }
+edge: { sourcename: "stmpe811__read_data" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\stmpe811\stmpe811.adb:135:10" }
+edge: { sourcename: "stmpe811__read_data" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\stmpe811\stmpe811.adb:135:10" }
+edge: { sourcename: "stmpe811__read_data" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\stmpe811\stmpe811.adb:135:10" }
+edge: { sourcename: "stmpe811__read_data" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\stmpe811\stmpe811.adb:135:10" }
+node: { title: "memcpy" label: "builtin_memcpy\n<built-in>" shape : ellipse }
+edge: { sourcename: "stmpe811__read_data" targetname: "memcpy" }
+edge: { sourcename: "stmpe811__read_data" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\stmpe811\stmpe811.adb:135:10" }
+edge: { sourcename: "stmpe811__read_data" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\stmpe811\stmpe811.adb:135:10" }
+node: { title: "system__secondary_stack__ss_allocate" label: "Ss_Allocate\nC:\gnat\2020-arm-elf\arm-eabi\lib\gnat\zfp-cortex-m4f\gnat\s-secsta.ads:58:14" shape : ellipse }
+edge: { sourcename: "stmpe811__read_data" targetname: "system__secondary_stack__ss_allocate" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\stmpe811\stmpe811.adb:138:7" }
+edge: { sourcename: "stmpe811__read_data" targetname: "memcpy" }
+node: { title: "stmpe811__read_register" label: "READ_REGISTER\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\stmpe811\stmpe811.adb:145:4\n136 bytes (dynamic)" }
+edge: { sourcename: "stmpe811__read_register" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\stmpe811\stmpe811.adb:152:16" }
+edge: { sourcename: "stmpe811__read_register" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\stmpe811\stmpe811.adb:159:10" }
+edge: { sourcename: "stmpe811__read_register" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\stmpe811\stmpe811.adb:159:10" }
+edge: { sourcename: "stmpe811__read_register" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\stmpe811\stmpe811.adb:159:10" }
+edge: { sourcename: "stmpe811__read_register" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\stmpe811\stmpe811.adb:159:10" }
+edge: { sourcename: "stmpe811__read_register" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\stmpe811\stmpe811.adb:159:10" }
+edge: { sourcename: "stmpe811__read_register" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\stmpe811\stmpe811.adb:159:10" }
+edge: { sourcename: "stmpe811__read_register" targetname: "memcpy" }
+edge: { sourcename: "stmpe811__read_register" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\stmpe811\stmpe811.adb:159:10" }
+edge: { sourcename: "stmpe811__read_register" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\stmpe811\stmpe811.adb:159:10" }
+node: { title: "stmpe811__write_register" label: "WRITE_REGISTER\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\stmpe811\stmpe811.adb:169:4\n144 bytes (dynamic)" }
+edge: { sourcename: "stmpe811__write_register" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\stmpe811\stmpe811.adb:175:16" }
+edge: { sourcename: "stmpe811__write_register" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\stmpe811\stmpe811.adb:182:10" }
+edge: { sourcename: "stmpe811__write_register" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\stmpe811\stmpe811.adb:182:10" }
+edge: { sourcename: "stmpe811__write_register" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\stmpe811\stmpe811.adb:182:10" }
+edge: { sourcename: "stmpe811__write_register" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\stmpe811\stmpe811.adb:182:10" }
+edge: { sourcename: "stmpe811__write_register" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\stmpe811\stmpe811.adb:182:10" }
+edge: { sourcename: "stmpe811__write_register" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\stmpe811\stmpe811.adb:182:10" }
+edge: { sourcename: "stmpe811__write_register" targetname: "memcpy" }
+edge: { sourcename: "stmpe811__write_register" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\stmpe811\stmpe811.adb:182:10" }
+edge: { sourcename: "stmpe811__write_register" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\stmpe811\stmpe811.adb:182:10" }
+node: { title: "stmpe811__ioe_reset" label: "IOE_RESET\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\stmpe811\stmpe811.adb:190:4\n16 bytes (static)" }
+edge: { sourcename: "stmpe811__ioe_reset" targetname: "stmpe811__write_register" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\stmpe811\stmpe811.adb:192:11" }
+edge: { sourcename: "stmpe811__ioe_reset" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\stmpe811\stmpe811.adb:195:16" }
+edge: { sourcename: "stmpe811__ioe_reset" targetname: "stmpe811__write_register" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\stmpe811\stmpe811.adb:197:11" }
+node: { title: "stmpe811__ioe_function_command" label: "IOE_FUNCTION_COMMAND\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\stmpe811\stmpe811.adb:204:4\n24 bytes (static)" }
+edge: { sourcename: "stmpe811__ioe_function_command" targetname: "stmpe811__read_register" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\stmpe811\stmpe811.adb:208:26" }
+edge: { sourcename: "stmpe811__ioe_function_command" targetname: "stmpe811__write_register" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\stmpe811\stmpe811.adb:218:11" }
+node: { title: "stmpe811__ioe_af_config" label: "IOE_AF_CONFIG\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\stmpe811\stmpe811.adb:225:4\n24 bytes (static)" }
+edge: { sourcename: "stmpe811__ioe_af_config" targetname: "stmpe811__read_register" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\stmpe811\stmpe811.adb:228:26" }
+edge: { sourcename: "stmpe811__ioe_af_config" targetname: "stmpe811__write_register" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\stmpe811\stmpe811.adb:236:11" }
+node: { title: "stmpe811__get_ioe_id" label: "GET_IOE_ID\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\stmpe811\stmpe811.adb:243:4\n24 bytes (static)" }
+edge: { sourcename: "stmpe811__get_ioe_id" targetname: "stmpe811__read_register" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\stmpe811\stmpe811.adb:245:27" }
+edge: { sourcename: "stmpe811__get_ioe_id" targetname: "stmpe811__read_register" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\stmpe811\stmpe811.adb:246:24" }
+node: { title: "stmpe811__initialize" label: "INITIALIZE\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\stmpe811\stmpe811.adb:253:4\n16 bytes (static)" }
+edge: { sourcename: "stmpe811__initialize" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\stmpe811\stmpe811.adb:257:16" }
+edge: { sourcename: "stmpe811__initialize" targetname: "stmpe811__get_ioe_id" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\stmpe811\stmpe811.adb:259:14" }
+edge: { sourcename: "stmpe811__initialize" targetname: "stmpe811__ioe_reset" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\stmpe811\stmpe811.adb:263:11" }
+edge: { sourcename: "stmpe811__initialize" targetname: "stmpe811__ioe_function_command" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\stmpe811\stmpe811.adb:265:11" }
+edge: { sourcename: "stmpe811__initialize" targetname: "stmpe811__ioe_function_command" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\stmpe811\stmpe811.adb:266:11" }
+edge: { sourcename: "stmpe811__initialize" targetname: "stmpe811__write_register" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\stmpe811\stmpe811.adb:268:11" }
+edge: { sourcename: "stmpe811__initialize" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\stmpe811\stmpe811.adb:270:16" }
+edge: { sourcename: "stmpe811__initialize" targetname: "stmpe811__write_register" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\stmpe811\stmpe811.adb:272:11" }
+edge: { sourcename: "stmpe811__initialize" targetname: "stmpe811__ioe_af_config" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\stmpe811\stmpe811.adb:274:11" }
+edge: { sourcename: "stmpe811__initialize" targetname: "stmpe811__write_register" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\stmpe811\stmpe811.adb:276:11" }
+edge: { sourcename: "stmpe811__initialize" targetname: "stmpe811__write_register" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\stmpe811\stmpe811.adb:278:11" }
+edge: { sourcename: "stmpe811__initialize" targetname: "stmpe811__write_register" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\stmpe811\stmpe811.adb:280:11" }
+edge: { sourcename: "stmpe811__initialize" targetname: "stmpe811__write_register" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\stmpe811\stmpe811.adb:282:11" }
+edge: { sourcename: "stmpe811__initialize" targetname: "stmpe811__write_register" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\stmpe811\stmpe811.adb:284:11" }
+edge: { sourcename: "stmpe811__initialize" targetname: "stmpe811__write_register" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\stmpe811\stmpe811.adb:286:11" }
+edge: { sourcename: "stmpe811__initialize" targetname: "stmpe811__write_register" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\stmpe811\stmpe811.adb:288:11" }
+edge: { sourcename: "stmpe811__initialize" targetname: "stmpe811__write_register" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\stmpe811\stmpe811.adb:290:11" }
+node: { title: "stmpe811__set_bounds" label: "SET_BOUNDS\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\stmpe811\stmpe811.adb:300:4\n24 bytes (static)" }
+node: { title: "stmpe811__active_touch_points" label: "ACTIVE_TOUCH_POINTS\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\stmpe811\stmpe811.adb:316:4\n24 bytes (static)" }
+edge: { sourcename: "stmpe811__active_touch_points" targetname: "stmpe811__read_register" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\stmpe811\stmpe811.adb:319:35" }
+edge: { sourcename: "stmpe811__active_touch_points" targetname: "stmpe811__write_register" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\stmpe811\stmpe811.adb:322:14" }
+edge: { sourcename: "stmpe811__active_touch_points" targetname: "stmpe811__write_register" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\stmpe811\stmpe811.adb:323:14" }
+node: { title: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\stmpe811\stmpe811.adb:stmpe811__get_touch_point__B_1___finalizer.6135" label: "B_1\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\stmpe811\stmpe811.adb:355:7\n16 bytes (static)" }
+node: { title: "system__secondary_stack__ss_release" label: "Ss_Release\nC:\gnat\2020-arm-elf\arm-eabi\lib\gnat\zfp-cortex-m4f\gnat\s-secsta.ads:70:14" shape : ellipse }
+edge: { sourcename: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\stmpe811\stmpe811.adb:stmpe811__get_touch_point__B_1___finalizer.6135" targetname: "system__secondary_stack__ss_release" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\stmpe811\stmpe811.adb:355:7" }
+node: { title: "stmpe811__get_touch_point" label: "GET_TOUCH_POINT\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\stmpe811\stmpe811.adb:336:4\n224 bytes (dynamic)" }
+edge: { sourcename: "stmpe811__get_touch_point" targetname: "stmpe811__active_touch_points" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\stmpe811\stmpe811.adb:351:36" }
+node: { title: "system__secondary_stack__ss_mark" label: "Ss_Mark\nC:\gnat\2020-arm-elf\arm-eabi\lib\gnat\zfp-cortex-m4f\gnat\s-secsta.ads:67:13" shape : ellipse }
+edge: { sourcename: "stmpe811__get_touch_point" targetname: "system__secondary_stack__ss_mark" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\stmpe811\stmpe811.adb:355:7" }
+edge: { sourcename: "stmpe811__get_touch_point" targetname: "stmpe811__read_data" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\stmpe811\stmpe811.adb:356:44" }
+edge: { sourcename: "stmpe811__get_touch_point" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\stmpe811\stmpe811.adb:356:44" }
+edge: { sourcename: "stmpe811__get_touch_point" targetname: "memcpy" }
+edge: { sourcename: "stmpe811__get_touch_point" targetname: "stmpe811__read_data" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\stmpe811\stmpe811.adb:357:44" }
+edge: { sourcename: "stmpe811__get_touch_point" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\stmpe811\stmpe811.adb:357:44" }
+edge: { sourcename: "stmpe811__get_touch_point" targetname: "memcpy" }
+edge: { sourcename: "stmpe811__get_touch_point" targetname: "stmpe811__read_data" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\stmpe811\stmpe811.adb:358:44" }
+edge: { sourcename: "stmpe811__get_touch_point" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\stmpe811\stmpe811.adb:358:44" }
+edge: { sourcename: "stmpe811__get_touch_point" targetname: "memcpy" }
+edge: { sourcename: "stmpe811__get_touch_point" targetname: "stmpe811__read_data" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\stmpe811\stmpe811.adb:359:44" }
+edge: { sourcename: "stmpe811__get_touch_point" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\stmpe811\stmpe811.adb:359:44" }
+edge: { sourcename: "stmpe811__get_touch_point" targetname: "memcpy" }
+edge: { sourcename: "stmpe811__get_touch_point" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\stmpe811\stmpe811.adb:363:33" }
+edge: { sourcename: "stmpe811__get_touch_point" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\stmpe811\stmpe811.adb:363:71" }
+edge: { sourcename: "stmpe811__get_touch_point" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\stmpe811\stmpe811.adb:365:32" }
+edge: { sourcename: "stmpe811__get_touch_point" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\stmpe811\stmpe811.adb:365:70" }
+edge: { sourcename: "stmpe811__get_touch_point" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\stmpe811\stmpe811.adb:367:33" }
+edge: { sourcename: "stmpe811__get_touch_point" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\stmpe811\stmpe811.adb:367:55" }
+edge: { sourcename: "stmpe811__get_touch_point" targetname: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\stmpe811\stmpe811.adb:stmpe811__get_touch_point__B_1___finalizer.6135" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\stmpe811\stmpe811.adb:368:0" }
+edge: { sourcename: "stmpe811__get_touch_point" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\stmpe811\stmpe811.adb:373:12" }
+edge: { sourcename: "stmpe811__get_touch_point" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\stmpe811\stmpe811.adb:374:14" }
+edge: { sourcename: "stmpe811__get_touch_point" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\stmpe811\stmpe811.adb:380:21" }
+edge: { sourcename: "stmpe811__get_touch_point" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\stmpe811\stmpe811.adb:381:14" }
+edge: { sourcename: "stmpe811__get_touch_point" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\stmpe811\stmpe811.adb:394:38" }
+edge: { sourcename: "stmpe811__get_touch_point" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\stmpe811\stmpe811.adb:394:42" }
+edge: { sourcename: "stmpe811__get_touch_point" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\stmpe811\stmpe811.adb:397:39" }
+edge: { sourcename: "stmpe811__get_touch_point" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\stmpe811\stmpe811.adb:397:43" }
+edge: { sourcename: "stmpe811__get_touch_point" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\stmpe811\stmpe811.adb:405:18" }
+edge: { sourcename: "stmpe811__get_touch_point" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\stmpe811\stmpe811.adb:406:18" }
+edge: { sourcename: "stmpe811__get_touch_point" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\stmpe811\stmpe811.adb:408:45" }
+edge: { sourcename: "stmpe811__get_touch_point" targetname: "stmpe811__write_register" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\stmpe811\stmpe811.adb:410:11" }
+edge: { sourcename: "stmpe811__get_touch_point" targetname: "stmpe811__write_register" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\stmpe811\stmpe811.adb:411:11" }
+node: { title: "stmpe811__get_all_touch_points" label: "GET_ALL_TOUCH_POINTS\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\stmpe811\stmpe811.adb:421:4\n80 bytes (dynamic)" }
+edge: { sourcename: "stmpe811__get_all_touch_points" targetname: "stmpe811__active_touch_points" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\stmpe811\stmpe811.adb:425:41" }
+edge: { sourcename: "stmpe811__get_all_touch_points" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\stmpe811\stmpe811.adb:426:29" }
+edge: { sourcename: "stmpe811__get_all_touch_points" targetname: "system__secondary_stack__ss_allocate" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\stmpe811\stmpe811.adb:430:10" }
+edge: { sourcename: "stmpe811__get_all_touch_points" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\stmpe811\stmpe811.adb:434:46" }
+edge: { sourcename: "stmpe811__get_all_touch_points" targetname: "stmpe811__get_touch_point" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\stmpe811\stmpe811.adb:434:28" }
+edge: { sourcename: "stmpe811__get_all_touch_points" targetname: "system__secondary_stack__ss_allocate" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\stmpe811\stmpe811.adb:437:7" }
+edge: { sourcename: "stmpe811__get_all_touch_points" targetname: "memcpy" }
+}

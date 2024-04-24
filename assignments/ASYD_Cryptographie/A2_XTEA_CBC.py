@@ -26,7 +26,7 @@ def cipher_block_chaining(block : bytes, old_block : bytes, iv : bytes, first : 
 
 
 if __name__ == "__main__":
-  KEY : bytes = bytes.fromhex('0123456789ABCDEF0123456789ABCDEF')
+  KEY : bytes = bytes.fromhex('0123 4567 89AB CDEF 0123 4567 89AB CDEF')
   DATA: bytes = 'hello world'.encode("ascii")
   IV: bytes = b'deadbeef'
 

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="5mm"
+   height="5mm"
+   viewBox="0 0 5 5"
+   version="1.1"
+   id="svg1"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="true">
+    <inkscape:grid
+       id="grid1"
+       units="mm"
+       originx="0"
+       originy="0"
+       spacingx="0.99999997"
+       spacingy="0.99999997"
+       empcolor="#0099e5"
+       empopacity="0.30196078"
+       color="#0099e5"
+       opacity="0.14901961"
+       empspacing="5"
+       dotted="false"
+       gridanglex="30"
+       gridanglez="30"
+       visible="true" />
+  </sodipodi:namedview>
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Ebene 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <circle
+       style="fill:#1461aa;fill-opacity:1;stroke:none;stroke-width:0.529167;paint-order:stroke markers fill"
+       id="path1"
+       cx="0.49999997"
+       cy="0.49999997"
+       r="0.49999997" />
+    <circle
+       style="fill:#1461aa;fill-opacity:1;stroke:none;stroke-width:0.529167;paint-order:stroke markers fill"
+       id="circle1"
+       cx="2.5"
+       cy="0.49999997"
+       r="0.49999997" />
+    <circle
+       style="fill:#1461aa;fill-opacity:1;stroke:none;stroke-width:0.529167;paint-order:stroke markers fill"
+       id="circle2"
+       cx="4.5"
+       cy="0.49999997"
+       r="0.49999997" />
+    <circle
+       style="fill:#1461aa;fill-opacity:1;stroke:none;stroke-width:0.529167;paint-order:stroke markers fill"
+       id="circle3"
+       cx="0.49999997"
+       cy="2.5"
+       r="0.49999997" />
+    <circle
+       style="fill:#1461aa;fill-opacity:1;stroke:none;stroke-width:0.529167;paint-order:stroke markers fill"
+       id="circle5"
+       cx="4.5"
+       cy="2.5"
+       r="0.49999997" />
+    <circle
+       style="fill:#1461aa;fill-opacity:1;stroke:none;stroke-width:0.529167;paint-order:stroke markers fill"
+       id="circle6"
+       cx="0.49999997"
+       cy="4.5"
+       r="0.49999997" />
+    <circle
+       style="fill:#1461aa;fill-opacity:1;stroke:none;stroke-width:0.529167;paint-order:stroke markers fill"
+       id="circle7"
+       cx="2.5"
+       cy="4.5"
+       r="0.49999997" />
+    <circle
+       style="fill:#1461aa;fill-opacity:1;stroke:none;stroke-width:0.529167;paint-order:stroke markers fill"
+       id="circle8"
+       cx="4.5"
+       cy="4.5"
+       r="0.49999997" />
+  </g>
+</svg>

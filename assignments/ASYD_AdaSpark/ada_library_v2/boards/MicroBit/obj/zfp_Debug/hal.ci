@@ -1,0 +1,5 @@
+graph: { title: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\hal\src\hal.ads"
+node: { title: "hal__uint8_arrayIP" label: "UINT8_ARRAYIP\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\hal\src\hal.ads:162:9\n16 bytes (static)" }
+node: { title: "hal__uint16_arrayIP" label: "UINT16_ARRAYIP\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\hal\src\hal.ads:163:9\n16 bytes (static)" }
+node: { title: "hal__uint32_arrayIP" label: "UINT32_ARRAYIP\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\hal\src\hal.ads:164:9\n16 bytes (static)" }
+}

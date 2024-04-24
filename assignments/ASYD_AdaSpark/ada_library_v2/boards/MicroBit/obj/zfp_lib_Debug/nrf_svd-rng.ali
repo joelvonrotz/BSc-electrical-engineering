@@ -1,0 +1,109 @@
+V "GNAT Lib v2020"
+A -O0
+A -gnatA
+A --RTS=C:\gnat\2020-arm-elf\arm-eabi\lib\gnat\zfp-cortex-m4f\
+A -mlittle-endian
+A -mthumb
+A -mfloat-abi=hard
+A -mcpu=cortex-m4
+A -mfpu=fpv4-sp-d16
+A -gnata
+A -fcallgraph-info=su
+A -fcallgraph-info=su
+A -g
+A -gnatwa
+A -gnatw_A
+A -gnatQ
+A -gnatw.X
+A -ffunction-sections
+A -fdata-sections
+A -march=armv7e-m+fp
+P ZX
+
+RN
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLEMENTATION_RESTRICTIONS
+RR NO_ELABORATION_CODE
+
+U nrf_svd.rng%s		nrf_svd-rng.ads		ee80e6a9 NE OO PR PK IU
+W hal%s			hal.ads			hal.ali
+W nrf_svd%s		nrf_svd.ads		nrf_svd.ali
+W system%s		system.ads		system.ali
+
+D hal.ads		20210108111948 2b42c80e hal%s
+D interfac.ads		20200819171400 5ab55268 interfaces%s
+D nrf_svd.ads		20210306183508 87ba21d7 nrf_svd%s
+D nrf_svd-rng.ads	20210108111948 a4e37bcd nrf_svd.rng%s
+D system.ads		20200819171400 e69b74bd system%s
+G a e
+G c Z s s [shorts_registerIP nrf_svd__rng 67 9 none]
+G c Z s s [intenset_registerIP nrf_svd__rng 104 9 none]
+G c Z s s [intenclr_registerIP nrf_svd__rng 141 9 none]
+G c Z s s [config_registerIP nrf_svd__rng 167 9 none]
+G c Z s s [value_registerIP nrf_svd__rng 184 9 none]
+G c Z s s [rng_peripheralIP nrf_svd__rng 203 9 none]
+X 1 hal.ads
+34K9*HAL 166e8 4|45w6 71r23 108r23 145r23 171r23 181r33 188r23 205r31 207r31
+. 210r31
+53M9*UInt8<2|63M9> 4|181r37
+81M9*UInt24 4|188r27
+95M9*UInt31 4|71r27 108r27 145r27 171r27
+97M9*UInt32<2|74M9> 4|205r35 207r35 210r35
+X 2 interfac.ads
+63M9*Unsigned_8
+74M9*Unsigned_32
+X 3 nrf_svd.ads
+49K9*NRF_SVD 123e12 4|48r9 69r51 169r46 239r5
+84m4*RNG_Base{5|90M9} 4|237r30
+X 4 nrf_svd-rng.ads
+48K17*RNG 3|49k9 4|69r59 169r54 239l13 239e16
+56E9*SHORTS_VALRDY_STOP_Field 61e6 62r8 69r23
+58n7*Disabled{56E9} 63r7 69r63
+60n7*Enabled{56E9} 64r7
+67R9*SHORTS_Register 73e6 76r8 212r31
+69e7*VALRDY_STOP{56E9} 77r7
+71m7*Reserved_1_31{1|95M9} 78r7
+82E9*INTENSET_VALRDY_Field 87e6 88r8
+84n7*Disabled{82E9} 89r7
+86n7*Enabled{82E9} 90r7
+93E9*INTENSET_VALRDY_Field_1 98e6 99r8 106r23
+95n7*Intenset_Valrdy_Field_Reset{93E9} 100r7 106r50
+97n7*Set{93E9} 101r7
+104R9*INTENSET_Register 110e6 113r8 214r31
+106e7*VALRDY{93E9} 114r7
+108m7*Reserved_1_31{1|95M9} 115r7
+119E9*INTENCLR_VALRDY_Field 124e6 125r8
+121n7*Disabled{119E9} 126r7
+123n7*Enabled{119E9} 127r7
+130E9*INTENCLR_VALRDY_Field_1 135e6 136r8 143r23
+132n7*Intenclr_Valrdy_Field_Reset{130E9} 137r7 143r50
+134n7*Clear{130E9} 138r7
+141R9*INTENCLR_Register 147e6 150r8 216r31
+143e7*VALRDY{130E9} 151r7
+145m7*Reserved_1_31{1|95M9} 152r7
+156E9*CONFIG_DERCEN_Field 161e6 162r8 169r23
+158n7*Disabled{156E9} 163r7 169r58
+160n7*Enabled{156E9} 164r7
+167R9*CONFIG_Register 173e6 176r8 218r31
+169e7*DERCEN{156E9} 177r7
+171m7*Reserved_1_31{1|95M9} 178r7
+181M12*VALUE_VALUE_Field{1|53M9} 186r23
+184R9*VALUE_Register 190e6 193r8 220r31
+186m7*VALUE{181M12} 194r7
+188m7*Reserved_8_31{1|81M9} 195r7
+203R9*RNG_Peripheral 222e6 224r8 236r25
+205m7*TASKS_START{1|97M9} 225r7
+207m7*TASKS_STOP{1|97M9} 226r7
+210m7*EVENTS_VALRDY{1|97M9} 227r7
+212r7*SHORTS{67R9} 228r7
+214r7*INTENSET{104R9} 229r7
+216r7*INTENCLR{141R9} 230r7
+218r7*CONFIG{167R9} 231r7
+220r7*VALUE{184R9} 232r7
+236r4*RNG_Periph{203R9}
+X 5 system.ads
+60K9*System 4|46w6 74r24 111r24 148r24 174r24 191r24 5|172e11
+90M9*Address
+114n41*Low_Order_First{114E9} 4|74r31 111r31 148r31 174r31 191r31
+

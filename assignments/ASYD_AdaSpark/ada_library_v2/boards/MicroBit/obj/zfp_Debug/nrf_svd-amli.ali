@@ -1,0 +1,165 @@
+V "GNAT Lib v2020"
+A -O0
+A -gnatA
+A --RTS=C:\gnat\2020-arm-elf\arm-eabi\lib\gnat\zfp-cortex-m0\
+A -mlittle-endian
+A -mthumb
+A -mfloat-abi=soft
+A -mcpu=cortex-m0
+A -gnata
+A -fcallgraph-info=su
+A -fcallgraph-info=su
+A -g
+A -gnatwa
+A -gnatw_A
+A -gnatQ
+A -gnatw.X
+A -ffunction-sections
+A -fdata-sections
+A -march=armv6s-m
+P ZX
+
+RN
+RV NO_IMPLICIT_CONDITIONALS
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLEMENTATION_RESTRICTIONS
+RV NO_IMPLICIT_LOOPS
+RR NO_ELABORATION_CODE
+
+U nrf_svd.amli%s	nrf_svd-amli.ads	ac99f078 NE OO PR PK IU
+W hal%s			hal.ads			hal.ali
+W nrf_svd%s		nrf_svd.ads		nrf_svd.ali
+W system%s		system.ads		system.ali
+Z system.unsigned_types%s  s-unstyp.ads		s-unstyp.ali
+
+D hal.ads		20210108111948 2b42c80e hal%s
+D interfac.ads		20200430174712 5ab55268 interfaces%s
+D nrf_svd.ads		20210108111948 56c8b08e nrf_svd%s
+D nrf_svd-amli.ads	20210108111948 3788fc45 nrf_svd.amli%s
+D system.ads		20200430174712 e69b74bd system%s
+D s-unstyp.ads		20200430174712 5ecf7212 system.unsigned_types%s
+G a e
+G c Z s s [Tcpu0_rampri_ram_field_arrayBIP nrf_svd__amli 80 4 none]
+G c Z s s [cpu0_rampri_registerIP nrf_svd__amli 84 9 none]
+G c Z s s [Tspis1_rampri_ram_field_arrayBIP nrf_svd__amli 134 4 none]
+G c Z s s [spis1_rampri_registerIP nrf_svd__amli 138 9 none]
+G c Z s s [Tradio_rampri_ram_field_arrayBIP nrf_svd__amli 188 4 none]
+G c Z s s [radio_rampri_registerIP nrf_svd__amli 192 9 none]
+G c Z s s [Tecb_rampri_ram_field_arrayBIP nrf_svd__amli 242 4 none]
+G c Z s s [ecb_rampri_registerIP nrf_svd__amli 246 9 none]
+G c Z s s [Tccm_rampri_ram_field_arrayBIP nrf_svd__amli 296 4 none]
+G c Z s s [ccm_rampri_registerIP nrf_svd__amli 300 9 none]
+G c Z s s [Taar_rampri_ram_field_arrayBIP nrf_svd__amli 350 4 none]
+G c Z s s [aar_rampri_registerIP nrf_svd__amli 354 9 none]
+G c Z s s [amli_rampri_clusterIP nrf_svd__amli 375 9 none]
+G c Z s s [amli_peripheralIP nrf_svd__amli 405 9 none]
+X 1 hal.ads
+34K9*HAL 166e8 4|36w6 90r19 144r19 198r19 252r19 306r19 360r19
+97M9*UInt32<2|74M9> 4|90r23 144r23 198r23 252r23 306r23 360r23
+X 2 interfac.ads
+74M9*Unsigned_32
+X 3 nrf_svd.ads
+40K9*NRF_SVD 81e12 4|39r9 419r5
+50m4*AMLI_Base{5|90M9} 4|417r30
+X 4 nrf_svd-amli.ads
+39K17*AMLI 3|40k9 4|419l13 419e17
+51E9*CPU0_RAM0_Field 68e6 69r8 80r58
+53n7*Pri0{51E9} 70r7
+55n7*Pri2{51E9} 71r7
+57n7*Pri4{51E9} 72r7
+59n7*Pri6{51E9} 73r7
+61n7*Pri8{51E9} 74r7
+63n7*Pri10{51E9} 75r7
+65n7*Pri12{51E9} 76r7
+67n7*Pri14{51E9} 77r7
+80A9*CPU0_RAMPRI_RAM_Field_Array(51E9)<integer> 93r19
+84R9*CPU0_RAMPRI_Register 85d7 96e6 99r8 377r23
+85b7*As_Array{boolean} 87r12
+90m13*Val{1|97M9} 100r7
+93a13*Arr{80A9} 101r7
+105E9*SPIS1_RAM0_Field 122e6 123r8 134r59
+107n7*Pri0{105E9} 124r7
+109n7*Pri2{105E9} 125r7
+111n7*Pri4{105E9} 126r7
+113n7*Pri6{105E9} 127r7
+115n7*Pri8{105E9} 128r7
+117n7*Pri10{105E9} 129r7
+119n7*Pri12{105E9} 130r7
+121n7*Pri14{105E9} 131r7
+134A9*SPIS1_RAMPRI_RAM_Field_Array(105E9)<integer> 147r19
+138R9*SPIS1_RAMPRI_Register 139d7 150e6 153r8 379r23
+139b7*As_Array{boolean} 141r12
+144m13*Val{1|97M9} 154r7
+147a13*Arr{134A9} 155r7
+159E9*RADIO_RAM0_Field 176e6 177r8 188r59
+161n7*Pri0{159E9} 178r7
+163n7*Pri2{159E9} 179r7
+165n7*Pri4{159E9} 180r7
+167n7*Pri6{159E9} 181r7
+169n7*Pri8{159E9} 182r7
+171n7*Pri10{159E9} 183r7
+173n7*Pri12{159E9} 184r7
+175n7*Pri14{159E9} 185r7
+188A9*RADIO_RAMPRI_RAM_Field_Array(159E9)<integer> 201r19
+192R9*RADIO_RAMPRI_Register 193d7 204e6 207r8 381r23
+193b7*As_Array{boolean} 195r12
+198m13*Val{1|97M9} 208r7
+201a13*Arr{188A9} 209r7
+213E9*ECB_RAM0_Field 230e6 231r8 242r57
+215n7*Pri0{213E9} 232r7
+217n7*Pri2{213E9} 233r7
+219n7*Pri4{213E9} 234r7
+221n7*Pri6{213E9} 235r7
+223n7*Pri8{213E9} 236r7
+225n7*Pri10{213E9} 237r7
+227n7*Pri12{213E9} 238r7
+229n7*Pri14{213E9} 239r7
+242A9*ECB_RAMPRI_RAM_Field_Array(213E9)<integer> 255r19
+246R9*ECB_RAMPRI_Register 247d7 258e6 261r8 383r23
+247b7*As_Array{boolean} 249r12
+252m13*Val{1|97M9} 262r7
+255a13*Arr{242A9} 263r7
+267E9*CCM_RAM0_Field 284e6 285r8 296r57
+269n7*Pri0{267E9} 286r7
+271n7*Pri2{267E9} 287r7
+273n7*Pri4{267E9} 288r7
+275n7*Pri6{267E9} 289r7
+277n7*Pri8{267E9} 290r7
+279n7*Pri10{267E9} 291r7
+281n7*Pri12{267E9} 292r7
+283n7*Pri14{267E9} 293r7
+296A9*CCM_RAMPRI_RAM_Field_Array(267E9)<integer> 309r19
+300R9*CCM_RAMPRI_Register 301d7 312e6 315r8 385r23
+301b7*As_Array{boolean} 303r12
+306m13*Val{1|97M9} 316r7
+309a13*Arr{296A9} 317r7
+321E9*AAR_RAM0_Field 338e6 339r8 350r57
+323n7*Pri0{321E9} 340r7
+325n7*Pri2{321E9} 341r7
+327n7*Pri4{321E9} 342r7
+329n7*Pri6{321E9} 343r7
+331n7*Pri8{321E9} 344r7
+333n7*Pri10{321E9} 345r7
+335n7*Pri12{321E9} 346r7
+337n7*Pri14{321E9} 347r7
+350A9*AAR_RAMPRI_RAM_Field_Array(321E9)<integer> 363r19
+354R9*AAR_RAMPRI_Register 355d7 366e6 369r8 387r23
+355b7*As_Array{boolean} 357r12
+360m13*Val{1|97M9} 370r7
+363a13*Arr{350A9} 371r7
+375R9*AMLI_RAMPRI_Cluster 389e6 391r8 407r24
+377r7*CPU0{84R9} 392r7
+379r7*SPIS1{138R9} 393r7
+381r7*RADIO{192R9} 394r7
+383r7*ECB{246R9} 395r7
+385r7*CCM{300R9} 396r7
+387r7*AAR{354R9} 397r7
+405R9*AMLI_Peripheral 409e6 411r8 416r26
+407r7*RAMPRI{375R9} 412r7
+416r4*AMLI_Periph{405R9}
+X 5 system.ads
+60K9*System 4|37w6 97r24 151r24 205r24 259r24 313r24 367r24 5|172e11
+90M9*Address
+114n41*Low_Order_First{114E9} 4|97r31 151r31 205r31 259r31 313r31 367r31
+

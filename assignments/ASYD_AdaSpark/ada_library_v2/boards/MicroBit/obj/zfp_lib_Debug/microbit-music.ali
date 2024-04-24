@@ -1,0 +1,232 @@
+V "GNAT Lib v2020"
+A -O0
+A -gnatA
+A --RTS=C:\gnat\2020-arm-elf\arm-eabi\lib\gnat\zfp-cortex-m4f\
+A -mlittle-endian
+A -mthumb
+A -mfloat-abi=hard
+A -mcpu=cortex-m4
+A -mfpu=fpv4-sp-d16
+A -gnata
+A -fcallgraph-info=su
+A -fcallgraph-info=su
+A -g
+A -gnatwa
+A -gnatw_A
+A -gnatQ
+A -gnatw.X
+A -ffunction-sections
+A -fdata-sections
+A -march=armv7e-m+fp
+P ZX
+
+RN
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_PRAGMAS
+
+U microbit.music%b	microbit-music.adb	c80ff4ef NE OO PK
+W microbit%s		microbit.ads		microbit.ali
+Z system.assertions%s	s-assert.adb		s-assert.ali
+
+U microbit.music%s	microbit-music.ads	b780beeb EE NE OO PK
+W microbit%s		microbit.ads		microbit.ali
+W microbit.ios%s	microbit-ios.adb	microbit-ios.ali
+W microbit.time%s	microbit-time.adb	microbit-time.ali
+
+D ada.ads		20200819171400 76789da1 ada%s
+D a-tags.ads		20200819171400 95e09aae ada.tags%s
+D hal.ads		20210108111948 2b42c80e hal%s
+D hal-gpio.ads		20210108111948 7f0c2ffe hal.gpio%s
+D hal-i2c.ads		20210108111948 0ed73138 hal.i2c%s
+D hal-spi.ads		20210108111948 fe139819 hal.spi%s
+D hal-time.ads		20210108111948 f5295cd7 hal.time%s
+D hal-uart.ads		20210108111948 d58316b4 hal.uart%s
+D interfac.ads		20200819171400 5ab55268 interfaces%s
+D microbit.ads		20210309072132 033332ef microbit%s
+D microbit-ios.ads	20210308133732 3c9a3981 microbit.ios%s
+D microbit-music.ads	20210108111948 e3953443 microbit.music%s
+D microbit-music.adb	20210108111948 2b9ac0ac microbit.music%b
+D microbit-time.ads	20210108111948 6bbc81c6 microbit.time%s
+D nrf.ads		20210108111948 74cf72f5 nrf%s
+D nrf-device.ads	20210306183624 0b4647f4 nrf.device%s
+D nrf-gpio.ads		20210306151712 72dee5c2 nrf.gpio%s
+D nrf-rtc.ads		20210108111948 36d88130 nrf.rtc%s
+D nrf-spi_master.ads	20210108111948 a8ff49a3 nrf.spi_master%s
+D nrf-timers.ads	20210108111948 385f1a57 nrf.timers%s
+D nrf-twi.ads		20210306201702 c69c2186 nrf.twi%s
+D nrf-uart.ads		20210307101722 3d63d355 nrf.uart%s
+D nrf_svd.ads		20210306183508 87ba21d7 nrf_svd%s
+D nrf_svd-rtc.ads	20210108111948 57c7ffc8 nrf_svd.rtc%s
+D nrf_svd-spi.ads	20210108111948 6e2ffb69 nrf_svd.spi%s
+D nrf_svd-timer.ads	20210108111948 ba50db1c nrf_svd.timer%s
+D nrf_svd-twi.ads	20210306201806 68301534 nrf_svd.twi%s
+D nrf_svd-uart.ads	20210108111948 83bcebc8 nrf_svd.uart%s
+D system.ads		20200819171400 e69b74bd system%s
+D s-assert.ads		20200819171400 cd8d2c94 system.assertions%s
+D s-stoele.ads		20200819171400 2dc34a04 system.storage_elements%s
+D s-unstyp.ads		20200819171400 5ecf7212 system.unsigned_types%s
+G a e
+G c Z s b [play microbit__music 46 14 none]
+G c Z s b [play microbit__music 49 14 none]
+G c Z s b [play microbit__music 52 14 none]
+G c Z s s [noteIP microbit__music 39 9 none]
+G c Z s s [melodyIP microbit__music 44 9 none]
+G r c none [play microbit__music 46 14 none] [supports microbit__ios 40 13 none]
+G r c none [play microbit__music 46 14 none] [write microbit__ios 64 14 none]
+G r c none [play microbit__music 46 14 none] [set_analog_period_us microbit__ios 60 14 none]
+G r c none [play microbit__music 46 14 none] [set microbit__ios 52 14 none]
+G r c none [play microbit__music 49 14 none] [supports microbit__ios 40 13 none]
+G r c none [play microbit__music 49 14 none] [write microbit__ios 64 14 none]
+G r c none [play microbit__music 49 14 none] [set_analog_period_us microbit__ios 60 14 none]
+G r c none [play microbit__music 49 14 none] [set microbit__ios 52 14 none]
+G r c none [play microbit__music 49 14 none] [delay_ms microbit__time 41 14 none]
+G r c none [play microbit__music 52 14 none] [supports microbit__ios 40 13 none]
+G r c none [play microbit__music 52 14 none] [write microbit__ios 64 14 none]
+G r c none [play microbit__music 52 14 none] [set_analog_period_us microbit__ios 60 14 none]
+G r c none [play microbit__music 52 14 none] [set microbit__ios 52 14 none]
+G r c none [play microbit__music 52 14 none] [delay_ms microbit__time 41 14 none]
+X 3 hal.ads
+160M9*UInt64<9|77M9>
+X 4 hal-gpio.ads
+47h9*GPIO_Point
+X 5 hal-i2c.ads
+48h9*I2C_Port
+X 6 hal-spi.ads
+48h9*SPI_Port
+X 7 hal-time.ads
+34h9*Delays
+X 8 hal-uart.ads
+48h9*UART_Port
+X 9 interfac.ads
+77M9*Unsigned_64
+X 10 microbit.ads
+35K9*MicroBit 72e13 12|32r6 32r25 33r6 35r9 41r12 148r5 13|32r14 64r7 78r5
+X 11 microbit-ios.ads
+34K18*IOs 98e17 12|32w15 32r34
+36I9*Pin_Id<short_short_integer> 12|46r26 49r26 52r26 13|39r13 61r26 71r26
+38n34*Analog{38E9} 12|47r33 50r33 53r33
+40V13*Supports{boolean} 12|47s18 50s18 53s18
+52U14*Set 13|46s10
+60U14*Set_Analog_Period_Us 13|53s10
+64U14*Write 13|50s10
+X 12 microbit-music.ads
+35K18*Music 10|35k9 12|148l14 148e19 13|32b23 78l14 78t19
+37I9*Pitch<integer> 40r12 46r38 57r20 58r20 59r20 60r20 61r20 62r20 63r20
+. 64r20 65r20 66r20 67r20 68r20 69r20 70r20 71r20 72r20 73r20 74r20 75r20
+. 76r20 77r20 78r20 79r20 80r20 81r20 82r20 83r20 84r20 85r20 86r20 87r20
+. 88r20 89r20 90r20 91r20 92r20 93r20 94r20 95r20 96r20 97r20 98r20 99r20
+. 100r20 101r20 102r20 103r20 104r20 105r20 106r20 107r20 108r20 109r20 110r20
+. 111r20 112r20 113r20 114r20 115r20 116r20 117r20 118r20 119r20 120r20 121r20
+. 122r20 123r20 124r20 125r20 126r20 127r20 128r20 129r20 130r20 131r20 132r20
+. 133r20 134r20 135r20 136r20 137r20 138r20 139r20 140r20 141r20 142r20 143r20
+. 144r20 145r20 146r20 13|40r11
+39R9*Note 42e14 44r47 49r38 13|61r38
+40i7*P{37I9} 13|63r20
+41m7*Ms{14|37M12} 13|64r33
+44A9*Melody(39R9)<integer> 52r38 13|71r38
+46U14*Play 46>20 46>34 13|38b14 55l8 55t12 63s7
+46i20 Pin{11|36I9} 47r28 13|39b7 46r15 50r17
+46i34 P{37I9} 13|40b7 43r10 53r53
+49U14*Play 49>20 49>34 13|61b14 65l8 65t12 74s10
+49i20 Pin{11|36I9} 50r28 13|61b20 63r13
+49r34 N{39R9} 13|61b34 63r18 64r31
+52U14*Play 52>20 52>34 13|71b14 76l8 76t12
+52i20 Pin{11|36I9} 53r28 13|71b20 74r16
+52a34 M{44A9} 13|71b34 73r16
+57i4*Rest{37I9} 13|43r14
+58i4*B0{37I9}
+59i4*C1{37I9}
+60i4*CS1{37I9}
+61i4*D1{37I9}
+62i4*DS1{37I9}
+63i4*E1{37I9}
+64i4*F1{37I9}
+65i4*FS1{37I9}
+66i4*G1{37I9}
+67i4*GS1{37I9}
+68i4*A1{37I9}
+69i4*AS1{37I9}
+70i4*B1{37I9}
+71i4*C2{37I9}
+72i4*CS2{37I9}
+73i4*D2{37I9}
+74i4*DS2{37I9}
+75i4*E2{37I9}
+76i4*F2{37I9}
+77i4*FS2{37I9}
+78i4*G2{37I9}
+79i4*GS2{37I9}
+80i4*A2{37I9}
+81i4*AS2{37I9}
+82i4*B2{37I9}
+83i4*C3{37I9}
+84i4*CS3{37I9}
+85i4*D3{37I9}
+86i4*DS3{37I9}
+87i4*E3{37I9}
+88i4*F3{37I9}
+89i4*FS3{37I9}
+90i4*G3{37I9}
+91i4*GS3{37I9}
+92i4*A3{37I9}
+93i4*AS3{37I9}
+94i4*B3{37I9}
+95i4*C4{37I9}
+96i4*CS4{37I9}
+97i4*D4{37I9}
+98i4*DS4{37I9}
+99i4*E4{37I9}
+100i4*F4{37I9}
+101i4*FS4{37I9}
+102i4*G4{37I9}
+103i4*GS4{37I9}
+104i4*A4{37I9}
+105i4*AS4{37I9}
+106i4*B4{37I9}
+107i4*C5{37I9}
+108i4*CS5{37I9}
+109i4*D5{37I9}
+110i4*DS5{37I9}
+111i4*E5{37I9}
+112i4*F5{37I9}
+113i4*FS5{37I9}
+114i4*G5{37I9}
+115i4*GS5{37I9}
+116i4*A5{37I9}
+117i4*AS5{37I9}
+118i4*B5{37I9}
+119i4*C6{37I9}
+120i4*CS6{37I9}
+121i4*D6{37I9}
+122i4*DS6{37I9}
+123i4*E6{37I9}
+124i4*F6{37I9}
+125i4*FS6{37I9}
+126i4*G6{37I9}
+127i4*GS6{37I9}
+128i4*A6{37I9}
+129i4*AS6{37I9}
+130i4*B6{37I9}
+131i4*C7{37I9}
+132i4*CS7{37I9}
+133i4*D7{37I9}
+134i4*DS7{37I9}
+135i4*E7{37I9}
+136i4*F7{37I9}
+137i4*FS7{37I9}
+138i4*G7{37I9}
+139i4*GS7{37I9}
+140i4*A7{37I9}
+141i4*AS7{37I9}
+142i4*B7{37I9}
+143i4*C8{37I9}
+144i4*CS8{37I9}
+145i4*D8{37I9}
+146i4*DS8{37I9}
+X 13 microbit-music.adb
+73r11 N=73:16{12|39R9} 74r21
+X 14 microbit-time.ads
+35K18*Time 12|33w15 41r21 13|64r16 14|81e18
+37M12*Time_Ms{3|160M9} 12|41r26
+41U14*Delay_Ms 13|64s21
+

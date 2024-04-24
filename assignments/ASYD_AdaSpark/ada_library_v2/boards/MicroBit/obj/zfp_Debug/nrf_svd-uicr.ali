@@ -1,0 +1,106 @@
+V "GNAT Lib v2020"
+A -O0
+A -gnatA
+A --RTS=C:\gnat\2020-arm-elf\arm-eabi\lib\gnat\zfp-cortex-m4f\
+A -mlittle-endian
+A -mthumb
+A -mfloat-abi=hard
+A -mcpu=cortex-m4
+A -mfpu=fpv4-sp-d16
+A -gnata
+A -fcallgraph-info=su
+A -fcallgraph-info=su
+A -g
+A -gnatwa
+A -gnatw_A
+A -gnatQ
+A -gnatw.X
+A -ffunction-sections
+A -fdata-sections
+A -march=armv7e-m+fp
+P ZX
+
+RN
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLEMENTATION_RESTRICTIONS
+RV NO_IMPLICIT_LOOPS
+RR NO_ELABORATION_CODE
+
+U nrf_svd.uicr%s	nrf_svd-uicr.ads	31857ec9 NE OO PR PK IU
+W hal%s			hal.ads			hal.ali
+W nrf_svd%s		nrf_svd.ads		nrf_svd.ali
+W system%s		system.ads		system.ali
+Z system.unsigned_types%s  s-unstyp.ads		s-unstyp.ali
+
+D hal.ads		20210108111948 2b42c80e hal%s
+D interfac.ads		20200819171400 5ab55268 interfaces%s
+D nrf_svd.ads		20210306183508 87ba21d7 nrf_svd%s
+D nrf_svd-uicr.ads	20210108111948 7be6e3ad nrf_svd.uicr%s
+D system.ads		20200819171400 e69b74bd system%s
+D s-unstyp.ads		20200819171400 5ecf7212 system.unsigned_types%s
+G a e
+G c Z s s [Tnrffw_registersBIP nrf_svd__uicr 58 4 none]
+G c Z s s [Tnrfhw_registersBIP nrf_svd__uicr 63 4 none]
+G c Z s s [Tcustomer_registersBIP nrf_svd__uicr 68 4 none]
+G c Z s s [pselreset_registerIP nrf_svd__uicr 85 9 none]
+G c Z s s [Tpselreset_registersBIP nrf_svd__uicr 104 4 none]
+G c Z s s [approtect_registerIP nrf_svd__uicr 119 9 none]
+G c Z s s [nfcpins_registerIP nrf_svd__uicr 146 9 none]
+G c Z s s [uicr_peripheralIP nrf_svd__uicr 165 9 none]
+X 1 hal.ads
+34K9*HAL 166e8 4|45w6 58r47 63r47 68r50 70r35 89r23 124r23 150r23 167r27
+. 169r27 171r27 173r27
+47M9*UInt6 4|70r39
+81M9*UInt24 4|124r27
+83M9*UInt25 4|89r27
+95M9*UInt31 4|150r27
+97M9*UInt32<2|74M9> 4|58r51 63r51 68r54 167r31 169r31 171r31 173r31
+X 2 interfac.ads
+74M9*Unsigned_32
+X 3 nrf_svd.ads
+49K9*NRF_SVD 123e12 4|48r9 91r50 122r47 148r48 207r5
+57m4*UICR_Base{5|90M9} 4|205r30
+X 4 nrf_svd-uicr.ads
+48K17*UICR 3|49k9 4|91r58 122r55 148r56 207l13 207e17
+58A9*NRFFW_Registers(1|97M9)<integer> 175r27
+63A9*NRFHW_Registers(1|97M9)<integer> 177r27
+68A9*CUSTOMER_Registers(1|97M9)<integer> 179r27
+70M12*PSELRESET_PIN_Field{1|47M9} 87r23
+73E9*PSELRESET_CONNECT_Field 78e6 79r8 91r23
+75n7*Connected{73E9} 80r7
+77n7*Disconnected{73E9} 81r7 91r63
+85R9*PSELRESET_Register 93e6 96r8 104r50
+87m7*PIN{70M12} 97r7
+89m7*Reserved_6_30{1|83M9} 98r7
+91e7*CONNECT{73E9} 99r7
+104A9*PSELRESET_Registers(85R9)<integer> 182r27
+108E9*APPROTECT_PALL_Field 113e6 114r8 122r23
+110n7*Enabled{108E9} 115r7
+112n7*Disabled{108E9} 116r7 122r60
+119R9*APPROTECT_Register 126e6 129r8 184r27
+122e7*PALL{108E9} 130r7
+124m7*Reserved_8_31{1|81M9} 131r7
+135E9*NFCPINS_PROTECT_Field 140e6 141r8 148r23
+137n7*Disabled{135E9} 142r7
+139n7*Nfc{135E9} 143r7 148r61
+146R9*NFCPINS_Register 152e6 155r8 186r27
+148e7*PROTECT{135E9} 156r7
+150m7*Reserved_1_31{1|95M9} 157r7
+165R9*UICR_Peripheral 188e6 190r8 204r26
+167m7*UNUSED0{1|97M9} 191r7
+169m7*UNUSED1{1|97M9} 192r7
+171m7*UNUSED2{1|97M9} 193r7
+173m7*UNUSED3{1|97M9} 194r7
+175a7*NRFFW{58A9} 195r7
+177a7*NRFHW{63A9} 196r7
+179a7*CUSTOMER{68A9} 197r7
+182a7*PSELRESET{104A9} 198r7
+184r7*APPROTECT{119R9} 199r7
+186r7*NFCPINS{146R9} 200r7
+204r4*UICR_Periph{165R9}
+X 5 system.ads
+60K9*System 4|46w6 94r24 127r24 153r24 5|172e11
+90M9*Address
+114n41*Low_Order_First{114E9} 4|94r31 127r31 153r31
+

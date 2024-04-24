@@ -1,0 +1,105 @@
+V "GNAT Lib v2020"
+A -O0
+A -gnatA
+A --RTS=C:\gnat\2020-arm-elf\arm-eabi\lib\gnat\zfp-cortex-m4f\
+A -mlittle-endian
+A -mthumb
+A -mfloat-abi=hard
+A -mcpu=cortex-m4
+A -mfpu=fpv4-sp-d16
+A -gnata
+A -fcallgraph-info=su
+A -fcallgraph-info=su
+A -g
+A -gnatwa
+A -gnatw_A
+A -gnatQ
+A -gnatw.X
+A -ffunction-sections
+A -fdata-sections
+A -march=armv7e-m+fp
+P SS ZX
+
+RN
+RV NO_IMPLICIT_CONDITIONALS
+RV NO_SECONDARY_STACK
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLICIT_LOOPS
+
+U bit_fields%b		bit_fields.adb		6b5d98e3 NE OO PK
+Z system.assertions%s	s-assert.adb		s-assert.ali
+Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+Z system.unsigned_types%s  s-unstyp.ads		s-unstyp.ali
+
+U bit_fields%s		bit_fields.ads		55ced0cd EE NE OO PK
+W hal%s			hal.ads			hal.ali
+Z system.unsigned_types%s  s-unstyp.ads		s-unstyp.ali
+
+D bit_fields.ads	20210108111948 7e8c18c3 bit_fields%s
+D bit_fields.adb	20210108111948 15d18020 bit_fields%b
+D hal.ads		20210108111948 2b42c80e hal%s
+D interfac.ads		20200819171400 5ab55268 interfaces%s
+D system.ads		20200819171400 e69b74bd system%s
+D s-assert.ads		20200819171400 cd8d2c94 system.assertions%s
+D s-parame.ads		20200819171400 fe66c50d system.parameters%s
+D s-secsta.ads		20200819171400 56a2861c system.secondary_stack%s
+D s-stoele.ads		20200819171400 2dc34a04 system.storage_elements%s
+D s-unstyp.ads		20200819171400 5ecf7212 system.unsigned_types%s
+G a e
+G c Z s b [to_word bit_fields 38 13 none]
+G c Z s b [to_uint16 bit_fields 39 13 none]
+G c Z s b [to_uint8 bit_fields 40 13 none]
+G c Z s b [to_bit_field bit_fields 42 13 none]
+G c Z s b [to_bit_field bit_fields 46 13 none]
+G c Z s b [to_bit_field bit_fields 50 13 none]
+G c Z s s [bit_fieldIP bit_fields 35 9 none]
+G c Z b b [convert_8IP bit_fields 33 9 none]
+G c Z b b [convert_16IP bit_fields 47 9 none]
+G c Z b b [convert_32IP bit_fields 61 9 none]
+X 1 bit_fields.ads
+34K9*Bit_Fields 54l5 54e15 2|32b14 141l5 141t15
+35A9*Bit_Field(3|37M9)<integer> 38r29 39r31 40r30 42r50 46r50 50r49 2|38r20
+. 52r20 66r20 80r29 91r31 102r30 113r50 124r50 135r49
+38V13*To_Word{3|97M9} 38>22 2|80b13 85l8 85t15
+38a22 Bits{35A9} 2|80b22 83r19
+39V13*To_UInt16{3|66M9} 39>24 2|91b13 96l8 96t17
+39a24 Bits{35A9} 2|91b24 94r19
+40V13*To_UInt8{3|53M9} 40>23 2|102b13 107l8 107t16
+40a23 Bits{35A9} 2|102b23 105r19
+42V13*To_Bit_Field{35A9} 42>27 2|113b13 118l8 118t20
+42m27 Value{3|97M9} 2|113b27 116r20
+46V13*To_Bit_Field{35A9} 46>27 2|124b13 129l8 129t20
+46m27 Value{3|66M9} 2|124b27 127r20
+50V13*To_Bit_Field{35A9} 50>27 2|135b13 140l8 140t20
+50m27 Value{3|53M9} 2|135b27 138r20
+X 2 bit_fields.adb
+33R9 Convert_8 33d20 40e15 42r8 103r13 136r13
+33b20*As_Array{boolean} 34r12
+36m13*Value{3|53M9} 43r7 106r18 138m11
+38a13*Bits{1|35A9} 44r7 105m11 139r18
+47R9 Convert_16 47d21 54e15 56r8 92r13 125r13
+47b21*As_Array{boolean} 48r12
+50m13*Value{3|66M9} 57r7 95r18 127m11
+52a13*Bits{1|35A9} 58r7 94m11 128r18
+61R9 Convert_32 61d21 68e15 70r8 81r13 114r13
+61b21*As_Array{boolean} 62r12
+64m13*Value{3|97M9} 71r7 84r18 116m11
+66a13*Bits{1|35A9} 72r7 83m11 117r18
+81r7 Tmp{61R9} 83m7 84r14
+92r7 Tmp{47R9} 94m7 95r14
+103r7 Tmp{33R9} 105m7 106r14
+114r7 Tmp{61R9} 116m7 117r14
+125r7 Tmp{47R9} 127m7 128r14
+136r7 Tmp{33R9} 138m7 139r14
+X 3 hal.ads
+34K9*HAL 1|32w6 32r15 3|166e8
+37M9*Bit 1|35r50
+53M9*UInt8<4|63M9> 1|40r48 50r35 2|36r21 102r48 135r35
+66M9*UInt16<4|66M9> 1|39r49 46r35 2|50r21 91r49 124r35
+97M9*UInt32<4|74M9> 1|38r47 42r35 2|64r21 80r47 113r35
+X 4 interfac.ads
+63M9*Unsigned_8
+66M9*Unsigned_16
+74M9*Unsigned_32
+

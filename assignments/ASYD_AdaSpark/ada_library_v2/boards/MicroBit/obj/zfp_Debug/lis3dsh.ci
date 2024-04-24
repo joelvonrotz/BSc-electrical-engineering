@@ -1,0 +1,118 @@
+graph: { title: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\lis3dsh\lis3dsh.adb"
+class {
+  classname: "lis3dsh__three_axis_accelerometer"
+  label: "lis3dsh__three_axis_accelerometer\lis3dsh.ads:51:9"
+  parent: "lis3dsh__three_axis_accelerometer"
+  virtuals: "1:lis3dsh__get_accelerations\n
+             2:lis3dsh__device_id\n
+             3:lis3dsh__configure\n
+             4:lis3dsh__set_full_scale\n
+             5:lis3dsh__set_low_power\n
+             6:lis3dsh__set_data_rate\n
+             7:lis3dsh__selected_sensitivity\n
+             8:lis3dsh__reboot\n
+             9:lis3dsh__configure_interrupts\n
+             10:lis3dsh__configure_click_interrupt\n
+             11:lis3dsh__temperature\n
+             12:lis3dsh__configured\n
+             13:lis3dsh__io_write\n
+             14:lis3dsh__io_read\n
+             -1:lis3dsh___size"
+}
+edge: { sourcename: "lis3dsh__loc_io_write"
+  targetname: "13:lis3dsh__three_axis_accelerometer,lis3dsh__three_axis_accelerometer"
+  label: "lis3dsh.adb:78:7"
+}
+edge: { sourcename: "lis3dsh__loc_io_read"
+  targetname: "14:lis3dsh__three_axis_accelerometer,lis3dsh__three_axis_accelerometer"
+  label: "lis3dsh.adb:93:7"
+}
+node: { title: "lis3dsh__three_axis_accelerometerIP" label: "THREE_AXIS_ACCELEROMETERIP\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\lis3dsh\lis3dsh.ads:288:9\n16 bytes (static)" }
+node: { title: "lis3dsh___size" label: "LIS3DSH\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\lis3dsh\lis3dsh.ads:288:9\n16 bytes (static)" }
+node: { title: "lis3dsh__axes_accelerationsIP" label: "AXES_ACCELERATIONSIP\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\lis3dsh\lis3dsh.ads:59:9\n16 bytes (static)" }
+node: { title: "lis3dsh__full_scale_selectionRP" label: "FULL_SCALE_SELECTIONRP\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\lis3dsh\lis3dsh.ads:92:9\n16 bytes (static)" }
+node: { title: "lis3dsh__data_rate_power_mode_selectionRP" label: "DATA_RATE_POWER_MODE_SELECTIONRP\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\lis3dsh\lis3dsh.ads:107:9\n16 bytes (static)" }
+node: { title: "lis3dsh__anti_aliasing_filter_bandwidthRP" label: "ANTI_ALIASING_FILTER_BANDWIDTHRP\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\lis3dsh\lis3dsh.ads:131:9\n16 bytes (static)" }
+node: { title: "lis3dsh__self_test_selectionRP" label: "SELF_TEST_SELECTIONRP\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\lis3dsh\lis3dsh.ads:143:9\n16 bytes (static)" }
+node: { title: "lis3dsh__direction_xyz_selectionRP" label: "DIRECTION_XYZ_SELECTIONRP\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\lis3dsh\lis3dsh.ads:153:9\n16 bytes (static)" }
+node: { title: "lis3dsh__state_machine_routed_interruptRP" label: "STATE_MACHINE_ROUTED_INTERRUPTRP\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\lis3dsh\lis3dsh.ads:213:9\n16 bytes (static)" }
+node: { title: "lis3dsh__interrupt_request_selectionRP" label: "INTERRUPT_REQUEST_SELECTIONRP\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\lis3dsh\lis3dsh.ads:221:9\n16 bytes (static)" }
+node: { title: "lis3dsh__interrupt_selection_enablersRP" label: "INTERRUPT_SELECTION_ENABLERSRP\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\lis3dsh\lis3dsh.ads:229:9\n16 bytes (static)" }
+node: { title: "lis3dsh__interrupt_signal_active_selectionRP" label: "INTERRUPT_SIGNAL_ACTIVE_SELECTIONRP\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\lis3dsh\lis3dsh.ads:242:9\n16 bytes (static)" }
+node: { title: "lis3dsh__configured" label: "CONFIGURED\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\lis3dsh\lis3dsh.adb:102:4\n16 bytes (static)" }
+node: { title: "lis3dsh__get_accelerations" label: "GET_ACCELERATIONS\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\lis3dsh\lis3dsh.adb:109:4\n80 bytes (static)" }
+edge: { sourcename: "lis3dsh__get_accelerations" targetname: "lis3dsh__configured" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\lis3dsh\lis3dsh.ads:66:18" }
+node: { title: "system__assertions__raise_assert_failure" label: "Raise_Assert_Failure\nC:\gnat\2020-arm-elf\arm-eabi\lib\gnat\zfp-cortex-m4f\gnat\s-assert.ads:46:14" shape : ellipse }
+edge: { sourcename: "lis3dsh__get_accelerations" targetname: "system__assertions__raise_assert_failure" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\lis3dsh\lis3dsh.ads:66:18" }
+node: { title: "__indirect_call" label: "Indirect Call Placeholder" shape : ellipse }
+edge: { sourcename: "lis3dsh__get_accelerations" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\lis3dsh\lis3dsh.adb:93:7" }
+edge: { sourcename: "lis3dsh__get_accelerations" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\lis3dsh\lis3dsh.adb:93:7" }
+edge: { sourcename: "lis3dsh__get_accelerations" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\lis3dsh\lis3dsh.adb:93:7" }
+edge: { sourcename: "lis3dsh__get_accelerations" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\lis3dsh\lis3dsh.adb:93:7" }
+edge: { sourcename: "lis3dsh__get_accelerations" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\lis3dsh\lis3dsh.adb:93:7" }
+edge: { sourcename: "lis3dsh__get_accelerations" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\lis3dsh\lis3dsh.adb:93:7" }
+node: { title: "__gnat_last_chance_handler" label: "gnat_last_chance_handler\n<built-in>" shape : ellipse }
+edge: { sourcename: "lis3dsh__get_accelerations" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\lis3dsh\lis3dsh.adb:137:39" }
+edge: { sourcename: "lis3dsh__get_accelerations" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\lis3dsh\lis3dsh.adb:144:39" }
+edge: { sourcename: "lis3dsh__get_accelerations" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\lis3dsh\lis3dsh.adb:151:39" }
+node: { title: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\lis3dsh\lis3dsh.adb:lis3dsh__configure___postconditions.6517" label: "CONFIGURE\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\lis3dsh\lis3dsh.adb:159:4\n24 bytes (static)" }
+edge: { sourcename: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\lis3dsh\lis3dsh.adb:lis3dsh__configure___postconditions.6517" targetname: "lis3dsh__configured" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\lis3dsh\lis3dsh.ads:181:19" }
+edge: { sourcename: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\lis3dsh\lis3dsh.adb:lis3dsh__configure___postconditions.6517" targetname: "system__assertions__raise_assert_failure" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\lis3dsh\lis3dsh.ads:181:19" }
+node: { title: "lis3dsh__configure" label: "CONFIGURE\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\lis3dsh\lis3dsh.adb:159:4\n48 bytes (static)" }
+edge: { sourcename: "lis3dsh__configure" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\lis3dsh\lis3dsh.adb:178:23" }
+edge: { sourcename: "lis3dsh__configure" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\lis3dsh\lis3dsh.adb:78:7" }
+edge: { sourcename: "lis3dsh__configure" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\lis3dsh\lis3dsh.adb:181:23" }
+edge: { sourcename: "lis3dsh__configure" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\lis3dsh\lis3dsh.adb:78:7" }
+edge: { sourcename: "lis3dsh__configure" targetname: "lis3dsh__full_scale_selectionRP" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\lis3dsh\lis3dsh.adb:184:12" }
+edge: { sourcename: "lis3dsh__configure" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\lis3dsh\lis3dsh.adb:184:12" }
+edge: { sourcename: "lis3dsh__configure" targetname: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\lis3dsh\lis3dsh.adb:lis3dsh__configure___postconditions.6517" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\lis3dsh\lis3dsh.adb:198:8" }
+node: { title: "lis3dsh__device_id" label: "DEVICE_ID\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\lis3dsh\lis3dsh.adb:204:4\n32 bytes (static)" }
+edge: { sourcename: "lis3dsh__device_id" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\lis3dsh\lis3dsh.adb:93:7" }
+node: { title: "lis3dsh__reboot" label: "REBOOT\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\lis3dsh\lis3dsh.adb:215:4\n40 bytes (static)" }
+edge: { sourcename: "lis3dsh__reboot" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\lis3dsh\lis3dsh.adb:93:7" }
+edge: { sourcename: "lis3dsh__reboot" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\lis3dsh\lis3dsh.adb:78:7" }
+node: { title: "lis3dsh__configure_interrupts" label: "CONFIGURE_INTERRUPTS\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\lis3dsh\lis3dsh.adb:228:4\n56 bytes (static)" }
+edge: { sourcename: "lis3dsh__configure_interrupts" targetname: "lis3dsh__configured" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\lis3dsh\lis3dsh.ads:259:18" }
+edge: { sourcename: "lis3dsh__configure_interrupts" targetname: "system__assertions__raise_assert_failure" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\lis3dsh\lis3dsh.ads:259:18" }
+edge: { sourcename: "lis3dsh__configure_interrupts" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\lis3dsh\lis3dsh.adb:78:7" }
+edge: { sourcename: "lis3dsh__configure_interrupts" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\lis3dsh\lis3dsh.adb:78:7" }
+edge: { sourcename: "lis3dsh__configure_interrupts" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\lis3dsh\lis3dsh.adb:78:7" }
+node: { title: "lis3dsh__configure_click_interrupt" label: "CONFIGURE_CLICK_INTERRUPT\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\lis3dsh\lis3dsh.adb:263:4\n88 bytes (static)" }
+edge: { sourcename: "lis3dsh__configure_click_interrupt" targetname: "lis3dsh__configured" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\lis3dsh\lis3dsh.ads:262:18" }
+edge: { sourcename: "lis3dsh__configure_click_interrupt" targetname: "system__assertions__raise_assert_failure" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\lis3dsh\lis3dsh.ads:262:18" }
+edge: { sourcename: "lis3dsh__configure_click_interrupt" targetname: "lis3dsh__configure_interrupts" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\lis3dsh\lis3dsh.adb:268:7" }
+edge: { sourcename: "lis3dsh__configure_click_interrupt" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\lis3dsh\lis3dsh.adb:78:7" }
+edge: { sourcename: "lis3dsh__configure_click_interrupt" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\lis3dsh\lis3dsh.adb:78:7" }
+edge: { sourcename: "lis3dsh__configure_click_interrupt" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\lis3dsh\lis3dsh.adb:78:7" }
+edge: { sourcename: "lis3dsh__configure_click_interrupt" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\lis3dsh\lis3dsh.adb:78:7" }
+edge: { sourcename: "lis3dsh__configure_click_interrupt" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\lis3dsh\lis3dsh.adb:78:7" }
+edge: { sourcename: "lis3dsh__configure_click_interrupt" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\lis3dsh\lis3dsh.adb:78:7" }
+edge: { sourcename: "lis3dsh__configure_click_interrupt" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\lis3dsh\lis3dsh.adb:78:7" }
+edge: { sourcename: "lis3dsh__configure_click_interrupt" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\lis3dsh\lis3dsh.adb:78:7" }
+edge: { sourcename: "lis3dsh__configure_click_interrupt" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\lis3dsh\lis3dsh.adb:78:7" }
+edge: { sourcename: "lis3dsh__configure_click_interrupt" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\lis3dsh\lis3dsh.adb:78:7" }
+edge: { sourcename: "lis3dsh__configure_click_interrupt" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\lis3dsh\lis3dsh.adb:78:7" }
+node: { title: "lis3dsh__set_low_power" label: "SET_LOW_POWER\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\lis3dsh\lis3dsh.adb:299:4\n48 bytes (static)" }
+edge: { sourcename: "lis3dsh__set_low_power" targetname: "lis3dsh__configured" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\lis3dsh\lis3dsh.ads:191:18" }
+edge: { sourcename: "lis3dsh__set_low_power" targetname: "system__assertions__raise_assert_failure" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\lis3dsh\lis3dsh.ads:191:18" }
+edge: { sourcename: "lis3dsh__set_low_power" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\lis3dsh\lis3dsh.adb:93:7" }
+edge: { sourcename: "lis3dsh__set_low_power" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\lis3dsh\lis3dsh.adb:78:7" }
+node: { title: "lis3dsh__set_data_rate" label: "SET_DATA_RATE\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\lis3dsh\lis3dsh.adb:315:4\n48 bytes (static)" }
+edge: { sourcename: "lis3dsh__set_data_rate" targetname: "lis3dsh__configured" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\lis3dsh\lis3dsh.ads:196:18" }
+edge: { sourcename: "lis3dsh__set_data_rate" targetname: "system__assertions__raise_assert_failure" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\lis3dsh\lis3dsh.ads:196:18" }
+edge: { sourcename: "lis3dsh__set_data_rate" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\lis3dsh\lis3dsh.adb:93:7" }
+edge: { sourcename: "lis3dsh__set_data_rate" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\lis3dsh\lis3dsh.adb:78:7" }
+node: { title: "lis3dsh__set_full_scale" label: "SET_FULL_SCALE\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\lis3dsh\lis3dsh.adb:331:4\n48 bytes (static)" }
+edge: { sourcename: "lis3dsh__set_full_scale" targetname: "lis3dsh__configured" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\lis3dsh\lis3dsh.ads:186:18" }
+edge: { sourcename: "lis3dsh__set_full_scale" targetname: "system__assertions__raise_assert_failure" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\lis3dsh\lis3dsh.ads:186:18" }
+edge: { sourcename: "lis3dsh__set_full_scale" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\lis3dsh\lis3dsh.adb:93:7" }
+edge: { sourcename: "lis3dsh__set_full_scale" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\lis3dsh\lis3dsh.adb:78:7" }
+node: { title: "lis3dsh__selected_sensitivity" label: "SELECTED_SENSITIVITY\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\lis3dsh\lis3dsh.adb:354:4\n40 bytes (static)" }
+edge: { sourcename: "lis3dsh__selected_sensitivity" targetname: "lis3dsh__configured" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\lis3dsh\lis3dsh.ads:199:18" }
+edge: { sourcename: "lis3dsh__selected_sensitivity" targetname: "system__assertions__raise_assert_failure" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\lis3dsh\lis3dsh.ads:199:18" }
+edge: { sourcename: "lis3dsh__selected_sensitivity" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\lis3dsh\lis3dsh.adb:93:7" }
+edge: { sourcename: "lis3dsh__selected_sensitivity" targetname: "lis3dsh__full_scale_selectionRP" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\lis3dsh\lis3dsh.adb:360:33" }
+edge: { sourcename: "lis3dsh__selected_sensitivity" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\lis3dsh\lis3dsh.adb:360:33" }
+node: { title: "lis3dsh__temperature" label: "TEMPERATURE\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\lis3dsh\lis3dsh.adb:378:4\n32 bytes (static)" }
+edge: { sourcename: "lis3dsh__temperature" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\lis3dsh\lis3dsh.adb:93:7" }
+}

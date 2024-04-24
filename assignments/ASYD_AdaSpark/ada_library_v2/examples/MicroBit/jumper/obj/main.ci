@@ -1,0 +1,37 @@
+graph: { title: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\examples\MicroBit\jumper\src\main.adb"
+node: { title: "_ada_main" label: "Main\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\examples\MicroBit\jumper\src\main.adb:12:1\n152 bytes (dynamic)" }
+node: { title: "microbit__console__put_line" label: "Put_Line\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\boards\microbit\src\microbit-console.ads:43:14" shape : ellipse }
+edge: { sourcename: "_ada_main" targetname: "microbit__console__put_line" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\examples\MicroBit\jumper\src\main.adb:21:11" }
+node: { title: "asyd_package__sqrt_int" label: "sqrt_int\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\examples\MicroBit\jumper\src\asyd_package.ads:4:13" shape : ellipse }
+edge: { sourcename: "_ada_main" targetname: "asyd_package__sqrt_int" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\examples\MicroBit\jumper\src\main.adb:23:11" }
+node: { title: "system__img_int__image_integer" label: "Image_Integer\nC:\gnat\2020-arm-elf\arm-eabi\lib\gnat\zfp-cortex-m4f\gnat\s-imgint.ads:39:14" shape : ellipse }
+edge: { sourcename: "_ada_main" targetname: "system__img_int__image_integer" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\examples\MicroBit\jumper\src\main.adb:24:24" }
+edge: { sourcename: "_ada_main" targetname: "microbit__console__put_line" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\examples\MicroBit\jumper\src\main.adb:24:11" }
+node: { title: "microbit__accelerometer__data" label: "Data\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\boards\microbit\src\microbit-accelerometer.ads:38:13" shape : ellipse }
+edge: { sourcename: "_ada_main" targetname: "microbit__accelerometer__data" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\examples\MicroBit\jumper\src\main.adb:29:28" }
+edge: { sourcename: "_ada_main" targetname: "asyd_package__sqrt_int" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\examples\MicroBit\jumper\src\main.adb:30:19" }
+edge: { sourcename: "_ada_main" targetname: "system__img_int__image_integer" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\examples\MicroBit\jumper\src\main.adb:31:57" }
+node: { title: "memcpy" label: "builtin_memcpy\n<built-in>" shape : ellipse }
+edge: { sourcename: "_ada_main" targetname: "memcpy" }
+edge: { sourcename: "_ada_main" targetname: "microbit__console__put_line" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\examples\MicroBit\jumper\src\main.adb:31:14" }
+edge: { sourcename: "_ada_main" targetname: "microbit__console__put_line" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\examples\MicroBit\jumper\src\main.adb:42:20" }
+node: { title: "microbit__display__clear__2" label: "Clear\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\boards\microbit\src\microbit-display.ads:42:14" shape : ellipse }
+edge: { sourcename: "_ada_main" targetname: "microbit__display__clear__2" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\examples\MicroBit\jumper\src\main.adb:43:20" }
+node: { title: "microbit__display__display" label: "Display\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\boards\microbit\src\microbit-display.ads:45:14" shape : ellipse }
+edge: { sourcename: "_ada_main" targetname: "microbit__display__display" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\examples\MicroBit\jumper\src\main.adb:44:20" }
+node: { title: "__gnat_last_chance_handler" label: "gnat_last_chance_handler\n<built-in>" shape : ellipse }
+edge: { sourcename: "_ada_main" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\examples\MicroBit\jumper\src\main.adb:45:53" }
+edge: { sourcename: "_ada_main" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\examples\MicroBit\jumper\src\main.adb:47:53" }
+edge: { sourcename: "_ada_main" targetname: "microbit__display__clear__2" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\examples\MicroBit\jumper\src\main.adb:49:20" }
+edge: { sourcename: "_ada_main" targetname: "microbit__console__put_line" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\examples\MicroBit\jumper\src\main.adb:55:17" }
+edge: { sourcename: "_ada_main" targetname: "microbit__display__clear__2" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\examples\MicroBit\jumper\src\main.adb:56:17" }
+edge: { sourcename: "_ada_main" targetname: "microbit__display__display" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\examples\MicroBit\jumper\src\main.adb:57:17" }
+node: { title: "microbit__ios__set" label: "Set\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\boards\microbit\src\microbit-ios.ads:52:14" shape : ellipse }
+edge: { sourcename: "_ada_main" targetname: "microbit__ios__set" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\examples\MicroBit\jumper\src\main.adb:63:19" }
+node: { title: "microbit__display__set" label: "Set\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\boards\microbit\src\microbit-display.ads:36:14" shape : ellipse }
+edge: { sourcename: "_ada_main" targetname: "microbit__display__set" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\examples\MicroBit\jumper\src\main.adb:73:17" }
+node: { title: "microbit__display__clear" label: "Clear\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\boards\microbit\src\microbit-display.ads:39:14" shape : ellipse }
+edge: { sourcename: "_ada_main" targetname: "microbit__display__clear" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\examples\MicroBit\jumper\src\main.adb:76:17" }
+node: { title: "microbit__time__delay_ms" label: "Delay_Ms\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\boards\microbit\src\microbit-time.ads:41:14" shape : ellipse }
+edge: { sourcename: "_ada_main" targetname: "microbit__time__delay_ms" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\examples\MicroBit\jumper\src\main.adb:81:11" }
+}

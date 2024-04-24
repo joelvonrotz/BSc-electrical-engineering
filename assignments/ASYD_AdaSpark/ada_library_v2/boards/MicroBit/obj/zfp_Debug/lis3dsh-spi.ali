@@ -1,0 +1,117 @@
+V "GNAT Lib v2020"
+A -O0
+A -gnatA
+A --RTS=C:\gnat\2020-arm-elf\arm-eabi\lib\gnat\zfp-cortex-m4f\
+A -mlittle-endian
+A -mthumb
+A -mfloat-abi=hard
+A -mcpu=cortex-m4
+A -mfpu=fpv4-sp-d16
+A -gnata
+A -fcallgraph-info=su
+A -fcallgraph-info=su
+A -g
+A -gnatwa
+A -gnatw_A
+A -gnatQ
+A -gnatw.X
+A -ffunction-sections
+A -fdata-sections
+A -march=armv7e-m+fp
+P ZX
+
+RN
+RV NO_DISPATCHING_CALLS
+RV NO_EXCEPTIONS
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_IMPLEMENTATION_PRAGMAS
+
+U lis3dsh.spi%b		lis3dsh-spi.adb		2a95c559 NE OO PK IU
+Z ada.tags%s		a-tags.adb		a-tags.ali
+W lis3dsh%s		lis3dsh.adb		lis3dsh.ali
+Z system.assertions%s	s-assert.adb		s-assert.ali
+
+U lis3dsh.spi%s		lis3dsh-spi.ads		3d7a57a0 EE NE OO PK IU
+Z ada.tags%s		a-tags.adb		a-tags.ali
+W hal%s			hal.ads			hal.ali
+W hal.gpio%s		hal-gpio.ads		hal-gpio.ali
+W hal.spi%s		hal-spi.ads		hal-spi.ali
+W lis3dsh%s		lis3dsh.adb		lis3dsh.ali
+Z system%s		system.ads		system.ali
+
+D ada.ads		20200819171400 76789da1 ada%s
+D a-tags.ads		20200819171400 95e09aae ada.tags%s
+D hal.ads		20210108111948 2b42c80e hal%s
+D hal-gpio.ads		20210108111948 7f0c2ffe hal.gpio%s
+D hal-spi.ads		20210108111948 fe139819 hal.spi%s
+D interfac.ads		20200819171400 5ab55268 interfaces%s
+D lis3dsh.ads		20210108111948 3fd4b6f2 lis3dsh%s
+D lis3dsh-spi.ads	20210108111948 83b156b5 lis3dsh.spi%s
+D lis3dsh-spi.adb	20210108111948 a92493ec lis3dsh.spi%b
+D system.ads		20200819171400 e69b74bd system%s
+D s-assert.ads		20200819171400 cd8d2c94 system.assertions%s
+D s-stoele.ads		20200819171400 2dc34a04 system.storage_elements%s
+D s-unstyp.ads		20200819171400 5ecf7212 system.unsigned_types%s
+G a e
+G c Z s b [io_write lis3dsh__spi 57 14 none]
+G c Z s b [io_read lis3dsh__spi 63 14 none]
+G c Z s s [three_axis_accelerometer_spiIP lis3dsh__spi 70 9 none]
+G r s three_axis_accelerometer [three_axis_accelerometer_spiIP lis3dsh__spi 70 9 none] [three_axis_accelerometerIP lis3dsh 288 9 none]
+X 3 hal.ads
+34K9*HAL 166e8 8|46r6 46r21 47r6 47r21
+53M9*UInt8<6|63M9> 8|59r19 65r22 9|55r19 61r40 79r22 86r45
+X 4 hal-gpio.ads
+32K13*GPIO 95e13 8|47w10 47r25
+47h9*GPIO_Point
+49P9*Any_GPIO_Point(47R9) 8|53r30 72r30
+88x14*Set 9|64R24 95R24
+90x14*Clear 9|60R24 85R24
+X 5 hal-spi.ads
+32K13*SPI 86e12 8|46w10 46r25
+34E9*SPI_Status 38e12 9|58r16 83r16
+35n7*Ok{34E9} 9|66r20 88r20 97r20
+44A9*SPI_Data_8b(3|53M9)<integer> 9|61r27 82r14 86r27
+48h9*SPI_Port
+50P9*Any_SPI_Port(48R9) 8|52r30 71r30
+54x14*Transmit 9|61R17 86R17
+70x14*Receive 9|93R17
+X 6 interfac.ads
+63M9*Unsigned_8
+X 7 lis3dsh.ads
+49K9*LIS3DSH 1262e12 8|49r9 75r5 9|46r14 104r5
+51H9*Three_Axis_Accelerometer 302e14 8|54r11 73r11
+63U14*Get_Accelerations
+80V13*Device_Id{3|53M9}
+173U14*Configure
+183U14*Set_Full_Scale
+188U14*Set_Low_Power
+193U14*Set_Data_Rate
+198V13*Selected_Sensitivity{float}
+211U14*Reboot
+250U14*Configure_Interrupts
+261U14*Configure_Click_Interrupt
+264V13*Temperature{3|53M9}
+267V13*Configured{boolean}
+269M9*Register_Address<3|53M9> 8|60r19 66r18 9|56r19 80r18
+1260m4 SPI_Read_Flag{269M9} 9|86r64
+1261m4 SPI_Write_Flag{269M9} 9|61r60
+X 8 lis3dsh-spi.ads
+49K17*SPI 7|49k9 8|70E9 75l13 75e16 9|46b22 104l13 104t16
+51R9*Three_Axis_Accelerometer_SPI<7|51R9> 7|63p14 80p13 173p14 183p14 188p14
+. 193p14 198p13 211p14 250p14 261p14 264p13 267p13 8|52d7 53d7 57P14 58r26
+. 63P14 64r18 70c9 73e52 9|54r26 78r18
+52p7*Port{5|50P9} 71r7 9|61r12 86r12 93r12
+53p7*Chip_Select{4|49P9} 72r7 9|60r12 64r12 85r12 95r12
+57U14*IO_Write<7|276p14> 58=7 59>7 60>7 9|53b14 70l8 70t16
+58r7 This{51R9} 9|54b7 60r7 61r7 64r7
+59m7 Value{3|53M9} 9|55b7 62r27
+60m7 WriteAddr{7|269M9} 9|56b7 61r47
+63U14*IO_Read<7|281p14> 64>7 65<7 66>7 9|77b14 102l8 102t15
+64r7 This{51R9} 9|78b7 85r7 86r7 93r7 95r7
+65m7 Value{3|53M9} 9|79b7 101m7
+66m7 ReadAddr{7|269M9} 9|80b7 86r52
+X 9 lis3dsh-spi.adb
+58e7 Status{5|34E9} 63m27 66r10
+82a7 Data{5|44A9} 93m26 101r16
+83e7 Status{5|34E9} 87m27 88r10 93m32 97r10
+

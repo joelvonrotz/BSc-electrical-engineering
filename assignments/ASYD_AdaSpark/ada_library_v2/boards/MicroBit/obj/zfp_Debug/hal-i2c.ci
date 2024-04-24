@@ -1,0 +1,11 @@
+graph: { title: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\hal\src\hal-i2c.ads"
+class {
+  classname: "hal__i2c__i2c_port"
+  label: "hal__i2c__i2c_port\hal-i2c.ads:48:9"
+  virtuals: "1:hal__i2c__master_transmit\n
+             2:hal__i2c__master_receive\n
+             3:hal__i2c__mem_write\n
+             4:hal__i2c__mem_read\n
+             -1:hal__i2c___size"
+}
+}

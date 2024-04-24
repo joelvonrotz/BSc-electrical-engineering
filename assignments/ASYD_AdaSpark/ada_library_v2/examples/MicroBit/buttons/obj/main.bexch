@@ -1,0 +1,21 @@
+[GENERATED OBJECT FILE]
+b__main.o
+[PROJECT FILES]
+C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\examples\MicroBit\buttons\buttons.gpr
+20240301143120 5167cca93ea3a4bcbcae949fa4b74c01
+C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\boards\MicroBit\microbit_zfp.gpr
+20210305160812 bdf4af7e481f4dbe728416ec89157a82
+[BOUND OBJECT FILES]
+C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\examples\MicroBit\buttons\obj\main.o
+[GENERATED SOURCE FILES]
+b__main.ads
+b__main.adb
+b__main.ali
+[RESULTING OPTIONS]
+-LC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\examples\MicroBit\buttons\obj\
+-LC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\examples\MicroBit\buttons\obj\
+-LC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\boards\MicroBit\obj\zfp_lib_Debug\
+-LC:\gnat\2020-arm-elf\arm-eabi\lib\gnat\zfp-cortex-m4f\adalib\
+-static
+-static-libgcc
+C:\gnat\2020-arm-elf\arm-eabi\lib\gnat\zfp-cortex-m4f\adalib\libgnat.a

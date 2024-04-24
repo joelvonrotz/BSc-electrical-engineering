@@ -1,0 +1,229 @@
+graph: { title: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb"
+edge: { sourcename: "pmw3901__initialize"
+  targetname: "8:hal__gpio__gpio_point,hal__gpio__gpio_point"
+  label: "pmw3901.adb:76:14"
+}
+edge: { sourcename: "pmw3901__initialize"
+  targetname: "2:hal__time__delays,hal__time__delays"
+  label: "pmw3901.adb:77:18"
+}
+edge: { sourcename: "pmw3901__initialize"
+  targetname: "7:hal__gpio__gpio_point,hal__gpio__gpio_point"
+  label: "pmw3901.adb:78:14"
+}
+edge: { sourcename: "pmw3901__initialize"
+  targetname: "2:hal__time__delays,hal__time__delays"
+  label: "pmw3901.adb:99:18"
+}
+edge: { sourcename: "pmw3901__calibrate"
+  targetname: "2:hal__time__delays,hal__time__delays"
+  label: "pmw3901.adb:229:18"
+}
+edge: { sourcename: "pmw3901__calibrate"
+  targetname: "2:hal__time__delays,hal__time__delays"
+  label: "pmw3901.adb:244:18"
+}
+edge: { sourcename: "pmw3901__read_motion"
+  targetname: "8:hal__gpio__gpio_point,hal__gpio__gpio_point"
+  label: "pmw3901.adb:262:14"
+}
+edge: { sourcename: "pmw3901__read_motion"
+  targetname: "1:hal__spi__spi_port,hal__spi__spi_port"
+  label: "hal-spi.ads:60:21"
+}
+edge: { sourcename: "pmw3901__read_motion"
+  targetname: "2:hal__spi__spi_port,hal__spi__spi_port"
+  label: "pmw3901.adb:263:16"
+}
+edge: { sourcename: "pmw3901__read_motion"
+  targetname: "1:hal__spi__spi_port,hal__spi__spi_port"
+  label: "hal-spi.ads:76:21"
+}
+edge: { sourcename: "pmw3901__read_motion"
+  targetname: "4:hal__spi__spi_port,hal__spi__spi_port"
+  label: "pmw3901.adb:268:16"
+}
+edge: { sourcename: "pmw3901__read_motion"
+  targetname: "7:hal__gpio__gpio_point,hal__gpio__gpio_point"
+  label: "pmw3901.adb:272:14"
+}
+edge: { sourcename: "pmw3901__read"
+  targetname: "8:hal__gpio__gpio_point,hal__gpio__gpio_point"
+  label: "pmw3901.adb:289:14"
+}
+edge: { sourcename: "pmw3901__read"
+  targetname: "1:hal__spi__spi_port,hal__spi__spi_port"
+  label: "hal-spi.ads:60:21"
+}
+edge: { sourcename: "pmw3901__read"
+  targetname: "2:hal__spi__spi_port,hal__spi__spi_port"
+  label: "pmw3901.adb:290:16"
+}
+edge: { sourcename: "pmw3901__read"
+  targetname: "1:hal__spi__spi_port,hal__spi__spi_port"
+  label: "hal-spi.ads:76:21"
+}
+edge: { sourcename: "pmw3901__read"
+  targetname: "4:hal__spi__spi_port,hal__spi__spi_port"
+  label: "pmw3901.adb:295:16"
+}
+edge: { sourcename: "pmw3901__read"
+  targetname: "7:hal__gpio__gpio_point,hal__gpio__gpio_point"
+  label: "pmw3901.adb:299:14"
+}
+edge: { sourcename: "pmw3901__write"
+  targetname: "8:hal__gpio__gpio_point,hal__gpio__gpio_point"
+  label: "pmw3901.adb:316:14"
+}
+edge: { sourcename: "pmw3901__write"
+  targetname: "1:hal__spi__spi_port,hal__spi__spi_port"
+  label: "hal-spi.ads:60:21"
+}
+edge: { sourcename: "pmw3901__write"
+  targetname: "2:hal__spi__spi_port,hal__spi__spi_port"
+  label: "pmw3901.adb:317:16"
+}
+edge: { sourcename: "pmw3901__write"
+  targetname: "1:hal__spi__spi_port,hal__spi__spi_port"
+  label: "hal-spi.ads:60:21"
+}
+edge: { sourcename: "pmw3901__write"
+  targetname: "2:hal__spi__spi_port,hal__spi__spi_port"
+  label: "pmw3901.adb:322:16"
+}
+edge: { sourcename: "pmw3901__write"
+  targetname: "7:hal__gpio__gpio_point,hal__gpio__gpio_point"
+  label: "pmw3901.adb:327:14"
+}
+node: { title: "pmw3901__pmw3901_flow_sensorIP" label: "PMW3901_FLOW_SENSORIP\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.ads:85:9\n24 bytes (static)" }
+node: { title: "pmw3901__is_initialized" label: "IS_INITIALIZED\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.ads:92:4\n16 bytes (static)" }
+node: { title: "pmw3901__motionIP" label: "MOTIONIP\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.ads:51:9\n16 bytes (static)" }
+node: { title: "pmw3901__is_valid" label: "IS_VALID\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:61:4\n16 bytes (static)" }
+node: { title: "pmw3901__initialize" label: "INITIALIZE\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:73:4\n112 bytes (dynamic)" }
+edge: { sourcename: "pmw3901__initialize" targetname: "pmw3901__is_initialized" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.ads:73:17" }
+node: { title: "system__assertions__raise_assert_failure" label: "Raise_Assert_Failure\nC:\gnat\2020-arm-elf\arm-eabi\lib\gnat\zfp-cortex-m4f\gnat\s-assert.ads:46:14" shape : ellipse }
+edge: { sourcename: "pmw3901__initialize" targetname: "system__assertions__raise_assert_failure" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.ads:73:13" }
+node: { title: "__indirect_call" label: "Indirect Call Placeholder" shape : ellipse }
+edge: { sourcename: "pmw3901__initialize" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:76:14" }
+edge: { sourcename: "pmw3901__initialize" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:77:18" }
+edge: { sourcename: "pmw3901__initialize" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:78:14" }
+edge: { sourcename: "pmw3901__initialize" targetname: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:pmw3901__read" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:86:21" }
+edge: { sourcename: "pmw3901__initialize" targetname: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:pmw3901__read" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:87:22" }
+edge: { sourcename: "pmw3901__initialize" targetname: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:pmw3901__read" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:88:30" }
+node: { title: "__gnat_last_chance_handler" label: "Last_Chance_Handler\nC:\gnat\2020-arm-elf\arm-eabi\lib\gnat\zfp-cortex-m4f\gnat\a-except.adb:43:17" shape : ellipse }
+edge: { sourcename: "pmw3901__initialize" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:94:13" }
+node: { title: "__gnat_last_chance_handler" label: "gnat_last_chance_handler\n<built-in>" shape : ellipse }
+edge: { sourcename: "pmw3901__initialize" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:94:13" }
+edge: { sourcename: "pmw3901__initialize" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:94:13" }
+edge: { sourcename: "pmw3901__initialize" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:94:13" }
+edge: { sourcename: "pmw3901__initialize" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:94:13" }
+edge: { sourcename: "pmw3901__initialize" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:94:13" }
+node: { title: "memcpy" label: "builtin_memcpy\n<built-in>" shape : ellipse }
+edge: { sourcename: "pmw3901__initialize" targetname: "memcpy" }
+edge: { sourcename: "pmw3901__initialize" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:94:13" }
+edge: { sourcename: "pmw3901__initialize" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:94:13" }
+edge: { sourcename: "pmw3901__initialize" targetname: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:pmw3901__write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:98:7" }
+edge: { sourcename: "pmw3901__initialize" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:99:18" }
+edge: { sourcename: "pmw3901__initialize" targetname: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:pmw3901__read" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:107:25" }
+node: { title: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:pmw3901__calibrate__write_magics.5722" label: "WRITE_MAGICS\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:126:7\n48 bytes (static)" }
+edge: { sourcename: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:pmw3901__calibrate__write_magics.5722" targetname: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:pmw3901__write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:129:13" }
+node: { title: "pmw3901__calibrate" label: "CALIBRATE\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:118:4\n96 bytes (static)" }
+edge: { sourcename: "pmw3901__calibrate" targetname: "pmw3901__is_initialized" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.ads:78:16" }
+edge: { sourcename: "pmw3901__calibrate" targetname: "system__assertions__raise_assert_failure" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.ads:78:16" }
+edge: { sourcename: "pmw3901__calibrate" targetname: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:pmw3901__calibrate__write_magics.5722" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:134:7" }
+edge: { sourcename: "pmw3901__calibrate" targetname: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:pmw3901__read" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:140:40" }
+edge: { sourcename: "pmw3901__calibrate" targetname: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:pmw3901__write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:143:13" }
+edge: { sourcename: "pmw3901__calibrate" targetname: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:pmw3901__write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:145:13" }
+edge: { sourcename: "pmw3901__calibrate" targetname: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:pmw3901__read" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:148:10" }
+edge: { sourcename: "pmw3901__calibrate" targetname: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:pmw3901__read" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:152:19" }
+edge: { sourcename: "pmw3901__calibrate" targetname: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:pmw3901__read" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:153:19" }
+edge: { sourcename: "pmw3901__calibrate" targetname: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:pmw3901__calibrate__write_magics.5722" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:161:13" }
+edge: { sourcename: "pmw3901__calibrate" targetname: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:pmw3901__calibrate__write_magics.5722" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:170:7" }
+edge: { sourcename: "pmw3901__calibrate" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:229:18" }
+edge: { sourcename: "pmw3901__calibrate" targetname: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:pmw3901__calibrate__write_magics.5722" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:230:7" }
+edge: { sourcename: "pmw3901__calibrate" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:244:18" }
+edge: { sourcename: "pmw3901__calibrate" targetname: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:pmw3901__calibrate__write_magics.5722" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:246:7" }
+node: { title: "pmw3901__read_motion" label: "READ_MOTION\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:255:4\n208 bytes (dynamic)" }
+edge: { sourcename: "pmw3901__read_motion" targetname: "pmw3901__is_initialized" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.ads:81:16" }
+edge: { sourcename: "pmw3901__read_motion" targetname: "system__assertions__raise_assert_failure" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.ads:81:16" }
+edge: { sourcename: "pmw3901__read_motion" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:262:14" }
+edge: { sourcename: "pmw3901__read_motion" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\hal\src\hal-spi.ads:60:21" }
+edge: { sourcename: "pmw3901__read_motion" targetname: "system__assertions__raise_assert_failure" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:263:16" }
+edge: { sourcename: "pmw3901__read_motion" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:263:16" }
+edge: { sourcename: "pmw3901__read_motion" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:266:10" }
+edge: { sourcename: "pmw3901__read_motion" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:266:10" }
+edge: { sourcename: "pmw3901__read_motion" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:266:10" }
+edge: { sourcename: "pmw3901__read_motion" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:266:10" }
+edge: { sourcename: "pmw3901__read_motion" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:266:10" }
+edge: { sourcename: "pmw3901__read_motion" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:266:10" }
+edge: { sourcename: "pmw3901__read_motion" targetname: "memcpy" }
+edge: { sourcename: "pmw3901__read_motion" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:266:10" }
+edge: { sourcename: "pmw3901__read_motion" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:266:10" }
+edge: { sourcename: "pmw3901__read_motion" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\hal\src\hal-spi.ads:76:21" }
+edge: { sourcename: "pmw3901__read_motion" targetname: "system__assertions__raise_assert_failure" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:268:16" }
+edge: { sourcename: "pmw3901__read_motion" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:268:16" }
+edge: { sourcename: "pmw3901__read_motion" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:270:10" }
+edge: { sourcename: "pmw3901__read_motion" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:270:10" }
+edge: { sourcename: "pmw3901__read_motion" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:270:10" }
+edge: { sourcename: "pmw3901__read_motion" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:270:10" }
+edge: { sourcename: "pmw3901__read_motion" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:270:10" }
+edge: { sourcename: "pmw3901__read_motion" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:270:10" }
+edge: { sourcename: "pmw3901__read_motion" targetname: "memcpy" }
+edge: { sourcename: "pmw3901__read_motion" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:270:10" }
+edge: { sourcename: "pmw3901__read_motion" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:270:10" }
+edge: { sourcename: "pmw3901__read_motion" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:272:14" }
+node: { title: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:pmw3901__read" label: "READ\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:280:4\n208 bytes (dynamic)" }
+edge: { sourcename: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:pmw3901__read" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:289:14" }
+edge: { sourcename: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:pmw3901__read" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\hal\src\hal-spi.ads:60:21" }
+edge: { sourcename: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:pmw3901__read" targetname: "system__assertions__raise_assert_failure" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:290:16" }
+edge: { sourcename: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:pmw3901__read" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:290:16" }
+edge: { sourcename: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:pmw3901__read" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:293:10" }
+edge: { sourcename: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:pmw3901__read" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:293:10" }
+edge: { sourcename: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:pmw3901__read" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:293:10" }
+edge: { sourcename: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:pmw3901__read" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:293:10" }
+edge: { sourcename: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:pmw3901__read" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:293:10" }
+edge: { sourcename: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:pmw3901__read" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:293:10" }
+edge: { sourcename: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:pmw3901__read" targetname: "memcpy" }
+edge: { sourcename: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:pmw3901__read" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:293:10" }
+edge: { sourcename: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:pmw3901__read" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:293:10" }
+edge: { sourcename: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:pmw3901__read" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\hal\src\hal-spi.ads:76:21" }
+edge: { sourcename: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:pmw3901__read" targetname: "system__assertions__raise_assert_failure" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:295:16" }
+edge: { sourcename: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:pmw3901__read" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:295:16" }
+edge: { sourcename: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:pmw3901__read" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:297:10" }
+edge: { sourcename: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:pmw3901__read" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:297:10" }
+edge: { sourcename: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:pmw3901__read" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:297:10" }
+edge: { sourcename: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:pmw3901__read" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:297:10" }
+edge: { sourcename: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:pmw3901__read" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:297:10" }
+edge: { sourcename: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:pmw3901__read" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:297:10" }
+edge: { sourcename: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:pmw3901__read" targetname: "memcpy" }
+edge: { sourcename: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:pmw3901__read" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:297:10" }
+edge: { sourcename: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:pmw3901__read" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:297:10" }
+edge: { sourcename: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:pmw3901__read" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:299:14" }
+node: { title: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:pmw3901__write" label: "WRITE\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:307:4\n208 bytes (dynamic)" }
+edge: { sourcename: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:pmw3901__write" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:316:14" }
+edge: { sourcename: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:pmw3901__write" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\hal\src\hal-spi.ads:60:21" }
+edge: { sourcename: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:pmw3901__write" targetname: "system__assertions__raise_assert_failure" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:317:16" }
+edge: { sourcename: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:pmw3901__write" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:317:16" }
+edge: { sourcename: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:pmw3901__write" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:320:10" }
+edge: { sourcename: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:pmw3901__write" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:320:10" }
+edge: { sourcename: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:pmw3901__write" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:320:10" }
+edge: { sourcename: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:pmw3901__write" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:320:10" }
+edge: { sourcename: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:pmw3901__write" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:320:10" }
+edge: { sourcename: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:pmw3901__write" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:320:10" }
+edge: { sourcename: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:pmw3901__write" targetname: "memcpy" }
+edge: { sourcename: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:pmw3901__write" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:320:10" }
+edge: { sourcename: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:pmw3901__write" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:320:10" }
+edge: { sourcename: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:pmw3901__write" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\hal\src\hal-spi.ads:60:21" }
+edge: { sourcename: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:pmw3901__write" targetname: "system__assertions__raise_assert_failure" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:322:16" }
+edge: { sourcename: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:pmw3901__write" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:322:16" }
+edge: { sourcename: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:pmw3901__write" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:325:10" }
+edge: { sourcename: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:pmw3901__write" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:325:10" }
+edge: { sourcename: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:pmw3901__write" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:325:10" }
+edge: { sourcename: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:pmw3901__write" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:325:10" }
+edge: { sourcename: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:pmw3901__write" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:325:10" }
+edge: { sourcename: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:pmw3901__write" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:325:10" }
+edge: { sourcename: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:pmw3901__write" targetname: "memcpy" }
+edge: { sourcename: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:pmw3901__write" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:325:10" }
+edge: { sourcename: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:pmw3901__write" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:325:10" }
+edge: { sourcename: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:pmw3901__write" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\pmw3901\pmw3901.adb:327:14" }
+}

@@ -1,0 +1,238 @@
+V "GNAT Lib v2020"
+A -O0
+A -gnatA
+A --RTS=C:\gnat\2020-arm-elf\arm-eabi\lib\gnat\zfp-cortex-m4f\
+A -mlittle-endian
+A -mthumb
+A -mfloat-abi=hard
+A -mcpu=cortex-m4
+A -mfpu=fpv4-sp-d16
+A -gnata
+A -fcallgraph-info=su
+A -fcallgraph-info=su
+A -g
+A -gnatwa
+A -gnatw_A
+A -gnatQ
+A -gnatw.X
+A -ffunction-sections
+A -fdata-sections
+A -march=armv7e-m+fp
+P ZX
+
+RN
+RV NO_ALLOCATORS
+RV NO_DISPATCH
+RV NO_EXCEPTIONS
+RV NO_LOCAL_ALLOCATORS
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_UNCHECKED_ACCESS
+RV NO_DEFAULT_INITIALIZATION
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_PRAGMAS
+
+U semihosting.filesystem%b  semihosting-filesystem.adb  6810759b NE OO PK
+Z ada.exceptions%s	a-except.adb		a-except.ali
+Z ada.tags%s		a-tags.adb		a-tags.ali
+Z interfaces%s		interfac.ads		interfac.ali
+W semihosting%s		semihosting.adb		semihosting.ali
+Z system.assertions%s	s-assert.adb		s-assert.ali
+
+U semihosting.filesystem%s  semihosting-filesystem.ads  8c2c7fd3 EE NE OO PK
+Z ada.tags%s		a-tags.adb		a-tags.ali
+W hal%s			hal.ads			hal.ali
+W hal.filesystem%s	hal-filesystem.ads	hal-filesystem.ali
+W semihosting%s		semihosting.adb		semihosting.ali
+Z system%s		system.ads		system.ali
+
+D ada.ads		20200819171400 76789da1 ada%s
+D a-except.ads		20200819171400 5b5f0f2f ada.exceptions%s
+D a-except.adb		20200819171400 85a38458 ada.exceptions%b
+D a-tags.ads		20200819171400 95e09aae ada.tags%s
+D hal.ads		20210108111948 2b42c80e hal%s
+D hal-filesystem.ads	20210108111948 6998b52b hal.filesystem%s
+D interfac.ads		20200819171400 5ab55268 interfaces%s
+D semihosting.ads	20210108111948 ca4eee59 semihosting%s
+D semihosting-filesystem.ads  20210108111948 04b8ecaf semihosting.filesystem%s
+D semihosting-filesystem.adb  20210108111948 6ca89934 semihosting.filesystem%b
+D system.ads		20200819171400 e69b74bd system%s
+D s-assert.ads		20200819171400 cd8d2c94 system.assertions%s
+D s-stoele.ads		20200819171400 2dc34a04 system.storage_elements%s
+G a e
+G c Z s b [create_file semihosting__filesystem 52 13 none]
+G c Z s b [create_node semihosting__filesystem 56 13 none]
+G c Z s b [create_directory semihosting__filesystem 61 13 none]
+G c Z s b [unlink semihosting__filesystem 66 13 none]
+G c Z s b [remove_directory semihosting__filesystem 71 13 none]
+G c Z s b [rename semihosting__filesystem 75 13 none]
+G c Z s b [truncate_file semihosting__filesystem 80 13 none]
+G c Z s b [open semihosting__filesystem 86 13 none]
+G c Z s b [open semihosting__filesystem 93 13 none]
+G c Z s b [root_node semihosting__filesystem 99 13 none]
+G c Z s b [close semihosting__filesystem 106 14 none]
+G c Z s b [get_fs semihosting__filesystem 122 13 none]
+G c Z s b [size semihosting__filesystem 127 13 none]
+G c Z s b [mode semihosting__filesystem 131 13 none]
+G c Z s b [read semihosting__filesystem 135 13 none]
+G c Z s b [write semihosting__filesystem 141 13 none]
+G c Z s b [offset semihosting__filesystem 147 13 none]
+G c Z s b [flush semihosting__filesystem 152 13 none]
+G c Z s b [seek semihosting__filesystem 157 13 none]
+G c Z s b [close semihosting__filesystem 163 14 none]
+G c Z s b [get_file_handle semihosting__filesystem 169 13 none]
+G c Z s s [shfsIP semihosting__filesystem 165 9 none]
+G c Z s s [shfs_file_handleIP semihosting__filesystem 113 9 none]
+G r c none [open semihosting__filesystem 86 13 none] [open semihosting 57 13 none]
+G r c none [read semihosting__filesystem 135 13 none] [read semihosting 58 13 none]
+G r c none [seek semihosting__filesystem 157 13 none] [seek semihosting 65 13 none]
+G r c none [close semihosting__filesystem 163 14 none] [close semihosting 56 13 none]
+X 5 hal.ads
+34K9*HAL 166e8 9|37r6 37r26 38w6 38r15 42r21 165r21
+97M9*UInt32<7|74M9>
+160M9*UInt64<7|77M9>
+X 6 hal-filesystem.ads
+34K13*Filesystem 227e19 9|37w10 37r30 42r25 165r25
+35E9*Status_Code 60e31 9|54r33 59r33 63r38 68r28 73r38 78r28 83r35 90r26
+. 96r26 103r14 138r26 144r27 154r14 160r26 10|46r14 61r14 75r14 89r14 103r14
+. 118r14 133r14 149r14 186r14 202r14 253r14 279r14 298r26 396r14
+36n7*OK{35E9} 10|174r17 267r17 322r17 397r8
+42n7*No_Such_File{35E9} 10|155r17 166r17
+54n7*Invalid_Parameter{35E9} 10|257r17 284r17 303r17
+55n7*Input_Output_Error{35E9} 10|264r17 319r17
+59n7*Read_Only_File_System{35E9} 10|50r14 65r14 79r14 93r14 107r14 122r14
+. 137r14 159r17 287r14
+60n7*Operation_Not_Permitted{35E9} 10|190r14 206r14
+62E9*File_Mode 62e57 9|88r29 132r39 10|147r17 372r39
+62n23*Read_Only{62E9} 10|158r18 373r8
+63E9*Seek_Mode 72e16 9|158r28 10|296r28
+66n7*From_Start{63E9} 10|311r15
+68n7*From_End{63E9} 10|313r15
+70n7*Forward{63E9} 10|307r15
+72n7*Backward{63E9} 10|309r15
+74M9*File_Size<5|160M9> 9|82r37 116r27 128r39 137r35 143r29 149r14 159r35
+. 10|132r16 252r23 278r16 297r35 300r16 359r39 382r14
+79h9*Filesystem_Driver 9|42r36 165r36
+80P9*Any_Filesystem_Driver(79R9) 9|124r14 10|350r14 351r8
+82h9*Directory_Handle
+83P9*Any_Directory_Handle(82R9) 9|95r32 10|185r20
+85h9*File_Handle 9|113r33
+86P9*Any_File_Handle(85R9) 9|89r33 10|148r21 173r21
+88h9*Node_Handle
+89P9*Any_Node_Handle(88R9) 9|102r20 10|201r20
+X 7 interfac.ads
+74M9*Unsigned_32
+77M9*Unsigned_64
+X 8 semihosting.ads
+35K9*Semihosting 74e16 9|40r9 173r5 10|37r14 162r13 260r10 317r10 338r10
+. 399r5
+37M9*SH_Word<5|97M9> 9|115r27 10|152r12 165r15 262r46 317r37
+39M12*Flag{37M9}
+42m4*OPEN_FLAG_RB{39M12} 10|163r43
+56V13*Close{37M9} 10|338s22
+57V13*Open{37M9} 10|162s25
+57a19 Filename{string} 10|162r31
+57m38 Mode{39M12} 10|163r31
+58V13*Read{37M9} 10|260s22
+58m19 File_Handle{37M9} 10|260r28
+59m19 Buffer_Address{11|90M9} 10|261r28
+60m19 Buffer_Size{37M9} 10|262r28
+65V13*Seek{37M9} 10|317s22
+X 9 semihosting-filesystem.ads
+40K21*Filesystem 8|35k9 9|110E9 173l17 173e27 10|37b26 399l17 399t27
+42R9*SHFS<6|79R9> 43r32 52P13 52r40 56p13 56r40 61p13 61r45 66P13 66r35 71P13
+. 71r45 75p13 75r35 80p13 80r44 86P13 86r36 93P13 93r35 99P13 100r23 106P14
+. 106r35 165c9 167e14 169p13 169r44 10|44r21 58r21 73r21 87r21 101r21 115r21
+. 130r23 145r24 183r23 199r23 213r44 240r35
+43P9*Any_SHFS(42R9) 114r27
+45E9*File_Kind 45e47 58r33 10|60r14
+45n23*Regular_File{45E9}
+45n37*Directory{45E9}
+52V13*Create_File{6|35E9}<6|102p13> 52=26 53>26 10|43b24 51l8 51t19
+52r26 This{42R9} 10|44b7 48r28
+53a26 Path{string} 10|45b7 48r34
+56V13*Create_Node{6|35E9} 56=26 57>26 58>26 10|57b13 66l8 66t19
+56r26 This{42R9} 10|58b7 63r28
+57a26 Path{string} 10|59b7 63r34
+58e26 Kind{45E9} 10|60b7 63r40
+61V13*Create_Directory{6|35E9} 61=31 62>31 10|72b13 80l8 80t24
+61r31 This{42R9} 10|73b7 77r28
+62a31 Path{string} 10|74b7 77r34
+66V13*Unlink{6|35E9}<6|106p13> 66=21 67>21 10|86b24 94l8 94t14
+66r21 This{42R9} 10|87b7 91r28
+67a21 Path{string} 10|88b7 91r34
+71V13*Remove_Directory{6|35E9}<6|111p13> 71=31 72>31 10|100b24 108l8 108t24
+71r31 This{42R9} 10|101b7 105r28
+72a31 Path{string} 10|102b7 105r34
+75V13*Rename{6|35E9} 75=21 76>21 77>21 10|114b13 123l8 123t14
+75r21 This{42R9} 10|115b7 120r28
+76a21 Old_Path{string} 10|116b7 120r34
+77a21 New_Path{string} 10|117b7 120r44
+80V13*Truncate_File{6|35E9} 80=28 81>28 82>28 10|129b13 138l8 138t21
+80r28 This{42R9} 10|130b7 135r42
+81a28 Path{string} 10|131b7 135r28
+82m28 Length{6|74M9} 10|132b7 135r34
+86V13*Open{6|35E9}<6|165p13> 86=19 87>19 88>19 89<19 10|144b24 176l8 176t12
+86r19 This{42R9} 10|145b7 168m16 168r16 169m19 169r19
+87a19 Path{string} 10|146b7 154r10 162r43
+88e19 Mode{6|62E9} 10|147b7 158r10
+89p19 Handler{6|86P9} 10|148b7 173m10
+93V13*Open{6|35E9}<6|95p13> 93=19 94>19 95<19 10|182b24 191l8 191t12
+93r19 This{42R9} 10|183b7 188r28
+94a19 Path{string} 10|184b7 188r34
+95p19 Handle{6|83P9} 10|185b7 188r40
+99V13*Root_Node{6|35E9}<6|121p13> 100=7 101>7 102<7 10|198b13 207l8 207t17
+100r7 This{42R9} 10|199b7 204r40
+101a7 As{string} 10|200b7 204r28
+102p7 Handle{6|89P9} 10|201b7 204r32
+106U14*Close<6|225p14> 106=21 10|240b14 243l8 243t13
+106r21 This{42R9} 10|240b21
+110R9 SHFS_File_Handle 111r47 113c9 123r21 128r14 132r14 135r35 141r36 148r14
+. 153r21 157r35 163r35 10|226r21 250r23 276r21 295r35 331r23 349r21 359r14
+. 372r14 381r14 395r21
+111P9 SHFS_File_Handle_Access(110R9) 118r27 166r22 170r46 10|151r12 214r46
+. 216r13
+113R9 SHFS_File_Handle<6|85R9> 119e14 122P13 127P13 131P13 135P13 141P13
+. 147P13 152P13 157P13 163P14
+114p7*FS{43P9} 10|169m13 351r36
+115m7*FD{8|37M9} 10|170m13 260r51 317r33 338r34
+116m7*Absolute_Position{6|74M9} 10|172m13 266m15 266r41 308r28 310r28 321m15
+117b7*Is_Open{boolean} 10|171m13 220r38 227m14 256r19 283r19 302r19 334r19
+. 339m15
+118p7*Next{111P9} 10|221r21 228m14
+122V13 Get_FS{6|80P9}<6|181p13> 123=7 10|348b13
+123r7 This{113R9} 10|351r31
+127V13 Size{6|74M9}<6|184p13> 128>7 10|314s28 358b13 364l8 364t12
+128r7 This{113R9} 10|359b7
+131V13 Mode{6|62E9}<6|187p13> 132>7 10|371b13
+132r7 This{113R9}
+135V13 Read{6|35E9}<6|190p13> 135=19 136>19 137=19 10|249b24 269l8 269t12
+135r19 This{113R9} 10|250b7 256r14 260r46 266m10 266r36
+136m19 Addr{11|90M9} 10|251b7 261r46
+137m19 Length{6|74M9} 10|252b7 262r55 266r61
+141V13 Write{6|35E9}<6|197p13> 141=20 142>20 143>20 10|275b24 288l8 288t13
+141r20 This{113R9} 10|276b7 283r14
+142m20 Addr{11|90M9} 10|277b7 281r28
+143m20 Length{6|74M9} 10|278b7 281r34
+147V13 Offset{6|74M9}<6|205p13> 148>7 10|380b13 387l8 387t14
+148r7 This{113R9} 10|381b7
+152V13 Flush{6|35E9}<6|209p13> 153=7 10|394b13
+153r7 This{113R9}
+157V13 Seek{6|35E9}<6|213p13> 157=19 158>19 159=19 10|295b13 324l8 324t12
+157r19 This{113R9} 10|295b19 302r14 308r23 310r23 314r23 317r28 321m10
+158e19 Origin{6|63E9} 10|296b19 306r12
+159m19 Amount{6|74M9} 10|297b19 308r48 310r48 312r23 314r35
+163U14 Close<6|219p14> 163=21 10|330b25 341l8 341t13
+163r21 This{113R9} 10|331b7 334r14 338r29 339m10
+166p7 File_Handles{111P9} 10|216r45 228r27 229m15
+169V13 Get_File_Handle{111P9} 169=30 10|168s21 213b13 233l8 233t23
+169r30 This{42R9} 10|213b30 216r40 228r22 229m10
+X 10 semihosting-filesystem.adb
+151p7 FH{9|111P9} 168m10 169r10 170r10 171r10 172r10 173r38
+152m7 FD{8|37M9} 162m7 165r10 170r19
+216p7 Ret{9|111P9} 220r13 220r34 221m10 221r17 225r10 226m10 227r10 228r10
+. 229r31 232r14
+300m7 Target{6|74M9} 308m13 310m13 312m13 314m13 317r46 321r36
+X 11 system.ads
+60K9*System 9|136r28 142r29 10|251r16 277r16 11|172e11
+90M9*Address 9|136r35 142r36 10|251r23 277r23
+

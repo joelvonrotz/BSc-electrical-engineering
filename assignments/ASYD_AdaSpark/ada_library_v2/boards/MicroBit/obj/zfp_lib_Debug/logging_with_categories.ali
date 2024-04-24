@@ -1,0 +1,74 @@
+V "GNAT Lib v2020"
+A -O0
+A -gnatA
+A --RTS=C:\gnat\2020-arm-elf\arm-eabi\lib\gnat\zfp-cortex-m4f\
+A -mlittle-endian
+A -mthumb
+A -mfloat-abi=hard
+A -mcpu=cortex-m4
+A -mfpu=fpv4-sp-d16
+A -gnata
+A -fcallgraph-info=su
+A -fcallgraph-info=su
+A -g
+A -gnatwa
+A -gnatw_A
+A -gnatQ
+A -gnatw.X
+A -ffunction-sections
+A -fdata-sections
+A -march=armv7e-m+fp
+P ZX
+
+RN
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_ATTRIBUTES
+RV NO_IMPLEMENTATION_PRAGMAS
+
+U logging_with_categories%b  logging_with_categories.adb  91196718 NE OO PK GE
+
+U logging_with_categories%s  logging_with_categories.ads  65256baf BN EE NE OO PK GE
+
+D logging_with_categories.ads  20210108111948 65256baf logging_with_categories%s
+D logging_with_categories.adb  20210108111948 f43c0cb7 logging_with_categories%b
+D system.ads		20200819171400 e69b74bd system%s
+G a e
+G c Z s b [logging_with_categories standard 61 9 none]
+X 1 logging_with_categories.ads
+33E9 Categories 41r23 63r30 72r28 75r28 81r29 95r35 98r36 105r29 108r34 2|34r24
+. 37r28 40r28 47r30 71r28 79r13 90r13 100r35 109r36 118r29 126r13
+38E9 Priorities 44r23 44r37 55r58 105r48 108r53 2|37r43 118r48 127r14
+41*4 Default_Category{33E9} 2|64r17
+44*4 Default_Priority{38E9} 2|38r17
+47b4 Categories_Enabled_By_Default{boolean} 2|35r17
+51b4 Prefix_Enabled_By_Default{boolean} 2|41r17
+55U19 Log_Line_Backend 55>37 55>51 2|51s13 53s13
+55a37 Str{string}
+55*51 Prio{38E9}
+61k9*Logging_With_Categories 33z9 38z9 41z4 44z4 47z4 51z4 55z19 114l5 114e28
+. 2|32b14 133l5 133t28
+63U14*Log_Line 63>24 63>42 2|47b14 56l8 56t16 64s7
+63*24 Cat{33E9} 2|47b24 49r22 50r29 51r31 51r69 53r52
+63a42 Str{string} 2|47b42 51r48 53r31
+65U14*Log_Line 65>24 2|62b14 65l8 65t16
+65a24 Str{string} 2|62b24 64r35
+72V13*Enabled{boolean} 72>22 76s19 82s23 2|71b13
+72*22 Cat{33E9} 2|72r20
+75U14*Enable 75>22 2|78b14 83l8 83t14
+75*22 Cat{33E9} 76r28 2|79b7 82r19
+81U14*Disable 81>23 2|89b14 94l8 94t15
+81*23 Cat{33E9} 82r32 2|90b7 93r19
+95U14*Enable_Prefix 95>29 2|100b14 103l8 103t21
+95*29 Cat{33E9} 2|100b29 102r23
+98U14*Disable_Prefix 98>30 2|109b14 112l8 112t22
+98*30 Cat{33E9} 2|109b30 111r23
+105V13*Priority{38E9} 105>23 109s19 2|118b13
+105*23 Cat{33E9} 2|119r24
+108U14*Set_Priority 108>28 108>46 2|125b14 131l8 131t20
+108*28 Cat{33E9} 109r29 2|126b7 130r23
+108*46 Prio{38E9} 109r36 2|127b7 130r31
+X 2 logging_with_categories.adb
+34a4 Is_Enabled(boolean) 49r10 72r8 82m7 93m7
+37a4 Cat_Priorities(1|38E9) 51r53 53r36 119r8 130m7
+40a4 Prefix_Enabled(boolean) 50r13 102m7 111m7
+

@@ -1,0 +1,16 @@
+graph: { title: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-rtc.adb"
+node: { title: "nrf__rtc__real_time_counterIP" label: "Real_Time_Counterip\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-rtc.ads:65:9\n24 bytes (static)" }
+node: { title: "nrf__rtc__start" label: "Start\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-rtc.adb:40:4\n16 bytes (static)" }
+node: { title: "nrf__rtc__stop" label: "Stop\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-rtc.adb:48:4\n16 bytes (static)" }
+node: { title: "nrf__rtc__clear" label: "Clear\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-rtc.adb:57:4\n16 bytes (static)" }
+node: { title: "nrf__rtc__set_prescaler" label: "Set_Prescaler\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-rtc.adb:66:4\n16 bytes (static)" }
+node: { title: "nrf__rtc__counter" label: "Counter\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-rtc.adb:78:4\n16 bytes (static)" }
+node: { title: "nrf__rtc__set_compare" label: "Set_Compare\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-rtc.adb:87:4\n24 bytes (static)" }
+node: { title: "nrf__rtc__event" label: "Event\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-rtc.adb:100:4\n16 bytes (static)" }
+node: { title: "__gnat_last_chance_handler" label: "gnat_last_chance_handler\n<built-in>" shape : ellipse }
+edge: { sourcename: "nrf__rtc__event" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-rtc.adb:106:12" }
+node: { title: "nrf__rtc__enable_event" label: "Enable_Event\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-rtc.adb:126:4\n32 bytes (static)" }
+edge: { sourcename: "nrf__rtc__enable_event" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-rtc.adb:131:12" }
+node: { title: "nrf__rtc__disable_event" label: "Disable_Event\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-rtc.adb:151:4\n32 bytes (static)" }
+edge: { sourcename: "nrf__rtc__disable_event" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-rtc.adb:156:12" }
+}

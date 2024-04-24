@@ -1,0 +1,193 @@
+V "GNAT Lib v2020"
+A -O0
+A -gnatA
+A --RTS=C:\gnat\2020-arm-elf\arm-eabi\lib\gnat\zfp-cortex-m4f\
+A -mlittle-endian
+A -mthumb
+A -mfloat-abi=hard
+A -mcpu=cortex-m4
+A -mfpu=fpv4-sp-d16
+A -gnata
+A -fcallgraph-info=su
+A -fcallgraph-info=su
+A -g
+A -gnatwa
+A -gnatw_A
+A -gnatQ
+A -gnatw.X
+A -ffunction-sections
+A -fdata-sections
+A -march=armv7e-m+fp
+P ZX
+
+RN
+RV NO_DISPATCH
+RV NO_DISPATCHING_CALLS
+RV NO_EXCEPTIONS
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_UNCHECKED_CONVERSION
+RV NO_DEFAULT_INITIALIZATION
+RV NO_IMPLEMENTATION_ATTRIBUTES
+RV NO_IMPLEMENTATION_PRAGMAS
+
+U mma8653%b		mma8653.adb		a199b1f4 NE OO PK IU
+Z ada.tags%s		a-tags.adb		a-tags.ali
+
+U mma8653%s		mma8653.ads		d463c052 EE NE OO PK IU
+W ada%s			ada.ads			ada.ali
+Z ada.tags%s		a-tags.adb		a-tags.ali
+W ada.unchecked_conversion%s
+W hal%s			hal.ads			hal.ali
+W hal.i2c%s		hal-i2c.ads		hal-i2c.ali
+Z system%s		system.ads		system.ali
+
+D ada.ads		20200819171400 76789da1 ada%s
+D a-tags.ads		20200819171400 95e09aae ada.tags%s
+D a-unccon.ads		20200819171400 0e9b276f ada.unchecked_conversion%s
+D hal.ads		20210108111948 2b42c80e hal%s
+D hal-i2c.ads		20210108111948 0ed73138 hal.i2c%s
+D interfac.ads		20200819171400 5ab55268 interfaces%s
+D mma8653.ads		20210108111948 ff6d1e0b mma8653%s
+D mma8653.adb		20210108111948 5ef4afff mma8653%b
+D system.ads		20200819171400 e69b74bd system%s
+D s-stoele.ads		20200819171400 2dc34a04 system.storage_elements%s
+G a e
+G c Z s b [configure mma8653 47 14 none]
+G c Z s b [check_device_id mma8653 52 13 none]
+G c Z s b [read_data mma8653 62 13 none]
+G c Z s s [ctrl_reg1_registerIP mma8653 100 9 none]
+G c Z s s [to_uint8 mma8653 116 13 none]
+G c Z s s [to_reg mma8653 118 13 none]
+G c Z s s [ctrl_reg2_registerIP mma8653 121 9 none]
+G c Z s s [to_uint8 mma8653 139 13 none]
+G c Z s s [to_reg mma8653 141 13 none]
+G c Z s s [mma8653_accelerometerIP mma8653 65 9 none]
+G c Z s s [all_axes_dataIP mma8653 58 9 none]
+G c Z b b [to_axis_data mma8653 34 13 none]
+G c Z b b [read_register mma8653 36 13 none]
+G c Z b b [write_register mma8653 39 14 none]
+X 1 ada.ads
+16K9*Ada 20e8 7|35r14 116r29 118r27 139r29 141r27 8|34r33
+X 3 a-unccon.ads
+20v14*Unchecked_Conversion 7|35w18 116r33 118r31 139r33 141r31 8|34r37
+X 4 hal.ads
+34K9*HAL 166e8 7|32w6 32r22 33r6 33r22
+37M9*Bit 7|103r19 125r19
+39M9*UInt2 7|105r19 122r19 124r19
+41M9*UInt3 7|104r19
+53M9*UInt8<6|63M9> 7|77r34 117r27 119r7 140r27 142r7 8|37r61 41r37 48r61
+. 72r37 130r36 136r36
+54M9*UInt10 8|34r59 137r16 139r17 140r24
+66M9*UInt16<6|66M9> 8|54r44 77r45 149r44
+162A9*UInt8_Array(53M9)<integer>
+X 5 hal-i2c.ads
+32K13*I2C 84e12 7|33w10 33r26
+34E9*I2C_Status 38e12 8|51r16 74r16 144r16
+35n7*Ok{34E9} 8|59r20 82r20 154r20
+40A12*I2C_Data{4|162A9}<integer> 8|50r16 145r16
+43n7*Memory_Size_8b{42E9} 8|55r44 78r45 150r44
+46M12*I2C_Address{4|54M9} 7|81r30
+48h9*I2C_Port
+50P9*Any_I2C_Port(48R9) 7|39r48 65r48
+66x14*Mem_Write 8|76R17
+68m7 Addr{46M12} 8|76r28
+69m7 Mem_Addr{4|66M9} 8|77r28
+70e7 Mem_Addr_Size{42E9} 8|78r28
+71a7 Data{40A12} 8|79r28
+72e7 Status{34E9} 8|80r28
+75x14*Mem_Read 8|53R17 148R17
+77m7 Addr{46M12} 8|53r27 148r27
+78m7 Mem_Addr{4|66M9} 8|54r27 149r27
+79e7 Mem_Addr_Size{42E9} 8|55r27 150r27
+80a7 Data{40A12} 8|56r27 151r27
+81e7 Status{34E9} 8|57r27 152r27
+X 6 interfac.ads
+63M9*Unsigned_8
+66M9*Unsigned_16
+85V13*Shift_Right{63M9} 8|139s25
+X 7 mma8653.ads
+37K9*MMA8653 65E9 144l5 144e12 8|32b14 165l5 165t12
+39R9*MMA8653_Accelerometer 39d32 47p14 47r54 52p13 52r37 62p13 62r31 65c9
+. 66e17 8|36r35 39r37 47r35 70r37 92r54 120r37 129r31
+39p32 Port{5|50P9} 65r32 8|53r12 76r12 148r12
+42E9*Oversampling_Mode 43e58 49r47 50r47 68r8 8|94r47 95r47
+42n31*Normal{42E9} 68r31
+42n39*Low_Noise_Low_Power{42E9} 69r31
+43n31*High_Resolution{42E9} 70r31
+43n48*Low_Power{42E9} 71r31
+45E9*Dynamic_Range 45e50 48r47 73r8 8|93r47
+45n27*Two_G{45E9} 73r27
+45n34*Four_G{45E9} 74r27
+45n42*Heigh_G{45E9} 75r27
+47U14*Configure 47=25 48>25 49>25 50>25 8|92b14 114l8 114t17
+47r25 This{39R9} 8|92b25 103r7 107r7 109r7 112r7
+48e25 Dyna_Range{45E9} 8|93b25 109r42
+49e25 Sleep_Oversampling{42E9} 8|94b25 106r22
+50e25 Active_Oversampling{42E9} 8|95b25 105r21
+52V13*Check_Device_Id{boolean} 52>30 8|120b13 123l8 123t23
+52r30 This{39R9} 8|120b30 122r29
+55I9*Axis_Data<short_integer> 59r17 8|34r67 130r50 136r50
+58R9*All_Axes_Data 60e14 62r61 8|129r61 146r16
+59i7*X{55I9} 8|159m11
+59i10*Y{55I9} 8|160m11
+59i13*Z{55I9} 8|161m11
+62V13*Read_Data{58R9} 62>24 8|129b13 163l8 163t17
+62r24 This{39R9} 8|129b24 148r7
+77M9 Register_Addresss<4|53M9> 83r27 84r27 85r27 86r27 87r27 88r27 89r27
+. 90r27 92r28 94r25 95r25 96r25 97r25 98r25 8|37r35 40r37 48r35 71r37
+79N4 Device_Id 8|122r47
+81m4 Device_Address{5|46M12} 8|53r44 76r45 148r44
+83m4 DATA_STATUS{77M9} 8|149r52
+84m4 OUT_X_MSB{77M9}
+85m4 OUT_X_LSB{77M9}
+86m4 OUT_Y_MSB{77M9}
+87m4 OUT_Y_LSB{77M9}
+88m4 OUT_Z_MSB{77M9}
+89m4 OUT_Z_LSB{77M9}
+90m4 Who_Am_I{77M9} 8|122r35
+92m4 XYZ_DATA_CFG{77M9} 8|109r28
+94m4 CTRL_REG1{77M9} 8|103r28 112r28
+95m4 CTRL_REG2{77M9} 8|107r28
+96m4 CTRL_REG3{77M9}
+97m4 CTRL_REG4{77M9}
+98m4 CTRL_REG5{77M9}
+100R9 CTRL_REG1_Register 106e14 108r8 117r7 119r14 8|97r15
+101b7*Active{boolean} 109r7 8|102m13 111m13
+102b7*F_Read{boolean} 110r7
+103m7*Reserved{4|37M9} 111r7
+104m7*Data_Rate{4|41M9} 112r7
+105m7*ASLP_Rate{4|39M9} 113r7
+116V13 To_UInt8[3|20]{4|53M9} 8|103s39 112s39
+118V13 To_Reg[3|20]{100R9}
+121R9 CTRL_REG2_Register 128e14 130r8 140r7 142r14 8|98r15
+122m7*MODS{4|39M9} 131r7 8|105m13
+123b7*SPLE{boolean} 132r7
+124m7*SMODS{4|39M9} 133r7 8|106m13
+125m7*Reserved{4|37M9} 134r7
+126b7*Reset{boolean} 135r7
+127b7*Self_Test{boolean} 136r7
+139V13 To_UInt8[3|20]{4|53M9} 8|107s39
+141V13 To_Reg[3|20]{121R9}
+X 8 mma8653.adb
+34V13 To_Axis_Data[3|20]{7|55I9} 141s17
+36V13 Read_Register{4|53M9} 36>28 37>28 47b13 64l8 64t21 122s14
+36c28 This<7|39R9> 47b28 53r7
+37m28 Addr{7|77M9} 48b28 54r52
+39U14 Write_Register 39>30 40>30 41>30 70b14 86l8 86t22 103s12 107s12 109s12
+. 112s12
+39c30 This<7|39R9> 70b30 76r7
+40m30 Addr{7|77M9} 71b30 77r53
+41m30 Val{4|53M9} 72b30 79r51
+50a7 Data{5|40A12} 56m44 63r14 63r20
+51e7 Status{5|34E9} 57m44 59r10
+74e7 Status{5|34E9} 80m45 82r10
+97r7 CTRL1{7|100R9} 102m7 103r49 111m7 112r49
+98r7 CTRL2{7|121R9} 105m7 106m7 107r49
+130V16 Convert{7|55I9} 130>25 130>30 136b16 142l11 142t18 159s16 160s16 161s16
+130m25 MSB{4|53M9} 136b25 140r32
+130m30 LSB{4|53M9} 136b30 139r38
+137m10 Tmp{4|54M9} 139m10 140m10 140r17 141r31
+144e7 Status{5|34E9} 152m44 154r10
+145a7 Data{5|40A12} 151m44 159r25 159r35 160r25 160r35 161r25 161r35
+146r7 Ret{7|58R9} 159m7 160m7 161m7 162r14
+

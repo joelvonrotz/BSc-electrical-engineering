@@ -1,0 +1,2 @@
+main.adb:52:28: expected type "MMA8653.All_Axes_Data" defined at mma8653.ads:58
+main.adb:52:28: found type "LSM303.All_Axes_Data" defined at lsm303.ads:54

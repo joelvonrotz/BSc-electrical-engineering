@@ -1,0 +1,92 @@
+V "GNAT Lib v2020"
+A -O0
+A -gnatA
+A --RTS=C:\gnat\2020-arm-elf\arm-eabi\lib\gnat\zfp-cortex-m4f\
+A -mlittle-endian
+A -mthumb
+A -mfloat-abi=hard
+A -mcpu=cortex-m4
+A -mfpu=fpv4-sp-d16
+A -gnata
+A -fcallgraph-info=su
+A -fcallgraph-info=su
+A -g
+A -gnatwa
+A -gnatw_A
+A -gnatQ
+A -gnatw.X
+A -ffunction-sections
+A -fdata-sections
+A -march=armv7e-m+fp
+P ZX
+
+RN
+RV NO_DISPATCH
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_IMPLEMENTATION_PRAGMAS
+
+U hal.i2c%s		hal-i2c.ads		2595f936 NE OO PK IU
+Z ada.tags%s		a-tags.adb		a-tags.ali
+W hal%s			hal.ads			hal.ali
+Z system%s		system.ads		system.ali
+
+D ada.ads		20200819171400 76789da1 ada%s
+D a-tags.ads		20200819171400 95e09aae ada.tags%s
+D hal.ads		20210108111948 2b42c80e hal%s
+D hal-i2c.ads		20210108111948 0ed73138 hal.i2c%s
+D interfac.ads		20200819171400 5ab55268 interfaces%s
+D system.ads		20200819171400 e69b74bd system%s
+D s-stoele.ads		20200819171400 2dc34a04 system.storage_elements%s
+G a e
+X 3 hal.ads
+34K9*HAL 166e8 4|32r9 84r5
+53M9*UInt8<5|63M9>
+54M9*UInt10 4|46r27
+66M9*UInt16<5|66M9> 4|69r23 78r23
+162A9*UInt8_Array(53M9)<integer> 4|40r24
+X 4 hal-i2c.ads
+32K13*I2C 3|34k9 4|84l9 84e12
+34E9*I2C_Status 38e12 56r21 63r21 72r27 81r27
+35n7*Ok{34E9}
+36n7*Err_Error{34E9}
+37n7*Err_Timeout{34E9}
+38n7*Busy{34E9}
+40A12*I2C_Data{3|162A9}<integer> 55r17 62r21 71r23 80r27
+42E9*I2C_Memory_Address_Size 44e23 70r23 79r23
+43n7*Memory_Size_8b{42E9}
+44n7*Memory_Size_16b{42E9}
+46M12*I2C_Address{3|54M9} 54r17 61r17 68r23 77r23
+48h9*I2C_Port 50r36 52p14 53r24 59p14 60r24 66p14 67r30 75p14 76r30
+50P9*Any_I2C_Port(48R9)
+52x14*Master_Transmit 53=7 54>7 55>7 56<7 57>7
+53r7 This{48R9}
+54m7 Addr{46M12}
+55a7 Data{40A12}
+56e7 Status{34E9}
+57i7 Timeout{natural}
+59x14*Master_Receive 60=7 61>7 62<7 63<7 64>7
+60r7 This{48R9}
+61m7 Addr{46M12}
+62a7 Data{40A12}
+63e7 Status{34E9}
+64i7 Timeout{natural}
+66x14*Mem_Write 67=7 68>7 69>7 70>7 71>7 72<7 73>7
+67r7 This{48R9}
+68m7 Addr{46M12}
+69m7 Mem_Addr{3|66M9}
+70e7 Mem_Addr_Size{42E9}
+71a7 Data{40A12}
+72e7 Status{34E9}
+73i7 Timeout{natural}
+75x14*Mem_Read 76=7 77>7 78>7 79>7 80<7 81<7 82>7
+76r7 This{48R9}
+77m7 Addr{46M12}
+78m7 Mem_Addr{3|66M9}
+79e7 Mem_Addr_Size{42E9}
+80a7 Data{40A12}
+81e7 Status{34E9}
+82i7 Timeout{natural}
+X 5 interfac.ads
+63M9*Unsigned_8
+66M9*Unsigned_16
+

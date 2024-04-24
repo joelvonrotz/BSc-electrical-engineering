@@ -1,0 +1,21 @@
+[GENERATED OBJECT FILE]
+b__main.o
+[PROJECT FILES]
+C:\Users\JumpStart\Desktop\lehre\asyd\dev\Ada_Drivers_Library-master\examples\MicroBit\analog_out\analog_out.gpr
+20210108111948 dfb7cb9afa96763bf5ff323c9fa693e8
+C:\Users\JumpStart\Desktop\lehre\asyd\dev\Ada_Drivers_Library-master\boards\MicroBit\microbit_zfp.gpr
+20210305160812 44ee32bf79a674d9dedc7457042f081e
+[BOUND OBJECT FILES]
+C:\Users\JumpStart\Desktop\lehre\asyd\dev\Ada_Drivers_Library-master\examples\MicroBit\analog_out\obj\main.o
+[GENERATED SOURCE FILES]
+b__main.ads
+b__main.adb
+b__main.ali
+[RESULTING OPTIONS]
+-LC:\Users\JumpStart\Desktop\lehre\asyd\dev\Ada_Drivers_Library-master\examples\MicroBit\analog_out\obj\
+-LC:\Users\JumpStart\Desktop\lehre\asyd\dev\Ada_Drivers_Library-master\examples\MicroBit\analog_out\obj\
+-LC:\Users\JumpStart\Desktop\lehre\asyd\dev\Ada_Drivers_Library-master\boards\MicroBit\obj\zfp_lib_Debug\
+-LC:\gnat\2020-arm-elf\arm-eabi\lib\gnat\zfp-cortex-m4f\adalib\
+-static
+-static-libgcc
+C:\gnat\2020-arm-elf\arm-eabi\lib\gnat\zfp-cortex-m4f\adalib\libgnat.a

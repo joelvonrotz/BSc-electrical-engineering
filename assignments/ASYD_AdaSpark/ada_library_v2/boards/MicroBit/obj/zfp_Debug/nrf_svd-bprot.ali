@@ -1,0 +1,115 @@
+V "GNAT Lib v2020"
+A -O0
+A -gnatA
+A --RTS=C:\gnat\2020-arm-elf\arm-eabi\lib\gnat\zfp-cortex-m4f\
+A -mlittle-endian
+A -mthumb
+A -mfloat-abi=hard
+A -mcpu=cortex-m4
+A -mfpu=fpv4-sp-d16
+A -gnata
+A -fcallgraph-info=su
+A -fcallgraph-info=su
+A -g
+A -gnatwa
+A -gnatw_A
+A -gnatQ
+A -gnatw.X
+A -ffunction-sections
+A -fdata-sections
+A -march=armv7e-m+fp
+P ZX
+
+RN
+RV NO_IMPLICIT_CONDITIONALS
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLEMENTATION_RESTRICTIONS
+RV NO_IMPLICIT_LOOPS
+RR NO_ELABORATION_CODE
+
+U nrf_svd.bprot%s	nrf_svd-bprot.ads	3744597c NE OO PR PK IU
+W hal%s			hal.ads			hal.ali
+W nrf_svd%s		nrf_svd.ads		nrf_svd.ali
+W system%s		system.ads		system.ali
+Z system.unsigned_types%s  s-unstyp.ads		s-unstyp.ali
+
+D hal.ads		20210108111948 2b42c80e hal%s
+D interfac.ads		20200819171400 5ab55268 interfaces%s
+D nrf_svd.ads		20210306183508 87ba21d7 nrf_svd%s
+D nrf_svd-bprot.ads	20210108111948 7d27c418 nrf_svd.bprot%s
+D system.ads		20200819171400 e69b74bd system%s
+D s-unstyp.ads		20200819171400 5ecf7212 system.unsigned_types%s
+G a e
+G c Z s s [Tconfig0_region_field_arrayBIP nrf_svd__bprot 67 4 none]
+G c Z s s [config0_registerIP nrf_svd__bprot 72 9 none]
+G c Z s s [Tconfig1_region_field_arrayBIP nrf_svd__bprot 104 4 none]
+G c Z s s [config1_registerIP nrf_svd__bprot 109 9 none]
+G c Z s s [disableindebug_registerIP nrf_svd__bprot 143 9 none]
+G c Z s s [Tconfig2_region_field_arrayBIP nrf_svd__bprot 172 4 none]
+G c Z s s [config2_registerIP nrf_svd__bprot 177 9 none]
+G c Z s s [Tconfig3_region_field_arrayBIP nrf_svd__bprot 209 4 none]
+G c Z s s [config3_registerIP nrf_svd__bprot 214 9 none]
+G c Z s s [bprot_peripheralIP nrf_svd__bprot 239 9 none]
+X 1 hal.ads
+34K9*HAL 166e8 4|45w6 78r19 115r19 150r24 183r19 220r19 247r32
+95M9*UInt31 4|150r28
+97M9*UInt32<2|74M9> 4|78r23 115r23 183r23 220r23 247r36
+X 2 interfac.ads
+74M9*Unsigned_32
+X 3 nrf_svd.ads
+49K9*NRF_SVD 123e12 4|48r9 148r25 268r5
+58m4*BPROT_Base{5|90M9} 4|266r30
+X 4 nrf_svd-bprot.ads
+48K17*BPROT 3|49k9 4|148r33 268l13 268e18
+56E9*CONFIG0_REGION0_Field 61e6 62r8 68r9
+58n7*Disabled{56E9} 63r7
+60n7*Enabled{56E9} 64r7
+67A9*CONFIG0_REGION_Field_Array(56E9)<integer> 81r19
+72R9*CONFIG0_Register 73d7 84e6 87r8 241r32
+73b7*As_Array{boolean} 75r12
+78m13*Val{1|97M9} 88r7
+81a13*Arr{67A9} 89r7
+93E9*CONFIG1_REGION32_Field 98e6 99r8 105r9
+95n7*Disabled{93E9} 100r7
+97n7*Enabled{93E9} 101r7
+104A9*CONFIG1_REGION_Field_Array(93E9)<integer> 118r19
+109R9*CONFIG1_Register 110d7 121e6 124r8 243r32
+110b7*As_Array{boolean} 112r12
+115m13*Val{1|97M9} 125r7
+118a13*Arr{104A9} 126r7
+132E9*DISABLEINDEBUG_DISABLEINDEBUG_Field 137e6 138r8 147r24
+134n7*Enabled{132E9} 139r7
+136n7*Disabled{132E9} 140r7 148r39
+143R9*DISABLEINDEBUG_Register 152e6 155r8 245r32
+147e7*DISABLEINDEBUG{132E9} 156r7
+150m7*Reserved_1_31{1|95M9} 157r7
+161E9*CONFIG2_REGION64_Field 166e6 167r8 173r9
+163n7*Disabled{161E9} 168r7
+165n7*Enabled{161E9} 169r7
+172A9*CONFIG2_REGION_Field_Array(161E9)<integer> 186r19
+177R9*CONFIG2_Register 178d7 189e6 192r8 249r32
+178b7*As_Array{boolean} 180r12
+183m13*Val{1|97M9} 193r7
+186a13*Arr{172A9} 194r7
+198E9*CONFIG3_REGION96_Field 203e6 204r8 210r9
+200n7*Disabled{198E9} 205r7
+202n7*Enabled{198E9} 206r7
+209A9*CONFIG3_REGION_Field_Array(198E9)<integer> 223r19
+214R9*CONFIG3_Register 215d7 226e6 229r8 251r32
+215b7*As_Array{boolean} 217r12
+220m13*Val{1|97M9} 230r7
+223a13*Arr{209A9} 231r7
+239R9*BPROT_Peripheral 253e6 255r8 265r27
+241r7*CONFIG0{72R9} 256r7
+243r7*CONFIG1{109R9} 257r7
+245r7*DISABLEINDEBUG{143R9} 258r7
+247m7*UNUSED0{1|97M9} 259r7
+249r7*CONFIG2{177R9} 260r7
+251r7*CONFIG3{214R9} 261r7
+265r4*BPROT_Periph{239R9}
+X 5 system.ads
+60K9*System 4|46w6 85r24 122r24 153r24 190r24 227r24 5|172e11
+90M9*Address
+114n41*Low_Order_First{114E9} 4|85r31 122r31 153r31 190r31 227r31
+

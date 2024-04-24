@@ -1,0 +1,111 @@
+![](images/meme_docker.jpg){width="7cm" fig-align="center"}
+
+::: callout-important
+
+Bash Befehle via Host sind mit `{\color{BrickRed}{\texttt{\textbf{\$}}}}`{=latex} gekennzeichnet.
+
+```{=latex}
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{\$}\NormalTok{ echo }\StringTok{"this happens on WSL or SSH Pi"}
+\end{Highlighting}
+\end{Shaded}
+```
+
+Bash Befehle in einem Docker Container sind mit `{\color{BrickRed}{\texttt{\textbf{\#}}}}`{=latex} gekennzeichnet.
+
+```{=latex}
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{\#}\NormalTok{ echo }\StringTok{"this happens in a Docker container"}
+\end{Highlighting}
+\end{Shaded}
+```
+
+:::
+
+## Was'n Docka?
+
+Kurzgesagt: Docker "[containerisiert]{.underline}" Anwendungen.
+
+Die Idee ist, eine Anwendunge mit der nötigen Konfiguration, Runtime und Bibliotheken in ein Paket zusammenzustellen und dann als **portables** Produkt weitergegeben, verarbeitet, etc. ausgeführt werden.
+
+Man unterscheidet zwischen **Image** & **Container**
+
+- **Image** ist eine Vorlage, welche beschreibt, wie ein Container aufzubauen ist.
+- **Container** ist die [ausgeführte Instanz eines Images]{.underline} und ist eine [isolierte]{.underline} Umgebung, welche die entsprechende Prozesse ausführt, **ohne** andere Systeme zu stören.
+
+![](/images/docker/container-distribution.png){width="6cm" fig-align="center"}
+
+## Lebenszyklus
+
+Ein Docker-**Container** kann fünf Zustände annehmen ([Created]{.underline}, [Running]{.underline}, [Deleted]{.underline}, [Stopped]{.underline} und [Paused]{.underline}) und kann mit folgenden Docker-Befehlen gesteuert werden.
+
+
+```{=latex}
+\resizebox{\columnwidth}{!}{
+  \begin{tikzpicture}[line/.style={-Straight Barb,shorten >=1mm,shorten <=1mm,draw=black, line width=1.5pt}, label/.style={black, fill=white, node font=\bfseries\ttfamily, inner sep=2pt},  node font=\ttfamily]
+
+  \node[circle,fill=YellowGreen,draw=black, inner sep=0, minimum width=1.4cm]   (stateRunning) at (4,6) {running};
+  \node[circle,fill=BrickRed!80,draw=black, inner sep=0, minimum width=1.4cm]      (stateStopped) at (4,2) {stopped};
+  \node[circle,fill=lightgray,draw=black, inner sep=0, minimum width=1.4cm]     (stateDeleted) at (0,2) {deleted};
+  \node[circle,fill=RoyalBlue!30,draw=black, inner sep=0, minimum width=1.4cm]  (stateCreated) at (0,6) {created};
+  \node[circle,fill=YellowOrange,draw=black, inner sep=0, minimum width=1.4cm]  (statePaused)  at (8,6) {paused};
+
+  \node (entry1)                at (-3,6)       {};
+  \node (entry2)                at (4,8)        {};
+  \node [label,left, fill=none] at (3.20,4.75)  {restart};
+
+  \draw [line, OliveGreen, rounded corners=5] (stateRunning) .. controls (3.25,4.75) and (3.25,2.75) .. ([yshift=5mm]stateStopped.center) .. controls (4.75,2.75) and (4.75,4.75) .. (stateRunning);
+
+
+  \draw [line,YellowGreen]    (stateCreated) edge node[label]        {start}  (stateRunning);
+  \draw [line,BrickRed,bend right=4mm] (stateRunning) edge node[label,left=1pt]  {stop}   (stateStopped);
+  \draw [line,YellowGreen,bend right=4mm] (stateStopped) edge node[label,right=1pt] {start}  (stateRunning);
+
+  \draw [line,YellowOrange,bend right=4mm] (stateRunning) edge node[label]       {pause}   (statePaused);
+  \draw [line,YellowGreen,bend right=4mm] (statePaused)  edge node[label]       {unpause} (stateRunning);
+  \draw [line,Gray]                (stateCreated) edge node[label]       {rm}      (stateDeleted);
+  \draw [line,Gray]                (stateStopped) edge node[label]       {rm}      (stateDeleted);
+
+  \draw [line,RoyalBlue]                (entry1)       edge node[label]       {create}  (stateCreated);
+  \draw [line,YellowGreen]    (entry2)       edge node[label]       {run}     (stateRunning);
+  \end{tikzpicture}
+}
+```
+
+
+## Image Reference Format
+
+Standardmässig werden Images wie z.B. [`hello-world`](https://registry.hub.docker.com/_/hello-world) immer vom [DockerHub-registry](https://registry.hub.docker.com/) heruntergeladen, aber es ist möglich andere **repos** anzufragen. Grundsätzlich gilt folgende Struktur:
+
+```{=latex}
+\begin{center}
+\texttt{\textbf{\color{BrickRed}{<repo>}}{\color{Gray}{/}}\textbf{\color{OliveGreen}{<source>}}{\color{Gray}{/}}\textbf{\color{NavyBlue}{<image>}}{\color{Gray}{/}}\textbf{\color{Periwinkle}{<tag>}}}
+
+\end{center}
+```
+
+- `\textbf{\texttt{\color{BrickRed}{<repo>}}}`{=latex}: Repository/Content-Host (default `index.docker.io`)
+- `\textbf{\texttt{\color{OliveGreen}{<source>}}}`{=latex} Untergruppe, Hauptprojekt, User, Organisation, etc. (default `library`)
+- `\textbf{\texttt{\color{NavyBlue}{<image>}}}`{=latex} Projekt, wie z.B. eine Runtime
+- `\textbf{\texttt{\color{Periwinkle}{<tag>}}}`{=latex} Version oder Tag des Projektes (default `latest`)
+
+```{=latex}
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{\$}\NormalTok{ docker run }\textbf{\texttt{\color{OliveGreen}{kaohslu}}}/\textbf{\texttt{\color{NavyBlue}{01-demo-img}}}:\textbf{\texttt{\color{Periwinkle}{latest}}}
+\end{Highlighting}
+\end{Shaded}
+```
+
+$\rightarrow$ Auf dem offiziellen Repository `\textbf{\texttt{\color{BrickRed}{DockerHub}}}`{=latex} wird unter dem User `\textbf{\texttt{\color{OliveGreen}{kaohslu}}}`{=latex} das Image `\textbf{\texttt{\color{NavyBlue}{01-demo-img}}}`{=latex} der Version `\textbf{\texttt{\color{Periwinkle}{latest}}}`{=latex} heruntergeladen und gestartet.
+
+## Volume
+
+Da die Container voneinander isoliert sind, können diese auch nicht gegenseitig auf den Speicher zugreifen. Wenn man z.B. Dateien in einen bestimmten Ordner auf dem Host-Computer abspeichern möchte oder mehrere Container auf den gleichen Speicher zugreifen lassen, muss dies **explizit** angegeben werden.
+
+![](images/docker/container_local_storage.png){height="4.5cm" fig-align="center"}
+
+
+![](images/docker/container_shared_storage.png){height="4.5cm" fig-align="center"}

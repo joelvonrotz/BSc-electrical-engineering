@@ -1,0 +1,91 @@
+graph: { title: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-gpio.adb"
+class {
+  classname: "nrf__gpio__gpio_point"
+  label: "nrf__gpio__gpio_point\nrf-gpio.ads:67:9"
+  parent: "hal__gpio__gpio_point"
+  virtuals: "1:nrf__gpio__support,1:hal__gpio__gpio_point\n
+             2:nrf__gpio__mode,2:hal__gpio__gpio_point\n
+             3:nrf__gpio__set_mode,3:hal__gpio__gpio_point\n
+             4:nrf__gpio__pull_resistor,4:hal__gpio__gpio_point\n
+             5:nrf__gpio__set_pull_resistor,5:hal__gpio__gpio_point\n
+             6:nrf__gpio__set,6:hal__gpio__gpio_point\n
+             7:nrf__gpio__set__2,7:hal__gpio__gpio_point\n
+             8:nrf__gpio__clear,8:hal__gpio__gpio_point\n
+             9:nrf__gpio__toggle,9:hal__gpio__gpio_point\n
+             -1:nrf__gpio___size,-1:hal__gpio__gpio_point\n
+             10:nrf__gpio__configure_io\n
+             -6:nrf__gpio__Oeq\n
+             -7:nrf__gpio___assign"
+}
+node: { title: "nrf__gpio__gpio_configurationIP" label: "Gpio_Configurationip\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-gpio.ads:59:9\n16 bytes (static)" }
+node: { title: "nrf__gpio__gpio_pointIP" label: "Gpio_Pointip\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-gpio.ads:67:9\n16 bytes (static)" }
+node: { title: "nrf__gpio___size" label: "Gpio\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-gpio.ads:67:9\n16 bytes (static)" }
+node: { title: "nrf__gpio__Oeq" label: "=\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-gpio.ads:67:4\n16 bytes (static)" }
+node: { title: "nrf__gpio___assign" label: "Gpio\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-gpio.ads:67:9\n16 bytes (static)" }
+node: { title: "nrf__gpio__support" label: "Support\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-gpio.ads:73:4\n16 bytes (static)" }
+node: { title: "__gnat_last_chance_handler" label: "gnat_last_chance_handler\n<built-in>" shape : ellipse }
+edge: { sourcename: "nrf__gpio__support" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-gpio.ads:76:13" }
+node: { title: "nrf__gpio__mode" label: "Mode\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-gpio.adb:41:4\n24 bytes (static)" }
+edge: { sourcename: "nrf__gpio__mode" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-gpio.adb:45:16" }
+edge: { sourcename: "nrf__gpio__mode" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-gpio.adb:47:22" }
+edge: { sourcename: "nrf__gpio__mode" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-gpio.adb:52:22" }
+node: { title: "nrf__gpio__set_mode" label: "Set_Mode\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-gpio.adb:64:4\n32 bytes (static)" }
+edge: { sourcename: "nrf__gpio__set_mode" targetname: "nrf__gpio__support" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\hal\src\hal-gpio.ads:63:28" }
+node: { title: "system__assertions__raise_assert_failure" label: "Raise_Assert_Failure\nC:\gnat\2020-arm-elf\arm-eabi\lib\gnat\zfp-cortex-m4f\gnat\s-assert.ads:46:14" shape : ellipse }
+edge: { sourcename: "nrf__gpio__set_mode" targetname: "system__assertions__raise_assert_failure" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\hal\src\hal-gpio.ads:63:24" }
+edge: { sourcename: "nrf__gpio__set_mode" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-gpio.adb:70:19" }
+edge: { sourcename: "nrf__gpio__set_mode" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-gpio.adb:72:31" }
+edge: { sourcename: "nrf__gpio__set_mode" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-gpio.adb:75:33" }
+edge: { sourcename: "nrf__gpio__set_mode" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-gpio.adb:79:31" }
+edge: { sourcename: "nrf__gpio__set_mode" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-gpio.adb:82:33" }
+node: { title: "nrf__gpio__set" label: "Set\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-gpio.adb:94:4\n16 bytes (static)" }
+edge: { sourcename: "nrf__gpio__set" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-gpio.adb:99:16" }
+node: { title: "nrf__gpio__pull_resistor" label: "Pull_Resistor\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-gpio.adb:110:4\n24 bytes (static)" }
+edge: { sourcename: "nrf__gpio__pull_resistor" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-gpio.adb:114:16" }
+node: { title: "nrf_svd__gpio__pin_cnf_pull_fieldRP" label: "PIN_CNF_PULL_FIELDRP\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\svd\nrf52\nrf_svd-gpio.ads:438:9" shape : ellipse }
+edge: { sourcename: "nrf__gpio__pull_resistor" targetname: "nrf_svd__gpio__pin_cnf_pull_fieldRP" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-gpio.adb:116:47" }
+edge: { sourcename: "nrf__gpio__pull_resistor" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-gpio.adb:116:47" }
+edge: { sourcename: "nrf__gpio__pull_resistor" targetname: "nrf_svd__gpio__pin_cnf_pull_fieldRP" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-gpio.adb:122:47" }
+edge: { sourcename: "nrf__gpio__pull_resistor" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-gpio.adb:122:47" }
+node: { title: "nrf__gpio__set_pull_resistor" label: "Set_Pull_Resistor\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-gpio.adb:135:4\n24 bytes (static)" }
+edge: { sourcename: "nrf__gpio__set_pull_resistor" targetname: "nrf__gpio__support" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\hal\src\hal-gpio.ads:73:28" }
+edge: { sourcename: "nrf__gpio__set_pull_resistor" targetname: "system__assertions__raise_assert_failure" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\hal\src\hal-gpio.ads:73:24" }
+edge: { sourcename: "nrf__gpio__set_pull_resistor" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-gpio.adb:139:34" }
+edge: { sourcename: "nrf__gpio__set_pull_resistor" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-gpio.adb:140:15" }
+node: { title: "nrf__gpio__set__2" label: "Set\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-gpio.adb:150:15\n24 bytes (static)" }
+edge: { sourcename: "nrf__gpio__set__2" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-gpio.adb:154:16" }
+edge: { sourcename: "nrf__gpio__set__2" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-gpio.adb:155:46" }
+edge: { sourcename: "nrf__gpio__set__2" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-gpio.adb:156:46" }
+node: { title: "nrf__gpio__clear" label: "Clear\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-gpio.adb:164:15\n24 bytes (static)" }
+edge: { sourcename: "nrf__gpio__clear" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-gpio.adb:168:16" }
+edge: { sourcename: "nrf__gpio__clear" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-gpio.adb:169:46" }
+edge: { sourcename: "nrf__gpio__clear" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-gpio.adb:170:46" }
+node: { title: "nrf__gpio__toggle" label: "Toggle\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-gpio.adb:178:15\n24 bytes (static)" }
+edge: { sourcename: "nrf__gpio__toggle" targetname: "nrf__gpio__mode" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\hal\src\hal-gpio.ads:93:28" }
+edge: { sourcename: "nrf__gpio__toggle" targetname: "system__assertions__raise_assert_failure" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\hal\src\hal-gpio.ads:93:24" }
+edge: { sourcename: "nrf__gpio__toggle" targetname: "nrf__gpio__set" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-gpio.adb:182:14" }
+edge: { sourcename: "nrf__gpio__toggle" targetname: "nrf__gpio__clear" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-gpio.adb:183:14" }
+edge: { sourcename: "nrf__gpio__toggle" targetname: "nrf__gpio__set__2" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-gpio.adb:185:14" }
+node: { title: "nrf__gpio__configure_io" label: "Configure_Io\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-gpio.adb:193:4\n24 bytes (static)" }
+edge: { sourcename: "nrf__gpio__configure_io" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-gpio.adb:200:16" }
+edge: { sourcename: "nrf__gpio__configure_io" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-gpio.adb:197:66" }
+edge: { sourcename: "nrf__gpio__configure_io" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-gpio.adb:202:34" }
+edge: { sourcename: "nrf__gpio__configure_io" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-gpio.adb:197:66" }
+edge: { sourcename: "nrf__gpio__configure_io" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-gpio.adb:206:36" }
+edge: { sourcename: "nrf__gpio__configure_io" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-gpio.adb:197:66" }
+edge: { sourcename: "nrf__gpio__configure_io" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-gpio.adb:210:35" }
+edge: { sourcename: "nrf__gpio__configure_io" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-gpio.adb:197:66" }
+edge: { sourcename: "nrf__gpio__configure_io" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-gpio.adb:215:36" }
+edge: { sourcename: "nrf__gpio__configure_io" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-gpio.adb:197:66" }
+edge: { sourcename: "nrf__gpio__configure_io" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-gpio.adb:225:36" }
+edge: { sourcename: "nrf__gpio__configure_io" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-gpio.adb:198:66" }
+edge: { sourcename: "nrf__gpio__configure_io" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-gpio.adb:230:34" }
+edge: { sourcename: "nrf__gpio__configure_io" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-gpio.adb:198:66" }
+edge: { sourcename: "nrf__gpio__configure_io" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-gpio.adb:234:36" }
+edge: { sourcename: "nrf__gpio__configure_io" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-gpio.adb:198:66" }
+edge: { sourcename: "nrf__gpio__configure_io" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-gpio.adb:238:35" }
+edge: { sourcename: "nrf__gpio__configure_io" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-gpio.adb:198:66" }
+edge: { sourcename: "nrf__gpio__configure_io" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-gpio.adb:243:36" }
+edge: { sourcename: "nrf__gpio__configure_io" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-gpio.adb:198:66" }
+edge: { sourcename: "nrf__gpio__configure_io" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-gpio.adb:253:36" }
+}

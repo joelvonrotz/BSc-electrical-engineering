@@ -1,0 +1,68 @@
+graph: { title: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\ft5336\ft5336.adb"
+class {
+  classname: "ft5336__ft5336_device"
+  label: "ft5336__ft5336_device\ft5336.ads:40:9"
+  parent: "hal__touch_panel__touch_panel_device"
+  virtuals: "1:ft5336__set_bounds,1:hal__touch_panel__touch_panel_device\n
+             2:ft5336__active_touch_points,2:hal__touch_panel__touch_panel_device\n
+             3:ft5336__get_touch_point,3:hal__touch_panel__touch_panel_device\n
+             4:ft5336__get_all_touch_points,4:hal__touch_panel__touch_panel_device\n
+             -1:ft5336___size__2,-1:hal__touch_panel__touch_panel_device\n
+             5:ft5336__check_id\n
+             6:ft5336__tp_set_use_interrupts\n
+             7:ft5336__i2c_read\n
+             8:ft5336__i2c_write"
+}
+edge: { sourcename: "ft5336__i2c_read"
+  targetname: "4:hal__i2c__i2c_port,hal__i2c__i2c_port"
+  label: "ft5336.adb:276:16"
+}
+edge: { sourcename: "ft5336__i2c_write"
+  targetname: "3:hal__i2c__i2c_port,hal__i2c__i2c_port"
+  label: "ft5336.adb:299:16"
+}
+node: { title: "ft5336__ft5336_deviceIP" label: "FT5336_DEVICEIP\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\ft5336\ft5336.ads:81:9\n24 bytes (static)" }
+node: { title: "ft5336___size__2" label: "FT5336\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\ft5336\ft5336.ads:81:9\n16 bytes (static)" }
+node: { title: "ft5336__ft5336_pressure_registersIP" label: "FT5336_PRESSURE_REGISTERSIP\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\ft5336\ft5336.adb:102:9\n16 bytes (static)" }
+node: { title: "ft5336__i2c_read" label: "I2C_READ\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\ft5336\ft5336.adb:268:4\n64 bytes (static)" }
+node: { title: "__indirect_call" label: "Indirect Call Placeholder" shape : ellipse }
+edge: { sourcename: "ft5336__i2c_read" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\ft5336\ft5336.adb:276:16" }
+node: { title: "ft5336__i2c_write" label: "I2C_WRITE\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\ft5336\ft5336.adb:292:4\n72 bytes (static)" }
+edge: { sourcename: "ft5336__i2c_write" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\ft5336\ft5336.adb:299:16" }
+node: { title: "ft5336__check_id" label: "CHECK_ID\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\ft5336\ft5336.adb:312:4\n24 bytes (static)" }
+edge: { sourcename: "ft5336__check_id" targetname: "ft5336__i2c_read" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\ft5336\ft5336.adb:319:20" }
+node: { title: "ft5336__tp_set_use_interrupts" label: "TP_SET_USE_INTERRUPTS\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\ft5336\ft5336.adb:337:4\n24 bytes (static)" }
+edge: { sourcename: "ft5336__tp_set_use_interrupts" targetname: "ft5336__i2c_write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\ft5336\ft5336.adb:349:11" }
+node: { title: "ft5336__set_bounds" label: "SET_BOUNDS\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\ft5336\ft5336.adb:357:4\n24 bytes (static)" }
+node: { title: "ft5336__active_touch_points" label: "ACTIVE_TOUCH_POINTS\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\ft5336\ft5336.adb:373:4\n24 bytes (static)" }
+edge: { sourcename: "ft5336__active_touch_points" targetname: "ft5336__i2c_read" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\ft5336\ft5336.adb:379:23" }
+node: { title: "__gnat_last_chance_handler" label: "gnat_last_chance_handler\n<built-in>" shape : ellipse }
+edge: { sourcename: "ft5336__active_touch_points" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\ft5336\ft5336.adb:392:14" }
+node: { title: "ft5336__get_touch_point" label: "GET_TOUCH_POINT\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\ft5336\ft5336.adb:400:4\n64 bytes (static)" }
+edge: { sourcename: "ft5336__get_touch_point" targetname: "ft5336__active_touch_points" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\ft5336\ft5336.adb:424:32" }
+edge: { sourcename: "ft5336__get_touch_point" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\ft5336\ft5336.adb:429:15" }
+edge: { sourcename: "ft5336__get_touch_point" targetname: "ft5336__i2c_read" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\ft5336\ft5336.adb:431:22" }
+edge: { sourcename: "ft5336__get_touch_point" targetname: "ft5336__i2c_read" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\ft5336\ft5336.adb:437:23" }
+edge: { sourcename: "ft5336__get_touch_point" targetname: "ft5336__i2c_read" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\ft5336\ft5336.adb:446:22" }
+edge: { sourcename: "ft5336__get_touch_point" targetname: "ft5336__i2c_read" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\ft5336\ft5336.adb:452:23" }
+edge: { sourcename: "ft5336__get_touch_point" targetname: "ft5336__i2c_read" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\ft5336\ft5336.adb:461:34" }
+edge: { sourcename: "ft5336__get_touch_point" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\ft5336\ft5336.adb:468:16" }
+edge: { sourcename: "ft5336__get_touch_point" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\ft5336\ft5336.adb:470:16" }
+edge: { sourcename: "ft5336__get_touch_point" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\ft5336\ft5336.adb:473:42" }
+edge: { sourcename: "ft5336__get_touch_point" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\ft5336\ft5336.adb:473:50" }
+edge: { sourcename: "ft5336__get_touch_point" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\ft5336\ft5336.adb:473:50" }
+edge: { sourcename: "ft5336__get_touch_point" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\ft5336\ft5336.adb:476:43" }
+edge: { sourcename: "ft5336__get_touch_point" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\ft5336\ft5336.adb:476:51" }
+edge: { sourcename: "ft5336__get_touch_point" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\ft5336\ft5336.adb:476:51" }
+edge: { sourcename: "ft5336__get_touch_point" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\ft5336\ft5336.adb:483:22" }
+node: { title: "ft5336__get_all_touch_points" label: "GET_ALL_TOUCH_POINTS\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\ft5336\ft5336.adb:495:4\n80 bytes (dynamic)" }
+edge: { sourcename: "ft5336__get_all_touch_points" targetname: "ft5336__active_touch_points" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\ft5336\ft5336.adb:498:41" }
+edge: { sourcename: "ft5336__get_all_touch_points" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\ft5336\ft5336.adb:499:29" }
+node: { title: "system__secondary_stack__ss_allocate" label: "Ss_Allocate\nC:\gnat\2020-arm-elf\arm-eabi\lib\gnat\zfp-cortex-m4f\gnat\s-secsta.ads:58:14" shape : ellipse }
+edge: { sourcename: "ft5336__get_all_touch_points" targetname: "system__secondary_stack__ss_allocate" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\ft5336\ft5336.adb:503:10" }
+edge: { sourcename: "ft5336__get_all_touch_points" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\ft5336\ft5336.adb:507:46" }
+edge: { sourcename: "ft5336__get_all_touch_points" targetname: "ft5336__get_touch_point" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\ft5336\ft5336.adb:507:28" }
+edge: { sourcename: "ft5336__get_all_touch_points" targetname: "system__secondary_stack__ss_allocate" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\touch_panel\ft5336\ft5336.adb:510:7" }
+node: { title: "memcpy" label: "builtin_memcpy\n<built-in>" shape : ellipse }
+edge: { sourcename: "ft5336__get_all_touch_points" targetname: "memcpy" }
+}

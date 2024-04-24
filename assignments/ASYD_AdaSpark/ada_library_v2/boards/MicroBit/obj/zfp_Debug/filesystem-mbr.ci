@@ -1,0 +1,46 @@
+graph: { title: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\filesystem-mbr.adb"
+edge: { sourcename: "filesystem__mbr__read"
+  targetname: "1:hal__block_drivers__block_driver,hal__block_drivers__block_driver"
+  label: "filesystem-mbr.adb:49:24"
+}
+edge: { sourcename: "filesystem__mbr__read_extended"
+  targetname: "1:hal__block_drivers__block_driver,hal__block_drivers__block_driver"
+  label: "filesystem-mbr.adb:78:24"
+}
+edge: { sourcename: "filesystem__mbr__read_next"
+  targetname: "1:hal__block_drivers__block_driver,hal__block_drivers__block_driver"
+  label: "filesystem-mbr.adb:189:24"
+}
+node: { title: "filesystem__mbr__chs_addressIP" label: "Chs_Addressip\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\filesystem-mbr.ads:82:9\n16 bytes (static)" }
+node: { title: "filesystem__mbr__partition_entryIP" label: "Partition_Entryip\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\filesystem-mbr.ads:94:9\n16 bytes (static)" }
+node: { title: "filesystem__mbr__Tpartition_arrayBIP" label: "Tpartition_Arraybip\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\filesystem-mbr.ads:120:4\n16 bytes (static)" }
+node: { title: "filesystem__mbr__master_boot_recordIP" label: "Master_Boot_Recordip\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\filesystem-mbr.ads:122:9\n16 bytes (static)" }
+node: { title: "filesystem__mbr__is_extended" label: "Is_Extended\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\filesystem-mbr.ads:134:4\n16 bytes (static)" }
+edge: { sourcename: "filesystem__mbr__is_extended" targetname: "filesystem__mbr__get_type" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\filesystem-mbr.ads:137:8" }
+node: { title: "filesystem__mbr__extended_boot_recordIP" label: "Extended_Boot_Recordip\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\filesystem-mbr.ads:132:9\n16 bytes (static)" }
+node: { title: "filesystem__mbr__read" label: "Read\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\filesystem-mbr.adb:40:4\n560 bytes (static)" }
+node: { title: "__gnat_last_chance_handler" label: "gnat_last_chance_handler\n<built-in>" shape : ellipse }
+edge: { sourcename: "filesystem__mbr__read" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\filesystem-mbr.adb:49:14" }
+node: { title: "__indirect_call" label: "Indirect Call Placeholder" shape : ellipse }
+edge: { sourcename: "filesystem__mbr__read" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\filesystem-mbr.adb:49:24" }
+node: { title: "memcpy" label: "builtin_memcpy\n<built-in>" shape : ellipse }
+edge: { sourcename: "filesystem__mbr__read" targetname: "memcpy" }
+node: { title: "filesystem__mbr__read_extended" label: "Read_Extended\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\filesystem-mbr.adb:66:4\n584 bytes (static)" }
+edge: { sourcename: "filesystem__mbr__read_extended" targetname: "filesystem__mbr__lba" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\filesystem-mbr.adb:73:37" }
+edge: { sourcename: "filesystem__mbr__read_extended" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\filesystem-mbr.adb:78:14" }
+edge: { sourcename: "filesystem__mbr__read_extended" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\filesystem-mbr.adb:78:24" }
+edge: { sourcename: "filesystem__mbr__read_extended" targetname: "memcpy" }
+node: { title: "filesystem__mbr__active" label: "Active\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\filesystem-mbr.adb:95:4\n16 bytes (static)" }
+node: { title: "filesystem__mbr__valid" label: "Valid\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\filesystem-mbr.adb:103:4\n16 bytes (static)" }
+node: { title: "filesystem__mbr__get_type" label: "Get_Type\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\filesystem-mbr.adb:111:4\n16 bytes (static)" }
+node: { title: "filesystem__mbr__lba" label: "Lba\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\filesystem-mbr.adb:119:4\n16 bytes (static)" }
+node: { title: "filesystem__mbr__sectors" label: "Sectors\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\filesystem-mbr.adb:131:4\n16 bytes (static)" }
+node: { title: "filesystem__mbr__get_type__2" label: "Get_Type\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\filesystem-mbr.adb:139:4\n16 bytes (static)" }
+node: { title: "filesystem__mbr__lba__2" label: "Lba\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\filesystem-mbr.adb:149:4\n16 bytes (static)" }
+node: { title: "filesystem__mbr__sectors__2" label: "Sectors\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\filesystem-mbr.adb:159:4\n16 bytes (static)" }
+node: { title: "filesystem__mbr__has_next" label: "Has_Next\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\filesystem-mbr.adb:169:4\n16 bytes (static)" }
+node: { title: "filesystem__mbr__read_next" label: "Read_Next\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\filesystem-mbr.adb:179:4\n568 bytes (static)" }
+edge: { sourcename: "filesystem__mbr__read_next" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\filesystem-mbr.adb:189:14" }
+edge: { sourcename: "filesystem__mbr__read_next" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\filesystem-mbr.adb:189:24" }
+edge: { sourcename: "filesystem__mbr__read_next" targetname: "memcpy" }
+}

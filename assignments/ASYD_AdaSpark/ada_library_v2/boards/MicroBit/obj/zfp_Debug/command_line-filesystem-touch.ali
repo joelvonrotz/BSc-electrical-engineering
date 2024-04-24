@@ -1,0 +1,102 @@
+V "GNAT Lib v2020"
+A -O0
+A -gnatA
+A --RTS=C:\gnat\2020-arm-elf\arm-eabi\lib\gnat\zfp-cortex-m4f\
+A -mlittle-endian
+A -mthumb
+A -mfloat-abi=hard
+A -mcpu=cortex-m4
+A -mfpu=fpv4-sp-d16
+A -gnata
+A -fcallgraph-info=su
+A -fcallgraph-info=su
+A -g
+A -gnatwa
+A -gnatw_A
+A -gnatQ
+A -gnatw.X
+A -ffunction-sections
+A -fdata-sections
+A -march=armv7e-m+fp
+P SS ZX
+
+RN
+RV NO_DISPATCH
+RV NO_DISPATCHING_CALLS
+RV NO_SECONDARY_STACK
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_ATTRIBUTES
+RV NO_IMPLEMENTATION_PRAGMAS
+
+U command_line.filesystem.touch%b  command_line-filesystem-touch.adb  acff9373 NE OO PK
+Z ada.tags%s		a-tags.adb		a-tags.ali
+W command_line.filesystem%s  command_line-filesystem.adb  command_line-filesystem.ali
+W file_io%s		file_io.adb		file_io.ali
+Z system.img_lli%s	s-imglli.adb		s-imglli.ali
+Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+
+U command_line.filesystem.touch%s  command_line-filesystem-touch.ads  609c78ea EE NE OO PK
+Z ada.tags%s		a-tags.adb		a-tags.ali
+W command_line.filesystem%s  command_line-filesystem.adb  command_line-filesystem.ali
+Z system%s		system.ads		system.ali
+Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+
+D ada.ads		20200819171400 76789da1 ada%s
+D a-tags.ads		20200819171400 95e09aae ada.tags%s
+D adl_config.ads	20210108111948 5d2c18e5 adl_config%s
+D command_line.ads	20210108111948 29283dc6 command_line%s
+D command_line-filesystem.ads  20210108111948 9888f716 command_line.filesystem%s
+D command_line-filesystem-touch.ads  20210108111948 f8148ffc command_line.filesystem.touch%s
+D command_line-filesystem-touch.adb  20210108111948 1fcb0526 command_line.filesystem.touch%b
+D file_io.ads		20210108111948 4b2019a9 file_io%s
+D hal.ads		20210108111948 2b42c80e hal%s
+D hal-block_drivers.ads	20210108111948 3a6f071f hal.block_drivers%s
+D hal-filesystem.ads	20210108111948 6998b52b hal.filesystem%s
+D interfac.ads		20200819171400 5ab55268 interfaces%s
+D system.ads		20200819171400 e69b74bd system%s
+D s-imglli.ads		20200819171400 114f55d1 system.img_lli%s
+D s-parame.ads		20200819171400 fe66c50d system.parameters%s
+D s-secsta.ads		20200819171400 56a2861c system.secondary_stack%s
+D s-stoele.ads		20200819171400 2dc34a04 system.storage_elements%s
+G a e
+G c Z s s [name command_line__filesystem__touch 37 13 none]
+G c Z s b [execute command_line__filesystem__touch 41 14 none]
+G c Z s b [help command_line__filesystem__touch 47 14 none]
+G c Z s s [touch_cmdIP command_line__filesystem__touch 52 9 none]
+G r c none [execute command_line__filesystem__touch 41 14 none] [next command_line 43 13 none]
+G r c none [execute command_line__filesystem__touch 41 14 none] [create_file file_io 163 13 none]
+G r s command [touch_cmdIP command_line__filesystem__touch 52 9 none] [commandIP command_line 102 9 none]
+X 4 command_line.ads
+32K9*Command_Line 146e17 6|32r9 54r5 7|34r14 80r5
+34P9*Put_Procedure 6|43r34 48r31 7|43r18 72r31
+35P9*Put_Line_Procedure 6|44r34 49r31 7|44r18 73r31
+41R9*Arguments 96e14 6|42r41 7|42r25
+43V13*Next{string} 7|50R43
+54H9*Command 104e14 6|34r26 52r26
+X 5 command_line-filesystem.ads
+32K22*Filesystem 4|32k9 5|37e28 6|32r22 54r18 7|34r27 80r18
+X 6 command_line-filesystem-touch.ads
+32K33*Touch 5|32k22 6|52E9 54l29 54e34 7|34b38 80l29 80t34
+34R9*Touch_Cmd<4|54R9> 37P13 37r26 41P14 41r41 47P14 47r38 52c9 52e50 7|41r25
+. 71r38
+37V13*Name{string}<4|58p13> 37>19
+37r19 This{34R9}
+41U14*Execute<4|61p14> 41=23 42=23 43>23 44>23 7|40b25 64l8 64t15
+41r23 This{34R9} 7|41b7 46r28
+42c23 Args<4|41R9> 7|42b7 50m38 50r38
+43p23 Put{4|34P9} 7|43b7 46r34
+44p23 Put_Line{4|35P9} 7|44b7 59r16
+47U14*Help<4|66p14> 47=20 48>20 49>20 7|71b14 79l8 79t12
+47r20 This{34R9} 7|71b20 75r33
+48p20 Put{4|34P9} 7|72b20 75r28
+49p20 Put_Line{4|35P9} 7|73b20 77r7 78r7
+X 7 command_line-filesystem-touch.adb
+50a13 Arg{string} 53r16 57r44 59r51
+51e13 Status{8|44E9} 57m13 58r16 60r28
+X 8 file_io.ads
+42K9*File_IO 7|32w6 32r19 57r23 8|250e12
+44E9*Status_Code 7|51r22 8|69e31
+45n7*OK{44E9} 7|58r26
+163V13*Create_File{44E9} 7|57s31
+

@@ -1,0 +1,10 @@
+```{=latex}
+\newpage
+\listoffigures
+
+\listoftables
+
+\listoflistings
+
+\newpage
+```

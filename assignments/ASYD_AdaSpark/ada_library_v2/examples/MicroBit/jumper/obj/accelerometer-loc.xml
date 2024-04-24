@@ -1,0 +1,129 @@
+<?xml version="1.0"?>
+<Locations >
+  <Project>
+    <vfs_file />
+    <file_marker column=" 19" line=" 13" >
+      <vfs_project />
+      <vfs_file>C:\Users\JumpStart\Desktop\lehre\asyd\jumper\Ada_Drivers_Library-master\examples\MicroBit\accelerometer\accelerometer.gpr</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 78" >
+      <vfs_project>C:\Users\JumpStart\Desktop\lehre\asyd\jumper\Ada_Drivers_Library-master\examples\MicroBit\accelerometer\jumper.gpr</vfs_project>
+      <vfs_file>C:\Users\JumpStart\Desktop\lehre\asyd\jumper\Ada_Drivers_Library-master\examples\MicroBit\accelerometer\src\main.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 13" line=" 79" >
+      <vfs_project>C:\Users\JumpStart\Desktop\lehre\asyd\jumper\Ada_Drivers_Library-master\boards\MicroBit\microbit_zfp.gpr</vfs_project>
+      <vfs_file>C:\Users\JumpStart\Desktop\lehre\asyd\jumper\Ada_Drivers_Library-master\components\src\motion\mma8653\mma8653.ads</vfs_file>
+    </file_marker>
+    <file_marker column=" 58" line=" 150" >
+      <vfs_project>C:\Users\JumpStart\Desktop\lehre\asyd\jumper\Ada_Drivers_Library-master\boards\MicroBit\microbit_zfp.gpr</vfs_project>
+      <vfs_file>C:\Users\JumpStart\Desktop\lehre\asyd\jumper\Ada_Drivers_Library-master\components\src\motion\mma8653\mma8653.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 8" line=" 55" >
+      <vfs_project>C:\Users\JumpStart\Desktop\lehre\asyd\jumper\Ada_Drivers_Library-master\examples\MicroBit\accelerometer\jumper.gpr</vfs_project>
+      <vfs_file>C:\Users\JumpStart\Desktop\lehre\asyd\jumper\Ada_Drivers_Library-master\examples\MicroBit\accelerometer\src\main.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 28" line=" 58" >
+      <vfs_project>C:\Users\JumpStart\Desktop\lehre\asyd\jumper\Ada_Drivers_Library-master\examples\MicroBit\accelerometer\jumper.gpr</vfs_project>
+      <vfs_file>C:\Users\JumpStart\Desktop\lehre\asyd\jumper\Ada_Drivers_Library-master\examples\MicroBit\accelerometer\src\main.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 9" line=" 33" >
+      <vfs_project>C:\Users\JumpStart\Desktop\lehre\asyd\jumper\Ada_Drivers_Library-master\examples\MicroBit\accelerometer\jumper.gpr</vfs_project>
+      <vfs_file>C:\Users\JumpStart\Desktop\lehre\asyd\jumper\Ada_Drivers_Library-master\examples\MicroBit\accelerometer\src\main.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 9" line=" 37" >
+      <vfs_project />
+      <vfs_file>C:\Users\JumpStart\Desktop\lehre\asyd\jumper\Ada_Drivers_Library-master\components\src\motion\lsm303\lsm303.ads</vfs_file>
+    </file_marker>
+    <file_marker column=" 28" line=" 58" >
+      <vfs_project>C:\Users\JumpStart\Desktop\lehre\asyd\jumper\Ada_Drivers_Library-master\examples\MicroBit\accelerometer\jumper.gpr</vfs_project>
+      <vfs_file>C:\Users\JumpStart\Desktop\lehre\asyd\jumper\Ada_Drivers_Library-master\examples\MicroBit\accelerometer\src\main.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 58" >
+      <vfs_project>C:\Users\JumpStart\Desktop\lehre\asyd\jumper\Ada_Drivers_Library-master\boards\MicroBit\microbit_zfp.gpr</vfs_project>
+      <vfs_file>C:\Users\JumpStart\Desktop\lehre\asyd\jumper\Ada_Drivers_Library-master\components\src\motion\mma8653\mma8653.ads</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1" >
+      <vfs_project>C:\Users\JumpStart\Desktop\lehre\asyd\jumper\Ada_Drivers_Library-master\examples\MicroBit\accelerometer\jumper.gpr</vfs_project>
+      <vfs_file>C:\Users\JumpStart\Desktop\lehre\asyd\jumper\Ada_Drivers_Library-master\examples\MicroBit\accelerometer\src\main.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 15" line=" 45" >
+      <vfs_project>C:\Users\JumpStart\Desktop\lehre\asyd\jumper\Ada_Drivers_Library-master\examples\MicroBit\accelerometer\jumper.gpr</vfs_project>
+      <vfs_file>C:\Users\JumpStart\Desktop\lehre\asyd\jumper\Ada_Drivers_Library-master\examples\MicroBit\accelerometer\src\main.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 9" line=" 37" >
+      <vfs_project />
+      <vfs_file>C:\Users\JumpStart\Desktop\lehre\asyd\jumper\Ada_Drivers_Library-master\components\src\motion\lsm303\lsm303.ads</vfs_file>
+    </file_marker>
+    <file_marker column=" 15" line=" 45" >
+      <vfs_project>C:\Users\JumpStart\Desktop\lehre\asyd\jumper\Ada_Drivers_Library-master\examples\MicroBit\accelerometer\jumper.gpr</vfs_project>
+      <vfs_file>C:\Users\JumpStart\Desktop\lehre\asyd\jumper\Ada_Drivers_Library-master\examples\MicroBit\accelerometer\src\main.adb</vfs_file>
+    </file_marker>
+    <file_marker current="true" column=" 28" line=" 58" >
+      <vfs_project>C:\Users\JumpStart\Desktop\lehre\asyd\jumper\Ada_Drivers_Library-master\examples\MicroBit\accelerometer\jumper.gpr</vfs_project>
+      <vfs_file>C:\Users\JumpStart\Desktop\lehre\asyd\jumper\Ada_Drivers_Library-master\examples\MicroBit\accelerometer\src\main.adb</vfs_file>
+    </file_marker>
+  </Project>
+  <Project >
+    <vfs_file >C:\Users\JumpStart\Desktop\lehre\asyd\jumper\Ada_Drivers_Library-master\examples\MicroBit\accelerometer\accelerometer.gpr</vfs_file>
+    <file_marker column=" 19" line=" 13">
+      <vfs_project  />
+      <vfs_file >C:\Users\JumpStart\Desktop\lehre\asyd\jumper\Ada_Drivers_Library-master\examples\MicroBit\accelerometer\accelerometer.gpr</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 78">
+      <vfs_project >C:\Users\JumpStart\Desktop\lehre\asyd\jumper\Ada_Drivers_Library-master\examples\MicroBit\accelerometer\accelerometer.gpr</vfs_project>
+      <vfs_file >C:\Users\JumpStart\Desktop\lehre\asyd\jumper\Ada_Drivers_Library-master\examples\MicroBit\accelerometer\src\main.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 13" line=" 79">
+      <vfs_project >C:\Users\JumpStart\Desktop\lehre\asyd\jumper\Ada_Drivers_Library-master\boards\MicroBit\microbit_zfp.gpr</vfs_project>
+      <vfs_file >C:\Users\JumpStart\Desktop\lehre\asyd\jumper\Ada_Drivers_Library-master\components\src\motion\mma8653\mma8653.ads</vfs_file>
+    </file_marker>
+    <file_marker column=" 58" line=" 150">
+      <vfs_project >C:\Users\JumpStart\Desktop\lehre\asyd\jumper\Ada_Drivers_Library-master\boards\MicroBit\microbit_zfp.gpr</vfs_project>
+      <vfs_file >C:\Users\JumpStart\Desktop\lehre\asyd\jumper\Ada_Drivers_Library-master\components\src\motion\mma8653\mma8653.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 8" line=" 55">
+      <vfs_project >C:\Users\JumpStart\Desktop\lehre\asyd\jumper\Ada_Drivers_Library-master\examples\MicroBit\accelerometer\accelerometer.gpr</vfs_project>
+      <vfs_file >C:\Users\JumpStart\Desktop\lehre\asyd\jumper\Ada_Drivers_Library-master\examples\MicroBit\accelerometer\src\main.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 28" line=" 58">
+      <vfs_project >C:\Users\JumpStart\Desktop\lehre\asyd\jumper\Ada_Drivers_Library-master\examples\MicroBit\accelerometer\accelerometer.gpr</vfs_project>
+      <vfs_file >C:\Users\JumpStart\Desktop\lehre\asyd\jumper\Ada_Drivers_Library-master\examples\MicroBit\accelerometer\src\main.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 9" line=" 33">
+      <vfs_project >C:\Users\JumpStart\Desktop\lehre\asyd\jumper\Ada_Drivers_Library-master\examples\MicroBit\accelerometer\accelerometer.gpr</vfs_project>
+      <vfs_file >C:\Users\JumpStart\Desktop\lehre\asyd\jumper\Ada_Drivers_Library-master\examples\MicroBit\accelerometer\src\main.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 9" line=" 37">
+      <vfs_project  />
+      <vfs_file >C:\Users\JumpStart\Desktop\lehre\asyd\jumper\Ada_Drivers_Library-master\components\src\motion\lsm303\lsm303.ads</vfs_file>
+    </file_marker>
+    <file_marker column=" 28" line=" 58">
+      <vfs_project >C:\Users\JumpStart\Desktop\lehre\asyd\jumper\Ada_Drivers_Library-master\examples\MicroBit\accelerometer\accelerometer.gpr</vfs_project>
+      <vfs_file >C:\Users\JumpStart\Desktop\lehre\asyd\jumper\Ada_Drivers_Library-master\examples\MicroBit\accelerometer\src\main.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 58">
+      <vfs_project >C:\Users\JumpStart\Desktop\lehre\asyd\jumper\Ada_Drivers_Library-master\boards\MicroBit\microbit_zfp.gpr</vfs_project>
+      <vfs_file >C:\Users\JumpStart\Desktop\lehre\asyd\jumper\Ada_Drivers_Library-master\components\src\motion\mma8653\mma8653.ads</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1">
+      <vfs_project >C:\Users\JumpStart\Desktop\lehre\asyd\jumper\Ada_Drivers_Library-master\examples\MicroBit\accelerometer\accelerometer.gpr</vfs_project>
+      <vfs_file >C:\Users\JumpStart\Desktop\lehre\asyd\jumper\Ada_Drivers_Library-master\examples\MicroBit\accelerometer\src\main.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 15" line=" 45">
+      <vfs_project >C:\Users\JumpStart\Desktop\lehre\asyd\jumper\Ada_Drivers_Library-master\examples\MicroBit\accelerometer\accelerometer.gpr</vfs_project>
+      <vfs_file >C:\Users\JumpStart\Desktop\lehre\asyd\jumper\Ada_Drivers_Library-master\examples\MicroBit\accelerometer\src\main.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 9" line=" 37">
+      <vfs_project  />
+      <vfs_file >C:\Users\JumpStart\Desktop\lehre\asyd\jumper\Ada_Drivers_Library-master\components\src\motion\lsm303\lsm303.ads</vfs_file>
+    </file_marker>
+    <file_marker column=" 15" line=" 45">
+      <vfs_project >C:\Users\JumpStart\Desktop\lehre\asyd\jumper\Ada_Drivers_Library-master\examples\MicroBit\accelerometer\accelerometer.gpr</vfs_project>
+      <vfs_file >C:\Users\JumpStart\Desktop\lehre\asyd\jumper\Ada_Drivers_Library-master\examples\MicroBit\accelerometer\src\main.adb</vfs_file>
+    </file_marker>
+    <file_marker current="true" column=" 28" line=" 58">
+      <vfs_project >C:\Users\JumpStart\Desktop\lehre\asyd\jumper\Ada_Drivers_Library-master\examples\MicroBit\accelerometer\accelerometer.gpr</vfs_project>
+      <vfs_file >C:\Users\JumpStart\Desktop\lehre\asyd\jumper\Ada_Drivers_Library-master\examples\MicroBit\accelerometer\src\main.adb</vfs_file>
+    </file_marker>
+  </Project>
+</Locations>

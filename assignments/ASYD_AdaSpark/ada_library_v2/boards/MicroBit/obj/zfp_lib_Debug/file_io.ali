@@ -1,0 +1,467 @@
+V "GNAT Lib v2020"
+A -O0
+A -gnatA
+A --RTS=C:\gnat\2020-arm-elf\arm-eabi\lib\gnat\zfp-cortex-m4f\
+A -mlittle-endian
+A -mthumb
+A -mfloat-abi=hard
+A -mcpu=cortex-m4
+A -mfpu=fpv4-sp-d16
+A -gnata
+A -fcallgraph-info=su
+A -fcallgraph-info=su
+A -g
+A -gnatwa
+A -gnatw_A
+A -gnatQ
+A -gnatw.X
+A -ffunction-sections
+A -fdata-sections
+A -march=armv7e-m+fp
+P SS ZX
+
+RN
+RV NO_ALLOCATORS
+RV NO_DISPATCHING_CALLS
+RV NO_LOCAL_ALLOCATORS
+RV NO_SECONDARY_STACK
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_UNCHECKED_CONVERSION
+RV NO_DEFAULT_INITIALIZATION
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_ATTRIBUTES
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLICIT_LOOPS
+RV NO_ELABORATION_CODE
+
+U file_io%b		file_io.adb		43f611c8 OO PK IU
+W ada%s			ada.ads			ada.ali
+Z ada.tags%s		a-tags.adb		a-tags.ali
+W ada.unchecked_conversion%s
+W filesystem%s		filesystem.ads		filesystem.ali
+W filesystem.fat%s	filesystem-fat.adb	filesystem-fat.ali
+W filesystem.mbr%s	filesystem-mbr.adb	filesystem-mbr.ali
+W hal%s			hal.ads			hal.ali
+W hal.filesystem%s	hal-filesystem.ads	hal-filesystem.ali
+Z interfaces%s		interfac.ads		interfac.ali
+Z system%s		system.ads		system.ali
+Z system.assertions%s	s-assert.adb		s-assert.ali
+Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+
+U file_io%s		file_io.ads		a360c7c5 BN EE NE OO PK
+Z ada.tags%s		a-tags.adb		a-tags.ali
+W adl_config%s		adl_config.ads		adl_config.ali
+W hal%s			hal.ads			hal.ali
+W hal.block_drivers%s	hal-block_drivers.ads	hal-block_drivers.ali
+W hal.filesystem%s	hal-filesystem.ads	hal-filesystem.ali
+W system%s		system.ads		system.ali
+
+D ada.ads		20200819171400 76789da1 ada%s
+D a-tags.ads		20200819171400 95e09aae ada.tags%s
+D a-unccon.ads		20200819171400 0e9b276f ada.unchecked_conversion%s
+D adl_config.ads	20210108111948 5d2c18e5 adl_config%s
+D file_io.ads		20210108111948 4b2019a9 file_io%s
+D file_io.adb		20210108111948 d62b9726 file_io%b
+D filesystem.ads	20210108111948 1cee6e44 filesystem%s
+D filesystem-fat.ads	20210108111948 2716ee82 filesystem.fat%s
+D filesystem-mbr.ads	20210108111948 82068dc5 filesystem.mbr%s
+D hal.ads		20210108111948 2b42c80e hal%s
+D hal-block_drivers.ads	20210108111948 3a6f071f hal.block_drivers%s
+D hal-filesystem.ads	20210108111948 6998b52b hal.filesystem%s
+D interfac.ads		20200819171400 5ab55268 interfaces%s
+D system.ads		20200819171400 e69b74bd system%s
+D s-assert.ads		20200819171400 cd8d2c94 system.assertions%s
+D s-parame.ads		20200819171400 fe66c50d system.parameters%s
+D s-secsta.ads		20200819171400 56a2861c system.secondary_stack%s
+D s-stoele.ads		20200819171400 2dc34a04 system.storage_elements%s
+G a e
+G c Z s b [open file_io 91 13 none]
+G c Z s b [close file_io 97 14 none]
+G c Z s b [is_open file_io 99 13 none]
+G c Z s b [flush file_io 102 13 none]
+G c Z s b [size file_io 105 13 none]
+G c Z s b [read file_io 108 13 none]
+G c Z s b [write file_io 113 13 none]
+G c Z s b [offset file_io 118 13 none]
+G c Z s b [seek file_io 121 13 none]
+G c Z s b [open file_io 140 13 none]
+G c Z s b [close file_io 145 14 none]
+G c Z s b [read file_io 158 13 none]
+G c Z s b [reset file_io 161 14 none]
+G c Z s b [create_file file_io 163 13 none]
+G c Z s b [unlink file_io 165 13 none]
+G c Z s b [remove_directory file_io 167 13 none]
+G c Z s b [copy_file file_io 169 13 none]
+G c Z s b [mount_volume file_io 183 13 none]
+G c Z s b [mount_drive file_io 187 13 none]
+G c Z s b [unmount file_io 191 13 none]
+G c Z s s [directory_entryIP file_io 147 9 none]
+G c Z s s [file_descriptorIP file_io 195 9 none]
+G c Z s s [directory_descriptorIP file_io 199 9 none]
+G c Z b b [convert file_io 42 13 none]
+G c Z b b [convert file_io 43 13 none]
+G c Z b b [convert file_io 44 13 none]
+G c Z b b [convert file_io 45 13 none]
+G c Z b b [convert file_io 46 13 none]
+G c Z b b [get_fs file_io 64 24 none]
+G c Z b b [read file_io 68 24 none]
+G c Z b b [reset file_io 74 25 none]
+G c Z b b [close file_io 77 25 none]
+G c Z b b [open file_io 80 13 none]
+G c Z b b [open file_io 85 13 none]
+G c Z b b [mount_recordIP file_io 48 9 none]
+G c Z b b [Tmount_arrayBIP file_io 57 4 none]
+G c Z b b [vfs_directory_handleIP file_io 59 9 none]
+G c Z b b [ThandlesBIP file_io 93 4 none]
+G c Z b b [name file_io 95 13 none]
+G c Z b b [set_name file_io 96 14 none]
+G c Z b b [split file_io 98 14 none]
+G r c none [mount_drive file_io 187 13 none] [read filesystem__mbr 45 13 none]
+G r c none [mount_drive file_io 187 13 none] [get_type filesystem__mbr 53 13 none]
+G r c none [mount_drive file_io 187 13 none] [valid filesystem__mbr 51 13 none]
+G r s fat_filesystem [mount_drive file_io 187 13 none] [fat_filesystemIP filesystem__fat 300 9 none]
+G r c none [mount_drive file_io 187 13 none] [lba filesystem__mbr 55 13 none]
+G r c none [mount_drive file_io 187 13 none] [open filesystem__fat 136 13 none]
+X 1 ada.ads
+16K9*Ada 20e8 6|36r6 42r28 43r28 44r28 45r28 46r28
+X 3 a-unccon.ads
+20v14*Unchecked_Conversion 6|36w10 42r32 43r32 44r32 45r32 46r32
+X 4 adl_config.ads
+2K9*ADL_Config 22e15 5|40w6 177r35 178r40
+4N4*Max_Mount_Points 5|177r46
+6N4*Max_Mount_Name_Length 5|178r51
+X 5 file_io.ads
+42K9*File_IO 195E9 250l5 250e12 6|38b14 758l5 758t12
+44E9*Status_Code 69e31 95r14 103r27 124r41 130r25 136r29 143r14 163r48 165r43
+. 167r53 171r31 185r66 189r64 191r55 212r8 6|42r73 83r14 89r14 111r14 113r13
+. 154r14 191r16 218r16 258r14 260r22 280r14 297r14 315r14 317r13 350r16 391r48
+. 408r43 425r53 444r32 447r26 554r51 587r14 590r16 620r55 701r14 725r14
+45n7*OK{44E9} 213r7 6|120r17 200r20 227r20 324r17 357r20 452r20 457r20 463r20
+. 485r14 577r14 595r20 603r23 628r20 736r23
+46n7*Non_Empty_Directory{44E9} 214r7
+47n7*Disk_Error{44E9} 215r7
+48n7*Disk_Full{44E9} 216r7
+49n7*Internal_Error{44E9} 217r7
+50n7*Drive_Not_Ready{44E9} 218r7
+51n7*No_Such_File{44E9} 219r7
+52n7*No_Such_Path{44E9} 220r7 6|398r17 415r17 432r17 710r17 748r17
+53n7*Not_Mounted{44E9} 221r7 6|632r14
+54n7*Invalid_Name{44E9} 222r7
+55n7*Access_Denied{44E9} 223r7
+56n7*Already_Exists{44E9} 224r7 6|562r20
+57n7*Invalid_Object_Entry{44E9} 225r7
+58n7*Write_Protected{44E9} 226r7
+59n7*Invalid_Drive{44E9} 227r7
+60n7*No_Filesystem{44E9} 228r7 6|613r14
+61n7*Locked{44E9} 229r7
+62n7*Too_Many_Open_Files{44E9} 230r7 6|570r17 741r17
+63n7*Invalid_Parameter{44E9} 231r7 6|116r17 160r17 269r17 286r17 304r17 320r17
+64n7*Input_Output_Error{44E9} 232r7 6|478r20
+65n7*No_MBR_Found{44E9} 233r7
+66n7*No_Partition_Found{44E9} 234r7
+67n7*No_More_Entries{44E9} 235r7
+68n7*Read_Only_File_System{44E9} 236r7
+69n7*Operation_Not_Permitted{44E9} 237r7
+71E9*File_Mode 71e57 94r14 239r8 6|43r54 87r16 110r14 699r16
+71n23*Read_Only{71E9} 240r7 6|451r41
+71n34*Write_Only{71E9} 241r7 6|462r46
+71n46*Read_Write{71E9} 242r7
+72E9*Seek_Mode 81e16 123r16 244r8 6|46r54 256r16
+75n7*From_Start{72E9} 245r7
+77n7*From_End{72E9} 246r7
+79n7*Forward{72E9} 247r7
+81n7*Backward{72E9} 248r7
+83M9*File_Size<10|160M9> 106r26 110r28 111r26 115r29 116r27 119r28 124r23
+. 153r22 6|44r54 45r71 170r14 187r16 188r14 214r16 215r14 240r14 257r23 449r26
+89R9*File_Descriptor 92r21 97r36 99r29 102r27 105r26 108r28 113r29 118r28
+. 122r23 129r15 135r15 195c9 197e14 6|108r21 131r35 144r14 153r14 169r14
+. 185r16 212r16 239r14 255r23 278r15 295r15 446r26
+91V13*Open{44E9} 92=7 93>7 94>7 6|107b13 125l8 125t12 451s17 462s17
+92r7 File{89R9} 6|108b7 115r19 118m32 118r32 121m10
+93a7 Name{string} 6|109b7 118r20
+94e7 Mode{71E9} 6|110b7 118r26
+97U14*Close 97=22 6|131b14 137l8 137t13 458s10 464s10 476s13 477s13 483s7
+. 484s7
+97r22 File{89R9} 6|131b21 133r10 134r10 135m10
+99V13*Is_Open{boolean} 99>22 6|115s10 143b13
+99r22 File{89R9} 6|146r8
+102V13*Flush{44E9} 102>20 6|152b13 162l8 162t13
+102r20 File{89R9} 6|153b7 157r10 158r26
+105V13*Size{83M9} 105>19 6|168b13 178l8 178t12
+105r19 File{89R9} 6|169b7 173r10 176r26
+108V13*Read{83M9} 108>19 109>19 110>19 6|184b13 205l8 205t12 469s21
+108r19 File{89R9} 6|185b7 193r10 198r26
+109m19 Addr{14|90M9} 6|186b7 198r44
+110m19 Length{83M9} 6|187b7 197r23
+113V13*Write{83M9} 113>20 114>20 115>20 6|211b13 232l8 232t13 473s21
+113r20 File{89R9} 6|212b7 220r10 225r26
+114m20 Addr{14|90M9} 6|213b7 225r45
+115m20 Length{83M9} 6|214b7 224r23
+118V13*Offset{83M9} 118>21 6|238b13 248l8 248t14
+118r21 File{89R9} 6|239b7 243r10 244r26
+121V13*Seek{44E9} 122=7 123>7 124=7 6|254b13 271l8 271t12
+122r7 File{89R9} 6|255b7 263r10 265r26
+123e7 Origin{72E9} 6|256b7 265r53
+124m7 Amount{83M9} 6|257b7 264r35 266m10
+127+12 T 130r15 6|279r15 284r60
+128v13*Generic_Write 129>7 130>7 6|277b13 288l8 288t21
+129r7 File{89R9} 6|278b7 283r10 284r26
+130*7 Value{127+12} 6|279b7 284r45
+133+12 T 136r19 6|296r19 299r30
+134v13*Generic_Read 135>7 136<7 6|294b13 306l8 306t20
+135r7 File{89R9} 6|295b7 301r10 302r26
+136*7 Value{133+12} 6|296b7 302m44 302r44
+138R9*Directory_Descriptor 141r21 145r34 158r32 161r34 199c9 201e14 6|313r21
+. 335r34 346r32 380r34
+140V13*Open{44E9} 141=7 142>7 6|312b13 329l8 329t12
+141r7 Dir{138R9} 6|313b7 319r10 322m26 322r26 325m10
+142a7 Name{string} 6|314b7 322r20
+145U14*Close 145=21 6|335b14 340l8 340t13
+145r21 Dir{138R9} 6|335b21 337r10 338r10
+147R9*Directory_Entry 147d26 154e14 156r33 159r26 203r33 6|347r26 363r17
+147i26*Name_Length{natural} 148r35
+148a7*Name{string} 205m7 6|365m14
+149b7*Subdirectory{boolean} 206m7 6|366m14
+150b7*Read_Only{boolean} 207m7 6|367m14
+151b7*Hidden{boolean} 208m7 6|368m14
+152b7*Symlink{boolean} 209m7 6|369m14
+153m7*Size{83M9} 210m7 6|370m14
+156r4*Invalid_Dir_Entry{147R9} 203c4 6|353r17 358r17
+158V13*Read{147R9} 158=19 6|346b13 374l8 374t12
+158r19 Dir{138R9} 6|346b19 352r10 356r26
+161U14*Reset 161=21 6|380b14 385l8 385t13
+161r21 Dir{138R9} 6|380b21 382r10 383r10
+163V13*Create_File{44E9} 163>26 6|391b13 402l8 402t19 456s17
+163a26 Path{string} 6|391b26 395r14 401r39 401r52
+165V13*Unlink{44E9} 165>21 6|408b13 419l8 419t14
+165a21 Path{string} 6|408b21 412r14 418r34 418r47
+167V13*Remove_Directory{44E9} 167>31 6|425b13 436l8 436t24
+167a31 Path{string} 6|425b31 429r14 435r44 435r57
+169V13*Copy_File{44E9} 169>24 169>37 170>24 6|442b13 486l8 486t17
+169a24 Source_Path{string} 6|442b24 451r28
+169a37 Destination_Path{string} 6|442b37 456r30 462r28
+170i24 Buffer_Size{positive} 6|443b24 448r48
+177N4*Max_Mount_Points 6|55r46 56r56
+178N4*Max_Mount_Name_Length 181r53 6|50r31
+180A12*Mount_Path{string}<integer> 184r21 188r21 191r36 6|95r48 97r32 492r48
+. 500r32 553r21 585r21 620r36
+183V13*Mount_Volume{44E9} 184>7 185>7 6|552b13 578l8 578t20 608s20
+184a7 Mount_Point{180A12} 6|553b7 560r47 575r37
+185p7 FS{12|80P9} 6|554b7 574r32
+187V13*Mount_Drive{44E9} 188>7 189>7 6|584b13 614l8 614t19
+188a7 Mount_Point{180A12} 6|585b7 608r34
+189p7 Device{11|35P9} 6|586b7 593r23 605r52
+191V13*Unmount{44E9} 191>22 6|620b13 633l8 633t15
+191a22 Mount_Point{180A12} 6|620b22 624r39
+196p7*Handle{12|86P9} 6|118m37 121m15 133r15 134r15 135m15 146r13 157r15
+. 158r31 173r15 176r31 193r15 198r31 220r15 225r31 243r15 244r31 263r15 265r31
+. 283r15 284r31 301r15 302r31
+200p7*Handle{12|83P9} 6|319r14 322m30 325m14 337r14 338r14 352r14 356r30
+. 382r14 383r14
+X 6 file_io.adb
+40K12 HALFS=40:30 42r54 43r65 44r65 45r54 46r65 70r44 190r16 217r16 261r22
+. 299r11 609r34 654r14
+42V13 Convert[3|20]{5|44E9} 158s17 198s17 225s17 265s17 284s17 302s17 356s17
+. 401s14 418s14 435s14 605s23 713s14 752s17 754s17
+43V13 Convert[3|20]{12|62E9} 714s23
+44V13 Convert[3|20]{12|74M9} 197s14 224s14 264s26
+45V13 Convert[3|20]{5|83M9} 176s17 203s17 230s17 244s17 266s20 370s30
+46V13 Convert[3|20]{12|63E9} 265s44
+48R9 Mount_Record 53e14 57r53 95r27 96r39 492r27 499r39
+49b7*Is_Free{boolean} 535r19 559r34 564r50 573m26 626m30 665r45
+50a7*Name{string} 493r14 503m13
+51i7*Name_Len{positive} 493r31 504m13
+52p7*FS{12|80P9} 538r21 574m26 625r30 666r48
+55I12 Mount_Index{integer} 56r33 61r18
+56I12 Valid_Mount_Index{55I12} 57r31
+57A9 Mount_Array(48R9)<integer> 91r19
+59R9 VFS_Directory_Handle<12|82R9> 62e14 64P24 65r13 68P24 69r23 74P25 74r45
+. 77P25 77r45 93r40 640r13 652r23 677r45 687r45
+60b7*Is_Free{boolean} 690m11 732r28 733m28
+61i7*Mount_Id{55I12} 658r17 663m14 663r30 665r35 666r38 667r40 680m11 734m28
+64V24 Get_FS{12|80P9}<12|116p13> 65>7 639b24 645l8 645t14
+65r7 Dir{59R9} 640b7 642r28
+68V24 Read{12|35E9}<12|128p13> 69=7 70<7 651b24 671l8 671t12
+69r7 Dir{59R9} 652b7 658r13 663m10 663r26 665r31 666r34 667r36
+70p7 Handle{12|89P9} 653b7 659m13 668m16 668r16
+74U25 Reset<12|135p14> 74=32 677b25 681l8 681t13
+74r32 Dir{59R9} 677b32 680m7
+77U25 Close<12|138p14> 77=32 687b25 691l8 691t13
+77r32 Dir{59R9} 687b32 690m7
+80V13 Open{5|44E9} 81>7 82<7 322s14 722b13 756l8 756t12
+81a7 Path{string} 723b7 730r10 744r14 751r16 754r35 754r48
+82p7 Handle{12|83P9} 724b7 735m16 740m10 747m10 752m40 752r40 754m60 754r60
+85V13 Open{5|44E9} 86>7 87>7 88<7 118s14 697b13 716l8 716t12
+86a7 Path{string} 698b7 706r14 713r32 713r45
+87e7 Mode{5|71E9} 699b7 714r32
+88p7 Handle{12|86P9} 700b7 709m10 715m23 715r23
+91a4 Mount_Points{57A9} 534r16 558r16 559r17 560r27 564r33 573m7 574m7 575m17
+. 575r17 623r16 624r19 625r13 626m13 658r28 665r17 666r20 667r22
+93a4 Handles(59R9) 731r19 732r16 733m16 734m16 735m26 735r26
+95V13 Name{5|180A12} 95>19 492b13 536s21 560s21 624s13 667s16
+95r19 Point{48R9} 493r8 493r25
+96U14 Set_Name 96=24 97>24 499b14 505l8 505t16 575s7
+96r24 Point{48R9} 499b24 503m7 504m7
+97a24 Path{5|180A12} 500b24 503r24 503r40 504r25
+98U14 Split 99>7 100<7 101<7 395s7 412s7 429s7 511b14 546l8 546t13 706s7
+. 744s7
+99a7 Path{string} 512b7 517r10 517r36 517r42 524r22 526r16 526r34 527r13
+. 536r32 536r38
+100p7 FS{12|80P9} 513b7 518m10 538m13 544m7
+101i7 Start_Index{natural} 514b7 519m10 524m7 528m13 536r56 545m7
+113e7 Ret{5|44E9} 118m7 120r10 124r14
+190m7 Ret{12|74M9} 197m7 198m50 198r50 203r26
+191e7 Status{5|44E9} 198m7 200r10
+217m7 Ret{12|74M9} 224m7 225r51 230r26
+218e7 Status{5|44E9} 225m7 227r10
+260e7 Ret{5|44E9} 265m10 267r17
+261m7 HALFS_Amount{12|74M9} 264m10 265m62 265r62 266r29
+299m7 L{12|74M9} 302m59 302r59
+317e7 Ret{5|44E9} 322m7 324r10 328r14
+349p7 Node{12|89P9} 356m43 356r43 362r36 366r30 367r30 368r30 369r30 370r39
+. 371r10
+350e7 Status{5|44E9} 356m7 357r10
+362a10 Name{string} 363r49 365r30
+363r10 Ret{5|147R9} 365m10 366m10 367m10 368m10 369m10 370m10 372r17
+392i7 Idx{natural} 395m24 401r45
+393p7 FS{12|80P9} 395m20 395r20 397r10 401r23
+409i7 Idx{natural} 412m24 418r40
+410p7 FS{12|80P9} 412m20 412r20 414r10 418r23
+426i7 Idx{natural} 429m24 435r50
+427p7 FS{12|80P9} 429m20 429r20 431r10 435r23
+446r7 Src{5|89R9} 451m23 451r23 458m17 458r17 464m17 464r17 469r27 476m20
+. 476r20 483m14 483r14
+446r12 Dst{5|89R9} 462m23 462r23 473r28 477m20 477r20 484m14 484r14
+447e7 Status{5|44E9} 451m7 452r10 453r17 456m7 457r10 459r17 462m7 463r10
+. 465r17
+448a7 Buffer{10|162A9} 469m32 469r32 469r48 473m33 473r33 481r31
+449m7 Src_Len{5|83M9} 469m10 471r20 473r49 475r24 481r20
+449m16 Dst_Len{5|83M9} 473m10 475r13
+526i11 J{integer} 527r19 528r28
+534r11 M=534:16{48R9} 535r17 536r27 538r19
+556i7 Idx{natural} 564r16 565m13 569r10 573r21 574r21 575r31
+558i11 P{integer} 559r31 560r41 564r47 565r20
+589r7 MBR{9|38R9} 593m31 593r31 600r20 601r31 606r57
+590e7 Status{5|44E9} 593m7 595r10 596r17 603m13 605m13
+591p7 FAT_FS{8|61P9} 604m13 607r52 609r63
+599i11 P{9|41I9} 600r25 601r36 606r62
+623i11 P{integer} 624r33 625r27 626r27
+703i7 Idx{natural} 706m24 713r38
+704p7 FS{12|80P9} 706m20 706r20 708r10 713r23
+727i7 Idx{natural} 744m24 751r10 754r41
+728p7 FS{12|80P9} 744m20 744r20 746r10 752r26 754r26
+731i14 J{integer} 732r25 733r25 734r25 735r35
+X 7 filesystem.ads
+35K9*Filesystem 6|32w6 32r36 33r6 33r36 34r6 34r36 7|44e15
+40M12*Block_Number{10|160M9}
+X 8 filesystem-fat.ads
+43K20*FAT 6|34w17 34r47 8|761e19
+59R9*FAT_Filesystem<12|79R9> 6|604r27 8|316e14
+61P9*FAT_Filesystem_Access(59R9) 6|591r16
+136V13*Open{12|35E9} 6|605s32
+137p7 Controller{11|35P9} 6|605r38
+138m7 LBA{7|40M12} 6|606r38
+139r7 FS{59R9} 6|607r38
+X 9 filesystem-mbr.ads
+36K20*MBR 6|33w17 33r47 9|139e19
+38R9*Master_Boot_Record 6|589r16 9|125e15
+41I9*Partition_Number<short_short_integer> 6|599r16
+43M9*Partition_Type<13|63M9>
+45V13*Read{5|44E9} 6|593s17
+51V13*Valid{boolean} 6|600s13
+53V13*Get_Type{43M9} 6|601s21
+55V13*LBA{7|40M12} 6|606s52
+X 10 hal.ads
+34K9*HAL 5|36r6 38r6 83r26 185r21 189r21 196r16 200r16 213r34 214r34 215r34
+. 216r34 217r34 218r34 219r34 220r34 221r34 222r34 223r34 224r34 225r34 226r34
+. 227r34 228r34 229r34 230r34 231r34 232r34 233r34 234r34 235r34 236r34 237r34
+. 240r21 241r21 242r21 245r21 246r21 247r21 248r21 6|35r6 35r36 40r26 448r26
+. 586r21 10|166e8
+53M9*UInt8<13|63M9>
+160M9*UInt64<13|77M9> 5|83r30
+162A9*UInt8_Array(53M9)<integer> 6|448r30
+X 11 hal-block_drivers.ads
+32K13*Block_Drivers 5|36w10 189r25 6|586r25 11|56e22
+34h9*Block_Driver
+35P9*Any_Block_Driver(34R9) 5|189r39 6|586r39
+X 12 hal-filesystem.ads
+34K13*Filesystem 5|38w10 185r25 196r20 200r20 213r38 214r38 215r38 216r38
+. 217r38 218r38 219r38 220r38 221r38 222r38 223r38 224r38 225r38 226r38 227r38
+. 228r38 229r38 230r38 231r38 232r38 233r38 234r38 235r38 236r38 237r38 240r25
+. 241r25 242r25 245r25 246r25 247r25 248r25 6|35w10 35r40 40r30 12|227e19
+35E9*Status_Code 6|42r60 70r50 654r20 12|60e31
+36n7*OK{35E9} 5|213r49
+37n7*Non_Empty_Directory{35E9} 5|214r49
+38n7*Disk_Error{35E9} 5|215r49
+39n7*Disk_Full{35E9} 5|216r49
+40n7*Internal_Error{35E9} 5|217r49
+41n7*Drive_Not_Ready{35E9} 5|218r49
+42n7*No_Such_File{35E9} 5|219r49
+43n7*No_Such_Path{35E9} 5|220r49
+44n7*Not_Mounted{35E9} 5|221r49
+45n7*Invalid_Name{35E9} 5|222r49
+46n7*Access_Denied{35E9} 5|223r49
+47n7*Already_Exists{35E9} 5|224r49
+48n7*Invalid_Object_Entry{35E9} 5|225r49
+49n7*Write_Protected{35E9} 5|226r49
+50n7*Invalid_Drive{35E9} 5|227r49
+51n7*No_Filesystem{35E9} 5|228r49
+52n7*Locked{35E9} 5|229r49
+53n7*Too_Many_Open_Files{35E9} 5|230r49
+54n7*Invalid_Parameter{35E9} 5|231r49
+55n7*Input_Output_Error{35E9} 5|232r49
+56n7*No_MBR_Found{35E9} 5|233r49
+57n7*No_Partition_Found{35E9} 5|234r49
+58n7*No_More_Entries{35E9} 5|235r49 6|660r20
+59n7*Read_Only_File_System{35E9} 5|236r49
+60n7*Operation_Not_Permitted{35E9} 5|237r49
+62E9*File_Mode 6|43r71 12|62e57
+62n23*Read_Only{62E9} 5|240r36
+62n34*Write_Only{62E9} 5|241r36
+62n46*Read_Write{62E9} 5|242r36
+63E9*Seek_Mode 6|46r71 12|72e16
+66n7*From_Start{63E9} 5|245r36
+68n7*From_End{63E9} 5|246r36
+70n7*Forward{63E9} 5|247r36
+72n7*Backward{63E9} 5|248r36
+74M9*File_Size<10|160M9> 6|44r71 45r60 190r22 217r22 261r28 299r17
+79h9*Filesystem_Driver
+80P9*Any_Filesystem_Driver(79R9) 5|185r36 6|52r18 65r42 100r25 393r13 410r13
+. 427r13 513r25 554r21 609r40 640r42 704r13 728r13
+82h9*Directory_Handle 6|59r37
+83P9*Any_Directory_Handle(82R9) 5|200r31 6|82r20 724r20
+85h9*File_Handle
+86P9*Any_File_Handle(85R9) 5|196r31 6|88r20 700r20
+88h9*Node_Handle
+89P9*Any_Node_Handle(88R9) 6|70r20 349r16 653r20
+95y13*Open{35E9} 6|752R29 754R29
+102y13*Create_File{35E9} 6|401R26
+106y13*Unlink{35E9} 6|418R26
+111y13*Remove_Directory{35E9} 6|435R26
+121y13*Root_Node{35E9} 6|666R51
+128y13*Read{35E9} 6|356R37
+135x14*Reset 6|383R21
+138x14*Close 6|338R21
+147y13*Basename{string} 6|362R41
+149y13*Is_Read_Only{boolean} 6|367R35
+151y13*Is_Hidden{boolean} 6|368R35
+153y13*Is_Subdirectory{boolean} 6|366R35
+155y13*Is_Symlink{boolean} 6|369R35
+157y13*Size{74M9} 6|370R44
+159x14*Close 6|371R15
+165y13*Open{35E9} 6|713R26
+184y13*Size{74M9} 6|176R38
+190y13*Read{35E9} 6|198R38 302R38
+197y13*Write{35E9} 6|225R38 284R38
+205y13*Offset{74M9} 6|244R38
+209y13*Flush{35E9} 6|158R38
+213y13*Seek{35E9} 6|265R38
+219x14*Close 6|134R22
+225x14*Close 6|625R33
+X 13 interfac.ads
+63M9*Unsigned_8
+77M9*Unsigned_64
+X 14 system.ads
+60K9*System 5|35w6 109r28 114r29 6|186r16 213r16 14|172e11
+90M9*Address 5|109r35 114r36 6|186r23 213r23
+

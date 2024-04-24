@@ -1,0 +1,392 @@
+V "GNAT Lib v2020"
+A -O0
+A -gnatA
+A --RTS=C:\gnat\2020-arm-elf\arm-eabi\lib\gnat\zfp-cortex-m4f\
+A -mlittle-endian
+A -mthumb
+A -mfloat-abi=hard
+A -mcpu=cortex-m4
+A -mfpu=fpv4-sp-d16
+A -gnata
+A -fcallgraph-info=su
+A -fcallgraph-info=su
+A -g
+A -gnatwa
+A -gnatw_A
+A -gnatQ
+A -gnatw.X
+A -ffunction-sections
+A -fdata-sections
+A -march=armv7e-m+fp
+P ZX
+
+RN
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RV NO_DEFAULT_INITIALIZATION
+RV NO_IMPLEMENTATION_ATTRIBUTES
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_ELABORATION_CODE
+
+U nrf.device%b		nrf-device.adb		aab72bbd OO PK
+W cortex_m_svd%s	cortex_m_svd.ads	cortex_m_svd.ali
+W cortex_m_svd.debug%s	cortex_m_svd-debug.ads	cortex_m_svd-debug.ali
+W hal%s			hal.ads			hal.ali
+W nrf%s			nrf.ads			nrf.ali
+W nrf_svd%s		nrf_svd.ads		nrf_svd.ali
+W nrf_svd.clock%s	nrf_svd-clock.ads	nrf_svd-clock.ali
+W nrf_svd.ficr%s	nrf_svd-ficr.ads	nrf_svd-ficr.ali
+W nrf_svd.power%s	nrf_svd-power.ads	nrf_svd-power.ali
+W nrf_svd.temp%s	nrf_svd-temp.ads	nrf_svd-temp.ali
+W system%s		system.ads		system.ali
+
+U nrf.device%s		nrf-device.ads		38e4d195 EB EE OO PK
+Z ada.tags%s		a-tags.adb		a-tags.ali
+W nrf%s			nrf.ads			nrf.ali
+W nrf.gpio%s		nrf-gpio.adb		nrf-gpio.ali
+W nrf.rtc%s		nrf-rtc.adb		nrf-rtc.ali
+W nrf.spi_master%s	nrf-spi_master.adb	nrf-spi_master.ali
+W nrf.timers%s		nrf-timers.adb		nrf-timers.ali
+W nrf.twi%s		nrf-twi.adb		nrf-twi.ali
+W nrf.uart%s		nrf-uart.adb		nrf-uart.ali
+W nrf_svd%s		nrf_svd.ads		nrf_svd.ali
+W nrf_svd.rtc%s		nrf_svd-rtc.ads		nrf_svd-rtc.ali
+W nrf_svd.spi%s		nrf_svd-spi.ads		nrf_svd-spi.ali
+W nrf_svd.timer%s	nrf_svd-timer.ads	nrf_svd-timer.ali
+W nrf_svd.twi%s		nrf_svd-twi.ads		nrf_svd-twi.ali
+W nrf_svd.uart%s	nrf_svd-uart.ads	nrf_svd-uart.ali
+
+D ada.ads		20200819171400 76789da1 ada%s
+D a-tags.ads		20200819171400 95e09aae ada.tags%s
+D cortex_m_svd.ads	20210108111948 cd5bf229 cortex_m_svd%s
+D cortex_m_svd-debug.ads  20210108111948 27845f3e cortex_m_svd.debug%s
+D hal.ads		20210108111948 2b42c80e hal%s
+D hal-gpio.ads		20210108111948 7f0c2ffe hal.gpio%s
+D hal-i2c.ads		20210108111948 0ed73138 hal.i2c%s
+D hal-spi.ads		20210108111948 fe139819 hal.spi%s
+D hal-uart.ads		20210108111948 d58316b4 hal.uart%s
+D interfac.ads		20200819171400 5ab55268 interfaces%s
+D nrf.ads		20210108111948 74cf72f5 nrf%s
+D nrf-device.ads	20210306183624 0b4647f4 nrf.device%s
+D nrf-device.adb	20210108111948 b7ec066a nrf.device%b
+D nrf-gpio.ads		20210306151712 72dee5c2 nrf.gpio%s
+D nrf-rtc.ads		20210108111948 36d88130 nrf.rtc%s
+D nrf-spi_master.ads	20210108111948 a8ff49a3 nrf.spi_master%s
+D nrf-timers.ads	20210108111948 385f1a57 nrf.timers%s
+D nrf-twi.ads		20210306201702 c69c2186 nrf.twi%s
+D nrf-uart.ads		20210307101722 3d63d355 nrf.uart%s
+D nrf_svd.ads		20210306183508 87ba21d7 nrf_svd%s
+D nrf_svd-clock.ads	20210108111948 15406ae2 nrf_svd.clock%s
+D nrf_svd-ficr.ads	20210108111948 83464018 nrf_svd.ficr%s
+D nrf_svd-power.ads	20210108111948 74fd31ae nrf_svd.power%s
+D nrf_svd-rtc.ads	20210108111948 57c7ffc8 nrf_svd.rtc%s
+D nrf_svd-spi.ads	20210108111948 6e2ffb69 nrf_svd.spi%s
+D nrf_svd-temp.ads	20210108111948 1ebb92fa nrf_svd.temp%s
+D nrf_svd-timer.ads	20210108111948 ba50db1c nrf_svd.timer%s
+D nrf_svd-twi.ads	20210306201806 68301534 nrf_svd.twi%s
+D nrf_svd-uart.ads	20210108111948 83bcebc8 nrf_svd.uart%s
+D system.ads		20200819171400 e69b74bd system%s
+D s-stoele.ads		20200819171400 2dc34a04 system.storage_elements%s
+D s-unstyp.ads		20200819171400 5ecf7212 system.unsigned_types%s
+G a e
+G c s s s [s nrf__device 44 1 none]
+G c Z b b [errata_12 nrf__device 52 13 none]
+G c Z b b [errata_16 nrf__device 53 13 none]
+G c Z b b [errata_31 nrf__device 54 13 none]
+G c Z b b [errata_32 nrf__device 55 13 none]
+G c Z b b [errata_36 nrf__device 56 13 none]
+G c Z b b [errata_37 nrf__device 57 13 none]
+G c Z b b [errata_57 nrf__device 58 13 none]
+G c Z b b [errata_66 nrf__device 59 13 none]
+G c Z b b [errata_136 nrf__device 60 13 none]
+G c Z b b [errata_182 nrf__device 61 13 none]
+G c Z b b [errata_108 nrf__device 62 13 none]
+G r s timer [s nrf__device 44 1 none] [timerIP nrf__timers 155 9 none]
+G r s real_time_counter [s nrf__device 44 1 none] [real_time_counterIP nrf__rtc 65 9 none]
+G r s uart_device [s nrf__device 44 1 none] [uart_deviceIP nrf__uart 105 9 none]
+G r s twi_master [s nrf__device 44 1 none] [twi_masterIP nrf__twi 99 9 none]
+G r s spi_master [s nrf__device 44 1 none] [spi_masterIP nrf__spi_master 130 9 none]
+X 3 cortex_m_svd.ads
+9K9*Cortex_M_SVD 31e17 13|35r6 35r30
+X 4 cortex_m_svd-debug.ads
+10K22*Debug 320e23 13|35w19 35r43
+260b7*TRCENA{boolean} 13|238m26
+305r7*DEMCR{241R9} 13|238m20
+317r4*Debug_Periph{291R9} 13|238m7
+X 5 hal.ads
+34K9*HAL 166e8 13|33w6 33r18
+49M9*UInt7
+53M9*UInt8<10|63M9>
+58M9*UInt12
+62M9*UInt14
+97M9*UInt32<10|74M9> 13|43r27 45r27 47r27 81r36 83r36 98r31 110r37 112r36
+. 142r31 154r36 156r36 158r36 160r36 184r32 186r37 203r35 205r35 211r32
+X 6 hal-gpio.ads
+47h9*GPIO_Point
+X 7 hal-i2c.ads
+48h9*I2C_Port
+X 8 hal-spi.ads
+48h9*SPI_Port
+X 9 hal-uart.ads
+48h9*UART_Port
+X 10 interfac.ads
+63M9*Unsigned_8
+74M9*Unsigned_32
+121V13*Shift_Left{74M9} 13|304s38
+125V13*Shift_Right{74M9} 13|219s9 232s9
+X 11 nrf.ads
+34K9*nRF 43e8 12|32r6 32r26 33r6 33r26 35r6 35r26 37r6 37r26 39r6 39r26 41r6
+. 41r26 44r9 106r27 107r27 108r27 119r5 13|41r14 307r5
+X 12 nrf-device.ads
+44K13*Device 11|34k9 12|119l9 119e15 13|41b18 307l9 307t15
+47r4*P0_00{14|67R9}
+48r4*P0_01{14|67R9}
+49r4*P0_02{14|67R9}
+50r4*P0_03{14|67R9}
+51r4*P0_04{14|67R9}
+52r4*P0_05{14|67R9}
+53r4*P0_06{14|67R9}
+54r4*P0_07{14|67R9}
+55r4*P0_08{14|67R9}
+56r4*P0_09{14|67R9}
+57r4*P0_10{14|67R9}
+58r4*P0_11{14|67R9}
+59r4*P0_12{14|67R9}
+60r4*P0_13{14|67R9}
+61r4*P0_14{14|67R9}
+62r4*P0_15{14|67R9}
+63r4*P0_16{14|67R9}
+64r4*P0_17{14|67R9}
+65r4*P0_18{14|67R9}
+66r4*P0_19{14|67R9}
+67r4*P0_20{14|67R9}
+68r4*P0_21{14|67R9}
+69r4*P0_22{14|67R9}
+70r4*P0_23{14|67R9}
+71r4*P0_24{14|67R9}
+72r4*P0_25{14|67R9}
+73r4*P0_26{14|67R9}
+74r4*P0_27{14|67R9}
+75r4*P0_28{14|67R9}
+76r4*P0_29{14|67R9}
+77r4*P0_30{14|67R9}
+78r4*P0_31{14|67R9}
+80r4*P1_00{14|67R9}
+81r4*P1_01{14|67R9}
+82r4*P1_02{14|67R9}
+83r4*P1_03{14|67R9}
+84r4*P1_04{14|67R9}
+85r4*P1_05{14|67R9}
+86r4*P1_06{14|67R9}
+87r4*P1_07{14|67R9}
+88r4*P1_08{14|67R9}
+89r4*P1_09{14|67R9}
+91r4*RTC_0{15|42R9}
+92r4*RTC_1{15|42R9}
+93r4*RTC_2{15|42R9}
+102r4*TWI_0{18|41R9}
+103r4*TWI_1{18|41R9}
+106r4*SPI_Master_0{16|56R9}
+107r4*SPI_Master_1{16|56R9}
+108r4*SPI_Master_2{16|56R9}
+111r4*Timer_0{17|37R9}
+112r4*Timer_1{17|37R9}
+113r4*Timer_2{17|37R9}
+114r4*Timer_3{17|37R9}
+115r4*Timer_4{17|37R9}
+118r4*UART_0{19|39R9}
+X 13 nrf-device.adb
+43m4 Undocumented_Reg_FE0{5|97M9} 49r38 50r39
+45m4 Undocumented_Reg_FE4{5|97M9}
+47m4 Undocumented_Reg_FE8{5|97M9} 71r15 92r41 169r41
+49b4 FE0_Is_Six{boolean} 70r10 92r10 169r10
+50b4 FE4_Is_Zero{boolean} 70r25 92r25 169r25
+52V13 Errata_12{boolean} 68b13 79l8 79t17 107s14 130s14 181s14 195s14 215s7
+53V13 Errata_16{boolean} 90b13 96l8 96t17 121s14 139s14 151s14 222s7
+54V13 Errata_31{boolean} 105b13 108l8 108t17 228s7
+55V13 Errata_32{boolean} 119b13 122l8 122t17 235s7
+56V13 Errata_36{boolean} 128b13 131l8 131t17 241s7
+57V13 Errata_37{boolean} 137b13 140l8 140t17 249s7
+58V13 Errata_57{boolean} 149b13 152l8 152t17 254s7
+59V13 Errata_66{boolean} 167b13 173l8 173t17 262s7
+60V13 Errata_136{boolean} 193b13 196l8 196t18 292s7
+61V13 Errata_182{boolean} 202b13 209l8 209t18 300s7
+62V13 Errata_108{boolean} 179b13 182l8 182t18 286s7
+81m4 E12_Undocumented_COMP_Reg_540{5|97M9} 218m7
+83m4 E12_Undocumented_FICR_Reg_324{5|97M9} 219r22
+98m4 E16_Undocumented_Reg_074{5|97M9} 225m7
+110m4 E31_Undocumented_CLOCK_Reg_53C{5|97M9} 231m7
+112m4 E31_Undocumented_FICR_Reg_244{5|97M9} 232r22
+142m4 E37_Undocumented_Reg_5A0{5|97M9} 251m7
+154m4 E57_Undocumented_NFCT_Reg_610{5|97M9} 256m7
+156m4 E57_Undocumented_NFCT_Reg_614{5|97M9} 259m7
+158m4 E57_Undocumented_NFCT_Reg_618{5|97M9} 258m7
+160m4 E57_Undocumented_NFCT_Reg_688{5|97M9} 257m7
+184m4 E108_Undocumented_Reg_EE4{5|97M9} 289m7
+186m4 E108_Undocumented_FICR_Reg_258{5|97M9} 289r36
+203m7 Undocumented_FICR_Reg_130{5|97M9} 208r14
+205m7 Undocumented_FICR_Reg_134{5|97M9} 208r48
+211m4 E182_Undocumented_Reg_73C{5|97M9} 303m7 304r9
+X 14 nrf-gpio.ads
+33K13*GPIO 12|32w10 32r30 14|124e13
+35I12*GPIO_Pin_Index{natural}
+37I12*GPIO_Port{natural}
+67R9*GPIO_Point<6|47R9> 12|47r20 48r20 49r20 50r20 51r20 52r20 53r20 54r20
+. 55r20 56r20 57r20 58r20 59r20 60r20 61r20 62r20 63r20 64r20 65r20 66r20
+. 67r20 68r20 69r20 70r20 71r20 72r20 73r20 74r20 75r20 76r20 77r20 78r20
+. 80r20 81r20 82r20 83r20 84r20 85r20 86r20 87r20 88r20 89r20 14|70e14
+68i7*Port{37I12} 12|47m35 48m35 49m35 50m35 51m35 52m35 53m35 54m35 55m35
+. 56m35 57m35 58m35 59m35 60m35 61m35 62m35 63m35 64m35 65m35 66m35 67m35
+. 68m35 69m35 70m35 71m35 72m35 73m35 74m35 75m35 76m35 77m35 78m35 80m35
+. 81m35 82m35 83m35 84m35 85m35 86m35 87m35 88m35 89m35
+69i7*Pin{35I12} 12|47m46 48m46 49m46 50m46 51m46 52m46 53m46 54m46 55m46
+. 56m46 57m46 58m46 59m46 60m46 61m46 62m46 63m46 64m46 65m46 66m46 67m46
+. 68m46 69m46 70m46 71m46 72m46 73m46 74m46 75m46 76m46 77m46 78m46 80m46
+. 81m46 82m46 83m46 84m46 85m46 86m46 87m46 88m46 89m46
+X 15 nrf-rtc.ads
+35K13*RTC 12|33w10 33r30 15|66e12
+42R9*Real_Time_Counter 12|91r20 92r20 93r20
+X 16 nrf-spi_master.ads
+37K13*SPI_Master 12|37w10 37r30 106r31 107r31 108r31 16|133e19
+56R9*SPI_Master<8|48R9> 12|106r42 107r42 108r42 16|131e43
+X 17 nrf-timers.ads
+35K13*Timers 12|39w10 39r30 17|158e15
+37R9*Timer 12|111r22 112r22 113r22 114r22 115r22 17|156e25
+X 18 nrf-twi.ads
+37K13*TWI 12|35w10 35r30 18|104e12
+41R9*TWI_Master<7|48R9> 12|102r20 103r20 18|102e14
+X 19 nrf-uart.ads
+37K13*UART 12|41w10 41r30 19|129e13
+39R9*UART_Device<9|48R9> 12|118r21 19|109e14
+X 20 nrf_svd.ads
+49K9*NRF_SVD 12|34r6 36r6 38r6 40r6 42r6 91r39 92r39 93r39 102r32 103r32
+. 106r54 107r54 108r54 111r29 112r29 113r29 114r29 115r29 118r34 13|36r6
+. 36r30 37r6 37r30 38r6 38r30 39r6 39r30 20|123e12
+X 21 nrf_svd-clock.ads
+48K17*CLOCK 13|36w14 36r38 21|674e18
+521M12*CTIV_CTIV_Field{5|49M9}
+527m7*CTIV{521M12} 13|246m25
+620m7*EVENTS_DONE{5|97M9} 13|244m20
+622m7*EVENTS_CTTO{5|97M9} 13|245m20
+640r7*CTIV{524R9} 13|246m20
+671r4*CLOCK_Periph{600R9} 13|244m7 245m7 246m7
+X 22 nrf_svd-ficr.ads
+48K17*FICR 13|37w14 37r38 22|460e17
+140M12*A_A_Field{5|58M9}
+145m7*A{140M12} 13|265r48 266r48 267r48 268r48 269r48 270r48
+157M12*B_B_Field{5|62M9}
+162m7*B{157M12} 13|272r48 273r48 274r48 275r48 276r48 277r48
+174M12*T_T_Field{5|53M9}
+179m7*T{174M12} 13|279r48 280r48 281r48 282r48 283r48
+194r7*A0{143R9} 13|265r45
+196r7*A1{143R9} 13|266r45
+198r7*A2{143R9} 13|267r45
+200r7*A3{143R9} 13|268r45
+202r7*A4{143R9} 13|269r45
+204r7*A5{143R9} 13|270r45
+206r7*B0{160R9} 13|272r45
+208r7*B1{160R9} 13|273r45
+210r7*B2{160R9} 13|274r45
+212r7*B3{160R9} 13|275r45
+214r7*B4{160R9} 13|276r45
+216r7*B5{160R9} 13|277r45
+218r7*T0{177R9} 13|279r45
+220r7*T1{177R9} 13|280r45
+222r7*T2{177R9} 13|281r45
+224r7*T3{177R9} 13|282r45
+226r7*T4{177R9} 13|283r45
+437r7*TEMP{192R9} 13|265r40 266r40 267r40 268r40 269r40 270r40 272r40 273r40
+. 274r40 275r40 276r40 277r40 279r40 280r40 281r40 282r40 283r40
+457r4*FICR_Periph{419R9} 13|265r28 266r28 267r28 268r28 269r28 270r28 272r28
+. 273r28 274r28 275r28 276r28 277r28 279r28 280r28 281r28 282r28 283r28
+X 23 nrf_svd-power.ads
+48K17*POWER 13|38w14 38r38 23|1016e18
+250n7*Notdetected{248E9} 13|296r45
+252n7*Detected{248E9} 13|295r44
+341e7*RESETPIN{248E9} 13|295r33 296m33
+970r7*RESETREAS{339R9} 13|295r23 296m23
+1013r4*POWER_Periph{954R9} 13|295r10 296m10
+X 24 nrf_svd-rtc.ads
+48K17*RTC 12|34w14 91r47 92r47 93r47 24|731e16
+720r4*RTC0_Periph{666R9} 12|91m51 91r51
+724r4*RTC1_Periph{666R9} 12|92m51 92r51
+728r4*RTC2_Periph{666R9} 12|93m51 93r51
+X 25 nrf_svd-spi.ads
+48K17*SPI 12|38w14 106r62 107r62 108r62 25|307e16
+296r4*SPI0_Periph{255R9} 12|106m66 106r66
+300r4*SPI1_Periph{255R9} 12|107m66 107r66
+304r4*SPI2_Periph{255R9} 12|108m66 108r66
+X 26 nrf_svd-temp.ads
+48K17*TEMP 13|39w14 39r38 26|505e17
+131M12*A0_A0_Field{5|58M9}
+136m7*A0{131M12} 13|265m22
+148M12*A1_A1_Field{5|58M9}
+153m7*A1{148M12} 13|266m22
+165M12*A2_A2_Field{5|58M9}
+170m7*A2{165M12} 13|267m22
+182M12*A3_A3_Field{5|58M9}
+187m7*A3{182M12} 13|268m22
+199M12*A4_A4_Field{5|58M9}
+204m7*A4{199M12} 13|269m22
+216M12*A5_A5_Field{5|58M9}
+221m7*A5{216M12} 13|270m22
+233M12*B0_B0_Field{5|62M9}
+238m7*B0{233M12} 13|272m22
+250M12*B1_B1_Field{5|62M9}
+255m7*B1{250M12} 13|273m22
+267M12*B2_B2_Field{5|62M9}
+272m7*B2{267M12} 13|274m22
+284M12*B3_B3_Field{5|62M9}
+289m7*B3{284M12} 13|275m22
+301M12*B4_B4_Field{5|62M9}
+306m7*B4{301M12} 13|276m22
+318M12*B5_B5_Field{5|62M9}
+323m7*B5{318M12} 13|277m22
+335M12*T0_T0_Field{5|53M9}
+340m7*T0{335M12} 13|279m22
+352M12*T1_T1_Field{5|53M9}
+357m7*T1{352M12} 13|280m22
+369M12*T2_T2_Field{5|53M9}
+374m7*T2{369M12} 13|281m22
+386M12*T3_T3_Field{5|53M9}
+391m7*T3{386M12} 13|282m22
+403M12*T4_T4_Field{5|53M9}
+408m7*T4{403M12} 13|283m22
+439r7*A0{134R9} 13|265m19
+441r7*A1{151R9} 13|266m19
+443r7*A2{168R9} 13|267m19
+445r7*A3{185R9} 13|268m19
+447r7*A4{202R9} 13|269m19
+449r7*A5{219R9} 13|270m19
+451r7*B0{236R9} 13|272m19
+453r7*B1{253R9} 13|273m19
+455r7*B2{270R9} 13|274m19
+457r7*B3{287R9} 13|275m19
+459r7*B4{304R9} 13|276m19
+461r7*B5{321R9} 13|277m19
+463r7*T0{338R9} 13|279m19
+465r7*T1{355R9} 13|280m19
+467r7*T2{372R9} 13|281m19
+469r7*T3{389R9} 13|282m19
+471r7*T4{406R9} 13|283m19
+502r4*TEMP_Periph{425R9} 13|265m7 266m7 267m7 268m7 269m7 270m7 272m7 273m7
+. 274m7 275m7 276m7 277m7 279m7 280m7 281m7 282m7 283m7
+X 27 nrf_svd-timer.ads
+48K17*TIMER 12|40w14 111r37 112r37 113r37 114r37 115r37 27|537e18
+518r4*TIMER0_Periph{468R9} 12|111m43 111r43
+522r4*TIMER1_Periph{468R9} 12|112m43 112r43
+526r4*TIMER2_Periph{468R9} 12|113m43 113r43
+530r4*TIMER3_Periph{468R9} 12|114m43 114r43
+534r4*TIMER4_Periph{468R9} 12|115m43 115r43
+X 28 nrf_svd-twi.ads
+48K17*TWI 12|36w14 102r40 103r40 28|710e16
+703r4*TWI0_Periph{628R9} 12|102m44 102r44
+707r4*TWI1_Periph{628R9} 12|103m44 103r44
+X 29 nrf_svd-uart.ads
+48K17*UART 12|42w14 118r42 29|697e17
+694r4*UART0_Periph{614R9} 12|118m47 118r47
+X 30 system.ads
+60K9*System 13|32w6 44r22 46r22 48r22 82r22 84r22 99r22 111r17 113r17 143r17
+. 155r17 157r17 159r17 161r17 185r17 187r17 204r25 206r25 212r17 30|172e11
+90M9*Address 13|44r22 46r22 48r22 82r22 84r22 99r22 111r17 113r17 143r17
+. 155r17 157r17 159r17 161r17 185r17 187r17 204r25 206r25 212r17
+

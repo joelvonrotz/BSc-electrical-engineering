@@ -1,0 +1,7 @@
+graph: { title: "C:\Users\JumpStart\Desktop\lehre\asyd\dev\Ada_Drivers_Library-master\examples\MicroBit\analog_out\src\main.adb"
+node: { title: "_ada_main" label: "Main\nC:\Users\JumpStart\Desktop\lehre\asyd\dev\Ada_Drivers_Library-master\examples\MicroBit\analog_out\src\main.adb:35:1\n16 bytes (static)" }
+node: { title: "microbit__ios__write" label: "Write\nC:\Users\JumpStart\Desktop\lehre\asyd\dev\Ada_Drivers_Library-master\boards\microbit\src\microbit-ios.ads:64:14" shape : ellipse }
+edge: { sourcename: "_ada_main" targetname: "microbit__ios__write" label: "C:\Users\JumpStart\Desktop\lehre\asyd\dev\Ada_Drivers_Library-master\examples\MicroBit\analog_out\src\main.adb:45:22" }
+node: { title: "microbit__time__delay_ms" label: "Delay_Ms\nC:\Users\JumpStart\Desktop\lehre\asyd\dev\Ada_Drivers_Library-master\boards\microbit\src\microbit-time.ads:41:14" shape : ellipse }
+edge: { sourcename: "_ada_main" targetname: "microbit__time__delay_ms" label: "C:\Users\JumpStart\Desktop\lehre\asyd\dev\Ada_Drivers_Library-master\examples\MicroBit\analog_out\src\main.adb:48:23" }
+}

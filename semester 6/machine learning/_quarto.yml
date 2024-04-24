@@ -9,6 +9,7 @@ format:
     include-in-header:
     - text: "\\usepackage[datesep=.]{datetime2}"
     - text: "\\DTMsetdatestyle{ddmmyyyy}"
+    - "tikz.tex"
     toc: true
     classoption: twocolumn
 

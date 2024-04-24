@@ -1,8 +1,13 @@
+\newpage
+
+![](images/cryptography%20meme.jpg)
+
+
 # Crypto
 
 {{< include crypto.qmd >}}
 
-# Docker
+# Docker  `\faIcon{docker}`{=latex}
 
 {{< include docker.qmd >}}
 
@@ -10,7 +15,7 @@
 
 {{< include safety.qmd >}}
 
-# Safety
+# Ada Spark
 
 {{< include ada_spark.qmd >}}
 

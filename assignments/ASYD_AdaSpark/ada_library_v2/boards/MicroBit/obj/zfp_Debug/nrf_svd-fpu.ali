@@ -1,0 +1,55 @@
+V "GNAT Lib v2020"
+A -O0
+A -gnatA
+A --RTS=C:\gnat\2020-arm-elf\arm-eabi\lib\gnat\zfp-cortex-m4f\
+A -mlittle-endian
+A -mthumb
+A -mfloat-abi=hard
+A -mcpu=cortex-m4
+A -mfpu=fpv4-sp-d16
+A -gnata
+A -fcallgraph-info=su
+A -fcallgraph-info=su
+A -g
+A -gnatwa
+A -gnatw_A
+A -gnatQ
+A -gnatw.X
+A -ffunction-sections
+A -fdata-sections
+A -march=armv7e-m+fp
+P ZX
+
+RN
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLEMENTATION_RESTRICTIONS
+RR NO_ELABORATION_CODE
+
+U nrf_svd.fpu%s		nrf_svd-fpu.ads		d173f8e8 NE OO PR PK IU
+W hal%s			hal.ads			hal.ali
+W nrf_svd%s		nrf_svd.ads		nrf_svd.ali
+Z system%s		system.ads		system.ali
+
+D hal.ads		20210108111948 2b42c80e hal%s
+D interfac.ads		20200819171400 5ab55268 interfaces%s
+D nrf_svd.ads		20210306183508 87ba21d7 nrf_svd%s
+D nrf_svd-fpu.ads	20210108111948 7d8b1131 nrf_svd.fpu%s
+D system.ads		20200819171400 e69b74bd system%s
+G a e
+G c Z s s [fpu_peripheralIP nrf_svd__fpu 59 9 none]
+X 1 hal.ads
+34K9*HAL 166e8 4|45w6 61r24
+97M9*UInt32<2|74M9> 4|61r28
+X 2 interfac.ads
+74M9*Unsigned_32
+X 3 nrf_svd.ads
+49K9*NRF_SVD 123e12 4|47r9 73r5
+119m4*FPU_Base{5|90M9} 4|71r30
+X 4 nrf_svd-fpu.ads
+47K17*FPU 3|49k9 4|73l13 73e16
+59R9*FPU_Peripheral 63e6 65r8 70r25
+61m7*UNUSED{1|97M9} 66r7
+70r4*FPU_Periph{59R9}
+X 5 system.ads
+90M9*Address
+

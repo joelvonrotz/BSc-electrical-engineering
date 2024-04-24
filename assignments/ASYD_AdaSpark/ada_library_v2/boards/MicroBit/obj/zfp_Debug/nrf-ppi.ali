@@ -1,0 +1,148 @@
+V "GNAT Lib v2020"
+A -O0
+A -gnatA
+A --RTS=C:\gnat\2020-arm-elf\arm-eabi\lib\gnat\zfp-cortex-m4f\
+A -mlittle-endian
+A -mthumb
+A -mfloat-abi=hard
+A -mcpu=cortex-m4
+A -mfpu=fpv4-sp-d16
+A -gnata
+A -fcallgraph-info=su
+A -fcallgraph-info=su
+A -g
+A -gnatwa
+A -gnatw_A
+A -gnatQ
+A -gnatw.X
+A -ffunction-sections
+A -fdata-sections
+A -march=armv7e-m+fp
+P ZX
+
+RN
+RV NO_IMPLEMENTATION_PRAGMAS
+
+U nrf.ppi%b		nrf-ppi.adb		7a4dd2ce NE OO PK
+Z interfaces%s		interfac.ads		interfac.ali
+W nrf%s			nrf.ads			nrf.ali
+W nrf.events%s		nrf-events.adb		nrf-events.ali
+W nrf.tasks%s		nrf-tasks.adb		nrf-tasks.ali
+W nrf_svd%s		nrf_svd.ads		nrf_svd.ali
+W nrf_svd.ppi%s		nrf_svd-ppi.ads		nrf_svd-ppi.ali
+Z system.unsigned_types%s  s-unstyp.ads		s-unstyp.ali
+
+U nrf.ppi%s		nrf-ppi.ads		9e9b1246 EE NE OO PK
+W nrf%s			nrf.ads			nrf.ali
+
+D hal.ads		20210108111948 2b42c80e hal%s
+D interfac.ads		20200819171400 5ab55268 interfaces%s
+D nrf.ads		20210108111948 74cf72f5 nrf%s
+D nrf-events.ads	20210108111948 dedecd5e nrf.events%s
+D nrf-ppi.ads		20210108111948 ea5460b3 nrf.ppi%s
+D nrf-ppi.adb		20210108111948 4ca8fb52 nrf.ppi%b
+D nrf-tasks.ads		20210108111948 09634c55 nrf.tasks%s
+D nrf_svd.ads		20210306183508 87ba21d7 nrf_svd%s
+D nrf_svd-aar.ads	20210108111948 073faf5e nrf_svd.aar%s
+D nrf_svd-ccm.ads	20210108111948 989bbb45 nrf_svd.ccm%s
+D nrf_svd-clock.ads	20210108111948 15406ae2 nrf_svd.clock%s
+D nrf_svd-ecb.ads	20210108111948 ba523825 nrf_svd.ecb%s
+D nrf_svd-gpiote.ads	20210108111948 217045a9 nrf_svd.gpiote%s
+D nrf_svd-power.ads	20210108111948 74fd31ae nrf_svd.power%s
+D nrf_svd-ppi.ads	20210108111948 0b0cc824 nrf_svd.ppi%s
+D nrf_svd-qdec.ads	20210108111948 1e95ab7b nrf_svd.qdec%s
+D nrf_svd-radio.ads	20210108111948 2c6bda9d nrf_svd.radio%s
+D nrf_svd-rng.ads	20210108111948 a4e37bcd nrf_svd.rng%s
+D nrf_svd-rtc.ads	20210108111948 57c7ffc8 nrf_svd.rtc%s
+D nrf_svd-saadc.ads	20210308120756 04c01e3e nrf_svd.saadc%s
+D nrf_svd-spi.ads	20210108111948 6e2ffb69 nrf_svd.spi%s
+D nrf_svd-temp.ads	20210108111948 1ebb92fa nrf_svd.temp%s
+D nrf_svd-timer.ads	20210108111948 ba50db1c nrf_svd.timer%s
+D nrf_svd-twi.ads	20210306201806 68301534 nrf_svd.twi%s
+D nrf_svd-uart.ads	20210108111948 83bcebc8 nrf_svd.uart%s
+D nrf_svd-wdt.ads	20210108111948 c89e1b05 nrf_svd.wdt%s
+D system.ads		20200819171400 e69b74bd system%s
+D s-stoele.ads		20200819171400 2dc34a04 system.storage_elements%s
+D s-unstyp.ads		20200819171400 5ecf7212 system.unsigned_types%s
+G a e
+G c Z s b [configure nrf__ppi 37 14 none]
+G c Z s b [enable_channel nrf__ppi 41 14 none]
+G c Z s b [disable_channel nrf__ppi 42 14 none]
+G c Z s b [add_to_group nrf__ppi 44 14 none]
+G c Z s b [remove_from_group nrf__ppi 46 14 none]
+G c Z s b [enable_group nrf__ppi 49 14 none]
+G c Z s b [disable_group nrf__ppi 50 14 none]
+G r c none [configure nrf__ppi 37 14 none] [get_address nrf__events 64 13 none]
+G r c none [configure nrf__ppi 37 14 none] [get_address nrf__tasks 58 13 none]
+X 1 hal.ads
+97M9*UInt32<2|74M9>
+X 2 interfac.ads
+74M9*Unsigned_32
+X 3 nrf.ads
+34K9*nRF 43e8 5|32r9 51r5 6|33r6 33r23 34r6 34r23 36r14 116r5
+36M9*Event_Type<27|90M9> 5|38r35 6|44r17
+38M9*Task_Type<27|90M9> 5|39r35 6|45r17
+X 4 nrf-events.ads
+52K13*Events 381e15 6|33w10 33r27
+64V13*Get_Address{1|97M9} 6|48s35
+X 5 nrf-ppi.ads
+32K13*PPI 3|34k9 5|51l9 51e12 6|36b18 116l9 116t12
+34I12*Channel_ID{natural} 37r35 41r37 42r38 44r36 46r41 6|43r17 56r37 67r38
+. 79r15 91r15
+35I12*Group_ID{natural} 45r36 47r41 49r36 50r37 6|80r15 92r15 102r36 111r37
+37U14*Configure 37>25 38>25 39>25 6|42b14 50l8 50t17
+37i25 Chan{34I12} 6|43b7 48r22 49r22
+38m25 Evt_EP{3|36M9} 6|44b7 48r48
+39m25 Task_EP{3|38M9} 6|45b7 49r48
+41U14*Enable_Channel 41>30 6|56b14 61l8 61t22
+41i30 Chan{34I12} 6|56b30 59r12
+42U14*Disable_Channel 42>31 6|67b14 72l8 72t23
+42i31 Chan{34I12} 6|67b31 70r12
+44U14*Add_To_Group 44>28 45>28 6|78b14 84l8 84t20
+44i28 Chan{34I12} 6|79b7 83r35
+45i28 Group{35I12} 6|80b7 83r23
+46U14*Remove_From_Group 46>33 47>33 6|90b14 96l8 96t25
+46i33 Chan{34I12} 6|91b7 95r35
+47i33 Group{35I12} 6|92b7 95r23
+49U14*Enable_Group 49>28 6|102b14 105l8 105t20
+49i28 Group{35I12} 6|102b28 104r29
+50U14*Disable_Group 50>29 6|111b14 114l8 114t21
+50i29 Group{35I12} 6|111b29 113r29
+X 6 nrf-ppi.adb
+57a7 Arr{15|135A9} 59m7 60r33
+68a7 Arr{15|182A9} 70m7 71r33
+X 7 nrf-tasks.ads
+52K13*Tasks 6|34w10 34r27 7|424e14
+58V13*Get_Address{1|97M9} 6|49s35
+X 8 nrf_svd.ads
+49K9*NRF_SVD 6|32r6 32r23 8|123e12
+X 15 nrf_svd-ppi.ads
+48K17*PPI 6|32w14 32r31 15|321e16
+62m7*EN{1|97M9} 6|104m36
+64m7*DIS{1|97M9} 6|113m36
+74A9*TASKS_CHG_Clusters(60R9)<integer>
+126n7*Chenset_Ch0_Field_Reset{124E9} 6|57r50
+128n7*Set{124E9} 6|59r21
+135A9*CHENSET_CH_Field_Array(124E9)<integer> 6|57r13
+148a13*Arr{135A9} 6|60m26
+173n7*Chenclr_Ch0_Field_Reset{171E9} 6|68r50
+175n7*Clear{171E9} 6|70r21
+182A9*CHENCLR_CH_Field_Array(171E9)<integer> 6|68r13
+195a13*Arr{182A9} 6|71m26
+213m7*EEP{1|97M9} 6|48m28
+215m7*TEP{1|97M9} 6|49m28
+225A9*CH_Clusters(211R9)<integer>
+230n7*Excluded{228E9} 6|95r44
+232n7*Included{228E9} 6|83r44
+239A9*CHG_CH_Field_Array(228E9)<integer>
+252a13*Arr{239A9} 6|83m30 83r30 95m30 95r30
+264A9*CHG_Registers(243R9)<integer>
+291a7*TASKS_CHG{74A9} 6|104m18 113m18
+295r7*CHENSET{139R9} 6|60m18
+297r7*CHENCLR{186R9} 6|71m18
+299a7*CH{225A9} 6|48m18 49m18
+301a7*CHG{264A9} 6|83m18 83r18 95m18 95r18
+318r4*PPI_Periph{289R9} 6|48m7 49m7 60m7 71m7 83m7 83r7 95m7 95r7 104m7 113m7
+X 27 system.ads
+90M9*Address
+

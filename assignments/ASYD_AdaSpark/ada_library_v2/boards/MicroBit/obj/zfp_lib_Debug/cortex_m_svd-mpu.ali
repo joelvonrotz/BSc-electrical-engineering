@@ -1,0 +1,188 @@
+V "GNAT Lib v2020"
+A -O0
+A -gnatA
+A --RTS=C:\gnat\2020-arm-elf\arm-eabi\lib\gnat\zfp-cortex-m4f\
+A -mlittle-endian
+A -mthumb
+A -mfloat-abi=hard
+A -mcpu=cortex-m4
+A -mfpu=fpv4-sp-d16
+A -gnata
+A -fcallgraph-info=su
+A -fcallgraph-info=su
+A -g
+A -gnatwa
+A -gnatw_A
+A -gnatQ
+A -gnatw.X
+A -ffunction-sections
+A -fdata-sections
+A -march=armv7e-m+fp
+P ZX
+
+RN
+RV NO_IMPLICIT_CONDITIONALS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLEMENTATION_RESTRICTIONS
+RV NO_IMPLICIT_LOOPS
+RR NO_ELABORATION_CODE
+
+U cortex_m_svd.mpu%s	cortex_m_svd-mpu.ads	95ee367b NE OO PR PK
+W cortex_m_svd%s	cortex_m_svd.ads	cortex_m_svd.ali
+W hal%s			hal.ads			hal.ali
+W system%s		system.ads		system.ali
+Z system.unsigned_types%s  s-unstyp.ads		s-unstyp.ali
+
+D cortex_m_svd.ads	20210108111948 cd5bf229 cortex_m_svd%s
+D cortex_m_svd-mpu.ads	20210108111948 956c78e1 cortex_m_svd.mpu%s
+D hal.ads		20210108111948 2b42c80e hal%s
+D interfac.ads		20200819171400 5ab55268 interfaces%s
+D system.ads		20200819171400 e69b74bd system%s
+D s-unstyp.ads		20200819171400 5ecf7212 system.unsigned_types%s
+G a e
+G c Z s s [mpu_type_registerIP cortex_m_svd__mpu 32 9 none]
+G c Z s s [mpu_ctrl_registerIP cortex_m_svd__mpu 60 9 none]
+G c Z s s [mpu_rnr_registerIP cortex_m_svd__mpu 84 9 none]
+G c Z s s [mpu_rbar_registerIP cortex_m_svd__mpu 103 9 none]
+G c Z s s [Tmpu_rasr_srd_field_arrayBIP cortex_m_svd__mpu 135 4 none]
+G c Z s s [mpu_rasr_srd_fieldIP cortex_m_svd__mpu 139 9 none]
+G c Z s s [mpu_rasr_registerIP cortex_m_svd__mpu 200 9 none]
+G c Z s s [rbar_a_registerIP cortex_m_svd__mpu 253 9 none]
+G c Z s s [Trasr_a_srd_field_arrayBIP cortex_m_svd__mpu 285 4 none]
+G c Z s s [rasr_a_srd_fieldIP cortex_m_svd__mpu 289 9 none]
+G c Z s s [rasr_a_registerIP cortex_m_svd__mpu 350 9 none]
+G c Z s s [mpu_peripheralIP cortex_m_svd__mpu 403 9 none]
+X 1 cortex_m_svd.ads
+9K9*Cortex_M_SVD 31e17 2|11r9 222r41 226r41 371r44 375r44 447r5
+24m4*MPU_Base{5|90M9} 2|445r30
+X 2 cortex_m_svd-mpu.ads
+11K22*MPU 1|9k9 2|222r54 226r54 371r57 375r57 447l18 447e21
+20E9*TYPE_SEPARATE_Field 24e6 25r8 35r24
+23n7*Unified{20E9} 26r7
+28M12*MPU_TYPE_DREGION_Field{3|53M9} 40r24
+29M12*MPU_TYPE_IREGION_Field{3|53M9} 44r24
+32R9*MPU_TYPE_Register 48e6 51r8 405r25
+35e7*SEPARATE_k{20E9} 52r7
+37m7*Reserved_1_7{3|49M9} 53r7
+40m7*DREGION{28M12} 54r7
+44m7*IREGION{29M12} 55r7
+46m7*Reserved_24_31{3|53M9} 56r7
+60R9*MPU_CTRL_Register 71e6 74r8 407r25
+62b7*ENABLE{boolean} 75r7
+65b7*HFNMIENA{boolean} 76r7
+67b7*PRIVDEFENA{boolean} 77r7
+69m7*Reserved_3_31{3|91M9} 78r7
+81M12*MPU_RNR_REGION_Field{3|53M9} 87r23
+84R9*MPU_RNR_Register 91e6 94r8 409r25
+87m7*REGION{81M12} 95r7
+89m7*Reserved_8_31{3|81M9} 96r7
+99M12*MPU_RBAR_REGION_Field{3|43M9} 105r16
+100M12*MPU_RBAR_ADDR_Field{3|87M9} 121r16
+103R9*MPU_RBAR_Register 123e6 126r8 411r25
+105m7*REGION{99M12} 127r7
+112b7*VALID{boolean} 128r7
+121m7*ADDR{100M12} 129r7
+132M12*MPU_RASR_SIZE_Field{3|45M9} 205r24
+135A9*MPU_RASR_SRD_Field_Array(boolean)<integer> 148r19
+139R9*MPU_RASR_SRD_Field 140d7 151e6 153r8 209r24
+140b7*As_Array{boolean} 142r12 210m26
+145m13*Val{3|53M9} 154r7 210m45
+148a13*Arr{135A9} 155r7
+158M12*MPU_RASR_TEX_Field{3|41M9} 218r24
+161E9*RASR_AP_Field 177e6 178r8 222r24
+164n7*No_Access{161E9} 179r7 222r58
+166n7*Privileged_Rw{161E9} 180r7
+168n7*Unpriviledged_Ro{161E9} 181r7
+170n7*Full_Access{161E9} 182r7
+172n7*Privileged_Ro{161E9} 183r7
+174n7*Read_Only{161E9} 184r7
+176n7*Read_Only_1{161E9} 185r7
+188E9*RASR_XN_Field 194e6 195r8 226r24
+191n7*I_Enabled{188E9} 196r7 226r58
+193n7*I_Disabled{188E9} 197r7
+200R9*MPU_RASR_Register 230e6 233r8 413r25
+202b7*ENABLE{boolean} 234r7
+205m7*SIZE{132M12} 235r7
+207m7*Reserved_6_7{3|39M9} 236r7
+209r7*SRD{139R9} 237r7
+212b7*B{boolean} 238r7
+214b7*C{boolean} 239r7
+216b7*S{boolean} 240r7
+218m7*TEX{158M12} 241r7
+220m7*Reserved_22_23{3|39M9} 242r7
+222e7*AP{161E9} 243r7
+224m7*Reserved_27_27{3|37M9} 244r7
+226e7*XN{188E9} 245r7
+228m7*Reserved_29_31{3|41M9} 246r7
+249M12*RBAR_A_REGION_Field{3|43M9} 255r16
+250M12*RBAR_A_ADDR_Field{3|87M9} 271r16
+253R9*RBAR_A_Register 273e6 276r8 415r25 419r25 423r25
+255m7*REGION{249M12} 277r7
+262b7*VALID{boolean} 278r7
+271m7*ADDR{250M12} 279r7
+282M12*RASR_A_SIZE_Field{3|45M9} 355r24
+285A9*RASR_A_SRD_Field_Array(boolean)<integer> 298r19
+289R9*RASR_A_SRD_Field 290d7 301e6 303r8 359r24
+290b7*As_Array{boolean} 292r12 359m45
+295m13*Val{3|53M9} 304r7 359m64
+298a13*Arr{285A9} 305r7
+308M12*RASR_A_TEX_Field{3|41M9} 367r24
+311E9*RASR_A1_AP_Field 327e6 328r8 371r24
+314n7*No_Access{311E9} 329r7 371r61
+316n7*Privileged_Rw{311E9} 330r7
+318n7*Unpriviledged_Ro{311E9} 331r7
+320n7*Full_Access{311E9} 332r7
+322n7*Privileged_Ro{311E9} 333r7
+324n7*Read_Only{311E9} 334r7
+326n7*Read_Only_1{311E9} 335r7
+338E9*RASR_A1_XN_Field 344e6 345r8 375r24
+341n7*I_Enabled{338E9} 346r7 375r61
+343n7*I_Disabled{338E9} 347r7
+350R9*RASR_A_Register 379e6 382r8 417r25 421r25 425r25
+352b7*ENABLE{boolean} 383r7
+355m7*SIZE{282M12} 384r7
+357m7*Reserved_6_7{3|39M9} 385r7
+359r7*SRD{289R9} 386r7
+361b7*B{boolean} 387r7
+363b7*C{boolean} 388r7
+365b7*S{boolean} 389r7
+367m7*TEX{308M12} 390r7
+369m7*Reserved_22_23{3|39M9} 391r7
+371e7*AP{311E9} 392r7
+373m7*Reserved_27_27{3|37M9} 393r7
+375e7*XN{338E9} 394r7
+377m7*Reserved_29_31{3|41M9} 395r7
+403R9*MPU_Peripheral 427e6 429r8 444r25
+405r7*TYPE_k{32R9} 430r7
+407r7*CTRL{60R9} 431r7
+409r7*RNR{84R9} 432r7
+411r7*RBAR{103R9} 433r7
+413r7*RASR{200R9} 434r7
+415r7*RBAR_A1{253R9} 435r7
+417r7*RASR_A1{350R9} 436r7
+419r7*RBAR_A2{253R9} 437r7
+421r7*RASR_A2{350R9} 438r7
+423r7*RBAR_A3{253R9} 439r7
+425r7*RASR_A3{350R9} 440r7
+444r4*MPU_Periph{403R9}
+X 3 hal.ads
+34K9*HAL 2|7w6 28r38 29r38 37r24 46r24 69r23 81r36 89r23 99r37 100r35 132r35
+. 145r19 158r34 207r24 220r24 224r24 228r24 249r35 250r33 282r33 295r19 308r32
+. 357r24 369r24 373r24 377r24 3|166e8
+37M9*Bit 2|224r28 373r28
+39M9*UInt2 2|207r28 220r28 357r28 369r28
+41M9*UInt3 2|158r38 228r28 308r36 377r28
+43M9*UInt4 2|99r41 249r39
+45M9*UInt5 2|132r39 282r37
+49M9*UInt7 2|37r28
+53M9*UInt8<4|63M9> 2|28r42 29r42 46r28 81r40 145r23 295r23
+81M9*UInt24 2|89r27
+87M9*UInt27 2|100r39 250r37
+91M9*UInt29 2|69r27
+X 4 interfac.ads
+63M9*Unsigned_8
+X 5 system.ads
+60K9*System 2|8w6 49r24 72r24 92r24 124r24 231r24 274r24 380r24 5|172e11
+90M9*Address
+114n41*Low_Order_First{114E9} 2|49r31 72r31 92r31 124r31 231r31 274r31 380r31
+

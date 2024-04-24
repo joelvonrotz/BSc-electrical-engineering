@@ -1,0 +1,142 @@
+V "GNAT Lib v2020"
+A -O0
+A -gnatA
+A --RTS=C:\gnat\2020-arm-elf\arm-eabi\lib\gnat\zfp-cortex-m4f\
+A -mlittle-endian
+A -mthumb
+A -mfloat-abi=hard
+A -mcpu=cortex-m4
+A -mfpu=fpv4-sp-d16
+A -gnata
+A -fcallgraph-info=su
+A -fcallgraph-info=su
+A -g
+A -gnatwa
+A -gnatw_A
+A -gnatQ
+A -gnatw.X
+A -ffunction-sections
+A -fdata-sections
+A -march=armv7e-m+fp
+P ZX
+
+RN
+RV NO_IMPLEMENTATION_PRAGMAS
+
+U nrf.clock%b		nrf-clock.adb		8091d18f NE OO PK
+Z interfaces%s		interfac.ads		interfac.ali
+W nrf%s			nrf.ads			nrf.ali
+W nrf.tasks%s		nrf-tasks.adb		nrf-tasks.ali
+W nrf_svd%s		nrf_svd.ads		nrf_svd.ali
+W nrf_svd.clock%s	nrf_svd-clock.ads	nrf_svd-clock.ali
+
+U nrf.clock%s		nrf-clock.ads		4f0b4288 EE NE OO PK
+W nrf%s			nrf.ads			nrf.ali
+
+D hal.ads		20210108111948 2b42c80e hal%s
+D interfac.ads		20200819171400 5ab55268 interfaces%s
+D nrf.ads		20210108111948 74cf72f5 nrf%s
+D nrf-clock.ads		20210108111948 3bc4307d nrf.clock%s
+D nrf-clock.adb		20210108111948 6349f0b1 nrf.clock%b
+D nrf-clock-set_high_freq_external_frequency.adb  20210108111948 c43f37f4 nrf.clock.set_high_freq_external_frequency
+D nrf-tasks.ads		20210108111948 09634c55 nrf.tasks%s
+D nrf_svd.ads		20210306183508 87ba21d7 nrf_svd%s
+D nrf_svd-aar.ads	20210108111948 073faf5e nrf_svd.aar%s
+D nrf_svd-ccm.ads	20210108111948 989bbb45 nrf_svd.ccm%s
+D nrf_svd-clock.ads	20210108111948 15406ae2 nrf_svd.clock%s
+D nrf_svd-ecb.ads	20210108111948 ba523825 nrf_svd.ecb%s
+D nrf_svd-gpiote.ads	20210108111948 217045a9 nrf_svd.gpiote%s
+D nrf_svd-power.ads	20210108111948 74fd31ae nrf_svd.power%s
+D nrf_svd-ppi.ads	20210108111948 0b0cc824 nrf_svd.ppi%s
+D nrf_svd-qdec.ads	20210108111948 1e95ab7b nrf_svd.qdec%s
+D nrf_svd-radio.ads	20210108111948 2c6bda9d nrf_svd.radio%s
+D nrf_svd-rng.ads	20210108111948 a4e37bcd nrf_svd.rng%s
+D nrf_svd-rtc.ads	20210108111948 57c7ffc8 nrf_svd.rtc%s
+D nrf_svd-saadc.ads	20210308120756 04c01e3e nrf_svd.saadc%s
+D nrf_svd-temp.ads	20210108111948 1ebb92fa nrf_svd.temp%s
+D nrf_svd-timer.ads	20210108111948 ba50db1c nrf_svd.timer%s
+D nrf_svd-twi.ads	20210306201806 68301534 nrf_svd.twi%s
+D nrf_svd-uart.ads	20210108111948 83bcebc8 nrf_svd.uart%s
+D nrf_svd-wdt.ads	20210108111948 c89e1b05 nrf_svd.wdt%s
+D system.ads		20200819171400 e69b74bd system%s
+D s-stoele.ads		20200819171400 2dc34a04 system.storage_elements%s
+D s-unstyp.ads		20200819171400 5ecf7212 system.unsigned_types%s
+G a e
+G c Z s b [set_high_freq_external_frequency nrf__clock 41 14 none]
+G c Z s b [set_high_freq_source nrf__clock 43 14 none]
+G c Z s b [high_freq_source nrf__clock 45 13 none]
+G c Z s b [high_freq_running nrf__clock 47 13 none]
+G c Z s b [start_high_freq nrf__clock 49 14 none]
+G c Z s b [stop_high_freq nrf__clock 51 14 none]
+G c Z s b [set_low_freq_source nrf__clock 59 14 none]
+G c Z s b [low_freq_source nrf__clock 61 13 none]
+G c Z s b [low_freq_running nrf__clock 63 13 none]
+G c Z s b [start_low_freq nrf__clock 65 14 none]
+G c Z s b [stop_low_freq nrf__clock 67 14 none]
+G r c none [start_high_freq nrf__clock 49 14 none] [trigger nrf__tasks 54 14 none]
+G r c none [stop_high_freq nrf__clock 51 14 none] [trigger nrf__tasks 54 14 none]
+G r c none [start_low_freq nrf__clock 65 14 none] [trigger nrf__tasks 54 14 none]
+G r c none [stop_low_freq nrf__clock 67 14 none] [trigger nrf__tasks 54 14 none]
+X 3 nrf.ads
+34K9*nRF 43e8 4|32r9 69r5 5|33r6 33r25 35r14 146r5 6|32r11
+38M9*Task_Type<26|90M9>
+X 4 nrf-clock.ads
+32K13*Clock 3|34k9 4|69l9 69e14 5|35b18 146l9 146t14 6|32r15
+38E9*High_Freq_Source_Kind 38e56 43r42 45r37 5|48r42 59r37
+38n35*HFCLK_RC{38E9} 5|51r46 62r28
+38n45*HFCLK_XTAL{38E9} 5|52r46 63r30
+39E9*High_Freq_Ext_Freq 39e57 41r55 5|42r14 6|33r52
+39n32*HFCLK_16MHz{39E9}
+39n45*HFCLK_32MHz{39E9}
+41U14*Set_High_Freq_External_Frequency 41>48 5|41b14 6|33b11 36l5 36t37
+41e48 Freq{39E9} 5|42b7 6|33b45
+43U14*Set_High_Freq_Source 43>36 5|48b14 53l8 53t28
+43e36 Src{38E9} 5|48b36 50r43
+45V13*High_Freq_Source{38E9} 5|59b13 65l8 65t24
+47V13*High_Freq_Running{boolean} 5|71b13 74l8 74t25
+49U14*Start_High_Freq 5|80b14 83l8 83t23
+51U14*Stop_High_Freq 5|89b14 92l8 92t22
+57E9*Low_Freq_Source_Kind 57e68 59r41 61r36 5|98r41 110r36
+57n34*LFCLK_RC{57E9} 5|101r45 113r28
+57n44*LFCLK_XTAL{57E9} 5|102r45 114r30
+57n56*LFCLK_SYNTH{57E9} 5|103r45 115r31
+59U14*Set_Low_Freq_Source 59>35 5|98b14 104l8 104t27
+59e35 Src{57E9} 5|98b35 100r42
+61V13*Low_Freq_Source{57E9} 5|110b13 117l8 117t23
+63V13*Low_Freq_Running{boolean} 5|123b13 126l8 126t24
+65U14*Start_Low_Freq 5|132b14 135l8 135t22
+67U14*Stop_Low_Freq 5|141b14 144l8 144t21
+X 7 nrf-tasks.ads
+52K13*Tasks 5|33w10 33r29 82r7 82r22 91r7 91r22 134r7 134r22 143r7 143r22
+. 7|424e14
+54U14*Trigger 5|82s13 91s13 134s13 143s13
+65m4*Clock_HFCLKSTART{3|38M9} 5|82r28
+66m4*Clock_HFCLKSTOP{3|38M9} 5|91r28
+67m4*Clock_LFCLKSTART{3|38M9} 5|134r28
+68m4*Clock_LFCLKSTOP{3|38M9} 5|143r28
+X 8 nrf_svd.ads
+49K9*NRF_SVD 5|32r6 32r25 8|123e12
+X 11 nrf_svd-clock.ads
+48K17*CLOCK 5|32w14 32r33 11|674e18
+318n7*Rc{316E9} 5|51r58 62r15
+320n7*Xtal{316E9} 5|52r60 63r15
+331n7*Running{327E9} 5|73r45
+340e7*SRC{316E9} 5|50m30 61r35
+344e7*STATE{327E9} 5|73r37
+387n7*Rc{385E9} 5|113r15
+389n7*Xtal{385E9} 5|114r15
+391n7*Synth{385E9} 5|115r15
+403n7*Running{399E9} 5|125r45
+412e7*SRC{385E9} 5|112r35
+416e7*STATE{399E9} 5|125r37
+462n7*Rc{460E9} 5|101r57
+464n7*Xtal{460E9} 5|102r59
+466n7*Synth{460E9} 5|103r60
+499e7*SRC{460E9} 5|100m29
+630r7*HFCLKSTAT{338R9} 5|50m20 61r25 73r27
+634r7*LFCLKSTAT{410R9} 5|112r25 125r27
+638r7*LFCLKSRC{497R9} 5|100m20
+671r4*CLOCK_Periph{600R9} 5|50m7 61r12 73r14 100m7 112r12 125r14
+X 26 system.ads
+90M9*Address
+

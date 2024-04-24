@@ -1,0 +1,118 @@
+V "GNAT Lib v2020"
+A -O0
+A -gnatA
+A --RTS=C:\gnat\2020-arm-elf\arm-eabi\lib\gnat\zfp-cortex-m4f\
+A -mlittle-endian
+A -mthumb
+A -mfloat-abi=hard
+A -mcpu=cortex-m4
+A -mfpu=fpv4-sp-d16
+A -gnata
+A -fcallgraph-info=su
+A -fcallgraph-info=su
+A -g
+A -gnatwa
+A -gnatw_A
+A -gnatQ
+A -gnatw.X
+A -ffunction-sections
+A -fdata-sections
+A -march=armv7e-m+fp
+P ZX
+
+RN
+RV NO_IMPLICIT_CONDITIONALS
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLEMENTATION_RESTRICTIONS
+RR NO_ELABORATION_CODE
+
+U nrf_svd.nvmc%s	nrf_svd-nvmc.ads	1b0fc71c NE OO PR PK IU
+W hal%s			hal.ads			hal.ali
+W nrf_svd%s		nrf_svd.ads		nrf_svd.ali
+W system%s		system.ads		system.ali
+
+D hal.ads		20210108111948 2b42c80e hal%s
+D interfac.ads		20200819171400 5ab55268 interfaces%s
+D nrf_svd.ads		20210306183508 87ba21d7 nrf_svd%s
+D nrf_svd-nvmc.ads	20210108111948 516c5a78 nrf_svd.nvmc%s
+D system.ads		20200819171400 e69b74bd system%s
+G a e
+G c Z s s [ready_registerIP nrf_svd__nvmc 67 9 none]
+G c Z s s [config_registerIP nrf_svd__nvmc 98 9 none]
+G c Z s s [eraseall_registerIP nrf_svd__nvmc 127 9 none]
+G c Z s s [eraseuicr_registerIP nrf_svd__nvmc 157 9 none]
+G c Z s s [icachecnf_registerIP nrf_svd__nvmc 196 9 none]
+G c Z s s [nvmc_peripheralIP nrf_svd__nvmc 225 9 none]
+X 1 hal.ads
+34K9*HAL 166e8 4|45w6 71r23 104r23 133r23 163r23 200r23 204r23 236r27 242r27
+. 244r27 248r33 252r33
+49M9*UInt7 4|200r27
+79M9*UInt23 4|204r27
+93M9*UInt30 4|104r27
+95M9*UInt31 4|71r27 133r27 163r27
+97M9*UInt32<2|74M9> 4|236r31 242r31 244r31 248r37 252r37
+X 2 interfac.ads
+74M9*Unsigned_32
+X 3 nrf_svd.ads
+49K9*NRF_SVD 123e12 4|48r9 102r43 131r50 161r52 198r50 202r54 274r5
+109m4*NVMC_Base{5|90M9} 4|272r30
+X 4 nrf_svd-nvmc.ads
+48K17*NVMC 3|49k9 4|102r51 131r58 161r60 198r58 202r62 274l13 274e17
+56E9*READY_READY_Field 61e6 62r8 69r23
+58n7*Busy{56E9} 63r7
+60n7*Ready{56E9} 64r7
+67R9*READY_Register 73e6 76r8 229r27
+69e7*READY{56E9} 77r7
+71m7*Reserved_1_31{1|95M9} 78r7
+84E9*CONFIG_WEN_Field 91e6 92r8 102r23
+86n7*Ren{84E9} 93r7 102r56
+88n7*Wen{84E9} 94r7
+90n7*Een{84E9} 95r7
+98R9*CONFIG_Register 106e6 109r8 231r27
+102e7*WEN{84E9} 110r7
+104m7*Reserved_2_31{1|93M9} 111r7
+116E9*ERASEALL_ERASEALL_Field 121e6 122r8 131r23
+118n7*Nooperation{116E9} 123r7 131r63
+120n7*Erase{116E9} 124r7
+127R9*ERASEALL_Register 135e6 138r8 233r27
+131e7*ERASEALL{116E9} 139r7
+133m7*Reserved_1_31{1|95M9} 140r7
+146E9*ERASEUICR_ERASEUICR_Field 151e6 152r8 161r23
+148n7*Nooperation{146E9} 153r7 161r65
+150n7*Erase{146E9} 154r7
+157R9*ERASEUICR_Register 165e6 168r8 238r27
+161e7*ERASEUICR{146E9} 169r7
+163m7*Reserved_1_31{1|95M9} 170r7
+174E9*ICACHECNF_CACHEEN_Field 179e6 180r8 198r23
+176n7*Disabled{174E9} 181r7 198r63
+178n7*Enabled{174E9} 182r7
+185E9*ICACHECNF_CACHEPROFEN_Field 190e6 191r8 202r23
+187n7*Disabled{185E9} 192r7 202r67
+189n7*Enabled{185E9} 193r7
+196R9*ICACHECNF_Register 206e6 209r8 240r27
+198e7*CACHEEN{174E9} 210r7
+200m7*Reserved_1_7{1|49M9} 211r7
+202e7*CACHEPROFEN{185E9} 212r7
+204m7*Reserved_9_31{1|79M9} 213r7
+220E9*NVMC_Disc 222e11 226r22
+221n7*Age{220E9} 226r35 246r15
+222n7*Cr1{220E9} 249r15
+225R9*NVMC_Peripheral 226d7 255e6 257r8 271r26
+226e7*Discriminent{220E9} 245r12
+229r7*READY{67R9} 258r7
+231r7*CONFIG{98R9} 259r7
+233r7*ERASEALL{127R9} 260r7
+236m7*ERASEPCR0{1|97M9} 261r7
+238r7*ERASEUICR{157R9} 262r7
+240r7*ICACHECNF{196R9} 263r7
+242m7*IHIT{1|97M9} 264r7
+244m7*IMISS{1|97M9} 265r7
+248m13*ERASEPAGE{1|97M9} 266r7
+252m13*ERASEPCR1{1|97M9} 267r7
+271r4*NVMC_Periph{225R9}
+X 5 system.ads
+60K9*System 4|46w6 74r24 107r24 136r24 166r24 207r24 5|172e11
+90M9*Address
+114n41*Low_Order_First{114E9} 4|74r31 107r31 136r31 166r31 207r31
+

@@ -1,0 +1,185 @@
+V "GNAT Lib v2020"
+A -O0
+A -gnatA
+A --RTS=C:\gnat\2020-arm-elf\arm-eabi\lib\gnat\zfp-cortex-m4f\
+A -mlittle-endian
+A -mthumb
+A -mfloat-abi=hard
+A -mcpu=cortex-m4
+A -mfpu=fpv4-sp-d16
+A -gnata
+A -fcallgraph-info=su
+A -fcallgraph-info=su
+A -g
+A -gnatwa
+A -gnatw_A
+A -gnatQ
+A -gnatw.X
+A -ffunction-sections
+A -fdata-sections
+A -march=armv7e-m+fp
+P ZX
+
+RN
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLEMENTATION_RESTRICTIONS
+RR NO_ELABORATION_CODE
+
+U nrf_svd.wdt%s		nrf_svd-wdt.ads		82fd8661 NE OO PR PK IU
+W hal%s			hal.ads			hal.ali
+W nrf_svd%s		nrf_svd.ads		nrf_svd.ali
+W system%s		system.ads		system.ali
+
+D hal.ads		20210108111948 2b42c80e hal%s
+D interfac.ads		20200819171400 5ab55268 interfaces%s
+D nrf_svd.ads		20210306183508 87ba21d7 nrf_svd%s
+D nrf_svd-wdt.ads	20210108111948 c89e1b05 nrf_svd.wdt%s
+D system.ads		20200819171400 e69b74bd system%s
+G a e
+G c Z s s [intenset_registerIP nrf_svd__wdt 78 9 none]
+G c Z s s [intenclr_registerIP nrf_svd__wdt 116 9 none]
+G c Z s s [runstatus_registerIP nrf_svd__wdt 143 9 none]
+G c Z s s [reqstatus_registerIP nrf_svd__wdt 246 9 none]
+G c Z s s [rren_registerIP nrf_svd__wdt 370 9 none]
+G c Z s s [config_registerIP nrf_svd__wdt 430 9 none]
+G c Z s s [Trr_registersBIP nrf_svd__wdt 455 4 none]
+G c Z s s [wdt_peripheralIP nrf_svd__wdt 462 9 none]
+X 1 hal.ads
+34K9*HAL 166e8 4|45w6 83r23 121r23 147r23 264r23 388r23 435r23 440r23 455r43
+. 464r32 466r32 476r32
+39M9*UInt2 4|435r27
+81M9*UInt24 4|264r27 388r27
+89M9*UInt28 4|440r27
+95M9*UInt31 4|83r27 121r27 147r27
+97M9*UInt32<2|74M9> 4|455r47 464r36 466r36 476r36
+X 2 interfac.ads
+74M9*Unsigned_32
+X 3 nrf_svd.ads
+49K9*NRF_SVD 123e12 4|48r9 372r41 374r41 376r41 378r41 380r41 382r41 384r41
+. 386r41 433r45 438r44 503r5
+88m4*WDT_Base{5|90M9} 4|501r30
+X 4 nrf_svd-wdt.ads
+48K17*WDT 3|49k9 4|372r49 374r49 376r49 378r49 380r49 382r49 384r49 386r49
+. 433r53 438r52 503l13 503e16
+56E9*INTENSET_TIMEOUT_Field 61e6 62r8
+58n7*Disabled{56E9} 63r7
+60n7*Enabled{56E9} 64r7
+67E9*INTENSET_TIMEOUT_Field_1 72e6 73r8 80r23
+69n7*Intenset_Timeout_Field_Reset{67E9} 74r7 81r24
+71n7*Set{67E9} 75r7
+78R9*INTENSET_Register 85e6 88r8 468r32
+80e7*TIMEOUT{67E9} 89r7
+83m7*Reserved_1_31{1|95M9} 90r7
+94E9*INTENCLR_TIMEOUT_Field 99e6 100r8
+96n7*Disabled{94E9} 101r7
+98n7*Enabled{94E9} 102r7
+105E9*INTENCLR_TIMEOUT_Field_1 110e6 111r8 118r23
+107n7*Intenclr_Timeout_Field_Reset{105E9} 112r7 119r24
+109n7*Clear{105E9} 113r7
+116R9*INTENCLR_Register 123e6 126r8 470r32
+118e7*TIMEOUT{105E9} 127r7
+121m7*Reserved_1_31{1|95M9} 128r7
+132E9*RUNSTATUS_RUNSTATUS_Field 137e6 138r8 145r23
+134n7*Notrunning{132E9} 139r7
+136n7*Running{132E9} 140r7
+143R9*RUNSTATUS_Register 149e6 152r8 472r32
+145e7*RUNSTATUS{132E9} 153r7
+147m7*Reserved_1_31{1|95M9} 154r7
+158E9*REQSTATUS_RR0_Field 163e6 164r8 248r23
+160n7*Disabledorrequested{158E9} 165r7
+162n7*Enabledandunrequested{158E9} 166r7
+169E9*REQSTATUS_RR1_Field 174e6 175r8 250r23
+171n7*Disabledorrequested{169E9} 176r7
+173n7*Enabledandunrequested{169E9} 177r7
+180E9*REQSTATUS_RR2_Field 185e6 186r8 252r23
+182n7*Disabledorrequested{180E9} 187r7
+184n7*Enabledandunrequested{180E9} 188r7
+191E9*REQSTATUS_RR3_Field 196e6 197r8 254r23
+193n7*Disabledorrequested{191E9} 198r7
+195n7*Enabledandunrequested{191E9} 199r7
+202E9*REQSTATUS_RR4_Field 207e6 208r8 256r23
+204n7*Disabledorrequested{202E9} 209r7
+206n7*Enabledandunrequested{202E9} 210r7
+213E9*REQSTATUS_RR5_Field 218e6 219r8 258r23
+215n7*Disabledorrequested{213E9} 220r7
+217n7*Enabledandunrequested{213E9} 221r7
+224E9*REQSTATUS_RR6_Field 229e6 230r8 260r23
+226n7*Disabledorrequested{224E9} 231r7
+228n7*Enabledandunrequested{224E9} 232r7
+235E9*REQSTATUS_RR7_Field 240e6 241r8 262r23
+237n7*Disabledorrequested{235E9} 242r7
+239n7*Enabledandunrequested{235E9} 243r7
+246R9*REQSTATUS_Register 266e6 269r8 474r32
+248e7*RR0{158E9} 270r7
+250e7*RR1{169E9} 271r7
+252e7*RR2{180E9} 272r7
+254e7*RR3{191E9} 273r7
+256e7*RR4{202E9} 274r7
+258e7*RR5{213E9} 275r7
+260e7*RR6{224E9} 276r7
+262e7*RR7{235E9} 277r7
+264m7*Reserved_8_31{1|81M9} 278r7
+282E9*RREN_RR0_Field 287e6 288r8 372r23
+284n7*Disabled{282E9} 289r7
+286n7*Enabled{282E9} 290r7 372r53
+293E9*RREN_RR1_Field 298e6 299r8 374r23
+295n7*Disabled{293E9} 300r7 374r53
+297n7*Enabled{293E9} 301r7
+304E9*RREN_RR2_Field 309e6 310r8 376r23
+306n7*Disabled{304E9} 311r7 376r53
+308n7*Enabled{304E9} 312r7
+315E9*RREN_RR3_Field 320e6 321r8 378r23
+317n7*Disabled{315E9} 322r7 378r53
+319n7*Enabled{315E9} 323r7
+326E9*RREN_RR4_Field 331e6 332r8 380r23
+328n7*Disabled{326E9} 333r7 380r53
+330n7*Enabled{326E9} 334r7
+337E9*RREN_RR5_Field 342e6 343r8 382r23
+339n7*Disabled{337E9} 344r7 382r53
+341n7*Enabled{337E9} 345r7
+348E9*RREN_RR6_Field 353e6 354r8 384r23
+350n7*Disabled{348E9} 355r7 384r53
+352n7*Enabled{348E9} 356r7
+359E9*RREN_RR7_Field 364e6 365r8 386r23
+361n7*Disabled{359E9} 366r7 386r53
+363n7*Enabled{359E9} 367r7
+370R9*RREN_Register 390e6 393r8 478r32
+372e7*RR0{282E9} 394r7
+374e7*RR1{293E9} 395r7
+376e7*RR2{304E9} 396r7
+378e7*RR3{315E9} 397r7
+380e7*RR4{326E9} 398r7
+382e7*RR5{337E9} 399r7
+384e7*RR6{348E9} 400r7
+386e7*RR7{359E9} 401r7
+388m7*Reserved_8_31{1|81M9} 402r7
+407E9*CONFIG_SLEEP_Field 412e6 413r8 433r23
+409n7*Pause{407E9} 414r7
+411n7*Run{407E9} 415r7 433r57
+419E9*CONFIG_HALT_Field 424e6 425r8 438r23
+421n7*Pause{419E9} 426r7 438r56
+423n7*Run{419E9} 427r7
+430R9*CONFIG_Register 442e6 445r8 480r32
+433e7*SLEEP{407E9} 446r7
+435m7*Reserved_1_2{1|39M9} 447r7
+438e7*HALT{419E9} 448r7
+440m7*Reserved_4_31{1|89M9} 449r7
+455A9*RR_Registers(1|97M9)<integer> 482r32
+462R9*WDT_Peripheral 484e6 486r8 500r25
+464m7*TASKS_START{1|97M9} 487r7
+466m7*EVENTS_TIMEOUT{1|97M9} 488r7
+468r7*INTENSET{78R9} 489r7
+470r7*INTENCLR{116R9} 490r7
+472r7*RUNSTATUS{143R9} 491r7
+474r7*REQSTATUS{246R9} 492r7
+476m7*CRV{1|97M9} 493r7
+478r7*RREN{370R9} 494r7
+480r7*CONFIG{430R9} 495r7
+482a7*RR{455A9} 496r7
+500r4*WDT_Periph{462R9}
+X 5 system.ads
+60K9*System 4|46w6 86r24 124r24 150r24 267r24 391r24 443r24 5|172e11
+90M9*Address
+114n41*Low_Order_First{114E9} 4|86r31 124r31 150r31 267r31 391r31 443r31
+

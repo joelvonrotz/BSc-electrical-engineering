@@ -1,0 +1,9 @@
+graph: { title: "C:\Users\JumpStart\Desktop\lehre\asyd\dev\Ada_Drivers_Library-master\examples\MicroBit\digital_out\src\main.adb"
+node: { title: "_ada_main" label: "Main\nC:\Users\JumpStart\Desktop\lehre\asyd\dev\Ada_Drivers_Library-master\examples\MicroBit\digital_out\src\main.adb:35:1\n8 bytes (static)" }
+node: { title: "microbit__ios__set" label: "Set\nC:\Users\JumpStart\Desktop\lehre\asyd\dev\Ada_Drivers_Library-master\boards\microbit\src\microbit-ios.ads:52:14" shape : ellipse }
+edge: { sourcename: "_ada_main" targetname: "microbit__ios__set" label: "C:\Users\JumpStart\Desktop\lehre\asyd\dev\Ada_Drivers_Library-master\examples\MicroBit\digital_out\src\main.adb:41:19" }
+node: { title: "microbit__time__delay_ms" label: "Delay_Ms\nC:\Users\JumpStart\Desktop\lehre\asyd\dev\Ada_Drivers_Library-master\boards\microbit\src\microbit-time.ads:41:14" shape : ellipse }
+edge: { sourcename: "_ada_main" targetname: "microbit__time__delay_ms" label: "C:\Users\JumpStart\Desktop\lehre\asyd\dev\Ada_Drivers_Library-master\examples\MicroBit\digital_out\src\main.adb:44:20" }
+edge: { sourcename: "_ada_main" targetname: "microbit__ios__set" label: "C:\Users\JumpStart\Desktop\lehre\asyd\dev\Ada_Drivers_Library-master\examples\MicroBit\digital_out\src\main.adb:47:19" }
+edge: { sourcename: "_ada_main" targetname: "microbit__time__delay_ms" label: "C:\Users\JumpStart\Desktop\lehre\asyd\dev\Ada_Drivers_Library-master\examples\MicroBit\digital_out\src\main.adb:50:20" }
+}

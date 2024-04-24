@@ -1,0 +1,39 @@
+V "GNAT Lib v2020"
+A -O0
+A -gnatA
+A --RTS=C:\gnat\2020-arm-elf\arm-eabi\lib\gnat\zfp-cortex-m4f\
+A -mlittle-endian
+A -mthumb
+A -mfloat-abi=hard
+A -mcpu=cortex-m4
+A -mfpu=fpv4-sp-d16
+A -gnata
+A -fcallgraph-info=su
+A -fcallgraph-info=su
+A -g
+A -gnatwa
+A -gnatw_A
+A -gnatQ
+A -gnatw.X
+A -ffunction-sections
+A -fdata-sections
+A -march=armv7e-m+fp
+P ZX
+
+RN
+RV NO_IMPLEMENTATION_PRAGMAS
+
+U nrf%s			nrf.ads			92540648 NE OO PK
+W system%s		system.ads		system.ali
+
+D nrf.ads		20210108111948 74cf72f5 nrf%s
+D system.ads		20200819171400 e69b74bd system%s
+G a e
+X 1 nrf.ads
+34K9*nRF 41E9 43l5 43e8
+36M9*Event_Type<2|90M9> 41c9
+38M9*Task_Type<2|90M9> 42c9
+X 2 system.ads
+60K9*System 1|32w6 41r27 42r26 2|172e11
+90M9*Address 1|41r34 42r33
+

@@ -1,0 +1,221 @@
+V "GNAT Lib v2020"
+A -O0
+A -gnatA
+A --RTS=C:\gnat\2020-arm-elf\arm-eabi\lib\gnat\zfp-cortex-m4f\
+A -mlittle-endian
+A -mthumb
+A -mfloat-abi=hard
+A -mcpu=cortex-m4
+A -mfpu=fpv4-sp-d16
+A -gnata
+A -fcallgraph-info=su
+A -fcallgraph-info=su
+A -g
+A -gnatwa
+A -gnatw_A
+A -gnatQ
+A -gnatw.X
+A -ffunction-sections
+A -fdata-sections
+A -march=armv7e-m+fp
+P ZX
+
+RN
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_IMPLEMENTATION_PRAGMAS
+
+U nrf.timers%b		nrf-timers.adb		f02940a6 NE OO PK
+Z interfaces%s		interfac.ads		interfac.ali
+W nrf%s			nrf.ads			nrf.ali
+W nrf_svd%s		nrf_svd.ads		nrf_svd.ali
+W nrf_svd.timer%s	nrf_svd-timer.ads	nrf_svd-timer.ali
+Z system%s		system.ads		system.ali
+Z system.assertions%s	s-assert.adb		s-assert.ali
+
+U nrf.timers%s		nrf-timers.ads		dd827bb0 EE NE OO PK
+Z ada.tags%s		a-tags.adb		a-tags.ali
+W hal%s			hal.ads			hal.ali
+W nrf%s			nrf.ads			nrf.ali
+W nrf_svd%s		nrf_svd.ads		nrf_svd.ali
+W nrf_svd.timer%s	nrf_svd-timer.ads	nrf_svd-timer.ali
+Z system%s		system.ads		system.ali
+
+D ada.ads		20200819171400 76789da1 ada%s
+D a-tags.ads		20200819171400 95e09aae ada.tags%s
+D hal.ads		20210108111948 2b42c80e hal%s
+D interfac.ads		20200819171400 5ab55268 interfaces%s
+D nrf.ads		20210108111948 74cf72f5 nrf%s
+D nrf-timers.ads	20210108111948 385f1a57 nrf.timers%s
+D nrf-timers.adb	20210108111948 722681ed nrf.timers%b
+D nrf_svd.ads		20210306183508 87ba21d7 nrf_svd%s
+D nrf_svd-timer.ads	20210108111948 ba50db1c nrf_svd.timer%s
+D system.ads		20200819171400 e69b74bd system%s
+D s-assert.ads		20200819171400 cd8d2c94 system.assertions%s
+D s-stoele.ads		20200819171400 2dc34a04 system.storage_elements%s
+D s-unstyp.ads		20200819171400 5ecf7212 system.unsigned_types%s
+G a e
+G c Z s b [set_prescaler nrf__timers 46 14 none]
+G c Z s b [set_mode nrf__timers 56 14 none]
+G c Z s b [set_bitmode nrf__timers 70 14 none]
+G c Z s b [bitmode nrf__timers 77 13 none]
+G c Z s b [compare_interrupt nrf__timers 79 14 none]
+G c Z s b [start nrf__timers 88 14 none]
+G c Z s b [stop nrf__timers 91 14 none]
+G c Z s b [clear nrf__timers 94 14 none]
+G c Z s b [compare_shortcut nrf__timers 101 14 none]
+G c Z s b [set_compare nrf__timers 114 14 none]
+G c Z s b [capture nrf__timers 120 14 none]
+G c Z s b [capture nrf__timers 125 13 none]
+G c Z s b [cc_register nrf__timers 131 13 none]
+G c Z s b [start_task nrf__timers 140 13 none]
+G c Z s b [stop_task nrf__timers 141 13 none]
+G c Z s b [count_task nrf__timers 142 13 none]
+G c Z s b [clear_task nrf__timers 143 13 none]
+G c Z s b [capture_task nrf__timers 145 13 none]
+G c Z s b [compare_event nrf__timers 149 13 none]
+G c Z s s [timerIP nrf__timers 155 9 none]
+X 3 hal.ads
+34K9*HAL 166e8 6|33w6 33r27
+43M9*UInt4 6|47r41 7|70r19
+97M9*UInt32<4|74M9> 6|116r37 127r29 133r33 7|171r17 194r14 207r33
+X 4 interfac.ads
+74M9*Unsigned_32
+X 5 nrf.ads
+34K9*nRF 43e8 6|35r9 158r5 7|34r14 263r5
+36M9*Event_Type<10|90M9> 6|151r35 7|260r35 261r8
+38M9*Task_Type<10|90M9> 6|140r46 141r46 142r46 143r46 147r34 7|218r32 219r8
+. 226r31 227r8 234r32 235r8 242r32 243r8 251r34 252r8
+X 6 nrf-timers.ads
+35K13*Timers 5|34k9 6|155E9 158l9 158e15 7|34b18 263l9 263t15
+37R9*Timer 37d16 46p14 46r48 56p14 56r38 70p14 70r41 77p13 77r29 79p14 79r49
+. 88p14 88r35 91p14 91r34 94p14 94r35 101p14 101r47 114p14 114r44 120p14
+. 120r37 125p13 125r36 131p13 131r40 140p13 140r32 141p13 141r32 142p13 142r32
+. 143p13 143r32 145p13 145r34 149p13 149r35 155c9 156e25 7|40r35 49r34 58r35
+. 69r26 81r21 96r21 112r29 126r49 142r47 169r24 181r37 192r21 205r40 217r32
+. 225r31 233r32 241r32 249r34 258r35
+40I9*Timer_Channel<short_short_integer> 80r42 102r40 115r37 121r30 126r29
+. 132r33 146r34 150r35 7|127r42 143r40 170r17 182r30 193r14 206r33 250r34
+. 259r35
+46U14*Set_Prescaler 46=29 47>29 7|68b14 74l8 74t21
+46r29 This{37R9} 7|69b7 73r7
+47m29 Prescaler{3|43M9} 7|70b7 73r42
+54E9*Timer_Mode 54e49 57r31 7|82r14
+54n24*Mode_Timer{54E9} 7|87r18
+54n36*Mode_Counter{54E9} 7|88r18
+56U14*Set_Mode 56=24 57>24 7|80b14 89l8 89t16
+56r24 This{37R9} 7|81b7 85r7
+57e24 Mode{54E9} 7|82b7 86r15
+65E9*Timer_Bitmode 68e41 71r34 77r43 7|97r14 112r43
+65n27*Bitmode_8bit{65E9} 7|102r18 116r31
+66n27*Bitmode_16bit{65E9} 7|103r18 117r31
+67n27*Bitmode_24bit{65E9} 7|104r18 118r31
+68n27*Bitmode_32bit{65E9} 7|105r18 119r31
+70U14*Set_Bitmode 70=27 71>27 7|95b14 106l8 106t19
+70r27 This{37R9} 72r28 7|96b7 100r7
+71e27 Mode{65E9} 72r36 7|97b7 101r15
+77V13*Bitmode{65E9} 72s19 77>22 7|112b13 120l8 120t15
+77r22 This{37R9} 7|112b22 115r15
+79U14*Compare_Interrupt 79=33 80>33 81>33 7|126b14 136l8 136t25
+79r33 This{37R9} 7|126b33 132r10 134r10
+80i33 Chan{40I9} 7|127b33 132r53 134r53
+81b33 Enable{boolean} 7|128b33 131r10
+88U14*Start 88=21 7|40b14 43l8 43t13
+88r21 This{37R9} 7|40b21 42r7
+91U14*Stop 91=20 7|49b14 52l8 52t12
+91r20 This{37R9} 7|49b20 51r7
+94U14*Clear 94=21 7|58b14 61l8 61t13
+94r21 This{37R9} 7|58b21 60r7
+101U14*Compare_Shortcut 101=32 102>32 103>32 104>32 7|142b14 162l8 162t24
+101r32 This{37R9} 7|142b32 150r13 151r13 153r13 154r13 156r13 157r13 159r13
+. 160r13
+102i32 Chan{40I9} 7|143b32 148r12
+103b32 Stop{boolean} 7|144b32 151r53 154r53 157r53 160r53
+104b32 Clear{boolean} 7|145b32 150r54 153r54 156r54 159r54
+114U14*Set_Compare 114=27 115>27 116>27 7|168b14 175l8 175t19
+114r27 This{37R9} 7|169b7 174r7
+115i27 Chan{40I9} 7|170b7 174r32
+116m27 Compare{3|97M9} 7|171b7 174r42
+120U14*Capture 120=23 121>23 7|181b14 185l8 185t15 197s12
+120r23 This{37R9} 7|181b23 184r7
+121i23 Chan{40I9} 7|182b23 184r43
+125V13*Capture{3|97M9} 125=22 126>22 7|191b13 199l8 199t15
+125r22 This{37R9} 7|192b7 197m7 197r7 198m14 198r14
+126i22 Chan{40I9} 7|193b7 197r21 198r32
+131V13*CC_Register{3|97M9} 131=26 132>26 7|198s19 205b13 211l8 211t19
+131r26 This{37R9} 7|205b26 210r14
+132i26 Chan{40I9} 7|206b26 210r39
+140V13*Start_Task{5|38M9} 140>25 7|217b13
+140r25 This{37R9} 7|219r19
+141V13*Stop_Task{5|38M9} 141>25 7|225b13
+141r25 This{37R9} 7|227r19
+142V13*Count_Task{5|38M9} 142>25 7|233b13
+142r25 This{37R9} 7|235r19
+143V13*Clear_Task{5|38M9} 143>25 7|241b13
+143r25 This{37R9} 7|243r19
+145V13*Capture_Task{5|38M9} 145>27 146>27 7|249b13
+145r27 This{37R9} 7|252r19
+146i27 Chan{40I9} 7|252r55
+149V13*Compare_Event{5|36M9} 149>28 150>28 7|258b13
+149r28 This{37R9} 7|261r20
+150i28 Chan{40I9} 7|261r57
+X 8 nrf_svd.ads
+49K9*NRF_SVD 6|32r6 37r41 155r41 7|32r6 32r25 87r32 88r34 8|123e12
+X 9 nrf_svd-timer.ads
+48K17*TIMER 6|32w14 37r49 155r49 7|32w14 32r33 87r40 88r42 9|537e18
+58A9*TASKS_CAPTURE_Registers(3|97M9)<integer>
+63A9*EVENTS_COMPARE_Registers(3|97M9)<integer>
+68n7*Disabled{66E9} 7|150r78
+70n7*Enabled{66E9} 7|150r65
+79n7*Disabled{77E9} 7|153r78
+81n7*Enabled{77E9} 7|153r65
+90n7*Disabled{88E9} 7|156r78
+92n7*Enabled{88E9} 7|156r65
+101n7*Disabled{99E9} 7|159r78
+103n7*Enabled{99E9} 7|159r65
+134n7*Disabled{132E9} 7|151r76
+136n7*Enabled{132E9} 7|151r63
+145n7*Disabled{143E9} 7|154r76
+147n7*Enabled{143E9} 7|154r63
+156n7*Disabled{154E9} 7|157r76
+158n7*Enabled{154E9} 7|157r63
+167n7*Disabled{165E9} 7|160r76
+169n7*Enabled{165E9} 7|160r63
+200e7*COMPARE0_CLEAR{66E9} 7|150m32
+202e7*COMPARE1_CLEAR{77E9} 7|153m32
+204e7*COMPARE2_CLEAR{88E9} 7|156m32
+206e7*COMPARE3_CLEAR{99E9} 7|159m32
+214e7*COMPARE0_STOP{132E9} 7|151m32
+216e7*COMPARE1_STOP{143E9} 7|154m32
+218e7*COMPARE2_STOP{154E9} 7|157m32
+220e7*COMPARE3_STOP{165E9} 7|160m32
+262n7*Intenset_Compare0_Field_Reset{260E9} 7|134r63
+264n7*Set{260E9} 7|132r63
+271A9*INTENSET_COMPARE_Field_Array(260E9)<integer>
+285a13*Arr{271A9} 7|132m39 132r39 134m39 134r39
+300r7*COMPARE{276R9} 7|132m31 132r31 134m31 134r31
+383n7*Timer{381E9} 7|87r46
+385n7*Counter{381E9} 7|88r48
+397e7*MODE{381E9} 7|85m24
+412n7*Val_16Bit{410E9} 7|103r35 117r18
+414n7*Val_08Bit{410E9} 7|102r35 116r18
+416n7*Val_24Bit{410E9} 7|104r35 118r18
+418n7*Val_32Bit{410E9} 7|105r35 119r18
+429e7*BITMODE{410E9} 7|100m27 115r35
+446m7*PRESCALER{441M12} 7|73m29
+461A9*CC_Registers(3|97M9)<integer>
+468R9*TIMER_Peripheral 6|37r55 155r55 9|498e6
+470m7*TASKS_START{3|97M9} 7|42m19 219m31
+472m7*TASKS_STOP{3|97M9} 7|51m19 227m31
+474m7*TASKS_COUNT{3|97M9} 7|235m31
+476m7*TASKS_CLEAR{3|97M9} 7|60m19 243m31
+480a7*TASKS_CAPTURE{58A9} 7|184m19 252m31
+482a7*EVENTS_COMPARE{63A9} 7|261m32
+484r7*SHORTS{198R9} 7|150m25 151m25 153m25 154m25 156m25 157m25 159m25 160m25
+486r7*INTENSET{296R9} 7|132m22 132r22 134m22 134r22
+490r7*MODE{395R9} 7|85m19
+492r7*BITMODE{427R9} 7|100m19 115r27
+494r7*PRESCALER{444R9} 7|73m19
+496a7*CC{461A9} 7|174m19 210r26
+X 10 system.ads
+90M9*Address
+

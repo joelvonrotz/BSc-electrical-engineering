@@ -1,0 +1,33 @@
+V "GNAT Lib v2020"
+A -O0
+A -gnatA
+A --RTS=C:\gnat\2020-arm-elf\arm-eabi\lib\gnat\zfp-cortex-m4f\
+A -mlittle-endian
+A -mthumb
+A -mfloat-abi=hard
+A -mcpu=cortex-m4
+A -mfpu=fpv4-sp-d16
+A -gnata
+A -fcallgraph-info=su
+A -fcallgraph-info=su
+A -g
+A -gnatwa
+A -gnatw_A
+A -gnatQ
+A -gnatw.X
+A -ffunction-sections
+A -fdata-sections
+A -march=armv7e-m+fp
+P ZX
+
+RN
+RV NO_IMPLEMENTATION_PRAGMAS
+
+U adafruit%s		adafruit.ads		deca3367 NE OO PK
+
+D adafruit.ads		20210108111948 deca3367 adafruit%s
+D system.ads		20200819171400 e69b74bd system%s
+G a e
+X 1 adafruit.ads
+33K9*AdaFruit 34l5 34e13
+

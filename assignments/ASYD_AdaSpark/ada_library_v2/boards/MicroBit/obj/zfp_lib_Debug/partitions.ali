@@ -1,0 +1,157 @@
+V "GNAT Lib v2020"
+A -O0
+A -gnatA
+A --RTS=C:\gnat\2020-arm-elf\arm-eabi\lib\gnat\zfp-cortex-m4f\
+A -mlittle-endian
+A -mthumb
+A -mfloat-abi=hard
+A -mcpu=cortex-m4
+A -mfpu=fpv4-sp-d16
+A -gnata
+A -fcallgraph-info=su
+A -fcallgraph-info=su
+A -g
+A -gnatwa
+A -gnatw_A
+A -gnatQ
+A -gnatw.X
+A -ffunction-sections
+A -fdata-sections
+A -march=armv7e-m+fp
+P ZX
+
+RN
+RV NO_DISPATCHING_CALLS
+RV NO_IMPLICIT_CONDITIONALS
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_PRAGMAS
+
+U partitions%b		partitions.adb		23ecab5f NE OO PK
+Z ada.tags%s		a-tags.adb		a-tags.ali
+Z system.assertions%s	s-assert.adb		s-assert.ali
+
+U partitions%s		partitions.ads		9cb24f62 EE NE OO PK
+W hal%s			hal.ads			hal.ali
+W hal.block_drivers%s	hal-block_drivers.ads	hal-block_drivers.ali
+
+D ada.ads		20200819171400 76789da1 ada%s
+D a-tags.ads		20200819171400 95e09aae ada.tags%s
+D hal.ads		20210108111948 2b42c80e hal%s
+D hal-block_drivers.ads	20210108111948 3a6f071f hal.block_drivers%s
+D interfac.ads		20200819171400 5ab55268 interfaces%s
+D partitions.ads	20210108111948 8d9f8073 partitions%s
+D partitions.adb	20210108111948 ae732b2c partitions%b
+D system.ads		20200819171400 e69b74bd system%s
+D s-assert.ads		20200819171400 cd8d2c94 system.assertions%s
+D s-stoele.ads		20200819171400 2dc34a04 system.storage_elements%s
+G a e
+G c Z s b [get_partition_entry partitions 71 13 none]
+G c Z s b [number_of_partitions partitions 76 13 none]
+G c Z s s [is_valid partitions 78 13 none]
+G c Z s s [chs_addressIP partitions 54 9 none]
+G c Z s s [partition_entryIP partitions 60 9 none]
+G c Z b b [read_entry_in_mbr partitions 41 14 none]
+G c Z b b [number_of_logical_partitions partitions 46 13 none]
+G c Z b b [get_logical_partition_entry partitions 50 13 none]
+G c Z b b [partition_entry_block_mappingIP partitions 34 9 none]
+X 3 hal.ads
+34K9*HAL 166e8 6|32w6 32r15 33r6 33r29
+47M9*UInt6 6|57r11
+53M9*UInt8<5|63M9> 6|37r31 56r11 61r27
+54M9*UInt10 6|55r11
+97M9*UInt32<5|74M9> 6|52r37 66r27
+160M9*UInt64<5|77M9> 7|91r28 125r28
+162A9*UInt8_Array(53M9)<integer>
+X 4 hal-block_drivers.ads
+32K13*Block_Drivers 56e22 6|33w10 33r33
+34h9*Block_Driver
+35P9*Any_Block_Driver(34R9) 6|71r58 76r42 7|46r66 50r66 81r66 114r66 155r58
+. 205r42
+37A12*Block{3|162A9}<integer> 7|36r30 41r43 61r43 85r19 121r17 160r21 206r19
+42y13*Read{boolean} 7|91R22 125R22 164R19 210R19
+X 5 interfac.ads
+63M9*Unsigned_8
+74M9*Unsigned_32
+77M9*Unsigned_64
+X 6 partitions.ads
+35K9*Partitions 80l5 80e15 7|32b14 234l5 234t15
+37M9*Partition_Kind<3|53M9> 39r37 40r37 41r37 42r37 43r37 44r37 45r37 46r37
+. 47r37 48r37 49r37 50r37 63r27
+39m4*Empty_Partition{37M9}
+40m4*Fat12_Parition{37M9}
+41m4*Fat16_Parition{37M9}
+42m4*Extended_Parition{37M9} 7|181r34 225r28
+43m4*Fat16B_Parition{37M9}
+44m4*NTFS_Partition{37M9}
+45m4*Fat32_CHS_Parition{37M9}
+46m4*Fat32_LBA_Parition{37M9}
+47m4*Fat16B_LBA_Parition{37M9}
+48m4*Extended_LBA_Parition{37M9}
+49m4*Linux_Swap_Partition{37M9}
+50m4*Linux_Partition{37M9}
+52M12*Logical_Block_Address{3|97M9} 65r27 7|47r57 51r57 82r57 87r19 115r57
+. 122r17 162r21
+54R9*CHS_Address 58e15 62r27 64r27
+55m7*C{3|54M9}
+56m7*H{3|53M9}
+57m7*S{3|47M9}
+60R9*Partition_Entry 67e15 73r53 78r33 7|37r34 43r47 54r61 63r47 88r19 118r61
+. 157r53 208r19
+61m7*Status{3|53M9} 79r15 79r47 7|70m18
+62r7*First_Sector_CHS{54R9}
+63m7*Kind{37M9} 7|181r27 225r21
+64r7*Last_Sector_CHS{54R9}
+65m7*First_Sector_LBA{52M12} 7|103r28 104r43 144r28 145r43 183r39 227r59
+66m7*Number_Of_Sectors{3|97M9}
+69E9*Status_Code 69e65 74r41 7|55r49 119r49 158r41
+69n25*Status_Ok{69E9} 7|138r23 180r23 190r59 192r26
+69n36*Disk_Error{69E9} 7|165r17 169r17
+69n48*Invalid_Parition{69E9} 7|129r20 148r14 198r14
+71V13*Get_Partition_Entry{69E9} 71>34 72>34 73<34 7|155b13 199l8 199t27
+71p34 Disk{4|35P9} 7|155b34 164r14 186r48
+72i34 Entry_Number{positive} 7|156b34 179r28 188r48
+73r34 P_Entry{60R9} 7|157b34 173m43 175r23 181r19 183r31 190m48 190r48
+76V13*Number_Of_Partitions{natural} 76>35 7|205b13 232l8 232t28
+76p35 Disk{4|35P9} 7|205b35 210r14 227r45
+78V13*Is_Valid{boolean} 78>23 7|97s13 134s13 175s13 221s13
+78r23 P_Entry{60R9} 79r7 79r39
+X 7 partitions.adb
+34R9 Partition_Entry_Block_Mapping 34d40 39e15 65r26
+34b40*Kind{boolean} 35r12
+36a23*Data{3|162A9} 73m24
+37r24*P_Entry{6|60R9} 74r35
+41U14 Read_Entry_In_MBR 41>33 42>33 43<33 61b14 75l8 75t25 95s10 101s10 132s10
+. 142s10 173s10 219s10
+41a33 MBR{4|37A12} 61b33 66r46 69r10 73r32
+42i33 Index{integer} 44r18 62b33 66r64
+43r33 P_Entry{6|60R9} 63b33 70m10 74m7
+46V13 Number_Of_Logical_Partitions{natural} 46>43 47>43 81b13 108l8 108t36
+. 227s15
+46p43 Disk{4|35P9} 81b43 91r17
+47m43 EBR_Address{6|52M12} 82b43 87r44 104r21
+50V13 Get_Logical_Partition_Entry{6|69E9} 50>42 51>42 52>42 53=42 54<42 114b13
+. 149l8 149t35 186s19
+50p42 Disk{4|35P9} 114b42 125r17
+51m42 EBR_Address{6|52M12} 115b42 122r42 145r21
+52i42 Entry_Number{positive} 116b42 137r28
+53i42 Entry_Cnt{natural} 117b42 135m13 135r26 137r16
+54r42 P_Entry{6|60R9} 118b42 132m37 134r23 142m37 144r20 145r35
+65r7 Entry_Block_Conv{34R9} 73m7 74r18
+66i7 First{integer} 67r46 73r37
+67i7 Last{integer} 73r46
+85a7 EBR{4|37A12} 91m46 91r46 91r59 95r29 101r29
+86i7 Entry_Cnt{natural} 92r20 98m13 98r26 107r14
+87m7 Address{6|52M12} 91r36 104m10
+88r7 P_Entry{6|60R9} 95m37 97r23 101m37 103r20 104r35
+121a7 EBR{4|37A12} 125m46 125r46 127r14 132r29 142r29
+122m7 Address{6|52M12} 125r36 145m10
+160a7 MBR{4|37A12} 164m28 164r28 168r10 173r29
+161i7 Entry_Cnt{natural} 176m13 176r26 179r16 189m48 189r48
+162m7 EBR_Address{6|52M12} 183m16 187r48
+172i11 P_Index{integer} 173r34
+206a7 MBR{4|37A12} 210m28 210r28 214r10 219r29
+207i7 Entry_Cnt{natural} 222m13 222r26 226m13 226r26 231r14
+208r7 P_Entry{6|60R9} 219m43 221r23 225r13 227r51
+218i11 P_Index{integer} 219r34
+

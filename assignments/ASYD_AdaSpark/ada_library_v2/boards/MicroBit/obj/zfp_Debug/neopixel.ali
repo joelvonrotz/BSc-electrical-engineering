@@ -1,0 +1,108 @@
+V "GNAT Lib v2020"
+A -O0
+A -gnatA
+A --RTS=C:\gnat\2020-arm-elf\arm-eabi\lib\gnat\zfp-cortex-m4f\
+A -mlittle-endian
+A -mthumb
+A -mfloat-abi=hard
+A -mcpu=cortex-m4
+A -mfpu=fpv4-sp-d16
+A -gnata
+A -fcallgraph-info=su
+A -fcallgraph-info=su
+A -g
+A -gnatwa
+A -gnatw_A
+A -gnatQ
+A -gnatw.X
+A -ffunction-sections
+A -fdata-sections
+A -march=armv7e-m+fp
+P SS ZX
+
+RN
+RV NO_ACCESS_SUBPROGRAMS
+RV NO_SECONDARY_STACK
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLICIT_LOOPS
+
+U neopixel%b		neopixel.adb		866afcc7 NE OO PK
+Z interfaces%s		interfac.ads		interfac.ali
+Z system.assertions%s	s-assert.adb		s-assert.ali
+Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+
+U neopixel%s		neopixel.ads		1eb6c01c EE NE OO PK
+W hal%s			hal.ads			hal.ali
+
+D hal.ads		20210108111948 2b42c80e hal%s
+D interfac.ads		20200819171400 5ab55268 interfaces%s
+D neopixel.ads		20210108111948 35f40812 neopixel%s
+D neopixel.adb		20210108111948 b39ef4d5 neopixel%b
+D system.ads		20200819171400 e69b74bd system%s
+D s-assert.ads		20200819171400 cd8d2c94 system.assertions%s
+D s-parame.ads		20200819171400 fe66c50d system.parameters%s
+D s-secsta.ads		20200819171400 56a2861c system.secondary_stack%s
+D s-stoele.ads		20200819171400 2dc34a04 system.storage_elements%s
+G a e
+G c Z s s [Tled_valuesBIP neopixel 43 4 none]
+G c Z s b [create neopixel 57 13 none]
+G c Z s b [set_color neopixel 59 14 none]
+G c Z s b [show neopixel 65 14 none]
+G c Z s s [led_stripIP neopixel 71 9 none]
+G c Z b b [Tcomponent_indicesBIP neopixel 49 4 none]
+X 1 hal.ads
+34K9*HAL 166e8 3|32w6 32r15
+53M9*UInt8<2|63M9> 3|37r25
+162A9*UInt8_Array(53M9)<integer> 3|67r42 72r24 4|79r42
+X 2 interfac.ads
+63M9*Unsigned_8
+X 3 neopixel.ads
+34K9*NeoPixel 71E9 75l5 75e13 4|32b14 85l5 85t13
+36E9*LED_Component 36e67 43r30 4|49r37
+36n27*LED_Red{36E9} 45r37 46r37 47r37 50r37 51r37 4|51r16 52r16 53r16 68r16
+36n36*LED_Green{36E9} 46r53 47r47 48r37 4|51r30 52r30 53r30
+36n47*LED_Blue{36E9} 49r37 50r52 51r47 4|51r46 52r46 53r46 68r69
+36n57*LED_White{36E9} 4|51r61 52r61 53r61 68r54
+37M12*LED_Value{1|53M9} 43r48
+38E9*LED_Mode 41e12 57r28 71r27 4|34r29 41r28 50r35
+39n7*GRB{38E9} 4|52r7
+40n7*RGB{38E9} 4|51r7
+41n7*RGBW{38E9} 4|35r7 53r7 68r44
+43A9*LED_Values(37M12)<36E9> 45r22 46r22 47r22 48r22 49r22 50r22 51r22 52r22
+. 53r22 62r15 4|62r15
+45a4*Red{43A9}
+46a4*Orange{43A9}
+47a4*Yellow{43A9}
+48a4*Green{43A9}
+49a4*Blue{43A9}
+50a4*Indigo{43A9}
+51a4*Purple{43A9}
+52a4*White{43A9}
+53a4*Black{43A9}
+55R9*LED_Strip 57r63 60r22 66r15 71c9 71d20 71d37 71d55 73e14 4|41r63 43r14
+. 60r22 78r15
+57V13*Create{55R9} 57>21 57>38 4|41b13 47l8 47t14
+57e21 Mode{38E9} 4|41b21 43r37 45r53
+57i38 Count{positive} 4|41b38 44r37 45r37
+59U14*Set_Color 60=7 61>7 62>7 4|59b14 71l8 71t17
+60r7 Strip{55R9} 4|60b7 64r30 65r53 66r61 68r31 69m10
+61i7 Index{natural} 4|61b7 64r22 65r37
+62a7 Color{43A9} 4|62b7 69r47
+65U14*Show 66>7 67^7 4|77b14 83l8 83t12
+66r7 Strip{55R9} 4|78b7 82r14
+67p7 Write 4|79b7 82r7
+67a33 Buffer{1|162A9}
+71e20*Mode{38E9} 4|43m25 65r59 66r67 68r37
+71i37*Count{positive} 4|44m25 64r36
+71i55*Buf_Last{positive} 72r42 4|45m25
+72a7*Buffer{1|162A9} 4|46m25 69m16 82m20
+X 4 neopixel.adb
+34a4 Stride(positive) 45r45 65r45
+49A9 Component_Indices(integer)<3|36E9> 50r48 66r26
+50a4 Mode_Indices(49A9) 66r47
+65i7 Base{natural} 69r24
+66a7 Indices{49A9} 69r31
+68e11 J{3|36E9} 69r40 69r54
+79a33 Buffer{1|162A9}
+

@@ -1,0 +1,72 @@
+graph: { title: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-twi.adb"
+class {
+  classname: "nrf__twi__twi_master"
+  label: "nrf__twi__twi_master\nrf-twi.ads:41:9"
+  parent: "hal__i2c__i2c_port"
+  virtuals: "1:nrf__twi__master_transmit,1:hal__i2c__i2c_port\n
+             2:nrf__twi__master_receive,2:hal__i2c__i2c_port\n
+             3:nrf__twi__mem_write,3:hal__i2c__i2c_port\n
+             4:nrf__twi__mem_read,4:hal__i2c__i2c_port\n
+             -1:nrf__twi___size__2,-1:hal__i2c__i2c_port\n
+             5:nrf__twi__enable\n
+             6:nrf__twi__disable\n
+             7:nrf__twi__enabled\n
+             8:nrf__twi__configure\n
+             9:nrf__twi__disconnect\n
+             -6:nrf__twi__Oeq\n
+             -7:nrf__twi___assign"
+}
+node: { title: "nrf__twi__twi_masterIP" label: "Twi_Masterip\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-twi.ads:99:9\n24 bytes (static)" }
+node: { title: "nrf__twi___size__2" label: "Twi\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-twi.ads:99:9\n16 bytes (static)" }
+node: { title: "nrf__twi__Oeq" label: "=\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-twi.ads:99:4\n16 bytes (static)" }
+node: { title: "nrf__twi___assign" label: "Twi\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-twi.ads:99:9\n24 bytes (static)" }
+node: { title: "__gnat_last_chance_handler" label: "gnat_last_chance_handler\n<built-in>" shape : ellipse }
+edge: { sourcename: "nrf__twi___assign" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-twi.ads:99:9" }
+node: { title: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-twi.adb:nrf__twi__stop_sequence" label: "Stop_Sequence\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-twi.adb:42:4\n16 bytes (static)" }
+node: { title: "nrf__twi__enable" label: "Enable\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-twi.adb:59:4\n16 bytes (static)" }
+node: { title: "nrf__twi__disable" label: "Disable\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-twi.adb:68:4\n16 bytes (static)" }
+node: { title: "nrf__twi__enabled" label: "Enabled\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-twi.adb:77:4\n16 bytes (static)" }
+node: { title: "nrf__twi__configure" label: "Configure\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-twi.adb:86:4\n24 bytes (static)" }
+edge: { sourcename: "nrf__twi__configure" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-twi.adb:94:38" }
+node: { title: "nrf__twi__disconnect" label: "Disconnect\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-twi.adb:104:4\n16 bytes (static)" }
+node: { title: "nrf__twi__master_transmit" label: "Master_Transmit\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-twi.adb:114:15\n64 bytes (static)" }
+edge: { sourcename: "nrf__twi__master_transmit" targetname: "nrf__twi__enabled" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-twi.ads:64:18" }
+node: { title: "system__assertions__raise_assert_failure" label: "Raise_Assert_Failure\nC:\gnat\2020-arm-elf\arm-eabi\lib\gnat\zfp-cortex-m4f\gnat\s-assert.ads:46:14" shape : ellipse }
+edge: { sourcename: "nrf__twi__master_transmit" targetname: "system__assertions__raise_assert_failure" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-twi.ads:64:18" }
+edge: { sourcename: "nrf__twi__master_transmit" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-twi.adb:122:37" }
+node: { title: "nrf_svd__twi__errorsrc_registerIP" label: "ERRORSRC_REGISTERIP\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\svd\nrf52\nrf_svd-twi.ads:524:9" shape : ellipse }
+edge: { sourcename: "nrf__twi__master_transmit" targetname: "nrf_svd__twi__errorsrc_registerIP" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-twi.adb:124:7" }
+edge: { sourcename: "nrf__twi__master_transmit" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-twi.adb:135:50" }
+edge: { sourcename: "nrf__twi__master_transmit" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-twi.adb:138:30" }
+edge: { sourcename: "nrf__twi__master_transmit" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-twi.adb:168:33" }
+edge: { sourcename: "nrf__twi__master_transmit" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-twi.adb:169:25" }
+edge: { sourcename: "nrf__twi__master_transmit" targetname: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-twi.adb:nrf__twi__stop_sequence" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-twi.adb:173:10" }
+node: { title: "nrf__twi__master_receive" label: "Master_Receive\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-twi.adb:184:15\n48 bytes (static)" }
+edge: { sourcename: "nrf__twi__master_receive" targetname: "nrf__twi__enabled" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-twi.ads:73:18" }
+edge: { sourcename: "nrf__twi__master_receive" targetname: "system__assertions__raise_assert_failure" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-twi.ads:73:18" }
+edge: { sourcename: "nrf__twi__master_receive" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-twi.adb:202:50" }
+edge: { sourcename: "nrf__twi__master_receive" targetname: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-twi.adb:nrf__twi__stop_sequence" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-twi.adb:228:16" }
+edge: { sourcename: "nrf__twi__master_receive" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-twi.adb:240:31" }
+node: { title: "nrf__twi__mem_write" label: "Mem_Write\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-twi.adb:258:15\n72 bytes (static)" }
+edge: { sourcename: "nrf__twi__mem_write" targetname: "nrf__twi__enabled" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-twi.ads:84:18" }
+edge: { sourcename: "nrf__twi__mem_write" targetname: "system__assertions__raise_assert_failure" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-twi.ads:84:18" }
+edge: { sourcename: "nrf__twi__mem_write" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-twi.adb:271:12" }
+edge: { sourcename: "nrf__twi__mem_write" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-twi.adb:274:59" }
+edge: { sourcename: "nrf__twi__mem_write" targetname: "nrf__twi__master_transmit" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-twi.adb:273:17" }
+edge: { sourcename: "nrf__twi__mem_write" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-twi.adb:279:54" }
+edge: { sourcename: "nrf__twi__mem_write" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-twi.adb:280:63" }
+edge: { sourcename: "nrf__twi__mem_write" targetname: "nrf__twi__master_transmit" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-twi.adb:278:17" }
+edge: { sourcename: "nrf__twi__mem_write" targetname: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-twi.adb:nrf__twi__stop_sequence" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-twi.adb:289:14" }
+edge: { sourcename: "nrf__twi__mem_write" targetname: "nrf__twi__master_transmit" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-twi.adb:293:11" }
+node: { title: "nrf__twi__mem_read" label: "Mem_Read\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-twi.adb:303:15\n72 bytes (static)" }
+edge: { sourcename: "nrf__twi__mem_read" targetname: "nrf__twi__enabled" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-twi.ads:95:18" }
+edge: { sourcename: "nrf__twi__mem_read" targetname: "system__assertions__raise_assert_failure" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-twi.ads:95:18" }
+edge: { sourcename: "nrf__twi__mem_read" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-twi.adb:315:12" }
+edge: { sourcename: "nrf__twi__mem_read" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-twi.adb:318:59" }
+edge: { sourcename: "nrf__twi__mem_read" targetname: "nrf__twi__master_transmit" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-twi.adb:317:17" }
+edge: { sourcename: "nrf__twi__mem_read" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-twi.adb:323:54" }
+edge: { sourcename: "nrf__twi__mem_read" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-twi.adb:324:63" }
+edge: { sourcename: "nrf__twi__mem_read" targetname: "nrf__twi__master_transmit" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-twi.adb:322:17" }
+edge: { sourcename: "nrf__twi__mem_read" targetname: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-twi.adb:nrf__twi__stop_sequence" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-twi.adb:332:14" }
+edge: { sourcename: "nrf__twi__mem_read" targetname: "nrf__twi__master_receive" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\drivers\nrf_common\nrf-twi.adb:336:11" }
+}

@@ -1,0 +1,43 @@
+graph: { title: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\hal\src\hal-sdmmc.adb"
+class {
+  classname: "hal__sdmmc__sdmmc_driver"
+  label: "hal__sdmmc__sdmmc_driver\hal-sdmmc.ads:380:9"
+  virtuals: "1:hal__sdmmc__delay_milliseconds\n
+             2:hal__sdmmc__reset\n
+             3:hal__sdmmc__set_clock\n
+             4:hal__sdmmc__set_bus_size\n
+             5:hal__sdmmc__send_cmd\n
+             6:hal__sdmmc__read_cmd\n
+             7:hal__sdmmc__read_rsp48\n
+             8:hal__sdmmc__read_rsp136\n
+             -1:hal__sdmmc___size"
+}
+edge: { sourcename: "hal__sdmmc__send_cmd__2"
+  targetname: "5:hal__sdmmc__sdmmc_driver,hal__sdmmc__sdmmc_driver"
+  label: "hal-sdmmc.adb:44:7"
+}
+edge: { sourcename: "hal__sdmmc__send_acmd"
+  targetname: "5:hal__sdmmc__sdmmc_driver,hal__sdmmc__sdmmc_driver"
+  label: "hal-sdmmc.adb:61:7"
+}
+edge: { sourcename: "hal__sdmmc__send_acmd"
+  targetname: "5:hal__sdmmc__sdmmc_driver,hal__sdmmc__sdmmc_driver"
+  label: "hal-sdmmc.adb:67:7"
+}
+node: { title: "hal__sdmmc__cmd_desc_typeIP" label: "CMD_DESC_TYPEIP\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\hal\src\hal-sdmmc.ads:301:9\n16 bytes (static)" }
+node: { title: "hal__sdmmc__Tcmd_desc_arrayBIP" label: "TCMD_DESC_ARRAYBIP\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\hal\src\hal-sdmmc.ads:307:4\n16 bytes (static)" }
+node: { title: "hal__sdmmc__Tacmd_desc_arrayBIP" label: "TACMD_DESC_ARRAYBIP\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\hal\src\hal-sdmmc.ads:308:4\n16 bytes (static)" }
+node: { title: "hal__sdmmc__card_specific_data_registerIP" label: "CARD_SPECIFIC_DATA_REGISTERIP\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\hal\src\hal-sdmmc.ads:91:9\n16 bytes (static)" }
+node: { title: "hal__sdmmc__card_revisionIP" label: "CARD_REVISIONIP\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\hal\src\hal-sdmmc.ads:131:9\n16 bytes (static)" }
+node: { title: "hal__sdmmc__manufacturing_date_typeIP" label: "MANUFACTURING_DATE_TYPEIP\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\hal\src\hal-sdmmc.ads:151:9\n16 bytes (static)" }
+node: { title: "hal__sdmmc__card_identification_data_registerIP" label: "CARD_IDENTIFICATION_DATA_REGISTERIP\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\hal\src\hal-sdmmc.ads:156:9\n16 bytes (static)" }
+node: { title: "hal__sdmmc__sdcard_configuration_registerIP" label: "SDCARD_CONFIGURATION_REGISTERIP\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\hal\src\hal-sdmmc.ads:168:9\n16 bytes (static)" }
+node: { title: "hal__sdmmc__card_informationIP" label: "CARD_INFORMATIONIP\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\hal\src\hal-sdmmc.ads:182:9\n16 bytes (static)" }
+node: { title: "hal__sdmmc__send_cmd__2" label: "SEND_CMD\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\hal\src\hal-sdmmc.adb:38:4\n40 bytes (static)" }
+node: { title: "__indirect_call" label: "Indirect Call Placeholder" shape : ellipse }
+edge: { sourcename: "hal__sdmmc__send_cmd__2" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\hal\src\hal-sdmmc.adb:44:7" }
+node: { title: "hal__sdmmc__send_acmd" label: "SEND_ACMD\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\hal\src\hal-sdmmc.adb:51:4\n40 bytes (static)" }
+edge: { sourcename: "hal__sdmmc__send_acmd" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\hal\src\hal-sdmmc.adb:61:7" }
+edge: { sourcename: "hal__sdmmc__send_acmd" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\hal\src\hal-sdmmc.adb:67:7" }
+node: { title: "hal__sdmmc___elabs" label: "SDMMC\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\hal\src\hal-sdmmc.ads:32:1\n4 bytes (static)" }
+}

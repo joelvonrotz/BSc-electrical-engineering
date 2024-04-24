@@ -1,0 +1,54 @@
+V "GNAT Lib v2020"
+A -O0
+A -gnatA
+A --RTS=C:\gnat\2020-arm-elf\arm-eabi\lib\gnat\zfp-cortex-m4f\
+A -mlittle-endian
+A -mthumb
+A -mfloat-abi=hard
+A -mcpu=cortex-m4
+A -mfpu=fpv4-sp-d16
+A -gnata
+A -fcallgraph-info=su
+A -fcallgraph-info=su
+A -g
+A -gnatwa
+A -gnatw_A
+A -gnatQ
+A -gnatw.X
+A -ffunction-sections
+A -fdata-sections
+A -march=armv7e-m+fp
+P ZX
+
+RN
+RV NO_FLOATING_POINT
+RV NO_IMPLEMENTATION_PRAGMAS
+
+U asyd_package%b	asyd_package.adb	6c28b776 NE OO PK IL
+
+U asyd_package%s	asyd_package.ads	f3077910 EE NE OO PK IL
+
+D asyd_package.ads	20240314183308 f3077910 asyd_package%s
+D asyd_package.adb	20240315130910 9f2fce66 asyd_package%b
+D system.ads		20200819171400 e69b74bd system%s
+G a e
+G c Z s b [sqrt_float asyd_package 3 13 none]
+G c Z s b [sqrt_int asyd_package 4 13 none]
+G c Z s b [test asyd_package 5 13 none]
+X 1 asyd_package.ads
+1K9*asyd_package 6l5 6e17 2|1b14 58l5 58t17
+3V13*sqrt_float{float} 3>24 2|3b13 24l8 24t18
+3f24 A{float} 2|3b24 4r30 9r49
+4V13*sqrt_int{integer} 4>22 2|30b13 47l8 47t16
+4i22 number{integer} 2|30b22 36r10 37r15
+5V13*test{float} 5>18 2|50b13 56l8 56t12
+5f18 b{float} 2|50b18 54r27
+X 2 asyd_package.adb
+4f5 Approximation{float} 9r33 9r53 10r34 11r16 15r34 16r37 20m10 23r14
+5f5 Epsilon{float} 11r53 16r53
+6f5 Next_Approximation{float} 9m10 10r13 11r32 15r13 16r16 20r27
+31i7 A{integer} 37m10 40r52
+32i7 Approximation{integer} 39r35 40m13 41r48 43r17
+33i7 Next_Approximation{integer} 39m13 40r31 40r59 41r27
+51f7 my_var{float} 54r18
+

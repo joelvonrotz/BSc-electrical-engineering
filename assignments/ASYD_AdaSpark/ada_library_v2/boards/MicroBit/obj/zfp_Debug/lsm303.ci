@@ -1,0 +1,48 @@
+graph: { title: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\lsm303\lsm303.adb"
+class {
+  classname: "lsm303__lsm303_accelerometer"
+  label: "lsm303__lsm303_accelerometer\lsm303.ads:39:9"
+  parent: "lsm303__lsm303_accelerometer"
+  virtuals: "1:lsm303__configure\n
+             2:lsm303__check_device_id\n
+             3:lsm303__read_data\n
+             -1:lsm303___size"
+}
+edge: { sourcename: "lsm303__read_register"
+  targetname: "4:hal__i2c__i2c_port,hal__i2c__i2c_port"
+  label: "lsm303.adb:53:16"
+}
+edge: { sourcename: "lsm303__write_register"
+  targetname: "3:hal__i2c__i2c_port,hal__i2c__i2c_port"
+  label: "lsm303.adb:76:16"
+}
+edge: { sourcename: "lsm303__read_data"
+  targetname: "4:hal__i2c__i2c_port,hal__i2c__i2c_port"
+  label: "lsm303.adb:132:16"
+}
+node: { title: "lsm303__data_rateRP" label: "DATA_RATERP\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\lsm303\lsm303.ads:43:9\n16 bytes (static)" }
+node: { title: "lsm303__ctrl_reg1_registerIP" label: "CTRL_REG1_REGISTERIP\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\lsm303\lsm303.ads:85:9\n16 bytes (static)" }
+node: { title: "lsm303__lsm303_accelerometerIP" label: "LSM303_ACCELEROMETERIP\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\lsm303\lsm303.ads:61:9\n24 bytes (static)" }
+node: { title: "lsm303___size" label: "LSM303\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\lsm303\lsm303.ads:61:9\n16 bytes (static)" }
+node: { title: "lsm303__all_axes_dataIP" label: "ALL_AXES_DATAIP\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\lsm303\lsm303.ads:54:9\n16 bytes (static)" }
+node: { title: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\lsm303\lsm303.adb:lsm303__read_register" label: "READ_REGISTER\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\lsm303\lsm303.adb:47:4\n64 bytes (static)" }
+node: { title: "__indirect_call" label: "Indirect Call Placeholder" shape : ellipse }
+edge: { sourcename: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\lsm303\lsm303.adb:lsm303__read_register" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\lsm303\lsm303.adb:53:16" }
+node: { title: "__gnat_last_chance_handler" label: "gnat_last_chance_handler\n<built-in>" shape : ellipse }
+edge: { sourcename: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\lsm303\lsm303.adb:lsm303__read_register" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\lsm303\lsm303.adb:61:10" }
+node: { title: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\lsm303\lsm303.adb:lsm303__write_register" label: "WRITE_REGISTER\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\lsm303\lsm303.adb:70:4\n72 bytes (static)" }
+edge: { sourcename: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\lsm303\lsm303.adb:lsm303__write_register" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\lsm303\lsm303.adb:76:16" }
+edge: { sourcename: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\lsm303\lsm303.adb:lsm303__write_register" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\lsm303\lsm303.adb:84:10" }
+node: { title: "lsm303__configure" label: "CONFIGURE\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\lsm303\lsm303.adb:92:4\n24 bytes (static)" }
+edge: { sourcename: "lsm303__configure" targetname: "lsm303__ctrl_reg1_registerIP" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\lsm303\lsm303.adb:94:7" }
+edge: { sourcename: "lsm303__configure" targetname: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\lsm303\lsm303.adb:lsm303__write_register" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\lsm303\lsm303.adb:97:11" }
+node: { title: "lsm303__check_device_id" label: "CHECK_DEVICE_ID\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\lsm303\lsm303.adb:104:4\n16 bytes (static)" }
+edge: { sourcename: "lsm303__check_device_id" targetname: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\lsm303\lsm303.adb:lsm303__read_register" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\lsm303\lsm303.adb:106:14" }
+node: { title: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\lsm303\lsm303.adb:lsm303__read_data__convert.5897" label: "CONVERT\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\lsm303\lsm303.adb:120:7\n24 bytes (static)" }
+node: { title: "lsm303__read_data" label: "READ_DATA\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\lsm303\lsm303.adb:113:4\n72 bytes (static)" }
+edge: { sourcename: "lsm303__read_data" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\lsm303\lsm303.adb:132:16" }
+edge: { sourcename: "lsm303__read_data" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\lsm303\lsm303.adb:140:10" }
+edge: { sourcename: "lsm303__read_data" targetname: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\lsm303\lsm303.adb:lsm303__read_data__convert.5897" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\lsm303\lsm303.adb:143:16" }
+edge: { sourcename: "lsm303__read_data" targetname: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\lsm303\lsm303.adb:lsm303__read_data__convert.5897" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\lsm303\lsm303.adb:144:16" }
+edge: { sourcename: "lsm303__read_data" targetname: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\lsm303\lsm303.adb:lsm303__read_data__convert.5897" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\motion\lsm303\lsm303.adb:145:16" }
+}

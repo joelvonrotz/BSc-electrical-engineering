@@ -1,0 +1,104 @@
+V "GNAT Lib v2020"
+A -O0
+A -gnatA
+A --RTS=C:\gnat\2020-arm-elf\arm-eabi\lib\gnat\zfp-cortex-m4f\
+A -mlittle-endian
+A -mthumb
+A -mfloat-abi=hard
+A -mcpu=cortex-m4
+A -mfpu=fpv4-sp-d16
+A -gnata
+A -fcallgraph-info=su
+A -fcallgraph-info=su
+A -g
+A -gnatwa
+A -gnatw_A
+A -gnatQ
+A -gnatw.X
+A -ffunction-sections
+A -fdata-sections
+A -march=armv7e-m+fp
+P ZX
+
+RN
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLEMENTATION_RESTRICTIONS
+RR NO_ELABORATION_CODE
+
+U cortex_m_svd.systick%s  cortex_m_svd-systick.ads  93657bd9 NE OO PR PK
+W cortex_m_svd%s	cortex_m_svd.ads	cortex_m_svd.ali
+W hal%s			hal.ads			hal.ali
+W system%s		system.ads		system.ali
+
+D cortex_m_svd.ads	20210108111948 cd5bf229 cortex_m_svd%s
+D cortex_m_svd-systick.ads  20210108111948 93e73543 cortex_m_svd.systick%s
+D hal.ads		20210108111948 2b42c80e hal%s
+D interfac.ads		20200819171400 5ab55268 interfaces%s
+D system.ads		20200819171400 e69b74bd system%s
+G a e
+G c Z s s [syst_csr_registerIP cortex_m_svd__systick 54 9 none]
+G c Z s s [syst_rvr_registerIP cortex_m_svd__systick 83 9 none]
+G c Z s s [syst_cvr_registerIP cortex_m_svd__systick 100 9 none]
+G c Z s s [syst_calib_registerIP cortex_m_svd__systick 141 9 none]
+G c Z s s [systick_peripheralIP cortex_m_svd__systick 166 9 none]
+X 1 cortex_m_svd.ads
+9K9*Cortex_M_SVD 31e17 2|11r9 56r44 58r45 60r47 189r5
+20m4*SysTick_Base{5|90M9} 2|187r30
+X 2 cortex_m_svd-systick.ads
+11K22*SysTick 1|9k9 2|56r57 58r58 60r60 189l18 189e25
+19E9*CSR_ENABLE_Field 25e6 26r8 56r24
+22n7*Disable{19E9} 27r7 56r65
+24n7*Enable{19E9} 28r7
+31E9*CSR_TICKINT_Field 36e6 37r8 58r24
+33n7*Disable{31E9} 38r7 58r66
+35n7*Enable{31E9} 39r7
+42E9*CSR_CLKSOURCE_Field 48e6 49r8 60r24
+45n7*External_Clk{42E9} 50r7
+47n7*Cpu_Clk{42E9} 51r7 60r68
+54R9*SYST_CSR_Register 68e6 71r8 168r23
+56e7*ENABLE{19E9} 72r7
+58e7*TICKINT{31E9} 73r7
+60e7*CLKSOURCE{42E9} 74r7
+62m7*Reserved_3_15{3|60M9} 75r7
+64b7*COUNTFLAG{boolean} 76r7
+66m7*Reserved_17_31{3|64M9} 77r7
+80M12*SYST_RVR_RELOAD_Field{3|81M9} 85r24
+83R9*SYST_RVR_Register 89e6 92r8 170r23
+85m7*RELOAD{80M12} 93r7
+87m7*Reserved_24_31{3|53M9} 94r7
+97M12*SYST_CVR_CURRENT_Field{3|81M9} 102r24
+100R9*SYST_CVR_Register 106e6 109r8 172r23
+102m7*CURRENT{97M12} 110r7
+104m7*Reserved_24_31{3|53M9} 111r7
+114M12*SYST_CALIB_TENMS_Field{3|81M9} 143r24
+117E9*CALIB_SKEW_Field 123e6 124r8 147r24
+120n7*Exact{117E9} 125r7
+122n7*Inexact{117E9} 126r7
+129E9*CALIB_NOREF_Field 135e6 136r8 149r24
+132n7*Ref_Clk_Available{129E9} 137r7
+134n7*Ref_Clk_Unavailable{129E9} 138r7
+141R9*SYST_CALIB_Register 151e6 154r8 174r23
+143m7*TENMS{114M12} 155r7
+145m7*Reserved_24_29{3|47M9} 156r7
+147e7*SKEW{117E9} 157r7
+149e7*NOREF{129E9} 158r7
+166R9*SysTick_Peripheral 176e6 178r8 186r29
+168r7*CSR{54R9} 179r7
+170r7*RVR{83R9} 180r7
+172r7*CVR{100R9} 181r7
+174r7*CALIB{141R9} 182r7
+186r4*SysTick_Periph{166R9}
+X 3 hal.ads
+34K9*HAL 2|7w6 62r24 66r24 80r37 87r24 97r38 104r24 114r38 145r24 3|166e8
+47M9*UInt6 2|145r28
+53M9*UInt8<4|63M9> 2|87r28 104r28
+60M9*UInt13 2|62r28
+64M9*UInt15 2|66r28
+81M9*UInt24 2|80r41 97r42 114r42
+X 4 interfac.ads
+63M9*Unsigned_8
+X 5 system.ads
+60K9*System 2|8w6 69r24 90r24 107r24 152r24 5|172e11
+90M9*Address
+114n41*Low_Order_First{114E9} 2|69r31 90r31 107r31 152r31
+

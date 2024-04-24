@@ -1,0 +1,10 @@
+graph: { title: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\hal\src\hal-dsi.ads"
+class {
+  classname: "hal__dsi__dsi_port"
+  label: "hal__dsi__dsi_port\hal-dsi.ads:59:9"
+  virtuals: "1:hal__dsi__dsi_short_write\n
+             2:hal__dsi__dsi_long_write\n
+             -1:hal__dsi___size"
+}
+node: { title: "hal__dsi__dsi_dataIP" label: "DSI_DATAIP\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\hal\src\hal-dsi.ads:38:9\n16 bytes (static)" }
+}

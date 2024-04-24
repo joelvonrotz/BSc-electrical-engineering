@@ -1,0 +1,143 @@
+\usepackage{amssymb, amsmath} % includes some neato math environments, symbols and stuff
+
+\usepackage[utf8]{inputenc} % correctly encodes the formatting of the text files (since we live in the future of UTF8)
+\usepackage{lastpage} % counts all the pages, used in footer
+
+% Flexible Multicolumn Option
+\usepackage{multicol}
+\setlength\columnsep{20pt}
+
+% Package for enabling colors (colorful output)
+\usepackage[dvipsnames]{xcolor}
+\definecolor{darkgreen}{HTML}{014f32}
+
+% Icons - http://mirrors.ctan.org/fonts/fontawesome5/doc/fontawesome5.pdf
+% This one is neat, when you want to add some icons
+\usepackage{fontawesome5}
+
+% Depending on the type of document, mostly summaries, I remove the spacing Display-styled Equations insert, since it's a waste of space.
+\usepackage[nodisplayskipstretch]{setspace}
+
+% [FONT CONFIGURATION]
+\usepackage{lmodern}
+\usepackage[defaultsans,scale=0.95]{opensans}
+\usepackage[cm]{sfmath}
+\usepackage[scaled=0.85]{beramono}
+\renewcommand\familydefault{\sfdefault}
+
+
+\usepackage{sectsty}
+\allsectionsfont{\normalfont\sffamily\bfseries}
+
+% [HEADING CUSTOMIZATION]
+\usepackage[explicit]{titlesec}
+
+% For numbered section creates:
+%
+%                         /|
+% Heading                  |
+% --------------------------
+\titleformat
+  {\section} % {⟨command⟩}
+  [hang] % [⟨shape⟩]
+  {\normalfont\LARGE\bfseries\filleft} % {⟨format⟩}
+  {} % {⟨label⟩}
+  {0mm} % {⟨sep⟩}
+  {% {⟨before-code⟩}
+    \parbox[b]{\dimexpr\linewidth-2.0cm\relax}{#1}\hfill%
+    \parbox[b]{1.5cm}{\hfill{\fontsize{30}{36}\selectfont\thesection}}\\[-5mm]%
+    \rule{\linewidth}{1pt}%
+  }
+
+% For unnumbered section creates:
+%
+% Heading
+% --------------------------
+\titleformat
+  {name=\section,numberless} % {⟨command⟩}
+  [hang] % [⟨shape⟩]
+  {\normalfont\LARGE\bfseries\filleft} % {⟨format⟩}
+  {} % {⟨label⟩}
+  {0mm} % {⟨sep⟩}
+  {% {⟨before-code⟩}
+    \parbox[b]{\linewidth}{#1}\hfill\\[-5mm]%
+    \rule{\linewidth}{1pt}%
+  }
+
+
+% [HEADER & FOOTER CONFIGURATION]
+% ┌head───────────┐
+% │ L     C     R │
+% │ ------------- │ <- \headrulewidth
+% │               │
+% │               │
+% │               │
+% │               │
+% │               │
+% │ ------------- │ <- \footrulewidth
+% │ L     C     R │
+% └foot───────────┘
+\usepackage{fancyhdr}
+
+\renewcommand{\headrulewidth}{1pt}
+\renewcommand{\footrulewidth}{1pt}
+
+\pagestyle{fancy}
+\fancyhead{} % clear all header fields
+\fancyhead[R]{\sffamily Change this in \texttt{config/config.tex}}
+\fancyhead[L]{\sffamily Change this in \texttt{config/config.tex}}
+
+\fancyfoot{} % clear all footer fields
+\fancyfoot[R]{\sffamily Joel von Rotz}
+\fancyfoot[C]{\sffamily \thepage\ / \pageref{LastPage}}
+\fancyfoot[L]{\sffamily \today}
+
+% [CONDITIONS ENVIRONMENT]
+% introduces conditions environment to create nice equation parameter description
+% note: the first column is already in math mode, so no $ are required
+%
+% \begin{conditions}
+%   A & Description about A \\
+%   B & Description about B \\
+%   C & Description about C
+% \begin{conditions}
+%
+\usepackage{array}
+\newenvironment{conditions}
+  {\par\vspace{\abovedisplayskip}\noindent\begin{tabular}{>{$}l<{$} @{${}:{}$} l}}
+  {\end{tabular}\par\vspace{\belowdisplayskip}}
+
+% [TIKZ CONFIGURATION]
+% Is used for different types of diagramms, drawings, etc.
+\usepackage{tikz}
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+            \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+\usetikzlibrary{shapes,arrows,arrows.meta,matrix}
+
+% [FANCYVRB]
+\usepackage{fancyvrb}
+\definecolor{codeRuleColor}{HTML}{1a1e2e}
+\definecolor{codeLineNumberColor}{HTML}{84858a}
+
+% This reconfigures the code block to make a little nicer to look at.
+% The following renewcommand 
+\renewcommand{\theFancyVerbLine}{%
+  \textcolor{codeLineNumberColor}{\ttfamily\scriptsize
+  \arabic{FancyVerbLine}}}
+
+\DefineVerbatimEnvironment{Highlighting} % Its new name
+  {Verbatim} % Based on this environment
+  {
+    commandchars=\\\{\},
+    numbersep=4mm,
+    rulecolor=\color{codeRuleColor},
+    xleftmargin=4mm
+  }
+
+
+\usepackage{floatrow}
+\DeclareFloatStyle{MyListingStyle}
+  {
+    style=plaintop,
+    captionskip=1pt
+  }

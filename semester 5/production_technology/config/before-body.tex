@@ -1,0 +1,48 @@
+\begin{titlepage}
+  \begin{center}
+    \vspace*{2cm}
+    
+    {\textsf{\textbf{\Huge $title$}}}\\
+    \vspace{0.3cm}
+    \textsf{\textit{\large $subtitle$}}
+    
+    \vspace{1cm}
+    % Render author and supervisor 
+    \begin{multicols}{2}
+      \begin{flushleft}
+        \textsf{\textbf{$author-title$}\normalsize}\\
+        $if(author/allbutlast)$
+          $for(author/allbutlast)$
+            \textsf{$author$}\\
+          $endfor$
+        $endif$
+        \textsf{$author/last$}\\
+      \end{flushleft}
+
+      \vfill\null
+      \columnbreak
+
+      \begin{flushright}
+        \textsf{\textbf{$supervisor-title$}\normalsize}\\
+        $if(supervisor/allbutlast)$
+          $for(supervisor/allbutlast)$
+            \textsf{$supervisor$}\\
+          $endfor$
+        $endif$
+        \textsf{$supervisor/last$}
+
+      \end{flushright}
+    \end{multicols}
+    \vfill
+    % \includegraphics{images/hslu_logo.pdf}\\[1cm]
+    \textsf{$university$}
+  \end{center}
+  \normalfont
+\end{titlepage}
+
+
+$if(abstract)$
+\begin{abstract}
+$abstract$
+\end{abstract}
+$endif$

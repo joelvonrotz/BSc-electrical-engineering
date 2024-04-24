@@ -1,0 +1,3 @@
+graph: { title: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\cortex_m\src\memory_barriers.adb"
+node: { title: "memory_barriers__data_synchronization_barrier" label: "Data_Synchronization_Barrier\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\cortex_m\src\memory_barriers.adb:40:4\n4 bytes (static)" }
+}

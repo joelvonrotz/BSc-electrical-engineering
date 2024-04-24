@@ -1,0 +1,98 @@
+V "GNAT Lib v2020"
+A -O0
+A -gnatA
+A --RTS=C:\gnat\2020-arm-elf\arm-eabi\lib\gnat\zfp-cortex-m4f\
+A -mlittle-endian
+A -mthumb
+A -mfloat-abi=hard
+A -mcpu=cortex-m4
+A -mfpu=fpv4-sp-d16
+A -gnata
+A -fcallgraph-info=su
+A -fcallgraph-info=su
+A -g
+A -gnatwa
+A -gnatw_A
+A -gnatQ
+A -gnatw.X
+A -ffunction-sections
+A -fdata-sections
+A -march=armv7e-m+fp
+P ZX
+
+RN
+RV NO_DISPATCH
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_IMPLEMENTATION_PRAGMAS
+
+U hal.real_time_clock%s	hal-real_time_clock.ads	b697e7c4 NE OO PK IU
+Z ada.tags%s		a-tags.adb		a-tags.ali
+W hal%s			hal.ads			hal.ali
+Z system%s		system.ads		system.ali
+Z system.unsigned_types%s  s-unstyp.ads		s-unstyp.ali
+
+D ada.ads		20200819171400 76789da1 ada%s
+D a-tags.ads		20200819171400 95e09aae ada.tags%s
+D hal.ads		20210108111948 2b42c80e hal%s
+D hal-real_time_clock.ads  20210108111948 9dd52fca hal.real_time_clock%s
+D interfac.ads		20200819171400 5ab55268 interfaces%s
+D system.ads		20200819171400 e69b74bd system%s
+D s-stoele.ads		20200819171400 2dc34a04 system.storage_elements%s
+D s-unstyp.ads		20200819171400 5ecf7212 system.unsigned_types%s
+G a e
+G c Z s s [rtc_timeIP hal__real_time_clock 38 9 none]
+G c Z s s [rtc_dateIP hal__real_time_clock 51 9 none]
+X 3 hal.ads
+34K9*HAL 166e8 4|32r9 92r30 96r30 99r5
+X 4 hal-real_time_clock.ads
+32K13*Real_Time_Clock 3|34k9 4|92r34 96r34 99l9 99e24
+34M9*RTC_Hour 39r14
+35M9*RTC_Minute 40r14
+36M9*RTC_Second 41r14
+38R9*RTC_Time 42e14 83r26 87r30 92r50
+39m7*Hour{34M9}
+40m7*Min{35M9}
+41m7*Sec{36M9}
+44E9*RTC_Month 45e62 54r21 66r8
+44n23*January{44E9} 66r23
+44n32*February{44E9} 67r23
+44n42*March{44E9} 68r23
+44n49*April{44E9} 69r23
+44n56*May{44E9} 70r23
+44n61*June{44E9} 71r23
+44n67*July{44E9} 72r23
+44n73*August{44E9} 73r23
+45n23*September{44E9} 74r23
+45n34*October{44E9} 75r23
+45n43*November{44E9} 76r23
+45n53*December{44E9} 77r23
+46E9*RTC_Day_Of_Week 47e46 52r21 58r8
+46n29*Monday{46E9} 58r29
+46n37*Tuesday{46E9} 59r29
+46n46*Wednesday{46E9} 60r29
+46n57*Thursday{46E9} 61r29
+46n67*Friday{46E9} 62r29
+47n29*Saturday{46E9} 63r29
+47n39*Sunday{46E9} 64r29
+48I9*RTC_Day<short_short_integer> 53r21
+49I9*RTC_Year<short_short_integer> 55r21
+51R9*RTC_Date 56e14 84r26 88r30 96r50
+52e7*Day_Of_Week{46E9}
+53i7*Day{48I9}
+54e7*Month{44E9}
+55i7*Year{49I9}
+79h9*RTC_Device 80r38 82p14 82r33 86p14 86r33 91p13 91r30 95p13 95r30
+80P9*Any_RTC_Device(79R9)
+82x14*Set 82=19 83>19 84>19
+82r19 This{79R9}
+83r19 Time{38R9}
+84r19 Date{51R9}
+86x14*Get 86=19 87<19 88<19
+86r19 This{79R9}
+87r19 Time{38R9}
+88r19 Date{51R9}
+91y13*Get_Time{38R9} 91>23
+91r23 This{79R9}
+95y13*Get_Date{51R9} 95>23
+95r23 This{79R9}
+

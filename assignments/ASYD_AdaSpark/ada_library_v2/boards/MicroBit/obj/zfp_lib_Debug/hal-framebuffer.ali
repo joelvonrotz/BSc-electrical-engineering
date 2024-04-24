@@ -1,0 +1,120 @@
+V "GNAT Lib v2020"
+A -O0
+A -gnatA
+A --RTS=C:\gnat\2020-arm-elf\arm-eabi\lib\gnat\zfp-cortex-m4f\
+A -mlittle-endian
+A -mthumb
+A -mfloat-abi=hard
+A -mcpu=cortex-m4
+A -mfpu=fpv4-sp-d16
+A -gnata
+A -fcallgraph-info=su
+A -fcallgraph-info=su
+A -g
+A -gnatwa
+A -gnatw_A
+A -gnatQ
+A -gnatw.X
+A -ffunction-sections
+A -fdata-sections
+A -march=armv7e-m+fp
+P ZX
+
+RN
+RV NO_DISPATCH
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_IMPLEMENTATION_PRAGMAS
+
+U hal.framebuffer%s	hal-framebuffer.ads	36f5e015 NE OO PK IU
+Z ada.tags%s		a-tags.adb		a-tags.ali
+W hal%s			hal.ads			hal.ali
+W hal.bitmap%s		hal-bitmap.ads		hal-bitmap.ali
+Z system%s		system.ads		system.ali
+
+D ada.ads		20200819171400 76789da1 ada%s
+D a-tags.ads		20200819171400 95e09aae ada.tags%s
+D hal.ads		20210108111948 2b42c80e hal%s
+D hal-bitmap.ads	20210108111948 85a69113 hal.bitmap%s
+D hal-framebuffer.ads	20210108111948 9811b908 hal.framebuffer%s
+D interfac.ads		20200819171400 5ab55268 interfaces%s
+D system.ads		20200819171400 e69b74bd system%s
+D s-stoele.ads		20200819171400 2dc34a04 system.storage_elements%s
+G a e
+X 3 hal.ads
+34K9*HAL 166e8 5|32r6 34r9 36r29 37r6 37r30 119r23 127r5
+53M9*UInt8<6|63M9> 5|81r46
+X 4 hal-bitmap.ads
+34K13*Bitmap 432e15 5|32w10 36r33 37r10 37r34 119r27
+43E9*Bitmap_Color_Mode 56e8 5|36r40
+44n7*ARGB_8888{43E9} 5|37r17
+55n7*M_1{43E9} 5|37r41
+100h9*Bitmap_Buffer
+102P9*Any_Bitmap_Buffer(100R9) 5|119r34
+X 5 hal-framebuffer.ads
+34K13*Framebuffer 3|34k9 5|127l9 127e20
+36E12*FB_Color_Mode{4|43E9} 54r14 86r16 113r32
+39E9*Display_Orientation 40e36 59r21
+40n7*Default{39E9}
+40n16*Landscape{39E9}
+40n27*Portrait{39E9}
+42E9*Wait_Mode 42e42 63r17
+42n23*Polling{42E9}
+42n32*Interrupt{42E9}
+44h9*Frame_Buffer_Display 46r48 48p13 49r14 52p13 53r14 57p14 58r28 61p14
+. 62r24 65p13 66r14 68p13 69r14 71p13 72r14 74p13 75r14 80p14 81r14 83p14
+. 84r23 96p13 97r15 100p14 101r26 106p14 107r21 111p13 112r15 116p13 117r22
+. 122p13 123r17
+46P9*Any_Frame_Buffer_Display(44R9)
+48y13*Max_Layers{positive} 49>7
+49r7 This{44R9}
+52y13*Supported{boolean} 53>7 54>7
+53r7 This{44R9}
+54e7 Mode{36E12}
+57x14*Set_Orientation 58=7 59>7
+58r7 This{44R9}
+59e7 Orientation{39E9}
+61x14*Set_Mode 62=7 63>7
+62r7 This{44R9}
+63e7 Mode{42E9}
+65y13*Initialized{boolean} 66>7
+66r7 This{44R9}
+68y13*Width{positive} 69>7
+69r7 This{44R9}
+71y13*Height{positive} 72>7
+72r7 This{44R9}
+74y13*Swapped{boolean} 75>7
+75r7 This{44R9}
+80x14*Set_Background 81>7 81>36 81>39 81>42
+81r7 This{44R9}
+81m36 R{3|53M9}
+81m39 G{3|53M9}
+81m42 B{3|53M9}
+83x14*Initialize_Layer 84=7 85>7 86>7 87>7 88>7 89>7 90>7
+84r7 This{44R9}
+85i7 Layer{positive}
+86e7 Mode{36E12}
+87i7 X{natural}
+88i7 Y{natural}
+89i7 Width{positive}
+90i7 Height{positive}
+96y13*Initialized{boolean} 97>7 98>7
+97r7 This{44R9}
+98i7 Layer{positive}
+100x14*Update_Layer 101=7 102>7 103>7
+101r7 This{44R9}
+102i7 Layer{positive}
+103b7 Copy_Back{boolean}
+106x14*Update_Layers 107=7
+107r7 This{44R9}
+111y13*Color_Mode{36E12} 112>7 113>7
+112r7 This{44R9}
+113i7 Layer{positive}
+116y13*Hidden_Buffer{4|102P9} 117=7 118>7
+117r7 This{44R9}
+118i7 Layer{positive}
+122y13*Pixel_Size{positive} 123>7 124>7
+123r7 Display{44R9}
+124i7 Layer{positive}
+X 6 interfac.ads
+63M9*Unsigned_8
+

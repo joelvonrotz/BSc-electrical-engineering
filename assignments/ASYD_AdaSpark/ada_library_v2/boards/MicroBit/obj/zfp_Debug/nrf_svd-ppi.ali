@@ -1,0 +1,135 @@
+V "GNAT Lib v2020"
+A -O0
+A -gnatA
+A --RTS=C:\gnat\2020-arm-elf\arm-eabi\lib\gnat\zfp-cortex-m4f\
+A -mlittle-endian
+A -mthumb
+A -mfloat-abi=hard
+A -mcpu=cortex-m4
+A -mfpu=fpv4-sp-d16
+A -gnata
+A -fcallgraph-info=su
+A -fcallgraph-info=su
+A -g
+A -gnatwa
+A -gnatw_A
+A -gnatQ
+A -gnatw.X
+A -ffunction-sections
+A -fdata-sections
+A -march=armv7e-m+fp
+P ZX
+
+RN
+RV NO_IMPLICIT_CONDITIONALS
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLEMENTATION_RESTRICTIONS
+RV NO_IMPLICIT_LOOPS
+RR NO_ELABORATION_CODE
+
+U nrf_svd.ppi%s		nrf_svd-ppi.ads		416f5540 NE OO PR PK IU
+W hal%s			hal.ads			hal.ali
+W nrf_svd%s		nrf_svd.ads		nrf_svd.ali
+W system%s		system.ads		system.ali
+Z system.unsigned_types%s  s-unstyp.ads		s-unstyp.ali
+
+D hal.ads		20210108111948 2b42c80e hal%s
+D interfac.ads		20200819171400 5ab55268 interfaces%s
+D nrf_svd.ads		20210306183508 87ba21d7 nrf_svd%s
+D nrf_svd-ppi.ads	20210108111948 0b0cc824 nrf_svd.ppi%s
+D system.ads		20200819171400 e69b74bd system%s
+D s-unstyp.ads		20200819171400 5ecf7212 system.unsigned_types%s
+G a e
+G c Z s s [tasks_chg_clusterIP nrf_svd__ppi 60 9 none]
+G c Z s s [Ttasks_chg_clustersBIP nrf_svd__ppi 74 4 none]
+G c Z s s [Tchen_ch_field_arrayBIP nrf_svd__ppi 88 4 none]
+G c Z s s [chen_registerIP nrf_svd__ppi 92 9 none]
+G c Z s s [Tchenset_ch_field_arrayBIP nrf_svd__ppi 135 4 none]
+G c Z s s [chenset_registerIP nrf_svd__ppi 139 9 none]
+G c Z s s [Tchenclr_ch_field_arrayBIP nrf_svd__ppi 182 4 none]
+G c Z s s [chenclr_registerIP nrf_svd__ppi 186 9 none]
+G c Z s s [ch_clusterIP nrf_svd__ppi 211 9 none]
+G c Z s s [Tch_clustersBIP nrf_svd__ppi 225 4 none]
+G c Z s s [Tchg_ch_field_arrayBIP nrf_svd__ppi 239 4 none]
+G c Z s s [chg_registerIP nrf_svd__ppi 243 9 none]
+G c Z s s [Tchg_registersBIP nrf_svd__ppi 264 4 none]
+G c Z s s [fork_clusterIP nrf_svd__ppi 271 9 none]
+G c Z s s [Tfork_clustersBIP nrf_svd__ppi 282 4 none]
+G c Z s s [ppi_peripheralIP nrf_svd__ppi 289 9 none]
+X 1 hal.ads
+34K9*HAL 166e8 4|45w6 62r21 64r21 98r19 145r19 192r19 213r21 215r21 249r19
+. 273r21
+97M9*UInt32<2|74M9> 4|62r25 64r25 98r23 145r23 192r23 213r25 215r25 249r23
+. 273r25
+X 2 interfac.ads
+74M9*Unsigned_32
+X 3 nrf_svd.ads
+49K9*NRF_SVD 123e12 4|48r9 321r5
+110m4*PPI_Base{5|90M9} 4|319r30
+X 4 nrf_svd-ppi.ads
+48K17*PPI 3|49k9 4|321l13 321e16
+60R9*TASKS_CHG_Cluster 66e6 68r8 74r49
+62m7*EN{1|97M9} 69r7
+64m7*DIS{1|97M9} 70r7
+74A9*TASKS_CHG_Clusters(60R9)<integer> 291r27
+77E9*CHEN_CH0_Field 82e6 83r8 88r51
+79n7*Disabled{77E9} 84r7
+81n7*Enabled{77E9} 85r7
+88A9*CHEN_CH_Field_Array(77E9)<integer> 101r19
+92R9*CHEN_Register 93d7 104e6 107r8 293r27
+93b7*As_Array{boolean} 95r12
+98m13*Val{1|97M9} 108r7
+101a13*Arr{88A9} 109r7
+113E9*CHENSET_CH0_Field 118e6 119r8
+115n7*Disabled{113E9} 120r7
+117n7*Enabled{113E9} 121r7
+124E9*CHENSET_CH0_Field_1 129e6 130r8 135r54
+126n7*Chenset_Ch0_Field_Reset{124E9} 131r7
+128n7*Set{124E9} 132r7
+135A9*CHENSET_CH_Field_Array(124E9)<integer> 148r19
+139R9*CHENSET_Register 140d7 151e6 154r8 295r27
+140b7*As_Array{boolean} 142r12
+145m13*Val{1|97M9} 155r7
+148a13*Arr{135A9} 156r7
+160E9*CHENCLR_CH0_Field 165e6 166r8
+162n7*Disabled{160E9} 167r7
+164n7*Enabled{160E9} 168r7
+171E9*CHENCLR_CH0_Field_1 176e6 177r8 182r54
+173n7*Chenclr_Ch0_Field_Reset{171E9} 178r7
+175n7*Clear{171E9} 179r7
+182A9*CHENCLR_CH_Field_Array(171E9)<integer> 195r19
+186R9*CHENCLR_Register 187d7 198e6 201r8 297r27
+187b7*As_Array{boolean} 189r12
+192m13*Val{1|97M9} 202r7
+195a13*Arr{182A9} 203r7
+211R9*CH_Cluster 217e6 219r8 225r43
+213m7*EEP{1|97M9} 220r7
+215m7*TEP{1|97M9} 221r7
+225A9*CH_Clusters(211R9)<integer> 299r27
+228E9*CHG_CH0_Field 233e6 234r8 239r50
+230n7*Excluded{228E9} 235r7
+232n7*Included{228E9} 236r7
+239A9*CHG_CH_Field_Array(228E9)<integer> 252r19
+243R9*CHG_Register 244d7 255e6 258r8 264r44
+244b7*As_Array{boolean} 246r12
+249m13*Val{1|97M9} 259r7
+252a13*Arr{239A9} 260r7
+264A9*CHG_Registers(243R9)<integer> 301r27
+271R9*FORK_Cluster 275e6 277r8 282r45
+273m7*TEP{1|97M9} 278r7
+282A9*FORK_Clusters(271R9)<integer> 303r27
+289R9*PPI_Peripheral 305e6 307r8 318r25
+291a7*TASKS_CHG{74A9} 308r7
+293r7*CHEN{92R9} 309r7
+295r7*CHENSET{139R9} 310r7
+297r7*CHENCLR{186R9} 311r7
+299a7*CH{225A9} 312r7
+301a7*CHG{264A9} 313r7
+303a7*FORK{282A9} 314r7
+318r4*PPI_Periph{289R9}
+X 5 system.ads
+60K9*System 4|46w6 105r24 152r24 199r24 256r24 5|172e11
+90M9*Address
+114n41*Low_Order_First{114E9} 4|105r31 152r31 199r31 256r31
+

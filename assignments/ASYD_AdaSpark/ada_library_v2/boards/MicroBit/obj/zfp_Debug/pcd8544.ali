@@ -1,0 +1,359 @@
+V "GNAT Lib v2020"
+A -O0
+A -gnatA
+A --RTS=C:\gnat\2020-arm-elf\arm-eabi\lib\gnat\zfp-cortex-m4f\
+A -mlittle-endian
+A -mthumb
+A -mfloat-abi=hard
+A -mcpu=cortex-m4
+A -mfpu=fpv4-sp-d16
+A -gnata
+A -fcallgraph-info=su
+A -fcallgraph-info=su
+A -g
+A -gnatwa
+A -gnatw_A
+A -gnatQ
+A -gnatw.X
+A -ffunction-sections
+A -fdata-sections
+A -march=armv7e-m+fp
+P ZX
+
+RN
+RV NO_DISPATCH
+RV NO_DISPATCHING_CALLS
+RV NO_EXCEPTIONS
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_UNCHECKED_ACCESS
+RV NO_DEFAULT_INITIALIZATION
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_PRAGMAS
+
+U pcd8544%b		pcd8544.adb		751a8809 NE OO PK IU
+Z ada.exceptions%s	a-except.adb		a-except.ali
+Z ada.tags%s		a-tags.adb		a-tags.ali
+Z system%s		system.ads		system.ali
+Z system.assertions%s	s-assert.adb		s-assert.ali
+Z system.img_lli%s	s-imglli.adb		s-imglli.ali
+
+U pcd8544%s		pcd8544.ads		2f385b15 EE NE OO PK IU
+Z ada.tags%s		a-tags.adb		a-tags.ali
+W hal%s			hal.ads			hal.ali
+W hal.bitmap%s		hal-bitmap.ads		hal-bitmap.ali
+W hal.framebuffer%s	hal-framebuffer.ads	hal-framebuffer.ali
+W hal.gpio%s		hal-gpio.ads		hal-gpio.ali
+W hal.spi%s		hal-spi.ads		hal-spi.ali
+W hal.time%s		hal-time.ads		hal-time.ali
+W memory_mapped_bitmap%s  memory_mapped_bitmap.adb  memory_mapped_bitmap.ali
+W pcd8544_reg%s		pcd8544_reg.ads		pcd8544_reg.ali
+Z system%s		system.ads		system.ali
+
+D ada.ads		20200819171400 76789da1 ada%s
+D a-except.ads		20200819171400 5b5f0f2f ada.exceptions%s
+D a-except.adb		20200819171400 85a38458 ada.exceptions%b
+D a-tags.ads		20200819171400 95e09aae ada.tags%s
+D a-unccon.ads		20200819171400 0e9b276f ada.unchecked_conversion%s
+D hal.ads		20210108111948 2b42c80e hal%s
+D hal-bitmap.ads	20210108111948 85a69113 hal.bitmap%s
+D hal-framebuffer.ads	20210108111948 9811b908 hal.framebuffer%s
+D hal-gpio.ads		20210108111948 7f0c2ffe hal.gpio%s
+D hal-spi.ads		20210108111948 fe139819 hal.spi%s
+D hal-time.ads		20210108111948 f5295cd7 hal.time%s
+D interfac.ads		20200819171400 5ab55268 interfaces%s
+D memory_mapped_bitmap.ads  20210108111948 b0310810 memory_mapped_bitmap%s
+D pcd8544.ads		20210108111948 5c2df527 pcd8544%s
+D pcd8544.adb		20210108111948 29377d2e pcd8544%b
+D pcd8544_reg.ads	20210108111948 81e7ad07 pcd8544_reg%s
+D soft_drawing_bitmap.ads  20210108111948 e11f4ff7 soft_drawing_bitmap%s
+D system.ads		20200819171400 e69b74bd system%s
+D s-assert.ads		20200819171400 cd8d2c94 system.assertions%s
+D s-imglli.ads		20200819171400 114f55d1 system.img_lli%s
+D s-stoele.ads		20200819171400 2dc34a04 system.storage_elements%s
+G a e
+G c Z s b [initialize pcd8544 90 14 none]
+G c Z s b [set_contrast pcd8544 93 14 none]
+G c Z s b [set_bias pcd8544 97 14 none]
+G c Z s b [set_temperature pcd8544 101 14 none]
+G c Z s b [set_display_mode pcd8544 105 14 none]
+G c Z s b [max_layers pcd8544 111 13 none]
+G c Z s b [supported pcd8544 114 13 none]
+G c Z s b [set_orientation pcd8544 120 14 none]
+G c Z s b [set_mode pcd8544 125 14 none]
+G c Z s b [initialized pcd8544 130 13 none]
+G c Z s b [width pcd8544 134 13 none]
+G c Z s b [height pcd8544 138 13 none]
+G c Z s b [swapped pcd8544 142 13 none]
+G c Z s b [set_background pcd8544 146 14 none]
+G c Z s b [initialize_layer pcd8544 151 14 none]
+G c Z s b [initialized pcd8544 159 13 none]
+G c Z s b [update_layer pcd8544 164 14 none]
+G c Z s b [update_layers pcd8544 170 14 none]
+G c Z s b [color_mode pcd8544 174 13 none]
+G c Z s b [hidden_buffer pcd8544 179 13 none]
+G c Z s b [pixel_size pcd8544 185 13 none]
+G c Z s b [chip_select pcd8544 210 14 none]
+G c Z s b [reset pcd8544 211 14 none]
+G c Z s b [transmit pcd8544 212 14 none]
+G c Z s b [transmit pcd8544 213 14 none]
+G c Z s b [extended_mode pcd8544 214 14 none]
+G c Z s b [basic_mode pcd8544 215 14 none]
+G c Z s b [write_raw_pixels pcd8544 216 14 none]
+G c Z s s [pcd8544_bitmap_bufferIP pcd8544 191 9 none]
+G c Z s s [pcd8544_deviceIP pcd8544 196 9 none]
+G r s pcd8544_function_register [initialize pcd8544 90 14 none] [pcd8544_function_registerIP pcd8544_reg 50 9 none]
+G r s pcd8544_display_register [initialize pcd8544 90 14 none] [pcd8544_display_registerIP pcd8544_reg 65 9 none]
+G r c none [initialize pcd8544 90 14 none] [convert pcd8544_reg 80 13 none]
+G r c none [initialize pcd8544 90 14 none] [convert pcd8544_reg 82 13 none]
+G r c none [set_contrast pcd8544 93 14 none] [convert pcd8544_reg 80 13 none]
+G r c none [set_bias pcd8544 97 14 none] [convert pcd8544_reg 80 13 none]
+G r c none [set_temperature pcd8544 101 14 none] [convert pcd8544_reg 80 13 none]
+G r c none [set_display_mode pcd8544 105 14 none] [convert pcd8544_reg 80 13 none]
+G r c none [set_display_mode pcd8544 105 14 none] [convert pcd8544_reg 82 13 none]
+G r c none [update_layer pcd8544 164 14 none] [convert pcd8544_reg 80 13 none]
+G r c none [update_layers pcd8544 170 14 none] [convert pcd8544_reg 80 13 none]
+G r c none [extended_mode pcd8544 214 14 none] [convert pcd8544_reg 80 13 none]
+G r c none [basic_mode pcd8544 215 14 none] [convert pcd8544_reg 80 13 none]
+G r c none [write_raw_pixels pcd8544 216 14 none] [convert pcd8544_reg 80 13 none]
+G r s memory_mapped_bitmap_buffer [pcd8544_bitmap_bufferIP pcd8544 191 9 none] [memory_mapped_bitmap_bufferIP memory_mapped_bitmap 41 9 none]
+G r s memory_mapped_bitmap_buffer [pcd8544_deviceIP pcd8544 196 9 none] [memory_mapped_bitmap_bufferIP memory_mapped_bitmap 41 9 none]
+G r s pcd8544_function_register [pcd8544_deviceIP pcd8544 196 9 none] [pcd8544_function_registerIP pcd8544_reg 50 9 none]
+G r s pcd8544_display_register [pcd8544_deviceIP pcd8544 196 9 none] [pcd8544_display_registerIP pcd8544_reg 65 9 none]
+X 6 hal.ads
+34K9*HAL 166e8 14|51w6 51r32 52r6 52r32 53r6 53r32 54r6 54r32 55r6 55r32
+. 56r6 56r32 65r26 66r19 182r24 200r26 201r19 15|242r14 372r23
+53M9*UInt8<12|63M9> 14|71r32 76r28 81r47 148r19 193r69 212r57 15|69r57 287r74
+97M9*UInt32<12|74M9>
+162A9*UInt8_Array(53M9)<integer> 14|193r17 213r57 216r72 15|85r57 211r14
+X 7 hal-bitmap.ads
+34K13*Bitmap 432e15 14|55w10 55r36 182r28 15|242r18 372r27
+55n7*M_1{43E9} 15|242r25 307r37 363r14
+100h9*Bitmap_Buffer
+102P9*Any_Bitmap_Buffer(100R9) 14|182r35 15|372r34
+X 8 hal-framebuffer.ads
+34K13*Framebuffer 127e20 14|54w10 54r36 66r23 201r23
+36E12*FB_Color_Mode{7|43E9} 14|116r16 154r25 176r34 15|241r37 300r16 356r55
+39E9*Display_Orientation 40e36 14|122r23 15|249r51
+42E9*Wait_Mode 42e42 14|127r16 15|260r44
+44h9*Frame_Buffer_Display 14|66r35 201r35
+X 9 hal-gpio.ads
+32K13*GPIO 95e13 14|52w10 52r36
+47h9*GPIO_Point
+49P9*Any_GPIO_Point(47R9) 14|63r26 64r17 198r26 199r17
+88x14*Set 15|45R21 58R19 89R15
+90x14*Clear 15|43R21 57R19 73R15 180R15
+X 10 hal-spi.ads
+32K13*SPI 86e12 14|53w10 53r36
+34E9*SPI_Status 38e12 15|70r16 86r16
+35n7*Ok{34E9} 15|76r20 92r20
+44A9*SPI_Data_8b(6|53M9)<integer> 15|74r27 90r27
+48h9*SPI_Port
+50P9*Any_SPI_Port(48R9) 14|62r26 197r26
+54x14*Transmit 15|74R17 90R17
+X 11 hal-time.ads
+32K13*Time 46e13 14|56w10 56r36 65r30 200r30
+34h9*Delays
+36P9*Any_Delays(34R9) 14|65r35 200r35
+38x14*Delay_Microseconds 15|61R20
+X 12 interfac.ads
+63M9*Unsigned_8
+74M9*Unsigned_32
+X 13 memory_mapped_bitmap.ads
+37K9*Memory_Mapped_Bitmap 154e25 14|57w6 57r32
+41R9*Memory_Mapped_Bitmap_Buffer<17|42R9> 73e14 14|191r38
+42m7*Addr{18|90M9} 15|312m25
+44i7*Actual_Width{natural} 15|310m25
+45i7*Actual_Height{natural} 15|311m25
+49e7*Actual_Color_Mode{7|43E9} 15|313m25
+78V13*Width{natural}<7|104p13>
+82V13*Height{natural}<7|108p13>
+86V13*Swapped{boolean}<7|112p13>
+90V13*Color_Mode{7|43E9}<7|129p13>
+94V13*Mapped_In_RAM{boolean}<7|134p13>
+98V13*Memory_Address{18|90M9}<7|137p13>
+102U14*Set_Source<17|48p14>
+106U14*Set_Source<7|146p14>
+110V13*Source{7|86R9}<17|52p13>
+114V13*Source{6|97M9}<7|155p13>
+118U14*Set_Pixel<7|160p14>
+123U14*Set_Pixel<17|57p14>
+129U14*Set_Pixel<17|63p14>
+135U14*Set_Pixel_Blend<7|177p14>
+140V13*Pixel{7|86R9}<17|69p13>
+146V13*Pixel{6|97M9}<7|187p13>
+152V13*Buffer_Size{natural}<7|289p13>
+X 14 pcd8544.ads
+60K9*PCD8544 191E9 217l5 217e12 15|32b14 398l5 398t12
+61R9*PCD8544_Device<8|44R9> 62d7 63d7 64d7 64d12 65d7 68r42 90p14 91r23 93p14
+. 94r27 97p14 98r23 101p14 102r23 105p14 106r25 111P13 111r32 114P13 115r16
+. 120P14 121r30 125P14 126r23 130P13 131r16 134P13 135r16 138P13 139r16 142P13
+. 143r16 146P14 147r19 151P14 152r32 159P13 160r17 164P14 165r28 170P14 171r23
+. 174P13 175r17 179P13 180r24 185P13 186r19 196c9 208e17 210p14 210r34 211p14
+. 211r35 212p14 212r31 213p14 213r31 214p14 214r43 215p14 215r40 216p14 216r46
+. 15|38r34 54r35 69r31 85r31 101r43 113r40 126r25 138r21 150r21 162r23 176r40
+. 210r21 226r44 233r43 241r14 249r21 260r21 266r38 273r39 280r40 287r48 298r23
+. 326r15 338r26 356r14 371r21 385r54 395r17
+62p7*Port{10|50P9} 197r7 15|74r12 90r12
+63p7*DC{9|49P9} 198r7 15|73r12 89r12 180r12
+64p7*RST{9|49P9} 199r7 15|56r15 57r15 58r15
+64p12*CS{9|49P9} 199r12 15|41r15 43r18 45r18
+65p7*Time{11|36P9} 200r7 15|61r15
+68P9*Any_PCD8544_Device(61R9)
+71M12*PCD8544_Contrast{6|53M9} 72r40 95r23 15|127r21
+72m4*PCD8544_Default_Contrast{71M12} 15|190r26
+76M12*PCD8544_Bias{6|53M9} 77r36 99r19 15|139r17
+77m4*PCD8544_Default_Bias{76M12} 15|191r22
+81M12*PCD8544_Temperature_Coefficient{6|53M9} 83r17 103r19 15|151r17
+82m4*PCD8544_Default_Temperature_Coefficient{81M12} 15|192r29
+85X4*SPI_Error 15|77r16 93r16
+87N4*Device_Width 193r37 15|267r7
+88N4*Device_Height 193r52 15|274r7
+90U14*Initialize 91=9 15|176b14 203l8 203t18
+91r9 This{61R9} 15|176b26 180r7 181m7 181r7 183m7 184m7 187m7 188r7 188r55
+. 190m7 190r7 191m7 191r7 192m7 192r7 194m7 195m7 196r7 196r55 198m7 198r7
+. 202m7
+93U14*Set_Contrast 94=9 95>9 15|125b14 131l8 131t20 190s12
+94r9 This{61R9} 15|126b7 129m7 129r7 130r7
+95m9 Contrast{71M12} 15|127b7 130r45
+97U14*Set_Bias 98=9 99>9 15|137b14 143l8 143t16 191s12
+98r9 This{61R9} 15|138b7 141m7 141r7 142r7
+99m9 Bias{76M12} 15|139b7 142r46
+101U14*Set_Temperature 102=9 103>9 15|149b14 155l8 155t23 192s12
+102r9 This{61R9} 15|150b7 153m7 153r7 154r7
+103m9 TC{81M12} 15|151b7 154r44
+105U14*Set_Display_Mode 106=9 107>9 108>9 15|161b14 170l8 170t24 198s12
+106r9 This{61R9} 15|162b7 166m7 166r7 167m7 168m7 169r7 169r54
+107b9 Enable{boolean} 15|163b7 167r25 199r11
+108b9 Invert{boolean} 15|164b7 168r25 200r11
+111V13*Max_Layers{positive}<8|48p13> 111>25 15|233b24
+111r25 This{61R9}
+114V13*Supported{boolean}<8|52p13> 115>9 116>9 15|240b24
+115r9 This{61R9}
+116e9 Mode{8|36E12} 15|242r7
+120U14*Set_Orientation<8|57p14> 121=9 122>9 15|248b25 253l8 253t23
+121r9 This{61R9} 15|249b7
+122e9 Orientation{8|39E9} 15|249b37
+125U14*Set_Mode<8|61p14> 126=9 127>9
+126r9 This{61R9}
+127e9 Mode{8|42E9}
+130V13*Initialized{boolean}<8|65p13> 131>9 15|226b24
+131r9 This{61R9} 15|227r7
+134V13*Width{positive}<8|68p13> 135>9 15|266b24 310s51
+135r9 This{61R9}
+138V13*Height{positive}<8|71p13> 139>9 15|273b24 311s51
+139r9 This{61R9}
+142V13*Swapped{boolean}<8|74p13> 143>9 15|280b24
+143r9 This{61R9}
+146U14*Set_Background<8|80p14> 147>9 148>9 148>12 148>15 15|287b25 291l8
+. 291t22
+147r9 This{61R9} 15|287b41
+148m9 R{6|53M9} 15|287b64
+148m12 G{6|53M9} 15|287b67
+148m15 B{6|53M9} 15|287b70
+151U14*Initialize_Layer<8|83p14> 152=9 153>9 154>9 155>9 155>12 156>9 156>16
+. 15|297b25 319l8 319t24
+152r9 This{61R9} 15|298b7 310m7 310r46 311m7 311r46 312m7 312m46 312r46 313m7
+. 315r16 316m10 318m7
+153i9 Layer{positive} 15|299b7 307r10
+154e9 Mode{8|36E12} 15|300b7 307r29 313r46
+155i9 X{natural} 15|301b7 305r28
+155i12 Y{natural} 15|301b10 305r31
+156i9 Width{positive} 15|302b7 305r34
+156i16 Height{positive} 15|303b7 305r41
+159V13*Initialized{boolean}<8|96p13> 160>9 161>9 15|325b24 331l8 331t19
+160r9 This{61R9} 15|326b7 330r33
+161i9 Layer{positive} 15|327b7 330r14
+164U14*Update_Layer<8|100p14> 165=9 166>9 167>9 15|337b25 349l8 349t20 387s12
+165r9 This{61R9} 15|338b7 348m7 348r7 348m30 348r30
+166i9 Layer{positive} 15|339b7 344r10
+167b9 Copy_Back{boolean} 15|340b7 342r28
+170U14*Update_Layers<8|106p14> 171=9 15|385b25 388l8 388t21
+171r9 This{61R9} 15|385b40 387m7 387r7
+174V13*Color_Mode{8|36E12}<8|111p13> 175>9 176>9 15|355b24 364l8 364t18
+175r9 This{61R9} 15|356b7 358r28
+176i9 Layer{positive} 15|356b30 360r10
+179V13*Hidden_Buffer{7|102P9}<8|116p13> 180=9 181>9 15|370b24 379l8 379t21
+180r9 This{61R9} 15|371b7 378m14 378r14
+181i9 Layer{positive} 15|371b37 375r10
+185V13*Pixel_Size{positive}<8|122p13> 186>9 187>9 15|394b24
+186r9 Display{61R9}
+187i9 Layer{positive}
+191R9 PCD8544_Bitmap_Buffer<13|41R9> 13|78P13 82P13 86P13 90P13 94P13 98P13
+. 102P14 106P14 110P13 114P13 118P14 123P14 129P14 135P14 140P13 146P13 152P13
+. 14|194e18 203r39 17|75P14 82P14 87P14 93P14 105P14 115P14 125P14 131P14
+. 137P14 144P14 151P14 157P14 163P14 169P14 176P14
+193a10*Data{6|162A9} 15|312m64 315r34 316m28 348r48
+203r10 Memory_Layer{191R9} 15|310m12 311m12 312m12 312m51 313m12 315r21 316m15
+. 348m35 378m19
+204b10 Device_Initialized{boolean} 15|202m12 227r12
+205b10 Layer_Initialized{boolean} 15|318m12 330r38
+206r10 FR{16|50R9} 15|103r15 104m15 105r63 115r15 116m15 117r63 183m12 187m12
+. 188r60 194m12 195m12 196r60
+207r10 DR{16|65R9} 15|167m12 168m12 169r59 184m12
+210U14 Chip_Select 210>27 210>50 15|38b14 48l8 48t19 72s12 75s12 88s12 91s12
+. 214s12 219s12
+210r27 This{61R9} 15|38b27 41r10 43r13 45r13
+210b50 Enabled{boolean} 15|38b50 42r13
+211U14 Reset 211=21 15|54b14 63l8 63t13 181s12
+211r21 This{61R9} 15|54b21 56r10 57r10 58r10 61r10
+212U14 Transmit 212>24 212>47 15|69b14 79l8 79t16 105s15 117s15 130s12 142s12
+. 154s12 169s12 188s12 196s12 216s12 217s12
+212r24 This{61R9} 15|69b24 72r7 73r7 74r7 75r7
+212m47 Data{6|53M9} 15|69b47 74r45
+213U14 Transmit 213>24 213>47 15|85b14 95l8 95t16 218s12
+213r24 This{61R9} 15|85b24 88r7 89r7 90r7 91r7
+213a47 Data{6|162A9} 15|85b47 90r40
+214U14 Extended_Mode 214=29 15|101b14 107l8 107t21 129s12 141s12 153s12
+214r29 This{61R9} 15|101b29 103r10 104m10 105r10 105r58
+215U14 Basic_Mode 215=26 15|113b14 119l8 119t18 166s12 215s12
+215r26 This{61R9} 15|113b26 115r10 116m10 117r10 117r58
+216U14 Write_Raw_Pixels 216=32 216>62 15|209b14 220l8 220t24 348s12
+216r32 This{61R9} 15|210b7 214r7 215m7 215r7 216r7 217r7 218r7 219r7
+216a62 Data{6|162A9} 15|211b7 218r22
+X 15 pcd8544.adb
+70e7 Status{10|34E9} 74m52 76r10 77r73
+86e7 Status{10|34E9} 90m47 92r10 93r70
+177r7 Default_FR{16|50R9} 183r18
+178r7 Default_DR{16|65R9} 184r18
+259U25 Set_Mode
+260r7 This{14|61R9}
+260e37 Mode{8|42E9}
+315i11 I{integer} 316r34
+X 16 pcd8544_reg.ads
+35K9*PCD8544_Reg 14|58w6 58r32 16|85e16
+38N4*PCD8544_CMD_FUNCTION 15|105r25 117r25 188r22 196r22
+39N4*PCD8544_CMD_DISPLAY 15|169r22
+40N4*PCD8544_CMD_SET_X 15|216r22
+41N4*PCD8544_CMD_SET_Y 15|217r22
+44N4*PCD8544_CMD_SET_TC 15|154r22
+45N4*PCD8544_CMD_SET_BIAS 15|142r22
+46N4*PCD8544_CMD_SET_VOP 15|130r22
+48n46*Vertical{48E9} 15|195r32
+50R9*PCD8544_Function_Register 14|206r31 15|177r20 16|55e14
+51b7*Power_Down{boolean} 15|187m15
+52e7*Address_Mode{48E9} 15|195m15
+53b7*Extended_Mode{boolean} 15|103r18 104m18 115r18 116m18 194m15
+65R9*PCD8544_Display_Register 14|207r31 15|178r20 16|70e14
+66b7*Enable{boolean} 15|167m15
+67b7*Invert{boolean} 15|168m15
+80V13*Convert[5|20]{6|53M9} 15|105s49 117s49 188s46 196s46
+82V13*Convert[5|20]{6|53M9} 15|169s45
+X 17 soft_drawing_bitmap.ads
+75U14*Draw_Line<7|193p14>
+82U14*Fill<7|202p14>
+87U14*Fill_Rect<7|206p14>
+93U14*Copy_Rect<7|211p14>
+105U14*Copy_Rect<7|222p14>
+115U14*Copy_Rect_Blend<7|231p14>
+125U14*Draw_Vertical_Line<7|240p14>
+131U14*Draw_Horizontal_Line<7|245p14>
+137U14*Draw_Rect<7|250p14>
+144U14*Draw_Rounded_Rect<7|256p14>
+151U14*Fill_Rounded_Rect<7|262p14>
+157U14*Draw_Circle<7|267p14>
+163U14*Fill_Circle<7|272p14>
+169U14*Cubic_Bezier<7|277p14>
+176U14*Bezier<7|283p14>
+X 18 system.ads
+90M9*Address
+

@@ -1,0 +1,29 @@
+![](images/meme.png)
+
+# Nichtlineare Filter
+
+## Rangordnungsoperatoren
+
+### Median Filter
+
+### Min/Max Filter
+
+## Morphologische Operationen
+
+### Dilation $\oplus$
+
+$$
+I \oplus h = \bigl\{\normalsize(m,n)\vert (\hat{h})_{m,n} \cap I\neq\{\}\bigr\}\normalsize
+$$
+
+### Erosion $-$
+
+$$
+I - h = \bigl\{\normalsize(m,n)\vert (\hat{h})_{m,n} \subset I\bigr\}\normalsize
+$$
+
+### Öffnung $\bullet$
+
+### Schliessung $\circ$
+
+{{< include fourier.qmd >}}

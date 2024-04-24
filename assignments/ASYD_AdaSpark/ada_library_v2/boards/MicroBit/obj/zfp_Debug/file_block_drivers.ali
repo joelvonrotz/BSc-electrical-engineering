@@ -1,0 +1,115 @@
+V "GNAT Lib v2020"
+A -O0
+A -gnatA
+A --RTS=C:\gnat\2020-arm-elf\arm-eabi\lib\gnat\zfp-cortex-m4f\
+A -mlittle-endian
+A -mthumb
+A -mfloat-abi=hard
+A -mcpu=cortex-m4
+A -mfpu=fpv4-sp-d16
+A -gnata
+A -fcallgraph-info=su
+A -fcallgraph-info=su
+A -g
+A -gnatwa
+A -gnatw_A
+A -gnatQ
+A -gnatw.X
+A -ffunction-sections
+A -fdata-sections
+A -march=armv7e-m+fp
+P ZX
+
+RN
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_PRAGMAS
+
+U file_block_drivers%b	file_block_drivers.adb	6d3fc8b2 NE OO PK
+Z system%s		system.ads		system.ali
+Z system.assertions%s	s-assert.adb		s-assert.ali
+
+U file_block_drivers%s	file_block_drivers.ads	58d34eac EE NE OO PK
+Z ada.tags%s		a-tags.adb		a-tags.ali
+W file_io%s		file_io.adb		file_io.ali
+W hal%s			hal.ads			hal.ali
+W hal.block_drivers%s	hal-block_drivers.ads	hal-block_drivers.ali
+Z system%s		system.ads		system.ali
+
+D ada.ads		20200819171400 76789da1 ada%s
+D a-tags.ads		20200819171400 95e09aae ada.tags%s
+D adl_config.ads	20210108111948 5d2c18e5 adl_config%s
+D file_block_drivers.ads  20210108111948 02de9814 file_block_drivers%s
+D file_block_drivers.adb  20210108111948 6fe150a6 file_block_drivers%b
+D file_io.ads		20210108111948 4b2019a9 file_io%s
+D hal.ads		20210108111948 2b42c80e hal%s
+D hal-block_drivers.ads	20210108111948 3a6f071f hal.block_drivers%s
+D hal-filesystem.ads	20210108111948 6998b52b hal.filesystem%s
+D interfac.ads		20200819171400 5ab55268 interfaces%s
+D system.ads		20200819171400 e69b74bd system%s
+D s-assert.ads		20200819171400 cd8d2c94 system.assertions%s
+D s-stoele.ads		20200819171400 2dc34a04 system.storage_elements%s
+G a e
+G c Z s b [open file_block_drivers 43 13 none]
+G c Z s b [close file_block_drivers 48 14 none]
+G c Z s b [read file_block_drivers 51 13 none]
+G c Z s b [write file_block_drivers 58 13 none]
+G c Z s s [file_block_driverIP file_block_drivers 65 9 none]
+G r c none [open file_block_drivers 43 13 none] [open file_io 91 13 none]
+G r c none [close file_block_drivers 48 14 none] [close file_io 97 14 none]
+G r c none [read file_block_drivers 51 13 none] [seek file_io 121 13 none]
+G r c none [read file_block_drivers 51 13 none] [read file_io 108 13 none]
+G r c none [write file_block_drivers 58 13 none] [seek file_io 121 13 none]
+G r c none [write file_block_drivers 58 13 none] [write file_io 113 13 none]
+G r s file_descriptor [file_block_driverIP file_block_drivers 65 9 none] [file_descriptorIP file_io 195 9 none]
+X 4 file_block_drivers.ads
+38K9*File_Block_Drivers 65E9 70l5 70e23 5|32b14 110l5 110t23
+40R9*File_Block_Driver<8|34R9> 43p13 43r33 48p14 48r35 51P13 52r29 58P13
+. 59r29 65c9 69e14 5|38r33 52r35 64r29 90r29
+43V13*Open{6|44E9} 43=19 44>19 45>19 5|38b13 46l8 46t12
+43r19 This{40R9} 5|38b19 44m7 45m20 45r20
+44a19 Path{string} 5|39b19 45r29
+45e19 Mode{6|71E9} 5|40b19 44r20 45r35
+48U14*Close 48=21 5|52b14 55l8 55t13
+48r21 This{40R9} 5|52b21 54m14 54r14
+51V13*Read{boolean}<8|42p13> 52=7 53>7 54<7 5|63b13 82l8 82t12
+52r7 This{40R9} 5|64b7 72r10 76m16 76r16 81r20
+53m7 Block_Number{7|160M9} 5|65b7 69r40
+54a7 Data{8|37A12} 5|66b7 80r17 81m29 81r29
+58V13*Write{boolean}<8|49p13> 59=7 60>7 61>7 5|89b13 108l8 108t13
+59r7 This{40R9} 5|90b7 98r10 102m16 102r16 107r21
+60m7 Block_Number{7|160M9} 5|91b7 95r40
+61a7 Data{8|37A12} 5|92b7 106r17 107r30
+67r7 FD{6|89R9} 5|45m25 54m19 76m21 81r25 102m21 107r26
+68e7 Mode{6|71E9} 5|44m12 72r15 98r15
+X 5 file_block_drivers.adb
+69m7 Amount{6|83M9} 76m37 76r37 80m7 81r43 81r53
+95m7 Amount{6|83M9} 102m37 102r37 106m7 107r44 107r54
+X 6 file_io.ads
+42K9*File_IO 4|36w6 36r29 6|250e12
+44E9*Status_Code 4|46r26 5|41r26 6|69e31
+45n7*OK{44E9} 5|76r48 102r48
+71E9*File_Mode 4|45r26 68r14 5|40r26 6|71e57
+71n23*Read_Only{71E9} 5|98r22
+71n34*Write_Only{71E9} 5|72r22
+75n7*From_Start{72E9} 5|76r25 102r25
+83M9*File_Size<7|160M9> 5|69r16 69r29 95r16 95r29
+89R9*File_Descriptor 4|67r14 6|197e14
+91V13*Open{44E9} 5|45s14
+97U14*Close 5|54s7
+108V13*Read{83M9} 5|81s14
+113V13*Write{83M9} 5|107s14
+121V13*Seek{44E9} 5|76s10 102s10
+X 7 hal.ads
+34K9*HAL 4|34r6 34r29 35w6 35r29 7|166e8
+53M9*UInt8<10|63M9>
+160M9*UInt64<10|77M9> 4|53r22 60r22 5|65r22 91r22
+162A9*UInt8_Array(53M9)<integer>
+X 8 hal-block_drivers.ads
+32K13*Block_Drivers 4|34w10 34r33 8|56e22
+34h9*Block_Driver 4|41r18 66r18
+37A12*Block{7|162A9}<integer> 4|54r26 61r22 5|66r26 92r22
+X 10 interfac.ads
+63M9*Unsigned_8
+77M9*Unsigned_64
+

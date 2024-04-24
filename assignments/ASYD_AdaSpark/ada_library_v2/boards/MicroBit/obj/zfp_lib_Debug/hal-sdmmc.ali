@@ -1,0 +1,356 @@
+V "GNAT Lib v2020"
+A -O0
+A -gnatA
+A --RTS=C:\gnat\2020-arm-elf\arm-eabi\lib\gnat\zfp-cortex-m4f\
+A -mlittle-endian
+A -mthumb
+A -mfloat-abi=hard
+A -mcpu=cortex-m4
+A -mfpu=fpv4-sp-d16
+A -gnata
+A -fcallgraph-info=su
+A -fcallgraph-info=su
+A -g
+A -gnatwa
+A -gnatw_A
+A -gnatQ
+A -gnatw.X
+A -ffunction-sections
+A -fdata-sections
+A -march=armv7e-m+fp
+P ZX
+
+RN
+RV NO_DISPATCH
+RV NO_DISPATCHING_CALLS
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLICIT_LOOPS
+RV NO_ELABORATION_CODE
+
+U hal.sdmmc%b		hal-sdmmc.adb		51c05ede NE OO PK IU
+Z ada.tags%s		a-tags.adb		a-tags.ali
+W hal%s			hal.ads			hal.ali
+
+U hal.sdmmc%s		hal-sdmmc.ads		59d1009f EE OO PK IU
+Z ada.tags%s		a-tags.adb		a-tags.ali
+W hal%s			hal.ads			hal.ali
+Z system%s		system.ads		system.ali
+
+D ada.ads		20200819171400 76789da1 ada%s
+D a-tags.ads		20200819171400 95e09aae ada.tags%s
+D hal.ads		20210108111948 2b42c80e hal%s
+D hal-sdmmc.ads		20210108111948 7293c891 hal.sdmmc%s
+D hal-sdmmc.adb		20210108111948 2353964f hal.sdmmc%b
+D interfac.ads		20200819171400 5ab55268 interfaces%s
+D system.ads		20200819171400 e69b74bd system%s
+D s-stoele.ads		20200819171400 2dc34a04 system.storage_elements%s
+G a e
+G c Z s s [cmd_desc_typeIP hal__sdmmc 301 9 none]
+G c Z s s [Tcmd_desc_arrayBIP hal__sdmmc 307 4 none]
+G c Z s s [Tacmd_desc_arrayBIP hal__sdmmc 308 4 none]
+G c Z s b [send_cmd hal__sdmmc 432 14 none]
+G c Z s b [send_acmd hal__sdmmc 439 14 none]
+G c Z s s [card_specific_data_registerIP hal__sdmmc 91 9 none]
+G c Z s s [card_revisionIP hal__sdmmc 131 9 none]
+G c Z s s [manufacturing_date_typeIP hal__sdmmc 151 9 none]
+G c Z s s [card_identification_data_registerIP hal__sdmmc 156 9 none]
+G c Z s s [sdcard_configuration_registerIP hal__sdmmc 168 9 none]
+G c Z s s [card_informationIP hal__sdmmc 182 9 none]
+X 3 hal.ads
+34K9*HAL 166e8 4|32r9 447r5 5|32r14 70r5
+43M9*UInt4 4|132r15 133r15
+47M9*UInt6 4|192r27
+53M9*UInt8<6|63M9> 4|92r42 93r42 94r42 95r42 96r42 97r42 99r42 104r42 106r42
+. 107r42 108r42 109r42 110r42 111r42 112r42 113r42 115r42 116r42 117r42 119r42
+. 125r42 126r42 127r42 128r42 157r31 162r31 164r31 165r31 169r31 170r31 171r31
+. 172r31 173r31 175r31 177r31 178r31
+66M9*UInt16<6|66M9> 4|98r42 187r25 442r16 5|54r16
+97M9*UInt32<6|74M9> 4|105r42 161r31 179r31 186r25 406r16 413r16 420r18 427r28
+. 435r16 443r16 5|41r16 55r16 58r24 59r29
+160M9*UInt64<6|77M9> 4|185r25
+164A9*UInt32_Array(97M9)<integer> 4|414r20
+X 4 hal-sdmmc.ads
+32K13*SDMMC 3|34k9 4|447l9 447e14 5|32b18 70l9 70t14
+34E9*SD_Error 64e27 390r20 407r20 415r20 436r20 444r20 5|42r20 56r20
+35n7*OK{34E9} 5|63r20
+36n7*Error{34E9}
+37n7*Timeout_Error{34E9}
+38n7*Command_Timeout_Error{34E9}
+39n7*Unsupported_Card{34E9}
+40n7*Rx_Overrun{34E9}
+41n7*Tx_Underrun{34E9}
+42n7*Request_Not_Applicable{34E9}
+43n7*CRC_Check_Fail{34E9}
+44n7*Illegal_Cmd{34E9}
+45n7*Address_Out_Of_Range{34E9}
+46n7*Address_Missaligned{34E9}
+47n7*Block_Length_Error{34E9}
+48n7*Erase_Seq_Error{34E9}
+49n7*Bad_Erase_Parameter{34E9}
+50n7*Write_Protection_Violation{34E9}
+51n7*Lock_Unlock_Failed{34E9}
+52n7*Card_ECC_Failed{34E9}
+53n7*Card_ECC_Disabled{34E9}
+54n7*CC_Error{34E9}
+55n7*General_Unknown_Error{34E9}
+56n7*Stream_Read_Underrun{34E9}
+57n7*Stream_Write_Underrun{34E9}
+58n7*CID_CSD_Overwrite{34E9}
+59n7*WP_Erase_Skip{34E9}
+60n7*Erase_Reset{34E9}
+61n7*AKE_SEQ_Error{34E9}
+62n7*Invalid_Voltage_Range{34E9}
+63n7*Startbit_Not_Detected{34E9}
+64n7*DMA_Alignment_Error{34E9}
+67E9*Wide_Bus_Mode 75e6 76r8 400r14
+70n7*Wide_Bus_1B{67E9} 77r7
+72n7*Wide_Bus_4B{67E9} 78r7
+74n7*Wide_Bus_8B{67E9} 79r7
+81E9*Supported_SD_Memory_Cards 89e30 188r25
+82n7*STD_Capacity_SD_Card_V1_1{81E9} 189r27
+83n7*STD_Capacity_SD_Card_v2_0{81E9}
+84n7*High_Capacity_SD_Card{81E9}
+85n7*Multimedia_Card{81E9}
+86n7*Secure_Digital_IO_Card{81E9}
+87n7*High_Speed_Multimedia_Card{81E9}
+88n7*Secure_Digital_IO_Combo_Card{81E9}
+89n7*High_Capacity_MMC_Card{81E9}
+91R9*Card_Specific_Data_Register 129e14 183r25
+92m7*CSD_Structure{3|53M9}
+93m7*System_Specification_Version{3|53M9}
+94m7*Reserved{3|53M9}
+95m7*Data_Read_Access_Time_1{3|53M9}
+96m7*Data_Read_Access_Time_2{3|53M9}
+97m7*Max_Data_Transfer_Rate{3|53M9}
+98m7*Card_Command_Class{3|66M9}
+99m7*Max_Read_Data_Block_Length{3|53M9}
+100b7*Partial_Block_For_Read_Allowed{boolean}
+101b7*Write_Block_Missalignment{boolean}
+102b7*Read_Block_Missalignment{boolean}
+103b7*DSR_Implemented{boolean}
+104m7*Reserved_2{3|53M9}
+105m7*Device_Size{3|97M9}
+106m7*Max_Read_Current_At_VDD_Min{3|53M9}
+107m7*Max_Read_Current_At_VDD_Max{3|53M9}
+108m7*Max_Write_Current_At_VDD_Min{3|53M9}
+109m7*Max_Write_Current_At_VDD_Max{3|53M9}
+110m7*Device_Size_Multiplier{3|53M9}
+111m7*Erase_Group_Size{3|53M9}
+112m7*Erase_Group_Size_Multiplier{3|53M9}
+113m7*Write_Protect_Group_Size{3|53M9}
+114b7*Write_Protect_Group_Enable{boolean}
+115m7*Manufacturer_Default_ECC{3|53M9}
+116m7*Write_Speed_Factor{3|53M9}
+117m7*Max_Write_Data_Block_Length{3|53M9}
+118b7*Partial_Blocks_For_Write_Allowed{boolean}
+119m7*Reserved_3{3|53M9}
+120b7*Content_Protection_Application{boolean}
+121b7*File_Format_Group{boolean}
+122b7*Copy_Flag{boolean}
+123b7*Permanent_Write_Protection{boolean}
+124b7*Temporary_Write_Protection{boolean}
+125m7*File_Format{3|53M9}
+126m7*ECC_Code{3|53M9}
+127m7*CSD_CRC{3|53M9}
+128m7*Reserved_4{3|53M9}
+131R9*Card_Revision 134e15 160r31
+132m7*Major{3|43M9}
+133m7*Minor{3|43M9}
+136I9*Manufacturing_Year<short_integer> 152r14
+137E9*Manufacturing_Month 149e17 153r15
+138n7*January{137E9}
+139n7*February{137E9}
+140n7*March{137E9}
+141n7*April{137E9}
+142n7*May{137E9}
+143n7*June{137E9}
+144n7*July{137E9}
+145n7*August{137E9}
+146n7*September{137E9}
+147n7*October{137E9}
+148n7*November{137E9}
+149n7*December{137E9}
+151R9*Manufacturing_Date_Type 154e14 163r31
+152i7*Year{136I9}
+153e7*Month{137E9}
+156R9*Card_Identification_Data_Register 166e14 184r25
+157m7*Manufacturer_ID{3|53M9}
+158a7*OEM_Application_ID{string}
+159a7*Product_Name{string}
+160r7*Product_Revision{131R9}
+161m7*Product_Serial_Number{3|97M9}
+162m7*Reserved_1{3|53M9}
+163r7*Manufacturing_Date{151R9}
+164m7*CID_CRC{3|53M9}
+165m7*Reserved_2{3|53M9}
+168R9*SDCard_Configuration_Register 180e14
+169m7*SCR_Structure{3|53M9}
+170m7*SD_Spec{3|53M9}
+171m7*Data_Stat_After_Erase{3|53M9}
+172m7*SD_Security{3|53M9}
+173m7*SD_Bus_Widths{3|53M9}
+174b7*SD_Spec3{boolean}
+175m7*Ex_Security{3|53M9}
+176b7*SD_Spec4{boolean}
+177m7*Reserved_1{3|53M9}
+178m7*CMD_Support{3|53M9}
+179m7*Reserved_2{3|97M9}
+182R9*Card_Information 190e14
+183r7*SD_CSD{91R9}
+184r7*SD_CID{156R9}
+185m7*Card_Capacity{3|160M9}
+186m7*Card_Block_Size{3|97M9}
+187m7*RCA{3|66M9}
+188e7*Card_Type{81E9}
+192M9*SD_Command<3|47M9> 195r36 199r36 203r36 206r36 209r36 214r36 217r36
+. 221r36 222r36 225r36 228r36 231r36 233r36 234r36 235r36 236r36 237r36 238r36
+. 239r36 240r36 241r36 242r36 243r36 244r36 245r36 246r36 247r36 248r36 249r36
+. 250r36 251r36 252r36 253r36 254r36 255r36 256r36 257r36 258r36 259r36 260r36
+. 264r35 302r13 307r34 434r16 5|40r16
+195m4*Go_Idle_State{192M9} 311r7 311r37
+199m4*Send_Op_Cond{192M9} 314r7 314r37
+203m4*All_Send_CID{192M9} 317r7 317r37
+206m4*Send_Relative_Addr{192M9} 320r7 320r37
+209m4*Set_DSR{192M9}
+214m4*SDMMC_Send_Op_Cond{192M9}
+217m4*Switch_Func{192M9} 323r7 323r37
+221m4*Select_Card{192M9} 326r7 326r37
+222m4*Deselect_Card{192M9}
+225m4*Send_If_Cond{192M9} 329r7 329r37
+228m4*Send_CSD{192M9} 332r7 332r37
+231m4*Send_CID{192M9} 335r7 335r37
+233m4*Read_Dat_Until_Stop{192M9}
+234m4*Stop_Transmission{192M9} 338r7 338r37
+235m4*Send_Status{192M9} 347r7 347r37
+236m4*HS_Bustest_Read{192M9}
+237m4*Go_Inactive_State{192M9}
+238m4*Set_Blocklen{192M9} 350r7 350r37
+239m4*Read_Single_Block{192M9} 341r7 341r37
+240m4*Read_Multi_Block{192M9} 344r7 344r37
+241m4*HS_Bustest_Write{192M9}
+242m4*Write_Dat_Until_Stop{192M9}
+243m4*Set_Block_Count{192M9}
+244m4*Write_Single_Block{192M9} 356r7 356r37
+245m4*Write_Multi_Block{192M9} 359r7 359r37
+246m4*Prog_CID{192M9}
+247m4*Prog_CSD{192M9}
+248m4*Set_Write_Prot{192M9}
+249m4*Clr_Write_Prot{192M9}
+250m4*Send_Write_Prot{192M9}
+251m4*SD_Erase_Grp_Start{192M9}
+252m4*SD_Erase_Grp_End{192M9}
+253m4*Erase_Grp_Start{192M9}
+254m4*Erase_Grp_End{192M9}
+255m4*Erase{192M9}
+256m4*Fast_IO{192M9}
+257m4*Go_IRQ_State{192M9}
+258m4*Lock_Unlock{192M9}
+259m4*App_Cmd{192M9} 353r7 353r37 5|61r33
+260m4*Gen_Cmd{192M9}
+264M12*SD_Specific_Command{192M9} 266r50 267r50 268r50 269r50 270r50 271r50
+. 272r50 273r50 274r50 275r50 276r50 277r50 278r50 279r50 280r50 281r50 308r35
+. 441r16 5|53r16
+266m4*SD_App_Set_Bus_Width{264M12} 367r7 367r39
+267m4*SD_App_Status{264M12}
+268m4*SD_App_Secure_Read_Multi_Block{264M12}
+269m4*SD_App_Send_Num_Write_Blocks{264M12}
+270m4*SD_App_Set_Write_Block_Erase_Count{264M12}
+271m4*SD_App_Secure_Write_Multi_Block{264M12}
+272m4*SD_App_Secure_Erase{264M12}
+273m4*SD_App_Send_Op_Cond{264M12} 370r7 370r39
+274m4*SD_App_Get_MKB{264M12}
+275m4*SD_App_Get_MID{264M12}
+276m4*SD_App_Set_CER_RN1{264M12}
+277m4*SD_App_Get_CER_RN2{264M12}
+278m4*SD_App_Set_CER_RES2{264M12}
+279m4*SD_App_Get_CER_RES1{264M12}
+280m4*SD_App_Change_Secure_Area{264M12}
+281m4*SD_App_Send_SCR{264M12} 373r7 373r39
+283E9*Rsp_Kind 292e7 303r13
+284n7*Rsp_Invalid{283E9} 363r37 377r39
+287n7*Rsp_No{283E9} 312r37
+290n7*Rsp_R1{283E9} 324r37 339r37 342r37 345r37 348r37 351r37 354r37 357r37
+. 360r37 368r39 374r39
+290n15*Rsp_R1B{283E9} 327r37
+290n24*Rsp_R2{283E9} 318r37 333r37 336r37
+290n32*Rsp_R3{283E9} 315r37 321r37 371r39
+290n40*Rsp_R6{283E9}
+290n48*Rsp_R7{283E9} 330r37
+295E9*Tfr_Kind 298e39 304r13
+296n7*Tfr_Invalid{295E9} 364r37 378r39
+296n20*Tfr_No{295E9} 313r37 316r37 319r37 322r37 328r37 331r37 334r37 337r37
+. 340r37 349r37 352r37 355r37 369r39 372r39
+297n7*Tfr_Read{295E9} 325r37 343r37 375r39
+297n17*Tfr_Write{295E9} 358r37
+298n7*Tfr_Read_Multi{295E9} 346r37
+298n23*Tfr_Write_Multi{295E9} 361r37
+301R9*Cmd_Desc_Type 305e14 307r49 308r59 405r16 412r16
+302m7*Cmd{192M9} 311m30 314m30 317m30 320m30 323m30 326m30 329m30 332m30
+. 335m30 338m30 341m30 344m30 347m30 350m30 353m30 356m30 359m30 362m30 367m32
+. 370m32 373m32 376m32
+303e7*Rsp{283E9} 312m30 315m30 318m30 321m30 324m30 327m30 330m30 333m30
+. 336m30 339m30 342m30 345m30 348m30 351m30 354m30 357m30 360m30 363m30 368m32
+. 371m32 374m32 377m32
+304e7*Tfr{295E9} 313m30 316m30 319m30 322m30 325m30 328m30 331m30 334m30
+. 337m30 340m30 343m30 346m30 349m30 352m30 355m30 358m30 361m30 364m30 369m32
+. 372m32 375m32 378m32
+307A9*Cmd_Desc_Array(301R9)<192M9> 310r24
+308A9*ACmd_Desc_Array(301R9)<192M9> 366r25
+310a4*Cmd_Desc{307A9} 5|44r23 61r23
+366a4*Acmd_Desc{308A9} 5|67r23
+380h9*SDMMC_Driver 382p14 383r16 388p14 389r23 393p14 394r21 398p14 399r21
+. 403p14 404r23 410p14 411r23 418p14 419r21 425p14 426r31 433r23 440r23 5|39r23
+. 52r23
+382x14*Delay_Milliseconds 383>7 384>7
+383r7 This{380R9}
+384i7 Amount{natural}
+388x14*Reset 389=7 390<7
+389r7 This{380R9}
+390e7 Status{34E9}
+393x14*Set_Clock 394=7 395>7
+394r7 This{380R9}
+395i7 Freq{natural}
+398x14*Set_Bus_Size 399=7 400>7
+399r7 This{380R9}
+400e7 Mode{67E9}
+403x14*Send_Cmd 404=7 405>7 406>7 407<7 5|44R7 61R7 67R7
+404r7 This{380R9}
+405r7 Cmd{301R9}
+406m7 Arg{3|97M9}
+407e7 Status{34E9}
+410x14*Read_Cmd 411=7 412>7 413>7 414<7 415<7
+411r7 This{380R9}
+412r7 Cmd{301R9}
+413m7 Arg{3|97M9}
+414a7 Buf{3|164A9}
+415e7 Status{34E9}
+418x14*Read_Rsp48 419=7 420<7
+419r7 This{380R9}
+420m7 Rsp{3|97M9}
+425x14*Read_Rsp136 426=7 427<7 427<11 427<15 427<19
+426r7 This{380R9}
+427m7 W0{3|97M9}
+427m11 W1{3|97M9}
+427m15 W2{3|97M9}
+427m19 W3{3|97M9}
+432U14*Send_Cmd 433=7 434>7 435>7 436<7 5|38b14 45l8 45t16
+433c7 This<380R9> 5|39b7 44m17
+434m7 Cmd{192M9} 5|40b7 44r33
+435m7 Arg{3|97M9} 5|41b7 44r39
+436e7 Status{34E9} 5|42b7 44m44
+439U14*Send_ACmd 440=7 441>7 442>7 443>7 444<7 5|51b14 68l8 68t17
+440c7 This<380R9> 5|52b7 61m17 67m17
+441m7 Cmd{264M12} 5|53b7 67r34
+442m7 Rca{3|66M9} 5|54b7 59r37
+443m7 Arg{3|97M9} 5|55b7 67r40
+444e7 Status{34E9} 5|56b7 61m50 63r10 67m45
+X 5 hal-sdmmc.adb
+58m7 S_Arg{3|97M9} 61r43
+X 6 interfac.ads
+63M9*Unsigned_8
+66M9*Unsigned_16
+74M9*Unsigned_32
+77M9*Unsigned_64
+121V13*Shift_Left{74M9} 5|59s17
+

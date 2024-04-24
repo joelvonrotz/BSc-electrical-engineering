@@ -1,0 +1,84 @@
+V "GNAT Lib v2020"
+A -O0
+A -gnatA
+A --RTS=C:\gnat\2020-arm-elf\arm-eabi\lib\gnat\zfp-cortex-m4f\
+A -mlittle-endian
+A -mthumb
+A -mfloat-abi=hard
+A -mcpu=cortex-m4
+A -mfpu=fpv4-sp-d16
+A -gnata
+A -fcallgraph-info=su
+A -fcallgraph-info=su
+A -g
+A -gnatwa
+A -gnatw_A
+A -gnatQ
+A -gnatw.X
+A -ffunction-sections
+A -fdata-sections
+A -march=armv7e-m+fp
+P ZX
+
+RN
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_PRAGMAS
+
+U logging_with_priority%b  logging_with_priority.adb  12200fb4 NE OO PK GE
+
+U logging_with_priority%s  logging_with_priority.ads  b12d529d BN EE NE OO PK GE
+
+D logging_with_priority.ads  20210108111948 b12d529d logging_with_priority%s
+D logging_with_priority.adb  20210108111948 a30d5d29 logging_with_priority%b
+D system.ads		20200819171400 e69b74bd system%s
+G a e
+G c Z s b [logging_with_priority standard 44 9 none]
+X 1 logging_with_priority.ads
+33E9 Priorities 46r45 59r32 2|40r14 55r30 66r52 73r30 119r52 158r45 189r32
+36i4 Maximum_Message_Length{positive} 60r31 2|34r49 161r23
+40i4 Maximum_Number_Of_Messages{positive} 2|43r45 44r54
+44k9*Logging_With_Priority 33z9 36z4 40z4 70l5 70e26 2|32b14 239l5 239t26
+46U14*Log_Line 46>24 46>38 2|158b14 181l8 181t16
+46a24 Str{string} 2|158b24 161r10 174r24 176r15 176r20 176r33
+46*38 Prio{33E9} 2|158b38 165r23 177r25 178r48
+57U14*Pop 57<19 58<19 59<19 2|187b14 216l8 216t11
+57a19 Str{string} 60r18 2|187b19 198m13 198r18 198r31
+58i19 Length{natural} 2|188b19 201m13 214m10
+59*19 Prio{33E9} 2|189b19 203m13
+64V13*Full{boolean} 2|67s22 222b13 227l8 227t12
+67V13*Empty{boolean} 2|233b13 237l8 237t13
+X 2 logging_with_priority.adb
+34I12 Message_Length{natural} 37r22 38r14
+36R9 Message 41e14 48r43 172r19 195r19
+37a7 Data{string} 175m17 175r27 175r45 199r19 199r29 199r47
+38i7 Len{34I12} 174m17 175r62 176r49 198r47 199r64 201r27
+39b7 Free{boolean} 79r27 80m27 96m28 109m24
+40*7 Prio{1|33E9} 89r40 132r39 177m17 203r25
+43I12 Message_Id{natural} 44r32 46r26 52r35 55r49 63r38 73r49 74r16 106r38
+. 159r12 191r16
+44I12 Valid_Message_Id{43I12} 48r22 51r27 65r52 78r17 118r52
+46i4 Invalid_Id{43I12} 52r60 99r14 108r16 110r16 130r36 167r15 193r20 211r35
+. 226r36 236r36
+48a4 Messages(36R9) 79r13 80m13 89r10 96m10 109m10 132r14 172m35 172r35 195r35
+51I12 Queue_Index{44I12} 52r19 121r19 122r19
+52a4 Queue(43I12) 89r20 89r27 91r20 91r27 94m22 94r22 94r29 127r16 130r20
+. 132r24 134r22 141r23 143r19 145m13 145r30 151m7 191r30 191r37 208r26 208r41
+. 209m16 209r33 211m13 211r20 226r14 226r21 236r14 236r21
+55V13 Allocate{43I12} 55>23 73b13 100l8 100t16 165s13
+55*23 Prio{1|33E9} 73b23 89r47
+63U14 Deallocate 63=26 94s10 106b14 112l8 112t18 205s13
+63i26 Id{43I12} 106b26 108r10 109r20 110m10
+65U14 Insert_Fifo_Within_Priorities 65>45 66>45 118b14 152l8 152t37 178s13
+65i45 Id{44I12} 118b45 151r28
+66*45 Prio{1|33E9} 119b45 132r46
+74i7 Ret_Id{43I12} 91m10 96r20 97r17
+78i11 Id{44I12} 79r23 80r23 81r20
+121i7 Index{51I12} 127m7 130r27 132r31 134r14 136m10 136r19 139r20 143m10
+. 145r20 145r37 146m13 146r22 147r23
+122i7 Insert_At{51I12} 139m7 141r10 147r31 151r14
+159i7 Id{43I12} 165m7 167r10 172r45 178r44
+172r13 Msg=172:35{36R9} 174r13 175r13 175r23 175r41 175r58 176r45 177r13
+191i7 Top_Id{43I12} 193r10 195r45 205m25 205r25
+195r13 Msg=195:35{36R9} 198r43 199r15 199r25 199r43 199r60 201r23 203r21
+208i17 Index{integer} 209r23 209r40
+

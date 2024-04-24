@@ -1,0 +1,54 @@
+graph: { title: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\hal\src\hal-filesystem.ads"
+class {
+  classname: "hal__filesystem__filesystem_driver"
+  label: "hal__filesystem__filesystem_driver\hal-filesystem.ads:79:9"
+  virtuals: "1:hal__filesystem__open\n
+             2:hal__filesystem__create_file\n
+             3:hal__filesystem__unlink\n
+             4:hal__filesystem__remove_directory\n
+             5:hal__filesystem__root_node\n
+             6:hal__filesystem__open__2\n
+             7:hal__filesystem__close__4\n
+             -1:hal__filesystem___size"
+}
+class {
+  classname: "hal__filesystem__directory_handle"
+  label: "hal__filesystem__directory_handle\hal-filesystem.ads:82:9"
+  virtuals: "1:hal__filesystem__get_fs\n
+             2:hal__filesystem__read\n
+             3:hal__filesystem__reset\n
+             4:hal__filesystem__close\n
+             -1:hal__filesystem___size__2"
+}
+class {
+  classname: "hal__filesystem__file_handle"
+  label: "hal__filesystem__file_handle\hal-filesystem.ads:85:9"
+  virtuals: "1:hal__filesystem__get_fs__3\n
+             2:hal__filesystem__size__2\n
+             3:hal__filesystem__mode\n
+             4:hal__filesystem__read__2\n
+             5:hal__filesystem__write\n
+             6:hal__filesystem__offset\n
+             7:hal__filesystem__flush\n
+             8:hal__filesystem__seek\n
+             9:hal__filesystem__close__3\n
+             -1:hal__filesystem___size__3"
+}
+class {
+  classname: "hal__filesystem__node_handle"
+  label: "hal__filesystem__node_handle\hal-filesystem.ads:88:9"
+  virtuals: "1:hal__filesystem__get_fs__2\n
+             2:hal__filesystem__basename\n
+             3:hal__filesystem__is_read_only\n
+             4:hal__filesystem__is_hidden\n
+             5:hal__filesystem__is_subdirectory\n
+             6:hal__filesystem__is_symlink\n
+             7:hal__filesystem__size\n
+             8:hal__filesystem__close__2\n
+             9:hal__filesystem__open__3\n
+             -1:hal__filesystem___size__4\n
+             -6:hal__filesystem__Oeq\n
+             -7:hal__filesystem___assign"
+}
+node: { title: "hal__filesystem__Oeq" label: "=\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\hal\src\hal-filesystem.ads:88:9\n16 bytes (static)" }
+}

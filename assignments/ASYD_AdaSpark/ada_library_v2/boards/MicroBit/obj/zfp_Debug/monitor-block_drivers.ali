@@ -1,0 +1,115 @@
+V "GNAT Lib v2020"
+A -O0
+A -gnatA
+A --RTS=C:\gnat\2020-arm-elf\arm-eabi\lib\gnat\zfp-cortex-m4f\
+A -mlittle-endian
+A -mthumb
+A -mfloat-abi=hard
+A -mcpu=cortex-m4
+A -mfpu=fpv4-sp-d16
+A -gnata
+A -fcallgraph-info=su
+A -fcallgraph-info=su
+A -g
+A -gnatwa
+A -gnatw_A
+A -gnatQ
+A -gnatw.X
+A -ffunction-sections
+A -fdata-sections
+A -march=armv7e-m+fp
+P ZX
+
+RN
+RV NO_ACCESS_SUBPROGRAMS
+RV NO_DISPATCHING_CALLS
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_ATTRIBUTES
+RV NO_IMPLEMENTATION_PRAGMAS
+
+U monitor.block_drivers%b  monitor-block_drivers.adb  53afb0b4 NE OO PK
+Z ada.tags%s		a-tags.adb		a-tags.ali
+W hex_dump%s		hex_dump.adb		hex_dump.ali
+W monitor%s		monitor.ads		monitor.ali
+Z system.assertions%s	s-assert.adb		s-assert.ali
+Z system.img_lli%s	s-imglli.adb		s-imglli.ali
+Z system.img_llu%s	s-imgllu.adb		s-imgllu.ali
+Z system.unsigned_types%s  s-unstyp.ads		s-unstyp.ali
+
+U monitor.block_drivers%s  monitor-block_drivers.ads  372071f2 EE NE OO PK
+Z ada.tags%s		a-tags.adb		a-tags.ali
+W hal%s			hal.ads			hal.ali
+W hal.block_drivers%s	hal-block_drivers.ads	hal-block_drivers.ali
+W monitor%s		monitor.ads		monitor.ali
+Z system%s		system.ads		system.ali
+
+D ada.ads		20200819171400 76789da1 ada%s
+D a-tags.ads		20200819171400 95e09aae ada.tags%s
+D hal.ads		20210108111948 2b42c80e hal%s
+D hal-block_drivers.ads	20210108111948 3a6f071f hal.block_drivers%s
+D hex_dump.ads		20210108111948 bcf26d97 hex_dump%s
+D interfac.ads		20200819171400 5ab55268 interfaces%s
+D monitor.ads		20210108111948 bf804365 monitor%s
+D monitor-block_drivers.ads  20210108111948 998dfd86 monitor.block_drivers%s
+D monitor-block_drivers.adb  20210108111948 76d020a5 monitor.block_drivers%b
+D system.ads		20200819171400 e69b74bd system%s
+D s-assert.ads		20200819171400 cd8d2c94 system.assertions%s
+D s-imglli.ads		20200819171400 114f55d1 system.img_lli%s
+D s-imgllu.ads		20200819171400 49c900c3 system.img_llu%s
+D s-stoele.ads		20200819171400 2dc34a04 system.storage_elements%s
+D s-unstyp.ads		20200819171400 5ecf7212 system.unsigned_types%s
+G a e
+G c Z s b [read monitor__block_drivers 45 13 none]
+G c Z s b [write monitor__block_drivers 52 13 none]
+G c Z s b [enable monitor__block_drivers 58 14 none]
+G c Z s b [disable monitor__block_drivers 61 14 none]
+G c Z s s [block_driver_monitorIP monitor__block_drivers 66 9 none]
+G r c none [read monitor__block_drivers 45 13 none] [hex_dump hex_dump 38 14 none]
+G r c none [write monitor__block_drivers 52 13 none] [hex_dump hex_dump 38 14 none]
+X 3 hal.ads
+34K9*HAL 166e8 8|32w6 32r29 33r6 33r29
+53M9*UInt8<6|63M9>
+160M9*UInt64<6|77M9> 8|47r22 54r22 9|42r22 77r22
+162A9*UInt8_Array(53M9)<integer>
+X 4 hal-block_drivers.ads
+32K13*Block_Drivers 56e22 8|33w10 33r33
+34h9*Block_Driver 8|42r11 69r11
+35P9*Any_Block_Driver(34R9) 8|40r42 67r42
+37A12*Block{3|162A9}<integer> 8|48r26 55r22 9|43r26 78r22
+42y13*Read{boolean} 9|53R43
+49y13*Write{boolean} 9|88R43
+X 5 hex_dump.ads
+34K9*Hex_Dump 42e13 9|32w6 59r13 98r10
+38U14*Hex_Dump 9|59s22 98s19
+40m24 Base_Addr{3|160M9} 9|61r32 100r29
+X 6 interfac.ads
+63M9*Unsigned_8
+77M9*Unsigned_64
+X 7 monitor.ads
+32K9*Monitor 34e12 8|35r9 72r5 9|34r14 123r5
+X 8 monitor-block_drivers.ads
+35K17*Block_Drivers 7|32k9 8|66E9 72l13 72e26 9|34b22 123l13 123t26
+37P9*Put_Line_Procedure 37>49 41r42 68r42
+37a49 Str{string}
+39R9*Block_Driver_Monitor<4|34R9> 40d7 41d7 45P13 46r29 52P13 53r29 58p14
+. 58r36 61p14 61r37 66c9 71e14 9|41r29 76r29 109r36 118r37
+40p7*Driver_Under_Monitoring{4|35P9} 67r7 9|53r19 88r19
+41p7*Put_Line{37P9} 68r7 9|49r15 57r18 60r37 63r18 84r15 92r18 95r18 99r34
+45V13*Read{boolean}<4|42p13> 46=7 47>7 48<7 9|40b24 69l8 69t12
+46r7 This{39R9} 9|41b7 48r10 49r10 53r14 55r10 57r13 60r32 63r13
+47m7 Block_Number{3|160M9} 9|42b7 50r27 53r49 58r30 61r45 64r30
+48a7 Data{4|37A12} 9|43b7 50r57 53m63 53r63 59r32
+52V13*Write{boolean}<4|49p13> 53=7 54>7 55>7 9|75b24 103l8 103t13
+53r7 This{39R9} 9|76b7 83r10 84r10 88r14 90r10 92r13 95r13 99r29
+54m7 Block_Number{3|160M9} 9|77b7 85r27 88r50 93r30 96r30 100r42
+55a7 Data{4|37A12} 9|78b7 85r57 88r64 98r29
+58U14*Enable 58=22 9|109b14 112l8 112t14
+58r22 This{39R9} 9|109b22 111m7
+61U14*Disable 61=23 9|118b14 121l8 121t15
+61r23 This{39R9} 9|118b23 120m7
+70b7 Enabled{boolean} 9|48r15 55r15 83r15 90r15 111m12 120m12
+X 9 monitor-block_drivers.adb
+46b7 Ret{boolean} 53m7 56r13 68r14
+81b7 Ret{boolean} 88m7 91r13 102r14
+

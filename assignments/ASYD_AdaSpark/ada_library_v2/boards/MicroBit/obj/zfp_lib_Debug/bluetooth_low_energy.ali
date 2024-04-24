@@ -1,0 +1,80 @@
+V "GNAT Lib v2020"
+A -O0
+A -gnatA
+A --RTS=C:\gnat\2020-arm-elf\arm-eabi\lib\gnat\zfp-cortex-m4f\
+A -mlittle-endian
+A -mthumb
+A -mfloat-abi=hard
+A -mcpu=cortex-m4
+A -mfpu=fpv4-sp-d16
+A -gnata
+A -fcallgraph-info=su
+A -fcallgraph-info=su
+A -g
+A -gnatwa
+A -gnatw_A
+A -gnatQ
+A -gnatw.X
+A -ffunction-sections
+A -fdata-sections
+A -march=armv7e-m+fp
+P SS ZX
+
+RN
+RV NO_IMPLICIT_CONDITIONALS
+RV NO_SECONDARY_STACK
+RV NO_IMPLEMENTATION_PRAGMAS
+
+U bluetooth_low_energy%b  bluetooth_low_energy.adb  8af2578a NE OO PK
+Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+
+U bluetooth_low_energy%s  bluetooth_low_energy.ads  c237645e EE NE OO PK
+W hal%s			hal.ads			hal.ali
+
+D bluetooth_low_energy.ads  20210108111948 e975ac50 bluetooth_low_energy%s
+D bluetooth_low_energy.adb  20210108111948 6387fbda bluetooth_low_energy%b
+D hal.ads		20210108111948 2b42c80e hal%s
+D interfac.ads		20200819171400 5ab55268 interfaces%s
+D system.ads		20200819171400 e69b74bd system%s
+D s-parame.ads		20200819171400 fe66c50d system.parameters%s
+D s-secsta.ads		20200819171400 56a2861c system.secondary_stack%s
+D s-stoele.ads		20200819171400 2dc34a04 system.storage_elements%s
+G a e
+G c Z s b [make_uuid bluetooth_low_energy 75 13 none]
+G c Z s b [make_uuid bluetooth_low_energy 76 13 none]
+G c Z s b [make_uuid bluetooth_low_energy 77 13 none]
+G c Z s s [ble_uuidIP bluetooth_low_energy 64 9 none]
+X 1 bluetooth_low_energy.ads
+34K9*Bluetooth_Low_Energy 79l5 79e25 2|1b14 33l5 33t25
+40I9*BLE_Channel_Number<short_short_integer> 41r39 42r46 46r31
+41I12*BLE_Data_Channel_Number{40I9}
+42I12*BLE_Advertising_Channel_Number{40I9}
+44I9*BLE_Frequency_MHz<short_integer> 46r54
+46a4*Channel_Frequency(44I9)
+60E9*BLE_UUID_Kind 60e67 64r26
+60n27*UUID_16bits{60E9} 66r15 2|9r26
+60n40*UUID_32bits{60E9} 68r15 2|19r26
+60n53*UUID_16UInt8s{60E9} 70r15 2|29r32
+62A12*BLE_16UInt8s_UUID{3|162A9}<integer> 71r30 77r31 2|27r31
+64R9*BLE_UUID 64d19 73e14 75r46 76r46 77r57 2|7r46 17r46 27r57
+64e19*Kind{60E9} 65r12 2|9m15 19m15 29m15
+67m13*UUID_16{3|66M9} 2|10m15
+69m13*UUID_32{3|97M9} 2|20m15
+71a13*UUID_16_UInt8s{62A12} 2|30m15
+75V13*Make_UUID{64R9} 75>24 2|7b13 11l8 11t17
+75m24 UUID{3|66M9} 2|7b24 10r26
+76V13*Make_UUID{64R9} 76>24 2|17b13 21l8 21t17
+76m24 UUID{3|97M9} 2|17b24 20r26
+77V13*Make_UUID{64R9} 77>24 2|27b13 31l8 31t17
+77a24 UUID{62A12} 2|27b24 30r33
+X 3 hal.ads
+34K9*HAL 1|32w6 32r22 3|166e8
+53M9*UInt8<4|63M9>
+66M9*UInt16<4|66M9> 1|67r23 75r31 2|7r31
+97M9*UInt32<4|74M9> 1|69r23 76r31 2|17r31
+162A9*UInt8_Array(53M9)<integer> 1|62r33
+X 4 interfac.ads
+63M9*Unsigned_8
+66M9*Unsigned_16
+74M9*Unsigned_32
+

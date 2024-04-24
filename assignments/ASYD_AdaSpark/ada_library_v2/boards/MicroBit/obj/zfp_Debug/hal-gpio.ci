@@ -1,0 +1,16 @@
+graph: { title: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\hal\src\hal-gpio.ads"
+class {
+  classname: "hal__gpio__gpio_point"
+  label: "hal__gpio__gpio_point\hal-gpio.ads:47:9"
+  virtuals: "1:hal__gpio__support\n
+             2:hal__gpio__mode\n
+             3:hal__gpio__set_mode\n
+             4:hal__gpio__pull_resistor\n
+             5:hal__gpio__set_pull_resistor\n
+             6:hal__gpio__set\n
+             7:hal__gpio__set__2\n
+             8:hal__gpio__clear\n
+             9:hal__gpio__toggle\n
+             -1:hal__gpio___size"
+}
+}

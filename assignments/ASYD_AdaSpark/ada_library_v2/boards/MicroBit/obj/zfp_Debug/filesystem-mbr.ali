@@ -1,0 +1,176 @@
+V "GNAT Lib v2020"
+A -O0
+A -gnatA
+A --RTS=C:\gnat\2020-arm-elf\arm-eabi\lib\gnat\zfp-cortex-m4f\
+A -mlittle-endian
+A -mthumb
+A -mfloat-abi=hard
+A -mcpu=cortex-m4
+A -mfpu=fpv4-sp-d16
+A -gnata
+A -fcallgraph-info=su
+A -fcallgraph-info=su
+A -g
+A -gnatwa
+A -gnatw_A
+A -gnatQ
+A -gnatw.X
+A -ffunction-sections
+A -fdata-sections
+A -march=armv7e-m+fp
+P ZX
+
+RN
+RV NO_DISPATCHING_CALLS
+RV NO_IMPLEMENTATION_PRAGMAS
+
+U filesystem.mbr%b	filesystem-mbr.adb	370d78e4 NE OO PK
+Z ada.tags%s		a-tags.adb		a-tags.ali
+W filesystem%s		filesystem.ads		filesystem.ali
+W interfaces%s		interfac.ads		interfac.ali
+Z system%s		system.ads		system.ali
+Z system.assertions%s	s-assert.adb		s-assert.ali
+
+U filesystem.mbr%s	filesystem-mbr.ads	b512af5f EE NE OO PK
+Z ada.tags%s		a-tags.adb		a-tags.ali
+W file_io%s		file_io.adb		file_io.ali
+W filesystem%s		filesystem.ads		filesystem.ali
+W hal%s			hal.ads			hal.ali
+W hal.block_drivers%s	hal-block_drivers.ads	hal-block_drivers.ali
+W interfaces%s		interfac.ads		interfac.ali
+
+D ada.ads		20200819171400 76789da1 ada%s
+D a-tags.ads		20200819171400 95e09aae ada.tags%s
+D adl_config.ads	20210108111948 5d2c18e5 adl_config%s
+D file_io.ads		20210108111948 4b2019a9 file_io%s
+D filesystem.ads	20210108111948 1cee6e44 filesystem%s
+D filesystem-mbr.ads	20210108111948 82068dc5 filesystem.mbr%s
+D filesystem-mbr.adb	20210108111948 efbea749 filesystem.mbr%b
+D hal.ads		20210108111948 2b42c80e hal%s
+D hal-block_drivers.ads	20210108111948 3a6f071f hal.block_drivers%s
+D hal-filesystem.ads	20210108111948 6998b52b hal.filesystem%s
+D interfac.ads		20200819171400 5ab55268 interfaces%s
+D system.ads		20200819171400 e69b74bd system%s
+D s-assert.ads		20200819171400 cd8d2c94 system.assertions%s
+D s-stoele.ads		20200819171400 2dc34a04 system.storage_elements%s
+G a e
+G c Z s b [read filesystem__mbr 45 13 none]
+G c Z s b [active filesystem__mbr 49 13 none]
+G c Z s b [valid filesystem__mbr 51 13 none]
+G c Z s b [get_type filesystem__mbr 53 13 none]
+G c Z s b [lba filesystem__mbr 55 13 none]
+G c Z s b [sectors filesystem__mbr 57 13 none]
+G c Z s s [is_extended filesystem__mbr 60 13 none]
+G c Z s b [read_extended filesystem__mbr 64 13 none]
+G c Z s b [get_type filesystem__mbr 70 13 none]
+G c Z s b [lba filesystem__mbr 71 13 none]
+G c Z s b [sectors filesystem__mbr 72 13 none]
+G c Z s b [has_next filesystem__mbr 74 13 none]
+G c Z s b [read_next filesystem__mbr 76 13 none]
+G c Z s s [chs_addressIP filesystem__mbr 82 9 none]
+G c Z s s [partition_entryIP filesystem__mbr 94 9 none]
+G c Z s s [Tpartition_arrayBIP filesystem__mbr 120 4 none]
+G c Z s s [master_boot_recordIP filesystem__mbr 122 9 none]
+G c Z s s [extended_boot_recordIP filesystem__mbr 132 9 none]
+X 4 file_io.ads
+42K9*File_IO 250e12 6|34w6 47r52 68r54 78r56 7|43r14 50r17 56r17 59r14 71r14
+. 79r17 85r17 88r14 182r14 190r17 196r17 199r14
+44E9*Status_Code 69e31 6|47r60 68r62 78r64 7|43r22 71r22 182r22
+45n7*OK{44E9} 7|59r22 88r22 199r22
+47n7*Disk_Error{44E9} 7|50r25 79r25 190r25
+65n7*No_MBR_Found{44E9} 7|56r25 85r25 196r25
+X 5 filesystem.ads
+35K9*Filesystem 44e15 6|36r9 139r5 7|34r14 202r5
+40M12*Block_Number{8|160M9} 6|56r53 71r57 7|73r21 120r53 125r8 149r53 152r14
+. 184r23 184r39
+X 6 filesystem-mbr.ads
+36K20*MBR 5|35k9 6|82E9 139l16 139e19 7|34b25 202l16 202t19
+38R9*Master_Boot_Record 47r25 49r28 51r28 53r29 55r28 57r28 61r13 66r21 122c9
+. 125e15 127r8 132r37 135r13 7|42r25 45r22 68r21 95r28 103r28 111r29 119r28
+. 131r28
+39R9*Extended_Boot_Record<38R9> 68r25 70r29 71r28 72r28 74r29 78r27 132c9
+. 7|70r25 74r22 139r29 149r24 159r28 169r29 181r27 185r22
+41I9*Partition_Number<short_short_integer> 50r28 52r28 54r29 56r28 58r28
+. 62r13 67r21 120r35 136r13 7|69r21 96r28 104r28 112r29 120r28 132r28
+43M9*Partition_Type<11|63M9> 54r54 70r58 97r22 7|112r54 139r58
+45V13*Read{4|44E9} 46>7 47<7 7|40b13 60l8 60t12
+46p7 Controller{9|35P9} 7|41b7 49r14
+47r7 MBR{38R9} 7|42b7 53m7 55r10
+49V13*Active{boolean} 49>22 50>22 7|95b13
+49r22 MBR{38R9} 7|97r8
+50i22 P{41I9} 7|97r23
+51V13*Valid{boolean} 51>22 52>22 7|103b13
+51r22 MBR{38R9} 7|105r9
+52i22 P{41I9} 7|105r24
+53V13*Get_Type{43M9} 53>23 54>23 137s8 7|111b13
+53r23 MBR{38R9} 7|113r8
+54i23 P{41I9} 7|113r23
+55V13*LBA{5|40M12} 55>22 56>22 7|73s37 119b13
+55r22 MBR{38R9} 7|125r22
+56i22 P{41I9} 7|125r37
+57V13*Sectors{11|74M9} 57>22 58>22 7|131b13
+57r22 MBR{38R9} 7|133r8
+58i22 P{41I9} 7|133r23
+60V13*Is_Extended{boolean} 61>7 62>7 134b13
+61r7 MBR{38R9} 137r18
+62i7 P{41I9} 137r23
+64V13*Read_Extended{4|44E9} 65>7 66>7 67>7 68<7 7|66b13 89l8 89t21
+65p7 Controller{9|35P9} 7|67b7 78r14
+66r7 MBR{38R9} 7|68b7 73r42
+67i7 P{41I9} 7|69b7 73r47
+68r7 EBR{39R9} 7|70b7 82m7 84r10
+70V13*Get_Type{43M9} 70>23 7|139b13 143l8 143t16
+70r23 EBR{39R9} 7|139b23 142r14
+71V13*LBA{5|40M12} 71>22 7|149b13 153l8 153t11
+71r22 EBR{39R9} 7|149b18 152r28
+72V13*Sectors{11|74M9} 72>22 7|159b13 163l8 163t15
+72r22 EBR{39R9} 7|159b22 162r14
+74V13*Has_Next{boolean} 74>23 7|169b13 173l8 173t16
+74r23 EBR{39R9} 7|169b23 172r14
+76V13*Read_Next{4|44E9} 77>7 78=7 7|179b13 200l8 200t17
+77p7 Controller{9|35P9} 7|180b7 189r14
+78r7 EBR{39R9} 7|181b7 184r53 193m7 195r10
+82R9 CHS_Address 86e15 88r8 96r22 98r22
+83m7*Head{11|63M9} 89r7
+84m7*Sector{11|63M9} 90r7
+85m7*Cylinder{11|63M9} 91r7
+94R9 Partition_Entry 101e15 103r8 112r28 120r56
+95m7*Status{11|63M9} 104r7 113m22 7|97r26 105r27
+96r7*First_Sector{82R9} 105r7 114m22
+97m7*P_Type{43M9} 106r7 115m22 7|113r26 142r32
+98r7*Last_Sector{82R9} 107r7 116m22
+99m7*LBA{11|74M9} 108r7 117m22 7|125r40 152r46 184r71
+100m7*Num_Sectors{11|74M9} 109r7 118m22 7|133r26 162r32
+112r4 Zeroed_Entry{94R9} 7|172r35
+120A9 Partition_Array(94R9)<41I9> 123r19
+123a7*P_Entries{120A9} 128r7 7|97r12 105r13 113r12 125r26 133r12 142r18 152r32
+. 162r18 172r18 184r57
+124m7*Signature{11|66M9} 129r7 7|55r14 84r14 195r14
+X 7 filesystem-mbr.adb
+45r7 Tmp{6|38R9} 46m65 46r65 53r14
+46a7 Data{8|162A9} 49m34 49r34
+73m7 BA{5|40M12} 78r43
+74r7 Tmp{6|39R9} 75m65 75r65 82r14
+75a7 Data{8|162A9} 78m48 78r48
+184m7 BA{5|40M12} 189r31
+185r7 Tmp{6|39R9} 186m65 186r65 193r14
+186a7 Data{8|162A9} 189m35 189r35
+X 8 hal.ads
+34K9*HAL 6|33r6 46r21 65r21 77r20 7|41r21 46r22 67r21 75r22 78r31 180r20
+. 186r22 8|166e8
+53M9*UInt8<11|63M9>
+160M9*UInt64<11|77M9> 7|78r35
+162A9*UInt8_Array(53M9)<integer> 7|46r26 75r26 186r26
+X 9 hal-block_drivers.ads
+32K13*Block_Drivers 6|33w10 46r25 65r25 77r24 7|41r25 67r25 180r24 9|56e22
+34h9*Block_Driver
+35P9*Any_Block_Driver(34R9) 6|46r39 65r39 77r38 7|41r39 67r39 180r38
+42y13*Read{boolean} 7|49R25 78R25 189R25
+X 11 interfac.ads
+38K9*Interfaces 6|32w6 43r31 58r53 72r57 83r18 84r18 85r18 95r22 99r22 100r22
+. 124r19 7|32w6 32r22 132r53 159r57 11|184e15
+63M9*Unsigned_8 6|43r42 83r29 84r29 85r29 95r33
+66M9*Unsigned_16 6|124r30
+74M9*Unsigned_32 6|58r64 72r68 99r33 100r33 7|132r64 159r68
+77M9*Unsigned_64
+

@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<Locations >
+  <Project>
+    <vfs_file />
+    <file_marker column=" 28" line=" 10" >
+      <vfs_project />
+      <vfs_file>C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\examples\MicroBit\buttons\buttons.gpr</vfs_file>
+    </file_marker>
+    <file_marker column=" 41" line=" 46" >
+      <vfs_project />
+      <vfs_file>C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\examples\MicroBit\buttons\src\main.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1" >
+      <vfs_project />
+      <vfs_file>C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\examples\MicroBit\accelerometer\src\main.adb</vfs_file>
+    </file_marker>
+    <file_marker current="true" column=" 28" line=" 52" >
+      <vfs_project />
+      <vfs_file>C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\examples\MicroBit\accelerometer\src\main.adb</vfs_file>
+    </file_marker>
+  </Project>
+  <Project >
+    <vfs_file >C:\Users\JumpStart\Desktop\lehre\asyd\dev\Ada_Drivers_Library-master\examples\MicroBit\accelerometer\accelerometer.gpr</vfs_file>
+    <file_marker column=" 1" line=" 1">
+      <vfs_project  />
+      <vfs_file >C:\Users\JumpStart\Desktop\lehre\asyd\dev\Ada_Drivers_Library-master\examples\MicroBit\accelerometer\accelerometer.gpr</vfs_file>
+    </file_marker>
+    <file_marker column=" 22" line=" 10">
+      <vfs_project  />
+      <vfs_file >C:\Users\JumpStart\Desktop\lehre\asyd\dev\Ada_Drivers_Library-master\examples\MicroBit\accelerometer\accelerometer.gpr</vfs_file>
+    </file_marker>
+    <file_marker column=" 6" line=" 36">
+      <vfs_project >C:\Users\JumpStart\Desktop\lehre\asyd\dev\Ada_Drivers_Library-master\examples\MicroBit\accelerometer\accelerometer.gpr</vfs_project>
+      <vfs_file >C:\Users\JumpStart\Desktop\lehre\asyd\dev\Ada_Drivers_Library-master\examples\MicroBit\accelerometer\src\main.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 9" line=" 35">
+      <vfs_project >C:\Users\JumpStart\Desktop\lehre\asyd\dev\Ada_Drivers_Library-master\boards\MicroBit\microbit_zfp.gpr</vfs_project>
+      <vfs_file >C:\Users\JumpStart\Desktop\lehre\asyd\dev\Ada_Drivers_Library-master\boards\microbit\src\microbit-accelerometer.ads</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1">
+      <vfs_project >C:\Users\JumpStart\Desktop\lehre\asyd\dev\Ada_Drivers_Library-master\examples\MicroBit\accelerometer\accelerometer.gpr</vfs_project>
+      <vfs_file >C:\Users\JumpStart\Desktop\lehre\asyd\dev\Ada_Drivers_Library-master\examples\MicroBit\accelerometer\src\main.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 15" line=" 36">
+      <vfs_project >C:\Users\JumpStart\Desktop\lehre\asyd\dev\Ada_Drivers_Library-master\examples\MicroBit\accelerometer\accelerometer.gpr</vfs_project>
+      <vfs_file >C:\Users\JumpStart\Desktop\lehre\asyd\dev\Ada_Drivers_Library-master\examples\MicroBit\accelerometer\src\main.adb</vfs_file>
+    </file_marker>
+    <file_marker current="true" column=" 28" line=" 52">
+      <vfs_project >C:\Users\JumpStart\Desktop\lehre\asyd\dev\Ada_Drivers_Library-master\examples\MicroBit\accelerometer\accelerometer.gpr</vfs_project>
+      <vfs_file >C:\Users\JumpStart\Desktop\lehre\asyd\dev\Ada_Drivers_Library-master\examples\MicroBit\accelerometer\src\main.adb</vfs_file>
+    </file_marker>
+  </Project>
+</Locations>

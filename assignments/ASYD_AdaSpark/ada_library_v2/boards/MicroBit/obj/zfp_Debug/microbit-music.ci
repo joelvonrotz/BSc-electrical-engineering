@@ -1,0 +1,27 @@
+graph: { title: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\boards\microbit\src\microbit-music.adb"
+node: { title: "microbit__music__noteIP" label: "Noteip\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\boards\microbit\src\microbit-music.ads:39:9\n16 bytes (static)" }
+node: { title: "microbit__music__melodyIP" label: "Melodyip\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\boards\microbit\src\microbit-music.ads:44:9\n16 bytes (static)" }
+node: { title: "microbit__music__play" label: "Play\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\boards\microbit\src\microbit-music.adb:38:4\n24 bytes (static)" }
+node: { title: "microbit__ios__supports" label: "Supports\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\boards\microbit\src\microbit-ios.ads:40:13" shape : ellipse }
+edge: { sourcename: "microbit__music__play" targetname: "microbit__ios__supports" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\boards\microbit\src\microbit-music.ads:47:18" }
+node: { title: "system__assertions__raise_assert_failure" label: "Raise_Assert_Failure\nC:\gnat\2020-arm-elf\arm-eabi\lib\gnat\zfp-cortex-m4f\gnat\s-assert.ads:46:14" shape : ellipse }
+edge: { sourcename: "microbit__music__play" targetname: "system__assertions__raise_assert_failure" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\boards\microbit\src\microbit-music.ads:47:18" }
+node: { title: "microbit__ios__set" label: "Set\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\boards\microbit\src\microbit-ios.ads:52:14" shape : ellipse }
+edge: { sourcename: "microbit__music__play" targetname: "microbit__ios__set" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\boards\microbit\src\microbit-music.adb:46:10" }
+node: { title: "microbit__ios__write" label: "Write\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\boards\microbit\src\microbit-ios.ads:64:14" shape : ellipse }
+edge: { sourcename: "microbit__music__play" targetname: "microbit__ios__write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\boards\microbit\src\microbit-music.adb:50:10" }
+node: { title: "__gnat_last_chance_handler" label: "gnat_last_chance_handler\n<built-in>" shape : ellipse }
+edge: { sourcename: "microbit__music__play" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\boards\microbit\src\microbit-music.adb:53:42" }
+node: { title: "microbit__ios__set_analog_period_us" label: "Set_Analog_Period_Us\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\boards\microbit\src\microbit-ios.ads:60:14" shape : ellipse }
+edge: { sourcename: "microbit__music__play" targetname: "microbit__ios__set_analog_period_us" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\boards\microbit\src\microbit-music.adb:53:10" }
+node: { title: "microbit__music__play__2" label: "Play\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\boards\microbit\src\microbit-music.adb:61:4\n24 bytes (static)" }
+edge: { sourcename: "microbit__music__play__2" targetname: "microbit__ios__supports" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\boards\microbit\src\microbit-music.ads:50:18" }
+edge: { sourcename: "microbit__music__play__2" targetname: "system__assertions__raise_assert_failure" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\boards\microbit\src\microbit-music.ads:50:18" }
+edge: { sourcename: "microbit__music__play__2" targetname: "microbit__music__play" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\boards\microbit\src\microbit-music.adb:63:7" }
+node: { title: "microbit__time__delay_ms" label: "Delay_Ms\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\boards\microbit\src\microbit-time.ads:41:14" shape : ellipse }
+edge: { sourcename: "microbit__music__play__2" targetname: "microbit__time__delay_ms" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\boards\microbit\src\microbit-music.adb:64:20" }
+node: { title: "microbit__music__play__3" label: "Play\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\boards\microbit\src\microbit-music.adb:71:4\n48 bytes (static)" }
+edge: { sourcename: "microbit__music__play__3" targetname: "microbit__ios__supports" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\boards\microbit\src\microbit-music.ads:53:18" }
+edge: { sourcename: "microbit__music__play__3" targetname: "system__assertions__raise_assert_failure" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\boards\microbit\src\microbit-music.ads:53:18" }
+edge: { sourcename: "microbit__music__play__3" targetname: "microbit__music__play__2" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\boards\microbit\src\microbit-music.adb:74:10" }
+}

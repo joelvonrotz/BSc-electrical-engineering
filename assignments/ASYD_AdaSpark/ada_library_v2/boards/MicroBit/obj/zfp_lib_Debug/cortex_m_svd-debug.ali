@@ -1,0 +1,168 @@
+V "GNAT Lib v2020"
+A -O0
+A -gnatA
+A --RTS=C:\gnat\2020-arm-elf\arm-eabi\lib\gnat\zfp-cortex-m4f\
+A -mlittle-endian
+A -mthumb
+A -mfloat-abi=hard
+A -mcpu=cortex-m4
+A -mfpu=fpv4-sp-d16
+A -gnata
+A -fcallgraph-info=su
+A -fcallgraph-info=su
+A -g
+A -gnatwa
+A -gnatw_A
+A -gnatQ
+A -gnatw.X
+A -ffunction-sections
+A -fdata-sections
+A -march=armv7e-m+fp
+P ZX
+
+RN
+RV NO_IMPLICIT_CONDITIONALS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLEMENTATION_RESTRICTIONS
+RR NO_ELABORATION_CODE
+
+U cortex_m_svd.debug%s	cortex_m_svd-debug.ads	270611a4 NE OO PR PK
+W cortex_m_svd%s	cortex_m_svd.ads	cortex_m_svd.ali
+W hal%s			hal.ads			hal.ali
+W system%s		system.ads		system.ali
+
+D cortex_m_svd.ads	20210108111948 cd5bf229 cortex_m_svd%s
+D cortex_m_svd-debug.ads  20210108111948 27845f3e cortex_m_svd.debug%s
+D hal.ads		20210108111948 2b42c80e hal%s
+D interfac.ads		20200819171400 5ab55268 interfaces%s
+D system.ads		20200819171400 e69b74bd system%s
+G a e
+G c Z s s [dfsr_registerIP cortex_m_svd__debug 18 9 none]
+G c Z s s [read_dhcsr_registerIP cortex_m_svd__debug 49 9 none]
+G c Z s s [write_dhcsr_registerIP cortex_m_svd__debug 104 9 none]
+G c Z s s [dhcsr_clusterIP cortex_m_svd__debug 144 9 none]
+G c Z s s [dcrsr_registerIP cortex_m_svd__debug 220 9 none]
+G c Z s s [demcr_registerIP cortex_m_svd__debug 241 9 none]
+G c Z s s [debug_peripheralIP cortex_m_svd__debug 291 9 none]
+X 1 cortex_m_svd.ads
+9K9*Cortex_M_SVD 31e17 2|10r9 222r46 226r46 320r5
+26m4*Debug_Base{5|90M9} 2|318r30
+X 2 cortex_m_svd-debug.ads
+10K22*Debug 1|9k9 2|222r59 226r59 320l18 320e23
+18R9*DFSR_Register 33e6 36r8 293r23
+19b7*HALTED{boolean} 37r7
+21b7*BKPT{boolean} 38r7
+24b7*DWTTRAP{boolean} 39r7
+27b7*VCATCH{boolean} 40r7
+29b7*EXTERNAL{boolean} 41r7
+31m7*Reserved_5_31{3|87M9} 42r7
+49R9*Read_DHCSR_Register 81e6 84r8 149r28
+51b7*C_DEBUGGEN{boolean} 85r7
+53b7*C_HALT{boolean} 86r7
+55b7*C_STEP{boolean} 87r7
+57b7*C_MASKINTS{boolean} 88r7
+59m7*Reserved_4_4{3|37M9} 89r7
+61b7*C_SNAPSTALL{boolean} 90r7
+63m7*Reserved_6_15{3|54M9} 91r7
+65b7*S_REGRDY{boolean} 92r7
+67b7*S_HALT{boolean} 93r7
+69b7*S_SLEEP{boolean} 94r7
+71b7*S_LOCKUP{boolean} 95r7
+73m7*Reserved_20_23{3|43M9} 96r7
+75b7*S_RETIRE_ST{boolean} 97r7
+77b7*S_RESET_ST{boolean} 98r7
+79m7*Reserved_26_31{3|47M9} 99r7
+102M12*Write_DHCSR_S_RESET_ST_Field{3|66M9} 122r23
+104R9*Write_DHCSR_Register 124e6 127r8 151r29
+106b7*C_DEBUGGEN{boolean} 128r7
+108b7*C_HALT{boolean} 129r7
+110b7*C_STEP{boolean} 130r7
+112b7*C_MASKINTS{boolean} 131r7
+114m7*Reserved_4_4{3|37M9} 132r7
+116b7*C_SNAPSTALL{boolean} 133r7
+118m7*Reserved_6_15{3|54M9} 134r7
+122m7*S_RESET_ST{102M12} 135r7
+138E9*DHCSR_Disc 141e14 145r22
+140n7*Mode_1{138E9} 145r36 148r15
+141n7*Mode_2{138E9} 150r15
+144R9*DHCSR_Cluster 145d7 154e6 156r8 295r23
+145e7*Discriminent{138E9} 147r12
+149r13*Read{49R9} 157r7
+151r13*Write{104R9} 158r7
+161E9*DCRSR_HALTED_Field 183e6 184r8 222r24
+163n7*Register_0{161E9} 185r7 222r65
+164n7*Register_1{161E9} 186r7
+165n7*Register_2{161E9} 187r7
+166n7*Register_3{161E9} 188r7
+167n7*Register_4{161E9} 189r7
+168n7*Register_5{161E9} 190r7
+169n7*Register_6{161E9} 191r7
+170n7*Register_7{161E9} 192r7
+171n7*Register_8{161E9} 193r7
+172n7*Register_9{161E9} 194r7
+173n7*Register_10{161E9} 195r7
+174n7*Register_11{161E9} 196r7
+175n7*Register_12{161E9} 197r7
+176n7*Current_Sp{161E9} 198r7
+177n7*Link_Rregister{161E9} 199r7
+178n7*Debug_Return_Address{161E9} 200r7
+179n7*XPsr{161E9} 201r7
+180n7*Msp{161E9} 202r7
+181n7*Psp{161E9} 203r7
+182n7*Control_Faultmask_Basepri_Primask{161E9} 204r7
+206E9*DCRSR_REGWnR_Field 210e6 211r8 226r24
+208n7*Read{206E9} 212r7 226r65
+209n7*Write{206E9} 213r7
+220R9*DCRSR_Register 230e6 233r8 301r23
+222e7*HALTED{161E9} 234r7
+224m7*Reserved_5_15{3|56M9} 235r7
+226e7*REGWnR{206E9} 236r7
+228m7*Reserved_17_31{3|64M9} 237r7
+241R9*DEMCR_Register 264e6 267r8 305r23
+242b7*VC_CORERESET{boolean} 268r7
+244m7*Reserved_1_3{3|41M9} 269r7
+245b7*VC_MMERR{boolean} 270r7
+246b7*VC_NOCPERR{boolean} 271r7
+247b7*VC_CHKERR{boolean} 272r7
+248b7*VC_STATERR{boolean} 273r7
+249b7*VC_BUSERR{boolean} 274r7
+250b7*VC_INTERR{boolean} 275r7
+251b7*VC_HARDERR{boolean} 276r7
+253m7*Reserved_11_15{3|45M9} 277r7
+254b7*MON_EN{boolean} 278r7
+255b7*MON_PEND{boolean} 279r7
+256b7*MON_STEP{boolean} 280r7
+257b7*MON_REQ{boolean} 281r7
+259m7*Reserved_20_23{3|43M9} 282r7
+260b7*TRCENA{boolean} 283r7
+262m7*Reserved_25_31{3|49M9} 284r7
+291R9*Debug_Peripheral 307e6 309r8 317r27
+293r7*DFSR{18R9} 310r7
+295r7*DHCSR{144R9} 311r7
+301r7*DCRSR{220R9} 312r7
+303m7*DCRDR{3|97M9} 313r7
+305r7*DEMCR{241R9} 314r7
+317r4*Debug_Periph{291R9}
+X 3 hal.ads
+34K9*HAL 2|7w6 31r23 59r24 63r24 73r24 79r24 102r44 114r23 118r23 224r24
+. 228r24 244r24 253r24 259r24 262r24 303r23 3|166e8
+37M9*Bit 2|59r28 114r27
+41M9*UInt3 2|244r28
+43M9*UInt4 2|73r28 259r28
+45M9*UInt5 2|253r28
+47M9*UInt6 2|79r28
+49M9*UInt7 2|262r28
+54M9*UInt10 2|63r28 118r27
+56M9*UInt11 2|224r28
+64M9*UInt15 2|228r28
+66M9*UInt16<4|66M9> 2|102r48
+87M9*UInt27 2|31r27
+97M9*UInt32<4|74M9> 2|303r27
+X 4 interfac.ads
+66M9*Unsigned_16
+74M9*Unsigned_32
+X 5 system.ads
+60K9*System 2|8w6 34r24 82r24 125r24 231r24 265r24 5|172e11
+90M9*Address
+114n41*Low_Order_First{114E9} 2|34r31 82r31 125r31 231r31 265r31
+

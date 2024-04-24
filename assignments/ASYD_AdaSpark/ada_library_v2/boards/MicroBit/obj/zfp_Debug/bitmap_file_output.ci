@@ -1,0 +1,63 @@
+graph: { title: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\bitmap_file_output.adb"
+edge: { sourcename: "bitmap_file_output__write_bmp_file"
+  targetname: "1:hal__bitmap__bitmap_buffer,hal__bitmap__bitmap_buffer"
+  label: "bitmap_file_output.adb:78:62"
+}
+edge: { sourcename: "bitmap_file_output__write_bmp_file"
+  targetname: "2:hal__bitmap__bitmap_buffer,hal__bitmap__bitmap_buffer"
+  label: "bitmap_file_output.adb:80:89"
+}
+edge: { sourcename: "bitmap_file_output__write_bmp_file"
+  targetname: "1:hal__bitmap__bitmap_buffer,hal__bitmap__bitmap_buffer"
+  label: "bitmap_file_output.adb:101:38"
+}
+edge: { sourcename: "bitmap_file_output__write_bmp_file"
+  targetname: "2:hal__bitmap__bitmap_buffer,hal__bitmap__bitmap_buffer"
+  label: "bitmap_file_output.adb:102:39"
+}
+edge: { sourcename: "bitmap_file_output__write_bmp_file"
+  targetname: "2:hal__bitmap__bitmap_buffer,hal__bitmap__bitmap_buffer"
+  label: "bitmap_file_output.adb:121:35"
+}
+edge: { sourcename: "bitmap_file_output__write_bmp_file"
+  targetname: "1:hal__bitmap__bitmap_buffer,hal__bitmap__bitmap_buffer"
+  label: "bitmap_file_output.adb:122:30"
+}
+edge: { sourcename: "bitmap_file_output__write_bmp_file"
+  targetname: "15:hal__bitmap__bitmap_buffer,hal__bitmap__bitmap_buffer"
+  label: "bitmap_file_output.adb:124:30"
+}
+node: { title: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\bitmap_file_output.adb:bitmap_file_output__headerEQ" label: "Headereq\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\bitmap_file_output.adb:37:9\n24 bytes (static)" }
+node: { title: "memcmp" label: "builtin_memcmp\n<built-in>" shape : ellipse }
+edge: { sourcename: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\bitmap_file_output.adb:bitmap_file_output__headerEQ" targetname: "memcmp" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\bitmap_file_output.adb:37:9" }
+node: { title: "bitmap_file_output__headerIP" label: "Headerip\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\bitmap_file_output.adb:37:9\n16 bytes (static)" }
+node: { title: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\bitmap_file_output.adb:bitmap_file_output__infoEQ" label: "Infoeq\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\bitmap_file_output.adb:50:9\n24 bytes (static)" }
+edge: { sourcename: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\bitmap_file_output.adb:bitmap_file_output__infoEQ" targetname: "memcmp" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\bitmap_file_output.adb:50:9" }
+node: { title: "bitmap_file_output__infoIP" label: "Infoip\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\bitmap_file_output.adb:50:9\n16 bytes (static)" }
+node: { title: "bitmap_file_output__write_bmp_file" label: "Write_Bmp_File\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\bitmap_file_output.adb:73:4\n152 bytes (dynamic)" }
+node: { title: "__indirect_call" label: "Indirect Call Placeholder" shape : ellipse }
+edge: { sourcename: "bitmap_file_output__write_bmp_file" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\bitmap_file_output.adb:78:62" }
+node: { title: "__gnat_last_chance_handler" label: "gnat_last_chance_handler\n<built-in>" shape : ellipse }
+edge: { sourcename: "bitmap_file_output__write_bmp_file" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\bitmap_file_output.adb:78:69" }
+edge: { sourcename: "bitmap_file_output__write_bmp_file" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\bitmap_file_output.adb:80:54" }
+edge: { sourcename: "bitmap_file_output__write_bmp_file" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\bitmap_file_output.adb:80:89" }
+edge: { sourcename: "bitmap_file_output__write_bmp_file" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\bitmap_file_output.adb:80:69" }
+edge: { sourcename: "bitmap_file_output__write_bmp_file" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\bitmap_file_output.adb:84:70" }
+node: { title: "memset" label: "builtin_memset\n<built-in>" shape : ellipse }
+edge: { sourcename: "bitmap_file_output__write_bmp_file" targetname: "memset" }
+edge: { sourcename: "bitmap_file_output__write_bmp_file" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\bitmap_file_output.adb:90:41" }
+edge: { sourcename: "bitmap_file_output__write_bmp_file" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\bitmap_file_output.adb:101:38" }
+edge: { sourcename: "bitmap_file_output__write_bmp_file" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\bitmap_file_output.adb:102:39" }
+node: { title: "file_io__write" label: "Write\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.ads:113:13" shape : ellipse }
+edge: { sourcename: "bitmap_file_output__write_bmp_file" targetname: "file_io__write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\bitmap_file_output.adb:113:10" }
+edge: { sourcename: "bitmap_file_output__write_bmp_file" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\bitmap_file_output.adb:114:10" }
+edge: { sourcename: "bitmap_file_output__write_bmp_file" targetname: "file_io__write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\bitmap_file_output.adb:117:10" }
+edge: { sourcename: "bitmap_file_output__write_bmp_file" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\bitmap_file_output.adb:118:10" }
+edge: { sourcename: "bitmap_file_output__write_bmp_file" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\bitmap_file_output.adb:121:35" }
+edge: { sourcename: "bitmap_file_output__write_bmp_file" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\bitmap_file_output.adb:122:30" }
+edge: { sourcename: "bitmap_file_output__write_bmp_file" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\bitmap_file_output.adb:124:30" }
+edge: { sourcename: "bitmap_file_output__write_bmp_file" targetname: "file_io__write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\bitmap_file_output.adb:130:16" }
+edge: { sourcename: "bitmap_file_output__write_bmp_file" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\bitmap_file_output.adb:132:16" }
+edge: { sourcename: "bitmap_file_output__write_bmp_file" targetname: "file_io__write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\bitmap_file_output.adb:136:13" }
+edge: { sourcename: "bitmap_file_output__write_bmp_file" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\bitmap\bitmap_file_output.adb:138:13" }
+}

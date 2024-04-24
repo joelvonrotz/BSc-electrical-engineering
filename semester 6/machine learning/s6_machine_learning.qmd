@@ -1,3 +1,66 @@
 # Crash Course
 
 {{< include python.qmd >}}
+
+# Linear Regression
+
+{{< include linear_regression.qmd >}}
+
+# Regression Errors
+
+## MAE - Mean Absolute Error
+
+$$
+MAE = \frac1{N}\cdot \sum^N_{j=1}\vert{\varepsilon_j}\vert=\frac1{N}\cdot \sum^N_{j=1}\lvert{y_j-\hat{y}_j}\rvert
+$$
+
+```{=latex}
+\begin{conditions}
+  N & amount of data points\\
+  y_j & $j$-th output data point\\
+  \hat{y}_j & $j$-th output regressed data point\\
+\end{conditions}
+```
+
+## MAPE - Mean Absolute Percent Error
+
+$$
+MAPE = \frac1{N}\cdot \sum^N_{j=1}\left\vert{\frac{\varepsilon_j}{y_j}}\right\vert = \frac1{N}\cdot \sum^N_{j=1}\left\vert{\frac{y_j-\hat{y}_i}{y_j}}\right\vert
+$$
+
+## MSE - Mean Squared Error
+
+$$
+MAPE = \frac1{N}\cdot \sum^N_{j=1}{\varepsilon_j^2} = \frac1{N}\cdot \sum^N_{j=1}{(y_j-\hat{y}_j)^2}
+$$
+
+
+## OLS - Ordinary Least Squares
+
+
+
+# Regression Perfomance $R^2$
+
+::: callout-important
+
+## Visualize Data
+
+The *Anscome's quartet* compises four data sets that have nearly identical simple descriptive statistics.
+
+![Anscombe's quartet](/images/Anscombes_quartet.png)
+
+```{=latex}
+\begin{tabular}{|l|l|l|}
+\hline
+\multicolumn{1}{|c|}{\textbf{Property}}                        & \multicolumn{1}{c|}{\textbf{Value}} & \multicolumn{1}{c|}{\textbf{Accuracy}}  \\ \hline
+Mean of $x$                                                    & $9$                                 & exact                                   \\ \hline
+Sample variance of x: $s_x^2$                                  & $11$                                & exact                                   \\ \hline
+Mean of $y$                                                    & $7.50$                              & to 2 decimal places                     \\ \hline
+Sample variance of y: $s_y^2$                                  & $4.125$                             & $\pm 0.003$                             \\ \hline
+Correlation between $x$ and $y$                                & $0.816$                             & to 3 decimal places                     \\ \hline
+Linear regression line                                         & $y = 3.00 + 0.500\cdot x$           & to 2 and 3 decimal places, respectively \\ \hline
+Coefficient of determination of the linear regression: $R^{2}$ & $0.67$                              & to 2 decimal places                     \\ \hline
+\end{tabular}
+```
+
+:::

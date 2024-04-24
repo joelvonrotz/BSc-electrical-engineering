@@ -1,0 +1,137 @@
+V "GNAT Lib v2020"
+M P W=b
+A -O0
+A -gnatA
+A --RTS=C:\gnat\2020-arm-elf\arm-eabi\lib\gnat\zfp-cortex-m4f\
+A -mlittle-endian
+A -mthumb
+A -mfloat-abi=hard
+A -mcpu=cortex-m4
+A -mfpu=fpv4-sp-d16
+A -gnata
+A -fcallgraph-info=su
+A -fcallgraph-info=su
+A -g
+A -gnatwa
+A -gnatw_A
+A -gnatQ
+A -gnatw.X
+A -ffunction-sections
+A -fdata-sections
+A -march=armv7e-m+fp
+P ZX
+
+RN
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_ATTRIBUTES
+RV NO_IMPLEMENTATION_PRAGMAS
+
+U main%b		main.adb		114f1096 NE OO SU
+W asyd_package%s	asyd_package.adb	asyd_package.ali
+W lsm303%s		lsm303.adb		lsm303.ali
+W microbit%s		microbit.ads		microbit.ali
+W microbit.accelerometer%s  microbit-accelerometer.adb  microbit-accelerometer.ali
+W microbit.console%s	microbit-console.adb	microbit-console.ali
+W microbit.display%s	microbit-display.adb	microbit-display.ali
+W microbit.ios%s	microbit-ios.adb	microbit-ios.ali
+W microbit.time%s	microbit-time.adb	microbit-time.ali
+Z system.img_int%s	s-imgint.adb		s-imgint.ali
+
+D ada.ads		20200819171400 76789da1 ada%s
+D a-tags.ads		20200819171400 95e09aae ada.tags%s
+D a-unccon.ads		20200819171400 0e9b276f ada.unchecked_conversion%s
+D asyd_package.ads	20240314183308 f3077910 asyd_package%s
+D hal.ads		20210108111948 2b42c80e hal%s
+D hal-gpio.ads		20210108111948 7f0c2ffe hal.gpio%s
+D hal-i2c.ads		20210108111948 0ed73138 hal.i2c%s
+D hal-spi.ads		20210108111948 fe139819 hal.spi%s
+D hal-time.ads		20210108111948 f5295cd7 hal.time%s
+D hal-uart.ads		20210108111948 d58316b4 hal.uart%s
+D interfac.ads		20200819171400 5ab55268 interfaces%s
+D lsm303.ads		20210307192450 1cd6265b lsm303%s
+D main.adb		20240315132344 c5c455f8 main%b
+D microbit.ads		20210309072132 033332ef microbit%s
+D microbit-accelerometer.ads  20200213135924 1399c977 microbit.accelerometer%s
+D microbit-console.ads	20210108111948 0bb00661 microbit.console%s
+D microbit-display.ads	20210108111948 74556d74 microbit.display%s
+D microbit-ios.ads	20210308133732 3c9a3981 microbit.ios%s
+D microbit-time.ads	20210108111948 6bbc81c6 microbit.time%s
+D nrf.ads		20210108111948 74cf72f5 nrf%s
+D nrf-device.ads	20210306183624 0b4647f4 nrf.device%s
+D nrf-gpio.ads		20210306151712 72dee5c2 nrf.gpio%s
+D nrf-rtc.ads		20210108111948 36d88130 nrf.rtc%s
+D nrf-spi_master.ads	20210108111948 a8ff49a3 nrf.spi_master%s
+D nrf-timers.ads	20210108111948 385f1a57 nrf.timers%s
+D nrf-twi.ads		20210306201702 c69c2186 nrf.twi%s
+D nrf-uart.ads		20210307101722 3d63d355 nrf.uart%s
+D nrf_svd.ads		20210306183508 87ba21d7 nrf_svd%s
+D nrf_svd-rtc.ads	20210108111948 57c7ffc8 nrf_svd.rtc%s
+D nrf_svd-spi.ads	20210108111948 6e2ffb69 nrf_svd.spi%s
+D nrf_svd-timer.ads	20210108111948 ba50db1c nrf_svd.timer%s
+D nrf_svd-twi.ads	20210306201806 68301534 nrf_svd.twi%s
+D nrf_svd-uart.ads	20210108111948 83bcebc8 nrf_svd.uart%s
+D system.ads		20200819171400 e69b74bd system%s
+D s-imgint.ads		20200819171400 02dbe0c2 system.img_int%s
+D s-stoele.ads		20200819171400 2dc34a04 system.storage_elements%s
+D s-unstyp.ads		20200819171400 5ecf7212 system.unsigned_types%s
+G a e
+G c Z b b [main standard 12 11 none]
+G r c none [main standard 12 11 none] [put_line microbit__console 43 14 none]
+G r c none [main standard 12 11 none] [sqrt_int asyd_package 4 13 none]
+G r c none [main standard 12 11 none] [data microbit__accelerometer 38 13 none]
+G r c none [main standard 12 11 none] [clear microbit__display 42 14 none]
+G r c none [main standard 12 11 none] [display microbit__display 45 14 none]
+G r c none [main standard 12 11 none] [set microbit__ios 52 14 none]
+G r c none [main standard 12 11 none] [clear microbit__display 39 14 none]
+G r c none [main standard 12 11 none] [set microbit__display 36 14 none]
+G r c none [main standard 12 11 none] [delay_ms microbit__time 41 14 none]
+X 4 asyd_package.ads
+1K9*asyd_package 6e17 13|9w6 9r24
+4V13*sqrt_int{integer} 13|23s11 30s19
+X 6 hal-gpio.ads
+47h9*GPIO_Point
+X 7 hal-i2c.ads
+48h9*I2C_Port
+X 8 hal-spi.ads
+48h9*SPI_Port
+X 9 hal-time.ads
+34h9*Delays
+X 10 hal-uart.ads
+48h9*UART_Port
+X 12 lsm303.ads
+37K9*LSM303 106e11 13|1w6 1r18 14r11
+51I9*Axis_Data<short_integer>
+54R9*All_Axes_Data 56e14 13|14r18
+55i7*X{51I9} 13|30r42
+55i10*Y{51I9} 13|30r63
+55i13*Z{51I9} 13|30r84
+X 13 main.adb
+12U11*Main 12b11 83l5 83t9
+14r4 Data{12|54R9} 29m7 30r37 30r58 30r79
+15i4 FreeFall{integer} 30m7 31r49 41r13
+16i4 FreeFallOccurance{integer} 45m13 45r35 46r16 47m13 47r35 50m13 54r11
+17b4 Blinki{boolean} 72r10 74m10 77m10
+18b4 FreeFell{boolean} 40r11 54r41 58m10
+19i4 bla{integer} 23m4 24r21
+X 14 microbit.ads
+35K9*MicroBit 13|3r6 4r6 5r6 6r6 7r6 8r5 63r7 14|72e13
+X 15 microbit-accelerometer.ads
+35K18*Accelerometer 13|4w15 29r15 15|41e27
+38V13*Data{12|54R9} 13|29s29
+X 16 microbit-console.ads
+32K18*Console 13|5w15 21r4 24r4 31r7 42r13 55r10 16|49e21
+43U14*Put_Line 13|21s12 24s12 31s15 42s21 55s18
+X 17 microbit-display.ads
+32K18*Display 13|3w15 43r13 44r13 49r13 56r10 57r10 73r10 76r10 17|69e21
+36U14*Set 13|73s18
+39U14*Clear 13|76s18
+42U14*Clear 13|43s21 49s21 56s18
+45U14*Display 13|44s21 57s18
+X 18 microbit-ios.ads
+34K18*IOs 13|6w15 63r16 18|98e17
+52U14*Set 13|63s20
+X 19 microbit-time.ads
+35K18*Time 13|7w15 81r7 19|81e18
+43U14*Sleep=43:52 13|81s12
+

@@ -1,0 +1,56 @@
+V "GNAT Lib v2020"
+A -O0
+A -gnatA
+A --RTS=C:\gnat\2020-arm-elf\arm-eabi\lib\gnat\zfp-cortex-m4f\
+A -mlittle-endian
+A -mthumb
+A -mfloat-abi=hard
+A -mcpu=cortex-m4
+A -mfpu=fpv4-sp-d16
+A -gnata
+A -fcallgraph-info=su
+A -fcallgraph-info=su
+A -g
+A -gnatwa
+A -gnatw_A
+A -gnatQ
+A -gnatw.X
+A -ffunction-sections
+A -fdata-sections
+A -march=armv7e-m+fp
+P ZX
+
+RN
+RV NO_DISPATCH
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_IMPLEMENTATION_PRAGMAS
+
+U hal.time%s		hal-time.ads		de6b94d9 NE OO PK IU
+Z ada.tags%s		a-tags.adb		a-tags.ali
+W hal%s			hal.ads			hal.ali
+Z system%s		system.ads		system.ali
+
+D ada.ads		20200819171400 76789da1 ada%s
+D a-tags.ads		20200819171400 95e09aae ada.tags%s
+D hal.ads		20210108111948 2b42c80e hal%s
+D hal-time.ads		20210108111948 f5295cd7 hal.time%s
+D interfac.ads		20200819171400 5ab55268 interfaces%s
+D system.ads		20200819171400 e69b74bd system%s
+D s-stoele.ads		20200819171400 2dc34a04 system.storage_elements%s
+G a e
+X 3 hal.ads
+34K9*HAL 166e8 4|32r9 46r5
+X 4 hal-time.ads
+32K13*Time 3|34k9 4|46l9 46e13
+34h9*Delays 36r34 38p14 38r48 41p14 41r48 44p14 44r48
+36P9*Any_Delays(34R9)
+38x14*Delay_Microseconds 38=34 39>34
+38r34 This{34R9}
+39i34 Us{integer}
+41x14*Delay_Milliseconds 41=34 42>34
+41r34 This{34R9}
+42i34 Ms{integer}
+44x14*Delay_Seconds 44=34 45>34
+44r34 This{34R9}
+45i34 S{integer}
+

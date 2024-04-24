@@ -1,0 +1,113 @@
+V "GNAT Lib v2020"
+A -O0
+A -gnatA
+A --RTS=C:\gnat\2020-arm-elf\arm-eabi\lib\gnat\zfp-cortex-m4f\
+A -mlittle-endian
+A -mthumb
+A -mfloat-abi=hard
+A -mcpu=cortex-m4
+A -mfpu=fpv4-sp-d16
+A -gnata
+A -fcallgraph-info=su
+A -fcallgraph-info=su
+A -g
+A -gnatwa
+A -gnatw_A
+A -gnatQ
+A -gnatw.X
+A -ffunction-sections
+A -fdata-sections
+A -march=armv7e-m+fp
+P ZX
+
+RN
+RV NO_DISPATCH
+RV NO_DISPATCHING_CALLS
+RV NO_EXCEPTIONS
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_ATTRIBUTES
+RV NO_IMPLEMENTATION_PRAGMAS
+
+U bno055_i2c_io%b	bno055_i2c_io.adb	437b2964 NE OO PK IU
+Z ada.exceptions%s	a-except.adb		a-except.ali
+Z ada.tags%s		a-tags.adb		a-tags.ali
+Z system.img_lli%s	s-imglli.adb		s-imglli.ali
+
+U bno055_i2c_io%s	bno055_i2c_io.ads	7212972a EE NE OO PK IU
+Z ada.tags%s		a-tags.adb		a-tags.ali
+W hal%s			hal.ads			hal.ali
+W hal.i2c%s		hal-i2c.ads		hal-i2c.ali
+Z system%s		system.ads		system.ali
+
+D ada.ads		20200819171400 76789da1 ada%s
+D a-except.ads		20200819171400 5b5f0f2f ada.exceptions%s
+D a-except.adb		20200819171400 85a38458 ada.exceptions%b
+D a-tags.ads		20200819171400 95e09aae ada.tags%s
+D bno055_i2c_io.ads	20210108111948 7cc5a612 bno055_i2c_io%s
+D bno055_i2c_io.adb	20210108111948 3fbe8f76 bno055_i2c_io%b
+D hal.ads		20210108111948 2b42c80e hal%s
+D hal-i2c.ads		20210108111948 0ed73138 hal.i2c%s
+D interfac.ads		20200819171400 5ab55268 interfaces%s
+D system.ads		20200819171400 e69b74bd system%s
+D s-imglli.ads		20200819171400 114f55d1 system.img_lli%s
+D s-stoele.ads		20200819171400 2dc34a04 system.storage_elements%s
+G a e
+G c Z s b [read bno055_i2c_io 47 14 none]
+G c Z s b [write bno055_i2c_io 52 14 none]
+G c Z s b [read_buffer bno055_i2c_io 57 14 none]
+G c Z s s [io_portIP bno055_i2c_io 40 9 none]
+X 5 bno055_i2c_io.ads
+38K9*BNO055_I2C_IO 62l5 62e18 6|32b14 106l5 106t18
+40R9*IO_Port 43e14 45r35
+41p7*Port{8|50P9} 6|47r15 72r15 95r15
+42m7*Device{8|46M12} 6|48r15 73r15 96r15
+45P9*Any_IO_Port(40R9) 48r18 53r18 58r18 6|39r18 64r18 88r18
+47U14*Read 48>7 49>7 50<7 6|38b14 57l8 57t12
+48p7 This{45P9} 6|39b7 47r10 48r10
+49m7 Register{7|53M9} 6|40b7 49r35
+50m7 Value{7|53M9} 6|41b7 56m7
+52U14*Write 53>7 54>7 55>7 6|63b14 81l8 81t13
+53p7 This{45P9} 6|64b7 72r10 73r10
+54m7 Register{7|53M9} 6|65b7 74r35
+55m7 Value{7|53M9} 6|66b7 68r54
+57U14*Read_Buffer 58>7 59>7 60<7 6|87b14 104l8 104t19
+58p7 This{45P9} 6|88b7 95r10 96r10
+59m7 Register{7|53M9} 6|89b7 97r35
+60a7 Value{8|40A12} 6|90b7 99m27
+X 6 bno055_i2c_io.adb
+43a7 Incoming{8|40A12} 51m27 56r16
+44e7 Result{8|34E9} 52m27 53r10 54r55
+68a7 Outgoing{8|40A12} 76r27
+69e7 Result{8|34E9} 77m27 78r10 79r56
+92e7 Result{8|34E9} 100m27 101r10 102r60
+X 7 hal.ads
+34K9*HAL 5|35r6 35r22 36r5 7|166e8
+53M9*UInt8<9|63M9> 5|49r18 50r22 54r18 55r18 59r18 6|40r18 41r22 65r18 66r18
+. 89r18
+54M9*UInt10
+66M9*UInt16<9|66M9> 6|49r27 74r27 97r27
+162A9*UInt8_Array(53M9)<integer>
+X 8 hal-i2c.ads
+32K13*I2C 5|35w10 35r26 8|84e12
+34E9*I2C_Status 6|44r18 69r18 92r18 8|38e12
+35n7*Ok{34E9} 6|53r20 78r20 101r20
+40A12*I2C_Data{7|162A9}<integer> 5|60r22 6|43r18 68r27 90r22
+43n7*Memory_Size_8b{42E9} 6|50r27 75r27 98r27
+46M12*I2C_Address{7|54M9} 5|42r16
+48h9*I2C_Port
+50P9*Any_I2C_Port(48R9) 5|41r16
+66x14*Mem_Write 6|71R7
+69m7 Mem_Addr{7|66M9} 6|74r10
+70e7 Mem_Addr_Size{42E9} 6|75r10
+71a7 Data{40A12} 6|76r10
+72e7 Status{34E9} 6|77r10
+75x14*Mem_Read 6|46R7 94R7
+78m7 Mem_Addr{7|66M9} 6|49r10 97r10
+79e7 Mem_Addr_Size{42E9} 6|50r10 98r10
+80a7 Data{40A12} 6|51r10 99r10
+81e7 Status{34E9} 6|52r10 100r10
+X 9 interfac.ads
+63M9*Unsigned_8
+66M9*Unsigned_16
+

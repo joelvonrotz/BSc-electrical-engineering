@@ -1,0 +1,30 @@
+graph: { title: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\ssd1306\ssd1306-standard_resolutions.ads"
+class {
+  classname: "ssd1306__standard_resolutions__ssd1306_96x16_screen"
+  label: "ssd1306__standard_resolutions__ssd1306_96x16_screen\ssd1306-standard_resolutions.ads:34:9"
+  parent: "ssd1306__ssd1306_screen"
+  virtuals: "-1:ssd1306__standard_resolutions___size,-1:ssd1306__ssd1306_screen"
+}
+class {
+  classname: "ssd1306__standard_resolutions__ssd1306_128x32_screen"
+  label: "ssd1306__standard_resolutions__ssd1306_128x32_screen\ssd1306-standard_resolutions.ads:40:9"
+  parent: "ssd1306__ssd1306_screen"
+  virtuals: "-1:ssd1306__standard_resolutions___size__2,-1:ssd1306__ssd1306_screen"
+}
+class {
+  classname: "ssd1306__standard_resolutions__ssd1306_128x64_screen"
+  label: "ssd1306__standard_resolutions__ssd1306_128x64_screen\ssd1306-standard_resolutions.ads:46:9"
+  parent: "ssd1306__ssd1306_screen"
+  virtuals: "-1:ssd1306__standard_resolutions___size__3,-1:ssd1306__ssd1306_screen"
+}
+node: { title: "ssd1306__standard_resolutions__ssd1306_96x16_screenIP" label: "SSD1306_96X16_SCREENIP\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\ssd1306\ssd1306-standard_resolutions.ads:34:9\n40 bytes (static)" }
+node: { title: "ssd1306__ssd1306_screenIP" label: "SSD1306_SCREENIP\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\ssd1306\ssd1306.ads:216:9" shape : ellipse }
+edge: { sourcename: "ssd1306__standard_resolutions__ssd1306_96x16_screenIP" targetname: "ssd1306__ssd1306_screenIP" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\ssd1306\ssd1306-standard_resolutions.ads:38:7" }
+node: { title: "ssd1306__standard_resolutions___size" label: "STANDARD_RESOLUTIONS\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\ssd1306\ssd1306-standard_resolutions.ads:34:9\n16 bytes (static)" }
+node: { title: "ssd1306__standard_resolutions__ssd1306_128x32_screenIP" label: "SSD1306_128X32_SCREENIP\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\ssd1306\ssd1306-standard_resolutions.ads:40:9\n40 bytes (static)" }
+edge: { sourcename: "ssd1306__standard_resolutions__ssd1306_128x32_screenIP" targetname: "ssd1306__ssd1306_screenIP" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\ssd1306\ssd1306-standard_resolutions.ads:44:7" }
+node: { title: "ssd1306__standard_resolutions___size__2" label: "STANDARD_RESOLUTIONS\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\ssd1306\ssd1306-standard_resolutions.ads:40:9\n16 bytes (static)" }
+node: { title: "ssd1306__standard_resolutions__ssd1306_128x64_screenIP" label: "SSD1306_128X64_SCREENIP\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\ssd1306\ssd1306-standard_resolutions.ads:46:9\n40 bytes (static)" }
+edge: { sourcename: "ssd1306__standard_resolutions__ssd1306_128x64_screenIP" targetname: "ssd1306__ssd1306_screenIP" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\ssd1306\ssd1306-standard_resolutions.ads:50:7" }
+node: { title: "ssd1306__standard_resolutions___size__3" label: "STANDARD_RESOLUTIONS\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\ssd1306\ssd1306-standard_resolutions.ads:46:9\n16 bytes (static)" }
+}

@@ -1,0 +1,172 @@
+V "GNAT Lib v2020"
+A -O0
+A -gnatA
+A --RTS=C:\gnat\2020-arm-elf\arm-eabi\lib\gnat\zfp-cortex-m4f\
+A -mlittle-endian
+A -mthumb
+A -mfloat-abi=hard
+A -mcpu=cortex-m4
+A -mfpu=fpv4-sp-d16
+A -gnata
+A -fcallgraph-info=su
+A -fcallgraph-info=su
+A -g
+A -gnatwa
+A -gnatw_A
+A -gnatQ
+A -gnatw.X
+A -ffunction-sections
+A -fdata-sections
+A -march=armv7e-m+fp
+P ZX
+
+RN
+RV NO_DISPATCHING_CALLS
+RV NO_EXCEPTIONS
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_ATTRIBUTES
+RV NO_IMPLEMENTATION_PRAGMAS
+
+U ht16k33%b		ht16k33.adb		edf8c450 NE OO PK IU
+Z ada.tags%s		a-tags.adb		a-tags.ali
+
+U ht16k33%s		ht16k33.ads		8ec5b3c0 EE NE OO PK IU
+Z ada.tags%s		a-tags.adb		a-tags.ali
+W hal%s			hal.ads			hal.ali
+W hal.i2c%s		hal-i2c.ads		hal-i2c.ali
+Z system%s		system.ads		system.ali
+
+D ada.ads		20200819171400 76789da1 ada%s
+D a-tags.ads		20200819171400 95e09aae ada.tags%s
+D hal.ads		20210108111948 2b42c80e hal%s
+D hal-i2c.ads		20210108111948 0ed73138 hal.i2c%s
+D ht16k33.ads		20210108111948 ab504af6 ht16k33%s
+D ht16k33.adb		20210108111948 46a88ea6 ht16k33%b
+D interfac.ads		20200819171400 5ab55268 interfaces%s
+D system.ads		20200819171400 e69b74bd system%s
+D s-stoele.ads		20200819171400 2dc34a04 system.storage_elements%s
+G a e
+G c Z s b [enable ht16k33 49 14 none]
+G c Z s b [disable ht16k33 50 14 none]
+G c Z s b [set_brightness ht16k33 52 14 none]
+G c Z s b [set_blink ht16k33 55 14 none]
+G c Z s b [set_led ht16k33 58 14 none]
+G c Z s b [set_row ht16k33 65 14 none]
+G c Z s b [get_key ht16k33 71 13 none]
+G c Z s b [update_leds ht16k33 77 14 none]
+G c Z s b [update_keys ht16k33 80 14 none]
+G c Z s s [ht16k33_deviceIP ht16k33 92 9 none]
+G c Z b b [i2c_addr ht16k33 38 13 none]
+G c Z b b [i2c_read ht16k33 40 14 none]
+G c Z b b [i2c_write ht16k33 45 14 none]
+G c Z b b [i2c_command ht16k33 50 14 none]
+G c Z b b [update_setup_reg ht16k33 55 14 none]
+X 3 hal.ads
+34K9*HAL 166e8 5|32r6 32r19 33w6 33r15
+41M9*UInt3 5|38r32 44r31 47r31 93r32
+43M9*UInt4 5|43r28
+53M9*UInt8<7|63M9> 5|67r30 6|35r33 36r33 41r33 46r34 51r34 69r32 90r34 111r34
+. 131r26 132r26 172r42 218r30
+54M9*UInt10
+66M9*UInt16<7|66M9> 6|77r10 98r10
+162A9*UInt8_Array(53M9)<integer>
+X 4 hal-i2c.ads
+32K13*I2C 84e12 5|32w10 32r23
+34E9*I2C_Status 38e12 6|73r20 94r20 115r20
+35n7*Ok{34E9} 6|82r30 103r30 122r30
+40A12*I2C_Data{3|162A9}<integer> 5|97r20 98r20 6|42r37 47r34 70r36 91r34
+. 114r23
+43n7*Memory_Size_8b{42E9} 6|78r10 99r10
+46M12*I2C_Address{3|54M9} 6|34r33 38r53 61r53 62r8
+48h9*I2C_Port
+50P9*Any_I2C_Port(48R9) 5|37r41 92r41
+52x14*Master_Transmit 6|117R17
+66x14*Mem_Write 6|96R17
+75x14*Mem_Read 6|75R17
+X 5 ht16k33.ads
+35K9*HT16K33 92E9 100l5 100e12 6|32b14 268l5 268t12
+37R9*HT16K33_Device 37d25 38d25 49p14 49r36 50p14 50r37 52p14 52r50 55p14
+. 55r40 58p14 58r39 65p14 65r37 71p13 71r38 77p14 77r41 80p14 80r41 92c9
+. 99e14 6|38r30 40r40 45r41 50r41 55r46 61r30 68r40 89r41 110r41 129r46 146r36
+. 156r37 166r50 184r40 196r39 216r37 228r38 241r41 255r41
+37p25 Port{4|50P9} 92r25 6|75r12 96r12 117r12
+38m25 Addr{3|41M9} 93r25 6|62r26
+40I9*HT16K33_Brightness<integer> 53r43 6|167r43
+41E9*HT16K33_Blink 41e71 56r33 87r8 96r20 6|133r21 185r33
+41n27*Blink_Off{41E9} 87r27 96r37
+41n38*Blink_2hz{41E9} 88r27
+41n49*Blink_1hz{41E9} 89r27
+41n60*Blink_05hz{41E9} 90r27
+43M12*LED_Row_Addr{3|43M9} 59r32 66r30 6|197r32 217r30
+44M12*LED_Column_Addr{3|41M9} 60r32 6|198r32
+46I12*Key_Row_Addr{integer} 72r31 98r30 6|229r31
+47M12*Key_Column_Addr{3|41M9} 73r31 6|230r31
+49U14*Enable 49=22 6|146b14 150l8 150t14
+49r22 This{37R9} 6|146b22 148m7 149m25
+50U14*Disable 50=23 6|156b14 160l8 160t15
+50r23 This{37R9} 6|156b23 158m7 159m25
+52U14*Set_Brightness 52=30 53>30 6|166b14 177l8 177t22
+52r30 This{37R9} 6|166b30 172m20
+53i30 Brightness{40I9} 6|167b30 172r49
+55U14*Set_Blink 55=25 56>25 6|184b14 190l8 190t17
+55r25 This{37R9} 6|184b25 188m7 189m25
+56e25 Blink{41E9} 6|185b25 188r21
+58U14*Set_LED 58=23 59>23 60>23 61>23 6|196b14 210l8 210t15
+58r23 This{37R9} 6|196b23 203m10 204r12 206m10 207r12
+59m23 Row{43M12} 6|197b23 203r30 204r32 206r30 207r32
+60m23 Column{44M12} 6|198b23 204r65 207r71
+61b23 Enable{boolean} 6|199b23 202r10
+65U14*Set_Row 65=23 66>23 67>23 6|216b14 222l8 222t15
+65r23 This{37R9} 6|216b23 221m7
+66m23 Addr{43M12} 6|217b23 221r27
+67m23 Row{3|53M9} 6|218b23 221r37
+71V13*Get_Key{boolean} 71=22 72>22 73>22 6|228b13 235l8 235t15
+71r22 This{37R9} 6|228b22 234r10
+72i22 Row{46I12} 6|229b22 234r30
+73m22 Column{47M12} 6|230b22 234r64
+77U14*Update_LEDs 77=27 6|241b14 249l8 249t19
+77r27 This{37R9} 6|241b27 244m18 244r32
+80U14*Update_Keys 80=27 6|255b14 266l8 266t19
+80r27 This{37R9} 6|255b27 258m27 260m27 260r27
+95b10*Enabled{boolean} 6|131r44 148m12 158m12
+96e10*Blink{41E9} 6|133r50 188m12
+97a10*LEDs{3|162A9} 6|203m15 204r17 206m15 207r17 221m12 244r37
+98a10*Keys{3|162A9} 6|234r15 260m32
+X 6 ht16k33.adb
+34m4 HT16K33_Base_Addr{4|46M12} 62r40
+35m4 Reg_Display_Setup{3|53M9} 135r26
+36m4 Reg_Dimming{3|53M9} 172r26
+38V13 I2C_Addr{4|46M12} 38>23 61b13 76s10 97s10 118s10
+38r23 This{5|37R9} 62r21
+40U14 I2C_Read 40=24 41>24 42<24 43<24 68b14 83l8 83t16 258s7
+40r24 This{5|37R9} 68b24 75r7 76r20 258r17
+41m24 Reg{3|53M9} 69b23 77r18 259r17
+42a24 Data{4|40A12} 70b23 79m10 260r17
+43b24 Status{boolean} 71b23 82m7 261r17
+45U14 I2C_Write 45=25 46>25 47>25 48<25 89b14 104l8 104t17 244s7
+45r25 This{5|37R9} 89b25 96r7 97r20
+46m25 Reg{3|53M9} 90b25 98r18
+47a25 Data{4|40A12} 91b25 100r10
+48b25 Status{boolean} 92b25 103m7
+50U14 I2C_Command 50=27 51>27 52<27 110b14 123l8 123t19 135s7 172s7
+50r27 This{5|37R9} 110b27 117r7 118r20
+51m27 Cmd{3|53M9} 111b27 114r55
+52b27 Status{boolean} 112b27 122m7
+55U14 Update_Setup_Reg 55=32 129b14 140l8 140t24 149s7 159s7 189s7
+55r32 This{5|37R9} 129b32 131r39 133r45 135m20
+73e7 Tmp_Status{4|34E9} 80m10 82r17
+94e7 Tmp_Status{4|34E9} 101m10 103r17
+114a7 Data{3|162A9} 119r10
+115e7 Tmp_Status{4|34E9} 120m10 122r17
+130b7 Status{boolean} 135m65 137r14
+131m7 Enabled{3|53M9} 135r56
+132m7 Blink{3|53M9} 135r47
+169b7 Status{boolean} 172m67 174r14
+242b7 Status{boolean} 244m43 246r14
+256b7 Status{boolean} 261m27 263r14
+X 7 interfac.ads
+63M9*Unsigned_8
+66M9*Unsigned_16
+81V13*Shift_Left{63M9} 6|133s9 204s41 207s47 234s40
+

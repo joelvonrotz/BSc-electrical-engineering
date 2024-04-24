@@ -1,0 +1,8 @@
+graph: { title: "C:\Users\JumpStart\Desktop\lehre\asyd\dev\Ada_Drivers_Library-master\examples\MicroBit\text_scrolling\src\main.adb"
+node: { title: "_ada_main" label: "Main\nC:\Users\JumpStart\Desktop\lehre\asyd\dev\Ada_Drivers_Library-master\examples\MicroBit\text_scrolling\src\main.adb:36:1\n24 bytes (static)" }
+node: { title: "microbit__console__put_line" label: "Put_Line\nC:\Users\JumpStart\Desktop\lehre\asyd\dev\Ada_Drivers_Library-master\boards\microbit\src\microbit-console.ads:43:14" shape : ellipse }
+edge: { sourcename: "_ada_main" targetname: "microbit__console__put_line" label: "C:\Users\JumpStart\Desktop\lehre\asyd\dev\Ada_Drivers_Library-master\examples\MicroBit\text_scrolling\src\main.adb:39:11" }
+edge: { sourcename: "_ada_main" targetname: "microbit__console__put_line" label: "C:\Users\JumpStart\Desktop\lehre\asyd\dev\Ada_Drivers_Library-master\examples\MicroBit\text_scrolling\src\main.adb:42:14" }
+node: { title: "microbit__display__display__2" label: "Display\nC:\Users\JumpStart\Desktop\lehre\asyd\dev\Ada_Drivers_Library-master\boards\microbit\src\microbit-display.ads:51:14" shape : ellipse }
+edge: { sourcename: "_ada_main" targetname: "microbit__display__display__2" label: "C:\Users\JumpStart\Desktop\lehre\asyd\dev\Ada_Drivers_Library-master\examples\MicroBit\text_scrolling\src\main.adb:43:23" }
+}

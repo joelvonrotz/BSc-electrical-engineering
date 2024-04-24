@@ -1,0 +1,52 @@
+V "GNAT Lib v2020"
+A -O0
+A -gnatA
+A --RTS=C:\gnat\2020-arm-elf\arm-eabi\lib\gnat\zfp-cortex-m4f\
+A -mlittle-endian
+A -mthumb
+A -mfloat-abi=hard
+A -mcpu=cortex-m4
+A -mfpu=fpv4-sp-d16
+A -gnata
+A -fcallgraph-info=su
+A -fcallgraph-info=su
+A -g
+A -gnatwa
+A -gnatw_A
+A -gnatQ
+A -gnatw.X
+A -ffunction-sections
+A -fdata-sections
+A -march=armv7e-m+fp
+P ZX
+
+RN
+RV NO_IMPLEMENTATION_PRAGMAS
+
+U adl_config%s		adl_config.ads		5d2c18e5 NE OO PK
+
+D adl_config.ads	20210108111948 5d2c18e5 adl_config%s
+D system.ads		20200819171400 e69b74bd system%s
+G a e
+X 1 adl_config.ads
+2K9*ADL_Config 22l5 22e15
+3a4*Vendor{string}
+4N4*Max_Mount_Points
+5a4*Boot_Memory{string}
+6N4*Max_Mount_Name_Length
+7a4*Runtime_Profile{string}
+8a4*Device_Name{string}
+9a4*Device_Family{string}
+10a4*Has_Ravenscar_SFP_Runtime{string}
+11a4*Runtime_Name{string}
+12a4*Has_Ravenscar_Full_Runtime{string}
+13a4*CPU_Core{string}
+14a4*Board{string}
+15a4*Has_ZFP_Runtime{string}
+16N4*Number_Of_Interrupts
+17b4*Has_Custom_Memory_Area_1{boolean}
+18b4*Use_Startup_Gen{boolean}
+19N4*Max_Path_Length
+20a4*Runtime_Name_Suffix{string}
+21a4*Architecture{string}
+

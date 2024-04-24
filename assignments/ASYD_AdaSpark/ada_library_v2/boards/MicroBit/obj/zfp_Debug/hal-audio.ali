@@ -1,0 +1,72 @@
+V "GNAT Lib v2020"
+A -O0
+A -gnatA
+A --RTS=C:\gnat\2020-arm-elf\arm-eabi\lib\gnat\zfp-cortex-m4f\
+A -mlittle-endian
+A -mthumb
+A -mfloat-abi=hard
+A -mcpu=cortex-m4
+A -mfpu=fpv4-sp-d16
+A -gnata
+A -fcallgraph-info=su
+A -fcallgraph-info=su
+A -g
+A -gnatwa
+A -gnatw_A
+A -gnatQ
+A -gnatw.X
+A -ffunction-sections
+A -fdata-sections
+A -march=armv7e-m+fp
+P ZX
+
+RN
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_IMPLEMENTATION_PRAGMAS
+
+U hal.audio%s		hal-audio.ads		882700dc NE OO PK IU
+Z ada.tags%s		a-tags.adb		a-tags.ali
+W hal%s			hal.ads			hal.ali
+W interfaces%s		interfac.ads		interfac.ali
+Z system%s		system.ads		system.ali
+Z system.unsigned_types%s  s-unstyp.ads		s-unstyp.ali
+
+D ada.ads		20200819171400 76789da1 ada%s
+D a-tags.ads		20200819171400 95e09aae ada.tags%s
+D hal.ads		20210108111948 2b42c80e hal%s
+D hal-audio.ads		20210108111948 f9d09aba hal.audio%s
+D interfac.ads		20200819171400 5ab55268 interfaces%s
+D system.ads		20200819171400 e69b74bd system%s
+D s-stoele.ads		20200819171400 2dc34a04 system.storage_elements%s
+D s-unstyp.ads		20200819171400 5ecf7212 system.unsigned_types%s
+G a e
+G c Z s s [audio_bufferIP hal__audio 36 9 none]
+X 3 hal.ads
+34K9*HAL 166e8 4|34r9 72r5
+X 4 hal-audio.ads
+34K13*Audio 3|34k9 4|72l9 72e14
+36A9*Audio_Buffer(5|49I9)<integer> 67r31 70r34
+39I9*Audio_Volume<integer>
+41E9*Audio_Frequency 50e6 51r8 64r41
+42n7*Audio_Freq_8kHz{41E9} 52r7
+43n7*Audio_Freq_11kHz{41E9} 53r7
+44n7*Audio_Freq_16kHz{41E9} 54r7
+45n7*Audio_Freq_22kHz{41E9} 55r7
+46n7*Audio_Freq_32kHz{41E9} 56r7
+47n7*Audio_Freq_44kHz{41E9} 57r7
+48n7*Audio_Freq_48kHz{41E9} 58r7
+49n7*Audio_Freq_96kHz{41E9} 59r7
+61h9*Audio_Stream 63p14 63r48 66p14 66r38 69p14 69r37
+63x14*Set_Frequency 63=29 64>29
+63r29 This{61R9}
+64e29 Frequency{41E9}
+66x14*Transmit 66=24 67>24
+66r24 This{61R9}
+67a24 Data{36A9}
+69x14*Receive 69=23 70<23
+69r23 This{61R9}
+70a23 Data{36A9}
+X 5 interfac.ads
+38K9*Interfaces 4|32w6 32r22 5|184e15
+49I9*Integer_16<short_integer> 4|36r53
+

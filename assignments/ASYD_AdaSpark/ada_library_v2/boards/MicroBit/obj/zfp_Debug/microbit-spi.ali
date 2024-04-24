@@ -1,0 +1,147 @@
+V "GNAT Lib v2020"
+A -O0
+A -gnatA
+A --RTS=C:\gnat\2020-arm-elf\arm-eabi\lib\gnat\zfp-cortex-m4f\
+A -mlittle-endian
+A -mthumb
+A -mfloat-abi=hard
+A -mcpu=cortex-m4
+A -mfpu=fpv4-sp-d16
+A -gnata
+A -fcallgraph-info=su
+A -fcallgraph-info=su
+A -g
+A -gnatwa
+A -gnatw_A
+A -gnatQ
+A -gnatw.X
+A -ffunction-sections
+A -fdata-sections
+A -march=armv7e-m+fp
+P ZX
+
+RN
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_IMPLEMENTATION_PRAGMAS
+
+U microbit.spi%b	microbit-spi.adb	5fe7cd41 NE OO PK
+Z interfaces%s		interfac.ads		interfac.ali
+W microbit%s		microbit.ads		microbit.ali
+W nrf%s			nrf.ads			nrf.ali
+W nrf.device%s		nrf-device.adb		nrf-device.ali
+W nrf.spi_master%s	nrf-spi_master.adb	nrf-spi_master.ali
+Z system.assertions%s	s-assert.adb		s-assert.ali
+
+U microbit.spi%s	microbit-spi.ads	9073fe3a EE NE OO PK
+W hal%s			hal.ads			hal.ali
+W hal.spi%s		hal-spi.ads		hal-spi.ali
+W microbit%s		microbit.ads		microbit.ali
+
+D ada.ads		20200819171400 76789da1 ada%s
+D a-tags.ads		20200819171400 95e09aae ada.tags%s
+D hal.ads		20210108111948 2b42c80e hal%s
+D hal-gpio.ads		20210108111948 7f0c2ffe hal.gpio%s
+D hal-i2c.ads		20210108111948 0ed73138 hal.i2c%s
+D hal-spi.ads		20210108111948 fe139819 hal.spi%s
+D hal-uart.ads		20210108111948 d58316b4 hal.uart%s
+D interfac.ads		20200819171400 5ab55268 interfaces%s
+D microbit.ads		20210309072132 033332ef microbit%s
+D microbit-spi.ads	20210108111948 6d5354cc microbit.spi%s
+D microbit-spi.adb	20210108111948 910d97da microbit.spi%b
+D nrf.ads		20210108111948 74cf72f5 nrf%s
+D nrf-device.ads	20210306183624 0b4647f4 nrf.device%s
+D nrf-gpio.ads		20210306151712 72dee5c2 nrf.gpio%s
+D nrf-rtc.ads		20210108111948 36d88130 nrf.rtc%s
+D nrf-spi_master.ads	20210108111948 a8ff49a3 nrf.spi_master%s
+D nrf-timers.ads	20210108111948 385f1a57 nrf.timers%s
+D nrf-twi.ads		20210306201702 c69c2186 nrf.twi%s
+D nrf-uart.ads		20210307101722 3d63d355 nrf.uart%s
+D nrf_svd.ads		20210306183508 87ba21d7 nrf_svd%s
+D nrf_svd-rtc.ads	20210108111948 57c7ffc8 nrf_svd.rtc%s
+D nrf_svd-spi.ads	20210108111948 6e2ffb69 nrf_svd.spi%s
+D nrf_svd-timer.ads	20210108111948 ba50db1c nrf_svd.timer%s
+D nrf_svd-twi.ads	20210306201806 68301534 nrf_svd.twi%s
+D nrf_svd-uart.ads	20210108111948 83bcebc8 nrf_svd.uart%s
+D system.ads		20200819171400 e69b74bd system%s
+D s-assert.ads		20200819171400 cd8d2c94 system.assertions%s
+D s-stoele.ads		20200819171400 2dc34a04 system.storage_elements%s
+D s-unstyp.ads		20200819171400 5ecf7212 system.unsigned_types%s
+G a e
+G c Z s b [initialized microbit__spi 40 13 none]
+G c Z s b [initialize microbit__spi 43 14 none]
+G c Z s b [controller microbit__spi 52 13 none]
+G r c none [initialize microbit__spi 43 14 none] [configure nrf__spi_master 72 14 none]
+G r c none [initialize microbit__spi 43 14 none] [enable nrf__spi_master 60 14 none]
+X 3 hal.ads
+34K9*HAL 166e8 10|32r6 32r19
+X 4 hal-gpio.ads
+47h9*GPIO_Point
+X 5 hal-i2c.ads
+48h9*I2C_Port
+X 6 hal-spi.ads
+32K13*SPI 86e12 10|32w10 32r23
+48h9*SPI_Port
+50P9*Any_SPI_Port(48R9) 10|52r40 11|92r40
+X 7 hal-uart.ads
+48h9*UART_Port
+X 9 microbit.ads
+35K9*MicroBit 72e13 10|34r9 55r5 11|35r14 95r5
+59r4*MB_SCK=59:42{14|67R9} 11|60r23
+60r4*MB_MISO=60:42{14|67R9} 11|62r23
+61r4*MB_MOSI=61:42{14|67R9} 11|61r23
+X 10 microbit-spi.ads
+34K18*SPI 9|35k9 10|55l14 55e17 11|35b23 95l14 95t17
+36E9*Speed 36e80 43r33 11|55r14
+36n19*S125kbps{36E9} 11|65r32
+36n29*S250kbps{36E9} 11|66r32
+36n39*S500kbps{36E9} 11|67r32
+36n49*S1Mbps{36E9} 43r42 11|55r23 68r32
+36n57*S2Mbps{36E9} 11|69r32
+36n65*S4Mbps{36E9} 11|70r32
+36n73*S8Mbps{36E9} 11|71r32
+38E9*SPI_Mode 38e53 44r33 11|56r14
+38n22*Mode_0{38E9} 44r45 11|56r26 76r32 80r32
+38n30*Mode_1{38E9} 11|76r41 81r32
+38n38*Mode_2{38E9} 11|77r32 80r41
+38n46*Mode_3{38E9} 11|77r41 81r41
+40V13*Initialized{boolean} 45s19 11|47b13
+43U14*Initialize 43>26 44>26 11|54b14 86l8 86t18
+43e26 S{36E9} 11|55b7 64r29
+44e26 Mode{38E9} 11|56b7 75r29 79r29
+52V13*Controller{6|50P9} 11|92b13
+X 11 microbit-spi.adb
+37b4 Init_Done{boolean} 48r8 85m7
+39r4 Device=39:43{16|56R9} 59r7 83r7 93r8
+X 12 nrf.ads
+34K9*nRF 11|32r6 33r6 33r26 39r32 12|43e8
+X 13 nrf-device.ads
+44K13*Device 11|32w10 39r36 13|119e15
+107r4*SPI_Master_1{16|56R9} 11|39m43 39r43
+X 14 nrf-gpio.ads
+35I12*GPIO_Pin_Index{natural}
+69i7*Pin{35I12} 11|60r30 61r31 62r31
+X 16 nrf-spi_master.ads
+37K13*SPI_Master 11|33w10 33r30 16|133e19
+39n25*SPI_125kbps{39E9} 11|65r44
+39n38*SPI_250kbps{39E9} 11|66r44
+39n51*SPI_500kbps{39E9} 11|67r44
+40n25*SPI_1Mbps{39E9} 11|68r42
+40n36*SPI_2Mbps{39E9} 11|69r42
+40n47*SPI_4Mbps{39E9} 11|70r42
+40n58*SPI_8Mbps{39E9} 11|71r42
+43n28*Most_Significant_First{43E9} 11|73r23
+46n25*Sample_Leading_Edge{46E9} 11|80r51
+46n46*Sample_Trailing_Edge{46E9} 11|81r51
+51n28*Active_High{51E9} 11|76r51
+51n41*Active_Low{51E9} 11|77r51
+56R9*SPI_Master<6|48R9> 11|39r13 16|131e43
+60U14*Enable 11|83s14
+72U14*Configure 11|59s14
+73i25 SCK{14|35I12} 11|60r10
+73i30 MOSI{14|35I12} 11|61r10
+73i36 MISO{14|35I12} 11|62r10
+74e25 Speed{39E9} 11|64r10
+75e25 Bit_Order{43E9} 11|73r10
+76e25 Polarity{51E9} 11|75r10
+77e25 Phase{46E9} 11|79r10
+

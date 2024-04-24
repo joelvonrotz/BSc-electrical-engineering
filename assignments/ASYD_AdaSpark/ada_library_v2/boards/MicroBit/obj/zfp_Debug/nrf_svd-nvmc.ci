@@ -1,0 +1,13 @@
+graph: { title: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\svd\nrf52\nrf_svd-nvmc.ads"
+node: { title: "nrf_svd__nvmc__ready_registerIP" label: "READY_REGISTERIP\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\svd\nrf52\nrf_svd-nvmc.ads:67:9\n16 bytes (static)" }
+node: { title: "nrf_svd__nvmc__config_registerIP" label: "CONFIG_REGISTERIP\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\svd\nrf52\nrf_svd-nvmc.ads:98:9\n16 bytes (static)" }
+node: { title: "nrf_svd__nvmc__eraseall_registerIP" label: "ERASEALL_REGISTERIP\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\svd\nrf52\nrf_svd-nvmc.ads:127:9\n16 bytes (static)" }
+node: { title: "nrf_svd__nvmc__eraseuicr_registerIP" label: "ERASEUICR_REGISTERIP\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\svd\nrf52\nrf_svd-nvmc.ads:157:9\n16 bytes (static)" }
+node: { title: "nrf_svd__nvmc__icachecnf_registerIP" label: "ICACHECNF_REGISTERIP\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\svd\nrf52\nrf_svd-nvmc.ads:196:9\n16 bytes (static)" }
+node: { title: "nrf_svd__nvmc__nvmc_peripheralEQ" label: "NVMC_PERIPHERALEQ\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\svd\nrf52\nrf_svd-nvmc.ads:225:9\n24 bytes (static)" }
+node: { title: "nrf_svd__nvmc__nvmc_peripheralIP" label: "NVMC_PERIPHERALIP\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\svd\nrf52\nrf_svd-nvmc.ads:225:9\n16 bytes (static)" }
+edge: { sourcename: "nrf_svd__nvmc__nvmc_peripheralIP" targetname: "nrf_svd__nvmc__config_registerIP" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\svd\nrf52\nrf_svd-nvmc.ads:231:7" }
+edge: { sourcename: "nrf_svd__nvmc__nvmc_peripheralIP" targetname: "nrf_svd__nvmc__eraseall_registerIP" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\svd\nrf52\nrf_svd-nvmc.ads:233:7" }
+edge: { sourcename: "nrf_svd__nvmc__nvmc_peripheralIP" targetname: "nrf_svd__nvmc__eraseuicr_registerIP" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\svd\nrf52\nrf_svd-nvmc.ads:238:7" }
+edge: { sourcename: "nrf_svd__nvmc__nvmc_peripheralIP" targetname: "nrf_svd__nvmc__icachecnf_registerIP" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\arch\ARM\Nordic\svd\nrf52\nrf_svd-nvmc.ads:240:7" }
+}

@@ -1,0 +1,244 @@
+V "GNAT Lib v2020"
+A -O0
+A -gnatA
+A --RTS=C:\gnat\2020-arm-elf\arm-eabi\lib\gnat\zfp-cortex-m4f\
+A -mlittle-endian
+A -mthumb
+A -mfloat-abi=hard
+A -mcpu=cortex-m4
+A -mfpu=fpv4-sp-d16
+A -gnata
+A -fcallgraph-info=su
+A -fcallgraph-info=su
+A -g
+A -gnatwa
+A -gnatw_A
+A -gnatQ
+A -gnatw.X
+A -ffunction-sections
+A -fdata-sections
+A -march=armv7e-m+fp
+P ZX
+
+RN
+RV NO_ACCESS_SUBPROGRAMS
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_DEFAULT_INITIALIZATION
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_ELABORATION_CODE
+
+U microbit.time%b	microbit-time.adb	829883e1 OO PK
+Z ada.tags%s		a-tags.adb		a-tags.ali
+W microbit%s		microbit.ads		microbit.ali
+W nrf%s			nrf.ads			nrf.ali
+W nrf.clock%s		nrf-clock.adb		nrf-clock.ali  AD
+W nrf.device%s		nrf-device.adb		nrf-device.ali
+W nrf.events%s		nrf-events.adb		nrf-events.ali  AD
+W nrf.interrupts%s	nrf-interrupts.adb	nrf-interrupts.ali  AD
+W nrf.rtc%s		nrf-rtc.adb		nrf-rtc.ali  AD
+W system%s		system.ads		system.ali
+Z system.assertions%s	s-assert.adb		s-assert.ali
+W system.machine_code%s	s-maccod.ads		s-maccod.ali
+
+U microbit.time%s	microbit-time.ads	b6e427f0 EE NE OO PK
+Z ada.tags%s		a-tags.adb		a-tags.ali
+W hal%s			hal.ads			hal.ali
+W hal.time%s		hal-time.ads		hal-time.ali
+W microbit%s		microbit.ads		microbit.ali
+Z system%s		system.ads		system.ali
+
+D ada.ads		20200819171400 76789da1 ada%s
+D a-tags.ads		20200819171400 95e09aae ada.tags%s
+D cortex_m.ads		20210108111948 38b367df cortex_m%s
+D cortex_m-nvic.ads	20210108111948 cb914309 cortex_m.nvic%s
+D hal.ads		20210108111948 2b42c80e hal%s
+D hal-gpio.ads		20210108111948 7f0c2ffe hal.gpio%s
+D hal-i2c.ads		20210108111948 0ed73138 hal.i2c%s
+D hal-spi.ads		20210108111948 fe139819 hal.spi%s
+D hal-time.ads		20210108111948 f5295cd7 hal.time%s
+D hal-uart.ads		20210108111948 d58316b4 hal.uart%s
+D interfac.ads		20200819171400 5ab55268 interfaces%s
+D microbit.ads		20210309072132 033332ef microbit%s
+D microbit-time.ads	20210108111948 6bbc81c6 microbit.time%s
+D microbit-time.adb	20210108111948 cc95f0ab microbit.time%b
+D nrf.ads		20210108111948 74cf72f5 nrf%s
+D nrf-clock.ads		20210108111948 3bc4307d nrf.clock%s
+D nrf-device.ads	20210306183624 0b4647f4 nrf.device%s
+D nrf-events.ads	20210108111948 dedecd5e nrf.events%s
+D nrf-gpio.ads		20210306151712 72dee5c2 nrf.gpio%s
+D nrf-interrupts.ads	20210108111948 905d6e6a nrf.interrupts%s
+D nrf-rtc.ads		20210108111948 36d88130 nrf.rtc%s
+D nrf-spi_master.ads	20210108111948 a8ff49a3 nrf.spi_master%s
+D nrf-timers.ads	20210108111948 385f1a57 nrf.timers%s
+D nrf-twi.ads		20210306201702 c69c2186 nrf.twi%s
+D nrf-uart.ads		20210307101722 3d63d355 nrf.uart%s
+D nrf_svd.ads		20210306183508 87ba21d7 nrf_svd%s
+D nrf_svd-aar.ads	20210108111948 073faf5e nrf_svd.aar%s
+D nrf_svd-ccm.ads	20210108111948 989bbb45 nrf_svd.ccm%s
+D nrf_svd-clock.ads	20210108111948 15406ae2 nrf_svd.clock%s
+D nrf_svd-ecb.ads	20210108111948 ba523825 nrf_svd.ecb%s
+D nrf_svd-gpiote.ads	20210108111948 217045a9 nrf_svd.gpiote%s
+D nrf_svd-power.ads	20210108111948 74fd31ae nrf_svd.power%s
+D nrf_svd-qdec.ads	20210108111948 1e95ab7b nrf_svd.qdec%s
+D nrf_svd-radio.ads	20210108111948 2c6bda9d nrf_svd.radio%s
+D nrf_svd-rng.ads	20210108111948 a4e37bcd nrf_svd.rng%s
+D nrf_svd-rtc.ads	20210108111948 57c7ffc8 nrf_svd.rtc%s
+D nrf_svd-saadc.ads	20210308120756 04c01e3e nrf_svd.saadc%s
+D nrf_svd-spi.ads	20210108111948 6e2ffb69 nrf_svd.spi%s
+D nrf_svd-temp.ads	20210108111948 1ebb92fa nrf_svd.temp%s
+D nrf_svd-timer.ads	20210108111948 ba50db1c nrf_svd.timer%s
+D nrf_svd-twi.ads	20210306201806 68301534 nrf_svd.twi%s
+D nrf_svd-uart.ads	20210108111948 83bcebc8 nrf_svd.uart%s
+D nrf_svd-wdt.ads	20210108111948 c89e1b05 nrf_svd.wdt%s
+D system.ads		20200819171400 e69b74bd system%s
+D s-assert.ads		20200819171400 cd8d2c94 system.assertions%s
+D s-maccod.ads		20200819171400 6d68a701 system.machine_code%s
+D s-stoele.ads		20200819171400 2dc34a04 system.storage_elements%s
+D s-unstyp.ads		20200819171400 5ecf7212 system.unsigned_types%s
+G a e
+G c b b b [b microbit__time 39 1 none]
+G c Z s b [clock microbit__time 39 13 none]
+G c Z s b [delay_ms microbit__time 41 14 none]
+G c Z s b [tick_period microbit__time 45 13 none]
+G c Z s b [tick_subscriber microbit__time 49 13 none]
+G c Z s b [tick_subscribe microbit__time 52 13 none]
+G c Z s b [tick_unsubscribe microbit__time 58 13 none]
+G c Z s b [hal_delay microbit__time 64 13 none]
+G c Z s b [delay_microseconds microbit__time 70 14 none]
+G c Z s b [delay_milliseconds microbit__time 74 14 none]
+G c Z s b [delay_seconds microbit__time 78 14 none]
+G c Z s s [mb_delaysIP microbit__time 67 9 none]
+G c Z b b [initialize microbit__time 48 14 none]
+G c Z b b [update_clock microbit__time 49 14 none]
+G c Z b b [rtc1_irqhandler microbit__time 50 14 none]
+G r c none [b microbit__time 39 1 none] [low_freq_running nrf__clock 63 13 none]
+G r c none [b microbit__time 39 1 none] [set_low_freq_source nrf__clock 59 14 none]
+G r c none [b microbit__time 39 1 none] [start_low_freq nrf__clock 65 14 none]
+G r c none [b microbit__time 39 1 none] [stop nrf__rtc 45 14 none]
+G r c none [b microbit__time 39 1 none] [set_prescaler nrf__rtc 48 14 none]
+G r c none [b microbit__time 39 1 none] [set_compare nrf__rtc 53 14 none]
+G r c none [b microbit__time 39 1 none] [enable_event nrf__rtc 60 14 none]
+G r c none [b microbit__time 39 1 none] [enable_interrupt nrf__events 56 14 none]
+G r c none [b microbit__time 39 1 none] [register nrf__interrupts 79 14 none]
+G r c none [b microbit__time 39 1 none] [enable nrf__interrupts 73 14 none]
+G r c none [b microbit__time 39 1 none] [start nrf__rtc 44 14 none]
+G r c none [initialize microbit__time 48 14 none] [low_freq_running nrf__clock 63 13 none]
+G r c none [initialize microbit__time 48 14 none] [set_low_freq_source nrf__clock 59 14 none]
+G r c none [initialize microbit__time 48 14 none] [start_low_freq nrf__clock 65 14 none]
+G r c none [initialize microbit__time 48 14 none] [stop nrf__rtc 45 14 none]
+G r c none [initialize microbit__time 48 14 none] [set_prescaler nrf__rtc 48 14 none]
+G r c none [initialize microbit__time 48 14 none] [set_compare nrf__rtc 53 14 none]
+G r c none [initialize microbit__time 48 14 none] [enable_event nrf__rtc 60 14 none]
+G r c none [initialize microbit__time 48 14 none] [enable_interrupt nrf__events 56 14 none]
+G r c none [initialize microbit__time 48 14 none] [register nrf__interrupts 79 14 none]
+G r c none [initialize microbit__time 48 14 none] [enable nrf__interrupts 73 14 none]
+G r c none [initialize microbit__time 48 14 none] [start nrf__rtc 44 14 none]
+G r c none [rtc1_irqhandler microbit__time 50 14 none] [stop nrf__rtc 45 14 none]
+G r c none [rtc1_irqhandler microbit__time 50 14 none] [clear nrf__rtc 46 14 none]
+G r c none [rtc1_irqhandler microbit__time 50 14 none] [start nrf__rtc 44 14 none]
+G r c none [rtc1_irqhandler microbit__time 50 14 none] [clear nrf__events 60 14 none]
+X 5 hal.ads
+34K9*HAL 166e8 13|32w6 32r20 33r6 64r39 67r26 14|200r39
+160M9*UInt64<11|77M9> 13|37r23 41r39 43r36 14|131r39 132r30 215r17 228r17
+. 241r17
+X 6 hal-gpio.ads
+47h9*GPIO_Point
+X 7 hal-i2c.ads
+48h9*I2C_Port
+X 8 hal-spi.ads
+48h9*SPI_Port
+X 9 hal-time.ads
+32K13*Time 46e13 13|33w10 64r43 67r30 14|200r43
+34h9*Delays 13|67r35
+36P9*Any_Delays(34R9) 13|64r48 14|200r48
+X 10 hal-uart.ads
+48h9*UART_Port
+X 11 interfac.ads
+77M9*Unsigned_64
+X 12 microbit.ads
+35K9*MicroBit 72e13 13|35r9 81r5 14|39r14 246r5
+X 13 microbit-time.ads
+35K18*Time 12|35k9 13|67E9 81l14 81e18 14|39b23 246l14 246t18
+37M12*Time_Ms{5|160M9} 39r26 45r32 14|43r16 44r25 122r26 144r32
+39V13*Clock{37M12} 14|122b13 125l8 125t13 132s40 134s27
+41U14*Delay_Ms 41>24 43r52 14|131b14 138l8 138t16 215s7 228s7 241s7
+41m24 Milliseconds{5|160M9} 14|131b24 132r48
+43U14*Sleep=43:52
+43m21 Milliseconds{5|160M9}
+45V13*Tick_Period{37M12} 14|144b13 147l8 147t19
+47P9*Tick_Callback 49r50 52r49 58r51 14|46r37 153r50 167r49 183r51
+49V13*Tick_Subscriber{boolean} 49>30 53s23 54s50 59s19 60s56 14|153b13 161l8
+. 161t23
+49p30 Callback{47P9} 14|153b30 156r20
+52V13*Tick_Subscribe{boolean} 52>29 54r23 14|167b13 177l8 177t22
+52p29 Callback{47P9} 53r40 54r67 14|167b29 171r21
+58V13*Tick_Unsubscribe{boolean} 58>31 60r23 14|183b13 192l8 192t24
+58p31 Callback{47P9} 59r36 60r73 14|183b31 186r20
+64V13*HAL_Delay{9|36P9} 14|200b13 203l8 203t17
+67R9 MB_Delays<9|34R9> 67e58 70P14 70r48 74P14 74r48 78P14 78r48 14|198r29
+. 210r48 223r48 236r43
+70U14 Delay_Microseconds<9|38p14> 70=34 71>34 14|210b14 216l8 216t26
+70r34 This{67R9} 14|210b34 213r28
+71i34 Us{integer} 14|211b34 215r25
+74U14 Delay_Milliseconds<9|41p14> 74=34 75>34 14|223b14 229l8 229t26
+74r34 This{67R9} 14|223b34 226r28
+75i34 Ms{integer} 14|224b34 228r25
+78U14 Delay_Seconds<9|44p14> 78=34 79>34 14|236b14 242l8 242t21
+78r34 This{67R9} 14|236b29 239r28
+79i34 S{integer} 14|237b29 241r25
+X 14 microbit-time.adb
+41K12 Clocks=41:31 58r14 59r10 59r38 60r10 63r23
+43m4 Clock_Ms{13|37M12} 91m7 91r19 124r14
+44m4 Period_Ms{13|37M12} 91r30 146r14
+46a4 Subscribers(13|47P9) 108r19 155r19 169m19 169r19 185m19 185r19
+48U14 Initialize 56b14 83l8 83t18 245s4
+49U14 Update_Clock 89b14 92l8 92t20 106s7
+50U14 RTC1_IRQHandler 78r34 98b14 116l8 116t23
+108p11 Subs=108:19{13|47P9} 110r13 112r13
+132m7 Wakeup_Time{5|160M9} 134r13
+155p11 Subs=155:19{13|47P9} 156r13
+169p11 Subs=169:19{13|47P9} 170r13 171r13
+185p11 Subs=185:19{13|47P9} 186r13 187r13
+198r4 Delay_Instance{13|67R9} 202m14 202r14
+X 15 nrf.ads
+34K9*nRF 14|32r6 33r6 33r29 34r6 34r29 35r6 36r6 41r27 75r7 75r36 77r7 77r32
+. 80r7 80r30 104r7 104r25 15|43e8
+36M9*Event_Type<44|90M9>
+X 16 nrf-clock.ads
+32K13*Clock 14|32w10 41r31 16|69e14
+57n56*LFCLK_SYNTH{57E9} 14|59r45
+59U14*Set_Low_Freq_Source 14|59s17
+63V13*Low_Freq_Running{boolean} 14|58s21 63s30
+65U14*Start_Low_Freq 14|60s17
+X 17 nrf-device.ads
+44K13*Device 14|33w10 33r33 17|119e15
+92r4*RTC_1{21|42R9} 14|67r13 70r22 71r20 73r21 82r14 100r13 101r14 102r14
+X 18 nrf-events.ads
+52K13*Events 14|35w10 75r11 75r40 104r11 104r29 18|381e15
+56U14*Enable_Interrupt 14|75s18
+60U14*Clear 14|104s18
+122m4*RTC_1_COMPARE_0{15|36M9} 14|75r47 104r36
+X 20 nrf-interrupts.ads
+34K13*Interrupts 14|36w10 77r11 77r36 80r11 80r34 20|119e19
+54n7*RTC1_Interrupt{36E9} 14|77r47 80r45
+73U14*Enable 14|80s22
+79U14*Register 14|77s22
+X 21 nrf-rtc.ads
+35K13*RTC 14|34w10 34r33 21|66e12
+37n52*Compare_0_Event{37E9} 14|73r28
+42R9*Real_Time_Counter
+44U14*Start 14|82s7 102s7
+45U14*Stop 14|67s7 100s7
+46U14*Clear 14|101s7
+48U14*Set_Prescaler 14|70s7
+53U14*Set_Compare 14|71s7
+60U14*Enable_Event 14|73s7
+X 44 system.ads
+60K9*System 14|37r6 37r31 44|172e11
+90M9*Address
+X 46 s-maccod.ads
+36K16*Machine_Code 14|37w13 37r38 46|131e24
+83U14*Asm 14|135s10
+84a6 Template{string} 14|135r15
+88b6 Volatile{boolean} 14|136r15
+

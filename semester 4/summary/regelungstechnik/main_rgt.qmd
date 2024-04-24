@@ -12,7 +12,6 @@ format:
     keep-tex: true
     include-in-header:
       - config/config.tex
-      - config/_two-column-longtable.tex
       - text: "\\usepackage[nswissgerman]{babel}"
     template-partials:
       - config/before-body.tex

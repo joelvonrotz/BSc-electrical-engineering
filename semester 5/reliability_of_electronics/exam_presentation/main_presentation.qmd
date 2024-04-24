@@ -1,0 +1,281 @@
+---
+title: "Cadaverine Cantilever"
+
+subtitle: "Reliability of Electronics - Autumn Semester 2023"
+
+author: Joel von Rotz
+institute: SDU Sønderborg
+date: today
+date-format: "DD.MM.YYYY"
+
+editor:
+  render-on-save: true
+
+format:
+  revealjs:
+    
+    html-math-method: katex
+    toc: true
+    toc-depth: 1
+
+    title-slide-attributes:
+      data-state: "hide-menubar"
+    
+    toc-slide-attributes:
+      data-state: "hide-menubar"
+
+    theme: [default, theme.scss]
+    transition: none
+    transition-speed: fast
+    template-partials: 
+      - "./config/title-slide.html"
+      - "./config/toc-slide.html"
+    
+    slide-number: c/t
+    auto-stretch: false
+    navigation-mode: linear
+
+    controls: true
+    controls-layout: bottom-right
+    margin: 0.15
+
+    footer: "<div class='slide-number'></div>"
+    simplemenu:
+      barhtml:
+        header: "<div class='menubar'><ul class='menu'></ul></div>"
+        
+      scale: 0.6
+revealjs-plugins:
+  - simplemenu
+---
+
+## Introduction {data-name="Introduction"}
+
+![](images/paste-6.png){fig-align="center"}
+
+-   Metal centered complex of Cyclam in Methanol
+-   Meat and fish freshness evaluation using a biosensor
+
+::: notes
+**Excercise**: measure frequency change of ampltiude and phase + time until difference -50Hz
+
+**Purpose/idea**: final device evaluate freshness of meat and fish
+:::
+
+## Measurement Setup {data-name="Setup"}
+
+::: {layout="[[-1], [1], [-1]]"}
+![](images/paste-4.png)
+:::
+
+::: notes
+**measurement setup**:
+
+-   the impedance analyzer E4990a from Keysight
+-   Eight different cadaverine sensitive cantilever
+-   an air tight container
+
+**process**:
+
+-   place cantilever and concentration into container
+-   measurement wires pulled through lid + connected
+-   interval 5/2.5 min
+-   measurements in excel sheet
+:::
+
+# Results {data-stack-name="Results"}
+
+```{=html}
+<!--
+
+## 600ppm
+
+![](images/res_plot_600ppm_board4_600ppm_board3.png)
+
+## 800ppm
+
+![](images/res_plot_800ppm_board2_800ppm_board5.png)
+
+## 1000ppm
+
+![](images/res_plot_1000ppm_board8_1000ppm_board10.png)
+
+# Analysis {data-stack-name="Analysis"}
+-->
+```
+## Data Preparation
+
+-   Time until $\Delta f=50\text{Hz}$ using Inter- & Extrapolation
+
+<!-- ![](images/paste-7.png){fig-align="center" width="524"} -->
+
+::: {.center style="text-align: center;"}
+$\Downarrow$
+:::
+
+| Cumulative percentage |       600ppm       |       800ppm       |                1000ppm                 |
+|:-----------------:|:----------------:|:----------------:|:----------------:|
+|     $r_1=29.17\%$     | $49.79\text{ min}$ | $35.66\text{ min}$ |           $47.83\text{ min}$           |
+|     $r_2=70.83\%$     | $85.29\text{ min}$ | $79.43\text{ min}$ | ${57.62\text{ min}}\textcolor{red}{*}$ |
+
+::: {style="font-size: 40%;"}
+$\textcolor{red}{*}$ Extrapolated
+:::
+
+::: notes
+-   After data collected → data prepared
+-   Benard's Approximation for Median Ranks
+-   Interpolation using Matlab's built in curve fitting tool via plot
+-   Extrapolation using self-written Matlab script
+-   Results below
+:::
+
+## Weibull Plot
+
+![](images/screenshot_develve.png)
+
+## Weibull Values
+
+| Concentration |       600ppm       |       800ppm       |      1000ppm       |
+|:-------------:|:------------------:|:------------------:|:------------------:|
+|    $\beta$    |       $3.74$       |       $2.51$       |      $10.81$       |
+|    $\eta$     | $74.05\text{ min}$ | $64.37\text{ min}$ | $54.87\text{ min}$ |
+
+::: {.center style="text-align: center;"}
+$\Downarrow$
+:::
+
+$$
+T=A\cdot e^{-\alpha\cdot V}\quad\rightarrow\quad \eta=A\cdot e^{-\alpha\cdot V}
+$$
+
+::: {.fragment .fade-in-then-semi-out data-fragment-index="1"}
+### Lifetime: 100ppm
+
+$$
+T(C)=112.733\cdot e^{-700.464\cdot 10^{-6}\cdot C}
+$$
+
+$$
+T(100ppm)=\underline{105.11\text{ min}}
+$$
+:::
+
+::: notes
+-   times inserted into statistical software *Develve*
+
+-   Beta ([shape parameter]{.underline}) & Gamma ([scale parameter]{.underline} or [characteristic life]{.underline}) extracted
+
+-   600ppm & 800ppm similar compared to 1000ppm
+
+-   dataset inserted into Eyring model
+
+-   $A$ + $\alpha$ calculated
+
+-   100ppm lifetime calculated
+:::
+
+## Reliability: 100ppm after 100h
+
+::: {.fragment .semi-fade-out data-fragment-index="1"}
+$$
+R_{Field}(t)=\underbrace{\exp\left(-\left(\frac{t}{T}\right)^\beta\right)}_{\beta \text{ unknown}} = R_{Test}\left(\frac{t}{AF}\right)
+$$
+:::
+
+::: {.fragment .fade-in-then-semi-out data-fragment-index="1"}
+$$
+AF = \frac{L_{Field}}{L_{Test}}=\frac{T(100ppm)}{T(600ppm)}=\frac{105.11}{74.05}\approx1.42
+$$
+:::
+
+::: {.fragment .fade-in-then-semi-out}
+$$
+R_{100ppm}(100\text{h})=R_{600ppm}\left(\frac{100\cdot 60\text{ min}}{AF}\right)= \underline{0\%}
+$$
+:::
+
+::: notes
+-   Next: 100ppm after 100h
+-   $\beta$ for 100ppm unknown
+-   Acceleration Factor → In report calculated wrong
+-   Field (use): 100ppm ; Test (extreme condition): 600ppm
+-   $R=0\%$: indicates invalid result, as the sensor saturated**?**
+:::
+
+## Warranty Calculation
+
+$$
+R = 0.95 = {\exp\left(-\left(\frac{t}{\eta_{600ppm}\cdot AF}\right)^{\beta_{600ppm}}\right)}
+$$
+
+::: {.center style="text-align: center;"}
+$\Downarrow$
+:::
+
+$$
+t=\eta\cdot AF\cdot\left(-\ln(0.95)\right)^{\frac1{\beta}} \approx \underline{47.51} \text{ minutes of operation}
+$$
+
+::: notes
+-   then warranty until $5\%$ device failure
+
+-   $95\%$ success rate leads to 47.51 minutes
+:::
+
+## Monte Carlo
+
+``` {.python code-line-numbers="|3-9|11-15"}
+import numpy as np
+
+# [Parameters]
+x = 100
+num_simulations = 5000
+a = 0.9 * x # uniform distribution
+b = 1.1 * x
+mu = x + 0.5 * x # normal distribution
+sigma = mu + 0.3 * mu
+
+# [Simulation]
+load = np.random.uniform(a,b,num_simulations);
+strength = np.random.normal(a,b,num_simulations);
+interference = strength - load
+failure_prob = np.sum(interference < 0) / num_simulations;
+```
+
+::: notes
+-   Simulation in Python using `numpy`
+
+-   First parameters
+
+    -   **Load** has **uniform** distribution
+
+    -   **Strength** has **normal** distribution
+:::
+
+## Load & Strength
+
+![](images/paste-10.png)
+
+::: notes
+-   example of the randomized distribution
+:::
+
+## Interference
+
+![](images/paste-11.png){fig-align="center" width="600"}
+
+$$
+F=\frac{\#(\text{interference} < 0)}{N}\approx 38.76\%
+$$
+
+::: notes
+-   Strength - Load = Interference
+
+-   Interference \< 0 is equal to the intersection between load and strength
+:::
+
+# Conclussion {data-name="Conclussion"}
+
+::: notes
+:::

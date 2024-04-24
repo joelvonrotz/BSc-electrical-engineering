@@ -1,0 +1,85 @@
+V "GNAT Lib v2020"
+A -O0
+A -gnatA
+A --RTS=C:\gnat\2020-arm-elf\arm-eabi\lib\gnat\zfp-cortex-m4f\
+A -mlittle-endian
+A -mthumb
+A -mfloat-abi=hard
+A -mcpu=cortex-m4
+A -mfpu=fpv4-sp-d16
+A -gnata
+A -fcallgraph-info=su
+A -fcallgraph-info=su
+A -g
+A -gnatwa
+A -gnatw_A
+A -gnatQ
+A -gnatw.X
+A -ffunction-sections
+A -fdata-sections
+A -march=armv7e-m+fp
+P SS ZX
+
+RN
+RV NO_DEFAULT_INITIALIZATION
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_ELABORATION_CODE
+
+U command_line.filesystem%b  command_line-filesystem.adb  2ddc4d35 OO PK
+W command_line%s	command_line.adb	command_line.ali
+W command_line.filesystem%s  command_line-filesystem.adb  command_line-filesystem.ali
+W command_line.filesystem.cat%s  command_line-filesystem-cat.adb  command_line-filesystem-cat.ali
+W command_line.filesystem.list_directory%s  command_line-filesystem-list_directory.adb  command_line-filesystem-list_directory.ali
+W command_line.filesystem.remove_directory%s  command_line-filesystem-remove_directory.adb  command_line-filesystem-remove_directory.ali
+W command_line.filesystem.touch%s  command_line-filesystem-touch.adb  command_line-filesystem-touch.ali
+
+U command_line.filesystem%s  command_line-filesystem.ads  b1a0cad0 EE NE OO PK
+W command_line%s	command_line.adb	command_line.ali
+
+D ada.ads		20200819171400 76789da1 ada%s
+D a-tags.ads		20200819171400 95e09aae ada.tags%s
+D command_line.ads	20210108111948 29283dc6 command_line%s
+D command_line-filesystem.ads  20210108111948 9888f716 command_line.filesystem%s
+D command_line-filesystem.adb  20210108111948 f7389fe3 command_line.filesystem%b
+D command_line-filesystem-cat.ads  20210108111948 c85a26eb command_line.filesystem.cat%s
+D command_line-filesystem-list_directory.ads  20210108111948 2c2a1d82 command_line.filesystem.list_directory%s
+D command_line-filesystem-remove_directory.ads  20210108111948 5e089155 command_line.filesystem.remove_directory%s
+D command_line-filesystem-touch.ads  20210108111948 f8148ffc command_line.filesystem.touch%s
+D system.ads		20200819171400 e69b74bd system%s
+D s-parame.ads		20200819171400 fe66c50d system.parameters%s
+D s-secsta.ads		20200819171400 56a2861c system.secondary_stack%s
+D s-stoele.ads		20200819171400 2dc34a04 system.storage_elements%s
+G a e
+G c b b b [b command_line__filesystem 37 1 none]
+G c Z s b [register_all command_line__filesystem 34 14 none]
+G r s ls_cmd [b command_line__filesystem 37 1 none] [ls_cmdIP command_line__filesystem__list_directory 52 9 none]
+G r s rmdir_cmd [b command_line__filesystem 37 1 none] [rmdir_cmdIP command_line__filesystem__remove_directory 52 9 none]
+G r s touch_cmd [b command_line__filesystem 37 1 none] [touch_cmdIP command_line__filesystem__touch 52 9 none]
+G r s cat_cmd [b command_line__filesystem 37 1 none] [cat_cmdIP command_line__filesystem__cat 51 9 none]
+G r c none [register_all command_line__filesystem 34 14 none] [register command_line 78 14 none]
+X 3 command_line.ads
+32K9*Command_Line 146e17 4|32r9 37r5 5|32r6 33r6 34r6 35r6 37r14 39r22 40r22
+. 41r22 42r20 56r5
+78U14*Register 5|50s7 51s7 52s7 53s7
+X 4 command_line-filesystem.ads
+32K22*Filesystem 3|32k9 4|37l18 37e28 5|32r19 33r19 34r19 35r19 37b27 39r35
+. 40r35 41r35 42r33 56l18 56t28
+34U14*Register_All 5|48b14 54l8 54t20
+X 5 command_line-filesystem.adb
+39r4 Ls{7|34R9} 50m17 50r17
+40r4 Rmdir{8|34R9} 51m17 51r17
+41r4 Touch_C{9|34R9} 52m17 52r17
+42r4 Cat_C{6|34R9} 53m17 53r17
+X 6 command_line-filesystem-cat.ads
+32K33*Cat 5|35w30 42r44 6|53e32
+34R9*Cat_Cmd<3|54R9> 5|42r48 6|51e48
+X 7 command_line-filesystem-list_directory.ads
+32K33*List_Directory 5|32w30 39r46 7|54e43
+34R9*Ls_Cmd<3|54R9> 5|39r61 7|52e47
+X 8 command_line-filesystem-remove_directory.ads
+32K33*Remove_Directory 5|33w30 40r46 8|54e45
+34R9*Rmdir_Cmd<3|54R9> 5|40r63 8|52e50
+X 9 command_line-filesystem-touch.ads
+32K33*Touch 5|34w30 41r46 9|54e34
+34R9*Touch_Cmd<3|54R9> 5|41r52 9|52e50
+

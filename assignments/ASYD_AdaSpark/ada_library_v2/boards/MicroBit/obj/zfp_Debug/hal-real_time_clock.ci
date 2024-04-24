@@ -1,0 +1,15 @@
+graph: { title: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\hal\src\hal-real_time_clock.ads"
+class {
+  classname: "hal__real_time_clock__rtc_device"
+  label: "hal__real_time_clock__rtc_device\hal-real_time_clock.ads:79:9"
+  virtuals: "1:hal__real_time_clock__set\n
+             2:hal__real_time_clock__get\n
+             3:hal__real_time_clock__get_time\n
+             4:hal__real_time_clock__get_date\n
+             -1:hal__real_time_clock___size"
+}
+node: { title: "hal__real_time_clock__rtc_timeIP" label: "RTC_TIMEIP\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\hal\src\hal-real_time_clock.ads:38:9\n16 bytes (static)" }
+node: { title: "hal__real_time_clock__rtc_monthRP" label: "RTC_MONTHRP\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\hal\src\hal-real_time_clock.ads:44:9\n16 bytes (static)" }
+node: { title: "hal__real_time_clock__rtc_day_of_weekRP" label: "RTC_DAY_OF_WEEKRP\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\hal\src\hal-real_time_clock.ads:46:9\n16 bytes (static)" }
+node: { title: "hal__real_time_clock__rtc_dateIP" label: "RTC_DATEIP\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\hal\src\hal-real_time_clock.ads:51:9\n16 bytes (static)" }
+}

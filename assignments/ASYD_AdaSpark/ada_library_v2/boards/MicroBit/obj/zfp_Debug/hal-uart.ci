@@ -1,0 +1,14 @@
+graph: { title: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\hal\src\hal-uart.ads"
+class {
+  classname: "hal__uart__uart_port"
+  label: "hal__uart__uart_port\hal-uart.ads:48:9"
+  virtuals: "1:hal__uart__data_size\n
+             2:hal__uart__transmit\n
+             3:hal__uart__transmit__2\n
+             4:hal__uart__receive\n
+             5:hal__uart__receive__2\n
+             -1:hal__uart___size"
+}
+node: { title: "hal__uart__uart_data_8bIP" label: "UART_DATA_8BIP\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\hal\src\hal-uart.ads:44:9\n16 bytes (static)" }
+node: { title: "hal__uart__uart_data_9bIP" label: "UART_DATA_9BIP\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\hal\src\hal-uart.ads:46:9\n16 bytes (static)" }
+}

@@ -1,0 +1,14 @@
+graph: { title: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\examples\MicroBit\jumper\src\asyd_package.adb"
+node: { title: "asyd_package__sqrt_float" label: "sqrt_float\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\examples\MicroBit\jumper\src\asyd_package.adb:3:4\n32 bytes (static)" }
+node: { title: "asyd_package__sqrt_int" label: "sqrt_int\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\examples\MicroBit\jumper\src\asyd_package.adb:30:4\n32 bytes (static)" }
+node: { title: "__gnat_last_chance_handler" label: "gnat_last_chance_handler\n<built-in>" shape : ellipse }
+edge: { sourcename: "asyd_package__sqrt_int" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\examples\MicroBit\jumper\src\asyd_package.adb:37:22" }
+edge: { sourcename: "asyd_package__sqrt_int" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\examples\MicroBit\jumper\src\asyd_package.adb:40:57" }
+edge: { sourcename: "asyd_package__sqrt_int" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\examples\MicroBit\jumper\src\asyd_package.adb:40:53" }
+edge: { sourcename: "asyd_package__sqrt_int" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\examples\MicroBit\jumper\src\asyd_package.adb:40:57" }
+edge: { sourcename: "asyd_package__sqrt_int" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\examples\MicroBit\jumper\src\asyd_package.adb:40:79" }
+edge: { sourcename: "asyd_package__sqrt_int" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\examples\MicroBit\jumper\src\asyd_package.adb:41:23" }
+edge: { sourcename: "asyd_package__sqrt_int" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\examples\MicroBit\jumper\src\asyd_package.adb:41:23" }
+edge: { sourcename: "asyd_package__sqrt_int" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\examples\MicroBit\jumper\src\asyd_package.adb:41:63" }
+node: { title: "asyd_package__test" label: "test\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\examples\MicroBit\jumper\src\asyd_package.adb:50:4\n24 bytes (static)" }
+}

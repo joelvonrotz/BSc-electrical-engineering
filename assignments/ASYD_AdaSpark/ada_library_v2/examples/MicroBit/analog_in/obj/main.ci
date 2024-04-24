@@ -1,0 +1,35 @@
+graph: { title: "C:\Users\JumpStart\Desktop\lehre\asyd\dev\Ada_Drivers_Library-master\examples\MicroBit\analog_in\src\main.adb"
+node: { title: "_ada_main" label: "Main\nC:\Users\JumpStart\Desktop\lehre\asyd\dev\Ada_Drivers_Library-master\examples\MicroBit\analog_in\src\main.adb:38:1\n304 bytes (dynamic)" }
+node: { title: "microbit__console__put_line" label: "Put_Line\nC:\Users\JumpStart\Desktop\lehre\asyd\dev\Ada_Drivers_Library-master\boards\microbit\src\microbit-console.ads:43:14" shape : ellipse }
+edge: { sourcename: "_ada_main" targetname: "microbit__console__put_line" label: "C:\Users\JumpStart\Desktop\lehre\asyd\dev\Ada_Drivers_Library-master\examples\MicroBit\analog_in\src\main.adb:43:12" }
+edge: { sourcename: "_ada_main" targetname: "microbit__console__put_line" label: "C:\Users\JumpStart\Desktop\lehre\asyd\dev\Ada_Drivers_Library-master\examples\MicroBit\analog_in\src\main.adb:47:14" }
+node: { title: "microbit__ios__analog__2" label: "Analog\nC:\Users\JumpStart\Desktop\lehre\asyd\dev\Ada_Drivers_Library-master\boards\microbit\src\microbit-ios.ads:67:13" shape : ellipse }
+edge: { sourcename: "_ada_main" targetname: "microbit__ios__analog__2" label: "C:\Users\JumpStart\Desktop\lehre\asyd\dev\Ada_Drivers_Library-master\examples\MicroBit\analog_in\src\main.adb:50:28" }
+node: { title: "system__img_int__image_integer" label: "Image_Integer\nC:\gnat\2020-arm-elf\arm-eabi\lib\gnat\zfp-cortex-m4f\gnat\s-imgint.ads:39:14" shape : ellipse }
+edge: { sourcename: "_ada_main" targetname: "system__img_int__image_integer" label: "C:\Users\JumpStart\Desktop\lehre\asyd\dev\Ada_Drivers_Library-master\examples\MicroBit\analog_in\src\main.adb:51:46" }
+node: { title: "memcpy" label: "builtin_memcpy\n<built-in>" shape : ellipse }
+edge: { sourcename: "_ada_main" targetname: "memcpy" }
+edge: { sourcename: "_ada_main" targetname: "microbit__console__put_line" label: "C:\Users\JumpStart\Desktop\lehre\asyd\dev\Ada_Drivers_Library-master\examples\MicroBit\analog_in\src\main.adb:51:14" }
+edge: { sourcename: "_ada_main" targetname: "microbit__ios__analog__2" label: "C:\Users\JumpStart\Desktop\lehre\asyd\dev\Ada_Drivers_Library-master\examples\MicroBit\analog_in\src\main.adb:53:28" }
+edge: { sourcename: "_ada_main" targetname: "system__img_int__image_integer" label: "C:\Users\JumpStart\Desktop\lehre\asyd\dev\Ada_Drivers_Library-master\examples\MicroBit\analog_in\src\main.adb:54:46" }
+edge: { sourcename: "_ada_main" targetname: "memcpy" }
+edge: { sourcename: "_ada_main" targetname: "microbit__console__put_line" label: "C:\Users\JumpStart\Desktop\lehre\asyd\dev\Ada_Drivers_Library-master\examples\MicroBit\analog_in\src\main.adb:54:14" }
+edge: { sourcename: "_ada_main" targetname: "microbit__ios__analog__2" label: "C:\Users\JumpStart\Desktop\lehre\asyd\dev\Ada_Drivers_Library-master\examples\MicroBit\analog_in\src\main.adb:56:29" }
+edge: { sourcename: "_ada_main" targetname: "system__img_int__image_integer" label: "C:\Users\JumpStart\Desktop\lehre\asyd\dev\Ada_Drivers_Library-master\examples\MicroBit\analog_in\src\main.adb:57:46" }
+edge: { sourcename: "_ada_main" targetname: "memcpy" }
+edge: { sourcename: "_ada_main" targetname: "microbit__console__put_line" label: "C:\Users\JumpStart\Desktop\lehre\asyd\dev\Ada_Drivers_Library-master\examples\MicroBit\analog_in\src\main.adb:57:14" }
+edge: { sourcename: "_ada_main" targetname: "microbit__ios__analog__2" label: "C:\Users\JumpStart\Desktop\lehre\asyd\dev\Ada_Drivers_Library-master\examples\MicroBit\analog_in\src\main.adb:59:28" }
+edge: { sourcename: "_ada_main" targetname: "system__img_int__image_integer" label: "C:\Users\JumpStart\Desktop\lehre\asyd\dev\Ada_Drivers_Library-master\examples\MicroBit\analog_in\src\main.adb:60:46" }
+edge: { sourcename: "_ada_main" targetname: "memcpy" }
+edge: { sourcename: "_ada_main" targetname: "microbit__console__put_line" label: "C:\Users\JumpStart\Desktop\lehre\asyd\dev\Ada_Drivers_Library-master\examples\MicroBit\analog_in\src\main.adb:60:14" }
+edge: { sourcename: "_ada_main" targetname: "microbit__ios__analog__2" label: "C:\Users\JumpStart\Desktop\lehre\asyd\dev\Ada_Drivers_Library-master\examples\MicroBit\analog_in\src\main.adb:62:28" }
+edge: { sourcename: "_ada_main" targetname: "system__img_int__image_integer" label: "C:\Users\JumpStart\Desktop\lehre\asyd\dev\Ada_Drivers_Library-master\examples\MicroBit\analog_in\src\main.adb:63:46" }
+edge: { sourcename: "_ada_main" targetname: "memcpy" }
+edge: { sourcename: "_ada_main" targetname: "microbit__console__put_line" label: "C:\Users\JumpStart\Desktop\lehre\asyd\dev\Ada_Drivers_Library-master\examples\MicroBit\analog_in\src\main.adb:63:14" }
+edge: { sourcename: "_ada_main" targetname: "microbit__ios__analog__2" label: "C:\Users\JumpStart\Desktop\lehre\asyd\dev\Ada_Drivers_Library-master\examples\MicroBit\analog_in\src\main.adb:65:28" }
+edge: { sourcename: "_ada_main" targetname: "system__img_int__image_integer" label: "C:\Users\JumpStart\Desktop\lehre\asyd\dev\Ada_Drivers_Library-master\examples\MicroBit\analog_in\src\main.adb:66:46" }
+edge: { sourcename: "_ada_main" targetname: "memcpy" }
+edge: { sourcename: "_ada_main" targetname: "microbit__console__put_line" label: "C:\Users\JumpStart\Desktop\lehre\asyd\dev\Ada_Drivers_Library-master\examples\MicroBit\analog_in\src\main.adb:66:14" }
+node: { title: "microbit__time__delay_ms" label: "Delay_Ms\nC:\Users\JumpStart\Desktop\lehre\asyd\dev\Ada_Drivers_Library-master\boards\microbit\src\microbit-time.ads:41:14" shape : ellipse }
+edge: { sourcename: "_ada_main" targetname: "microbit__time__delay_ms" label: "C:\Users\JumpStart\Desktop\lehre\asyd\dev\Ada_Drivers_Library-master\examples\MicroBit\analog_in\src\main.adb:70:11" }
+}

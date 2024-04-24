@@ -1,0 +1,51 @@
+V "GNAT Lib v2020"
+A -O0
+A -gnatA
+A --RTS=C:\gnat\2020-arm-elf\arm-eabi\lib\gnat\zfp-cortex-m4f\
+A -mlittle-endian
+A -mthumb
+A -mfloat-abi=hard
+A -mcpu=cortex-m4
+A -mfpu=fpv4-sp-d16
+A -gnata
+A -fcallgraph-info=su
+A -fcallgraph-info=su
+A -g
+A -gnatwa
+A -gnatw_A
+A -gnatQ
+A -gnatw.X
+A -ffunction-sections
+A -fdata-sections
+A -march=armv7e-m+fp
+P ZX
+
+RN
+RV NO_IMPLEMENTATION_PRAGMAS
+
+U mcp23008%s		mcp23008.ads		00a245bc NE OO IU
+W mcp23x08%s		mcp23x08.adb		mcp23x08.ali
+W mcp23x08.i2c%s	mcp23x08-i2c.adb	mcp23x08-i2c.ali
+
+D ada.ads		20200819171400 76789da1 ada%s
+D a-tags.ads		20200819171400 95e09aae ada.tags%s
+D hal.ads		20210108111948 2b42c80e hal%s
+D hal-gpio.ads		20210108111948 7f0c2ffe hal.gpio%s
+D hal-i2c.ads		20210108111948 0ed73138 hal.i2c%s
+D interfac.ads		20200819171400 5ab55268 interfaces%s
+D mcp23008.ads		20210108111948 7f8d9e3a mcp23008%s
+D mcp23x08.ads		20210108111948 4ced6e5b mcp23x08%s
+D mcp23x08-i2c.ads	20210108111948 7f2fdb86 mcp23x08.i2c%s
+D system.ads		20200819171400 e69b74bd system%s
+D s-stoele.ads		20200819171400 2dc34a04 system.storage_elements%s
+D s-unstyp.ads		20200819171400 5ecf7212 system.unsigned_types%s
+G a e
+X 4 hal-gpio.ads
+47h9*GPIO_Point
+X 7 mcp23008.ads
+34K9*MCP23008=34:35
+X 8 mcp23x08.ads
+42K9*MCP23x08 7|32r6 34r26 8|198e13
+X 9 mcp23x08-i2c.ads
+34K18*I2C 7|32w15 34r35 9|59e17
+

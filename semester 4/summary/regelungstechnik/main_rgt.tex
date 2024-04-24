@@ -6,7 +6,7 @@
 \documentclass[
   10pt,
   a4paper,
-]{article}
+  twocolumn]{article}
 
 \usepackage{amsmath,amssymb}
 \usepackage{iftex}
@@ -41,7 +41,13 @@
 \makeatother
 \usepackage{xcolor}
 \usepackage[top=18mm,bottom=15mm,left=5mm,right=5mm]{geometry}
-\usepackage{soul}
+\ifLuaTeX
+  \usepackage{luacolor}
+  \usepackage[soul]{lua-ul}
+\else
+  \usepackage{soul}
+  
+\fi
 \setlength{\emergencystretch}{3em} % prevent overfull lines
 \setcounter{secnumdepth}{-\maxdimen} % remove section numbering
 % Make \paragraph and \subparagraph free-standing
@@ -153,15 +159,10 @@ box/.style = {rectangle, draw=black, minimum width = #1},
 box/.default = 1cm, % size of the circle diameter 
 }
 
-
-
-
 \usepackage{gensymb}
 
 \usepackage{xfrac}
 
-% Flexible Multicolumn Option
-\usepackage{multicol}
 \setlength\columnsep{20pt}
 
 % Package for enabling colors (colorful output)
@@ -231,26 +232,6 @@ box/.default = 1cm, % size of the circle diameter
 
 
 \usepackage{pdfpages}
-\usepackage{float}
-\makeatletter
-\let\oldlt\longtable
-\let\endoldlt\endlongtable
-\def\longtable{\@ifnextchar[\longtable@i \longtable@ii}
-\def\longtable@i[#1]{\begin{figure}[H]
-\onecolumn
-\begin{minipage}{0.5\textwidth}
-\oldlt[#1]
-}
-\def\longtable@ii{\begin{figure}[H]
-\onecolumn
-\begin{minipage}{0.5\textwidth}
-\oldlt
-}
-\def\endlongtable{\endoldlt
-\end{minipage}
-\twocolumn
-\end{figure}}
-\makeatother
 \usepackage[nswissgerman]{babel}
 \makeatletter
 \@ifpackageloaded{tcolorbox}{}{\usepackage[skins,breakable]{tcolorbox}}
@@ -267,10 +248,6 @@ box/.default = 1cm, % size of the circle diameter
 \definecolor{quarto-callout-warning-color-frame}{HTML}{f0ad4e}
 \definecolor{quarto-callout-tip-color-frame}{HTML}{02b875}
 \definecolor{quarto-callout-caution-color-frame}{HTML}{fd7e14}
-\makeatother
-\makeatletter
-\makeatother
-\makeatletter
 \makeatother
 \makeatletter
 \@ifpackageloaded{caption}{}{\usepackage{caption}}
@@ -308,6 +285,8 @@ box/.default = 1cm, % size of the circle diameter
 \newcommand*\listoflistings{\listof{codelisting}{Listingverzeichnis}}
 \makeatother
 \makeatletter
+\makeatother
+\makeatletter
 \@ifpackageloaded{caption}{}{\usepackage{caption}}
 \@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
 \makeatother
@@ -315,17 +294,19 @@ box/.default = 1cm, % size of the circle diameter
 \@ifpackageloaded{tcolorbox}{}{\usepackage[skins,breakable]{tcolorbox}}
 \makeatother
 \makeatletter
-\@ifundefined{shadecolor}{\definecolor{shadecolor}{rgb}{.97, .97, .97}}
+\@ifundefined{shadecolor}{\definecolor{shadecolor}{rgb}{.97, .97, .97}}{}
 \makeatother
 \makeatletter
-\@ifundefined{codebgcolor}{\definecolor{codebgcolor}{HTML}{f7f7f7}}
+\@ifundefined{codebgcolor}{\definecolor{codebgcolor}{HTML}{f7f7f7}}{}
 \makeatother
 \makeatletter
+\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[boxrule=0pt, colback={codebgcolor}, breakable, frame hidden, sharp corners, enhanced]}{\end{tcolorbox}}\fi
 \makeatother
 \ifLuaTeX
   \usepackage{selnolig}  % disable illegal ligatures
 \fi
-\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\usepackage{bookmark}
+
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
 \urlstyle{same} % disable monospaced font for URLs
 \hypersetup{
@@ -364,7 +345,6 @@ box/.default = 1cm, % size of the circle diameter
 
  % [END] beamer
  % [END] title
-\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[frame hidden, breakable, enhanced, colback={codebgcolor}, boxrule=0pt, borderline west={3pt}{0pt}{shadecolor}, sharp corners]}{\end{tcolorbox}}\fi
 
 \renewcommand*\contentsname{Inhaltsverzeichnis}
 {
@@ -374,7 +354,7 @@ box/.default = 1cm, % size of the circle diameter
 }
 \newpage
 
-\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, coltitle=black, arc=.35mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Vorgehen MEP}, opacityback=0, colframe=quarto-callout-tip-color-frame, left=2mm, bottomtitle=1mm, toptitle=1mm, toprule=.15mm, breakable, leftrule=.75mm, colback=white, titlerule=0mm, bottomrule=.15mm, rightrule=.15mm, colbacktitle=quarto-callout-tip-color!10!white]
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, colback=white, breakable, colframe=quarto-callout-tip-color-frame, rightrule=.15mm, left=2mm, opacityback=0, leftrule=.75mm, toptitle=1mm, colbacktitle=quarto-callout-tip-color!10!white, bottomtitle=1mm, arc=.35mm, bottomrule=.15mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Vorgehen MEP}, titlerule=0mm, toprule=.15mm, opacitybacktitle=0.6]
 
 \begin{itemize}
 \tightlist
@@ -404,6 +384,15 @@ box/.default = 1cm, % size of the circle diameter
 
 \end{tcolorbox}
 
+\includegraphics[width=8cm,height=\textheight]{images/EM8q5ItW4AEfbDo.jpg}
+
+\includegraphics[width=8cm,height=\textheight]{images/EFEPSgaWkAEiEG3.jpg}
+
+\includegraphics{images/rgt_meme.jpg}
+
+\(\rightarrow\)
+\href{https://en.wikipedia.org/wiki/Project_Pigeon}{Project Pigeon}
+
 % keep this to have smaller code blocks
 \ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[
   colback={shadecolor},
@@ -417,43 +406,34 @@ box/.default = 1cm, % size of the circle diameter
   breakable
 ]}{\end{tcolorbox}}\fi
 
-\begin{multicols*}{2}
+\section{Kurzfassung}\label{kurzfassung}
 
-\hypertarget{kurzfassung}{%
-\section{Kurzfassung}\label{kurzfassung}}
+\subsection{Linear Algebra}\label{linear-algebra}
 
-\hypertarget{linear-algebra}{%
-\subsection{Linear Algebra}\label{linear-algebra}}
+\subsubsection{Determinante}\label{determinante}
 
-\hypertarget{determinante}{%
-\subsubsection{Determinante}\label{determinante}}
-
-\hypertarget{times-2-matrix}{%
 \paragraph{\texorpdfstring{2 \(\times\)
-2-Matrix}{2 \textbackslash times 2-Matrix}}\label{times-2-matrix}}
+2-Matrix}{2 \textbackslash times 2-Matrix}}\label{times-2-matrix}
 
 \[
 \det(A)=\begin{vmatrix} \textcolor{BurntOrange}{a} & b \\c & \textcolor{BurntOrange}{d}\end{vmatrix} ={\textcolor{BurntOrange}{ad}-bc}
 \]
 
-\hypertarget{times-3-matrix}{%
 \paragraph{\texorpdfstring{3 \(\times\)
-3-Matrix}{3 \textbackslash times 3-Matrix}}\label{times-3-matrix}}
+3-Matrix}{3 \textbackslash times 3-Matrix}}\label{times-3-matrix}
 
 \[
 \det(A)=\begin{vmatrix} \textcolor{BurntOrange}{a} & \textcolor{NavyBlue}{b} & \textcolor{OliveGreen}{c} \\ \textcolor{OliveGreen}{d} & \textcolor{BurntOrange}{e} & \textcolor{NavyBlue}{f} \\ \textcolor{NavyBlue}{g} & \textcolor{OliveGreen}{h} & \textcolor{BurntOrange}{i} \end{vmatrix} = \textcolor{BurntOrange}{aei}+\textcolor{NavyBlue}{bfg}+\textcolor{OliveGreen}{cdh}-ceg-bdi-afh
 \]
 
-\hypertarget{inverse-matrix}{%
-\subsubsection{Inverse Matrix}\label{inverse-matrix}}
+\subsubsection{Inverse Matrix}\label{inverse-matrix}
 
 \[
 A^{-1}=\frac{\text{adj}(A)}{\det(A)}
 \]
 
-\hypertarget{times-2-matrix-1}{%
 \paragraph{\texorpdfstring{2 \(\times\)
-2-Matrix}{2 \textbackslash times 2-Matrix}}\label{times-2-matrix-1}}
+2-Matrix}{2 \textbackslash times 2-Matrix}}\label{times-2-matrix-1}
 
 \[
 A^{-1}=
@@ -468,9 +448,8 @@ c & \textcolor{BrickRed}{d}
 \end{bmatrix}
 \]
 
-\hypertarget{times-3-matrix-1}{%
 \paragraph{\texorpdfstring{3 \(\times\)
-3-Matrix}{3 \textbackslash times 3-Matrix}}\label{times-3-matrix-1}}
+3-Matrix}{3 \textbackslash times 3-Matrix}}\label{times-3-matrix-1}
 
 \[
 A^{-1}=
@@ -484,20 +463,17 @@ a & b & c \\ d & e & f \\ g & h & i
 \end{bmatrix}
 \]
 
-\hypertarget{signal-system}{%
-\subsection{Signal \& System}\label{signal-system}}
+\subsection{Signal \& System}\label{signal-system}
 
-\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, coltitle=black, arc=.35mm, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Gültigkeit End- \& Anfangswertsatz}, opacityback=0, colframe=quarto-callout-important-color-frame, left=2mm, bottomtitle=1mm, toptitle=1mm, toprule=.15mm, breakable, leftrule=.75mm, colback=white, titlerule=0mm, bottomrule=.15mm, rightrule=.15mm, colbacktitle=quarto-callout-important-color!10!white]
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, colback=white, breakable, colframe=quarto-callout-important-color-frame, rightrule=.15mm, left=2mm, opacityback=0, leftrule=.75mm, toptitle=1mm, colbacktitle=quarto-callout-important-color!10!white, bottomtitle=1mm, arc=.35mm, bottomrule=.15mm, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Gültigkeit End- \& Anfangswertsatz}, titlerule=0mm, toprule=.15mm, opacitybacktitle=0.6]
 
 End- \& Anfangswertsatz gilt nur bei stabilen Systemen.
 
 \end{tcolorbox}
 
-\hypertarget{endwertsatz}{%
-\subsubsection{Endwertsatz}\label{endwertsatz}}
+\subsubsection{Endwertsatz}\label{endwertsatz}
 
-\hypertarget{laplace}{%
-\paragraph{Laplace}\label{laplace}}
+\paragraph{Laplace}\label{laplace}
 
 \[
 \lim_{t\rightarrow\infty}x(t)=\lim_{s\rightarrow0} s\cdot X(s)
@@ -505,8 +481,7 @@ End- \& Anfangswertsatz gilt nur bei stabilen Systemen.
 
 falls \(\lim_{t\rightarrow\infty} x(t)\) existiert
 
-\hypertarget{z-transformation}{%
-\paragraph{Z-Transformation}\label{z-transformation}}
+\paragraph{Z-Transformation}\label{z-transformation}
 
 \[
 \lim_{k\rightarrow\infty}x[k]=\lim_{z\rightarrow1}(z-1)X(z)
@@ -514,11 +489,9 @@ falls \(\lim_{t\rightarrow\infty} x(t)\) existiert
 
 falls \(X(z)\) nur Pole mit \(\lvert z\rvert < 1\) oder bei \(z=1\)
 
-\hypertarget{anfangswertsatz}{%
-\subsubsection{Anfangswertsatz}\label{anfangswertsatz}}
+\subsubsection{Anfangswertsatz}\label{anfangswertsatz}
 
-\hypertarget{laplace-1}{%
-\paragraph{Laplace}\label{laplace-1}}
+\paragraph{Laplace}\label{laplace-1}
 
 \[
 x(0^+)=\lim_{s\rightarrow\infty}s\cdot X(s)
@@ -526,48 +499,27 @@ x(0^+)=\lim_{s\rightarrow\infty}s\cdot X(s)
 
 falls \(x(0^+)\) existiert
 
-\hypertarget{z-transformation-1}{%
-\subsubsection{Z-Transformation}\label{z-transformation-1}}
+\subsubsection{Z-Transformation}\label{z-transformation-1}
 
 \[
 x[0]=\lim_{z\rightarrow\infty}X(z)
 \]
 
-\hypertarget{transformationen}{%
-\subsection{Transformationen}\label{transformationen}}
+\subsection{Transformationen}\label{transformationen}
 
-\hypertarget{laplace-2}{%
-\subsubsection{Laplace}\label{laplace-2}}
+\subsubsection{Laplace}\label{laplace-2}
 
-\begin{figure}[H]
+\includegraphics{images/paste-17.png}
 
-{\centering \includegraphics{images/paste-17.png}
+\subsubsection{Z-Transformation}\label{z-transformation-2}
 
-}
+\includegraphics{images/paste-18.png}
 
-\end{figure}
+\subsection{Euler Approximation}\label{euler-approximation}
 
-\hypertarget{z-transformation-2}{%
-\subsubsection{Z-Transformation}\label{z-transformation-2}}
-
-\begin{figure}[H]
-
-{\centering \includegraphics{images/paste-18.png}
-
-}
-
-\end{figure}
-
-\hypertarget{euler-approximation}{%
-\subsection{Euler Approximation}\label{euler-approximation}}
-
-\begin{figure}[H]
-
-{\centering \includegraphics[width=6cm,height=\textheight]{images/paste-32.png}
-
-}
-
-\end{figure}
+\begin{center}
+\includegraphics[width=6cm,height=\textheight]{images/paste-32.png}
+\end{center}
 
 \[
 \begin{split}
@@ -576,14 +528,11 @@ x[k+1] &\approx x[k] + h\cdot f(x[k],u[k])
 \end{split}
 \]
 
-\hypertarget{systeme}{%
-\section{Systeme}\label{systeme}}
+\section{Systeme}\label{systeme}
 
-\hypertarget{grundlegende-systeme}{%
-\subsection{Grundlegende Systeme}\label{grundlegende-systeme}}
+\subsection{Grundlegende Systeme}\label{grundlegende-systeme}
 
-\hypertarget{regler-system}{%
-\subsubsection{Regler System}\label{regler-system}}
+\subsubsection{Regler System}\label{regler-system}
 
 \begin{center}
   \begin{tikzpicture}
@@ -617,8 +566,7 @@ x[k+1] &\approx x[k] + h\cdot f(x[k],u[k])
   v & Störgrösse
 \end{conditions}
 
-\hypertarget{geschlossenes-system}{%
-\subsubsection{Geschlossenes System}\label{geschlossenes-system}}
+\subsubsection{Geschlossenes System}\label{geschlossenes-system}
 
 \begin{center}
   \begin{tikzpicture}
@@ -638,8 +586,7 @@ x[k+1] &\approx x[k] + h\cdot f(x[k],u[k])
   \end{tikzpicture}
 \end{center}
 
-\hypertarget{offenes-system}{%
-\subsubsection{Offenes System}\label{offenes-system}}
+\subsubsection{Offenes System}\label{offenes-system}
 
 \begin{center}
   \begin{tikzpicture}
@@ -658,7 +605,7 @@ x[k+1] &\approx x[k] + h\cdot f(x[k],u[k])
   \end{tikzpicture}
 \end{center}
 
-\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, coltitle=black, arc=.35mm, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Schleifenübertragungsfunktion}, opacityback=0, colframe=quarto-callout-important-color-frame, left=2mm, bottomtitle=1mm, toptitle=1mm, toprule=.15mm, breakable, leftrule=.75mm, colback=white, titlerule=0mm, bottomrule=.15mm, rightrule=.15mm, colbacktitle=quarto-callout-important-color!10!white]
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, colback=white, breakable, colframe=quarto-callout-important-color-frame, rightrule=.15mm, left=2mm, opacityback=0, leftrule=.75mm, toptitle=1mm, colbacktitle=quarto-callout-important-color!10!white, bottomtitle=1mm, arc=.35mm, bottomrule=.15mm, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Schleifenübertragungsfunktion}, titlerule=0mm, toprule=.15mm, opacitybacktitle=0.6]
 
 \[
 L(s) = C(s)\cdot P(s)
@@ -666,22 +613,14 @@ L(s) = C(s)\cdot P(s)
 
 \end{tcolorbox}
 
-\hypertarget{vorsteuerung}{%
-\subsubsection{Vorsteuerung}\label{vorsteuerung}}
+\subsubsection{Vorsteuerung}\label{vorsteuerung}
 
 Mit einer Vorsteuerung kann die Regelungszeit gekürzt werden (kleinerer
 Fehler zum Auskorrigieren).
 
-\begin{figure}[H]
+\includegraphics{images/paste-1.png}
 
-{\centering \includegraphics{images/paste-1.png}
-
-}
-
-\end{figure}
-
-\hypertarget{minimalphasiges-system}{%
-\subsection{Minimalphasiges System}\label{minimalphasiges-system}}
+\subsection{Minimalphasiges System}\label{minimalphasiges-system}
 
 Liegen \ul{keine} Pole oder Nullstellen in der \ul{rechten Halbebene},
 so spricht man von \textbf{minimalphasigen Systeme}. Amplituden- und
@@ -695,23 +634,15 @@ Phasengang stehen in einer direkten Beziehung zueinander. Es gilt
 Pro \(20\text{dB}\) Steigung oder Abfall beträgt die Phasenverschiebung
 \(+90\degree\), respektive \(-90\degree\).
 
-\hypertarget{fuxfchrungsverhalten}{%
-\subsection{Führungsverhalten}\label{fuxfchrungsverhalten}}
+\subsection{Führungsverhalten}\label{fuxfchrungsverhalten}
 
-\begin{figure}[H]
-
-{\centering \includegraphics[width=6cm,height=\textheight]{images/paste-35.png}
-
-}
-
-\end{figure}
+\includegraphics[width=6cm,height=\textheight]{images/paste-35.png}
 
 \[
 G_{yr}=T=\frac{PC}{1+PC}\quad\text{und}\quad G_{ur}=CS=\frac{C}{1+PC}
 \]
 
-\hypertarget{merkmale}{%
-\subsubsection{Merkmale}\label{merkmale}}
+\subsubsection{Merkmale}\label{merkmale}
 
 Das Führungsverhalten verfügt über vier Merkmale, welche für jedes
 System betrachtet soll:
@@ -730,57 +661,26 @@ System betrachtet soll:
 
 \textbf{Gutes Führungsverhalten}
 
-\begin{figure}[H]
-
-{\centering \includegraphics[width=6cm,height=\textheight]{images/fuhrungsverhalten/gutes_verhalten.png}
-
-}
-
-\end{figure}
+\includegraphics[width=6cm,height=\textheight]{images/fuhrungsverhalten/gutes_verhalten.png}
 
 \textbf{Instabilität}
 
-\begin{figure}[H]
-
-{\centering \includegraphics[width=6cm,height=\textheight]{images/fuhrungsverhalten/instabil.png}
-
-}
-
-\end{figure}
+\includegraphics[width=6cm,height=\textheight]{images/fuhrungsverhalten/instabil.png}
 
 \textbf{Statischer Fehler /} \textbf{stationäre Ungenauigkeit}
 
-\begin{figure}[H]
-
-{\centering \includegraphics[width=6cm,height=\textheight]{images/fuhrungsverhalten/stationary.png}
-
-}
-
-\end{figure}
+\includegraphics[width=6cm,height=\textheight]{images/fuhrungsverhalten/stationary.png}
 
 \textbf{Überschwingen}
 
-\begin{figure}[H]
-
-{\centering \includegraphics[width=6cm,height=\textheight]{images/fuhrungsverhalten/uberschwingung.png}
-
-}
-
-\end{figure}
+\includegraphics[width=6cm,height=\textheight]{images/fuhrungsverhalten/uberschwingung.png}
 
 \textbf{Langsames Erreichen des neuen stationären Wertes}
 
-\begin{figure}[H]
+\includegraphics[width=6cm,height=\textheight]{images/fuhrungsverhalten/slow.png}
 
-{\centering \includegraphics[width=6cm,height=\textheight]{images/fuhrungsverhalten/slow.png}
-
-}
-
-\end{figure}
-
-\hypertarget{bleibende-fehler-bei-langsam-oder-nicht-uxe4ndernden-regelgruxf6ssen}{%
 \subsubsection{Bleibende Fehler bei langsam oder nicht ändernden
-Regelgrössen}\label{bleibende-fehler-bei-langsam-oder-nicht-uxe4ndernden-regelgruxf6ssen}}
+Regelgrössen}\label{bleibende-fehler-bei-langsam-oder-nicht-uxe4ndernden-regelgruxf6ssen}
 
 Der bleibende Fehler bei sich langsam oder nicht ändernden
 Führungssgrössen ergibt sich anhand des Verlaufs der
@@ -794,29 +694,21 @@ G_{yr}\approx 1-e_0-e_1\cdot s-e_2\cdot s^2 - \cdots
 e = e_0 \cdot r + e_1 \cdot \dot{r}+e_2\cdot \ddot{r}+\cdots
 \]
 
-\begin{figure}[H]
+\includegraphics[width=5cm,height=1.8cm]{images/paste-37.png}
 
-{\centering \includegraphics[width=5cm,height=1.8cm]{images/paste-37.png}
-
-}
-
-\end{figure}
-
-\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, coltitle=black, arc=.35mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Stationärer Fehler}, opacityback=0, colframe=quarto-callout-note-color-frame, left=2mm, bottomtitle=1mm, toptitle=1mm, toprule=.15mm, breakable, leftrule=.75mm, colback=white, titlerule=0mm, bottomrule=.15mm, rightrule=.15mm, colbacktitle=quarto-callout-note-color!10!white]
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, colback=white, breakable, colframe=quarto-callout-note-color-frame, rightrule=.15mm, left=2mm, opacityback=0, leftrule=.75mm, toptitle=1mm, colbacktitle=quarto-callout-note-color!10!white, bottomtitle=1mm, arc=.35mm, bottomrule=.15mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Stationärer Fehler}, titlerule=0mm, toprule=.15mm, opacitybacktitle=0.6]
 
 Bei Rampe: \(e_0 = 0\qquad\) Bei Parabel \(e_0 = e_1 = 0\)
 
 \end{tcolorbox}
 
-\hypertarget{stuxf6rverhalten}{%
-\subsection{Störverhalten}\label{stuxf6rverhalten}}
+\subsection{Störverhalten}\label{stuxf6rverhalten}
 
 \[
 G_{er}(s)=\frac{E(s)}{R(s)}
 \]
 
-\hypertarget{merkmale-1}{%
-\subsubsection{Merkmale}\label{merkmale-1}}
+\subsubsection{Merkmale}\label{merkmale-1}
 
 Das Störverhlaten verfügt ebenfalls über vier Merkmale, welche für jedes
 System betrachtet soll:
@@ -835,64 +727,31 @@ System betrachtet soll:
 
 \textbf{Gutes Störverhalten}
 
-\begin{figure}[H]
-
-{\centering \includegraphics[width=6cm,height=\textheight]{images/storverhalten/gutes_verhalten.png}
-
-}
-
-\end{figure}
+\includegraphics[width=6cm,height=\textheight]{images/storverhalten/gutes_verhalten.png}
 
 \textsuperscript{rot: Sollwert}
 
 \textbf{Instabilität}
 
-\begin{figure}[H]
-
-{\centering \includegraphics[width=6cm,height=\textheight]{images/storverhalten/storverhalten_stability.png}
-
-}
-
-\end{figure}
+\includegraphics[width=6cm,height=\textheight]{images/storverhalten/storverhalten_stability.png}
 
 \textbf{Stationärer Fehler / Ungenauigkeit}
 
-\begin{figure}[H]
-
-{\centering \includegraphics[width=6cm,height=\textheight]{images/storverhalten/storverhalten_stationary.png}
-
-}
-
-\end{figure}
+\includegraphics[width=6cm,height=\textheight]{images/storverhalten/storverhalten_stationary.png}
 
 \textbf{Überschwingen}
 
-\begin{figure}[H]
-
-{\centering \includegraphics[width=6cm,height=\textheight]{images/storverhalten/uber_unterschwingung.png}
-
-}
-
-\end{figure}
+\includegraphics[width=6cm,height=\textheight]{images/storverhalten/uber_unterschwingung.png}
 
 \textbf{Langsames Erreichen des stationären Wertes}
 
-\begin{figure}[H]
+\includegraphics[width=6cm,height=\textheight]{images/storverhalten/slow.png}
 
-{\centering \includegraphics[width=6cm,height=\textheight]{images/storverhalten/slow.png}
+\section{Darstellungsarten}\label{darstellungsarten}
 
-}
+\subsection{Blockdiagrammalgebra}\label{blockdiagrammalgebra}
 
-\end{figure}
-
-\hypertarget{darstellungsarten}{%
-\section{Darstellungsarten}\label{darstellungsarten}}
-
-\hypertarget{blockdiagrammalgebra}{%
-\subsection{Blockdiagrammalgebra}\label{blockdiagrammalgebra}}
-
-\hypertarget{verkettung}{%
-\subsubsection{Verkettung}\label{verkettung}}
+\subsubsection{Verkettung}\label{verkettung}
 
 \begin{center}
 \begin{tikzpicture}
@@ -917,8 +776,7 @@ System betrachtet soll:
 y = G_2 ( G_1 \cdot u) = (G_1G_2)\cdot u
 \]
 
-\hypertarget{parallel}{%
-\subsubsection{Parallel}\label{parallel}}
+\subsubsection{Parallel}\label{parallel}
 
 \begin{center}
 \begin{tikzpicture}
@@ -948,8 +806,7 @@ y = G_2 ( G_1 \cdot u) = (G_1G_2)\cdot u
 y = G_1\cdot u + G_1 \cdot u = (G_1 + G_2)\cdot u
 \]
 
-\hypertarget{ruxfcckkopplung}{%
-\subsubsection{Rückkopplung}\label{ruxfcckkopplung}}
+\subsubsection{Rückkopplung}\label{ruxfcckkopplung}
 
 \begin{center}
 \begin{tikzpicture}
@@ -982,8 +839,7 @@ y &= \underbrace{\frac{G}{1+G}}_{G_{yr}} \cdot r\\
 \end{split}
 \]
 
-\hypertarget{regel-von-mason}{%
-\subsubsection{Regel von Mason}\label{regel-von-mason}}
+\subsubsection{Regel von Mason}\label{regel-von-mason}
 
 \[
 G_{ij} = \frac{\sum_k P_k\cdot\Delta_k}{\Delta}
@@ -1005,21 +861,9 @@ P_k &= \text{Vorwärtspfad } k\\
 
 \ul{Beispiel}
 
-\begin{figure}[H]
+\includegraphics{images/paste-9.png}
 
-{\centering \includegraphics{images/paste-9.png}
-
-}
-
-\end{figure}
-
-\begin{figure}[H]
-
-{\centering \includegraphics{images/paste-10.png}
-
-}
-
-\end{figure}
+\includegraphics{images/paste-10.png}
 
 \(P_1 = ABCD \quad \Delta_1 = 1-0\quad P_2 = ABD \quad \Delta_2=1-0\)
 
@@ -1029,8 +873,7 @@ P_k &= \text{Vorwärtspfad } k\\
 G_{uy}=\frac{ABD(1+C)}{A+BCF-CDE-BCDEF}
 \]
 
-\hypertarget{zustandraumdarstellung}{%
-\subsection{Zustandraumdarstellung}\label{zustandraumdarstellung}}
+\subsection{Zustandraumdarstellung}\label{zustandraumdarstellung}
 
 Die Zustandsraumdarstellung erlaubt ein Einblick in das Verhalten eines
 dynamischen Systems. Anhand eines \emph{Zeitdiagrammes} und
@@ -1038,25 +881,16 @@ dynamischen Systems. Anhand eines \emph{Zeitdiagrammes} und
 gibt Startkonditionen an und kann über das Phasenporträit den zeitlichen
 Verlauf verfolgen.
 
-\begin{figure}[H]
+\begin{center}
+\includegraphics[width=5.7cm,height=\textheight]{images/state_space/quiver.png}
+\end{center}
 
-{\centering \includegraphics[width=5.7cm,height=\textheight]{images/state_space/quiver.png}
+\begin{center}
+\includegraphics[width=6.3cm,height=\textheight]{images/state_space/time.png}
+\end{center}
 
-}
-
-\end{figure}
-
-\begin{figure}[H]
-
-{\centering \includegraphics[width=6.3cm,height=\textheight]{images/state_space/time.png}
-
-}
-
-\end{figure}
-
-\hypertarget{autonomes-zeitinvariantes-system}{%
 \subsubsection{Autonomes, zeitinvariantes
-System}\label{autonomes-zeitinvariantes-system}}
+System}\label{autonomes-zeitinvariantes-system}
 
 \begin{center}
   \begin{tikzpicture}
@@ -1073,8 +907,7 @@ System}\label{autonomes-zeitinvariantes-system}}
 Autonome Systeme berücksichtigen äusserliche Beeinflussungen \ul{nicht}
 und sind ausschliesslich vom Anfangszustand abhängig.
 
-\hypertarget{allgemeine-systeme}{%
-\subsubsection{Allgemeine Systeme}\label{allgemeine-systeme}}
+\subsubsection{Allgemeine Systeme}\label{allgemeine-systeme}
 
 \begin{center}\begin{tikzpicture}
 
@@ -1098,9 +931,8 @@ $
 \frac{dx}{dt}=f(x,u)\qquad y=h(x,u)
 \]
 
-\hypertarget{lineares-zustandsraummodell}{%
 \subsubsection{Lineares
-Zustandsraummodell}\label{lineares-zustandsraummodell}}
+Zustandsraummodell}\label{lineares-zustandsraummodell}
 
 Viele der Systeme können an ein zeitinvariantes und lineares System
 (LTI-System) angenähert werden.
@@ -1146,8 +978,7 @@ Viele der Systeme können an ein zeitinvariantes und lineares System
   D & beschreibt Durchgriff
 \end{conditions}
 
-\hypertarget{uxfcbertragungsfunktion}{%
-\subsubsection{Übertragungsfunktion}\label{uxfcbertragungsfunktion}}
+\subsubsection{Übertragungsfunktion}\label{uxfcbertragungsfunktion}
 
 Wird als Eingangssignal \(u\)
 
@@ -1161,7 +992,7 @@ gegeben, ergibt sich folgendes Ausgangssignal
 y(t)=\underbrace{C\textcolor{BrickRed}{e^{At}}(x(0)-(sI-A)^{-1}B)}_{\text{transient } y_t} + \underbrace{\overbrace{(C(sI-A)^{-1}B+D)}^{\text{Übertragungsfunktion}} e^{st}}_{\text{stationär } y_s}
 \]
 
-\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, coltitle=black, arc=.35mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Hinweis}, opacityback=0, colframe=quarto-callout-note-color-frame, left=2mm, bottomtitle=1mm, toptitle=1mm, toprule=.15mm, breakable, leftrule=.75mm, colback=white, titlerule=0mm, bottomrule=.15mm, rightrule=.15mm, colbacktitle=quarto-callout-note-color!10!white]
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, colback=white, breakable, colframe=quarto-callout-note-color-frame, rightrule=.15mm, left=2mm, opacityback=0, leftrule=.75mm, toptitle=1mm, colbacktitle=quarto-callout-note-color!10!white, bottomtitle=1mm, arc=.35mm, bottomrule=.15mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Hinweis}, titlerule=0mm, toprule=.15mm, opacitybacktitle=0.6]
 
 Ist \(A\) stabil, so geht der transiente Anteil \(y_t\) asymptotisch
 gegen Null. Der stationäre Anteil bleibt übrig und entspricht der
@@ -1169,14 +1000,12 @@ gegen Null. Der stationäre Anteil bleibt übrig und entspricht der
 
 \end{tcolorbox}
 
-\hypertarget{dynamik}{%
-\section{Dynamik}\label{dynamik}}
+\section{Dynamik}\label{dynamik}
 
-\hypertarget{luxf6sen-von-differential-gleichungen}{%
 \subsection{Lösen von Differential
-Gleichungen}\label{luxf6sen-von-differential-gleichungen}}
+Gleichungen}\label{luxf6sen-von-differential-gleichungen}
 
-\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, coltitle=black, arc=.35mm, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Lösung einer Differentialgleichung}, opacityback=0, colframe=quarto-callout-important-color-frame, left=2mm, bottomtitle=1mm, toptitle=1mm, toprule=.15mm, breakable, leftrule=.75mm, colback=white, titlerule=0mm, bottomrule=.15mm, rightrule=.15mm, colbacktitle=quarto-callout-important-color!10!white]
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, colback=white, breakable, colframe=quarto-callout-important-color-frame, rightrule=.15mm, left=2mm, opacityback=0, leftrule=.75mm, toptitle=1mm, colbacktitle=quarto-callout-important-color!10!white, bottomtitle=1mm, arc=.35mm, bottomrule=.15mm, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Lösung einer Differentialgleichung}, titlerule=0mm, toprule=.15mm, opacitybacktitle=0.6]
 
 \[
 x(t_0)=x_0\quad\frac{dx(t)}{dt}=F(x(t))
@@ -1184,8 +1013,7 @@ x(t_0)=x_0\quad\frac{dx(t)}{dt}=F(x(t))
 
 \end{tcolorbox}
 
-\hypertarget{gleichgewichtslage}{%
-\subsection{Gleichgewichtslage}\label{gleichgewichtslage}}
+\subsection{Gleichgewichtslage}\label{gleichgewichtslage}
 
 Eine Gleichgewichtslage ist ein Zustand in dem das System \ul{stabil}
 ist. Dies ist auch bekannt als \emph{stationäres} Verhalten und weist
@@ -1198,9 +1026,8 @@ ist. Dies ist auch bekannt als \emph{stationäres} Verhalten und weist
 F(x_e)=0 \rightarrow \frac{dx}{dt}\biggr\rvert_{x_e}=0
 \]
 
-\hypertarget{testfunktion-sprungantwort}{%
 \subsection{Testfunktion
-Sprungantwort}\label{testfunktion-sprungantwort}}
+Sprungantwort}\label{testfunktion-sprungantwort}
 
 Anhand folgender Funktion kann die Sprungantwort eines Systems angegeben
 werden.
@@ -1222,11 +1049,9 @@ asymptotisch stabil ist, der Gleichtgewichtslage \(x=0\) zu. Der
 \emph{konstante} Teil entspricht dem Wert bei \(\omega\rightarrow 0\)
 und damit der \emph{Gleichspannungsverstärkung}.
 
-\hypertarget{stabilituxe4t}{%
-\section{Stabilität}\label{stabilituxe4t}}
+\section{Stabilität}\label{stabilituxe4t}
 
-\hypertarget{allgemein}{%
-\subsection{Allgemein}\label{allgemein}}
+\subsection{Allgemein}\label{allgemein}
 
 Die Stabilität ist in drei Zustände eingeteilt.
 
@@ -1246,7 +1071,7 @@ Die Stabilität ist in drei Zustände eingeteilt.
 Stabilität ist im Allgemeinen eine \emph{lokale} Eigenschaft innerhalb
 eines Bereiches des Zustandsraums!
 
-\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, coltitle=black, arc=.35mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Beispiel}, opacityback=0, colframe=quarto-callout-note-color-frame, left=2mm, bottomtitle=1mm, toptitle=1mm, toprule=.15mm, breakable, leftrule=.75mm, colback=white, titlerule=0mm, bottomrule=.15mm, rightrule=.15mm, colbacktitle=quarto-callout-note-color!10!white]
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, colback=white, breakable, colframe=quarto-callout-note-color-frame, rightrule=.15mm, left=2mm, opacityback=0, leftrule=.75mm, toptitle=1mm, colbacktitle=quarto-callout-note-color!10!white, bottomtitle=1mm, arc=.35mm, bottomrule=.15mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Beispiel}, titlerule=0mm, toprule=.15mm, opacitybacktitle=0.6]
 
 Ein Pendel, welches die gesamte Rotationsachse (\(360\degree\),
 rundherum) ausnützen kann, hat zwei Gleichgewichtslagen:
@@ -1260,18 +1085,13 @@ rundherum) ausnützen kann, hat zwei Gleichgewichtslagen:
   verlaufen.
 \end{itemize}
 
-\begin{figure}[H]
-
-{\centering \includegraphics[width=6cm,height=\textheight]{images/dynamik/stationary_point.png}
-
-}
-
-\end{figure}
+\begin{center}
+\includegraphics[width=6cm,height=\textheight]{images/dynamik/stationary_point.png}
+\end{center}
 
 \end{tcolorbox}
 
-\hypertarget{linearer-systeme}{%
-\subsection{Linearer Systeme}\label{linearer-systeme}}
+\subsection{Linearer Systeme}\label{linearer-systeme}
 
 \begin{center}\begin{tikzpicture}
 
@@ -1299,7 +1119,7 @@ rundherum) ausnützen kann, hat zwei Gleichgewichtslagen:
 Polstellen eines linearen Systems (\(\frac{dx}{dt}=Ax\) \& \(x(0)=x_0\))
 können mit dem \emph{charakteristischen Polynoms} berechnet werden.
 
-\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, coltitle=black, arc=.35mm, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{charakteristisches Polynom}, opacityback=0, colframe=quarto-callout-important-color-frame, left=2mm, bottomtitle=1mm, toptitle=1mm, toprule=.15mm, breakable, leftrule=.75mm, colback=white, titlerule=0mm, bottomrule=.15mm, rightrule=.15mm, colbacktitle=quarto-callout-important-color!10!white]
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, colback=white, breakable, colframe=quarto-callout-important-color-frame, rightrule=.15mm, left=2mm, opacityback=0, leftrule=.75mm, toptitle=1mm, colbacktitle=quarto-callout-important-color!10!white, bottomtitle=1mm, arc=.35mm, bottomrule=.15mm, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{charakteristisches Polynom}, titlerule=0mm, toprule=.15mm, opacitybacktitle=0.6]
 
 Die Nullstellen von \(\lambda\) werden mit der Dynamik-Matrix \(A\)
 berechnet. Diese entsprechen dem Nennerpolynom \$C(sI-A)\^{}\{-1\}
@@ -1310,7 +1130,7 @@ berechnet. Diese entsprechen dem Nennerpolynom \$C(sI-A)\^{}\{-1\}
 
 \end{tcolorbox}
 
-\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, coltitle=black, arc=.35mm, title=\textcolor{quarto-callout-caution-color}{\faFire}\hspace{0.5em}{Gültigkeit}, opacityback=0, colframe=quarto-callout-caution-color-frame, left=2mm, bottomtitle=1mm, toptitle=1mm, toprule=.15mm, breakable, leftrule=.75mm, colback=white, titlerule=0mm, bottomrule=.15mm, rightrule=.15mm, colbacktitle=quarto-callout-caution-color!10!white]
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, colback=white, breakable, colframe=quarto-callout-caution-color-frame, rightrule=.15mm, left=2mm, opacityback=0, leftrule=.75mm, toptitle=1mm, colbacktitle=quarto-callout-caution-color!10!white, bottomtitle=1mm, arc=.35mm, bottomrule=.15mm, title=\textcolor{quarto-callout-caution-color}{\faFire}\hspace{0.5em}{Gültigkeit}, titlerule=0mm, toprule=.15mm, opacitybacktitle=0.6]
 
 Stabilität linearer Systeme ist \ul{nur von} \(A\) \ul{abhängig}, nicht
 vom Anfangswert \(x_0\). Dies gilt Global!
@@ -1319,23 +1139,21 @@ Ebenfalls sind stabile lineare Systeme \textbf{global} gültig.
 
 \end{tcolorbox}
 
-\hypertarget{linearisierung}{%
-\subsubsection{Linearisierung}\label{linearisierung}}
+\subsubsection{Linearisierung}\label{linearisierung}
 
 Ist das linearisiterte System asymptotisch stabil, so ist das
 nicht-lineare System in der \textbf{Umgebung der Gleichgewichtslage}
 ebenfalls asymptotisch stabil.
 
-\hypertarget{hurwitz-kriterium}{%
-\subsection{Hurwitz-Kriterium}\label{hurwitz-kriterium}}
+\subsection{Hurwitz-Kriterium}\label{hurwitz-kriterium}
 
-\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, coltitle=black, arc=.35mm, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Wichtig}, opacityback=0, colframe=quarto-callout-important-color-frame, left=2mm, bottomtitle=1mm, toptitle=1mm, toprule=.15mm, breakable, leftrule=.75mm, colback=white, titlerule=0mm, bottomrule=.15mm, rightrule=.15mm, colbacktitle=quarto-callout-important-color!10!white]
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, colback=white, breakable, colframe=quarto-callout-caution-color-frame, rightrule=.15mm, left=2mm, opacityback=0, leftrule=.75mm, toptitle=1mm, colbacktitle=quarto-callout-caution-color!10!white, bottomtitle=1mm, arc=.35mm, bottomrule=.15mm, title=\textcolor{quarto-callout-caution-color}{\faFire}\hspace{0.5em}{Vorsicht}, titlerule=0mm, toprule=.15mm, opacitybacktitle=0.6]
 
 \textbf{GESCHLOSSENER} KREIS VERWENDEN!
 
 \end{tcolorbox}
 
-\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, coltitle=black, arc=.35mm, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Hurwitz-Kriterium}, opacityback=0, colframe=quarto-callout-important-color-frame, left=2mm, bottomtitle=1mm, toptitle=1mm, toprule=.15mm, breakable, leftrule=.75mm, colback=white, titlerule=0mm, bottomrule=.15mm, rightrule=.15mm, colbacktitle=quarto-callout-important-color!10!white]
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, colback=white, breakable, colframe=quarto-callout-important-color-frame, rightrule=.15mm, left=2mm, opacityback=0, leftrule=.75mm, toptitle=1mm, colbacktitle=quarto-callout-important-color!10!white, bottomtitle=1mm, arc=.35mm, bottomrule=.15mm, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Hurwitz-Kriterium}, titlerule=0mm, toprule=.15mm, opacitybacktitle=0.6]
 
 Die Polstellen-Gleichung \(\lambda(s)\) mit \(a_0>0\) hat dann, und nur
 dann, ausschliesslich Lösungen mit negativen reellen Teilen, falls alle
@@ -1347,6 +1165,10 @@ Unterdeterminante der Hurwitz-Matrix positiv sind:
 
 \[
 G_{yr}=\frac{\textcolor{NavyBlue}{P}\textcolor{BrickRed}{C}}{1+\textcolor{NavyBlue}{P}\textcolor{BrickRed}{C}}=\frac{\textcolor{NavyBlue}{n_P}\cdot\textcolor{BrickRed}{n_C}}{\textcolor{NavyBlue}{d_P}\cdot\textcolor{BrickRed}{d_C}+\textcolor{NavyBlue}{n_P}\cdot\textcolor{BrickRed}{n_C}}
+\]
+
+\[
+C = \frac{\textcolor{BrickRed}{n_C}}{\textcolor{BrickRed}{d_C}}\qquad P = \frac{\textcolor{NavyBlue}{n_P}}{\textcolor{NavyBlue}{d_P}}
 \]
 
 \begin{conditions}
@@ -1374,7 +1196,7 @@ H=\begin{bmatrix}
 \end{bmatrix} \in \mathbb{R}^{n\times n}
 \]
 
-\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, coltitle=black, arc=.35mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Tipp}, opacityback=0, colframe=quarto-callout-tip-color-frame, left=2mm, bottomtitle=1mm, toptitle=1mm, toprule=.15mm, breakable, leftrule=.75mm, colback=white, titlerule=0mm, bottomrule=.15mm, rightrule=.15mm, colbacktitle=quarto-callout-tip-color!10!white]
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, colback=white, breakable, colframe=quarto-callout-tip-color-frame, rightrule=.15mm, left=2mm, opacityback=0, leftrule=.75mm, toptitle=1mm, colbacktitle=quarto-callout-tip-color!10!white, bottomtitle=1mm, arc=.35mm, bottomrule=.15mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Tipp}, titlerule=0mm, toprule=.15mm, opacitybacktitle=0.6]
 
 \begin{itemize}
 \tightlist
@@ -1395,7 +1217,7 @@ s^3+2s^2+10\rightarrow\text{instabil, da } 0\cdot s
 
 \end{tcolorbox}
 
-\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, coltitle=black, arc=.35mm, title=\textcolor{quarto-callout-caution-color}{\faFire}\hspace{0.5em}{Was mit Hurwitz nicht möglich ist}, opacityback=0, colframe=quarto-callout-caution-color-frame, left=2mm, bottomtitle=1mm, toptitle=1mm, toprule=.15mm, breakable, leftrule=.75mm, colback=white, titlerule=0mm, bottomrule=.15mm, rightrule=.15mm, colbacktitle=quarto-callout-caution-color!10!white]
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, colback=white, breakable, colframe=quarto-callout-caution-color-frame, rightrule=.15mm, left=2mm, opacityback=0, leftrule=.75mm, toptitle=1mm, colbacktitle=quarto-callout-caution-color!10!white, bottomtitle=1mm, arc=.35mm, bottomrule=.15mm, title=\textcolor{quarto-callout-caution-color}{\faFire}\hspace{0.5em}{Was mit Hurwitz nicht möglich ist}, titlerule=0mm, toprule=.15mm, opacitybacktitle=0.6]
 
 Das Hurwitz-Kriterium beschreibt keine \emph{Robustheit} der Stabilität
 und erlangt keine Einsicht, wie der Regler \(C=\frac{n_c}{d_c}\) gewählt
@@ -1422,8 +1244,7 @@ H = \begin{bmatrix}
 \end{array}
 \]
 
-\hypertarget{nyquist}{%
-\subsection{Nyquist}\label{nyquist}}
+\subsection{Nyquist}\label{nyquist}
 
 Wenn \(L(s)=-1\), so kann eine stationäre Schwingung eingestellt werden!
 
@@ -1442,17 +1263,10 @@ Wenn \(L(s)=-1\), so kann eine stationäre Schwingung eingestellt werden!
 B=-P(s)C(s)\cdot A\quad \Rightarrow\quad \underline{P(s)C(s) = -1}
 \]
 
-\hypertarget{allgemein-variante-winkeluxe4nderung}{%
 \subsubsection{Allgemein -- Variante
-Winkeländerung}\label{allgemein-variante-winkeluxe4nderung}}
+Winkeländerung}\label{allgemein-variante-winkeluxe4nderung}
 
-\begin{figure}[H]
-
-{\centering \includegraphics{images/paste-4.png}
-
-}
-
-\end{figure}
+\includegraphics{images/paste-4.png}
 
 \[
 \Delta\phi=a\frac{\pi}{2}+r\pi\,\hat{=}\,a\cdot90\degree+r\cdot180\degree
@@ -1466,7 +1280,7 @@ Winkeländerung}\label{allgemein-variante-winkeluxe4nderung}}
 Nur bei \(\Delta\phi\geq0\degree\) ist der \emph{geschlossene} Kreis
 \textbf{stabil}.
 
-\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, coltitle=black, arc=.35mm, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Offen stabile Systeme}, opacityback=0, colframe=quarto-callout-important-color-frame, left=2mm, bottomtitle=1mm, toptitle=1mm, toprule=.15mm, breakable, leftrule=.75mm, colback=white, titlerule=0mm, bottomrule=.15mm, rightrule=.15mm, colbacktitle=quarto-callout-important-color!10!white]
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, colback=white, breakable, colframe=quarto-callout-important-color-frame, rightrule=.15mm, left=2mm, opacityback=0, leftrule=.75mm, toptitle=1mm, colbacktitle=quarto-callout-important-color!10!white, bottomtitle=1mm, arc=.35mm, bottomrule=.15mm, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Offen stabile Systeme}, titlerule=0mm, toprule=.15mm, opacitybacktitle=0.6]
 
 Systeme, welche offen stabil sind, müssen der Bedinung \(\Delta\phi=0\)
 genügen.
@@ -1476,21 +1290,21 @@ ermittelt wurde.
 
 \end{tcolorbox}
 
-\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, coltitle=black, arc=.35mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Totzeit}, opacityback=0, colframe=quarto-callout-note-color-frame, left=2mm, bottomtitle=1mm, toptitle=1mm, toprule=.15mm, breakable, leftrule=.75mm, colback=white, titlerule=0mm, bottomrule=.15mm, rightrule=.15mm, colbacktitle=quarto-callout-note-color!10!white]
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, colback=white, breakable, colframe=quarto-callout-note-color-frame, rightrule=.15mm, left=2mm, opacityback=0, leftrule=.75mm, toptitle=1mm, colbacktitle=quarto-callout-note-color!10!white, bottomtitle=1mm, arc=.35mm, bottomrule=.15mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Totzeit}, titlerule=0mm, toprule=.15mm, opacitybacktitle=0.6]
 
 Die Bedingung gilt auch für Systeme mit Totzeit
 
 \end{tcolorbox}
 
-\hypertarget{allgemein-variante-umluxe4ufe}{%
 \subsubsection{Allgemein -- Variante
-Umläufe}\label{allgemein-variante-umluxe4ufe}}
+Umläufe}\label{allgemein-variante-umluxe4ufe}
 
 Das System \(G_{yr}\) ist stabil wenn \(P=U\)
 
 \begin{conditions}
   P & Anzahl instabiler Polstellen von $L(s)$ \\
-  U & Anzahl Umläufe der Nyquist-Kurve $L(j\omega)$ mit $\omega\in [-\infty,\infty]$ um den Punkt $(-1,0)$ im \underline{Gegenuhr}zeigersinn
+  U & Anzahl Umläufe der Nyquist-Kurve $L(j\omega)$ mit $\omega\in [-\infty,\infty]$ \\
+  \hookrightarrow & um den Punkt $(-1,0)$ im \underline{Gegenuhr}zeigersinn
 \end{conditions}
 
 \ul{Beispiel}
@@ -1499,13 +1313,7 @@ Das System \(G_{yr}\) ist stabil wenn \(P=U\)
 L(s)=\frac{9(s+2)(s+4)}{(s-2)(s+3)(s-4)}
 \]
 
-\begin{figure}[H]
-
-{\centering \includegraphics{images/paste-5.png}
-
-}
-
-\end{figure}
+\includegraphics{images/paste-5.png}
 
 \(\rightarrow\ P=U=2: \textcolor{OliveGreen}{\text{stabil}}\)
 
@@ -1513,56 +1321,34 @@ L(s)=\frac{9(s+2)(s+4)}{(s-2)(s+3)(s-4)}
 L(s)=\frac{18(s-1)(s+4)}{(s-2)(s+3)(s-4)}
 \]
 
-\begin{figure}[H]
-
-{\centering \includegraphics{images/paste-6.png}
-
-}
-
-\end{figure}
+\includegraphics{images/paste-6.png}
 
 \(\rightarrow P=2,U=1:\textcolor{BrickRed}{\text{instabil}}\)
 
-\hypertarget{einfach-variante-links-liegen}{%
 \subsubsection{Einfach -- Variante Links
-liegen}\label{einfach-variante-links-liegen}}
+liegen}\label{einfach-variante-links-liegen}
 
 Für Systeme mit maximal zwei instabilen Polen im Ursprung (aber keinen
 weiteren instabilen Polen) genügt die Bedingung, dass der Punkt
 \((-1,0)\) \emph{links liegen gelassen} wird, wenn entlang der Ortskurve
 \(\omega : 0 \rightarrow \infty\) verfahren wird.
 
-\hypertarget{einfach-variante-umluxe4ufe}{%
 \subsubsection{Einfach -- Variante
-Umläufe}\label{einfach-variante-umluxe4ufe}}
+Umläufe}\label{einfach-variante-umluxe4ufe}
 
 Das System \(G_{yr}\) ist stabil, wenn die Nyquist Kurve \(L(j\omega)\)
 mit \(\omega\in [0,\infty]\) den Punkt \((-1,0)\) \textbf{nicht}
 umläuft.
 
-\hypertarget{stabilituxe4tsreserve-robustheit}{%
 \subsubsection{Stabilitätsreserve /
-Robustheit}\label{stabilituxe4tsreserve-robustheit}}
+Robustheit}\label{stabilituxe4tsreserve-robustheit}
 
-\begin{figure}[H]
+\includegraphics[width=6cm,height=\textheight]{images/paste-7.png}
 
-{\centering \includegraphics[width=6cm,height=\textheight]{images/paste-7.png}
+\includegraphics[width=6cm,height=\textheight]{images/paste-8.png}
 
-}
-
-\end{figure}
-
-\begin{figure}[H]
-
-{\centering \includegraphics[width=6cm,height=\textheight]{images/paste-8.png}
-
-}
-
-\end{figure}
-
-\hypertarget{phasenreserve-varphi_m}{%
 \paragraph{\texorpdfstring{Phasenreserve
-\(\varphi_m\)}{Phasenreserve \textbackslash varphi\_m}}\label{phasenreserve-varphi_m}}
+\(\varphi_m\)}{Phasenreserve \textbackslash varphi\_m}}\label{phasenreserve-varphi_m}
 
 Eintritt in den Einheitskreis \(\rightarrow\) \emph{gain crossover}
 
@@ -1578,9 +1364,8 @@ Abstand zu \(-1\) wird mit Phasenreserve \(\varphi_m\) ausgedrückt
 
 \(\rightarrow\) kann im Bodediagramm abgelesen werden
 
-\hypertarget{amplitudenreserve-g_m}{%
 \paragraph{\texorpdfstring{Amplitudenreserve
-\(g_m\)}{Amplitudenreserve g\_m}}\label{amplitudenreserve-g_m}}
+\(g_m\)}{Amplitudenreserve g\_m}}\label{amplitudenreserve-g_m}
 
 Überschreiten der negativen \(Re\)-Achse \(\rightarrow\) \emph{phase
 crossover}
@@ -1599,9 +1384,8 @@ Wird die Achse nicht überschritten, so ist \(g_m\rightarrow\infty\)
 
 \(\rightarrow\) kann im Bodediagramm abgelesen werden
 
-\hypertarget{stabilituxe4tsreserve-s_m}{%
 \paragraph{\texorpdfstring{Stabilitätsreserve
-\(s_m\)}{Stabilitätsreserve s\_m}}\label{stabilituxe4tsreserve-s_m}}
+\(s_m\)}{Stabilitätsreserve s\_m}}\label{stabilituxe4tsreserve-s_m}
 
 Kleinester Abstand zum Punkt \(-1\)
 
@@ -1612,23 +1396,11 @@ Maximum der Sensitivitätsfunktion \(S\).
 \omega_{ms} = \underset{\omega}{\text{argmax}}\lvert S(j\omega)\rvert\qquad s_m = \frac1{\lvert S(j\omega_{ms})\rvert}=\frac1{g_{ms}}
 \]
 
-\begin{figure}[H]
+\includegraphics[width=6cm,height=\textheight]{images/paste-33.png}
 
-{\centering \includegraphics[width=6cm,height=\textheight]{images/paste-33.png}
+\includegraphics[width=6cm,height=\textheight]{images/paste-34.png}
 
-}
-
-\end{figure}
-
-\begin{figure}[H]
-
-{\centering \includegraphics[width=6cm,height=\textheight]{images/paste-34.png}
-
-}
-
-\end{figure}
-
-\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, coltitle=black, arc=.35mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Praxiswerte}, opacityback=0, colframe=quarto-callout-note-color-frame, left=2mm, bottomtitle=1mm, toptitle=1mm, toprule=.15mm, breakable, leftrule=.75mm, colback=white, titlerule=0mm, bottomrule=.15mm, rightrule=.15mm, colbacktitle=quarto-callout-note-color!10!white]
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, colback=white, breakable, colframe=quarto-callout-note-color-frame, rightrule=.15mm, left=2mm, opacityback=0, leftrule=.75mm, toptitle=1mm, colbacktitle=quarto-callout-note-color!10!white, bottomtitle=1mm, arc=.35mm, bottomrule=.15mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Praxiswerte}, titlerule=0mm, toprule=.15mm, opacitybacktitle=0.6]
 
 Folgende Werte dienen als \emph{Boilerplate} für die Reglerauslegung
 
@@ -1643,8 +1415,7 @@ s_m \approx 0.5 - 0.8 \\
 
 \end{tcolorbox}
 
-\hypertarget{prozess}{%
-\section{Prozess}\label{prozess}}
+\section{Prozess}\label{prozess}
 
 \begin{center}\begin{tikzpicture}
 \node[box, minimum height=0.8cm, inner sep=5pt] (procBox) at (0,2) {Prozess $P$};
@@ -1655,10 +1426,9 @@ s_m \approx 0.5 - 0.8 \\
 \draw[->]  (procBox) edge (end);
 \end{tikzpicture}\end{center}
 
-\hypertarget{modellierung}{%
-\subsection{Modellierung}\label{modellierung}}
+\subsection{Modellierung}\label{modellierung}
 
-\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, coltitle=black, arc=.35mm, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Vereinfachung}, opacityback=0, colframe=quarto-callout-important-color-frame, left=2mm, bottomtitle=1mm, toptitle=1mm, toprule=.15mm, breakable, leftrule=.75mm, colback=white, titlerule=0mm, bottomrule=.15mm, rightrule=.15mm, colbacktitle=quarto-callout-important-color!10!white]
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, colback=white, breakable, colframe=quarto-callout-important-color-frame, rightrule=.15mm, left=2mm, opacityback=0, leftrule=.75mm, toptitle=1mm, colbacktitle=quarto-callout-important-color!10!white, bottomtitle=1mm, arc=.35mm, bottomrule=.15mm, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Vereinfachung}, titlerule=0mm, toprule=.15mm, opacitybacktitle=0.6]
 
 Modelle repräsentieren immer eine Vereinfachung des eigentlichen Systems
 und fokusiert daher immer auf ein Teil des Systems.
@@ -1671,8 +1441,7 @@ Atombombeneinschlags auf das Fahrzeug.
 
 \end{tcolorbox}
 
-\hypertarget{identifikation}{%
-\subsection{Identifikation}\label{identifikation}}
+\subsection{Identifikation}\label{identifikation}
 
 \underline{\footnotesize{...welche Klasse}} -- Ausgehend von einem
 LTI-System sind der Grad von Zähler- und Nennerpolynom festzulegen.
@@ -1691,9 +1460,8 @@ festgelegt werden.
 \underline{\footnotesize{...wie kann ein Modell gefunden werden}} --
 Trial \& Error mit Sprungantwort und Bodediagramm.
 
-\hypertarget{methode-der-kleinsten-quadrate}{%
 \subsubsection{Methode der kleinsten
-Quadrate}\label{methode-der-kleinsten-quadrate}}
+Quadrate}\label{methode-der-kleinsten-quadrate}
 
 Mit dieser Methode können Parameter anhand Messwerten bestummen werden.
 
@@ -1723,20 +1491,13 @@ y = \begin{pmatrix}
 \end{pmatrix}
 \]
 
-\begin{figure}[H]
-
-{\centering \includegraphics{images/paste-36.png}
-
-}
-
-\end{figure}
+\includegraphics{images/paste-36.png}
 
 \[
 \hat{\beta} = (\Phi^T\Phi)^{-1}\Phi^Ty
 \]
 
-\hypertarget{regelung}{%
-\section{Regelung}\label{regelung}}
+\section{Regelung}\label{regelung}
 
 Feed\ul{back} Control
 
@@ -1773,7 +1534,7 @@ Führungsgrösse \(r\), sodass idealerweise \(y=r\).
   \end{tikzpicture}
 \end{center}
 
-\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, coltitle=black, arc=.35mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Merkmale einer Regelung}, opacityback=0, colframe=quarto-callout-tip-color-frame, left=2mm, bottomtitle=1mm, toptitle=1mm, toprule=.15mm, breakable, leftrule=.75mm, colback=white, titlerule=0mm, bottomrule=.15mm, rightrule=.15mm, colbacktitle=quarto-callout-tip-color!10!white]
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, colback=white, breakable, colframe=quarto-callout-tip-color-frame, rightrule=.15mm, left=2mm, opacityback=0, leftrule=.75mm, toptitle=1mm, colbacktitle=quarto-callout-tip-color!10!white, bottomtitle=1mm, arc=.35mm, bottomrule=.15mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Merkmale einer Regelung}, titlerule=0mm, toprule=.15mm, opacitybacktitle=0.6]
 
 Folgende Merkmale \textbf{muss} eine Regelung aufweisen, ansonsten ist
 es keine Regelung.
@@ -1789,8 +1550,7 @@ Wirkungskreis
 
 \end{tcolorbox}
 
-\hypertarget{sensitivituxe4tsfunktionen}{%
-\subsection{Sensitivitätsfunktionen}\label{sensitivituxe4tsfunktionen}}
+\subsection{Sensitivitätsfunktionen}\label{sensitivituxe4tsfunktionen}
 
 \begin{center}
   \begin{tikzpicture}
@@ -1822,8 +1582,11 @@ Wirkungskreis
   \end{tikzpicture}
 \end{center}
 
-\hypertarget{gang-of-four}{%
-\subsubsection{`Gang of Four'}\label{gang-of-four}}
+\subsubsection{`Gang of Four'}\label{gang-of-four}
+
+\includegraphics{images/paste-44.png}
+
+\includegraphics[width=7cm,height=\textheight]{images/paste-43.png}
 
 Das Verhalten der Regelung kann durch die folgenden vier
 Sensitivitätsfunktionen beschrieben werden.
@@ -1834,7 +1597,7 @@ Sensitivitätsfunktionen beschrieben werden.
 G_{er} = S = \frac1{1+PC} 
 \]
 
-\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, coltitle=black, arc=.35mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Bedeutung}, opacityback=0, colframe=quarto-callout-note-color-frame, left=2mm, bottomtitle=1mm, toptitle=1mm, toprule=.15mm, breakable, leftrule=.75mm, colback=white, titlerule=0mm, bottomrule=.15mm, rightrule=.15mm, colbacktitle=quarto-callout-note-color!10!white]
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, colback=white, breakable, colframe=quarto-callout-note-color-frame, rightrule=.15mm, left=2mm, opacityback=0, leftrule=.75mm, toptitle=1mm, colbacktitle=quarto-callout-note-color!10!white, bottomtitle=1mm, arc=.35mm, bottomrule=.15mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Bedeutung}, titlerule=0mm, toprule=.15mm, opacitybacktitle=0.6]
 
 Sensitivitäts-Übergangsfrequenz \(\omega_{sc}\) kennzeichnet den
 Übergang von Dämpfung zur Verstärkung
@@ -1874,13 +1637,13 @@ Sensitivitäts-Übergangsfrequenz \(\omega_{sc}\) kennzeichnet den
 \underline{\footnotesize{Load Sensitivity Function}}
 
 \[
-G_{vy} = PS = \frac1{1+PC} 
+G_{yv} = PS = \frac{P}{1+PC} 
 \]
 
 \underline{\footnotesize{Complementary Sensitivity Function}}
 
 \[
-G_{yr} = T = \frac1{1+PC} \stackrel{!}{=} \underline{1}
+G_{yr} = T = \frac{PC}{1+PC}\quad (\stackrel{!}{=} \underline{1})
 \]
 
 \underline{\footnotesize{Noise Sensitivity Function}}
@@ -1889,19 +1652,13 @@ G_{yr} = T = \frac1{1+PC} \stackrel{!}{=} \underline{1}
 G_{ur} = CS = \frac{C}{1+PC} 
 \]
 
-\hypertarget{anforderungen}{%
-\subsection{Anforderungen}\label{anforderungen}}
+\subsection{Anforderungen}\label{anforderungen}
 
-\hypertarget{stabilituxe4t-1}{%
-\subsubsection{Stabilität}\label{stabilituxe4t-1}}
+\subsubsection{Stabilität}\label{stabilituxe4t-1}
 
-\begin{figure}[H]
-
-{\centering \includegraphics[width=4cm,height=3.5cm]{images/paste-11.png}
-
-}
-
-\end{figure}
+\begin{center}
+\includegraphics[width=4cm,height=3.5cm]{images/paste-11.png}
+\end{center}
 
 \begin{itemize}
 \tightlist
@@ -1914,16 +1671,11 @@ G_{ur} = CS = \frac{C}{1+PC}
   mit Hurwitz \& Nyquist untersucht werden
 \end{itemize}
 
-\hypertarget{stationuxe4re-genauigkeit}{%
-\subsubsection{Stationäre Genauigkeit}\label{stationuxe4re-genauigkeit}}
+\subsubsection{Stationäre Genauigkeit}\label{stationuxe4re-genauigkeit}
 
-\begin{figure}[H]
-
-{\centering \includegraphics[width=4cm,height=3.5cm]{images/paste-12.png}
-
-}
-
-\end{figure}
+\begin{center}
+\includegraphics[width=4cm,height=3.5cm]{images/paste-12.png}
+\end{center}
 
 \begin{itemize}
 \tightlist
@@ -1941,16 +1693,11 @@ e = \frac1{1+PC}r+\frac{-P}{1+PC}v+\frac{-1}{1+PC}w
 e_{stationär}=\small\frac{1}{1+PC}\biggr\rvert_{s=0}\cdot r_0+\small\frac{-P}{1+PC}\biggr\rvert_{s=0}\cdot v_0+\small\frac{-1}{1+PC}\biggr\rvert_{s=0}\cdot w_0
 \]
 
-\hypertarget{schnelligkeit}{%
-\subsubsection{Schnelligkeit}\label{schnelligkeit}}
+\subsubsection{Schnelligkeit}\label{schnelligkeit}
 
-\begin{figure}[H]
-
-{\centering \includegraphics[width=4cm,height=\textheight]{images/paste-13.png}
-
-}
-
-\end{figure}
+\begin{center}
+\includegraphics[width=4cm,height=\textheight]{images/paste-13.png}
+\end{center}
 
 \begin{itemize}
 \item
@@ -1970,24 +1717,13 @@ e_{stationär}=\small\frac{1}{1+PC}\biggr\rvert_{s=0}\cdot r_0+\small\frac{-P}{1
   \]
 \end{itemize}
 
-\begin{figure}[H]
+\includegraphics{images/paste-15.png}
 
-{\centering \includegraphics{images/paste-15.png}
+\subsubsection{Dämpfung}\label{duxe4mpfung}
 
-}
-
-\end{figure}
-
-\hypertarget{duxe4mpfung}{%
-\subsubsection{Dämpfung}\label{duxe4mpfung}}
-
-\begin{figure}[H]
-
-{\centering \includegraphics[width=4cm,height=\textheight]{images/paste-14.png}
-
-}
-
-\end{figure}
+\begin{center}
+\includegraphics[width=4cm,height=\textheight]{images/paste-14.png}
+\end{center}
 
 \begin{itemize}
 \tightlist
@@ -1998,11 +1734,9 @@ e_{stationär}=\small\frac{1}{1+PC}\biggr\rvert_{s=0}\cdot r_0+\small\frac{-P}{1
   Gutes Mass ist die Phasenlage im Bereich von \(\omega_g\)
 \end{itemize}
 
-\hypertarget{eigenschaften}{%
-\subsection{Eigenschaften}\label{eigenschaften}}
+\subsection{Eigenschaften}\label{eigenschaften}
 
-\hypertarget{robustheit}{%
-\subsubsection{Robustheit}\label{robustheit}}
+\subsubsection{Robustheit}\label{robustheit}
 
 \emph{Robustheit} bezeichnet die Fähigkeit eines Systems, Veränderungen
 ohne Anpassung seiner anfänglich stabilen Struktur standzuhalten.
@@ -2010,8 +1744,7 @@ ohne Anpassung seiner anfänglich stabilen Struktur standzuhalten.
 Robustheit gegenüber Unsicherheit \(\rightarrow\) Standhaltung gegenüber
 Störungen
 
-\hypertarget{dynamik-1}{%
-\subsubsection{Dynamik}\label{dynamik-1}}
+\subsubsection{Dynamik}\label{dynamik-1}
 
 Die \emph{Dynamik} eines Systems kann durch eine Regelung beeinflusst
 und verändert werden.
@@ -2026,7 +1759,7 @@ und verändert werden.
   Abdriftende System \(\rightarrow\) konstant\emph{.}
 \end{itemize}
 
-\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, coltitle=black, arc=.35mm, title=\textcolor{quarto-callout-caution-color}{\faFire}\hspace{0.5em}{Abhängigkeit}, opacityback=0, colframe=quarto-callout-caution-color-frame, left=2mm, bottomtitle=1mm, toptitle=1mm, toprule=.15mm, breakable, leftrule=.75mm, colback=white, titlerule=0mm, bottomrule=.15mm, rightrule=.15mm, colbacktitle=quarto-callout-caution-color!10!white]
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, colback=white, breakable, colframe=quarto-callout-caution-color-frame, rightrule=.15mm, left=2mm, opacityback=0, leftrule=.75mm, toptitle=1mm, colbacktitle=quarto-callout-caution-color!10!white, bottomtitle=1mm, arc=.35mm, bottomrule=.15mm, title=\textcolor{quarto-callout-caution-color}{\faFire}\hspace{0.5em}{Abhängigkeit}, titlerule=0mm, toprule=.15mm, opacitybacktitle=0.6]
 
 Viele Systemeigenschaften sind \ul{nicht} unabhängig voneinander. Sie
 unterliegen von Natur aus bestimmten Beschränkungen
@@ -2042,15 +1775,14 @@ unterliegen von Natur aus bestimmten Beschränkungen
 
 \end{tcolorbox}
 
-\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, coltitle=black, arc=.35mm, title=\textcolor{quarto-callout-warning-color}{\faExclamationTriangle}\hspace{0.5em}{Safety Critical}, opacityback=0, colframe=quarto-callout-warning-color-frame, left=2mm, bottomtitle=1mm, toptitle=1mm, toprule=.15mm, breakable, leftrule=.75mm, colback=white, titlerule=0mm, bottomrule=.15mm, rightrule=.15mm, colbacktitle=quarto-callout-warning-color!10!white]
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, colback=white, breakable, colframe=quarto-callout-warning-color-frame, rightrule=.15mm, left=2mm, opacityback=0, leftrule=.75mm, toptitle=1mm, colbacktitle=quarto-callout-warning-color!10!white, bottomtitle=1mm, arc=.35mm, bottomrule=.15mm, title=\textcolor{quarto-callout-warning-color}{\faExclamationTriangle}\hspace{0.5em}{Safety Critical}, titlerule=0mm, toprule=.15mm, opacitybacktitle=0.6]
 
 Werden instabile Systeme mittels Regelung stabilisiert, so wird die
 Regelung kritisch für die Sicherheit des Systems.
 
 \end{tcolorbox}
 
-\hypertarget{modularituxe4t}{%
-\subsubsection{Modularität}\label{modularituxe4t}}
+\subsubsection{Modularität}\label{modularituxe4t}
 
 In einem modularen System sind die einzelnen Module möglichst unabhängig
 voneinander \(\rightarrow\) Module können einfach ersetzt oder erweitert
@@ -2067,14 +1799,13 @@ werden.
 Mittels Regelulng lassen sich Komponenten unabhängiger und damit
 zusammengesetzte Systeme Modularer machen.
 
-\hypertarget{genauigkeit}{%
-\subsubsection{Genauigkeit}\label{genauigkeit}}
+\subsubsection{Genauigkeit}\label{genauigkeit}
 
 Mit Regelung können unerwünschte Störeinflüsse ausgeglichen werden
 \(\rightarrow\) Verbessert Genauigkeit und Auflösung (z.B. bei
 Sensoren).
 
-\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, coltitle=black, arc=.35mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Anwendungen}, opacityback=0, colframe=quarto-callout-note-color-frame, left=2mm, bottomtitle=1mm, toptitle=1mm, toprule=.15mm, breakable, leftrule=.75mm, colback=white, titlerule=0mm, bottomrule=.15mm, rightrule=.15mm, colbacktitle=quarto-callout-note-color!10!white]
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, colback=white, breakable, colframe=quarto-callout-note-color-frame, rightrule=.15mm, left=2mm, opacityback=0, leftrule=.75mm, toptitle=1mm, colbacktitle=quarto-callout-note-color!10!white, bottomtitle=1mm, arc=.35mm, bottomrule=.15mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Anwendungen}, titlerule=0mm, toprule=.15mm, opacitybacktitle=0.6]
 
 Ein Konzept einer hohen Genauigkeit ist, mittels Regelung wird ein
 bestimmten und wohldefinierten Arbeitspunkt ausgeregelt und dabei
@@ -2084,8 +1815,7 @@ aufgewendete Stellgrösse als Messgrösse des Sensors interpretiert dies.
 
 \end{tcolorbox}
 
-\hypertarget{herauserforderungen}{%
-\subsubsection{Herauserforderungen}\label{herauserforderungen}}
+\subsubsection{Herauserforderungen}\label{herauserforderungen}
 
 Regelungen bringen viele Vorteile, aber auch einige Nachteile:
 
@@ -2106,27 +1836,19 @@ aufgedreht \(\rightarrow\) pfeifen
 Komplexität wird anspruchsvoller und mit entsprechendem Aufwand
 verbunden.
 
-\hypertarget{steuerung}{%
-\subsection{Steuerung}\label{steuerung}}
+\subsection{Steuerung}\label{steuerung}
 
 Feed\ul{forward} Control
 
-\begin{figure}[H]
+\includegraphics[width=8cm,height=\textheight]{images/basics/control.png}
 
-{\centering \includegraphics[width=8cm,height=\textheight]{images/basics/control.png}
-
-}
-
-\end{figure}
-
-\hypertarget{p-regler}{%
-\subsection{P-Regler}\label{p-regler}}
+\subsection{P-Regler}\label{p-regler}
 
 \[
 C(s) = k_p \qquad u = k_p\cdot e
 \]
 
-\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, coltitle=black, arc=.35mm, title=\textcolor{quarto-callout-warning-color}{\faExclamationTriangle}\hspace{0.5em}{Achtung}, opacityback=0, colframe=quarto-callout-warning-color-frame, left=2mm, bottomtitle=1mm, toptitle=1mm, toprule=.15mm, breakable, leftrule=.75mm, colback=white, titlerule=0mm, bottomrule=.15mm, rightrule=.15mm, colbacktitle=quarto-callout-warning-color!10!white]
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, colback=white, breakable, colframe=quarto-callout-warning-color-frame, rightrule=.15mm, left=2mm, opacityback=0, leftrule=.75mm, toptitle=1mm, colbacktitle=quarto-callout-warning-color!10!white, bottomtitle=1mm, arc=.35mm, bottomrule=.15mm, title=\textcolor{quarto-callout-warning-color}{\faExclamationTriangle}\hspace{0.5em}{Achtung}, titlerule=0mm, toprule=.15mm, opacitybacktitle=0.6]
 
 \(e=0\) ist mit einem P-Regler nicht möglich. Unter Annahme eines
 stabilen Regelkreises:
@@ -2152,22 +1874,19 @@ Besser ist ein PI-Regler
 
 \end{tcolorbox}
 
-\hypertarget{pi-regler}{%
-\subsection{PI-Regler}\label{pi-regler}}
+\subsection{PI-Regler}\label{pi-regler}
 
 \[
 C_{PI}=k_p\cdot\left(1+\frac1{T_i s}\right)\qquad u = k_i\cdot\int_0^t e(\tau)\ {\text{d}\tau}
 \]
 
-\hypertarget{pd-regler}{%
-\subsection{PD-Regler}\label{pd-regler}}
+\subsection{PD-Regler}\label{pd-regler}
 
 \[
 C_{PD} = k_p\cdot (1 + T_d\cdot s)\qquad u = k_d\frac{de}{dt}
 \]
 
-\hypertarget{filter-d-anteil}{%
-\subsubsection{Filter D-Anteil}\label{filter-d-anteil}}
+\subsubsection{Filter D-Anteil}\label{filter-d-anteil}
 
 Hochfrequente Änderungen (z.B. Sprungantworten) führt zu hohem D-Anteil
 \(\rightarrow\) Erweiterung TP-Filter
@@ -2197,24 +1916,15 @@ Für tiefe Frequenzen (\(\lvert s\rvert\ll\frac1{T_d}\)) wird
 C_{D}(s)= k_p\frac{T_d\cdot s}{1+s\cdot T_d} = \frac{\overbrace{k_d\cdot s}^{\text{D-Anteil}}}{\underbrace{1+s\cdot T_d}_{\text{Filter}}}
 \]
 
-\hypertarget{pid-regler}{%
-\subsection{PID-Regler}\label{pid-regler}}
+\subsection{PID-Regler}\label{pid-regler}
 
-\begin{figure}[H]
+\begin{center}
+\includegraphics[width=7cm,height=\textheight]{images/pid_regler/PID-Controller-Graph-1906105412.png}
+\end{center}
 
-{\centering \includegraphics[width=7cm,height=\textheight]{images/pid_regler/PID-Controller-Graph-1906105412.png}
-
-}
-
-\end{figure}
-
-\begin{figure}[H]
-
-{\centering \includegraphics[width=6cm,height=\textheight]{images/pid_regler/pid_graph.png}
-
-}
-
-\end{figure}
+\begin{center}
+\includegraphics[width=6cm,height=\textheight]{images/pid_regler/pid_graph.png}
+\end{center}
 
 \begin{center}
   \begin{tikzpicture}
@@ -2251,7 +1961,7 @@ C(s) & =k_p\left(1+\frac1{T_i\cdot s}+T_d\cdot s\right)=k_p\cdot\frac{(1+sT_1)(1
   T_d=\sfrac{k_d}{k_o} & Vorhaltzeit
 \end{conditions}
 
-\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, coltitle=black, arc=.35mm, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Wichtig}, opacityback=0, colframe=quarto-callout-important-color-frame, left=2mm, bottomtitle=1mm, toptitle=1mm, toprule=.15mm, breakable, leftrule=.75mm, colback=white, titlerule=0mm, bottomrule=.15mm, rightrule=.15mm, colbacktitle=quarto-callout-important-color!10!white]
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, colback=white, breakable, colframe=quarto-callout-important-color-frame, rightrule=.15mm, left=2mm, opacityback=0, leftrule=.75mm, toptitle=1mm, colbacktitle=quarto-callout-important-color!10!white, bottomtitle=1mm, arc=.35mm, bottomrule=.15mm, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Wichtig}, titlerule=0mm, toprule=.15mm, opacitybacktitle=0.6]
 
 Diese Beschreibung ist nur eine \ul{idealisierte} Repräsentation, welche
 für das Verständnis des System hilfreich ist. Im \ul{praktischen}
@@ -2259,9 +1969,8 @@ Einsatz sind Modifikationen notwendig.
 
 \end{tcolorbox}
 
-\hypertarget{k_p}{%
 \subsubsection{\texorpdfstring{\textcolor{BrickRed}{Proportional}
-\(k_p\)}{ k\_p}}\label{k_p}}
+\(k_p\)}{ k\_p}}\label{k_p}
 
 P-Anteil verstärkt den Regelfehler \(e\) um die
 \emph{Proportionalverstärkung} \(k_p\).
@@ -2270,7 +1979,7 @@ P-Anteil verstärkt den Regelfehler \(e\) um die
 C(s) = k_p \qquad u = k_p\cdot e
 \]
 
-\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, coltitle=black, arc=.35mm, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Proportionalband}, opacityback=0, colframe=quarto-callout-important-color-frame, left=2mm, bottomtitle=1mm, toptitle=1mm, toprule=.15mm, breakable, leftrule=.75mm, colback=white, titlerule=0mm, bottomrule=.15mm, rightrule=.15mm, colbacktitle=quarto-callout-important-color!10!white]
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, colback=white, breakable, colframe=quarto-callout-important-color-frame, rightrule=.15mm, left=2mm, opacityback=0, leftrule=.75mm, toptitle=1mm, colbacktitle=quarto-callout-important-color!10!white, bottomtitle=1mm, arc=.35mm, bottomrule=.15mm, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Proportionalband}, titlerule=0mm, toprule=.15mm, opacitybacktitle=0.6]
 
 \[
 u = \left\{
@@ -2290,9 +1999,8 @@ e_{min}=\frac{u_{min}}{k_p} \qquad e_{max}=\frac{u_{max}}{k_p}
 
 \end{tcolorbox}
 
-\hypertarget{k_it_i}{%
 \subsubsection{\texorpdfstring{\textcolor{NavyBlue}{Integral}
-\(k_i,T_i\)}{ k\_i,T\_i}}\label{k_it_i}}
+\(k_i,T_i\)}{ k\_i,T\_i}}\label{k_it_i}
 
 Mit dem I-Anteil werden \emph{vergangene} Fehler mitberechnet
 \(\rightarrow\) stationäre Fehler des P-Anteils wird korrigiert.
@@ -2300,31 +2008,22 @@ Mit dem I-Anteil werden \emph{vergangene} Fehler mitberechnet
 Die Stellgrösse wird dadurch solange geregelt, bis der Regelfehler
 \(e=0\) wird.
 
-\hypertarget{k_dt_d}{%
 \subsubsection{\texorpdfstring{\textcolor{OliveGreen}{Differential}
-\(k_d,T_d\)}{ k\_d,T\_d}}\label{k_dt_d}}
+\(k_d,T_d\)}{ k\_d,T\_d}}\label{k_dt_d}
 
 Der D-Anteil reagiert auf \emph{zukünftige} Fehler, indem die Steigung
 mit einem Verstärkungsfaktor \(k_d\) verstärkt wird.
 
-\hypertarget{auslegung-anhand}{%
-\subsection{Auslegung anhand\ldots{}}\label{auslegung-anhand}}
+\newpage
 
-\hypertarget{modelle-geringer-ordnung}{%
+\subsection{Auslegung anhand\ldots{}}\label{auslegung-anhand}
+
 \subsubsection{\ldots Modelle geringer
-Ordnung}\label{modelle-geringer-ordnung}}
+Ordnung}\label{modelle-geringer-ordnung}
 
-\hypertarget{approximation-0-er-ordnung}{%
-\paragraph{Approximation 0-er
-Ordnung}\label{approximation-0-er-ordnung}}
+\paragraph{Approximation 0-er Ordnung}\label{approximation-0-er-ordnung}
 
-\begin{figure}[H]
-
-{\centering \includegraphics{images/paste-31.png}
-
-}
-
-\end{figure}
+\includegraphics[width=7cm,height=\textheight]{images/paste-31.png}
 
 Für einen statischen Prozess \(K=P(0)\) und einen I-Regler wird
 \(L=PC=K\cdot\frac{k_i}{s}\):
@@ -2337,7 +2036,7 @@ G_{yr}=\frac{K\cdot k_i}{s+K\cdot k_i}=\frac1{1+s\cdot T_{cl}}
 k_i = \frac{1}{T_{cl}\cdot K}=\frac1{T_{cl}\cdot P(0)}
 \]
 
-\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, coltitle=black, arc=.35mm, title=\textcolor{quarto-callout-caution-color}{\faFire}\hspace{0.5em}{mittlere Verzögerungszeit}, opacityback=0, colframe=quarto-callout-caution-color-frame, left=2mm, bottomtitle=1mm, toptitle=1mm, toprule=.15mm, breakable, leftrule=.75mm, colback=white, titlerule=0mm, bottomrule=.15mm, rightrule=.15mm, colbacktitle=quarto-callout-caution-color!10!white]
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, colback=white, breakable, colframe=quarto-callout-caution-color-frame, rightrule=.15mm, left=2mm, opacityback=0, leftrule=.75mm, toptitle=1mm, colbacktitle=quarto-callout-caution-color!10!white, bottomtitle=1mm, arc=.35mm, bottomrule=.15mm, title=\textcolor{quarto-callout-caution-color}{\faFire}\hspace{0.5em}{mittlere Verzögerungszeit}, titlerule=0mm, toprule=.15mm, opacitybacktitle=0.6]
 
 Die Auslegung bedingt, dass der Prozess gut durch eine Konstante
 beschrieben werden kann. Ein vernünftiges Kriterium dafür ist die
@@ -2357,9 +2056,8 @@ gesetzt hat.
 
 \end{tcolorbox}
 
-\hypertarget{approximation-1-ter-ordnung}{%
 \paragraph{Approximation 1-ter
-Ordnung}\label{approximation-1-ter-ordnung}}
+Ordnung}\label{approximation-1-ter-ordnung}
 
 Näherung erster Ordnung kann folgendes Modell gewählt werden.
 
@@ -2367,8 +2065,7 @@ Näherung erster Ordnung kann folgendes Modell gewählt werden.
 P\approx P(0)+P'(0)s\approx \frac{P(0)}{1+sT_{ar}}
 \]
 
-\hypertarget{bodediagramm}{%
-\subsubsection{\ldots Bodediagramm}\label{bodediagramm}}
+\subsubsection{\ldots Bodediagramm}\label{bodediagramm}
 
 Diese Auslegung wird mit dem \textbf{offenen} Regelkreis gemacht.
 
@@ -2379,7 +2076,9 @@ C(s) = k_i \frac{(1+s\ T_1)(1+s\ T_2)}{s} = k_p \frac{(1+s\ T_i)(1+s\ T_d)}{s\cd
 \ul{Zielgrössen}: Durchtrittsfrequenz \(\omega_{gc}\), die Phasenreserve
 \(\varphi_m\) und allenfalls Amplitudenreserve \(g_m\).
 
-\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, coltitle=black, arc=.35mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Vorgehen}, opacityback=0, colframe=quarto-callout-tip-color-frame, left=2mm, bottomtitle=1mm, toptitle=1mm, toprule=.15mm, breakable, leftrule=.75mm, colback=white, titlerule=0mm, bottomrule=.15mm, rightrule=.15mm, colbacktitle=quarto-callout-tip-color!10!white]
+\newpage
+
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, colback=white, breakable, colframe=quarto-callout-tip-color-frame, rightrule=.15mm, left=2mm, opacityback=0, leftrule=.75mm, toptitle=1mm, colbacktitle=quarto-callout-tip-color!10!white, bottomtitle=1mm, arc=.35mm, bottomrule=.15mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Vorgehen}, titlerule=0mm, toprule=.15mm, opacitybacktitle=0.6]
 
 Prozess: \(P(s)=\frac{10}{(1+s)^2}\) mit Ziel
 \(\omega_{gc}\geq 10 \frac{rad}{s}\), \(\varphi_m\geq 50°\).
@@ -2436,72 +2135,62 @@ k_p = \frac{1}{\left\lvert\frac{10}{1+10j}\right\rvert} = \frac{(\sqrt{1^2+10^2}
   damit ergebenden Phasenreserve \(\varphi_m\).
 \end{enumerate}
 
-\begin{figure}[H]
-
-{\centering \includegraphics{images/pid_regler/auslegung_bodediagramm.png}
-
-}
-
-\end{figure}
+\begin{center}
+\includegraphics{images/pid_regler/auslegung_bodediagramm.png}
+\end{center}
 
 \end{tcolorbox}
 
-\hypertarget{einstellregeln-im-zeitbereich}{%
 \subsubsection{\ldots Einstellregeln im
-Zeitbereich}\label{einstellregeln-im-zeitbereich}}
+Zeitbereich}\label{einstellregeln-im-zeitbereich}
 
-\begin{figure}[H]
+\begin{center}
+\includegraphics[width=6cm,height=\textheight]{images/paste-25.png}
+\end{center}
 
-{\centering \includegraphics[width=6cm,height=\textheight]{images/paste-25.png}
+\paragraph{Ziegler-Nichols-Tabelle (via
+Sprungantwort)}\label{ziegler-nichols-tabelle-via-sprungantwort}
 
-}
+\def\arraystretch{1.2}
+\begin{center}
+    \begin{tabular}{cccc}
+        \hline
+        \textbf{Typ} & $\mathbf{k_p}$ & $\mathbf{T_i}$ & $\mathbf{T_d}$ \\
+        \hline
+        P   & $\sfrac{1}{a}$   & $-$          & $-$            \\
+        PI  & $\sfrac{0.9}{a}$ & $3\cdot\tau$ & $-$            \\
+        PID & $\sfrac{1.2}{a}$ & $2\cdot\tau$ & $0.5\cdot\tau$ \\
+    \end{tabular}
+\end{center}
 
-\end{figure}
-
-\begin{longtable}[]{@{}cccc@{}}
-\toprule\noalign{}
-Typ & \(k_p\) & \(T_i\) & \(T_d\) \\
-\midrule\noalign{}
-\endhead
-\bottomrule\noalign{}
-\endlastfoot
-P & \(\sfrac{1}{a}\) & - & - \\
-PI & \(\sfrac{0.9}{a}\) & \(3\cdot\tau\) & - \\
-PID & \(\sfrac{1.2}{a}\) & \(2\cdot\tau\) & \(0.5\cdot\tau\) \\
-\end{longtable}
-
-\hypertarget{einstellregeln-im-frequenzbereich}{%
 \subsubsection{\ldots Einstellregeln im
-Frequenzbereich}\label{einstellregeln-im-frequenzbereich}}
+Frequenzbereich}\label{einstellregeln-im-frequenzbereich}
 
 Verstärkung \(k\) erhöhen, bis sich eine anhaltende Schwingung
 einstellt. Regelparameter anhand kritischer Verstärkung \(k_c\) \&
 Periodendauer \(T_c\) ermitteln.
 
-\begin{figure}[H]
+\begin{center}
+\includegraphics[width=6cm,height=\textheight]{images/paste-26.png}
+\end{center}
 
-{\centering \includegraphics[width=6cm,height=\textheight]{images/paste-26.png}
+\paragraph{Ziegler-Nichols-Tabelle (via Kritische
+Verstärkung)}\label{ziegler-nichols-tabelle-via-kritische-verstuxe4rkung}
 
-}
+\begin{center}
+    \begin{tabular}{cccc}
+        \hline
+        \textbf{Typ} & $\mathbf{k_p}$ & $\mathbf{T_i}$ & $\mathbf{T_d}$ \\
+        \hline
+        P   & $0.5\cdot k_c$    & $-$             & $-$                \\
+        PI  & $0.4\cdot k_c$    & $0.8\cdot T_c$  & $-$                \\
+        PID & $0.6\cdot k_c$    & $0.5\cdot T_c$  & $0.125\cdot T_c$   \\
+    \end{tabular}
+\end{center}
 
-\end{figure}
+\subsection{Stellgrössen-Sättigung}\label{stellgruxf6ssen-suxe4ttigung}
 
-\begin{longtable}[]{@{}cccc@{}}
-\toprule\noalign{}
-Typ & \(k_p\) & \(T_i\) & \(T_d\) \\
-\midrule\noalign{}
-\endhead
-\bottomrule\noalign{}
-\endlastfoot
-P & \(0.5\cdot k_c\) & \(-\) & \(-\) \\
-PI & \(0.4\cdot k_c\) & \(0.8\cdot T_c\) & \(-\) \\
-PID & \(0.6\cdot k_c\) & \(0.5\cdot T_c\) & \(0.125\cdot T_c\) \\
-\end{longtable}
-
-\hypertarget{stellgruxf6ssen-suxe4ttigung}{%
-\subsection{Stellgrössen-Sättigung}\label{stellgruxf6ssen-suxe4ttigung}}
-
-\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, coltitle=black, arc=.35mm, title=\textcolor{quarto-callout-warning-color}{\faExclamationTriangle}\hspace{0.5em}{Sättigungseffekt}, opacityback=0, colframe=quarto-callout-warning-color-frame, left=2mm, bottomtitle=1mm, toptitle=1mm, toprule=.15mm, breakable, leftrule=.75mm, colback=white, titlerule=0mm, bottomrule=.15mm, rightrule=.15mm, colbacktitle=quarto-callout-warning-color!10!white]
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, colback=white, breakable, colframe=quarto-callout-warning-color-frame, rightrule=.15mm, left=2mm, opacityback=0, leftrule=.75mm, toptitle=1mm, colbacktitle=quarto-callout-warning-color!10!white, bottomtitle=1mm, arc=.35mm, bottomrule=.15mm, title=\textcolor{quarto-callout-warning-color}{\faExclamationTriangle}\hspace{0.5em}{Sättigungseffekt}, titlerule=0mm, toprule=.15mm, opacitybacktitle=0.6]
 
 Arbeitet der Regelkreis in der Sättigung, so ist dieser faktisch
 unterbrochen -- \emph{das System arbeitet als offener Kreis}, solange
@@ -2509,59 +2198,40 @@ der Aktor im gesättigtem Zustand ist.
 
 \end{tcolorbox}
 
-\hypertarget{windup}{%
-\subsubsection{Windup}\label{windup}}
+\subsubsection{Windup}\label{windup}
 
 Bei Sättigung baut Fehler den I-Anteil auf. Muss nach Erholung abgebaut
 werden.
 
-\begin{figure}[H]
+\begin{center}
+\includegraphics[width=6.5cm,height=3.4cm]{images/paste-27.png}
+\end{center}
 
-{\centering \includegraphics[width=6.5cm,height=3.4cm]{images/paste-27.png}
+\begin{center}
+\includegraphics[width=8cm,height=2.6cm]{images/paste-28.png}
+\end{center}
 
-}
-
-\end{figure}
-
-\begin{figure}[H]
-
-{\centering \includegraphics[width=8cm,height=2.6cm]{images/paste-28.png}
-
-}
-
-\end{figure}
-
-\hypertarget{anti-windup}{%
-\subsubsection{Anti-Windup}\label{anti-windup}}
+\subsubsection{Anti-Windup}\label{anti-windup}
 
 Exzessiver Anteil wird mit einem invertierten Vorzeichen an den
 Integrator zurückgeführt und somit der Windup klein gehalten
 \(\rightarrow\) kürzere \emph{Erholzeit}~nach Stellgrössensättigung
 
-\begin{figure}[H]
+\begin{center}
+\includegraphics[width=6.5cm,height=\textheight]{images/paste-30.png}
+\end{center}
 
-{\centering \includegraphics[width=6.5cm,height=\textheight]{images/paste-30.png}
-
-}
-
-\end{figure}
-
-\begin{figure}[H]
-
-{\centering \includegraphics[width=8cm,height=3.5cm]{images/paste-29.png}
-
-}
-
-\end{figure}
+\begin{center}
+\includegraphics[width=8cm,height=3.5cm]{images/paste-29.png}
+\end{center}
 
 \[
 k_t \approx 10 k_i
 \]
 
-\hypertarget{loop-shaping}{%
-\section{Loop Shaping}\label{loop-shaping}}
+\section{Loop Shaping}\label{loop-shaping}
 
-\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, coltitle=black, arc=.35mm, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Verlauf von \(\lvert L\rvert\)}, opacityback=0, colframe=quarto-callout-important-color-frame, left=2mm, bottomtitle=1mm, toptitle=1mm, toprule=.15mm, breakable, leftrule=.75mm, colback=white, titlerule=0mm, bottomrule=.15mm, rightrule=.15mm, colbacktitle=quarto-callout-important-color!10!white]
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, colback=white, breakable, colframe=quarto-callout-important-color-frame, rightrule=.15mm, left=2mm, opacityback=0, leftrule=.75mm, toptitle=1mm, colbacktitle=quarto-callout-important-color!10!white, bottomtitle=1mm, arc=.35mm, bottomrule=.15mm, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Verlauf von \(\lvert L\rvert\)}, titlerule=0mm, toprule=.15mm, opacitybacktitle=0.6]
 
 \[
 \begin{array}{ll}
@@ -2573,24 +2243,11 @@ k_t \approx 10 k_i
 
 \end{tcolorbox}
 
-\begin{figure}[H]
+\includegraphics[width=6cm,height=\textheight]{images/paste-38.png}
 
-{\centering \includegraphics[width=6cm,height=\textheight]{images/paste-38.png}
+\includegraphics[width=6cm,height=\textheight]{images/paste-39.png}
 
-}
-
-\end{figure}
-
-\begin{figure}[H]
-
-{\centering \includegraphics[width=6cm,height=\textheight]{images/paste-39.png}
-
-}
-
-\end{figure}
-
-\hypertarget{lag-lead-kompensatoren}{%
-\subsection{Lag \& Lead Kompensatoren}\label{lag-lead-kompensatoren}}
+\subsection{Lag \& Lead Kompensatoren}\label{lag-lead-kompensatoren}
 
 \[
 C(s)=k\cdot \prod_i \left(\frac{s+a_i}{s+b_i}\right)
@@ -2598,7 +2255,7 @@ C(s)=k\cdot \prod_i \left(\frac{s+a_i}{s+b_i}\right)
 
 Mit \(a_i > 0, b_i > 0, k > 0\)
 
-\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, coltitle=black, arc=.35mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{PI-Regler \& D-Anteil}, opacityback=0, colframe=quarto-callout-note-color-frame, left=2mm, bottomtitle=1mm, toptitle=1mm, toprule=.15mm, breakable, leftrule=.75mm, colback=white, titlerule=0mm, bottomrule=.15mm, rightrule=.15mm, colbacktitle=quarto-callout-note-color!10!white]
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, colback=white, breakable, colframe=quarto-callout-note-color-frame, rightrule=.15mm, left=2mm, opacityback=0, leftrule=.75mm, toptitle=1mm, colbacktitle=quarto-callout-note-color!10!white, bottomtitle=1mm, arc=.35mm, bottomrule=.15mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{PI-Regler \& D-Anteil}, titlerule=0mm, toprule=.15mm, opacitybacktitle=0.6]
 
 PI Regler \(\rightarrow\ b = 0\)
 
@@ -2606,43 +2263,28 @@ D-Anteil mit Beschränkung \(\rightarrow\ a = 0\)
 
 \end{tcolorbox}
 
-\hypertarget{lead-a-b}{%
 \subsubsection{\texorpdfstring{Lead
-(\(a < b\))}{Lead (a \textless{} b)}}\label{lead-a-b}}
+(\(a < b\))}{Lead (a \textless{} b)}}\label{lead-a-b}
 
 Verstärkung bei hohen Frequenzen + Phasenanhebung (\(\max 90\degree\)
 pro Ordnung)
 
-\begin{figure}[H]
+\includegraphics[width=7cm,height=\textheight]{images/paste-40.png}
 
-{\centering \includegraphics[width=7cm,height=\textheight]{images/paste-40.png}
-
-}
-
-\end{figure}
-
-\hypertarget{lag-a-b}{%
 \subsubsection{\texorpdfstring{Lag
-(\(a > b\))}{Lag (a \textgreater{} b)}}\label{lag-a-b}}
+(\(a > b\))}{Lag (a \textgreater{} b)}}\label{lag-a-b}
 
 Verstärkung bei tiefen Frequenzen + Phasensenkung (\(\max -90\degree\)
 pro Ordnung)
 
-\begin{figure}[H]
+\includegraphics[width=7cm,height=\textheight]{images/paste-41.png}
 
-{\centering \includegraphics[width=7cm,height=\textheight]{images/paste-41.png}
-
-}
-
-\end{figure}
-
-\hypertarget{grenzen-des-loop-shapings}{%
-\subsection{Grenzen des Loop-Shapings}\label{grenzen-des-loop-shapings}}
+\subsection{Grenzen des Loop-Shapings}\label{grenzen-des-loop-shapings}
 
 Der Beeinflussing des Systemverhalten durch Regelung sind bestimmte
 Grenzen gesetzt. Verhalten kann nicht uniform verbessert werden.
 
-\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, coltitle=black, arc=.35mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Bode's Integral}, opacityback=0, colframe=quarto-callout-note-color-frame, left=2mm, bottomtitle=1mm, toptitle=1mm, toprule=.15mm, breakable, leftrule=.75mm, colback=white, titlerule=0mm, bottomrule=.15mm, rightrule=.15mm, colbacktitle=quarto-callout-note-color!10!white]
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, colback=white, breakable, colframe=quarto-callout-note-color-frame, rightrule=.15mm, left=2mm, opacityback=0, leftrule=.75mm, toptitle=1mm, colbacktitle=quarto-callout-note-color!10!white, bottomtitle=1mm, arc=.35mm, bottomrule=.15mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Bode's Integral}, titlerule=0mm, toprule=.15mm, opacitybacktitle=0.6]
 
 Ist der geschlossene Regelkreis mit \(L\) stabil und geht \(sL(s)\) für
 \(s\rightarrow\infty\) gegen null, dann ist
@@ -2663,44 +2305,305 @@ sich stabil, so gilt
 \textbf{Alle Verbesserungen werden mit Verschlechterungen
 komplementiert.}
 
-\begin{figure}[H]
+\includegraphics{images/paste-42.png}
 
-{\centering \includegraphics{images/paste-42.png}
+\section{Diskretisierung}\label{diskretisierung}
 
-}
-
-\end{figure}
-
-\hypertarget{diskretisierung}{%
-\section{Diskretisierung}\label{diskretisierung}}
-
-\hypertarget{pid-regler-1}{%
-\subsection{PID-Regler}\label{pid-regler-1}}
-
-\hypertarget{auslegung}{%
-\subsection{Auslegung}\label{auslegung}}
+\subsection{Entwurf Regler}\label{entwurf-regler}
 
 Digitalrechner arbeiten zeitdiskret \(\leftrightarrow\) Prozesse sind
 von zeitkontinuierlicher Natur
 
-\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, coltitle=black, arc=.35mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Perspektiven für Entwurf zeitdiskrete Regler}, opacityback=0, colframe=quarto-callout-note-color-frame, left=2mm, bottomtitle=1mm, toptitle=1mm, toprule=.15mm, breakable, leftrule=.75mm, colback=white, titlerule=0mm, bottomrule=.15mm, rightrule=.15mm, colbacktitle=quarto-callout-note-color!10!white]
+\subsubsection{1) kontinuierlicher
+Prozess}\label{kontinuierlicher-prozess}
+
+kontinuierlicher Regler \(s\) wird entworfen und dann diskretisiert.
+
+\includegraphics{images/paste-58.png}
+
+\[
+\begin{array}{ll}
+  z = e^{sh} \approx 1+sh & \text{Euler/Vorwärtsdifferenz}^1 \\
+  z = e^{sh} \approx \frac1{1-sh} & \text{Rücksdifferenz}^2 \\
+  z = e^{sh} \approx \frac{1+s\sfrac{h}{2}}{1-s\sfrac{h}{2}} & \text{Trapezregel/Tustin} \\
+\end{array}
+\]
+
+\small
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  \emph{Prozess}:
+  zu optimistisch
 \item
-  \emph{Regler}:
+  zu pessimistisch
+\end{enumerate}
+
+\normalsize
+
+\[
+\begin{array}{ll}
+  \widetilde{s} = \frac{z-1}{h} & \text{Euler/Vorwärtsdifferenz} \\
+  z = \frac{z-1}{zh} & \text{Rücksdifferenz} \\
+  z = \frac{2}{h}\cdot\frac{z-1}{z+1} & \text{Trapezregel/Tustin} \\
+\end{array}
+\]
+
+\includegraphics{images/paste-59.png}
+
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, colback=white, breakable, colframe=quarto-callout-tip-color-frame, rightrule=.15mm, left=2mm, opacityback=0, leftrule=.75mm, toptitle=1mm, colbacktitle=quarto-callout-tip-color!10!white, bottomtitle=1mm, arc=.35mm, bottomrule=.15mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Stabilität}, titlerule=0mm, toprule=.15mm, opacitybacktitle=0.6]
+
+Die \ul{Stabilitätsaussage bezieht} sich auf die \ul{transformierte
+Funktion}, \emph{nicht aber zwingend} auch für den geschlossenen
+Regelkreis
+
+\end{tcolorbox}
+
+\subsubsection{2) zeitdiskreter Regler}\label{zeitdiskreter-regler}
+
+\includegraphics{images/paste-60.png}
+
+\includegraphics{images/paste-62.png}
+
+\includegraphics{images/paste-63.png}
+
+\subsubsection{Relation z \& s Ebene}\label{relation-z-s-ebene}
+
+\includegraphics{images/paste-61.png}
+
+\section{Unstetiger Regler}\label{unstetiger-regler}
+
+\begin{center}
+  \begin{tikzpicture}
+
+    \node[box, minimum height=0.8cm, minimum width=0.8cm, inner sep=5pt] (procBox) at (0,2) {$-N(a)$};
+    \node[box, minimum height=0.8cm, minimum width=0.8cm, inner sep=5pt] (boxBox) at (2,2) {$L(s)$};
+
+    \node(endB) at (-2.5,2) {B};
+    \node(startA) at (-1.5,2) {A};
+
+
+    \draw[->] (startA) -- (procBox);
+    
+    \draw[->]  (boxBox) -- (3,2) -- (3,1) -- (-3.5,1) -- (-3.5,2) -- (endB);
+\draw[->]  (procBox) edge (boxBox);
+\end{tikzpicture}
+\end{center}
+
+\includegraphics[width=7cm,height=\textheight]{images/paste-46.png}
+
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, colback=white, breakable, colframe=quarto-callout-important-color-frame, rightrule=.15mm, left=2mm, opacityback=0, leftrule=.75mm, toptitle=1mm, colbacktitle=quarto-callout-important-color!10!white, bottomtitle=1mm, arc=.35mm, bottomrule=.15mm, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Anhaltende Schwingung}, titlerule=0mm, toprule=.15mm, opacitybacktitle=0.6]
+
+Die Bedingung für eine anhaltende Schwingung lautet in erster Näherung:
+
+\[
+N(a)\cdot L(j\omega)=1
+\]
+
+\end{tcolorbox}
+
+\subsection{Ohne Hysterese}\label{ohne-hysterese}
+
+\includegraphics[width=7cm,height=3.4cm]{images/paste-49.png}
+
+\includegraphics[width=7cm,height=\textheight]{images/paste-47.png}
+
+\[
+F(e)=\left\{
+\begin{array}{ll}
++b & \text{falls }\ e \geq 0 \\
+-b & \text{falls }\ e < 0 \\
+\end{array}
+\right.
+\]
+
+\[
+N(a) = M_1(a)e^{j\varphi_1(a)}=\frac{4b}{a\pi}e^{j0}=\frac{4b}{a\pi}
+\]
+
+\begin{conditions}
+  a & Amplitude des harmonischen Eingangssignals \\
+  b & Amplitude Rechtecksignal Ausgang \\
+  N(a) & \textbf{Beschreibungsfunktion}
+\end{conditions}
+
+Entsprechend für den Schnittpunkt auf der Ortskurve gilt
+\(-\frac1{N(a)}=-\frac{a\pi}{4b}\)!
+
+\subsection{Mit Hysterese}\label{mit-hysterese}
+
+\includegraphics[width=7cm,height=\textheight]{images/paste-50.png}
+
+\includegraphics[width=7cm,height=\textheight]{images/paste-48.png}
+
+\includegraphics[width=7cm,height=\textheight]{images/paste-51.png}
+
+Zugehörige Fourierreihe lautet
+
+\[
+\begin{split}
+y(t) &= \frac{4b}{\pi}\left(\sin(\omega t-\alpha) + \frac1{3}\sin(3\omega t-3\alpha)\right. \\
+     &+ \left.\frac1{3}\sin(5\omega t-5\alpha)+\cdots\right)
+\end{split}
+\]
+
+und deren erste Harmonische
+
+\[
+y_1(t)=\frac{4b}{\pi}\sin(\omega-\alpha)\quad\text{mit}\quad \sin(\alpha)=\frac{c}{a}
+\]
+
+Unter der Vorraussetzung dass \(a > c\) ist, ergibt sich die
+Beschreibungsfunktion \(N(\cdot)\) zu
+
+\[
+N(a)= M_1(a)e^{j\varphi_1(a)}=\frac{4b}{a\pi}e^{j\alpha}=\frac{4b}{a\pi}(\cos(\alpha)-j\sin(\alpha))
+\]
+
+\begin{conditions}
+  c & Schaltpunkte für die Hysterese \\
+  \alpha & Phasenverschiebung
+\end{conditions}
+
+Es folgt mit
+\(\sin(\alpha)=\sfrac{c}{a}\;;\; \cos(\alpha)=\sqrt{1^2-\sin(\alpha)^2}\)
+
+\[
+N(a)=\frac{4b}{a\pi}\left(\sqrt{1-\frac{c^2}{a^2}}-j\frac{c}{a}\right)
+\]
+
+Mit Kehrwert
+
+\[
+\frac1{N(a)}=\frac{\pi \sqrt{a^2-c^2}}{4b}+j\frac{\pi c}{4b}
+\]
+
+\subsection{Zustandsraum}\label{zustandsraum}
+
+Nur kleine Info: anhand dem Zustandsraum können die
+``Regelumschaltungen'' ermittelt werden. Folgend ist ein Phasenporträit,
+welches das Ziel in zwei Schritten erreicht.
+
+\includegraphics{images/paste-52.png}
+
+\section{Struktur}\label{struktur}
+
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, colback=white, breakable, colframe=quarto-callout-warning-color-frame, rightrule=.15mm, left=2mm, opacityback=0, leftrule=.75mm, toptitle=1mm, colbacktitle=quarto-callout-warning-color!10!white, bottomtitle=1mm, arc=.35mm, bottomrule=.15mm, title=\textcolor{quarto-callout-warning-color}{\faExclamationTriangle}\hspace{0.5em}{Steuerung \& Stabilität}, titlerule=0mm, toprule=.15mm, opacitybacktitle=0.6]
+
+Steuerungen nehmen im Allgemeinen keinen Einfluss auf die Stablität des
+Regelkreises \(\rightarrow\) Solange \ul{\textbf{keine}}
+\textbf{Grössen} \textbf{aus dem Regelkreis} Einfluss nehmen!
+
+\end{tcolorbox}
+
+\subsection{Steuerungen}\label{steuerungen}
+
+\subsubsection{Vorfilter}\label{vorfilter}
+
+\includegraphics{images/paste-55.png}
+
+\[
+G_{yr}=F\cdot\frac{PC}{1+PC}
+\]
+
+Mit dem idealen Ziel \(G_{yr}=1\) ergibt sich
+
+\[
+F\stackrel{!}{=}\frac{1+PC}{PC}=1+(PC)^{-1}
+\]
+
+Oft aber ist dies theoretisch möglich, \textbf{aber} die Realisation
+wird nicht realisierbar sein.
+
+\begin{itemize}
+\tightlist
+\item
+  \ul{\textbf{nicht kausal}} -- Totzeiten \(e^{-\tau s}\rightarrow\)
+  Vorhersage (\textcolor{BrickRed}{Nicht Realisierbar}) \(e^{\tau s}\)
+\item
+  \ul{\textbf{instabil}} -- Inverse Funktionen, welche instabil werden
+  \(L^{-1}=\frac{s+2}{s-1}\)
+\end{itemize}
+
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, colback=white, breakable, colframe=quarto-callout-caution-color-frame, rightrule=.15mm, left=2mm, opacityback=0, leftrule=.75mm, toptitle=1mm, colbacktitle=quarto-callout-caution-color!10!white, bottomtitle=1mm, arc=.35mm, bottomrule=.15mm, title=\textcolor{quarto-callout-caution-color}{\faFire}\hspace{0.5em}{Pol-/ Nullstellenkürzung}, titlerule=0mm, toprule=.15mm, opacitybacktitle=0.6]
+
+Eine Kürzung, und damit Egalisierung, von Polen durch entsprechende
+Nullstellen ist nur dann zulässig, wenn diese stabil und hinreichend
+schnell sind. Ansonsten resultieren Signale welche entweder exponentiell
+anwachsen oder nur sehr langsam abklingen.
+
+\end{tcolorbox}
+
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, colback=white, breakable, colframe=quarto-callout-tip-color-frame, rightrule=.15mm, left=2mm, opacityback=0, leftrule=.75mm, toptitle=1mm, colbacktitle=quarto-callout-tip-color!10!white, bottomtitle=1mm, arc=.35mm, bottomrule=.15mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Approximation}, titlerule=0mm, toprule=.15mm, opacitybacktitle=0.6]
+
+Als Lösung können stabile, kausale Approximationen
+\(P^\dagger(s)=P(0)^{-1}\) verwendet werden, welche die relevanten
+Eigenschaften hinreichend wiedergibt.
+
+\[
+P = \frac{1}{1+sT}e^{-\tau s} \qquad P^\dagger=\frac{1+sT}{1+sT/N}
+\]
+
+\[
+P = \frac{s-1}{s+2}\qquad P^\dagger=\frac{s+2}{s+1}
+\]
+
+\end{tcolorbox}
+
+\subsubsection{Vorsteuerung}\label{vorsteuerung-1}
+
+\includegraphics{images/paste-56.png}
+
+\[
+G_{yr}=\frac{P(CF_r)+F_u}{1+PC}=\underbrace{F_r}_{\text{Sollverhalten}}+\underbrace{\frac{PF_u-F_r}{1+PC}}_{\rightarrow 0}
+\]
+
+\[
+F_r \stackrel{!}{=}PF_u\qquad F_u = P^{-1}F_r
+\]
+
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, colback=white, breakable, colframe=quarto-callout-caution-color-frame, rightrule=.15mm, left=2mm, opacityback=0, leftrule=.75mm, toptitle=1mm, colbacktitle=quarto-callout-caution-color!10!white, bottomtitle=1mm, arc=.35mm, bottomrule=.15mm, title=\textcolor{quarto-callout-caution-color}{\faFire}\hspace{0.5em}{Anforderungen \(F_r\)}, titlerule=0mm, toprule=.15mm, opacitybacktitle=0.6]
+
+Damit \(F_u = P^{-1}F_r\) realisierbar ist, gelten folgende Kriterien:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  zeitliche Verzögerung von \(F_r\) muss \textbf{mindestens so gross}
+  wie von \(P\) sein ( \(\rightsquigarrow\) \ul{Kausalität})
+\item
+  \(F_r\) \& \(P\) müssen die \textbf{gleichen Nullstellen in der
+  rechten Halbebene} (\(\rightsquigarrow\) \ul{Stabilität})
+\item
+  Polüberschuss von \(F_r\) mindestens so gross wie von \(P\)
+  (\(\rightsquigarrow\) keine reine Differentiation)
 \end{enumerate}
 
 \end{tcolorbox}
 
-\hypertarget{matlab}{%
-\section{MATLAB}\label{matlab}}
+\subsubsection{Störgrössenaufschaltung}\label{stuxf6rgruxf6ssenaufschaltung}
 
-\hypertarget{vektoren}{%
-\subsection{Vektoren}\label{vektoren}}
+\includegraphics{images/paste-53.png}
+
+\[
+G_{yv} = \frac{P_2\cdot(1 + P_1F_v)}{1 + PC}= P_2\underbrace{(1 + P_1F_v)}_{\text{Steuerung}}\cdot\underbrace{\frac1{1+PC}}_{\text{Regelung}}
+\]
+
+\[
+1+P_1F_v \stackrel{!}{=}0\qquad F_v = -P_1^{-1}
+\]
+
+\subsubsection{Kombination}\label{kombination}
+
+Mit allen Strukturen zusammen, ergibt sich folgender Regelkreis.
+
+\includegraphics{images/paste-54.png}
+
+\section{MATLAB}\label{matlab}
+
+\subsection{Vektoren}\label{vektoren}
 
 Vektoren werden mit \texttt{{[}…{]}} deklariert. Elemente werden
 Spaltenweise mit einem Leerschlag
@@ -2713,7 +2616,7 @@ eingeteilt und mit einem Semikolon \texttt{;} Reihenweise geteilt.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, coltitle=black, arc=.35mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Grösse \texttt{size}}, opacityback=0, colframe=quarto-callout-note-color-frame, left=2mm, bottomtitle=1mm, toptitle=1mm, toprule=.15mm, breakable, leftrule=.75mm, colback=white, titlerule=0mm, bottomrule=.15mm, rightrule=.15mm, colbacktitle=quarto-callout-note-color!10!white]
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, colback=white, breakable, colframe=quarto-callout-note-color-frame, rightrule=.15mm, left=2mm, opacityback=0, leftrule=.75mm, toptitle=1mm, colbacktitle=quarto-callout-note-color!10!white, bottomtitle=1mm, arc=.35mm, bottomrule=.15mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Grösse \texttt{size}}, titlerule=0mm, toprule=.15mm, opacitybacktitle=0.6]
 
 Mit \texttt{size} kann die Grösse einer Variable ermittelt werden.
 \texttt{size} gibt als Resultat ein 1x2 Vektor zurück
@@ -2768,7 +2671,7 @@ aus, nämlich \(\begin{bmatrix}1 & 1\end{bmatrix}\)
 \end{bmatrix}
 \]
 
-\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, coltitle=black, arc=.35mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Slicing}, opacityback=0, colframe=quarto-callout-tip-color-frame, left=2mm, bottomtitle=1mm, toptitle=1mm, toprule=.15mm, breakable, leftrule=.75mm, colback=white, titlerule=0mm, bottomrule=.15mm, rightrule=.15mm, colbacktitle=quarto-callout-tip-color!10!white]
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, colback=white, breakable, colframe=quarto-callout-tip-color-frame, rightrule=.15mm, left=2mm, opacityback=0, leftrule=.75mm, toptitle=1mm, colbacktitle=quarto-callout-tip-color!10!white, bottomtitle=1mm, arc=.35mm, bottomrule=.15mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Slicing}, titlerule=0mm, toprule=.15mm, opacitybacktitle=0.6]
 
 Mit \emph{Slicing} kann ein Teil einer Matrix \textbf{kopiert} werden
 und einer anderen Variable zugewiesen werden.
@@ -2781,18 +2684,16 @@ und einer anderen Variable zugewiesen werden.
 
 \end{tcolorbox}
 
-\hypertarget{plotting}{%
-\subsection{Plotting}\label{plotting}}
+\subsection{Plotting}\label{plotting}
 
-\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, coltitle=black, arc=.35mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Figure-Separierung}, opacityback=0, colframe=quarto-callout-note-color-frame, left=2mm, bottomtitle=1mm, toptitle=1mm, toprule=.15mm, breakable, leftrule=.75mm, colback=white, titlerule=0mm, bottomrule=.15mm, rightrule=.15mm, colbacktitle=quarto-callout-note-color!10!white]
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, colback=white, breakable, colframe=quarto-callout-note-color-frame, rightrule=.15mm, left=2mm, opacityback=0, leftrule=.75mm, toptitle=1mm, colbacktitle=quarto-callout-note-color!10!white, bottomtitle=1mm, arc=.35mm, bottomrule=.15mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Figure-Separierung}, titlerule=0mm, toprule=.15mm, opacitybacktitle=0.6]
 
 Mit \texttt{figure(n)} können mehrere Plot-Befehle in eigene Figuren
 geladen werden.
 
 \end{tcolorbox}
 
-\hypertarget{xy-graph}{%
-\subsubsection{XY-Graph}\label{xy-graph}}
+\subsubsection{XY-Graph}\label{xy-graph}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2806,16 +2707,9 @@ geladen werden.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{figure}[H]
+\includegraphics{images/plot_simple.png}
 
-{\centering \includegraphics{images/plot_simple.png}
-
-}
-
-\end{figure}
-
-\hypertarget{xyy-graph}{%
-\subsubsection{XYY-Graph}\label{xyy-graph}}
+\subsubsection{XYY-Graph}\label{xyy-graph}
 
 Mit \texttt{yyaxis} kann die Y-Achse beim selben Plot mit \texttt{left}
 \& \texttt{right} gewechselt werden.
@@ -2837,17 +2731,10 @@ Mit \texttt{yyaxis} kann die Y-Achse beim selben Plot mit \texttt{left}
 \end{Highlighting}
 \end{Shaded}
 
-\begin{figure}[H]
+\includegraphics{images/plotyy.png}
 
-{\centering \includegraphics{images/plotyy.png}
-
-}
-
-\end{figure}
-
-\hypertarget{transferfunktion-tf}{%
 \subsection{\texorpdfstring{Transferfunktion
-\texttt{tf(…)}}{Transferfunktion tf(\ldots)}}\label{transferfunktion-tf}}
+\texttt{tf(…)}}{Transferfunktion tf(\ldots)}}\label{transferfunktion-tf}
 
 Mit dem Befehl \texttt{tf(...)} kann eine Transferfunktion deklariert
 werden mit Zähler- und Nenner-Zeilenvektoren.
@@ -2872,9 +2759,8 @@ G_{\text{sys}}(s) = \frac{4}{s^2+s+10}
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{pid-regler-pidstd}{%
 \subsubsection{\texorpdfstring{PID-Regler
-\texttt{pidstd}}{PID-Regler pidstd}}\label{pid-regler-pidstd}}
+\texttt{pidstd}}{PID-Regler pidstd}}\label{pid-regler-pidstd}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2882,9 +2768,8 @@ G_{\text{sys}}(s) = \frac{4}{s^2+s+10}
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{bode-diagramm-bode}{%
 \subsubsection{\texorpdfstring{Bode-Diagramm
-\texttt{bode}}{Bode-Diagramm bode}}\label{bode-diagramm-bode}}
+\texttt{bode}}{Bode-Diagramm bode}}\label{bode-diagramm-bode}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2893,17 +2778,10 @@ G_{\text{sys}}(s) = \frac{4}{s^2+s+10}
 \end{Highlighting}
 \end{Shaded}
 
-\begin{figure}[H]
+\includegraphics{images/matlab_BodePlotResponse.png}
 
-{\centering \includegraphics{images/matlab_BodePlotResponse.png}
-
-}
-
-\end{figure}
-
-\hypertarget{nyquist-diagramm-nyquist}{%
 \subsubsection{\texorpdfstring{Nyquist-Diagramm
-\texttt{nyquist}}{Nyquist-Diagramm nyquist}}\label{nyquist-diagramm-nyquist}}
+\texttt{nyquist}}{Nyquist-Diagramm nyquist}}\label{nyquist-diagramm-nyquist}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2911,17 +2789,10 @@ G_{\text{sys}}(s) = \frac{4}{s^2+s+10}
 \end{Highlighting}
 \end{Shaded}
 
-\begin{figure}[H]
+\includegraphics{images/matlab_NyquistPlotResponse.png.png}
 
-{\centering \includegraphics{images/matlab_NyquistPlotResponse.png.png}
-
-}
-
-\end{figure}
-
-\hypertarget{sprungantwort-step}{%
 \subsubsection{\texorpdfstring{Sprungantwort
-\texttt{step}}{Sprungantwort step}}\label{sprungantwort-step}}
+\texttt{step}}{Sprungantwort step}}\label{sprungantwort-step}
 
 Mit \texttt{step(…)} kann eine Transferfunktion mit der Sprungfunktion
 \(\sigma\) verwendet werden. Damit
@@ -2932,17 +2803,10 @@ Mit \texttt{step(…)} kann eine Transferfunktion mit der Sprungfunktion
 \end{Highlighting}
 \end{Shaded}
 
-\begin{figure}[H]
+\includegraphics{images/matlab_StepResponsePlot.png}
 
-{\centering \includegraphics{images/matlab_StepResponsePlot.png}
-
-}
-
-\end{figure}
-
-\hypertarget{impulsantwort-impulse}{%
 \subsubsection{\texorpdfstring{Impulsantwort
-\texttt{impulse}}{Impulsantwort impulse}}\label{impulsantwort-impulse}}
+\texttt{impulse}}{Impulsantwort impulse}}\label{impulsantwort-impulse}
 
 Mit \texttt{impulse(…)} kann die Impulsantwort der Transferfunktion
 ausgegeben werden.
@@ -2953,17 +2817,10 @@ ausgegeben werden.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{figure}[H]
+\includegraphics{images/matlab_ImpulseResponsePlot.png}
 
-{\centering \includegraphics{images/matlab_ImpulseResponsePlot.png}
-
-}
-
-\end{figure}
-
-\hypertarget{pol-nullstellen-diagramm-pzmap}{%
 \subsubsection{\texorpdfstring{Pol-Nullstellen-Diagramm
-\texttt{pzmap}}{Pol-Nullstellen-Diagramm pzmap}}\label{pol-nullstellen-diagramm-pzmap}}
+\texttt{pzmap}}{Pol-Nullstellen-Diagramm pzmap}}\label{pol-nullstellen-diagramm-pzmap}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2972,24 +2829,17 @@ ausgegeben werden.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{figure}[H]
+\includegraphics{images/matlab_PoleZeroMap.png}
 
-{\centering \includegraphics{images/matlab_PoleZeroMap.png}
-
-}
-
-\end{figure}
-
-\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, coltitle=black, arc=.35mm, title=\textcolor{quarto-callout-caution-color}{\faFire}\hspace{0.5em}{MATLAB Zauber}, opacityback=0, colframe=quarto-callout-caution-color-frame, left=2mm, bottomtitle=1mm, toptitle=1mm, toprule=.15mm, breakable, leftrule=.75mm, colback=white, titlerule=0mm, bottomrule=.15mm, rightrule=.15mm, colbacktitle=quarto-callout-caution-color!10!white]
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, colback=white, breakable, colframe=quarto-callout-caution-color-frame, rightrule=.15mm, left=2mm, opacityback=0, leftrule=.75mm, toptitle=1mm, colbacktitle=quarto-callout-caution-color!10!white, bottomtitle=1mm, arc=.35mm, bottomrule=.15mm, title=\textcolor{quarto-callout-caution-color}{\faFire}\hspace{0.5em}{MATLAB Zauber}, titlerule=0mm, toprule=.15mm, opacitybacktitle=0.6]
 
 Damit die Pol- und Nullstellen erkennbar sind, muss eventuell mit den
 Darstellungsgrenzen gespielt werden.
 
 \end{tcolorbox}
 
-\hypertarget{margin-margintf}{%
 \subsection{\texorpdfstring{Margin
-\texttt{margin(tf)}}{Margin margin(tf)}}\label{margin-margintf}}
+\texttt{margin(tf)}}{Margin margin(tf)}}\label{margin-margintf}
 
 Mit dem Befehl \texttt{margin(tf)} kann das Bode-Diagramm
 
@@ -2999,17 +2849,10 @@ Mit dem Befehl \texttt{margin(tf)} kann das Bode-Diagramm
 \end{Highlighting}
 \end{Shaded}
 
-\begin{figure}[H]
+\includegraphics{images/PlotGainAndPhaseMarginsOfTransferFunctionExample_01.png}
 
-{\centering \includegraphics{images/PlotGainAndPhaseMarginsOfTransferFunctionExample_01.png}
-
-}
-
-\end{figure}
-
-\hypertarget{zustandsraumdarstellung-ss}{%
 \subsection{\texorpdfstring{Zustandsraumdarstellung
-\texttt{ss()}}{Zustandsraumdarstellung ss()}}\label{zustandsraumdarstellung-ss}}
+\texttt{ss()}}{Zustandsraumdarstellung ss()}}\label{zustandsraumdarstellung-ss}
 
 Mit \texttt{ss(…)} können vier Matrizen \(A, B,C,D\) zu einer
 Zustandsraumdarstellung zusammengeführt werden.
@@ -3029,9 +2872,8 @@ Es kann ebenfalls \texttt{bode}, \texttt{nyquist}, \texttt{step}, etc.
 angewendet werden, da die ZRD eine andere Darstellung der
 Übertragungsfunktion ist.
 
-\hypertarget{reglersimulator-sisotooltf...}{%
 \subsection{\texorpdfstring{Reglersimulator
-\texttt{Sisotool(tf(...))}}{Reglersimulator Sisotool(tf(...))}}\label{reglersimulator-sisotooltf...}}
+\texttt{Sisotool(tf(...))}}{Reglersimulator Sisotool(tf(...))}}\label{reglersimulator-sisotooltf...}
 
 Mit \texttt{sisotool} kann ein Regler \emph{C} basierend auf einem
 Prozess \emph{P} ausgelegt werdne.
@@ -3043,22 +2885,18 @@ Prozess \emph{P} ausgelegt werdne.
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{weitere-befehle}{%
-\subsection{Weitere Befehle}\label{weitere-befehle}}
+\subsection{Weitere Befehle}\label{weitere-befehle}
 
-\hypertarget{minreal}{%
-\subsubsection{\texorpdfstring{\texttt{minreal}}{minreal}}\label{minreal}}
+\subsubsection{\texorpdfstring{\texttt{minreal}}{minreal}}\label{minreal}
 
 Kürzt doppelte Nullstellen heraus algebraisch -\textgreater{} reduzieren
 auf Minimalform
 
-\hypertarget{anleitungen-vorgehen}{%
 \section{\texorpdfstring{\faFile*[regular] Anleitungen /
-Vorgehen}{ Anleitungen / Vorgehen}}\label{anleitungen-vorgehen}}
+Vorgehen}{ Anleitungen / Vorgehen}}\label{anleitungen-vorgehen}
 
-\hypertarget{modellierung-dynamischer-systeme}{%
 \subsection{Modellierung dynamischer
-Systeme}\label{modellierung-dynamischer-systeme}}
+Systeme}\label{modellierung-dynamischer-systeme}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -3083,8 +2921,7 @@ Systeme}\label{modellierung-dynamischer-systeme}}
   des Verfahrens.
 \end{enumerate}
 
-\hypertarget{stabilituxe4tsbestimmung}{%
-\subsection{Stabilitätsbestimmung}\label{stabilituxe4tsbestimmung}}
+\subsection{Stabilitätsbestimmung}\label{stabilituxe4tsbestimmung}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -3101,8 +2938,7 @@ Systeme}\label{modellierung-dynamischer-systeme}}
   Stabilitätsbedingung anhand Nyquist-Kriterium prüfen
 \end{enumerate}
 
-\hypertarget{parameter-identifikation}{%
-\subsection{Parameter Identifikation}\label{parameter-identifikation}}
+\subsection{Parameter Identifikation}\label{parameter-identifikation}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -3124,21 +2960,19 @@ Systeme}\label{modellierung-dynamischer-systeme}}
   neuem Modell)
 \end{enumerate}
 
-\hypertarget{linearituxe4t-zeitinvarianzen}{%
 \section{Linearität \&
-Zeitinvarianzen}\label{linearituxe4t-zeitinvarianzen}}
+Zeitinvarianzen}\label{linearituxe4t-zeitinvarianzen}
 
-\hypertarget{lti-systeme}{%
-\subsection{LTI-Systeme}\label{lti-systeme}}
+\subsection{LTI-Systeme}\label{lti-systeme}
 
-\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, coltitle=black, arc=.35mm, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Anforderung}, opacityback=0, colframe=quarto-callout-important-color-frame, left=2mm, bottomtitle=1mm, toptitle=1mm, toprule=.15mm, breakable, leftrule=.75mm, colback=white, titlerule=0mm, bottomrule=.15mm, rightrule=.15mm, colbacktitle=quarto-callout-important-color!10!white]
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, colback=white, breakable, colframe=quarto-callout-important-color-frame, rightrule=.15mm, left=2mm, opacityback=0, leftrule=.75mm, toptitle=1mm, colbacktitle=quarto-callout-important-color!10!white, bottomtitle=1mm, arc=.35mm, bottomrule=.15mm, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Anforderung}, titlerule=0mm, toprule=.15mm, opacitybacktitle=0.6]
 
 Alle Kriterien \emph{Zeitinvarianz}, \emph{Verstärkungs} und
 \emph{Überlagerungsprinzip} müssen für LTI-System gelten.
 
 \end{tcolorbox}
 
-\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, coltitle=black, arc=.35mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Tipp}, opacityback=0, colframe=quarto-callout-tip-color-frame, left=2mm, bottomtitle=1mm, toptitle=1mm, toprule=.15mm, breakable, leftrule=.75mm, colback=white, titlerule=0mm, bottomrule=.15mm, rightrule=.15mm, colbacktitle=quarto-callout-tip-color!10!white]
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, colback=white, breakable, colframe=quarto-callout-tip-color-frame, rightrule=.15mm, left=2mm, opacityback=0, leftrule=.75mm, toptitle=1mm, colbacktitle=quarto-callout-tip-color!10!white, bottomtitle=1mm, arc=.35mm, bottomrule=.15mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Tipp}, titlerule=0mm, toprule=.15mm, opacitybacktitle=0.6]
 
 \ul{Zustands-}, \ul{Ein-} oder \ul{Ausgangsgrössen} in nichtlinearen
 Operationen ( \(\cdot^2,\sin,\ln\ldots\)) in Differenzialgleichung
@@ -3148,8 +2982,7 @@ deuten auf ein \textbf{nicht lineares} System.
 
 \end{tcolorbox}
 
-\hypertarget{zeitinvarianz}{%
-\subsubsection{Zeitinvarianz}\label{zeitinvarianz}}
+\subsubsection{Zeitinvarianz}\label{zeitinvarianz}
 
 System ist \emph{zeitinvariant}, falls dessen Wirkungsweise \ul{nicht}
 von der Zeit \(t\) abhängig ist. Das heisst, das System
@@ -3161,46 +2994,33 @@ ein verzögertes Ausgangssignal
 
 \[ y(t+a)=H\{x(t+a)\} \]
 
-\hypertarget{linearituxe4t}{%
-\subsubsection{Linearität}\label{linearituxe4t}}
+\subsubsection{Linearität}\label{linearituxe4t}
 
 Ein System ist \emph{linear}, falls das Verstärkungs- \ul{und}
 Überlagerungsprinzip gelten.
 
-\hypertarget{uxfcberlagerungsprinzip}{%
-\paragraph{Überlagerungsprinzip}\label{uxfcberlagerungsprinzip}}
+\paragraph{Überlagerungsprinzip}\label{uxfcberlagerungsprinzip}
 
 Wenn \(y_1(t)\) die Antwort auf \(u_1(t)\) ist und \(y_2(t)\) die
 Antwort auf \(u_2(t)\) ist, so ist \(y_1(t) + y_2(t)\) die Antwort auf
 \(u_1(t) + u_2(t)\).
 
-\begin{figure}[H]
+\begin{center}
+\includegraphics{images/überlagerungsprinzip.png}
+\end{center}
 
-{\centering \includegraphics{images/überlagerungsprinzip.png}
-
-}
-
-\end{figure}
-
-\hypertarget{verstuxe4rkungsprinzip}{%
-\paragraph{Verstärkungsprinzip}\label{verstuxe4rkungsprinzip}}
+\paragraph{Verstärkungsprinzip}\label{verstuxe4rkungsprinzip}
 
 Wenn \(y(t)\) die Antwort auf \(u(t)\) ist, \(\alpha\cdot y(t)\) ist die
 Antwort auf \(\alpha\cdot u(t)\).
 
-\begin{figure}[H]
+\begin{center}
+\includegraphics{images/verstärkungsprinzip.png}
+\end{center}
 
-{\centering \includegraphics{images/verstärkungsprinzip.png}
+\subsection{Linearisierung}\label{linearisierung-1}
 
-}
-
-\end{figure}
-
-\hypertarget{linearisierung-1}{%
-\subsection{Linearisierung}\label{linearisierung-1}}
-
-\hypertarget{zustandsraumdarstellung}{%
-\subsubsection{Zustandsraumdarstellung}\label{zustandsraumdarstellung}}
+\subsubsection{Zustandsraumdarstellung}\label{zustandsraumdarstellung}
 
 \begin{tikzpicture}
 
@@ -3222,13 +3042,7 @@ Antwort auf \(\alpha\cdot u(t)\).
 \draw[-{>[scale=1.5]}] (sumWY) -- node[right=0.3cm]{$y$} (yEnd);
 \end{tikzpicture}
 
-\begin{figure}[H]
-
-{\centering \includegraphics{images/paste-3.png}
-
-}
-
-\end{figure}
+\includegraphics{images/paste-3.png}
 
 Ein nicht-lineares System:
 
@@ -3275,8 +3089,7 @@ ergeben die Linearisierung.
 
 mit \(z=x-x_e\), \(v=u-u_e\) und \(w=y-y_e\) mit \(y_e=h(x_e,u_e)\).
 
-\hypertarget{differentialgleichung}{%
-\subsubsection{Differentialgleichung}\label{differentialgleichung}}
+\subsubsection{Differentialgleichung}\label{differentialgleichung}
 
 \[
 F(y^{(n)},\ldots,\dot{y},y,u^{(m)},\ldots,\dot{u},u)=0\quad\text{mit } m\leq n
@@ -3297,18 +3110,25 @@ F(y^{(n)},\ldots,\dot{y},y,u^{(m)},\ldots,\dot{u},u)=0\quad\text{mit } m\leq n
 
 mit \(z=y-y_e\) \& \(v=u-u_e\).
 
-\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, coltitle=black, arc=.35mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Vorgehen}, opacityback=0, colframe=quarto-callout-tip-color-frame, left=2mm, bottomtitle=1mm, toptitle=1mm, toprule=.15mm, breakable, leftrule=.75mm, colback=white, titlerule=0mm, bottomrule=.15mm, rightrule=.15mm, colbacktitle=quarto-callout-tip-color!10!white]
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, colback=white, breakable, colframe=quarto-callout-tip-color-frame, rightrule=.15mm, left=2mm, opacityback=0, leftrule=.75mm, toptitle=1mm, colbacktitle=quarto-callout-tip-color!10!white, bottomtitle=1mm, arc=.35mm, bottomrule=.15mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Vorgehen}, titlerule=0mm, toprule=.15mm, opacitybacktitle=0.6]
+
+Beispiel mit Differentialgleichung
 
 \[
 M\cdot \frac{d^2h}{dt^2}+\alpha\frac{dh}{dt}+k\cdot h^3 = M\cdot g-k\cdot h^3
 \]
 
+\small
+
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  Differentialgleichung gleich \(0\) setzen \(f(\cdots)=F(\cdots)=0\)
+  Alle Elemente auf eine Seite bringen und Differentialgleichung gleich
+  \(0\) setzen \(f(\cdots)=F(\cdots)=0\)
 \end{enumerate}
+
+\normalsize
 
 \[
 \underbrace{M\cdot \frac{d^2h}{dt^2}+\alpha\frac{dh}{dt}+k\cdot h^3 - M\cdot g}_{F(y^{(n)},\ldots,y,u^{(m)},\ldots,u)}=0
@@ -3318,43 +3138,68 @@ M\cdot \frac{d^2h}{dt^2}+\alpha\frac{dh}{dt}+k\cdot h^3 = M\cdot g-k\cdot h^3
 \rightarrow\quad f(\ddot{h}, \dot{h}, h)= 0
 \]
 
+\small
+
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \setcounter{enumi}{1}
 \tightlist
 \item
-  Arbeitspunkt/stationärer Zustand berechnen (\(h^{(n>0)}=0\))
+  Gleichgewichtslage bestimmen, Änderungsraten
+  \(=0\rightarrow h^{(n>0)}=0\)
 \end{enumerate}
 
-\(\overline{h}=h_0=\sqrt[3]{\frac{M\cdot g}{k}}\)
+\normalsize
+
+\[
+\overline{h}=h_0=\sqrt[3]{\frac{M\cdot g}{k}}
+\]
+
+\small
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \setcounter{enumi}{2}
 \tightlist
 \item
-  Deltagrössendefinieren
+  Deltagrössendefinieren \(\overline{h}^{\ (n>0)}=0\) \normalsize
 \end{enumerate}
 
 \[
 \begin{array}{l}
 \Delta h = h-\overline{h} \\
-\Delta \dot{h} = \dot{h} \\
-\Delta \ddot{h} = \ddot{h} \\
+\Delta \dot{h} = \dot{h} - \dot{\overline{h}} = \dot{h}\\
+\Delta \ddot{h} = \ddot{h} - \ddot{\overline{h}} = \ddot{h} \\
 \end{array}
 \]
 
+\small
+
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
-\setcounter{enumi}{2}
+\setcounter{enumi}{3}
 \tightlist
 \item
-  In Linearisierungsgleichung einsetzten
+  Linearisierung machen (Ableiten, dann Gleichgewichtslage einsetzen!)
 \end{enumerate}
+
+\normalsize
 
 \[
 \left.\frac{\partial f}{\partial \ddot{h}}\right\rvert_{h=\overline{h}} \cdot \Delta\ddot{h} + \left.\frac{\partial f}{\partial \dot{h}}\right\rvert_{h=\overline{h}} \cdot \Delta\dot{h} + \left.\frac{\partial f}{\partial h}\right\rvert_{h=\overline{h}} \cdot \Delta{h} = 0
 \]
+
+\small
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{4}
+\tightlist
+\item
+  linearisierte Differentialgleichung aufbauen
+\end{enumerate}
+
+\normalsize
 
 \[
 M\Delta \ddot{h} + \alpha \Delta \dot{h} + 3 k\overline{h}^2=0
@@ -3362,11 +3207,9 @@ M\Delta \ddot{h} + \alpha \Delta \dot{h} + 3 k\overline{h}^2=0
 
 \end{tcolorbox}
 
-\hypertarget{uxfcbertragungselemente}{%
-\section{Übertragungselemente}\label{uxfcbertragungselemente}}
+\section{Übertragungselemente}\label{uxfcbertragungselemente}
 
-\hypertarget{elementare-glieder}{%
-\subsection{Elementare Glieder}\label{elementare-glieder}}
+\subsection{Elementare Glieder}\label{elementare-glieder}
 
 \[
 \begin{split}
@@ -3380,19 +3223,12 @@ G(s) &= \frac{b_0\cdot s^m+b_1\cdot s^{m-1}+\cdots+b_m}{s^n+a_1\cdot s^{n-1}+\cd
   n & Polstellen $p_{1\dots m}$ \\
 \end{conditions}
 
-\hypertarget{elementare-funktionen}{%
-\subsubsection{Elementare Funktionen}\label{elementare-funktionen}}
+\subsubsection{Elementare Funktionen}\label{elementare-funktionen}
 
 Werden für die Beschreibung beliebiger LTI-Systeme verwendet. Mit
 Parametern \(k,a,\zeta,\omega_0,\tau \in \mathbb{R}\)
 
-\begin{figure}[H]
-
-{\centering \includegraphics{images/paste-16.png}
-
-}
-
-\end{figure}
+\includegraphics{images/paste-16.png}
 
 \begin{conditions}
   G(s)=k                                         & konstanter Faktor \\
@@ -3412,9 +3248,8 @@ Die zugehörigen Nullstellen
 \end{array}\right.
 \]
 
-\hypertarget{poluxfcberschuss-n_pe}{%
 \subsubsection{\texorpdfstring{Polüberschuss
-\(n_{pe}\)}{Polüberschuss n\_\{pe\}}}\label{poluxfcberschuss-n_pe}}
+\(n_{pe}\)}{Polüberschuss n\_\{pe\}}}\label{poluxfcberschuss-n_pe}
 
 Der \emph{Polüberschuss} oder \emph{relativer Grad}~beschreibt die
 Differenz zwischen der Pol- und Nullstellen-Ordnung.
@@ -3442,41 +3277,25 @@ t\cdot\sigma(t)e^{st}+\ldots & \text{falls} & n_{pe} = 1 &  & \sfrac{1}{s} \\
 \right.
 \]
 
-\hypertarget{bezeichnete-glieder}{%
-\subsection{Bezeichnete Glieder}\label{bezeichnete-glieder}}
+\subsection{Bezeichnete Glieder}\label{bezeichnete-glieder}
 
-\hypertarget{p-glied7}{%
-\subsubsection{P-Glied7}\label{p-glied7}}
+\subsubsection{P-Glied7}\label{p-glied7}
 
 \[
 G(s)=k\qquad \text{konstanter Faktor}
 \]
 
-\begin{figure}[H]
+\includegraphics{images/paste-23.png}
 
-{\centering \includegraphics{images/paste-23.png}
-
-}
-
-\end{figure}
-
-\hypertarget{i-glied}{%
-\subsubsection{I-Glied}\label{i-glied}}
+\subsubsection{I-Glied}\label{i-glied}
 
 \[
 G(s)=\frac1{s}\qquad\text{Integrator}
 \]
 
-\begin{figure}[H]
+\includegraphics{images/paste-22.png}
 
-{\centering \includegraphics{images/paste-22.png}
-
-}
-
-\end{figure}
-
-\hypertarget{pt1-glied}{%
-\subsubsection{PT1-Glied}\label{pt1-glied}}
+\subsubsection{PT1-Glied}\label{pt1-glied}
 
 \[
 G(s)=\frac{K}{1+\tau s}
@@ -3484,16 +3303,9 @@ G(s)=\frac{K}{1+\tau s}
 
 Sprungantwort
 
-\begin{figure}[H]
+\includegraphics{images/paste-20.png}
 
-{\centering \includegraphics{images/paste-20.png}
-
-}
-
-\end{figure}
-
-\hypertarget{pt2-glied}{%
-\subsubsection{PT2-Glied}\label{pt2-glied}}
+\subsubsection{PT2-Glied}\label{pt2-glied}
 
 \[
 G(s)=\frac{K\cdot \omega_0^2}{s^2+2\zeta\omega_0 s+\omega_0^2}
@@ -3501,16 +3313,9 @@ G(s)=\frac{K\cdot \omega_0^2}{s^2+2\zeta\omega_0 s+\omega_0^2}
 
 Sprungantwort \& \(d\ \hat{=}\ \zeta\)
 
-\begin{figure}[H]
+\includegraphics{images/paste-19.png}
 
-{\centering \includegraphics{images/paste-19.png}
-
-}
-
-\end{figure}
-
-\hypertarget{it-glied}{%
-\subsubsection{IT-Glied}\label{it-glied}}
+\subsubsection{IT-Glied}\label{it-glied}
 
 \[
 G(s)=\frac{K}{s(1+\tau s)}
@@ -3518,54 +3323,26 @@ G(s)=\frac{K}{s(1+\tau s)}
 
 Sprungantwort
 
-\begin{figure}[H]
+\includegraphics{images/paste-21.png}
 
-{\centering \includegraphics{images/paste-21.png}
-
-}
-
-\end{figure}
-
-\hypertarget{dt1-glied}{%
-\subsubsection{DT1-Glied}\label{dt1-glied}}
+\subsubsection{DT1-Glied}\label{dt1-glied}
 
 \[
 G(s)=\frac{s}{1+sT} \qquad \text{Gefilterter Differentiator}
 \]
 
-\begin{figure}[H]
+\includegraphics{images/paste-24.png}
 
-{\centering \includegraphics{images/paste-24.png}
-
-}
-
-\end{figure}
-
-\hypertarget{anderes-zeug}{%
-\section{Anderes Zeug}\label{anderes-zeug}}
+\section{Anderes Zeug}\label{anderes-zeug}
 
 Betrag von Zeitverzögerungen sind immer \(=1\), da die Phase keine Rolle
-spielt. \[
+spielt.
+
+\[
 |PC| = 1 \Rightarrow \lvert k \cdot e^{-0.2s} \frac{10}{s}\rvert
 \]
 
-\newpage
-
-\begin{figure}[H]
-
-{\centering \includegraphics{images/rgt_meme.jpg}
-
-}
-
-\end{figure}
-
-\(\rightarrow\)
-\href{https://en.wikipedia.org/wiki/Project_Pigeon}{Project Pigeon}
-
-\end{multicols*}
-
-\hypertarget{glossar}{%
-\section{Glossar}\label{glossar}}
+\section{Glossar}\label{glossar}
 
 \begin{itemize}
 \tightlist

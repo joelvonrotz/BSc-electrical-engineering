@@ -1,0 +1,24 @@
+graph: { title: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\adafruit-charliewing.adb"
+class {
+  classname: "adafruit__charliewing__device"
+  label: "adafruit__charliewing__device\adafruit-charliewing.ads:45:9"
+  parent: "is31fl3731__device"
+  virtuals: "12:adafruit__charliewing__led_address,12:is31fl3731__device\n
+             -1:adafruit__charliewing___size__2,-1:is31fl3731__device"
+}
+node: { title: "adafruit__charliewing__deviceIP" label: "Deviceip\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\adafruit-charliewing.ads:62:9\n24 bytes (static)" }
+node: { title: "is31fl3731__deviceIP" label: "DEVICEIP\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\is31fl3731.ads:119:9" shape : ellipse }
+edge: { sourcename: "adafruit__charliewing__deviceIP" targetname: "is31fl3731__deviceIP" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\adafruit-charliewing.ads:65:7" }
+node: { title: "adafruit__charliewing___size__2" label: "Charliewing\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\adafruit-charliewing.ads:62:9\n16 bytes (static)" }
+node: { title: "adafruit__charliewing__led_address" label: "Led_Address\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\adafruit-charliewing.adb:39:4\n48 bytes (static)" }
+node: { title: "system__assertions__raise_assert_failure" label: "Raise_Assert_Failure\nC:\gnat\2020-arm-elf\arm-eabi\lib\gnat\zfp-cortex-m4f\gnat\s-assert.ads:46:14" shape : ellipse }
+edge: { sourcename: "adafruit__charliewing__led_address" targetname: "system__assertions__raise_assert_failure" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\adafruit-charliewing.ads:56:18" }
+edge: { sourcename: "adafruit__charliewing__led_address" targetname: "system__assertions__raise_assert_failure" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\adafruit-charliewing.ads:56:40" }
+node: { title: "__gnat_last_chance_handler" label: "gnat_last_chance_handler\n<built-in>" shape : ellipse }
+edge: { sourcename: "adafruit__charliewing__led_address" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\adafruit-charliewing.adb:49:22" }
+edge: { sourcename: "adafruit__charliewing__led_address" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\adafruit-charliewing.adb:50:22" }
+edge: { sourcename: "adafruit__charliewing__led_address" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\adafruit-charliewing.adb:52:18" }
+edge: { sourcename: "adafruit__charliewing__led_address" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\adafruit-charliewing.adb:54:36" }
+edge: { sourcename: "adafruit__charliewing__led_address" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\adafruit-charliewing.adb:54:41" }
+edge: { sourcename: "adafruit__charliewing__led_address" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\screen\adafruit-charliewing.adb:54:41" }
+}

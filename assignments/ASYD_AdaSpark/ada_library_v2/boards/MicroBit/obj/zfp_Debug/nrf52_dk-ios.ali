@@ -1,0 +1,302 @@
+V "GNAT Lib v2020"
+A -O0
+A -gnatA
+A --RTS=C:\gnat\2020-arm-elf\arm-eabi\lib\gnat\zfp-cortex-m4f\
+A -mlittle-endian
+A -mthumb
+A -mfloat-abi=hard
+A -mcpu=cortex-m4
+A -mfpu=fpv4-sp-d16
+A -gnata
+A -fcallgraph-info=su
+A -fcallgraph-info=su
+A -g
+A -gnatwa
+A -gnatw_A
+A -gnatQ
+A -gnatw.X
+A -ffunction-sections
+A -fdata-sections
+A -march=armv7e-m+fp
+P CE NO ZX
+
+RN
+RV NO_EXCEPTIONS
+RV NO_FLOATING_POINT
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_ELABORATION_CODE
+
+U nrf52_dk.ios%b	nrf52_dk-ios.adb	b74e45e4 OO SE PK IU
+W hal%s			hal.ads			hal.ali
+W nrf%s			nrf.ads			nrf.ali
+W nrf.adc%s		nrf-adc.adb		nrf-adc.ali
+W nrf.events%s		nrf-events.adb		nrf-events.ali
+W nrf.gpio%s		nrf-gpio.adb		nrf-gpio.ali
+W nrf.gpio.tasks_and_events%s  nrf-gpio-tasks_and_events.adb  nrf-gpio-tasks_and_events.ali
+W nrf.interrupts%s	nrf-interrupts.adb	nrf-interrupts.ali
+W nrf.ppi%s		nrf-ppi.adb		nrf-ppi.ali
+W nrf.timers%s		nrf-timers.adb		nrf-timers.ali
+
+D cortex_m.ads		20210108111948 38b367df cortex_m%s
+D cortex_m-nvic.ads	20210108111948 cb914309 cortex_m.nvic%s
+D hal.ads		20210108111948 2b42c80e hal%s
+D hal-gpio.ads		20210108111948 7f0c2ffe hal.gpio%s
+D hal-i2c.ads		20210108111948 0ed73138 hal.i2c%s
+D hal-spi.ads		20210108111948 fe139819 hal.spi%s
+D hal-uart.ads		20210108111948 d58316b4 hal.uart%s
+D interfac.ads		20200430174706 5ab55268 interfaces%s
+D nrf.ads		20210108111948 74cf72f5 nrf%s
+D nrf-adc.ads		20210108111948 8a90574e nrf.adc%s
+D nrf-device.ads	20210108111948 2f61824f nrf.device%s
+D nrf-events.ads	20210108111948 dedecd5e nrf.events%s
+D nrf-gpio.ads		20210108111948 8a09cd82 nrf.gpio%s
+D nrf-gpio-tasks_and_events.ads  20210108111948 99031b24 nrf.gpio.tasks_and_events%s
+D nrf-interrupts.ads	20210108111948 905d6e6a nrf.interrupts%s
+D nrf-ppi.ads		20210108111948 ea5460b3 nrf.ppi%s
+D nrf-rtc.ads		20210108111948 36d88130 nrf.rtc%s
+D nrf-spi_master.ads	20210108111948 a8ff49a3 nrf.spi_master%s
+D nrf-timers.ads	20210108111948 385f1a57 nrf.timers%s
+D nrf-twi.ads		20210108111948 4881713f nrf.twi%s
+D nrf-uart.ads		20210108111948 9fa4b8b9 nrf.uart%s
+D nrf52_dk-ios.ads	20210108111948 95200822 nrf52_dk.ios%s
+D nrf52_dk-ios.adb	20210108111948 86371072 nrf52_dk.ios%b
+D nrf_svd.ads		20210108111948 f75b610a nrf_svd%s
+D nrf_svd-aar.ads	20210108111948 073faf5e nrf_svd.aar%s
+D nrf_svd-ccm.ads	20210108111948 989bbb45 nrf_svd.ccm%s
+D nrf_svd-clock.ads	20210108111948 15406ae2 nrf_svd.clock%s
+D nrf_svd-ecb.ads	20210108111948 ba523825 nrf_svd.ecb%s
+D nrf_svd-gpiote.ads	20210108111948 217045a9 nrf_svd.gpiote%s
+D nrf_svd-power.ads	20210108111948 74fd31ae nrf_svd.power%s
+D nrf_svd-qdec.ads	20210108111948 1e95ab7b nrf_svd.qdec%s
+D nrf_svd-radio.ads	20210108111948 2c6bda9d nrf_svd.radio%s
+D nrf_svd-rng.ads	20210108111948 a4e37bcd nrf_svd.rng%s
+D nrf_svd-rtc.ads	20210108111948 57c7ffc8 nrf_svd.rtc%s
+D nrf_svd-saadc.ads	20210108111948 04c01e3e nrf_svd.saadc%s
+D nrf_svd-spi.ads	20210108111948 6e2ffb69 nrf_svd.spi%s
+D nrf_svd-temp.ads	20210108111948 1ebb92fa nrf_svd.temp%s
+D nrf_svd-timer.ads	20210108111948 ba50db1c nrf_svd.timer%s
+D nrf_svd-twi.ads	20210108111948 68301534 nrf_svd.twi%s
+D nrf_svd-uart.ads	20210108111948 83bcebc8 nrf_svd.uart%s
+D nrf_svd-wdt.ads	20210108111948 c89e1b05 nrf_svd.wdt%s
+D system.ads		20200430174706 e69b74bd system%s
+D s-unstyp.ads		20200430174706 5ecf7212 system.unsigned_types%s
+G a Z
+X 3 hal.ads
+34K9*HAL 166e8 23|32w6 32r39
+66M9*UInt16<8|66M9> 23|414r16
+97M9*UInt32<8|74M9> 23|114r25 119r21 136r56 143r56 145r22 146r9 352r21
+X 4 hal-gpio.ads
+47h9*GPIO_Point
+X 5 hal-i2c.ads
+48h9*I2C_Port
+X 6 hal-spi.ads
+48h9*SPI_Port
+X 7 hal-uart.ads
+48h9*UART_Port
+X 8 interfac.ads
+66M9*Unsigned_16
+74M9*Unsigned_32
+X 9 nrf.ads
+34K9*nRF 43e8 22|32r6 32r22 33r6 33r20 23|34r6 34r37 35r6 35r37 36r6 36r37
+. 37r6 37r37 38r6 38r37 39r6 39r37 188r10 205r7 211r7 216r7 217r7 227r7 279r7
+. 282r7
+36M9*Event_Type<42|90M9>
+38M9*Task_Type<42|90M9>
+X 10 nrf-adc.ads
+36K13*ADC 62e12 23|34w10 34r41
+38n39*Res_10bit{38E9} 23|433r38
+40I9*Analog_Pin<short_short_integer>
+43n48*Pin_One_Forth{42E9} 23|431r38
+47n47*VDD_One_Forth{47E9} 23|432r38
+49V13*Do_Pin_Conversion{3|66M9} 23|423s17
+50i7 Pin{40I9} 23|423r36
+51e7 Input{42E9} 23|431r29
+52e7 Ref{47E9} 23|432r29
+53e7 Res{38E9} 23|433r29
+X 11 nrf-device.ads
+44K13*Device 108e15 22|32w10 32r26
+47r4*P00{13|66R9} 22|74r13
+48r4*P01{13|66R9} 22|75r13
+49r4*P02{13|66R9} 22|76r13
+50r4*P03{13|66R9} 22|77r13
+51r4*P04{13|66R9} 22|78r13
+52r4*P05{13|66R9} 22|79r13
+53r4*P06{13|66R9} 22|80r13
+54r4*P07{13|66R9} 22|81r13
+55r4*P08{13|66R9} 22|82r13
+56r4*P09{13|66R9} 22|83r13
+57r4*P10{13|66R9} 22|84r13
+58r4*P11{13|66R9} 22|85r13
+59r4*P12{13|66R9} 22|86r13
+60r4*P13{13|66R9} 22|87r13
+61r4*P14{13|66R9} 22|88r13
+62r4*P15{13|66R9} 22|89r13
+63r4*P16{13|66R9} 22|90r13
+64r4*P17{13|66R9} 22|91r13
+65r4*P18{13|66R9} 22|92r13
+66r4*P19{13|66R9} 22|93r13
+67r4*P20{13|66R9} 22|94r13
+68r4*P21{13|66R9} 22|95r13
+69r4*P22{13|66R9} 22|96r13
+70r4*P23{13|66R9} 22|97r13
+71r4*P24{13|66R9} 22|98r13
+72r4*P25{13|66R9} 22|99r13
+73r4*P26{13|66R9} 22|100r13
+74r4*P27{13|66R9} 22|101r13
+75r4*P28{13|66R9} 22|102r13
+76r4*P29{13|66R9} 22|103r13
+77r4*P30{13|66R9} 22|104r13
+78r4*P31{13|66R9} 22|105r13
+100r4*Timer_0{19|37R9} 23|110m39 110r39
+X 12 nrf-events.ads
+52K13*Events 381e15 23|38w10 38r41
+56U14*Enable_Interrupt 23|277s7
+60U14*Clear 23|240s7
+X 13 nrf-gpio.ads
+34K13*GPIO 122e13 22|33w10 33r24 23|37r10 37r41 188r14 227r11
+36I12*GPIO_Pin_Index{natural}
+38n26*Mode_In{38E9} 23|333r31
+38n35*Mode_Out{38E9} 23|301r31 387r31
+40n47*No_Pull{40E9} 23|302r31 334r31 388r31
+51n28*Sense_Disabled{51E9} 23|304r31 336r31 390r31
+55n35*Input_Buffer_Connect{55E9} 23|303r31 335r31 389r31
+58R9*GPIO_Configuration 64e14 23|294r14 326r14 371r14
+59e7*Mode{38E9} 23|301m15 333m15 387m15
+60e7*Resistors{40E9} 23|302m15 334m15 388m15
+61e7*Input_Buffer{55E9} 23|303m15 335m15 389m15
+63e7*Sense{51E9} 23|304m15 336m15 390m15
+66R9*GPIO_Point<4|47R9> 68e14 22|73r31 23|293r14 325r14 370r14
+67i7*Pin{36I12} 23|229r50
+94V13*Set{boolean}<4|76p13> 23|343s17
+100U14*Set<4|88p14> 23|311s13
+106U14*Clear<4|90p14> 23|313s13 393s13
+117U14*Configure_IO 23|306s13 338s13 392s13
+X 14 nrf-gpio-tasks_and_events.ads
+32K18*Tasks_And_Events 88e30 23|37w15 37r46 188r19 227r16
+34I9*GPIOTE_Channel<short_short_integer> 23|188r45 208r31 214r31 228r27
+36U14*Disable 23|188s36
+72n45*Toggle_Pin{72E9} 23|230r27
+73n24*Init_Set{73E9} 23|231r27
+75U14*Enable_Task 23|227s33
+75i27 Chan{34I9} 23|228r10
+76i27 GPIO_Pin{13|36I12} 23|229r10
+77e27 Action{72E9} 23|230r10
+78e27 Initial_Value{73E9} 23|231r10
+82V13*Out_Task{9|38M9} 23|208s21 214s21
+X 15 nrf-interrupts.ads
+34K13*Interrupts 119e19 23|39w10 39r41 279r11 282r11
+36E9*Interrupt_Name 68e26 23|111r34
+45n7*TIMER0_Interrupt{36E9} 23|111r52
+73U14*Enable 23|282s22
+79U14*Register 23|279s22
+X 16 nrf-ppi.ads
+32K13*PPI 51e12 23|35w10 35r41 205r11 211r11 216r11 217r11
+34I12*Channel_ID{natural} 23|199r24 199r38 200r24
+37U14*Configure 23|205s15 211s15
+37i25 Chan{34I12} 23|206r10 212r10
+38m25 Evt_EP{9|36M9} 23|207r10 213r10
+39m25 Task_EP{9|38M9} 23|208r10 214r10
+41U14*Enable_Channel 23|216s15 217s15
+X 19 nrf-timers.ads
+35K13*Timers 158e15 23|36w10 36r41
+37R9*Timer 156e25 23|110r25
+40I9*Timer_Channel<short_short_integer> 23|112r34 207r46 269r60
+46U14*Set_Prescaler 23|258s17
+54n24*Mode_Timer{54E9} 23|257r27
+56U14*Set_Mode 23|257s17
+68n27*Bitmode_32bit{65E9} 23|259r30
+70U14*Set_Bitmode 23|259s17
+88U14*Start 23|248s17 399s20
+91U14*Stop 23|378s20
+94U14*Clear 23|379s20
+101U14*Compare_Shortcut 23|263s17
+102i32 Chan{40I9} 23|263r35
+103b32 Stop{boolean} 23|264r35
+104b32 Clear{boolean} 23|265r35
+114U14*Set_Compare 23|242s17 244s17 245s17 246s17 267s17 269s47
+149V13*Compare_Event{9|36M9} 23|207s31 213s31 240s24 277s35
+X 22 nrf52_dk-ios.ads
+35K18*IOs 73E4 108l14 108e17 23|41b23 437l14 437t17
+37I9*Pin_Id<short_short_integer> 41r29 50r25 53r24 62r27 65r27 73r20 23|97r26
+. 108r23 120r21 125r28 127r38 130r36 162r38 185r36 290r13 322r13 365r13 411r13
+39E9*IO_Features 39e41 41r47
+39n25*Digital{39E9} 43r15 51r33 54r33
+39n34*Analog{39E9} 46r15 63r33 66r33
+41V13*Supports{boolean} 41>23 41>37 51s18 54s18 63s18 66s18
+41i23 Pin{37I9} 43r32 46r32
+41e37 Feature{39E9} 42r12
+50U14*Set 50>19 50>33 23|289b14 315l8 315t11
+50i19 Pin{37I9} 51r28 23|290b7 293r41 296r24 297r22 298r29 307r24
+50b33 Value{boolean} 23|291b7 310r10
+53V13*Set{boolean} 53>18 23|321b13 344l8 344t11
+53i18 Pin{37I9} 54r28 23|322b7 325r41 328r24 329r22 330r29 340r24
+56I9*Analog_Value<short_integer> 62r43 65r42 23|118r21 136r35 143r35 146r58
+. 366r15 412r14 434r14
+58U14*Set_Analog_Period_Us 58>36 23|350b14 358l8 358t28
+58i36 Period{natural} 23|350b36 352r29
+62U14*Write 62>21 62>35 23|364b14 404l8 404t13
+62i21 Pin{37I9} 63r28 23|365b7 370r41 374r23 381r24 395r24 402r24 403r24
+62i35 Value{56I9} 23|366b7 402r45 403r55
+65V13*Analog{56I9} 65>21 23|410b13 435l8 435t14
+65i21 Pin{37I9} 66r28 23|411b7 416r24 417r22 418r29 420r24 423r51
+73a4 Points(13|66R9) 23|229r27 293m33 293r33 325r33 370m33 370r33
+X 23 nrf52_dk-ios.adb
+96E9 Pin_Mode 96e75 97r37
+96n22 None{96E9} 97r60
+96n28 Digital_In{96E9} 328r32 340r32
+96n40 Digital_Out{96E9} 296r32 307r32
+96n53 Analog_In{96E9} 416r32 420r32
+96n64 Analog_Out{96E9} 395r32
+97a4 Current_Mode(96E9) 296r10 307m10 328r10 340m10 395m10 416r10 420m10
+101N4 Number_Of_PWMs 103r37 104r47 106r39
+103I9 PWM_Allocated<short_short_integer> 104r22 106r22 108r34
+104I12 PWM_Id{103I9} 123r18 133r34 134r37 166r17 198r34 224r37 269r17
+106i4 No_PWM{103I9} 108r62 126r27 187r29 190r29
+108a4 PWM_Alloc(103I9) 126r8 170m13 187r10 188r61 189r16 190m10 402r13 403r13
+110r4 PWM_Timer=110:39{19|37R9} 207r21 213r21 240r14 242r7 244r7 245r7 246r7
+. 248r7 257r7 258r7 259r7 263r7 267r7 269r37 277r25 378r10 379r10 399r10
+111e4 PWM_Interrupt{15|36E9} 279r32 282r30
+112i4 PWM_Global_Compare{19|40I9} 213r46 240r39 242r30 263r44 267r30 277r50
+113N4 PWM_Precision 114r43 352r39
+114m4 PWM_Period{3|97M9} 146r24 151r20 152r17 242r50 267r50 352m7
+116R9 PWM_Status 121e14 123r29
+117b7*Taken{boolean} 167r27 168m23 189m33 271r23
+118i7*Pulse_Width{22|56I9} 270r61 356r43 402m30
+119m7*Cmp{3|97M9} 244r42 245r42 246r42 356m14 403m30
+120i7*Pin{22|37I9} 169m23 229r45
+123a4 PWMs(116R9) 167r17 168m13 169m13 189m10 229r35 244r33 245r33 246r33
+. 270r51 271r13 355r18 356m10 402m7 403m7
+125V13 Has_PWM{boolean} 125>22 129s22 131s19 132s23 297s13 329s13 374s14
+. 417s13
+125i22 Pin{22|37I9} 126r19
+127U14 Allocate_PWM 127>28 128<28 162b14 179l8 179t20 381s10
+127i28 Pin{22|37I9} 129r31 162b28 169r30 170r24
+128b28 Success{boolean} 163b28 174m13 178m7
+130U14 Deallocate_PWM 130>30 185b14 192l8 192t22 298s13 330s13 418s13
+130i30 Pin{22|37I9} 131r28 132r32 185b30 187r21 188r72 189r27 190r21
+133U14 Configure_PPI 133>29 172s13 198b14 218l8 218t21
+133i29 Id{104I12} 198b29 199r50 207r61 208r47 214r47
+134U14 Configure_GPIOTE 134>32 224b14 232l8 232t24 272s13
+134i32 Id{104I12} 224b32 228r43 229r41
+135U14 Init_PWM_Timer 255b14 283l8 283t22 397s10
+136V13 To_Compare_Value{3|97M9} 136>31 143b13 156l8 156t24 270s33 356s21
+. 403s37
+136i31 V{22|56I9} 143b31 146r46
+137U14 PWM_Timer_Handler 238b14 249l8 249t25 280r34
+145m7 Cmp{3|97M9} 149r10 151r13 154r17
+166i11 Id{104I12} 167r23 168r19 169r19 170r32 172r28
+199i7 Chan1{16|34I12} 200r38 206r21 216r31
+200i7 Chan2{16|34I12} 212r21 217r31
+269i11 Id{104I12} 269r75 270r57 271r19 272r31
+293r7 Pt=293:33{13|66R9} 306r10 311r10 313r10
+294r7 Conf{13|58R9} 301m10 302m10 303m10 304m10 306r27
+325r7 Pt=325:33{13|66R9} 338r10 343r14
+326r7 Conf{13|58R9} 333m10 334m10 335m10 336m10 338r27
+355r11 PWM{116R9} 356m10 356r39
+368b7 Success{boolean} 381m29 382r17
+370r7 Pt=370:33{13|66R9} 392r10 393r10
+371r7 Conf{13|58R9} 387m10 388m10 389m10 390m10 392r27
+414m7 Result{3|66M9} 423m7 434r28
+X 42 system.ads
+90M9*Address
+

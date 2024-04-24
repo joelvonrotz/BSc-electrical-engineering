@@ -1,0 +1,48 @@
+graph: { title: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\keyboard\bbq10kbd.adb"
+class {
+  classname: "bbq10kbd__bbq10kbd_device"
+  label: "bbq10kbd__bbq10kbd_device\bbq10kbd.ads:40:9"
+  parent: "bbq10kbd__bbq10kbd_device"
+  virtuals: "1:bbq10kbd__key_fifo_pop\n
+             2:bbq10kbd__status\n
+             3:bbq10kbd__set_backlight\n
+             4:bbq10kbd__version\n
+             5:bbq10kbd__read\n
+             6:bbq10kbd__write\n
+             -1:bbq10kbd___size\n
+             -6:bbq10kbd__Oeq\n
+             -7:bbq10kbd___assign"
+}
+edge: { sourcename: "bbq10kbd__read"
+  targetname: "4:hal__i2c__i2c_port,hal__i2c__i2c_port"
+  label: "bbq10kbd.adb:47:16"
+}
+edge: { sourcename: "bbq10kbd__write"
+  targetname: "3:hal__i2c__i2c_port,hal__i2c__i2c_port"
+  label: "bbq10kbd.adb:67:16"
+}
+node: { title: "bbq10kbd__bbq10kbd_deviceIP" label: "BBQ10KBD_DEVICEIP\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\keyboard\bbq10kbd.ads:68:9\n24 bytes (static)" }
+node: { title: "bbq10kbd___size" label: "BBQ10KBD\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\keyboard\bbq10kbd.ads:68:9\n16 bytes (static)" }
+node: { title: "bbq10kbd__Oeq" label: "=\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\keyboard\bbq10kbd.ads:68:4\n16 bytes (static)" }
+node: { title: "bbq10kbd___assign" label: "BBQ10KBD\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\keyboard\bbq10kbd.ads:68:9\n16 bytes (static)" }
+node: { title: "__gnat_last_chance_handler" label: "gnat_last_chance_handler\n<built-in>" shape : ellipse }
+edge: { sourcename: "bbq10kbd___assign" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\keyboard\bbq10kbd.ads:68:9" }
+node: { title: "bbq10kbd__key_stateIP" label: "KEY_STATEIP\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\keyboard\bbq10kbd.ads:45:9\n16 bytes (static)" }
+node: { title: "bbq10kbd__kbd_statusIP" label: "KBD_STATUSIP\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\keyboard\bbq10kbd.ads:53:9\n16 bytes (static)" }
+node: { title: "bbq10kbd__read" label: "READ\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\keyboard\bbq10kbd.adb:41:4\n64 bytes (static)" }
+node: { title: "__indirect_call" label: "Indirect Call Placeholder" shape : ellipse }
+edge: { sourcename: "bbq10kbd__read" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\keyboard\bbq10kbd.adb:47:16" }
+edge: { sourcename: "bbq10kbd__read" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\keyboard\bbq10kbd.adb:53:10" }
+node: { title: "bbq10kbd__write" label: "WRITE\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\keyboard\bbq10kbd.adb:61:4\n64 bytes (static)" }
+edge: { sourcename: "bbq10kbd__write" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\keyboard\bbq10kbd.adb:67:16" }
+edge: { sourcename: "bbq10kbd__write" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\keyboard\bbq10kbd.adb:73:10" }
+node: { title: "bbq10kbd__version" label: "VERSION\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\keyboard\bbq10kbd.adb:81:4\n24 bytes (static)" }
+edge: { sourcename: "bbq10kbd__version" targetname: "bbq10kbd__read" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\keyboard\bbq10kbd.adb:84:11" }
+node: { title: "bbq10kbd__key_fifo_pop" label: "KEY_FIFO_POP\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\keyboard\bbq10kbd.adb:92:4\n32 bytes (static)" }
+edge: { sourcename: "bbq10kbd__key_fifo_pop" targetname: "bbq10kbd__read" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\keyboard\bbq10kbd.adb:95:11" }
+node: { title: "bbq10kbd__status" label: "STATUS\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\keyboard\bbq10kbd.adb:112:4\n32 bytes (static)" }
+edge: { sourcename: "bbq10kbd__status" targetname: "bbq10kbd__read" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\keyboard\bbq10kbd.adb:116:11" }
+edge: { sourcename: "bbq10kbd__status" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\keyboard\bbq10kbd.adb:121:37" }
+node: { title: "bbq10kbd__set_backlight" label: "SET_BACKLIGHT\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\keyboard\bbq10kbd.adb:129:4\n24 bytes (static)" }
+edge: { sourcename: "bbq10kbd__set_backlight" targetname: "bbq10kbd__write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\keyboard\bbq10kbd.adb:131:11" }
+}

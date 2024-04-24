@@ -1,0 +1,17 @@
+graph: { title: "C:\Users\JumpStart\Desktop\lehre\asyd\dev\Ada_Drivers_Library-master\arch\ARM\Nordic\svd\nrf51\nrf_svd-adc.ads"
+node: { title: "nrf_svd__adc__config_inpsel_fieldRP" label: "CONFIG_INPSEL_FIELDRP\nC:\Users\JumpStart\Desktop\lehre\asyd\dev\Ada_Drivers_Library-master\arch\ARM\Nordic\svd\nrf51\nrf_svd-adc.ads:188:9\n16 bytes (static)" }
+node: { title: "nrf_svd__adc__config_psel_fieldRP" label: "CONFIG_PSEL_FIELDRP\nC:\Users\JumpStart\Desktop\lehre\asyd\dev\Ada_Drivers_Library-master\arch\ARM\Nordic\svd\nrf51\nrf_svd-adc.ads:230:9\n16 bytes (static)" }
+node: { title: "nrf_svd__adc__intenset_registerIP" label: "INTENSET_REGISTERIP\nC:\Users\JumpStart\Desktop\lehre\asyd\dev\Ada_Drivers_Library-master\arch\ARM\Nordic\svd\nrf51\nrf_svd-adc.ads:69:9\n16 bytes (static)" }
+node: { title: "nrf_svd__adc__intenclr_registerIP" label: "INTENCLR_REGISTERIP\nC:\Users\JumpStart\Desktop\lehre\asyd\dev\Ada_Drivers_Library-master\arch\ARM\Nordic\svd\nrf51\nrf_svd-adc.ads:106:9\n16 bytes (static)" }
+node: { title: "nrf_svd__adc__busy_registerIP" label: "BUSY_REGISTERIP\nC:\Users\JumpStart\Desktop\lehre\asyd\dev\Ada_Drivers_Library-master\arch\ARM\Nordic\svd\nrf51\nrf_svd-adc.ads:132:9\n16 bytes (static)" }
+node: { title: "nrf_svd__adc__enable_registerIP" label: "ENABLE_REGISTERIP\nC:\Users\JumpStart\Desktop\lehre\asyd\dev\Ada_Drivers_Library-master\arch\ARM\Nordic\svd\nrf51\nrf_svd-adc.ads:159:9\n16 bytes (static)" }
+node: { title: "nrf_svd__adc__config_registerIP" label: "CONFIG_REGISTERIP\nC:\Users\JumpStart\Desktop\lehre\asyd\dev\Ada_Drivers_Library-master\arch\ARM\Nordic\svd\nrf51\nrf_svd-adc.ads:276:9\n16 bytes (static)" }
+node: { title: "nrf_svd__adc__result_registerIP" label: "RESULT_REGISTERIP\nC:\Users\JumpStart\Desktop\lehre\asyd\dev\Ada_Drivers_Library-master\arch\ARM\Nordic\svd\nrf51\nrf_svd-adc.ads:309:9\n16 bytes (static)" }
+node: { title: "nrf_svd__adc__power_registerIP" label: "POWER_REGISTERIP\nC:\Users\JumpStart\Desktop\lehre\asyd\dev\Ada_Drivers_Library-master\arch\ARM\Nordic\svd\nrf51\nrf_svd-adc.ads:335:9\n16 bytes (static)" }
+node: { title: "nrf_svd__adc__adc_peripheralIP" label: "ADC_PERIPHERALIP\nC:\Users\JumpStart\Desktop\lehre\asyd\dev\Ada_Drivers_Library-master\arch\ARM\Nordic\svd\nrf51\nrf_svd-adc.ads:354:9\n16 bytes (static)" }
+edge: { sourcename: "nrf_svd__adc__adc_peripheralIP" targetname: "nrf_svd__adc__intenset_registerIP" label: "C:\Users\JumpStart\Desktop\lehre\asyd\dev\Ada_Drivers_Library-master\arch\ARM\Nordic\svd\nrf51\nrf_svd-adc.ads:362:7" }
+edge: { sourcename: "nrf_svd__adc__adc_peripheralIP" targetname: "nrf_svd__adc__intenclr_registerIP" label: "C:\Users\JumpStart\Desktop\lehre\asyd\dev\Ada_Drivers_Library-master\arch\ARM\Nordic\svd\nrf51\nrf_svd-adc.ads:364:7" }
+edge: { sourcename: "nrf_svd__adc__adc_peripheralIP" targetname: "nrf_svd__adc__enable_registerIP" label: "C:\Users\JumpStart\Desktop\lehre\asyd\dev\Ada_Drivers_Library-master\arch\ARM\Nordic\svd\nrf51\nrf_svd-adc.ads:368:7" }
+edge: { sourcename: "nrf_svd__adc__adc_peripheralIP" targetname: "nrf_svd__adc__config_registerIP" label: "C:\Users\JumpStart\Desktop\lehre\asyd\dev\Ada_Drivers_Library-master\arch\ARM\Nordic\svd\nrf51\nrf_svd-adc.ads:370:7" }
+edge: { sourcename: "nrf_svd__adc__adc_peripheralIP" targetname: "nrf_svd__adc__power_registerIP" label: "C:\Users\JumpStart\Desktop\lehre\asyd\dev\Ada_Drivers_Library-master\arch\ARM\Nordic\svd\nrf51\nrf_svd-adc.ads:374:7" }
+}

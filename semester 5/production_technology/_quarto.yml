@@ -1,0 +1,78 @@
+# [PROJECT CONFIGURATION] -------------------------------------------------------------
+# Settings for the project itself such as output folder, title, render queue, etc.
+project:
+  output-dir: output
+  render: 
+    - main_documentation.qmd
+  title: "Conveyor Belt 3000"
+  preview:
+    port: 6064
+    browser: true
+    watch-inputs: true
+
+# [DOCUMENT CONFIGURATION] ------------------------------------------------------------
+# Settings such as author name, language, date, size, toc, etc.
+title: "This is a title for this industry thesis"
+subtitle: "Industry Thesis Spring 2024"
+
+author-title: "Author"
+author:
+  - "Joel von Rotz"
+
+supervisor-title: "Supervisor"
+supervisor:
+  - "Matthias König"
+  - "Levin Rocco Wulf Zoe Leif Nadolski"
+
+
+university: "Syddansk Universitet, Sønderborg"
+
+lang: en-UK
+date: now
+date-format: "DD.MM.YYYY"
+
+# BIBLIOGRAPHY
+bibliography: "bibliography.bib"
+cite-method: biblatex
+biblio-style: ieee
+
+# TOC
+toc: true
+toc-depth: 3
+number-sections: true
+
+pagenumbering: none # since a selfmade solution is used
+papersize: a4
+fontsize: 10pt
+
+geometry:
+- "top=30mm"
+- "bottom=30mm"
+- "left=25mm"
+- "right=25mm"
+
+# tries to place the picture where you define it and center it
+fig-pos: H
+fig-align: center
+  
+# CODE BLOCKS
+# this configures code blocks to have a coloured background and no border
+code-block-bg: "#f7f7f7"
+code-line-numbers: true
+highlight-style: github
+
+# [OUTPUT CONFIGURATION] --------------------------------------------------------------
+format:
+  pdf:
+    keep-tex: false # enable to keep the final tex file, which can be shared with Latex Users
+    pdf-engine: pdflatex
+    documentclass: article
+    include-in-header:
+      - config/config.tex
+    template-partials:
+      - config/before-body.tex
+
+source:
+  github:
+    title: "Quelldateien" 
+    link: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"

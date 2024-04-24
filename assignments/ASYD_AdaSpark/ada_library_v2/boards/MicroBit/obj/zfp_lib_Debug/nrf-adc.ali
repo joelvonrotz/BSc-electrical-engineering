@@ -1,0 +1,198 @@
+V "GNAT Lib v2020"
+A -O0
+A -gnatA
+A --RTS=C:\gnat\2020-arm-elf\arm-eabi\lib\gnat\zfp-cortex-m4f\
+A -mlittle-endian
+A -mthumb
+A -mfloat-abi=hard
+A -mcpu=cortex-m4
+A -mfpu=fpv4-sp-d16
+A -gnata
+A -fcallgraph-info=su
+A -fcallgraph-info=su
+A -g
+A -gnatwa
+A -gnatw_A
+A -gnatQ
+A -gnatw.X
+A -ffunction-sections
+A -fdata-sections
+A -march=armv7e-m+fp
+P ZX
+
+RN
+RV NO_IMPLEMENTATION_PRAGMAS
+
+U nrf.adc%b		nrf-adc.adb		c36feac3 NE OO PK
+Z interfaces%s		interfac.ads		interfac.ali
+W nrf%s			nrf.ads			nrf.ali
+W nrf.tasks%s		nrf-tasks.adb		nrf-tasks.ali
+W nrf_svd%s		nrf_svd.ads		nrf_svd.ali
+W nrf_svd.saadc%s	nrf_svd-saadc.ads	nrf_svd-saadc.ali
+W system%s		system.ads		system.ali
+W system.storage_elements%s  s-stoele.adb	s-stoele.ali
+
+U nrf.adc%s		nrf-adc.ads		d51dedb5 EE NE OO PK
+W hal%s			hal.ads			hal.ali
+W nrf%s			nrf.ads			nrf.ali
+
+D ada.ads		20200819171400 76789da1 ada%s
+D a-unccon.ads		20200819171400 0e9b276f ada.unchecked_conversion%s
+D hal.ads		20210108111948 2b42c80e hal%s
+D interfac.ads		20200819171400 5ab55268 interfaces%s
+D nrf.ads		20210108111948 74cf72f5 nrf%s
+D nrf-adc.ads		20210308134636 8a90574e nrf.adc%s
+D nrf-adc.adb		20210308143208 699fa5e2 nrf.adc%b
+D nrf-tasks.ads		20210108111948 09634c55 nrf.tasks%s
+D nrf_svd.ads		20210306183508 87ba21d7 nrf_svd%s
+D nrf_svd-aar.ads	20210108111948 073faf5e nrf_svd.aar%s
+D nrf_svd-ccm.ads	20210108111948 989bbb45 nrf_svd.ccm%s
+D nrf_svd-clock.ads	20210108111948 15406ae2 nrf_svd.clock%s
+D nrf_svd-ecb.ads	20210108111948 ba523825 nrf_svd.ecb%s
+D nrf_svd-gpiote.ads	20210108111948 217045a9 nrf_svd.gpiote%s
+D nrf_svd-power.ads	20210108111948 74fd31ae nrf_svd.power%s
+D nrf_svd-ppi.ads	20210108111948 0b0cc824 nrf_svd.ppi%s
+D nrf_svd-qdec.ads	20210108111948 1e95ab7b nrf_svd.qdec%s
+D nrf_svd-radio.ads	20210108111948 2c6bda9d nrf_svd.radio%s
+D nrf_svd-rng.ads	20210108111948 a4e37bcd nrf_svd.rng%s
+D nrf_svd-rtc.ads	20210108111948 57c7ffc8 nrf_svd.rtc%s
+D nrf_svd-saadc.ads	20210308120756 04c01e3e nrf_svd.saadc%s
+D nrf_svd-temp.ads	20210108111948 1ebb92fa nrf_svd.temp%s
+D nrf_svd-timer.ads	20210108111948 ba50db1c nrf_svd.timer%s
+D nrf_svd-twi.ads	20210306201806 68301534 nrf_svd.twi%s
+D nrf_svd-uart.ads	20210108111948 83bcebc8 nrf_svd.uart%s
+D nrf_svd-wdt.ads	20210108111948 c89e1b05 nrf_svd.wdt%s
+D system.ads		20200819171400 e69b74bd system%s
+D s-stoele.ads		20200819171400 2dc34a04 system.storage_elements%s
+D s-stoele.adb		20200819171400 ed88f8fb system.storage_elements%b
+D s-unstyp.ads		20200819171400 5ecf7212 system.unsigned_types%s
+G a e
+G c Z s b [do_pin_conversion nrf__adc 49 13 none]
+G c Z s b [do_vdd_conversion nrf__adc 55 13 none]
+G c Z s b [busy nrf__adc 60 13 none]
+G c Z b b [set_resolution nrf__adc 40 14 none]
+G c Z b b [set_reference nrf__adc 41 14 none]
+G c Z b b [wait_for_result nrf__adc 42 14 none]
+G r c none [do_pin_conversion nrf__adc 49 13 none] [trigger nrf__tasks 54 14 none]
+G r c none [do_vdd_conversion nrf__adc 55 13 none] [trigger nrf__tasks 54 14 none]
+X 3 hal.ads
+34K9*HAL 166e8 6|34w6 34r15
+64M9*UInt15
+66M9*UInt16<4|66M9> 6|53r39 58r39 7|80r39 82r16 143r39 145r16
+97M9*UInt32<4|74M9> 7|88r34 151r34
+X 4 interfac.ads
+66M9*Unsigned_16
+74M9*Unsigned_32
+X 5 nrf.ads
+34K9*nRF 43e8 6|36r9 62r5 7|35r6 35r23 38r14 187r5
+38M9*Task_Type<27|90M9>
+X 6 nrf-adc.ads
+36K13*ADC 5|34k9 6|62l9 62e12 7|38b18 187l9 187t12
+38E9*Bits_Resolution 38e60 53r15 58r15 7|40r36 48r36 80r15 143r15
+38n29*Res_8bit{38E9} 7|53r18
+38n39*Res_10bit{38E9} 7|54r18
+38n50*Res_12bit{38E9} 7|55r18
+40I9*Analog_Pin<short_short_integer> 50r15 7|77r15
+42E9*Pin_Input_Selection 44e47 51r15 7|78r15
+42n33*Pin_Quadruple{42E9} 7|92r15
+42n48*Pin_Double{42E9} 7|94r15
+42n60*Pin_Full{42E9} 7|96r15
+42n70*Pin_Half{42E9} 7|98r15
+43n33*Pin_One_Third{42E9} 7|100r15
+43n48*Pin_One_Forth{42E9} 7|102r15
+43n63*Pin_One_Fifth{42E9} 7|104r15
+44n33*Pin_One_Sixth{42E9} 7|106r15
+45E9*VDD_Input_Selection 45e62 56r15 7|141r15
+45n33*VDD_One_Fifth{45E9} 7|155r15
+45n48*VDD_One_Sixth{45E9} 7|157r15
+47E9*Reference_Selection 47e61 52r15 57r15 7|41r35 62r35 79r15 142r15
+47n33*Internal_0V6{47E9} 7|65r15
+47n47*VDD_One_Forth{47E9} 7|67r15
+49V13*Do_Pin_Conversion{3|66M9} 50>7 51>7 52>7 53>7 7|76b13 134l8 134t25
+50i7 Pin{40I9} 7|77b7 110r12
+51e7 Input{42E9} 7|78b7 91r12
+52e7 Ref{47E9} 7|79b7 85r22
+53e7 Res{38E9} 7|80b7 84r23
+55V13*Do_VDD_Conversion{3|66M9} 56>7 57>7 58>7 7|140b13 166l8 166t25
+56e7 Input{45E9} 7|141b7 154r12
+57e7 Ref{47E9} 7|142b7 148r22
+58e7 Res{38E9} 7|143b7 147r23
+60V13*Busy{boolean} 7|172b13 181s13
+X 7 nrf-adc.adb
+40U14 Set_Resolution 40>30 48b14 56l8 56t22 84s7 147s7
+40e30 Res{6|38E9} 48b30 52r15
+41U14 Set_Reference 41>29 62b14 70l8 70t21 85s7 148s7
+41e29 Ref{6|47E9} 62b29 64r12
+42U14 Wait_For_Result 132s7 164s7 179b14 185l8 185t23
+82m7 Result{3|66M9} 87m7 88m78 88r78 133r14
+145m7 Result{3|66M9} 151m78 151r78 165r14
+X 8 nrf-tasks.ads
+52K13*Tasks 7|35w10 35r27 8|424e14
+54U14*Trigger 7|131s7 163s10
+192m4*ADC_START{5|38M9} 7|131r16 163r19
+X 9 nrf_svd.ads
+49K9*NRF_SVD 7|34r6 34r25 9|123e12
+X 21 nrf_svd-saadc.ads
+48K17*SAADC 7|34w14 34r33 21|2184e18
+1567n7*Busy{1563E9} 7|173r37
+1576e7*STATUS{1563E9} 7|173r28
+1591n7*Disabled{1589E9} 7|184r37
+1593n7*Enabled{1589E9} 7|129r37 161r37
+1602e7*ENABLE{1589E9} 7|129m27 161m27 184m27
+1623n7*Analoginput0{1619E9} 7|112r48
+1625n7*Analoginput1{1619E9} 7|114r48
+1627n7*Analoginput2{1619E9} 7|116r48
+1629n7*Analoginput3{1619E9} 7|118r48
+1631n7*Analoginput4{1619E9} 7|120r48
+1633n7*Analoginput5{1619E9} 7|122r48
+1635n7*Analoginput6{1619E9} 7|124r48
+1637n7*Analoginput7{1619E9} 7|126r48
+1639n7*Vdd{1619E9} 7|150r42
+1656e7*PSELP{1619E9} 7|112m39 114m39 116m39 118m39 120m39 122m39 124m39 126m39
+. 150m33
+1755n7*Gain1_6{1753E9} 7|107r48 158r48
+1757n7*Gain1_5{1753E9} 7|105r48 156r48
+1759n7*Gain1_4{1753E9} 7|103r48
+1761n7*Gain1_3{1753E9} 7|101r48
+1763n7*Gain1_2{1753E9} 7|99r48
+1765n7*Gain1{1753E9} 7|97r48
+1767n7*Gain2{1753E9} 7|95r48
+1769n7*Gain4{1753E9} 7|93r48
+1784n7*Internal{1782E9} 7|66r50
+1786n7*Vdd1_4{1782E9} 7|68r50
+1849e7*GAIN{1753E9} 7|93m40 95m40 97m40 99m40 101m40 103m40 105m40 107m40
+. 156m40 158m40
+1853e7*REFSEL{1782E9} 7|66m40 68m40
+1910r7*PSELP{1654R9} 7|112m33 114m33 116m33 118m33 120m33 122m33 124m33 126m33
+. 150m27
+1914r7*CONFIG{1839R9} 7|66m33 68m33 93m33 95m33 97m33 99m33 101m33 103m33
+. 105m33 107m33 156m33 158m33
+1929A9*CH_Clusters(1908R9)<integer>
+1934n7*Val_8BIT{1932E9} 7|53r31
+1936n7*Val_10BIT{1932E9} 7|54r31
+1938n7*Val_12BIT{1932E9} 7|55r31
+1951e7*VAL{1932E9} 7|51m31
+2050M12*MAXCNT_RESULT_MAXCNT_Field{3|64M9}
+2055m7*MAXCNT{2050M12} 7|89m34 152m34
+2088m7*PTR{3|97M9} 7|88m27 151m27
+2090r7*MAXCNT{2053R9} 7|89m27 152m27
+2111m7*TASKS_SAMPLE{3|97M9} 7|130m20 162m20
+2138r7*STATUS{1574R9} 7|173r21
+2140r7*ENABLE{1600R9} 7|129m20 161m20 184m20
+2142a7*CH{1929A9} 7|66m26 68m26 93m26 95m26 97m26 99m26 101m26 103m26 105m26
+. 107m26 112m26 114m26 116m26 118m26 120m26 122m26 124m26 126m26 150m20 156m26
+. 158m26
+2144r7*RESOLUTION{1949R9} 7|51m20
+2152r7*RESULT{2086R9} 7|88m20 89m20 151m20 152m20
+2181r4*SAADC_Periph{2107R9} 7|51m7 66m13 68m13 88m7 89m7 93m13 95m13 97m13
+. 99m13 101m13 103m13 105m13 107m13 112m13 114m13 116m13 118m13 120m13 122m13
+. 124m13 126m13 129m7 130m7 150m7 151m7 152m7 156m13 158m13 161m7 162m7 173r8
+. 184m7
+X 27 system.ads
+60K9*System 7|36r6 88r42 151r42 27|172e11
+90M9*Address
+X 28 s-stoele.ads
+42K16*Storage_Elements 7|36w13 88r49 151r49 28|117e28
+105M9*Integer_Address
+112V13*To_Integer{105M9} 7|88s66 151s66
+

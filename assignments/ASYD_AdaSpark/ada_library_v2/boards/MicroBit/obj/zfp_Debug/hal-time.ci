@@ -1,0 +1,10 @@
+graph: { title: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\hal\src\hal-time.ads"
+class {
+  classname: "hal__time__delays"
+  label: "hal__time__delays\hal-time.ads:34:9"
+  virtuals: "1:hal__time__delay_microseconds\n
+             2:hal__time__delay_milliseconds\n
+             3:hal__time__delay_seconds\n
+             -1:hal__time___size"
+}
+}

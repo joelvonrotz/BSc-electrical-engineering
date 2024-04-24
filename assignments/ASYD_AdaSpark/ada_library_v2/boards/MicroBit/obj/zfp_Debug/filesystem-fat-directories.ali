@@ -1,0 +1,646 @@
+V "GNAT Lib v2020"
+A -O0
+A -gnatA
+A --RTS=C:\gnat\2020-arm-elf\arm-eabi\lib\gnat\zfp-cortex-m4f\
+A -mlittle-endian
+A -mthumb
+A -mfloat-abi=hard
+A -mcpu=cortex-m4
+A -mfpu=fpv4-sp-d16
+A -gnata
+A -fcallgraph-info=su
+A -fcallgraph-info=su
+A -g
+A -gnatwa
+A -gnatw_A
+A -gnatQ
+A -gnatw.X
+A -ffunction-sections
+A -fdata-sections
+A -march=armv7e-m+fp
+P SS ZX
+
+RN
+RV NO_IMPLICIT_CONDITIONALS
+RV NO_RECURSION
+RV NO_SECONDARY_STACK
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_UNCHECKED_ACCESS
+RV NO_UNCHECKED_CONVERSION
+RV NO_DEFAULT_INITIALIZATION
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_ATTRIBUTES
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLICIT_LOOPS
+RV NO_OBSOLESCENT_FEATURES
+
+U filesystem.fat.directories%b  filesystem-fat-directories.adb  d3270db6 NE OO PK
+W ada%s			ada.ads			ada.ali
+Z ada.tags%s		a-tags.adb		a-tags.ali
+W ada.unchecked_conversion%s
+W filesystem.fat%s	filesystem-fat.adb	filesystem-fat.ali
+Z interfaces%s		interfac.ads		interfac.ali
+Z system.assertions%s	s-assert.adb		s-assert.ali
+Z system.img_int%s	s-imgint.adb		s-imgint.ali
+Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+
+U filesystem.fat.directories%s  filesystem-fat-directories.ads  a2886de6 EE NE OO PK
+W filesystem.fat%s	filesystem-fat.adb	filesystem-fat.ali
+
+D ada.ads		20200819171400 76789da1 ada%s
+D a-tags.ads		20200819171400 95e09aae ada.tags%s
+D a-unccon.ads		20200819171400 0e9b276f ada.unchecked_conversion%s
+D adl_config.ads	20210108111948 5d2c18e5 adl_config%s
+D filesystem.ads	20210108111948 1cee6e44 filesystem%s
+D filesystem-fat.ads	20210108111948 2716ee82 filesystem.fat%s
+D filesystem-fat-directories.ads  20210108111948 859e8364 filesystem.fat.directories%s
+D filesystem-fat-directories.adb  20210108111948 5822a9bd filesystem.fat.directories%b
+D hal.ads		20210108111948 2b42c80e hal%s
+D hal-block_drivers.ads	20210108111948 3a6f071f hal.block_drivers%s
+D hal-filesystem.ads	20210108111948 6998b52b hal.filesystem%s
+D interfac.ads		20200819171400 5ab55268 interfaces%s
+D system.ads		20200819171400 e69b74bd system%s
+D s-assert.ads		20200819171400 cd8d2c94 system.assertions%s
+D s-imgint.ads		20200819171400 02dbe0c2 system.img_int%s
+D s-parame.ads		20200819171400 fe66c50d system.parameters%s
+D s-secsta.ads		20200819171400 56a2861c system.secondary_stack%s
+D s-stoele.ads		20200819171400 2dc34a04 system.storage_elements%s
+G a e
+G c Z s b [find filesystem__fat__directories 39 13 none]
+G c Z s b [find filesystem__fat__directories 44 13 none]
+G c Z s b [root_entry filesystem__fat__directories 50 13 none]
+G c Z s b [read filesystem__fat__directories 52 13 none]
+G c Z s b [next_entry filesystem__fat__directories 56 13 none]
+G c Z s b [next_entry filesystem__fat__directories 63 13 none]
+G c Z s b [create_subdir filesystem__fat__directories 74 13 none]
+G c Z s b [create_file_node filesystem__fat__directories 79 13 none]
+G c Z s b [delete_subdir filesystem__fat__directories 84 13 none]
+G c Z s b [delete_entry filesystem__fat__directories 88 13 none]
+G c Z s b [adjust_clusters filesystem__fat__directories 93 13 none]
+G c Z s b [set_size filesystem__fat__directories 101 14 none]
+G c Z s b [update_entry filesystem__fat__directories 105 13 none]
+G c Z s b [allocate_entry filesystem__fat__directories 113 13 none]
+G c Z b b [to_data filesystem__fat__directories 42 13 none]
+G c Z b b [to_data filesystem__fat__directories 44 13 none]
+G c Z b b [find_empty_entry_sequence filesystem__fat__directories 47 13 none]
+G r s fat_name [find filesystem__fat__directories 39 13 none] [fat_nameIP filesystem__fat 224 9 none]
+G r s fat_node [find filesystem__fat__directories 39 13 none] [fat_nodeIP filesystem__fat 456 9 none]
+G r c none [find filesystem__fat__directories 39 13 none] [version filesystem__fat 153 13 none]
+G r c none [find filesystem__fat__directories 39 13 none] [root_dir_cluster filesystem__fat 201 13 none]
+G r c none [find filesystem__fat__directories 39 13 none] [is_subdirectory filesystem__fat 105 24 none]
+G r c none [find filesystem__fat__directories 39 13 none] [cluster_to_block filesystem__fat 328 13 none]
+G r s vfat_directory_entry [find filesystem__fat__directories 39 13 none] [vfat_directory_entryIP filesystem__fat 596 9 none]
+G r c none [find filesystem__fat__directories 39 13 none] [block_size filesystem__fat 185 13 none]
+G r c none [find filesystem__fat__directories 39 13 none] [blocks_per_cluster filesystem__fat 187 13 none]
+G r c none [find filesystem__fat__directories 39 13 none] [get_fat filesystem__fat 337 13 none]
+G r c none [find filesystem__fat__directories 39 13 none] [is_last_cluster filesystem__fat 357 13 none]
+G r c none [find filesystem__fat__directories 39 13 none] [fat16_root_dir_num_entries filesystem__fat 203 13 none]
+G r c none [find filesystem__fat__directories 39 13 none] [ensure_block filesystem__fat 318 13 none]
+G r c none [find filesystem__fat__directories 39 13 none] [Osubtract filesystem__fat 71 13 none]
+G r c none [find filesystem__fat__directories 39 13 none] [short_name filesystem__fat 99 13 none]
+G r c none [find filesystem__fat__directories 39 13 none] [Oeq filesystem__fat 74 24 none]
+G r c none [find filesystem__fat__directories 39 13 none] [long_name filesystem__fat 98 13 none]
+G r c none [find filesystem__fat__directories 44 13 none] [is_subdirectory filesystem__fat 105 24 none]
+G r c none [find filesystem__fat__directories 44 13 none] [cluster_to_block filesystem__fat 328 13 none]
+G r s vfat_directory_entry [find filesystem__fat__directories 44 13 none] [vfat_directory_entryIP filesystem__fat 596 9 none]
+G r c none [find filesystem__fat__directories 44 13 none] [version filesystem__fat 153 13 none]
+G r c none [find filesystem__fat__directories 44 13 none] [block_size filesystem__fat 185 13 none]
+G r c none [find filesystem__fat__directories 44 13 none] [blocks_per_cluster filesystem__fat 187 13 none]
+G r c none [find filesystem__fat__directories 44 13 none] [get_fat filesystem__fat 337 13 none]
+G r c none [find filesystem__fat__directories 44 13 none] [is_last_cluster filesystem__fat 357 13 none]
+G r c none [find filesystem__fat__directories 44 13 none] [fat16_root_dir_num_entries filesystem__fat 203 13 none]
+G r c none [find filesystem__fat__directories 44 13 none] [ensure_block filesystem__fat 318 13 none]
+G r s fat_name [find filesystem__fat__directories 44 13 none] [fat_nameIP filesystem__fat 224 9 none]
+G r c none [find filesystem__fat__directories 44 13 none] [Osubtract filesystem__fat 71 13 none]
+G r c none [find filesystem__fat__directories 44 13 none] [short_name filesystem__fat 99 13 none]
+G r c none [find filesystem__fat__directories 44 13 none] [Oeq filesystem__fat 74 24 none]
+G r c none [find filesystem__fat__directories 44 13 none] [long_name filesystem__fat 98 13 none]
+G r s fat_node [root_entry filesystem__fat__directories 50 13 none] [fat_nodeIP filesystem__fat 456 9 none]
+G r c none [root_entry filesystem__fat__directories 50 13 none] [version filesystem__fat 153 13 none]
+G r c none [root_entry filesystem__fat__directories 50 13 none] [root_dir_cluster filesystem__fat 201 13 none]
+G r s vfat_directory_entry [read filesystem__fat__directories 52 13 none] [vfat_directory_entryIP filesystem__fat 596 9 none]
+G r c none [read filesystem__fat__directories 52 13 none] [version filesystem__fat 153 13 none]
+G r c none [read filesystem__fat__directories 52 13 none] [block_size filesystem__fat 185 13 none]
+G r c none [read filesystem__fat__directories 52 13 none] [cluster_to_block filesystem__fat 328 13 none]
+G r c none [read filesystem__fat__directories 52 13 none] [blocks_per_cluster filesystem__fat 187 13 none]
+G r c none [read filesystem__fat__directories 52 13 none] [get_fat filesystem__fat 337 13 none]
+G r c none [read filesystem__fat__directories 52 13 none] [is_last_cluster filesystem__fat 357 13 none]
+G r c none [read filesystem__fat__directories 52 13 none] [fat16_root_dir_num_entries filesystem__fat 203 13 none]
+G r c none [read filesystem__fat__directories 52 13 none] [ensure_block filesystem__fat 318 13 none]
+G r s fat_name [read filesystem__fat__directories 52 13 none] [fat_nameIP filesystem__fat 224 9 none]
+G r c none [read filesystem__fat__directories 52 13 none] [Osubtract filesystem__fat 71 13 none]
+G r c none [next_entry filesystem__fat__directories 56 13 none] [version filesystem__fat 153 13 none]
+G r c none [next_entry filesystem__fat__directories 56 13 none] [block_size filesystem__fat 185 13 none]
+G r c none [next_entry filesystem__fat__directories 56 13 none] [cluster_to_block filesystem__fat 328 13 none]
+G r c none [next_entry filesystem__fat__directories 56 13 none] [blocks_per_cluster filesystem__fat 187 13 none]
+G r c none [next_entry filesystem__fat__directories 56 13 none] [get_fat filesystem__fat 337 13 none]
+G r c none [next_entry filesystem__fat__directories 56 13 none] [is_last_cluster filesystem__fat 357 13 none]
+G r c none [next_entry filesystem__fat__directories 56 13 none] [fat16_root_dir_num_entries filesystem__fat 203 13 none]
+G r c none [next_entry filesystem__fat__directories 56 13 none] [ensure_block filesystem__fat 318 13 none]
+G r s vfat_directory_entry [next_entry filesystem__fat__directories 63 13 none] [vfat_directory_entryIP filesystem__fat 596 9 none]
+G r c none [next_entry filesystem__fat__directories 63 13 none] [version filesystem__fat 153 13 none]
+G r c none [next_entry filesystem__fat__directories 63 13 none] [block_size filesystem__fat 185 13 none]
+G r c none [next_entry filesystem__fat__directories 63 13 none] [cluster_to_block filesystem__fat 328 13 none]
+G r c none [next_entry filesystem__fat__directories 63 13 none] [blocks_per_cluster filesystem__fat 187 13 none]
+G r c none [next_entry filesystem__fat__directories 63 13 none] [get_fat filesystem__fat 337 13 none]
+G r c none [next_entry filesystem__fat__directories 63 13 none] [is_last_cluster filesystem__fat 357 13 none]
+G r c none [next_entry filesystem__fat__directories 63 13 none] [fat16_root_dir_num_entries filesystem__fat 203 13 none]
+G r c none [next_entry filesystem__fat__directories 63 13 none] [ensure_block filesystem__fat 318 13 none]
+G r s fat_name [next_entry filesystem__fat__directories 63 13 none] [fat_nameIP filesystem__fat 224 9 none]
+G r c none [next_entry filesystem__fat__directories 63 13 none] [Osubtract filesystem__fat 71 13 none]
+G r c none [create_subdir filesystem__fat__directories 74 13 none] [fat_open filesystem__fat 442 13 none]
+G r s fat_node [create_subdir filesystem__fat__directories 74 13 none] [fat_nodeIP filesystem__fat 456 9 none]
+G r c none [create_subdir filesystem__fat__directories 74 13 none] [get_num_vfat_entries filesystem__fat 708 13 none]
+G r c none [create_subdir filesystem__fat__directories 74 13 none] [version filesystem__fat 153 13 none]
+G r c none [create_subdir filesystem__fat__directories 74 13 none] [reset filesystem__fat 418 25 none]
+G r s vfat_directory_entry [create_subdir filesystem__fat__directories 74 13 none] [vfat_directory_entryIP filesystem__fat 596 9 none]
+G r c none [create_subdir filesystem__fat__directories 74 13 none] [block_size filesystem__fat 185 13 none]
+G r c none [create_subdir filesystem__fat__directories 74 13 none] [cluster_to_block filesystem__fat 328 13 none]
+G r c none [create_subdir filesystem__fat__directories 74 13 none] [blocks_per_cluster filesystem__fat 187 13 none]
+G r c none [create_subdir filesystem__fat__directories 74 13 none] [get_fat filesystem__fat 337 13 none]
+G r c none [create_subdir filesystem__fat__directories 74 13 none] [is_last_cluster filesystem__fat 357 13 none]
+G r c none [create_subdir filesystem__fat__directories 74 13 none] [fat16_root_dir_num_entries filesystem__fat 203 13 none]
+G r c none [create_subdir filesystem__fat__directories 74 13 none] [ensure_block filesystem__fat 318 13 none]
+G r s fat_name [create_subdir filesystem__fat__directories 74 13 none] [fat_nameIP filesystem__fat 224 9 none]
+G r c none [create_subdir filesystem__fat__directories 74 13 none] [Osubtract filesystem__fat 71 13 none]
+G r c none [create_subdir filesystem__fat__directories 74 13 none] [long_name filesystem__fat 98 13 none]
+G r c none [create_subdir filesystem__fat__directories 74 13 none] [Oeq filesystem__fat 74 24 none]
+G r c none [create_subdir filesystem__fat__directories 74 13 none] [trim filesystem__fat 286 13 none]
+G r c none [create_subdir filesystem__fat__directories 74 13 none] [new_cluster filesystem__fat 387 13 none]
+G r c none [create_subdir filesystem__fat__directories 74 13 none] [write_window filesystem__fat 325 13 none]
+G r c none [create_subdir filesystem__fat__directories 74 13 none] [new_cluster filesystem__fat 390 13 none]
+G r c none [create_subdir filesystem__fat__directories 74 13 none] [close filesystem__fat 420 25 none]
+G r c none [create_file_node filesystem__fat__directories 79 13 none] [fat_open filesystem__fat 442 13 none]
+G r s fat_node [create_file_node filesystem__fat__directories 79 13 none] [fat_nodeIP filesystem__fat 456 9 none]
+G r c none [create_file_node filesystem__fat__directories 79 13 none] [get_num_vfat_entries filesystem__fat 708 13 none]
+G r c none [create_file_node filesystem__fat__directories 79 13 none] [version filesystem__fat 153 13 none]
+G r c none [create_file_node filesystem__fat__directories 79 13 none] [reset filesystem__fat 418 25 none]
+G r s vfat_directory_entry [create_file_node filesystem__fat__directories 79 13 none] [vfat_directory_entryIP filesystem__fat 596 9 none]
+G r c none [create_file_node filesystem__fat__directories 79 13 none] [block_size filesystem__fat 185 13 none]
+G r c none [create_file_node filesystem__fat__directories 79 13 none] [cluster_to_block filesystem__fat 328 13 none]
+G r c none [create_file_node filesystem__fat__directories 79 13 none] [blocks_per_cluster filesystem__fat 187 13 none]
+G r c none [create_file_node filesystem__fat__directories 79 13 none] [get_fat filesystem__fat 337 13 none]
+G r c none [create_file_node filesystem__fat__directories 79 13 none] [is_last_cluster filesystem__fat 357 13 none]
+G r c none [create_file_node filesystem__fat__directories 79 13 none] [fat16_root_dir_num_entries filesystem__fat 203 13 none]
+G r c none [create_file_node filesystem__fat__directories 79 13 none] [ensure_block filesystem__fat 318 13 none]
+G r s fat_name [create_file_node filesystem__fat__directories 79 13 none] [fat_nameIP filesystem__fat 224 9 none]
+G r c none [create_file_node filesystem__fat__directories 79 13 none] [Osubtract filesystem__fat 71 13 none]
+G r c none [create_file_node filesystem__fat__directories 79 13 none] [long_name filesystem__fat 98 13 none]
+G r c none [create_file_node filesystem__fat__directories 79 13 none] [Oeq filesystem__fat 74 24 none]
+G r c none [create_file_node filesystem__fat__directories 79 13 none] [trim filesystem__fat 286 13 none]
+G r c none [create_file_node filesystem__fat__directories 79 13 none] [new_cluster filesystem__fat 387 13 none]
+G r c none [create_file_node filesystem__fat__directories 79 13 none] [write_window filesystem__fat 325 13 none]
+G r c none [create_file_node filesystem__fat__directories 79 13 none] [new_cluster filesystem__fat 390 13 none]
+G r c none [create_file_node filesystem__fat__directories 79 13 none] [close filesystem__fat 420 25 none]
+G r s fat_node [delete_subdir filesystem__fat__directories 84 13 none] [fat_nodeIP filesystem__fat 456 9 none]
+G r c none [delete_subdir filesystem__fat__directories 84 13 none] [fat_open filesystem__fat 442 13 none]
+G r s vfat_directory_entry [delete_subdir filesystem__fat__directories 84 13 none] [vfat_directory_entryIP filesystem__fat 596 9 none]
+G r c none [delete_subdir filesystem__fat__directories 84 13 none] [version filesystem__fat 153 13 none]
+G r c none [delete_subdir filesystem__fat__directories 84 13 none] [block_size filesystem__fat 185 13 none]
+G r c none [delete_subdir filesystem__fat__directories 84 13 none] [cluster_to_block filesystem__fat 328 13 none]
+G r c none [delete_subdir filesystem__fat__directories 84 13 none] [blocks_per_cluster filesystem__fat 187 13 none]
+G r c none [delete_subdir filesystem__fat__directories 84 13 none] [get_fat filesystem__fat 337 13 none]
+G r c none [delete_subdir filesystem__fat__directories 84 13 none] [is_last_cluster filesystem__fat 357 13 none]
+G r c none [delete_subdir filesystem__fat__directories 84 13 none] [fat16_root_dir_num_entries filesystem__fat 203 13 none]
+G r c none [delete_subdir filesystem__fat__directories 84 13 none] [ensure_block filesystem__fat 318 13 none]
+G r s fat_name [delete_subdir filesystem__fat__directories 84 13 none] [fat_nameIP filesystem__fat 224 9 none]
+G r c none [delete_subdir filesystem__fat__directories 84 13 none] [Osubtract filesystem__fat 71 13 none]
+G r c none [delete_subdir filesystem__fat__directories 84 13 none] [long_name filesystem__fat 98 13 none]
+G r c none [delete_subdir filesystem__fat__directories 84 13 none] [Osubtract filesystem__fat 69 13 none]
+G r c none [delete_subdir filesystem__fat__directories 84 13 none] [set_fat filesystem__fat 341 13 none]
+G r c none [delete_subdir filesystem__fat__directories 84 13 none] [Oeq filesystem__fat 74 24 none]
+G r c none [delete_subdir filesystem__fat__directories 84 13 none] [write_window filesystem__fat 325 13 none]
+G r c none [delete_subdir filesystem__fat__directories 84 13 none] [close filesystem__fat 420 25 none]
+G r s fat_node [delete_entry filesystem__fat__directories 88 13 none] [fat_nodeIP filesystem__fat 456 9 none]
+G r c none [delete_entry filesystem__fat__directories 88 13 none] [get_fat filesystem__fat 337 13 none]
+G r c none [delete_entry filesystem__fat__directories 88 13 none] [set_fat filesystem__fat 341 13 none]
+G r c none [delete_entry filesystem__fat__directories 88 13 none] [is_last_cluster filesystem__fat 357 13 none]
+G r c none [delete_entry filesystem__fat__directories 88 13 none] [fat_open filesystem__fat 442 13 none]
+G r s vfat_directory_entry [delete_entry filesystem__fat__directories 88 13 none] [vfat_directory_entryIP filesystem__fat 596 9 none]
+G r c none [delete_entry filesystem__fat__directories 88 13 none] [version filesystem__fat 153 13 none]
+G r c none [delete_entry filesystem__fat__directories 88 13 none] [block_size filesystem__fat 185 13 none]
+G r c none [delete_entry filesystem__fat__directories 88 13 none] [cluster_to_block filesystem__fat 328 13 none]
+G r c none [delete_entry filesystem__fat__directories 88 13 none] [blocks_per_cluster filesystem__fat 187 13 none]
+G r c none [delete_entry filesystem__fat__directories 88 13 none] [fat16_root_dir_num_entries filesystem__fat 203 13 none]
+G r c none [delete_entry filesystem__fat__directories 88 13 none] [ensure_block filesystem__fat 318 13 none]
+G r s fat_name [delete_entry filesystem__fat__directories 88 13 none] [fat_nameIP filesystem__fat 224 9 none]
+G r c none [delete_entry filesystem__fat__directories 88 13 none] [Osubtract filesystem__fat 71 13 none]
+G r c none [delete_entry filesystem__fat__directories 88 13 none] [long_name filesystem__fat 98 13 none]
+G r c none [delete_entry filesystem__fat__directories 88 13 none] [Oeq filesystem__fat 74 24 none]
+G r c none [delete_entry filesystem__fat__directories 88 13 none] [write_window filesystem__fat 325 13 none]
+G r c none [delete_entry filesystem__fat__directories 88 13 none] [close filesystem__fat 420 25 none]
+G r c none [adjust_clusters filesystem__fat__directories 93 13 none] [blocks_per_cluster filesystem__fat 187 13 none]
+G r c none [adjust_clusters filesystem__fat__directories 93 13 none] [block_size filesystem__fat 185 13 none]
+G r c none [adjust_clusters filesystem__fat__directories 93 13 none] [get_fat filesystem__fat 337 13 none]
+G r c none [adjust_clusters filesystem__fat__directories 93 13 none] [set_fat filesystem__fat 341 13 none]
+G r c none [adjust_clusters filesystem__fat__directories 93 13 none] [is_last_cluster filesystem__fat 357 13 none]
+G r c none [update_entry filesystem__fat__directories 105 13 none] [cluster_size filesystem__fat 189 13 none]
+G r c none [update_entry filesystem__fat__directories 105 13 none] [get_fat filesystem__fat 337 13 none]
+G r c none [update_entry filesystem__fat__directories 105 13 none] [block_size filesystem__fat 185 13 none]
+G r c none [update_entry filesystem__fat__directories 105 13 none] [cluster_to_block filesystem__fat 328 13 none]
+G r c none [update_entry filesystem__fat__directories 105 13 none] [ensure_block filesystem__fat 318 13 none]
+G r c none [update_entry filesystem__fat__directories 105 13 none] [write_window filesystem__fat 325 13 none]
+G r s fat_node [allocate_entry filesystem__fat__directories 113 13 none] [fat_nodeIP filesystem__fat 456 9 none]
+G r c none [allocate_entry filesystem__fat__directories 113 13 none] [get_num_vfat_entries filesystem__fat 708 13 none]
+G r c none [allocate_entry filesystem__fat__directories 113 13 none] [version filesystem__fat 153 13 none]
+G r c none [allocate_entry filesystem__fat__directories 113 13 none] [reset filesystem__fat 418 25 none]
+G r s vfat_directory_entry [allocate_entry filesystem__fat__directories 113 13 none] [vfat_directory_entryIP filesystem__fat 596 9 none]
+G r c none [allocate_entry filesystem__fat__directories 113 13 none] [block_size filesystem__fat 185 13 none]
+G r c none [allocate_entry filesystem__fat__directories 113 13 none] [cluster_to_block filesystem__fat 328 13 none]
+G r c none [allocate_entry filesystem__fat__directories 113 13 none] [blocks_per_cluster filesystem__fat 187 13 none]
+G r c none [allocate_entry filesystem__fat__directories 113 13 none] [get_fat filesystem__fat 337 13 none]
+G r c none [allocate_entry filesystem__fat__directories 113 13 none] [is_last_cluster filesystem__fat 357 13 none]
+G r c none [allocate_entry filesystem__fat__directories 113 13 none] [fat16_root_dir_num_entries filesystem__fat 203 13 none]
+G r c none [allocate_entry filesystem__fat__directories 113 13 none] [ensure_block filesystem__fat 318 13 none]
+G r s fat_name [allocate_entry filesystem__fat__directories 113 13 none] [fat_nameIP filesystem__fat 224 9 none]
+G r c none [allocate_entry filesystem__fat__directories 113 13 none] [Osubtract filesystem__fat 71 13 none]
+G r c none [allocate_entry filesystem__fat__directories 113 13 none] [long_name filesystem__fat 98 13 none]
+G r c none [allocate_entry filesystem__fat__directories 113 13 none] [Oeq filesystem__fat 74 24 none]
+G r c none [allocate_entry filesystem__fat__directories 113 13 none] [trim filesystem__fat 286 13 none]
+G r c none [allocate_entry filesystem__fat__directories 113 13 none] [new_cluster filesystem__fat 387 13 none]
+G r c none [allocate_entry filesystem__fat__directories 113 13 none] [write_window filesystem__fat 325 13 none]
+G r c none [allocate_entry filesystem__fat__directories 113 13 none] [new_cluster filesystem__fat 390 13 none]
+G r c none [find_empty_entry_sequence filesystem__fat__directories 47 13 none] [cluster_to_block filesystem__fat 328 13 none]
+G r c none [find_empty_entry_sequence filesystem__fat__directories 47 13 none] [version filesystem__fat 153 13 none]
+G r c none [find_empty_entry_sequence filesystem__fat__directories 47 13 none] [block_size filesystem__fat 185 13 none]
+G r c none [find_empty_entry_sequence filesystem__fat__directories 47 13 none] [blocks_per_cluster filesystem__fat 187 13 none]
+G r c none [find_empty_entry_sequence filesystem__fat__directories 47 13 none] [get_fat filesystem__fat 337 13 none]
+G r c none [find_empty_entry_sequence filesystem__fat__directories 47 13 none] [is_last_cluster filesystem__fat 357 13 none]
+G r c none [find_empty_entry_sequence filesystem__fat__directories 47 13 none] [fat16_root_dir_num_entries filesystem__fat 203 13 none]
+G r c none [find_empty_entry_sequence filesystem__fat__directories 47 13 none] [ensure_block filesystem__fat 318 13 none]
+X 1 ada.ads
+16K9*Ada 20e8 8|37r6 42r28 44r28 165r9 167r9 244r32 372r37
+X 3 a-unccon.ads
+20v14*Unchecked_Conversion 8|37w10 42r32 44r32 165r13 167r13 244r36 372r41
+X 5 filesystem.ads
+35K9*Filesystem 44e15 7|37r17 119r5 8|39r14 1283r5
+X 6 filesystem-fat.ads
+43K20*FAT 5|35k9 6|761e19 7|37r28 119r16 8|39r25 1283r16
+48N4*MAX_FILENAME_LENGTH 8|380r35
+57R9*FAT_Name 227e14 7|46r20 76r17 81r18 115r20 8|74r20 116r17 496r17 588r18
+. 829r20 869r18 901r16 929r18 1066r16
+59R9*FAT_Filesystem<11|79R9> 316e14 7|40r23 50r37 57r32 64r32 8|110r23 212r37
+. 237r32 322r32
+61P9*FAT_Filesystem_Access(59R9) 8|447r33
+63R9*FAT_Node<11|88R9> 473e14 7|42r20 45r20 47r24 50r60 54r20 68r32 75r17
+. 77r21 80r18 82r22 85r19 89r13 90r13 94r13 102r21 106r16 107r23 117r24 8|58r21
+. 73r20 75r24 112r20 160r16 161r23 212r60 214r13 326r32 479r20 495r17 497r21
+. 587r18 589r22 626r19 629r19 631r19 680r13 681r13 686r19 730r36 831r24 858r21
+69V14*"-"{string} 8|642s13 644s16
+71V14*"-"{57R9} 8|463s33
+74V25*"="{boolean} 8|97s32 98s64 708s35 1111s32
+98V13*Long_Name{57R9} 8|97s13 642s14 644s17 708s13 708s37 1111s13
+99V13*Short_Name{57R9} 8|98s44
+105V24*Is_Subdirectory{boolean}<11|153p13> 7|48s18 8|146s20
+150n7*FAT16{149E9} 8|222r23 255r52 452r50
+151n7*FAT32{149E9} 8|1089r31
+153V13*Version{149E9} 8|222s13 255s42 452s40 1089s20
+170M9 Cluster_Type<12|74M9> 7|58r32 65r32 8|80r17 170r19 238r32 323r32 453r39
+. 454r39 456r41 683r19 685r19 736r23 737r23 784r18
+172M9 Block_Offset<12|74M9> 7|59r32 66r32 8|81r17 173r19 186r20 239r32 266r17
+. 324r32 501r22 785r18 1149r26 1214r25
+173M9 FAT_File_Size<12|74M9> 7|103r14 8|59r14 171r19 171r36 262r24 267r20
+. 272r13 710r17 732r32 733r25 735r23 1215r16 1242r20
+176m4 INVALID_CLUSTER{170M9} 8|1189r34
+177m4 FREE_CLUSTER_VALUE{170M9} 8|694r42 760r45
+178m4 LAST_CLUSTER_VALUE{170M9} 8|755r24 756r48
+185V13 Block_Size{173M9} 8|186s53 187s50 263s31 267s60 272s55 711s29 734s34
+. 1215s55 1242s62
+187V13 Blocks_Per_Cluster{172M9} 8|281s17 733s47 1218s41 1221s49 1249s43
+189V13 Cluster_Size{173M9} 8|181s32 183s39
+201V13 Root_Dir_Cluster{170M9} 8|225s34
+203V13 FAT16_Root_Dir_Num_Entries{12|66M9} 8|257s28
+225a7*Name{string} 8|133m19 220m29 943r21 954r52 973r21 975r48 977r44 979r38
+. 981r24 982r28 1072r39 1074r42 1081r63 1146r42
+226i7*Len{natural} 8|98r27 125m16 132m19 132r32 133r31 136r29 221m29 465m30
+. 935r38 942r37 944r28 953r42 1072r24 1074r27 1076r27 1078r27
+286V13 Trim{string} 8|912s37
+307m7 Root_Dir_Area{172M9} 8|265r18
+312a7 Window{9|162A9} 8|195r34 202m17 305r13 311r30 572m17 573m17 574m17
+. 714m23 1271m26
+318V13 Ensure_Block{11|35E9} 8|189s24 299s17 528s24 1227s33 1267s39
+325V13 Write_Window{11|35E9} 8|203s24 575s24 715s30 1245s39 1275s33
+328V13 Cluster_To_Block{172M9} 8|81s43 190s20 280s32 295s33 527s23 785s34
+. 1225s25 1262s34
+337V13 Get_FAT{170M9} 8|182s31 287s35 693s25 747s25 1220s28 1252s35 1258s37
+341V13 Set_FAT{11|35E9} 8|694s24 756s30 760s27
+357V13 Is_Last_Cluster{boolean} 8|290s26 697s27 764s27 1251s35
+387V13 New_Cluster{170M9} 8|1183s43
+390V13 New_Cluster{170M9} 8|1255s37
+394M9 Entry_Index<12|66M9> 7|60r32 67r32 8|49r37 82r17 240r32 257r12 325r32
+. 778r37 783r18 861r21
+395m4 Null_Index{394M9} 8|797r20 1128r18
+397R9 FAT_Directory_Handle<11|82R9> 405e14 7|53r23 114r27 8|48r28 478r23
+. 777r28 828r27
+399p7*FS{61P9} 8|483r14 528r21 572r14 573r14 574r14 575r21 714r20 715r27
+. 785r59 790r20 1089r17 1178r40 1183r40 1215r52 1218r38 1220r25 1221r46 1225r22
+. 1227r30 1242r59 1245r36 1249r40 1251r32 1252r32 1255r34 1258r34 1262r31
+. 1267r36 1271r23 1275r30
+400m7*Current_Index{394M9} 8|486m33 710r39 787m14 793m39 804r30 1134r26
+401m7*Start_Cluster{170M9} 8|566r40 569r44 784r41
+402m7*Current_Cluster{170M9} 8|484m33 1219m23 1220r44 1225r50 1252r51 1254m32
+. 1255r57 1257m32 1258r53 1262r59
+403m7*Current_Block{172M9} 8|485m33 1224m20 1227r54 1261m29 1264m29 1264r53
+. 1267r60
+407P9 FAT_Directory_Handle_Access(397R9) 8|499r22 591r22 630r19 684r19
+418U25 Reset<11|135p14> 8|1098s7 1122s7 1210s13 1276s13
+420U25 Close<11|138p14> 8|577s7 612s7 656s16 663s7 721s7
+442V13 FAT_Open{11|35E9} 8|506s18 595s18 635s18 702s18
+447R9 FAT_Directory_Entry_Attribute 454e15 7|116r20 8|830r20
+448b7*Read_Only{boolean} 8|515m28 537m25 556m25 604m28
+449b7*Hidden{boolean} 8|516m28 538m25 557m25 605m28
+450b7*System_File{boolean} 8|517m28 539m25 558m25 606m28
+451b7*Volume_Label{boolean} 8|426r39 518m28 540m25 559m25 607m28
+452b7*Subdirectory{boolean} 8|217m29 519m28 541m25 560m25 608m28 649r31 741r25
+453b7*Archive{boolean} 8|520m28 542m25 561m25 609m28
+457p7 FS{61P9} 8|81r40 87r39 181r29 182r28 183r36 186r50 187r47 189r21 190r17
+. 195r31 202r14 203r21 216m11 447m16 527r20 693r22 694r21 697r24 711r26 733r44
+. 734r31 747r22 756r27 760r24 764r24 1178m16
+458r7 L_Name{57R9} 8|98r20 220m11 463m23 465m23 1179m16
+459a7 S_Name{string} 8|449m16 1115r20 1180m16
+460a7 S_Name_Ext{string} 8|450m16 1116r28 1181m16
+461r7 Attributes{447R9} 8|217m11 451m16 649r20 741r14 1182m16
+462m7 Start_Cluster{170M9} 8|80r40 170r42 223m14 225m14 452m16 527r49 548r31
+. 551r45 683r39 736r43 752r47 1183m16 1189r18 1201r41 1204r45
+463m7 Size{173M9} 8|62r12 63m12 199r25 457m16 735r44 1184m16
+465m7 Index{394M9} 8|171r57 227m11 458m16 1185m16
+468b7 Is_Root{boolean} 8|219m11 459m16 1186m16
+471b7 Is_Dirty{boolean} 8|64m12 177r20 200m13 460m16 1187m16
+552R9 FAT_Directory_Entry 562e15 7|61r32 8|43r7 165r35 167r48 169r19 241r32
+. 245r22 370r17 373r10 502r22 503r22 781r18 1145r26
+553a7*Filename{string} 8|427r44 435r42 449r41 535m10 554m10 809r39 1194m16
+554a7*Extension{string} 8|435r61 450r41 536m10 555m10 1195m16
+555r7*Attributes{447R9} 8|401r21 426r28 451r41 537m10 556m10 800r21 1196m16
+556a7*Reserved{string} 8|543m10 562m10 1197m16
+557m7*Cluster_H{12|66M9} 8|456r63 544m10 563m10 1198m16
+558m7*Time{12|66M9} 8|549m10 567m10 1202m16
+559m7*Date{12|66M9} 8|550m10 568m10 1203m16
+560m7*Cluster_L{12|66M9} 8|453r61 454r61 551m10 569m10 1204m16
+561m7*Size{173M9} 8|199m11 457r41 552m10 570m10 1205m16
+576r4 VFAT_Directory_Entry_Attribute{447R9} 8|401r34 800r34 1166r44
+583M9 VFAT_Sequence_Number 8|376r22 1164r18
+587m7*Sequence{583M9} 8|409r60 415r43 421r34 1163m41
+588b7*Stop_Bit{boolean} 8|404r34 1165m41 1175m53
+596R9 VFAT_Directory_Entry 605e15 8|45r7 371r17 373r31 1144r28
+597r7*VFAT_Attr{586R9} 8|404r24 409r50 415r33 421r24 1163m31 1165m31 1175m43
+598a7*Name_1{wide_string} 8|419r30 1170m54
+599r7*Attribute{447R9} 8|1166m31
+600m7*Reserved{12|63M9} 8|1167m31
+601m7*Checksum{12|63M9} 8|422r31 1168m31
+602a7*Name_2{wide_string} 8|418r30 1171m54
+603m7*Cluster{12|66M9} 8|1169m31
+604a7*Name_3{wide_string} 8|417r30 1172m54
+708V13 Get_Num_VFAT_Entries{natural} 8|865s32 1143s38
+X 7 filesystem-fat-directories.ads
+37K32*Directories 6|43k20 7|119l20 119e31 8|39b29 1283l20 1283t31
+39V13*Find{11|35E9} 40=7 41>7 42<7 8|109b13 153l8 153t12
+40r7 FS{6|59R9} 8|110b7 119m29 119r29
+41a7 Path{string} 8|111b7 122r14 124r20 127r26 128r16 133r39 144r19
+42r7 DEntry{6|63R9} 8|112b7 119m7 138r26 138m41 138r41 146r37
+44V13*Find{11|35E9} 45>7 46>7 47<7 8|72b13 103l8 103t12 138s20
+45r7 Parent{6|63R9} 48r35 8|73b7 80r33 81r33 87r32
+46r7 Filename{6|57R9} 8|74b7 97r34 98r66
+47r7 DEntry{6|63R9} 8|75b7 91m32 91r32 97r24 98r13 98r56
+50V13*Root_Entry{6|63R9} 50=25 8|119s17 212b13 230l8 230t18
+50r25 FS{6|59R9} 8|212b25 216m28 216r28 222r10 225r31
+52V13*Read{11|35E9} 53=7 54<7 8|477b13 488l8 488t12 641s13 707s13 1101s20
+53r7 Dir{6|397R9} 8|478b7 483m10 483r10 484m29 484r29 485m29 485r29 486m29
+. 486r29
+54r7 DEntry{6|63R9} 8|479b7 487m29 487r29
+56V13*Next_Entry{11|35E9} 57^7 58=7 59=7 60=7 61<7 8|236b13 315l8 315t18
+. 387s17 789s20
+57p7 FS(6|59R9) 8|237b7 255r39 257r25 263r28 265r15 267r57 272r52 280r29
+. 281r14 287r32 290r23 295r30 299r14 305r10 311r27
+58m7 Current_Cluster{6|170M9} 8|238b7 255r10 280r50 287m13 287r44 289r16
+. 290r43 295r51 389r13 791r13
+59m7 Current_Block{6|172M9} 8|239b7 264m13 276m13 276r30 280r13 295m13 299r31
+. 390r13 792r13
+60m7 Current_Index{6|394M9} 8|240b7 251r10 256r13 262r39 267r35 272r28 275r50
+. 312m7 312r24 391r13 793r13
+61r7 DEntry{6|552R9} 8|241b7 311m7 392r13 794r13
+63V13*Next_Entry{11|35E9} 64^7 65=7 66=7 67=7 68<7 8|86s20 321b13 471l8 471t18
+. 482s14
+64p7 FS(6|59R9) 8|87r13 322b7 388r13 447r56 452r37
+65m7 Current_Cluster{6|170M9} 8|88r13 323b7 389m32 389r32 484r10
+66m7 Current_Block{6|172M9} 8|89r13 324b7 390m32 390r32 485r10
+67m7 Current_Index{6|394M9} 8|90r13 325b7 391m32 391r32 458r33 486r10
+68r7 DEntry{6|63R9} 8|91r13 326b7 446m13 463m16 465m16 487r10
+74V13*Create_Subdir{11|35E9} 75>7 76>7 77<7 8|494b13 580l8 580t21
+75r7 Dir{6|63R9} 8|495b7 506r14 527r16
+76r7 Name{6|57R9} 8|496b7 514r27
+77r7 New_Dir{6|63R9} 8|497b7 521m27 521r27 527r41 548r23 551r37
+79V13*Create_File_Node{11|35E9} 80>7 81>7 82<7 8|586b13 619l8 619t24
+80r7 Dir{6|63R9} 8|587b7 595r14
+81r7 Name{6|57R9} 8|588b7 603r27
+82r7 New_File{6|63R9} 8|589b7 610m27 610r27
+84V13*Delete_Subdir{11|35E9} 85>7 86>7 8|625b13 650s23 673l8 673t21
+85r7 Dir{6|63R9} 8|626b7 635r14 652r37 666r36
+86b7 Recursive{boolean} 8|627b7 646r20
+88V13*Delete_Entry{11|35E9} 89>7 90>7 8|652s23 666s14 679b13 724l8 724t20
+89r7 Dir{6|63R9} 8|680b7 702r14 711r22
+90r7 Ent{6|63R9} 8|681b7 683r35 693r18 694r17 697r20 708r48
+93V13*Adjust_Clusters{11|35E9} 94>7 8|730b13 770l8 770t23
+94r7 Ent{6|63R9} 8|730b30 733r40 734r27 735r40 736r39 741r10 747r18 752r43
+. 756r23 760r20 764r20
+101U14*Set_Size 102=7 103>7 8|57b14 66l8 66t16
+102r7 E{6|63R9} 8|58b7 62r10 63m10 64m10
+103m7 Size{6|173M9} 8|59b7 62r20 63r20
+105V13*Update_Entry{11|35E9} 106>7 107=7 8|159b13 206l8 206t20
+106r7 Parent{6|63R9} 8|160b7 170r35 181r22 182r21 183r29 186r43 187r40 189r14
+. 190r10 195r24 202r7 203r14
+107r7 Value{6|63R9} 8|161b7 171r51 177r14 199r19 200m7
+113V13*Allocate_Entry{11|35E9} 114^7 115>7 116>7 117<7 8|512s14 601s14 827b13
+. 1281l8 1281t22
+114p7 Parent(6|397R9) 8|513r10 602r10 828b7 1089r10 1098r14 1101r26 1122r14
+. 1126r43 1134r19 1178r33 1183r33 1210r20 1215r45 1218r31 1219r16 1220r18
+. 1220r37 1221r39 1224r13 1225r15 1225r43 1227r23 1227r47 1242r52 1245r29
+. 1249r33 1251r25 1252r25 1252r44 1254r25 1255r27 1255r50 1257r25 1258r27
+. 1258r46 1261r22 1262r24 1262r52 1264r22 1264r46 1267r29 1267r53 1271r16
+. 1275r23 1276r20
+115r7 Name{6|57R9} 8|514r10 603r10 829b7 865r54 1095r22 1111r34 1143r60 1146r37
+. 1170r28 1171r28 1172r28 1179r33
+116r7 Attributes{6|447R9} 8|515r10 604r10 830b7 1182r33 1196r30
+117r7 E{6|63R9} 8|521r10 610r10 831b7 1177m13 1189r16 1201r39 1204r43
+X 8 filesystem-fat-directories.adb
+41A12 Entry_Data{10|37A12}<integer> 43r28 45r29 866r21
+42V13 To_Data[3|20]{9|162A9} 572s38 573s38 1236s28
+44V13 To_Data[3|20]{9|162A9} 1234s28
+47V13 Find_Empty_Entry_Sequence{6|394M9} 48^7 49>7 776b13 821l8 821t33 1126s16
+48p7 Parent(6|397R9) 777b7 784r34 785r52 787r7 790r13 793r32 804r23
+49i7 Num_Entries{natural} 778b7 811r28
+79e7 Status{11|35E9} 86m10 93r13
+80m7 Cluster{6|170M9} 81r61 88m32 88r32
+81m7 Block{6|172M9} 89m32 89r32
+82m7 Index{6|394M9} 90m32 90r32
+114e7 Status{11|35E9} 138m10 140r13
+115i7 Idx{natural} 122m7 124r13 127r19 136m10 136r17 144r13
+116r7 Token{6|57R9} 125m10 132m13 132r26 133m13 133r25 136r23 138r34
+127i14 J{integer} 128r22 133r45
+163A15 Entry_Block{10|37A12}<integer> 165r56 167r35
+164V16 To_Block[3|20]{9|162A9} 202s57
+166V16 To_Entry[3|20]{6|552R9} 195s14
+169r7 Ent{6|552R9} 195m7 199m7 202r67
+170m7 Cluster{6|170M9} 182m10 182r40 190r38
+171m7 Offset{6|173M9} 181r13 183m10 183r20 186r34 187r29
+172i7 Block_Off{natural} 187m7 195r42 195r55 202r25 202r38
+173m7 Block{6|172M9} 186m7 190r49
+174e7 Ret{11|35E9} 189m7 191r10 192r17 203m7 205r14
+214r7 Ret{6|63R9} 216m7 217m7 219m7 220m7 223m10 225m10 227m7 229r14
+243A15 Entry_Data{10|37A12}<integer> 245r10
+244V16 To_Entry[3|20]{6|552R9} 311s17
+247e7 Ret{11|35E9} 299m7 301r10 302r17
+248i7 Block_Off{natural} 261m13 271m10 275r26 305r21 311r38 311r51
+328U17 Prepend 329>10 330=10 331=10 338b17 367l11 367t18 417s13 418s13 419s13
+329a10 Name{wide_string} 339b10 345r27 346r40
+330a10 Full{string} 340b10 352r37 355m19 358m19 361m19 363m19
+331i10 Idx{natural} 341b10 350m16 350r23 352r26 355r25 358r25 361r25 363r25
+343m10 Val{12|66M9} 346m13 347r16 348r24 354r19 355r48 356r22 359r22
+345i14 J{integer} 346r46
+369e7 Ret{11|35E9} 387m10 394r13 395r20
+370r7 D_Entry{6|552R9} 392m32 392r32 401r13 402r39 426r20 427r36 435r34 435r53
+. 449r33 450r33 451r33 453r53 454r53 456r55 457r33
+371r7 V_Entry{6|596R9} 402m13 404r16 409r42 415r25 417r22 418r22 419r22 421r16
+. 422r23
+372V16 To_VFAT_Entry[3|20]{6|596R9} 402s24
+375m7 C{12|63M9} 436m19 440r48
+376m7 Last_Seq{6|583M9} 408r19 409r26 415m13 433m16
+377m7 CRC{12|63M9} 422m16 443r41
+378b7 Matches{boolean} 430m16 443m16 462r16
+379m7 Current_CRC{12|63M9} 432m16 437m19 437r47 438r36 440m19 440r34 443r27
+380a7 L_Name{string} 384r23 405r32 411r35 417m38 417r38 418m38 418r38 419m38
+. 419r38 429r36 463r34 463r58
+381i7 L_Name_First{natural} 384m7 405m16 411m19 417m46 417r46 418m46 418r46
+. 419m46 419r46 429r16 463r42
+435e20 Ch=435:20{character} 436r44
+499p7 Handle{6|407P9} 506m28 506r28 513r27 528r14 566r33 569r37 572r7 573r7
+. 574r7 575r14 577r14
+500e7 Ret{11|35E9} 506m7 508r10 509r17 512m7 523r10 524r17 528m7 529r10 530r17
+. 575m7 579r14
+501m7 Block{6|172M9} 527m7 528r38
+502r7 Dot{6|552R9} 534m7 572r47
+503r7 Dot_Dot{6|552R9} 553m7 573r47
+591p7 Handle{6|407P9} 595m28 595r28 602r27 612r14
+592e7 Ret{11|35E9} 595m7 597r10 598r17 601m7 614r10 615r17 618r14
+629r7 Parent{6|63R9} 645m13 666r28
+630p7 Handle{6|407P9} 635m28 635r28 641r19 656r23 663r14
+631r7 Ent{6|63R9} 641m31 641r31 642r25 644r28 645r23 649r16 650r38 652r42
+632e7 Ret{11|35E9} 635m7 637r10 638r17 650m16 652m16 655r16 658r23 666m7
+. 668r10 669r17 672r14
+683m7 Current{6|170M9} 693r34 694r33 698m10
+684p7 Handle{6|407P9} 702m28 702r28 707r19 710r32 714r13 715r20 721r14
+685m7 Next{6|170M9} 693m10 697r44 698r21
+686r7 Child_Ent{6|63R9} 707m31 707r31 708r24
+687e7 Ret{11|35E9} 694m10 696r20 702m7 703r10 704r17 715m13 723r14
+688i7 Block_Off{natural} 709m13 714r31
+732m7 B_Per_Cluster{6|173M9} 749r20 751r28 766r28
+735m7 Size{6|173M9} 749r13 751m13 751r21 752r16 754m13 766m10 766r21
+736m7 Current{6|170M9} 747r34 752r33 756r39 760r36 765m10
+737m7 Next{6|170M9} 747m10 755r16 764r44 765r21
+738e7 Ret{11|35E9} 756m16 760m13 763r20 769r14
+780e7 Status{11|35E9} 789m10 796r13
+781r7 D_Entry{6|552R9} 794m32 794r32 800r13 809r31
+782i7 Sequence{natural} 801r16 807m13 807r25 811r16 814m16 818m13
+783m7 Ret{6|394M9} 804m16 812r23
+784m7 Cluster{6|170M9} 785r67 791m32 791r32
+785m7 Block{6|172M9} 792m32 792r32
+833A15 Short_Name{string}<integer> 859r21 870r22 930r22
+834A15 Extension{string}<integer> 860r21 871r22 931r22
+836V16 Is_Legal_Character{boolean} 836>36 977s19
+836e36 C{character} 837r11 838r19 839r19 840r19 841r19 842r19 843r19 844r19
+. 845r19 846r19 847r19 848r19 849r19 850r19 851r19 852r19 853r19 854r19
+856i7 Block_Off{natural} 1241m16 1244r34 1271r34 1271r47
+857e7 Status{11|35E9} 1101m10 1103r13 1105m13 1140r10 1227m13 1228r16 1229r23
+. 1245m19 1246r29 1267m19 1268r29 1275m13 1280r14
+858r7 DEntry{6|63R9} 1101m38 1101r38 1111r24 1115r13 1116r21
+859a7 SName{833A15} 1095m28 1115r29 1118m24 1118r24 1154r31 1180r33 1194r30
+860a7 SExt{834A15} 1095m35 1116r41 1154r39 1181r33 1195r30
+861m7 Index{6|394M9} 1126m7 1128r10 1134m10 1185r33 1215r31 1242r35 1272m16
+. 1272r25
+865i7 N_Entries{natural} 1126r51 1137m10 1137r23 1232r27
+866a7 Bytes{41A12} 1234m19 1236m19 1238m19 1271r66
+868U17 To_Short_Name 869>10 870<10 871<10 928b17 1004l11 1004t24 1095s7
+869r10 Name{6|57R9} 929b10 935r33 942r32 943r16 944r23 953r37 954r47 973r16
+. 975r43 977r39 979r33 981r19 982r23
+870a10 SName{833A15} 930b10 967m10 975m16 979m16 993m16 999m16 1001m16
+871a10 Ext{834A15} 931b10 940m10 948m19 951r28 954m22 958r40
+883V16 To_Upper{character} 883>26 954s37 975s33
+883e26 C{character} 884r13 886r28 887r15
+889V16 Value{natural} 889>23 910b16 922l11 922t16 1032s23
+889a23 S{string} 910b23 912r43
+892U17 Inc_SName 892=28 1010b17 1059l11 1059t20 1118s13
+892a28 SName{string} 1010b28 1016r27 1018r19 1020r22 1023m19 1023r26 1023r44
+. 1028r19 1031r19 1032r30 1032r44 1041r50 1042m22 1042r29 1042r65 1045m22
+. 1052m16 1052r23 1052r41 1058m10 1058r17 1058r35
+900U17 To_WString 901>10 902=10 903=10 1065b17 1086l11 1086t21 1170s16 1171s16
+. 1172s16
+901r10 S{6|57R9} 1066b10 1072r22 1072r37 1074r25 1074r40 1076r25 1078r25
+. 1081r61
+902i10 Idx{natural} 1067b10 1072r16 1072r45 1074r19 1074r48 1076r19 1078r19
+. 1081r69 1084m13 1084r20
+903a10 WS{wide_string} 1068b10 1071r19 1073m16 1075m16 1077m16 1079m16 1081m16
+912a10 Val{string} 916r19 917r37
+913i10 Digit{natural} 917m13 918r31
+914i10 Ret{natural} 918m13 918r20 921r17
+916i14 J{integer} 917r42
+933i10 S_Idx{natural} 951m19 954r27 955m22 955r31 958r32 966m10 970r42 971r46
+. 974m16 974r25 975r23 978m16 978r25 979r23 992m16 992r25 993r23 998r16 1001r23
+. 1001r36
+934b10 Add_Tilde{boolean} 970r23 971r27 987m16 991m16 997r13
+935i10 Last{natural} 947m19 950m19 969r24
+942i14 J{integer} 943r27 944r19 947r27 950r27 953r28
+953i23 K{integer} 954r58
+969i14 J{integer} 973r27 975r54 977r50 979r44 981r30 982r34
+1012i10 Idx{natural} 1017r16 1021m19 1029m16 1032r37 1034m16 1041r22 1045r29
+. 1045r36
+1013i10 Num{natural} 1032m16 1037r55
+1016i14 J{integer} 1018r26 1020r29 1021r26 1028r26 1029r23 1031r26 1034r23
+1037a19 N_Suffix{string} 1039m19 1039r29 1041r28 1042r42 1043r24 1045r42
+. 1045r66
+1071i14 J{integer} 1073r20 1075r20 1077r20 1079r20 1081r20
+1143a13 VFAT_Entry(6|596R9) 1162r30 1163m16 1164r40 1165m16 1166m16 1167m16
+. 1168m16 1169m16 1170m39 1170r39 1171m39 1171r39 1172m39 1172r39 1175m13
+. 1175r25 1185r41 1233r24 1234r37 1235r26
+1145r13 FAT_Entry{6|552R9} 1193m13 1236r37
+1146i13 Idx{natural} 1170m34 1170r34 1171m34 1171r34 1172m34 1172r34
+1147m13 CRC{12|63M9} 1152m13 1156m16 1156r36 1157r33 1159m16 1159r23 1168r44
+1148m13 C{12|63M9} 1155m16 1159r29
+1149m13 N_Blocks{6|172M9} 1214m13 1218r19 1221m16 1221r28 1225r69 1247m19
+. 1247r31 1249r22 1250m22
+1154e17 Ch=1154:17{character} 1155r41
+1162i17 J{integer} 1163r28 1164r58 1165r28 1166r28 1167r28 1168r28 1169r28
+. 1170r51 1171r51 1172r51
+1232i17 J{integer} 1233r19 1234r49 1235r22 1244r19
+X 9 hal.ads
+53M9*UInt8<12|63M9>
+162A9*UInt8_Array(53M9)<integer>
+X 10 hal-block_drivers.ads
+37A12*Block{9|162A9}<integer> 8|41r26 163r30 243r29
+X 11 hal-filesystem.ads
+35E9*Status_Code 7|42r37 47r41 54r37 61r60 68r49 77r38 82r39 86r35 90r30
+. 94r30 107r40 117r41 8|75r41 79r17 112r37 114r17 161r40 174r19 241r60 247r19
+. 326r49 369r17 479r37 497r38 500r22 589r39 592r22 627r35 632r19 681r30 687r19
+. 730r53 738r23 780r18 831r41 857r21 11|60e31
+36n7*OK{35E9} 8|93r23 100r20 140r23 152r14 178r17 191r17 301r17 314r14 394r20
+. 468r20 508r17 523r17 529r17 597r17 614r17 637r17 641r38 655r23 668r17 696r27
+. 703r17 707r44 738r38 743r17 763r27 796r23 1103r23 1105r23 1140r19 1228r26
+. 1246r39 1268r39
+37n7*Non_Empty_Directory{35E9} 8|647r20
+39n7*Disk_Full{35E9} 8|1190r23
+40n7*Internal_Error{35E9} 8|292r23 1091r17
+42n7*No_Such_File{35E9} 8|94r20 141r20
+43n7*No_Such_Path{35E9} 8|147r23
+47n7*Already_Exists{35E9} 8|1112r20
+58n7*No_More_Entries{35E9} 8|252r17 259r20 308r17
+79h9*Filesystem_Driver
+82h9*Directory_Handle
+85h9*File_Handle
+88h9*Node_Handle
+X 12 interfac.ads
+63M9*Unsigned_8 8|375r22 377r22 379r22 1147r26 1148r26
+66M9*Unsigned_16 8|343r16 545r12 551r24 564r12 569r24 1199r18 1204r30
+74M9*Unsigned_32 8|275r13 547r20 566r20 1201r26
+81V13*Shift_Left{63M9} 8|438s24 1157s21
+85V13*Shift_Right{63M9} 8|437s34 1156s23
+121V13*Shift_Left{74M9} 8|455s36
+125V13*Shift_Right{74M9} 8|546s15 565s15 1200s21
+

@@ -1,0 +1,189 @@
+V "GNAT Lib v2020"
+A -O0
+A -gnatA
+A --RTS=C:\gnat\2020-arm-elf\arm-eabi\lib\gnat\zfp-cortex-m4f\
+A -mlittle-endian
+A -mthumb
+A -mfloat-abi=hard
+A -mcpu=cortex-m4
+A -mfpu=fpv4-sp-d16
+A -gnata
+A -fcallgraph-info=su
+A -fcallgraph-info=su
+A -g
+A -gnatwa
+A -gnatw_A
+A -gnatQ
+A -gnatw.X
+A -ffunction-sections
+A -fdata-sections
+A -march=armv7e-m+fp
+P ZX
+
+RN
+RV NO_EXCEPTIONS
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_UNCHECKED_ACCESS
+RV NO_IMPLEMENTATION_PRAGMAS
+
+U st7735r.ram_framebuffer%b  st7735r-ram_framebuffer.adb  656b8309 NE OO PK IU
+W st7735r%s		st7735r.adb		st7735r.ali
+Z system%s		system.ads		system.ali
+
+U st7735r.ram_framebuffer%s  st7735r-ram_framebuffer.ads  97fc09b9 EE NE OO PK IU
+Z ada.tags%s		a-tags.adb		a-tags.ali
+W memory_mapped_bitmap%s  memory_mapped_bitmap.adb  memory_mapped_bitmap.ali
+W st7735r%s		st7735r.adb		st7735r.ali
+Z system%s		system.ads		system.ali
+
+D ada.ads		20200819171400 76789da1 ada%s
+D a-tags.ads		20200819171400 95e09aae ada.tags%s
+D hal.ads		20210108111948 2b42c80e hal%s
+D hal-bitmap.ads	20210108111948 85a69113 hal.bitmap%s
+D hal-framebuffer.ads	20210108111948 9811b908 hal.framebuffer%s
+D hal-gpio.ads		20210108111948 7f0c2ffe hal.gpio%s
+D hal-spi.ads		20210108111948 fe139819 hal.spi%s
+D hal-time.ads		20210108111948 f5295cd7 hal.time%s
+D interfac.ads		20200819171400 5ab55268 interfaces%s
+D memory_mapped_bitmap.ads  20210108111948 b0310810 memory_mapped_bitmap%s
+D soft_drawing_bitmap.ads  20210108111948 e11f4ff7 soft_drawing_bitmap%s
+D st7735r.ads		20210108111948 dc2ef610 st7735r%s
+D st7735r-ram_framebuffer.ads  20210108111948 fbe3f7b9 st7735r.ram_framebuffer%s
+D st7735r-ram_framebuffer.adb  20210108111948 9e8874b0 st7735r.ram_framebuffer%b
+D system.ads		20200819171400 e69b74bd system%s
+D s-assert.ads		20200819171400 cd8d2c94 system.assertions%s
+D s-stoele.ads		20200819171400 2dc34a04 system.storage_elements%s
+G a e
+G c Z s b [initialize_layer st7735r__ram_framebuffer 52 14 none]
+G c Z s b [initialized st7735r__ram_framebuffer 66 13 none]
+G c Z s b [update_layer st7735r__ram_framebuffer 71 14 none]
+G c Z s b [update_layers st7735r__ram_framebuffer 78 14 none]
+G c Z s b [hidden_buffer st7735r__ram_framebuffer 84 13 none]
+G c Z s s [st7735r_ram_framebuffer_screenIP st7735r__ram_framebuffer 93 9 none]
+G r c none [update_layer st7735r__ram_framebuffer 71 14 none] [set_address st7735r 153 14 none]
+G r c none [update_layer st7735r__ram_framebuffer 71 14 none] [write_raw_pixels st7735r 166 14 none]
+G r c none [update_layers st7735r__ram_framebuffer 78 14 none] [set_address st7735r 153 14 none]
+G r c none [update_layers st7735r__ram_framebuffer 78 14 none] [write_raw_pixels st7735r 166 14 none]
+G r s st7735r_screen [st7735r_ram_framebuffer_screenIP st7735r__ram_framebuffer 93 9 none] [st7735r_screenIP st7735r 373 9 none]
+G r s memory_mapped_bitmap_buffer [st7735r_ram_framebuffer_screenIP st7735r__ram_framebuffer 93 9 none] [memory_mapped_bitmap_bufferIP memory_mapped_bitmap 41 9 none]
+X 3 hal.ads
+34K9*HAL 166e8 13|48r23 86r43 98r23 14|117r43
+66M9*UInt16<9|66M9> 14|91r31 93r31
+163A9*UInt16_Array(66M9)<integer> 13|91r26
+X 4 hal-bitmap.ads
+34K13*Bitmap 432e15 13|86r47 14|117r47
+46n7*RGB_565{43E9} 14|50r37
+100h9*Bitmap_Buffer
+102P9*Any_Bitmap_Buffer(100R9) 13|86r54 14|117r54
+X 5 hal-framebuffer.ads
+36E12*FB_Color_Mode{4|43E9} 13|55r17 14|42r17
+44h9*Frame_Buffer_Display
+X 6 hal-gpio.ads
+47h9*GPIO_Point
+49P9*Any_GPIO_Point(47R9) 13|45r23 46r23 47r23 95r23 96r23 97r23
+X 7 hal-spi.ads
+48h9*SPI_Port
+50P9*Any_SPI_Port(48R9) 13|44r23 94r23
+X 8 hal-time.ads
+32K13*Time 46e13 13|48r27 98r27
+34h9*Delays
+36P9*Any_Delays(34R9) 13|48r32 98r32
+X 9 interfac.ads
+66M9*Unsigned_16
+X 10 memory_mapped_bitmap.ads
+37K9*Memory_Mapped_Bitmap 154e25 13|37w6 37r32
+41R9*Memory_Mapped_Bitmap_Buffer<11|42R9> 73e14 13|100r30
+42m7*Addr{15|90M9} 14|56m28
+44i7*Actual_Width{natural} 14|54m28
+45i7*Actual_Height{natural} 14|55m28
+49e7*Actual_Color_Mode{4|43E9} 14|57m28
+X 12 st7735r.ads
+46K9*ST7735R 384e12 13|39r9 105r5 14|32r14 126r5
+48R9*ST7735R_Screen<5|44R9> 382e14 13|41r22
+58U14*Initialize
+61V13*Initialized{boolean}<5|65p13>
+63U14*Turn_On
+64U14*Turn_Off
+65U14*Display_Inversion_On
+66U14*Display_Inversion_Off
+67U14*Gamma_Set
+71U14*Set_Pixel_Format
+88U14*Set_Memory_Data_Access
+97U14*Set_Frame_Rate_Normal
+103U14*Set_Frame_Rate_Idle
+109U14*Set_Frame_Rate_Partial_Full
+120U14*Set_Inversion_Control
+124U14*Set_Power_Control_1
+131U14*Set_Power_Control_2
+137U14*Set_Power_Control_3
+141U14*Set_Power_Control_4
+145U14*Set_Power_Control_5
+149U14*Set_Vcom
+151U14*Set_Column_Address
+152U14*Set_Row_Address
+153U14*Set_Address 14|89s7
+154m27 X_Start{3|66M9} 14|90r20
+154m36 X_End{3|66M9} 14|91r20
+154m43 Y_Start{3|66M9} 14|92r20
+154m52 Y_End{3|66M9} 14|93r20
+156U14*Set_Pixel
+160V13*Pixel{3|66M9}
+164U14*Write_Raw_Pixels
+166U14*Write_Raw_Pixels 14|94s15
+170V13*Max_Layers{positive}<5|48p13>
+174V13*Supported{boolean}<5|52p13>
+179U14*Set_Orientation<5|57p14>
+184U14*Set_Mode<5|61p14>
+189V13*Width{positive}<5|68p13>
+193V13*Height{positive}<5|71p13>
+197V13*Swapped{boolean}<5|74p13>
+204U14*Set_Background<5|80p14>
+240V13*Color_Mode{5|36E12}<5|111p13>
+252V13*Pixel_Size{positive}<5|122p13>
+259N4 Screen_Width 13|91r46 14|54r44
+260N4 Screen_Height 13|91r61 14|55r45
+284i7*Width{natural} 14|91r53
+285i7*Height{natural} 14|93r53
+381r7*Layer{282R9} 14|91r47 93r47
+X 13 st7735r-ram_framebuffer.ads
+39K17*RAM_Framebuffer 12|46k9 13|91E12 105l13 105e28 14|32b22 126l13 126t28
+41R12*Parent{12|48R9} 49r19 99r19
+43R9*ST7735R_RAM_Framebuffer_Screen<12|48R9> 12|58p14 61P13 63p14 64p14 65p14
+. 66p14 67p14 71p14 88p14 97p14 103p14 109p14 120p14 124p14 131p14 137p14
+. 141p14 145p14 149p14 151p14 152p14 153p14 156p14 160p13 164p14 166p14 170P13
+. 174P13 179P14 184P14 189P13 193P13 197P13 204P14 240P13 252P13 13|44d7
+. 45d7 46d7 47d7 48d7 52P14 53r24 66P13 67r17 71P14 72r26 78P14 79r24 84P13
+. 85r24 93c9 103e14 14|40r24 67r17 80r26 104r24 116r24
+44p7*Port{7|50P9} 94r7 99r27
+45p7*CS{6|49P9} 95r7 99r33
+46p7*RS{6|49P9} 96r7 99r37
+47p7*RST{6|49P9} 97r7 99r41
+48p7*Time{8|36P9} 98r7 99r46
+52U14*Initialize_Layer<12|208p14> 53=7 54>7 55>7 56>7 57>7 58>7 59>7 14|39b14
+. 59l8 59t24
+53r7 Display{43R9} 14|40b7 54m7 55m7 56m7 56m36 56r36 57m7 58m7
+54i7 Layer{positive} 14|41b7 50r10
+55e7 Mode{5|36E12} 14|42b7 50r29 57r49
+56i7 X{natural} 14|43b7 48r28
+57i7 Y{natural} 14|44b7 48r31
+58i7 Width{positive} 14|45b7 48r34
+59i7 Height{positive} 14|46b7 48r41
+66V13*Initialized{boolean}<12|222p13> 67>7 68>7 14|66b13 72l8 72t19
+67r7 Display{43R9} 14|67b7 71r33
+68i7 Layer{positive} 14|68b7 71r14
+71U14*Update_Layer<12|227p14> 72=7 73>7 74>7 14|79b14 95l8 95t20 107s15
+72r7 Display{43R9} 14|80b7 89r20 91r39 93r39 94r7 94m33 94r33
+73i7 Layer{positive} 14|81b7 86r10
+74b7 Copy_Back{boolean} 14|82b7 84r28
+78U14*Update_Layers<12|234p14> 79=7 14|103b14 108l9 108t22
+79r7 Display{43R9} 14|104b7 107m7 107r7
+84V13*Hidden_Buffer{4|102P9}<12|246p13> 85=7 86>7 14|115b13 124l8 124t21
+85r7 Display{43R9} 14|116b7 123m14 123r14
+86i7 Layer{positive} 14|117b7 120r10
+91A12 Pixel_Data{3|163A9}<integer> 101r20
+100r7 Memory_Layer{10|41R9} 14|54m15 55m15 56m15 57m15 123m22
+101a7 Layer_Data{91A12} 14|56m44 94m41
+102b7 Layer_Initialized{boolean} 14|58m15 71r41
+X 15 system.ads
+90M9*Address
+

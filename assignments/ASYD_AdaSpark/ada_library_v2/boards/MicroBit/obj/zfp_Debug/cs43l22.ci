@@ -1,0 +1,91 @@
+graph: { title: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\CS43L22\cs43l22.adb"
+class {
+  classname: "cs43l22__cs43l22_device"
+  label: "cs43l22__cs43l22_device\cs43l22.ads:59:9"
+  parent: "cs43l22__cs43l22_device"
+  virtuals: "1:cs43l22__init\n
+             2:cs43l22__read_id\n
+             3:cs43l22__play\n
+             4:cs43l22__pause\n
+             5:cs43l22__resume\n
+             6:cs43l22__stop\n
+             7:cs43l22__set_volume\n
+             8:cs43l22__set_mute\n
+             9:cs43l22__set_output_mode\n
+             10:cs43l22__set_frequency\n
+             11:cs43l22__reset\n
+             12:cs43l22__i2c_write\n
+             13:cs43l22__i2c_read\n
+             -1:cs43l22___size"
+}
+edge: { sourcename: "cs43l22__i2c_write"
+  targetname: "3:hal__i2c__i2c_port,hal__i2c__i2c_port"
+  label: "cs43l22.adb:45:16"
+}
+edge: { sourcename: "cs43l22__i2c_read"
+  targetname: "4:hal__i2c__i2c_port,hal__i2c__i2c_port"
+  label: "cs43l22.adb:65:16"
+}
+edge: { sourcename: "cs43l22__resume"
+  targetname: "2:hal__time__delays,hal__time__delays"
+  label: "cs43l22.adb:185:16"
+}
+node: { title: "cs43l22__cs43l22_deviceIP" label: "CS43L22_DEVICEIP\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\CS43L22\cs43l22.ads:122:9\n24 bytes (static)" }
+node: { title: "cs43l22___size" label: "CS43L22\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\CS43L22\cs43l22.ads:122:9\n16 bytes (static)" }
+node: { title: "cs43l22__i2c_write" label: "I2C_WRITE\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\CS43L22\cs43l22.adb:38:4\n72 bytes (static)" }
+node: { title: "__indirect_call" label: "Indirect Call Placeholder" shape : ellipse }
+edge: { sourcename: "cs43l22__i2c_write" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\CS43L22\cs43l22.adb:45:16" }
+node: { title: "cs43l22__i2c_read" label: "I2C_READ\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\CS43L22\cs43l22.adb:57:4\n64 bytes (static)" }
+edge: { sourcename: "cs43l22__i2c_read" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\CS43L22\cs43l22.adb:65:16" }
+node: { title: "cs43l22__init" label: "INIT\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\CS43L22\cs43l22.adb:78:4\n24 bytes (static)" }
+edge: { sourcename: "cs43l22__init" targetname: "cs43l22__i2c_write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\CS43L22\cs43l22.adb:87:11" }
+edge: { sourcename: "cs43l22__init" targetname: "cs43l22__set_output_mode" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\CS43L22\cs43l22.adb:90:11" }
+edge: { sourcename: "cs43l22__init" targetname: "cs43l22__i2c_write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\CS43L22\cs43l22.adb:93:11" }
+edge: { sourcename: "cs43l22__init" targetname: "cs43l22__i2c_write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\CS43L22\cs43l22.adb:96:11" }
+edge: { sourcename: "cs43l22__init" targetname: "cs43l22__set_volume" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\CS43L22\cs43l22.adb:99:11" }
+edge: { sourcename: "cs43l22__init" targetname: "cs43l22__i2c_write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\CS43L22\cs43l22.adb:105:14" }
+edge: { sourcename: "cs43l22__init" targetname: "cs43l22__i2c_write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\CS43L22\cs43l22.adb:108:14" }
+edge: { sourcename: "cs43l22__init" targetname: "cs43l22__i2c_write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\CS43L22\cs43l22.adb:109:14" }
+edge: { sourcename: "cs43l22__init" targetname: "cs43l22__i2c_write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\CS43L22\cs43l22.adb:122:11" }
+edge: { sourcename: "cs43l22__init" targetname: "cs43l22__i2c_write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\CS43L22\cs43l22.adb:124:11" }
+edge: { sourcename: "cs43l22__init" targetname: "cs43l22__i2c_write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\CS43L22\cs43l22.adb:126:11" }
+edge: { sourcename: "cs43l22__init" targetname: "cs43l22__i2c_write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\CS43L22\cs43l22.adb:128:11" }
+edge: { sourcename: "cs43l22__init" targetname: "cs43l22__i2c_write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\CS43L22\cs43l22.adb:130:11" }
+edge: { sourcename: "cs43l22__init" targetname: "cs43l22__i2c_write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\CS43L22\cs43l22.adb:131:11" }
+node: { title: "cs43l22__read_id" label: "READ_ID\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\CS43L22\cs43l22.adb:138:4\n16 bytes (static)" }
+edge: { sourcename: "cs43l22__read_id" targetname: "cs43l22__i2c_read" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\CS43L22\cs43l22.adb:140:18" }
+node: { title: "cs43l22__play" label: "PLAY\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\CS43L22\cs43l22.adb:147:4\n16 bytes (static)" }
+edge: { sourcename: "cs43l22__play" targetname: "cs43l22__i2c_write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\CS43L22\cs43l22.adb:151:14" }
+edge: { sourcename: "cs43l22__play" targetname: "cs43l22__set_mute" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\CS43L22\cs43l22.adb:154:14" }
+edge: { sourcename: "cs43l22__play" targetname: "cs43l22__i2c_write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\CS43L22\cs43l22.adb:157:14" }
+node: { title: "cs43l22__pause" label: "PAUSE\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\CS43L22\cs43l22.adb:167:4\n16 bytes (static)" }
+edge: { sourcename: "cs43l22__pause" targetname: "cs43l22__set_mute" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\CS43L22\cs43l22.adb:170:11" }
+edge: { sourcename: "cs43l22__pause" targetname: "cs43l22__i2c_write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\CS43L22\cs43l22.adb:173:11" }
+node: { title: "cs43l22__resume" label: "RESUME\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\CS43L22\cs43l22.adb:180:4\n16 bytes (static)" }
+edge: { sourcename: "cs43l22__resume" targetname: "cs43l22__set_mute" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\CS43L22\cs43l22.adb:183:11" }
+edge: { sourcename: "cs43l22__resume" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\CS43L22\cs43l22.adb:185:16" }
+edge: { sourcename: "cs43l22__resume" targetname: "cs43l22__i2c_write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\CS43L22\cs43l22.adb:187:11" }
+edge: { sourcename: "cs43l22__resume" targetname: "cs43l22__i2c_write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\CS43L22\cs43l22.adb:190:11" }
+node: { title: "cs43l22__stop" label: "STOP\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\CS43L22\cs43l22.adb:197:4\n16 bytes (static)" }
+edge: { sourcename: "cs43l22__stop" targetname: "cs43l22__set_mute" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\CS43L22\cs43l22.adb:201:14" }
+edge: { sourcename: "cs43l22__stop" targetname: "cs43l22__i2c_write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\CS43L22\cs43l22.adb:204:14" }
+edge: { sourcename: "cs43l22__stop" targetname: "cs43l22__i2c_write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\CS43L22\cs43l22.adb:207:14" }
+node: { title: "cs43l22__set_volume" label: "SET_VOLUME\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\CS43L22\cs43l22.adb:217:4\n24 bytes (static)" }
+node: { title: "__gnat_last_chance_handler" label: "gnat_last_chance_handler\n<built-in>" shape : ellipse }
+edge: { sourcename: "cs43l22__set_volume" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\CS43L22\cs43l22.adb:221:28" }
+edge: { sourcename: "cs43l22__set_volume" targetname: "cs43l22__i2c_write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\CS43L22\cs43l22.adb:242:11" }
+edge: { sourcename: "cs43l22__set_volume" targetname: "cs43l22__i2c_write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\CS43L22\cs43l22.adb:243:11" }
+node: { title: "cs43l22__set_mute" label: "SET_MUTE\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\CS43L22\cs43l22.adb:250:4\n16 bytes (static)" }
+edge: { sourcename: "cs43l22__set_mute" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\CS43L22\cs43l22.adb:253:15" }
+edge: { sourcename: "cs43l22__set_mute" targetname: "cs43l22__i2c_write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\CS43L22\cs43l22.adb:255:20" }
+edge: { sourcename: "cs43l22__set_mute" targetname: "cs43l22__i2c_write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\CS43L22\cs43l22.adb:256:20" }
+edge: { sourcename: "cs43l22__set_mute" targetname: "cs43l22__i2c_write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\CS43L22\cs43l22.adb:257:20" }
+edge: { sourcename: "cs43l22__set_mute" targetname: "cs43l22__i2c_write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\CS43L22\cs43l22.adb:259:20" }
+edge: { sourcename: "cs43l22__set_mute" targetname: "cs43l22__i2c_write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\CS43L22\cs43l22.adb:260:20" }
+edge: { sourcename: "cs43l22__set_mute" targetname: "cs43l22__i2c_write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\CS43L22\cs43l22.adb:261:20" }
+node: { title: "cs43l22__set_output_mode" label: "SET_OUTPUT_MODE\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\CS43L22\cs43l22.adb:270:4\n16 bytes (static)" }
+edge: { sourcename: "cs43l22__set_output_mode" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\CS43L22\cs43l22.adb:274:12" }
+edge: { sourcename: "cs43l22__set_output_mode" targetname: "cs43l22__i2c_write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\CS43L22\cs43l22.adb:287:11" }
+node: { title: "cs43l22__set_frequency" label: "SET_FREQUENCY\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\CS43L22\cs43l22.adb:294:4\n16 bytes (static)" }
+node: { title: "cs43l22__reset" label: "RESET\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\components\src\audio\CS43L22\cs43l22.adb:308:4\n16 bytes (static)" }
+}

@@ -1,0 +1,188 @@
+V "GNAT Lib v2020"
+A -O0
+A -gnatA
+A --RTS=C:\gnat\2020-arm-elf\arm-eabi\lib\gnat\zfp-cortex-m4f\
+A -mlittle-endian
+A -mthumb
+A -mfloat-abi=hard
+A -mcpu=cortex-m4
+A -mfpu=fpv4-sp-d16
+A -gnata
+A -fcallgraph-info=su
+A -fcallgraph-info=su
+A -g
+A -gnatwa
+A -gnatw_A
+A -gnatQ
+A -gnatw.X
+A -ffunction-sections
+A -fdata-sections
+A -march=armv7e-m+fp
+P ZX
+
+RN
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RV NO_DISPATCHING_CALLS
+RV NO_EXCEPTIONS
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_UNCHECKED_CONVERSION
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_PRAGMAS
+
+U pmw3901%b		pmw3901.adb		b8fcca5d NE OO PK IU
+W ada%s			ada.ads			ada.ali
+Z ada.exceptions%s	a-except.adb		a-except.ali
+Z ada.tags%s		a-tags.adb		a-tags.ali
+W ada.unchecked_conversion%s
+Z system.assertions%s	s-assert.adb		s-assert.ali
+
+U pmw3901%s		pmw3901.ads		6f99a426 EE NE OO PK IU
+Z ada.tags%s		a-tags.adb		a-tags.ali
+W hal%s			hal.ads			hal.ali
+W hal.gpio%s		hal-gpio.ads		hal-gpio.ali
+W hal.spi%s		hal-spi.ads		hal-spi.ali
+W hal.time%s		hal-time.ads		hal-time.ali
+W interfaces%s		interfac.ads		interfac.ali
+Z system%s		system.ads		system.ali
+
+D ada.ads		20200819171400 76789da1 ada%s
+D a-except.ads		20200819171400 5b5f0f2f ada.exceptions%s
+D a-except.adb		20200819171400 85a38458 ada.exceptions%b
+D a-tags.ads		20200819171400 95e09aae ada.tags%s
+D a-unccon.ads		20200819171400 0e9b276f ada.unchecked_conversion%s
+D hal.ads		20210108111948 2b42c80e hal%s
+D hal-gpio.ads		20210108111948 7f0c2ffe hal.gpio%s
+D hal-spi.ads		20210108111948 fe139819 hal.spi%s
+D hal-time.ads		20210108111948 f5295cd7 hal.time%s
+D interfac.ads		20200819171400 5ab55268 interfaces%s
+D pmw3901.ads		20210108111948 411a1d7e pmw3901%s
+D pmw3901.adb		20210108111948 f77df04c pmw3901%b
+D system.ads		20200819171400 e69b74bd system%s
+D s-assert.ads		20200819171400 cd8d2c94 system.assertions%s
+D s-stoele.ads		20200819171400 2dc34a04 system.storage_elements%s
+G a e
+G c Z s b [is_valid pmw3901 67 13 none]
+G c Z s s [is_initialized pmw3901 69 13 none]
+G c Z s b [initialize pmw3901 71 14 none]
+G c Z s b [calibrate pmw3901 77 14 none]
+G c Z s b [read_motion pmw3901 80 13 none]
+G c Z s s [pmw3901_flow_sensorIP pmw3901 85 9 none]
+G c Z s s [motionIP pmw3901 51 9 none]
+G c Z b b [read pmw3901 50 13 none]
+G c Z b b [write pmw3901 53 14 none]
+X 1 ada.ads
+16K9*Ada 20e8 12|36r6 257r31
+X 5 a-unccon.ads
+20v14*Unchecked_Conversion 12|36w10 257r35
+X 6 hal.ads
+34K9*HAL 166e8 11|36r6 37r6 38r6 46r25 47r25 48r25 56r25 59r25 60r25 61r25
+. 62r25 63r25 64r25 86r25 87r25 88r25 12|51r37 51r55 54r39 55r39 63r16 81r29
+. 82r29 83r29 84r19 103r17 104r19 107r54 121r21 122r18 132r16 140r27 150r22
+. 256r25 259r16 260r20 263r27 281r30 281r48 283r16 284r36 285r16 286r16 287r20
+. 290r27 308r39 309r39 311r16 312r37 313r16 314r20 317r27 322r27
+53M9*UInt8<10|63M9> 11|56r29 59r29 60r29 61r29 62r29 63r29 64r29 12|51r41
+. 51r59 54r43 55r43 63r20 81r33 82r33 83r33 84r23 104r23 107r58 121r25 122r22
+. 132r20 140r31 150r26 281r34 281r52 283r20 284r40 308r43 309r43 311r20 312r41
+X 7 hal-gpio.ads
+32K13*GPIO 95e13 11|36w10 47r29 87r29
+47h9*GPIO_Point
+49P9*Any_GPIO_Point(47R9) 11|47r34 87r34
+88x14*Set 12|78R15 272R15 299R15 327R15
+90x14*Clear 12|76R15 262R15 289R15 316R15
+X 8 hal-spi.ads
+32K13*SPI 86e12 11|37w10 46r29 86r29 12|103r21 256r29 259r20 260r24 263r31
+. 285r20 286r20 287r24 290r31 313r20 314r24 317r31 322r31
+34E9*SPI_Status 38e12 12|259r24 260r28 286r24 287r28 313r24 314r28
+35n7*Ok{34E9} 12|265r20 269r20 292r20 296r20 319r20 324r20
+44A9*SPI_Data_8b(6|53M9)<integer> 12|103r25 256r33 263r35 285r24 290r35 317r35
+. 322r35
+48h9*SPI_Port
+50P9*Any_SPI_Port(48R9) 11|46r33 86r33
+54x14*Transmit 12|263R17 290R17 317R17 322R17
+70x14*Receive 12|268R17 295R17
+X 9 hal-time.ads
+32K13*Time 46e13 11|38w10 48r29 88r29
+34h9*Delays
+36P9*Any_Delays(34R9) 11|48r34 88r34
+41x14*Delay_Milliseconds 12|77R19 99R19 229R19 244R19
+X 10 interfac.ads
+38K9*Interfaces 184e15 11|39w6 57r25 58r25
+49I9*Integer_16<short_integer> 11|57r36 58r36
+63M9*Unsigned_8
+X 11 pmw3901.ads
+41K9*PMW3901 85E9 112l5 112e12 12|38b14 330l5 330t12
+43X4*SPI_Error 12|94r19 266r16 270r16 293r16 297r16 320r16 325r16
+45R9*PMW3901_Flow_Sensor 46d7 47d7 48d7 69r36 71r40 77r39 80r41 85c9 90e17
+. 92r36 12|50r37 53r39 73r40 118r39 255r41 280r37 307r39
+46p7 Port{8|50P9} 86r7 12|263r12 268r12 290r12 295r12 317r12 322r12
+47p7 CS{7|49P9} 87r7 12|76r12 78r12 262r12 272r12 289r12 299r12 316r12 327r12
+48p7 Timing{9|36P9} 88r7 12|77r12 99r12 229r12 244r12
+50I9*Run_Mode<short_short_integer> 53r25
+51R9*Motion 65e14 67r27 80r69 95r8 110r8 12|61r27 255r69 257r65
+52b7*Frame_From_0{boolean} 96r7
+53i7*Mode{50I9} 97r7
+54b7*Raw_From_0{boolean} 98r7
+55b7*Motion_Occurred{boolean} 99r7 12|65r16
+56m7*Observation{6|53M9} 100r7
+57i7*Delta_X{10|49I9} 101r7
+58i7*Delta_Y{10|49I9} 102r7
+59m7*S_Qual{6|53M9} 103r7 12|66r20
+60m7*Raw_Data_Sum{6|53M9} 104r7
+61m7*Max_Raw_Data{6|53M9} 105r7
+62m7*Min_Raw_Data{6|53M9} 106r7
+63m7*Shutter_Upper{6|53M9} 107r7 12|66r38
+64m7*Shutter_Lower{6|53M9} 108r7
+67V13*Is_Valid{boolean} 67>23 12|61b13 67l8 67t16
+67r23 M{51R9} 12|61b23 65r14 66r18 66r36
+69V13*Is_Initialized{boolean} 69>29 73s17 78s16 81s16 92b13
+69r29 This{45R9} 93r10
+71U14*Initialize 71=26 12|73b14 112l8 112t18
+71r26 This{45R9} 73r33 12|73b26 76r7 77r7 78r7 86m27 86r27 87m28 87r28 88m36
+. 88r36 98m14 99r7 107m31 107r31 111m7
+77U14*Calibrate 77=25 12|118b14 249l8 249t17
+77r25 This{45R9} 78r32 12|118b25 129m20 140m46 140r46 143m20 145m20 148m16
+. 148r16 152m25 152r25 153m25 153r25 229r7 244r7
+80V13*Read_Motion{51R9} 80=27 12|255b13 274l8 274t19
+80r27 This{45R9} 81r32 12|255b27 262r7 263r7 268r7 272r7
+89b10*Initialized{boolean} 93r15 12|111m12
+X 12 pmw3901.adb
+41N4 Reg_ID 86r33 87r34
+42N4 Reg_ID_Inverted 88r42
+43N4 Reg_Data_Ready 107r37
+44N4 Reg_Motion_Burst 263r54
+45N4 Reg_Power_Up_Reset 98r20
+48N4 Power_Up_Reset_Key 98r40
+50V13 Read{6|53M9} 50=19 51>19 86s21 87s22 88s30 107s25 140s40 148s10 152s19
+. 153s19 280b13 301l8 301t12
+50r19 This{11|45R9} 280b19 289r7 290r7 295r7 299r7
+51m19 Register{6|53M9} 281b19 284r49
+53U14 Write 53=21 54>21 55>21 98s7 129s13 143s13 145s13 307b14 328l8 328t13
+53r21 This{11|45R9} 307b21 316r7 317r7 322r7 327r7
+54m21 Register{6|53M9} 308b21 312r50
+55m21 Value{6|53M9} 309b21 322r53
+81m10 Chip_ID{6|53M9} 86m10 89r13
+82m10 Revision{6|53M9} 87m10 90r15
+83m10 Inverted_Chip_ID{6|53M9} 88m10 91r15
+103a10 Buff{8|44A9} 106r19 107m13
+106i14 J{integer} 107r19 107r65
+120R12 Magic 123e17 124r50
+121m10 Register{6|53M9} 129r35
+122m10 Value{6|53M9} 129r54
+124A12 Magics(120R12)<integer> 125r38 126r38
+125U17 Write_Magics 125>31 126b17 131l11 131t23 134s7 161s13 170s7 230s7
+. 246s7
+125a31 Data{124A12} 126b31 128r19 129r26 129r45
+128i14 J{integer} 129r32 129r51
+140m10 Check{6|53M9} 142r14
+150m13 C1{6|53M9} 152m13 154r16 155m16 155r22 157r16 158m16 158r22 166r37
+150m17 C2{6|53M9} 153m13 160m13 160r20 167r37
+256A15 Buffer{8|44A9}<integer> 257r57 258r14
+257V16 Convert[5|20]{11|51R9} 273s14
+258a7 Buff{256A15} 268m26 273r23
+259e7 Status{8|34E9} 264m27 265r10 268m32 269r10
+284m7 Register_For_Read{6|53M9} 290r53
+285a7 Data{8|44A9} 295m26 300r14 300r20
+286e7 Status{8|34E9} 291m27 292r10 295m32 296r10
+312m7 Register_For_Write{6|53M9} 317r53
+313e7 Status{8|34E9} 318m27 319r10 323m27 324r10
+

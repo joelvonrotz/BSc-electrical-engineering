@@ -1,0 +1,342 @@
+graph: { title: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb"
+edge: { sourcename: "file_io__close"
+  targetname: "9:hal__filesystem__file_handle,hal__filesystem__file_handle"
+  label: "file_io.adb:134:21"
+}
+edge: { sourcename: "file_io__flush"
+  targetname: "7:hal__filesystem__file_handle,hal__filesystem__file_handle"
+  label: "file_io.adb:158:37"
+}
+edge: { sourcename: "file_io__size"
+  targetname: "2:hal__filesystem__file_handle,hal__filesystem__file_handle"
+  label: "file_io.adb:176:37"
+}
+edge: { sourcename: "file_io__read"
+  targetname: "3:hal__filesystem__file_handle,hal__filesystem__file_handle"
+  label: "hal-filesystem.ads:195:24"
+}
+edge: { sourcename: "file_io__read"
+  targetname: "4:hal__filesystem__file_handle,hal__filesystem__file_handle"
+  label: "file_io.adb:198:37"
+}
+edge: { sourcename: "file_io__write"
+  targetname: "3:hal__filesystem__file_handle,hal__filesystem__file_handle"
+  label: "hal-filesystem.ads:203:21"
+}
+edge: { sourcename: "file_io__write"
+  targetname: "5:hal__filesystem__file_handle,hal__filesystem__file_handle"
+  label: "file_io.adb:225:37"
+}
+edge: { sourcename: "file_io__offset"
+  targetname: "6:hal__filesystem__file_handle,hal__filesystem__file_handle"
+  label: "file_io.adb:244:37"
+}
+edge: { sourcename: "file_io__seek"
+  targetname: "8:hal__filesystem__file_handle,hal__filesystem__file_handle"
+  label: "file_io.adb:265:37"
+}
+edge: { sourcename: "file_io__close__2"
+  targetname: "4:hal__filesystem__directory_handle,hal__filesystem__directory_handle"
+  label: "file_io.adb:338:20"
+}
+edge: { sourcename: "file_io__read__2"
+  targetname: "2:hal__filesystem__directory_handle,hal__filesystem__directory_handle"
+  label: "file_io.adb:356:36"
+}
+edge: { sourcename: "file_io__read__2"
+  targetname: "2:hal__filesystem__node_handle,hal__filesystem__node_handle"
+  label: "file_io.adb:362:40"
+}
+edge: { sourcename: "file_io__read__2"
+  targetname: "5:hal__filesystem__node_handle,hal__filesystem__node_handle"
+  label: "file_io.adb:366:34"
+}
+edge: { sourcename: "file_io__read__2"
+  targetname: "3:hal__filesystem__node_handle,hal__filesystem__node_handle"
+  label: "file_io.adb:367:34"
+}
+edge: { sourcename: "file_io__read__2"
+  targetname: "4:hal__filesystem__node_handle,hal__filesystem__node_handle"
+  label: "file_io.adb:368:34"
+}
+edge: { sourcename: "file_io__read__2"
+  targetname: "6:hal__filesystem__node_handle,hal__filesystem__node_handle"
+  label: "file_io.adb:369:34"
+}
+edge: { sourcename: "file_io__read__2"
+  targetname: "7:hal__filesystem__node_handle,hal__filesystem__node_handle"
+  label: "file_io.adb:370:43"
+}
+edge: { sourcename: "file_io__read__2"
+  targetname: "8:hal__filesystem__node_handle,hal__filesystem__node_handle"
+  label: "file_io.adb:371:14"
+}
+edge: { sourcename: "file_io__reset"
+  targetname: "3:hal__filesystem__directory_handle,hal__filesystem__directory_handle"
+  label: "file_io.adb:383:20"
+}
+edge: { sourcename: "file_io__create_file"
+  targetname: "2:hal__filesystem__filesystem_driver,hal__filesystem__filesystem_driver"
+  label: "file_io.adb:401:25"
+}
+edge: { sourcename: "file_io__unlink"
+  targetname: "3:hal__filesystem__filesystem_driver,hal__filesystem__filesystem_driver"
+  label: "file_io.adb:418:25"
+}
+edge: { sourcename: "file_io__remove_directory"
+  targetname: "4:hal__filesystem__filesystem_driver,hal__filesystem__filesystem_driver"
+  label: "file_io.adb:435:25"
+}
+edge: { sourcename: "file_io__unmount"
+  targetname: "7:hal__filesystem__filesystem_driver,hal__filesystem__filesystem_driver"
+  label: "file_io.adb:625:32"
+}
+edge: { sourcename: "file_io__read__4"
+  targetname: "5:hal__filesystem__filesystem_driver,hal__filesystem__filesystem_driver"
+  label: "file_io.adb:666:50"
+}
+edge: { sourcename: "file_io__open__4"
+  targetname: "6:hal__filesystem__filesystem_driver,hal__filesystem__filesystem_driver"
+  label: "file_io.adb:713:25"
+}
+edge: { sourcename: "file_io__open__3"
+  targetname: "1:hal__filesystem__filesystem_driver,hal__filesystem__filesystem_driver"
+  label: "file_io.adb:752:28"
+}
+edge: { sourcename: "file_io__open__3"
+  targetname: "1:hal__filesystem__filesystem_driver,hal__filesystem__filesystem_driver"
+  label: "file_io.adb:754:28"
+}
+class {
+  classname: "file_io__vfs_directory_handle"
+  label: "file_io__vfs_directory_handle\file_io.adb:59:9"
+  parent: "hal__filesystem__directory_handle"
+  virtuals: "1:file_io__get_fs__2,1:hal__filesystem__directory_handle\n
+             2:file_io__read__4,2:hal__filesystem__directory_handle\n
+             3:file_io__reset__3,3:hal__filesystem__directory_handle\n
+             4:file_io__close__4,4:hal__filesystem__directory_handle\n
+             -1:file_io___size__2,-1:hal__filesystem__directory_handle\n
+             -6:file_io__Oeq\n
+             -7:file_io___assign"
+}
+node: { title: "file_io__directory_entryIP" label: "Directory_Entryip\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.ads:147:9\n16 bytes (static)" }
+node: { title: "file_io__file_descriptorIP" label: "File_Descriptorip\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.ads:195:9\n16 bytes (static)" }
+node: { title: "file_io__directory_descriptorIP" label: "Directory_Descriptorip\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.ads:199:9\n16 bytes (static)" }
+node: { title: "file_io__mount_pathPredicate" label: "Mount_Pathpredicate\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.ads:180:12\n24 bytes (static)" }
+node: { title: "file_io__mount_recordIP" label: "MOUNT_RECORDIP\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:48:9\n16 bytes (static)" }
+node: { title: "file_io__Tmount_arrayBIP" label: "TMOUNT_ARRAYBIP\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:57:4\n32 bytes (static)" }
+edge: { sourcename: "file_io__Tmount_arrayBIP" targetname: "file_io__mount_recordIP" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:57:4" }
+node: { title: "file_io__vfs_directory_handleIP" label: "VFS_DIRECTORY_HANDLEIP\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:59:9\n16 bytes (static)" }
+node: { title: "file_io___size__2" label: "FILE_IO\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:59:9\n16 bytes (static)" }
+node: { title: "file_io__Oeq" label: "=\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:59:4\n16 bytes (static)" }
+node: { title: "file_io___assign" label: "FILE_IO\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:59:9\n16 bytes (static)" }
+node: { title: "file_io__ThandlesBIP" label: "THANDLESBIP\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:93:4\n32 bytes (static)" }
+edge: { sourcename: "file_io__ThandlesBIP" targetname: "file_io__vfs_directory_handleIP" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:93:4" }
+node: { title: "file_io__open" label: "OPEN\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:107:4\n48 bytes (static)" }
+edge: { sourcename: "file_io__open" targetname: "file_io__is_open" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:115:10" }
+edge: { sourcename: "file_io__open" targetname: "file_io__open__4" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:118:14" }
+node: { title: "file_io__close" label: "CLOSE\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:131:4\n16 bytes (static)" }
+node: { title: "__gnat_last_chance_handler" label: "gnat_last_chance_handler\n<built-in>" shape : ellipse }
+edge: { sourcename: "file_io__close" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:134:14" }
+node: { title: "__indirect_call" label: "Indirect Call Placeholder" shape : ellipse }
+edge: { sourcename: "file_io__close" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:134:21" }
+node: { title: "file_io__is_open" label: "IS_OPEN\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:143:4\n16 bytes (static)" }
+node: { title: "file_io__flush" label: "FLUSH\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:152:4\n16 bytes (static)" }
+edge: { sourcename: "file_io__flush" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:158:30" }
+edge: { sourcename: "file_io__flush" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:158:37" }
+node: { title: "file_io__size" label: "SIZE\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:168:4\n16 bytes (static)" }
+edge: { sourcename: "file_io__size" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:176:30" }
+edge: { sourcename: "file_io__size" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:176:37" }
+node: { title: "file_io__read" label: "READ\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:184:4\n72 bytes (static)" }
+edge: { sourcename: "file_io__read" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:198:30" }
+edge: { sourcename: "file_io__read" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\hal\src\hal-filesystem.ads:195:24" }
+node: { title: "system__assertions__raise_assert_failure" label: "Raise_Assert_Failure\nC:\gnat\2020-arm-elf\arm-eabi\lib\gnat\zfp-cortex-m4f\gnat\s-assert.ads:46:14" shape : ellipse }
+edge: { sourcename: "file_io__read" targetname: "system__assertions__raise_assert_failure" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:198:37" }
+edge: { sourcename: "file_io__read" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:198:37" }
+node: { title: "file_io__write" label: "WRITE\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:211:4\n48 bytes (static)" }
+edge: { sourcename: "file_io__write" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:225:30" }
+edge: { sourcename: "file_io__write" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\hal\src\hal-filesystem.ads:203:21" }
+edge: { sourcename: "file_io__write" targetname: "system__assertions__raise_assert_failure" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:225:37" }
+edge: { sourcename: "file_io__write" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:225:37" }
+node: { title: "file_io__offset" label: "OFFSET\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:238:4\n16 bytes (static)" }
+edge: { sourcename: "file_io__offset" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:244:30" }
+edge: { sourcename: "file_io__offset" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:244:37" }
+node: { title: "file_io__seek" label: "SEEK\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:254:4\n72 bytes (static)" }
+edge: { sourcename: "file_io__seek" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:265:30" }
+edge: { sourcename: "file_io__seek" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:265:37" }
+node: { title: "file_io__open__2" label: "OPEN\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:312:4\n40 bytes (static)" }
+edge: { sourcename: "file_io__open__2" targetname: "file_io__open__3" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:322:14" }
+node: { title: "file_io__close__2" label: "CLOSE\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:335:4\n16 bytes (static)" }
+edge: { sourcename: "file_io__close__2" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:338:13" }
+edge: { sourcename: "file_io__close__2" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:338:20" }
+node: { title: "file_io__read__2" label: "READ\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:346:4\n128 bytes (dynamic)" }
+node: { title: "system__secondary_stack__ss_allocate" label: "Ss_Allocate\nC:\gnat\2020-arm-elf\arm-eabi\lib\gnat\zfp-cortex-m4f\gnat\s-secsta.ads:58:14" shape : ellipse }
+edge: { sourcename: "file_io__read__2" targetname: "system__secondary_stack__ss_allocate" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:353:10" }
+edge: { sourcename: "file_io__read__2" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:356:29" }
+edge: { sourcename: "file_io__read__2" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:356:36" }
+edge: { sourcename: "file_io__read__2" targetname: "system__secondary_stack__ss_allocate" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:358:10" }
+edge: { sourcename: "file_io__read__2" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:362:36" }
+edge: { sourcename: "file_io__read__2" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:362:40" }
+edge: { sourcename: "file_io__read__2" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:362:40" }
+node: { title: "memcpy" label: "builtin_memcpy\n<built-in>" shape : ellipse }
+edge: { sourcename: "file_io__read__2" targetname: "memcpy" }
+edge: { sourcename: "file_io__read__2" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:363:53" }
+edge: { sourcename: "file_io__read__2" targetname: "file_io__directory_entryIP" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:363:10" }
+edge: { sourcename: "file_io__read__2" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:365:30" }
+edge: { sourcename: "file_io__read__2" targetname: "memcpy" }
+edge: { sourcename: "file_io__read__2" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:366:30" }
+edge: { sourcename: "file_io__read__2" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:366:34" }
+edge: { sourcename: "file_io__read__2" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:367:30" }
+edge: { sourcename: "file_io__read__2" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:367:34" }
+edge: { sourcename: "file_io__read__2" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:368:30" }
+edge: { sourcename: "file_io__read__2" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:368:34" }
+edge: { sourcename: "file_io__read__2" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:369:30" }
+edge: { sourcename: "file_io__read__2" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:369:34" }
+edge: { sourcename: "file_io__read__2" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:370:39" }
+edge: { sourcename: "file_io__read__2" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:370:43" }
+edge: { sourcename: "file_io__read__2" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:371:10" }
+edge: { sourcename: "file_io__read__2" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:371:14" }
+edge: { sourcename: "file_io__read__2" targetname: "system__secondary_stack__ss_allocate" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:372:10" }
+edge: { sourcename: "file_io__read__2" targetname: "memcpy" }
+node: { title: "file_io__reset" label: "RESET\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:380:4\n16 bytes (static)" }
+edge: { sourcename: "file_io__reset" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:383:13" }
+edge: { sourcename: "file_io__reset" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:383:20" }
+node: { title: "file_io__create_file" label: "CREATE_FILE\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:391:4\n64 bytes (static)" }
+edge: { sourcename: "file_io__create_file" targetname: "file_io__split" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:395:7" }
+edge: { sourcename: "file_io__create_file" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:401:23" }
+edge: { sourcename: "file_io__create_file" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:401:49" }
+edge: { sourcename: "file_io__create_file" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:401:25" }
+node: { title: "file_io__unlink" label: "UNLINK\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:408:4\n64 bytes (static)" }
+edge: { sourcename: "file_io__unlink" targetname: "file_io__split" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:412:7" }
+edge: { sourcename: "file_io__unlink" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:418:23" }
+edge: { sourcename: "file_io__unlink" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:418:44" }
+edge: { sourcename: "file_io__unlink" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:418:25" }
+node: { title: "file_io__remove_directory" label: "REMOVE_DIRECTORY\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:425:4\n64 bytes (static)" }
+edge: { sourcename: "file_io__remove_directory" targetname: "file_io__split" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:429:7" }
+edge: { sourcename: "file_io__remove_directory" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:435:23" }
+edge: { sourcename: "file_io__remove_directory" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:435:54" }
+edge: { sourcename: "file_io__remove_directory" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:435:25" }
+node: { title: "file_io__copy_file" label: "COPY_FILE\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:442:4\n72 bytes (dynamic)" }
+edge: { sourcename: "file_io__copy_file" targetname: "file_io__file_descriptorIP" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:446:7" }
+edge: { sourcename: "file_io__copy_file" targetname: "file_io__file_descriptorIP" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:446:7" }
+edge: { sourcename: "file_io__copy_file" targetname: "file_io__open" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:451:17" }
+edge: { sourcename: "file_io__copy_file" targetname: "file_io__create_file" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:456:17" }
+edge: { sourcename: "file_io__copy_file" targetname: "file_io__close" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:458:10" }
+edge: { sourcename: "file_io__copy_file" targetname: "file_io__open" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:462:17" }
+edge: { sourcename: "file_io__copy_file" targetname: "file_io__close" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:464:10" }
+edge: { sourcename: "file_io__copy_file" targetname: "file_io__read" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:469:21" }
+edge: { sourcename: "file_io__copy_file" targetname: "file_io__write" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:473:21" }
+edge: { sourcename: "file_io__copy_file" targetname: "file_io__close" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:476:13" }
+edge: { sourcename: "file_io__copy_file" targetname: "file_io__close" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:477:13" }
+edge: { sourcename: "file_io__copy_file" targetname: "file_io__close" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:483:7" }
+edge: { sourcename: "file_io__copy_file" targetname: "file_io__close" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:484:7" }
+node: { title: "file_io__name" label: "NAME\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:492:4\n40 bytes (static)" }
+edge: { sourcename: "file_io__name" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:493:22" }
+edge: { sourcename: "file_io__name" targetname: "file_io__mount_pathPredicate" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:493:13" }
+edge: { sourcename: "file_io__name" targetname: "system__assertions__raise_assert_failure" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:493:8" }
+edge: { sourcename: "file_io__name" targetname: "system__secondary_stack__ss_allocate" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:493:13" }
+edge: { sourcename: "file_io__name" targetname: "memcpy" }
+node: { title: "file_io__set_name" label: "SET_NAME\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:499:4\n80 bytes (static)" }
+edge: { sourcename: "file_io__set_name" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:503:21" }
+edge: { sourcename: "file_io__set_name" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:503:28" }
+edge: { sourcename: "file_io__set_name" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:503:40" }
+edge: { sourcename: "file_io__set_name" targetname: "memcpy" }
+edge: { sourcename: "file_io__set_name" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:504:29" }
+node: { title: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:file_io__split__L_4__B145b___finalizer.6429" label: "B145B\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:536:12\n16 bytes (static)" }
+node: { title: "system__secondary_stack__ss_release" label: "Ss_Release\nC:\gnat\2020-arm-elf\arm-eabi\lib\gnat\zfp-cortex-m4f\gnat\s-secsta.ads:70:14" shape : ellipse }
+edge: { sourcename: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:file_io__split__L_4__B145b___finalizer.6429" targetname: "system__secondary_stack__ss_release" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:536:12" }
+node: { title: "file_io__split" label: "SPLIT\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:511:4\n104 bytes (static)" }
+edge: { sourcename: "file_io__split" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:517:36" }
+edge: { sourcename: "file_io__split" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:524:32" }
+edge: { sourcename: "file_io__split" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:524:32" }
+edge: { sourcename: "file_io__split" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:524:32" }
+edge: { sourcename: "file_io__split" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:526:27" }
+edge: { sourcename: "file_io__split" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:527:13" }
+edge: { sourcename: "file_io__split" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:528:28" }
+node: { title: "system__secondary_stack__ss_mark" label: "Ss_Mark\nC:\gnat\2020-arm-elf\arm-eabi\lib\gnat\zfp-cortex-m4f\gnat\s-secsta.ads:67:13" shape : ellipse }
+edge: { sourcename: "file_io__split" targetname: "system__secondary_stack__ss_mark" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:536:12" }
+edge: { sourcename: "file_io__split" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:536:53" }
+edge: { sourcename: "file_io__split" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:536:49" }
+edge: { sourcename: "file_io__split" targetname: "file_io__name" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:536:21" }
+edge: { sourcename: "file_io__split" targetname: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:_GLOBAL__SZ1_file_io" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:536:30" }
+node: { title: "memcmp" label: "builtin_memcmp\n<built-in>" shape : ellipse }
+edge: { sourcename: "file_io__split" targetname: "memcmp" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:536:30" }
+edge: { sourcename: "file_io__split" targetname: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:file_io__split__L_4__B145b___finalizer.6429" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:536:0" }
+node: { title: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:file_io__mount_volume__L_5__B156b___finalizer.6449" label: "B156B\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:560:12\n16 bytes (static)" }
+edge: { sourcename: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:file_io__mount_volume__L_5__B156b___finalizer.6449" targetname: "system__secondary_stack__ss_release" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:560:12" }
+node: { title: "file_io__mount_volume" label: "MOUNT_VOLUME\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:552:4\n72 bytes (static)" }
+edge: { sourcename: "file_io__mount_volume" targetname: "system__secondary_stack__ss_mark" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:560:12" }
+edge: { sourcename: "file_io__mount_volume" targetname: "file_io__name" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:560:21" }
+edge: { sourcename: "file_io__mount_volume" targetname: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:_GLOBAL__SZ1_file_io" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:560:45" }
+edge: { sourcename: "file_io__mount_volume" targetname: "memcmp" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:560:45" }
+edge: { sourcename: "file_io__mount_volume" targetname: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:file_io__mount_volume__L_5__B156b___finalizer.6449" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:560:0" }
+edge: { sourcename: "file_io__mount_volume" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:573:7" }
+edge: { sourcename: "file_io__mount_volume" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:573:21" }
+edge: { sourcename: "file_io__mount_volume" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:574:7" }
+edge: { sourcename: "file_io__mount_volume" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:574:21" }
+edge: { sourcename: "file_io__mount_volume" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:575:17" }
+edge: { sourcename: "file_io__mount_volume" targetname: "file_io__mount_pathPredicate" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:575:37" }
+edge: { sourcename: "file_io__mount_volume" targetname: "system__assertions__raise_assert_failure" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:575:37" }
+edge: { sourcename: "file_io__mount_volume" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:575:31" }
+edge: { sourcename: "file_io__mount_volume" targetname: "file_io__set_name" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:575:7" }
+node: { title: "file_io__mount_drive" label: "MOUNT_DRIVE\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:584:4\n576 bytes (static)" }
+node: { title: "filesystem__mbr__read" label: "Read\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\filesystem-mbr.ads:45:13" shape : ellipse }
+edge: { sourcename: "file_io__mount_drive" targetname: "filesystem__mbr__read" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:593:17" }
+node: { title: "filesystem__mbr__valid" label: "Valid\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\filesystem-mbr.ads:51:13" shape : ellipse }
+edge: { sourcename: "file_io__mount_drive" targetname: "filesystem__mbr__valid" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:600:13" }
+node: { title: "filesystem__mbr__get_type" label: "Get_Type\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\filesystem-mbr.ads:53:13" shape : ellipse }
+edge: { sourcename: "file_io__mount_drive" targetname: "filesystem__mbr__get_type" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:601:21" }
+node: { title: "__gnat_malloc" label: "gnat_malloc\n<built-in>" shape : ellipse }
+edge: { sourcename: "file_io__mount_drive" targetname: "__gnat_malloc" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:604:23" }
+node: { title: "filesystem__fat__fat_filesystemIP" label: "Fat_Filesystemip\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\filesystem-fat.ads:300:9" shape : ellipse }
+edge: { sourcename: "file_io__mount_drive" targetname: "filesystem__fat__fat_filesystemIP" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:604:23" }
+edge: { sourcename: "file_io__mount_drive" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:607:59" }
+node: { title: "filesystem__mbr__lba" label: "Lba\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\filesystem-mbr.ads:55:13" shape : ellipse }
+edge: { sourcename: "file_io__mount_drive" targetname: "filesystem__mbr__lba" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:606:52" }
+node: { title: "filesystem__fat__open__4" label: "Open\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\filesystem-fat.ads:136:13" shape : ellipse }
+edge: { sourcename: "file_io__mount_drive" targetname: "filesystem__fat__open__4" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:605:32" }
+edge: { sourcename: "file_io__mount_drive" targetname: "file_io__mount_pathPredicate" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:608:34" }
+edge: { sourcename: "file_io__mount_drive" targetname: "system__assertions__raise_assert_failure" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:608:34" }
+edge: { sourcename: "file_io__mount_drive" targetname: "file_io__mount_volume" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:608:20" }
+node: { title: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:file_io__unmount__L_7__B181b___finalizer.6665" label: "B181B\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:624:37\n16 bytes (static)" }
+edge: { sourcename: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:file_io__unmount__L_7__B181b___finalizer.6665" targetname: "system__secondary_stack__ss_release" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:624:37" }
+node: { title: "file_io__unmount" label: "UNMOUNT\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:620:4\n64 bytes (static)" }
+edge: { sourcename: "file_io__unmount" targetname: "system__secondary_stack__ss_mark" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:624:37" }
+edge: { sourcename: "file_io__unmount" targetname: "file_io__name" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:624:13" }
+edge: { sourcename: "file_io__unmount" targetname: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:_GLOBAL__SZ1_file_io" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:624:37" }
+edge: { sourcename: "file_io__unmount" targetname: "memcmp" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:624:37" }
+edge: { sourcename: "file_io__unmount" targetname: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:file_io__unmount__L_7__B181b___finalizer.6665" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:624:0" }
+edge: { sourcename: "file_io__unmount" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:625:29" }
+edge: { sourcename: "file_io__unmount" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:625:32" }
+node: { title: "file_io__get_fs__2" label: "GET_FS\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:639:15\n16 bytes (static)" }
+node: { title: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:file_io__read__L_8__B194b___finalizer__4.6677" label: "B194B\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:666:13\n16 bytes (static)" }
+edge: { sourcename: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:file_io__read__L_8__B194b___finalizer__4.6677" targetname: "system__secondary_stack__ss_release" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:666:13" }
+node: { title: "file_io__read__4" label: "READ\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:651:15\n64 bytes (static)" }
+edge: { sourcename: "file_io__read__4" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:663:39" }
+edge: { sourcename: "file_io__read__4" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:665:17" }
+edge: { sourcename: "file_io__read__4" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:666:20" }
+edge: { sourcename: "file_io__read__4" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:666:47" }
+edge: { sourcename: "file_io__read__4" targetname: "system__secondary_stack__ss_mark" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:666:13" }
+edge: { sourcename: "file_io__read__4" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:667:22" }
+edge: { sourcename: "file_io__read__4" targetname: "file_io__name" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:667:16" }
+edge: { sourcename: "file_io__read__4" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:666:50" }
+edge: { sourcename: "file_io__read__4" targetname: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:file_io__read__L_8__B194b___finalizer__4.6677" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:666:0" }
+node: { title: "file_io__reset__3" label: "RESET\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:677:15\n16 bytes (static)" }
+node: { title: "file_io__close__4" label: "CLOSE\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:687:15\n16 bytes (static)" }
+node: { title: "file_io__open__4" label: "OPEN\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:697:4\n88 bytes (static)" }
+edge: { sourcename: "file_io__open__4" targetname: "file_io__split" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:706:7" }
+edge: { sourcename: "file_io__open__4" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:713:23" }
+edge: { sourcename: "file_io__open__4" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:713:42" }
+edge: { sourcename: "file_io__open__4" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:713:25" }
+node: { title: "file_io__open__3" label: "OPEN\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:722:4\n112 bytes (static)" }
+edge: { sourcename: "file_io__open__3" targetname: "file_io__split" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:744:7" }
+edge: { sourcename: "file_io__open__3" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:752:26" }
+edge: { sourcename: "file_io__open__3" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:752:28" }
+edge: { sourcename: "file_io__open__3" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:754:26" }
+edge: { sourcename: "file_io__open__3" targetname: "__gnat_last_chance_handler" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:754:45" }
+edge: { sourcename: "file_io__open__3" targetname: "__indirect_call" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:754:28" }
+node: { title: "file_io___elabb" label: "FILE_IO\nC:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:38:1\n16 bytes (static)" }
+edge: { sourcename: "file_io___elabb" targetname: "file_io__Tmount_arrayBIP" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:91:4" }
+edge: { sourcename: "file_io___elabb" targetname: "file_io__ThandlesBIP" label: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:93:4" }
+node: { title: "C:\dev\repo\BSc-electrical-engineering\assignments\ASYD_AdaSpark\ada_library_v2\middleware\src\filesystem\file_io.adb:_GLOBAL__SZ1_file_io" label: "SZ1_file_io\n<built-in>\n16 bytes (static)" }
+}

@@ -1,0 +1,126 @@
+V "GNAT Lib v2020"
+A -O0
+A -gnatA
+A --RTS=C:\gnat\2020-arm-elf\arm-eabi\lib\gnat\zfp-cortex-m4f\
+A -mlittle-endian
+A -mthumb
+A -mfloat-abi=hard
+A -mcpu=cortex-m4
+A -mfpu=fpv4-sp-d16
+A -gnata
+A -fcallgraph-info=su
+A -fcallgraph-info=su
+A -g
+A -gnatwa
+A -gnatw_A
+A -gnatQ
+A -gnatw.X
+A -ffunction-sections
+A -fdata-sections
+A -march=armv7e-m+fp
+P ZX
+
+RN
+RV NO_DISPATCH
+RV NO_DISPATCHING_CALLS
+RV NO_EXCEPTIONS
+RV NO_IMPLICIT_CONDITIONALS
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_PRAGMAS
+
+U bitmap_file_output%b	bitmap_file_output.adb	ed720623 NE OO PK
+Z ada.tags%s		a-tags.adb		a-tags.ali
+W hal%s			hal.ads			hal.ali
+W interfaces%s		interfac.ads		interfac.ali
+Z system%s		system.ads		system.ali
+
+U bitmap_file_output%s	bitmap_file_output.ads	81660038 EE NE OO PK
+W file_io%s		file_io.adb		file_io.ali
+W hal%s			hal.ads			hal.ali
+W hal.bitmap%s		hal-bitmap.ads		hal-bitmap.ali
+
+D ada.ads		20200819171400 76789da1 ada%s
+D a-tags.ads		20200819171400 95e09aae ada.tags%s
+D adl_config.ads	20210108111948 5d2c18e5 adl_config%s
+D bitmap_file_output.ads  20210108111948 4fe08882 bitmap_file_output%s
+D bitmap_file_output.adb  20210108111948 d36514c7 bitmap_file_output%b
+D file_io.ads		20210108111948 4b2019a9 file_io%s
+D hal.ads		20210108111948 2b42c80e hal%s
+D hal-bitmap.ads	20210108111948 85a69113 hal.bitmap%s
+D hal-block_drivers.ads	20210108111948 3a6f071f hal.block_drivers%s
+D hal-filesystem.ads	20210108111948 6998b52b hal.filesystem%s
+D interfac.ads		20200819171400 5ab55268 interfaces%s
+D system.ads		20200819171400 e69b74bd system%s
+D s-stoele.ads		20200819171400 2dc34a04 system.storage_elements%s
+G a e
+G c Z s b [write_bmp_file bitmap_file_output 37 14 none]
+G c Z b b [headerIP bitmap_file_output 37 9 none]
+G c Z b b [infoIP bitmap_file_output 50 9 none]
+G r c none [write_bmp_file bitmap_file_output 37 14 none] [write file_io 113 13 none]
+X 4 bitmap_file_output.ads
+35K9*Bitmap_File_Output 40l5 40e23 5|35b14 143l5 143t23
+37U14*Write_BMP_File 37=30 38>30 5|73b14 141l8 141t22
+37r30 File{6|89R9} 5|73b30 113r17 117r17 130r23 136r20
+38c30 Bitmap<8|100R9> 5|74b30 78r56 80r83 101r32 102r33 121r29 122r24 124r24
+X 5 bitmap_file_output.adb
+37R9 Header 37d17 48e15 76r21
+37b17*As_Array{boolean} 38r12
+40a13*Arr{7|162A9}
+42i13*Signature{11|49I9} 89m11
+43i13*Size{11|52I9} 90m11
+44i13*Reserved1{11|49I9} 97m11
+45i13*Reserved2{11|49I9} 98m11
+46i13*Offset{11|52I9} 91m11
+50R9 Info 50d15 67e15 77r21
+50b15*As_Array{boolean} 51r12
+53a13*Arr{7|162A9}
+55i13*Struct_Size{11|52I9} 100m11
+56i13*Width{11|52I9} 101m11
+57i13*Height{11|52I9} 102m11
+58i13*Planes{11|49I9} 103m11
+59i13*Pixel_Size{11|49I9} 104m11
+60i13*Compression{11|52I9} 105m11
+61i13*Image_Size{11|52I9} 106m11
+62i13*PPMX{11|52I9} 107m11
+63i13*PPMY{11|52I9} 108m11
+64i13*Palette_Size{11|52I9} 109m11
+65i13*Important{11|52I9} 110m11
+76r7 Hdr{37R9} 89m7 90m7 91m7 97m7 98m7 113m23 113r23 113r36 113r54
+77r7 Inf{50R9} 100m7 101m7 102m7 103m7 104m7 105m7 106m7 107m7 108m7 109m7
+. 110m7 117m23 117r23 117r36 117r54
+78i7 Row_Size{11|52I9} 79r51 80r45
+79i7 Row_Padding{11|52I9} 80r56 84r53
+80i7 Data_Size{11|52I9} 90r25 106r25
+82r7 RGB_Pix{8|86R9} 124m13 126r28 127r28 128r28
+83a7 Pix_Out{7|162A9} 126m13 127m13 128m13 130m29 130r29 130r46 130r65
+84a7 Padding{7|162A9} 136r26 136r43 136r62
+121i11 Y{integer} 124r42
+122i14 X{integer} 124r39
+X 6 file_io.ads
+42K9*File_IO 4|32w6 32r22 6|250e12
+83M9*File_Size<7|160M9>
+89R9*File_Descriptor 4|37r46 5|73r46 6|197e14
+113V13*Write{83M9} 5|113s10 117s10 130s16 136s13
+X 7 hal.ads
+34K9*HAL 4|33r6 33r22 5|33w6 33r22 7|166e8
+53M9*UInt8<11|63M9>
+160M9*UInt64<11|77M9>
+162A9*UInt8_Array(53M9)<integer> 5|40r19 53r19 83r17 84r26
+X 8 hal-bitmap.ads
+34K13*Bitmap 4|33w10 33r26 8|432e15
+86R9*Bitmap_Color 5|82r17 8|91e15
+88m7*Red{7|53M9} 5|128r36
+89m7*Green{7|53M9} 5|127r36
+90m7*Blue{7|53M9} 5|126r36
+100h9*Bitmap_Buffer 4|38r39 5|74r39
+104y13*Width{natural} 5|78R63 101R39 122R31
+108y13*Height{natural} 5|80R90 102R40 121R36
+181y13*Pixel{86R9} 5|124R31
+X 11 interfac.ads
+38K9*Interfaces 5|32w6 32r22 11|184e15
+49I9*Integer_16<short_integer> 5|42r25 44r25 45r25 58r29 59r29
+52I9*Integer_32<integer> 5|43r25 46r25 55r29 56r29 57r29 60r29 61r29 62r29
+. 63r29 64r29 65r29 78r30 78r44 79r30 80r30 80r71 101r20 102r21
+63M9*Unsigned_8
+77M9*Unsigned_64
+

@@ -1,0 +1,130 @@
+V "GNAT Lib v2020"
+A -O0
+A -gnatA
+A --RTS=C:\gnat\2020-arm-elf\arm-eabi\lib\gnat\zfp-cortex-m4f\
+A -mlittle-endian
+A -mthumb
+A -mfloat-abi=hard
+A -mcpu=cortex-m4
+A -mfpu=fpv4-sp-d16
+A -gnata
+A -fcallgraph-info=su
+A -fcallgraph-info=su
+A -g
+A -gnatwa
+A -gnatw_A
+A -gnatQ
+A -gnatw.X
+A -ffunction-sections
+A -fdata-sections
+A -march=armv7e-m+fp
+P ZX
+
+RN
+RV NO_IMPLICIT_CONDITIONALS
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLEMENTATION_RESTRICTIONS
+RV NO_IMPLICIT_LOOPS
+RR NO_ELABORATION_CODE
+
+U nrf_svd.egu%s		nrf_svd-egu.ads		040312d5 NE OO PR PK IU
+W hal%s			hal.ads			hal.ali
+W nrf_svd%s		nrf_svd.ads		nrf_svd.ali
+W system%s		system.ads		system.ali
+Z system.unsigned_types%s  s-unstyp.ads		s-unstyp.ali
+
+D hal.ads		20210108111948 2b42c80e hal%s
+D interfac.ads		20200819171400 5ab55268 interfaces%s
+D nrf_svd.ads		20210306183508 87ba21d7 nrf_svd%s
+D nrf_svd-egu.ads	20210108111948 4e608fb1 nrf_svd.egu%s
+D system.ads		20200819171400 e69b74bd system%s
+D s-unstyp.ads		20200819171400 5ecf7212 system.unsigned_types%s
+G a e
+G c Z s s [Ttasks_trigger_registersBIP nrf_svd__egu 59 4 none]
+G c Z s s [Tevents_triggered_registersBIP nrf_svd__egu 65 4 none]
+G c Z s s [Tinten_triggered_field_arrayBIP nrf_svd__egu 79 4 none]
+G c Z s s [inten_triggered_fieldIP nrf_svd__egu 84 9 none]
+G c Z s s [inten_registerIP nrf_svd__egu 104 9 none]
+G c Z s s [Tintenset_triggered_field_arrayBIP nrf_svd__egu 142 4 none]
+G c Z s s [intenset_triggered_fieldIP nrf_svd__egu 147 9 none]
+G c Z s s [intenset_registerIP nrf_svd__egu 167 9 none]
+G c Z s s [Tintenclr_triggered_field_arrayBIP nrf_svd__egu 205 4 none]
+G c Z s s [intenclr_triggered_fieldIP nrf_svd__egu 210 9 none]
+G c Z s s [intenclr_registerIP nrf_svd__egu 230 9 none]
+G c Z s s [egu_peripheralIP nrf_svd__egu 250 9 none]
+X 1 hal.ads
+34K9*HAL 166e8 4|45w6 59r55 65r58 90r19 109r24 153r19 172r24 216r19 235r24
+66M9*UInt16<2|66M9> 4|90r23 109r28 153r23 172r28 216r23 235r28
+97M9*UInt32<2|74M9> 4|59r59 65r62
+X 2 interfac.ads
+66M9*Unsigned_16
+74M9*Unsigned_32
+X 3 nrf_svd.ads
+49K9*NRF_SVD 123e12 4|48r9 298r5
+94m4*EGU0_Base{5|90M9} 4|276r30
+96m4*EGU1_Base{5|90M9} 4|280r30
+98m4*EGU2_Base{5|90M9} 4|284r30
+100m4*EGU3_Base{5|90M9} 4|288r30
+102m4*EGU4_Base{5|90M9} 4|292r30
+104m4*EGU5_Base{5|90M9} 4|296r30
+X 4 nrf_svd-egu.ads
+48K17*EGU 3|49k9 4|298l13 298e16
+59A9*TASKS_TRIGGER_Registers(1|97M9)<integer> 253r34
+65A9*EVENTS_TRIGGERED_Registers(1|97M9)<integer> 256r34
+68E9*INTEN_TRIGGERED0_Field 73e6 74r8 80r9
+70n7*Disabled{68E9} 75r7
+72n7*Enabled{68E9} 76r7
+79A9*INTEN_TRIGGERED_Field_Array(68E9)<integer> 93r19
+84R9*INTEN_TRIGGERED_Field 85d7 96e6 98r8 106r24
+85b7*As_Array{boolean} 87r12 107m26
+90m13*Val{1|66M9} 99r7 107m45
+93a13*Arr{79A9} 100r7
+104R9*INTEN_Register 111e6 114r8 258r34
+106r7*TRIGGERED{84R9} 115r7
+109m7*Reserved_16_31{1|66M9} 116r7
+120E9*INTENSET_TRIGGERED0_Field 125e6 126r8
+122n7*Disabled{120E9} 127r7
+124n7*Enabled{120E9} 128r7
+131E9*INTENSET_TRIGGERED0_Field_1 136e6 137r8 143r9
+133n7*Intenset_Triggered0_Field_Reset{131E9} 138r7
+135n7*Set{131E9} 139r7
+142A9*INTENSET_TRIGGERED_Field_Array(131E9)<integer> 156r19
+147R9*INTENSET_TRIGGERED_Field 148d7 159e6 161r8 169r24
+148b7*As_Array{boolean} 150r12 170m26
+153m13*Val{1|66M9} 162r7 170m45
+156a13*Arr{142A9} 163r7
+167R9*INTENSET_Register 174e6 177r8 260r34
+169r7*TRIGGERED{147R9} 178r7
+172m7*Reserved_16_31{1|66M9} 179r7
+183E9*INTENCLR_TRIGGERED0_Field 188e6 189r8
+185n7*Disabled{183E9} 190r7
+187n7*Enabled{183E9} 191r7
+194E9*INTENCLR_TRIGGERED0_Field_1 199e6 200r8 206r9
+196n7*Intenclr_Triggered0_Field_Reset{194E9} 201r7
+198n7*Clear{194E9} 202r7
+205A9*INTENCLR_TRIGGERED_Field_Array(194E9)<integer> 219r19
+210R9*INTENCLR_TRIGGERED_Field 211d7 222e6 224r8 232r24
+211b7*As_Array{boolean} 213r12 233m26
+216m13*Val{1|66M9} 225r7 233m45
+219a13*Arr{205A9} 226r7
+230R9*INTENCLR_Register 237e6 240r8 262r34
+232r7*TRIGGERED{210R9} 241r7
+235m7*Reserved_16_31{1|66M9} 242r7
+250R9*EGU_Peripheral 264e6 266r8 275r26 279r26 283r26 287r26 291r26 295r26
+253a7*TASKS_TRIGGER{59A9} 267r7
+256a7*EVENTS_TRIGGERED{65A9} 268r7
+258r7*INTEN{104R9} 269r7
+260r7*INTENSET{167R9} 270r7
+262r7*INTENCLR{230R9} 271r7
+275r4*EGU0_Periph{250R9}
+279r4*EGU1_Periph{250R9}
+283r4*EGU2_Periph{250R9}
+287r4*EGU3_Periph{250R9}
+291r4*EGU4_Periph{250R9}
+295r4*EGU5_Periph{250R9}
+X 5 system.ads
+60K9*System 4|46w6 112r24 175r24 238r24 5|172e11
+90M9*Address
+114n41*Low_Order_First{114E9} 4|112r31 175r31 238r31
+

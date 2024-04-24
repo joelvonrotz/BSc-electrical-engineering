@@ -1,0 +1,49 @@
+V "GNAT Lib v2020"
+A -O0
+A -gnatA
+A --RTS=C:\gnat\2020-arm-elf\arm-eabi\lib\gnat\zfp-cortex-m4f\
+A -mlittle-endian
+A -mthumb
+A -mfloat-abi=hard
+A -mcpu=cortex-m4
+A -mfpu=fpv4-sp-d16
+A -gnata
+A -fcallgraph-info=su
+A -fcallgraph-info=su
+A -g
+A -gnatwa
+A -gnatw_A
+A -gnatQ
+A -gnatw.X
+A -ffunction-sections
+A -fdata-sections
+A -march=armv7e-m+fp
+P ZX
+
+RN
+RV NO_IMPLEMENTATION_ATTRIBUTES
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLEMENTATION_RESTRICTIONS
+RR NO_ELABORATION_CODE
+
+U cortex_m_svd%s	cortex_m_svd.ads	2bc08694 NE OO PR PK
+W system%s		system.ads		system.ali
+
+D cortex_m_svd.ads	20210108111948 cd5bf229 cortex_m_svd%s
+D system.ads		20200819171400 e69b74bd system%s
+G a e
+X 1 cortex_m_svd.ads
+9K9*Cortex_M_SVD 31l5 31e17
+16m4*NVIC_Base{2|90M9}
+18m4*SCB_Base{2|90M9}
+20m4*SysTick_Base{2|90M9}
+22m4*FPU_Base{2|90M9}
+24m4*MPU_Base{2|90M9}
+26m4*Debug_Base{2|90M9}
+28m4*DWT_Base{2|90M9}
+X 2 system.ads
+60K9*System 1|7w6 16r25 17r6 18r24 19r6 20r28 21r6 22r24 23r6 24r24 25r6
+. 26r26 27r6 28r24 29r6 2|172e11
+90M9*Address 1|16r32 17r6 18r31 19r6 20r35 21r6 22r31 23r6 24r31 25r6 26r33
+. 27r6 28r31 29r6
+
