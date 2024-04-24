@@ -7,7 +7,7 @@
 
 {{< include crypto.qmd >}}
 
-# Docker  `\faIcon{docker}`{=latex}
+# Docker `\faIcon{docker}`{=latex}
 
 {{< include docker.qmd >}}
 

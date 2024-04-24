@@ -105,7 +105,45 @@ $\rightarrow$ Auf dem offiziellen Repository `\textbf{\texttt{\color{BrickRed}{D
 
 Da die Container voneinander isoliert sind, können diese auch nicht gegenseitig auf den Speicher zugreifen. Wenn man z.B. Dateien in einen bestimmten Ordner auf dem Host-Computer abspeichern möchte oder mehrere Container auf den gleichen Speicher zugreifen lassen, muss dies **explizit** angegeben werden.
 
+::: callout-note
+### Volume Handling
+
+Volumes werden durch 
+
+:::
+
+### Host Volumes
+
+````bash
+$ docker run -v /path/in/host:/path/in/container
+````
+
+- `/path/in/host`: Pfad auf dem Host
+- `/path/in/container`: Pfad im Container, welche mit dem Host-Pfad verbunden wird.
+
+### Named Volumes
+
+````bash
+$ docker run -v name:/path/in/container
+````
+
+- `name`: Name des Volumens
+- `/path/in/container`: Pfad im Container, welche geöffnet wird.
+
+### Anonyme Volumes
+
+````bash
+$ docker run -v /path/in/container
+````
+
+- `/path/in/container`: Pfad im Container, welche geöffnet wird.
+
+---
+
 ![](images/docker/container_local_storage.png){height="4.5cm" fig-align="center"}
 
 
 ![](images/docker/container_shared_storage.png){height="4.5cm" fig-align="center"}
+
+
+## Container $\rightarrow$ Image
