@@ -19,3 +19,7 @@ $$
 
 
 {{< include notes.qmd >}}
+
+# Software mit Schneebeli
+
+{{< include software_schneebeli.qmd >}}

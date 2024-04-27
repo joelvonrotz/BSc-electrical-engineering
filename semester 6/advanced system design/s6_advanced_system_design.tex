@@ -195,7 +195,7 @@
 \@ifundefined{codebgcolor}{\definecolor{codebgcolor}{HTML}{f7f7f7}}{}
 \makeatother
 \makeatletter
-\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[enhanced, frame hidden, colback={codebgcolor}, breakable, sharp corners, boxrule=0pt]}{\end{tcolorbox}}\fi
+\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[frame hidden, breakable, sharp corners, enhanced, colback={codebgcolor}, boxrule=0pt]}{\end{tcolorbox}}\fi
 \makeatother
 \ifLuaTeX
 \usepackage[bidi=basic]{babel}
@@ -554,7 +554,7 @@ Rotz \hspace{0.3cm}\textbf{/}\hspace{0.3cm}\mbox{\large \faGithub\space \href{ht
 \includegraphics[width=7cm,height=\textheight]{images/meme_docker.jpg}
 \end{center}
 
-\begin{tcolorbox}[enhanced jigsaw, colback=white, leftrule=.75mm, rightrule=.15mm, bottomrule=.15mm, toprule=.15mm, colbacktitle=quarto-callout-important-color!10!white, breakable, opacityback=0, bottomtitle=1mm, titlerule=0mm, toptitle=1mm, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Wichtig}, coltitle=black, arc=.35mm, left=2mm, colframe=quarto-callout-important-color-frame, opacitybacktitle=0.6]
+\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, bottomrule=.15mm, toptitle=1mm, left=2mm, colbacktitle=quarto-callout-important-color!10!white, colframe=quarto-callout-important-color-frame, titlerule=0mm, colback=white, rightrule=.15mm, toprule=.15mm, coltitle=black, leftrule=.75mm, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Wichtig}, breakable, bottomtitle=1mm, opacityback=0, arc=.35mm]
 
 Bash Befehle via Host sind mit {\color{BrickRed}{\texttt{\textbf{\$}}}}
 gekennzeichnet.
@@ -611,11 +611,11 @@ folgenden Docker-Befehlen gesteuert werden.
 \resizebox{\columnwidth}{!}{
   \begin{tikzpicture}[line/.style={-Straight Barb,shorten >=1mm,shorten <=1mm,draw=black, line width=1.5pt}, label/.style={black, fill=white, node font=\bfseries\ttfamily, inner sep=2pt},  node font=\ttfamily]
 
-  \node[circle,fill=YellowGreen,draw=black, inner sep=0, minimum width=1.4cm]   (stateRunning) at (4,6) {running};
-  \node[circle,fill=BrickRed!80,draw=black, inner sep=0, minimum width=1.4cm]      (stateStopped) at (4,2) {stopped};
+  \node[circle,fill=YellowGreen!50,draw=black, inner sep=0, minimum width=1.4cm]   (stateRunning) at (4,6) {running};
+  \node[circle,fill=BrickRed!50,draw=black, inner sep=0, minimum width=1.4cm]      (stateStopped) at (4,2) {stopped};
   \node[circle,fill=lightgray,draw=black, inner sep=0, minimum width=1.4cm]     (stateDeleted) at (0,2) {deleted};
   \node[circle,fill=RoyalBlue!30,draw=black, inner sep=0, minimum width=1.4cm]  (stateCreated) at (0,6) {created};
-  \node[circle,fill=YellowOrange,draw=black, inner sep=0, minimum width=1.4cm]  (statePaused)  at (8,6) {paused};
+  \node[circle,fill=YellowOrange!50,draw=black, inner sep=0, minimum width=1.4cm]  (statePaused)  at (8,6) {paused};
 
   \node (entry1)                at (-3,6)       {};
   \node (entry2)                at (4,8)        {};
@@ -688,6 +688,61 @@ bestimmten Ordner auf dem Host-Computer abspeichern möchte oder mehrere
 Container auf den gleichen Speicher zugreifen lassen, muss dies
 \textbf{explizit} angegeben werden.
 
+\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, bottomrule=.15mm, toptitle=1mm, left=2mm, colbacktitle=quarto-callout-note-color!10!white, colframe=quarto-callout-note-color-frame, titlerule=0mm, colback=white, rightrule=.15mm, toprule=.15mm, coltitle=black, leftrule=.75mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Volume Handling}, breakable, bottomtitle=1mm, opacityback=0, arc=.35mm]
+
+Volumes werden durch
+
+\end{tcolorbox}
+
+\subsubsection{Host Volumes}\label{host-volumes}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{$}\NormalTok{ docker run }\AttributeTok{{-}v}\NormalTok{ /path/in/host:/path/in/container}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{/path/in/host}: Pfad auf dem Host
+\item
+  \texttt{/path/in/container}: Pfad im Container, welche mit dem
+  Host-Pfad verbunden wird.
+\end{itemize}
+
+\subsubsection{Named Volumes}\label{named-volumes}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{$}\NormalTok{ docker run }\AttributeTok{{-}v}\NormalTok{ name:/path/in/container}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{name}: Name des Volumens
+\item
+  \texttt{/path/in/container}: Pfad im Container, welche geöffnet wird.
+\end{itemize}
+
+\subsubsection{Anonyme Volumes}\label{anonyme-volumes}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{$}\NormalTok{ docker run }\AttributeTok{{-}v}\NormalTok{ /path/in/container}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{/path/in/container}: Pfad im Container, welche geöffnet wird.
+\end{itemize}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
 \begin{center}
 \includegraphics[width=\textwidth,height=4.5cm]{images/docker/container_local_storage.png}
 \end{center}
@@ -695,6 +750,13 @@ Container auf den gleichen Speicher zugreifen lassen, muss dies
 \begin{center}
 \includegraphics[width=\textwidth,height=4.5cm]{images/docker/container_shared_storage.png}
 \end{center}
+
+\subsection{\texorpdfstring{Container \(\rightarrow\)
+Image}{Container \textbackslash rightarrow Image}}\label{container-rightarrow-image}
+
+\subsection{Images}\label{images}
+
+\subsubsection{\texorpdfstring{\texttt{{\color{NavyBlue}{\textbf{FROM}}} {\color{OliveGreen}{<image>}}}}{}}\label{section}
 
 \section{Safety}\label{safety}
 
@@ -704,7 +766,7 @@ Container auf den gleichen Speicher zugreifen lassen, muss dies
 
 \subsection{Cache}\label{cache}
 
-\begin{tcolorbox}[enhanced jigsaw, colback=white, leftrule=.75mm, rightrule=.15mm, bottomrule=.15mm, toprule=.15mm, colbacktitle=quarto-callout-note-color!10!white, breakable, opacityback=0, bottomtitle=1mm, titlerule=0mm, toptitle=1mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Was Cache?}, coltitle=black, arc=.35mm, left=2mm, colframe=quarto-callout-note-color-frame, opacitybacktitle=0.6]
+\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, bottomrule=.15mm, toptitle=1mm, left=2mm, colbacktitle=quarto-callout-note-color!10!white, colframe=quarto-callout-note-color-frame, titlerule=0mm, colback=white, rightrule=.15mm, toprule=.15mm, coltitle=black, leftrule=.75mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Was Cache?}, breakable, bottomtitle=1mm, opacityback=0, arc=.35mm]
 
 \end{tcolorbox}
 
@@ -735,7 +797,7 @@ Cache-Zeilen}
 
 \texttt{funroll-loops}
 
-\begin{tcolorbox}[enhanced jigsaw, colback=white, leftrule=.75mm, rightrule=.15mm, bottomrule=.15mm, toprule=.15mm, colbacktitle=quarto-callout-tip-color!10!white, breakable, opacityback=0, bottomtitle=1mm, titlerule=0mm, toptitle=1mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Enabling Optimization}, coltitle=black, arc=.35mm, left=2mm, colframe=quarto-callout-tip-color-frame, opacitybacktitle=0.6]
+\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, bottomrule=.15mm, toptitle=1mm, left=2mm, colbacktitle=quarto-callout-tip-color!10!white, colframe=quarto-callout-tip-color-frame, titlerule=0mm, colback=white, rightrule=.15mm, toprule=.15mm, coltitle=black, leftrule=.75mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Enabling Optimization}, breakable, bottomtitle=1mm, opacityback=0, arc=.35mm]
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -745,7 +807,7 @@ Cache-Zeilen}
 
 \end{tcolorbox}
 
-\subsection{}\label{section}
+\subsection{}\label{section-1}
 
 \section{Trends}\label{trends}
 

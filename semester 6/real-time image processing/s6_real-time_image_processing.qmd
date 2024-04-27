@@ -27,3 +27,7 @@ $$
 ### Schliessung $\circ$
 
 {{< include fourier.qmd >}}
+
+# GCC
+
+{{< include gcc.qmd >}}

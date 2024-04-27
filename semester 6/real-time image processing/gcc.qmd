@@ -1,0 +1,13 @@
+```bash
+gcc file.c
+```
+
+
+
+## Objekte kompilieren
+
+ 
+
+```bash
+gcc -c file.c
+```

@@ -46,11 +46,11 @@ Ein Docker-**Container** kann fünf Zustände annehmen ([Created]{.underline}, [
 \resizebox{\columnwidth}{!}{
   \begin{tikzpicture}[line/.style={-Straight Barb,shorten >=1mm,shorten <=1mm,draw=black, line width=1.5pt}, label/.style={black, fill=white, node font=\bfseries\ttfamily, inner sep=2pt},  node font=\ttfamily]
 
-  \node[circle,fill=YellowGreen,draw=black, inner sep=0, minimum width=1.4cm]   (stateRunning) at (4,6) {running};
-  \node[circle,fill=BrickRed!80,draw=black, inner sep=0, minimum width=1.4cm]      (stateStopped) at (4,2) {stopped};
+  \node[circle,fill=YellowGreen!50,draw=black, inner sep=0, minimum width=1.4cm]   (stateRunning) at (4,6) {running};
+  \node[circle,fill=BrickRed!50,draw=black, inner sep=0, minimum width=1.4cm]      (stateStopped) at (4,2) {stopped};
   \node[circle,fill=lightgray,draw=black, inner sep=0, minimum width=1.4cm]     (stateDeleted) at (0,2) {deleted};
   \node[circle,fill=RoyalBlue!30,draw=black, inner sep=0, minimum width=1.4cm]  (stateCreated) at (0,6) {created};
-  \node[circle,fill=YellowOrange,draw=black, inner sep=0, minimum width=1.4cm]  (statePaused)  at (8,6) {paused};
+  \node[circle,fill=YellowOrange!50,draw=black, inner sep=0, minimum width=1.4cm]  (statePaused)  at (8,6) {paused};
 
   \node (entry1)                at (-3,6)       {};
   \node (entry2)                at (4,8)        {};
@@ -101,6 +101,12 @@ Standardmässig werden Images wie z.B. [`hello-world`](https://registry.hub.dock
 
 $\rightarrow$ Auf dem offiziellen Repository `\textbf{\texttt{\color{BrickRed}{DockerHub}}}`{=latex} wird unter dem User `\textbf{\texttt{\color{OliveGreen}{kaohslu}}}`{=latex} das Image `\textbf{\texttt{\color{NavyBlue}{01-demo-img}}}`{=latex} der Version `\textbf{\texttt{\color{Periwinkle}{latest}}}`{=latex} heruntergeladen und gestartet.
 
+<!--
+Yb    dP       8                       
+ Yb  dP  .d8b. 8 8   8 8d8b.d8b. .d88b 
+  YbdP   8' .8 8 8b d8 8P Y8P Y8 8.dP' 
+   YP    `Y8P' 8 `Y8P8 8   8   8 `Y88P                
+-->
 ## Volume
 
 Da die Container voneinander isoliert sind, können diese auch nicht gegenseitig auf den Speicher zugreifen. Wenn man z.B. Dateien in einen bestimmten Ordner auf dem Host-Computer abspeichern möchte oder mehrere Container auf den gleichen Speicher zugreifen lassen, muss dies **explizit** angegeben werden.
@@ -147,3 +153,15 @@ $ docker run -v /path/in/container
 
 
 ## Container $\rightarrow$ Image
+
+<!--
+888                                
+ 8  8d8b.d8b. .d88 .d88 .d88b d88b 
+ 8  8P Y8P Y8 8  8 8  8 8.dP' `Yb. 
+888 8   8   8 `Y88 `Y88 `Y88P Y88P 
+                   wwdP            
+-->
+## Images
+
+### `\texttt{{\color{NavyBlue}{\textbf{FROM}}} {\color{OliveGreen}{<image>}}}`{=latex}
+
