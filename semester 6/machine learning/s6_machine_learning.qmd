@@ -64,3 +64,5 @@ Coefficient of determination of the linear regression: $R^{2}$ & $0.67$         
 ```
 
 :::
+
+{{< include convolutional_neural_network.qmd >}}

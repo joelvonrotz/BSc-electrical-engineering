@@ -1,0 +1,12 @@
+## Convolution Layers
+
+## Pooling
+
+
+::: {.callout-tip}
+### Analogy + Reason
+
+You don't see the paint strokes of the painter when zooming out, but you will be able to see objects.
+
+$\rightarrow$ Neighbour pixels are too similar from another, so by resizing the image by combining neighbouring pixels, we sort of see the displayed object itself.
+:::
