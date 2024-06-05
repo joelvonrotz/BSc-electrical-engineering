@@ -7,8 +7,10 @@ project:
 format:
   chribel-summary-quarto-pdf:
     include-in-header:
-    - text: "\\usepackage[datesep=.]{datetime2}"
-    - text: "\\DTMsetdatestyle{ddmmyyyy}"
+    - text: | 
+        \usepackage[datesep=.]{datetime2}
+        \DTMsetdatestyle{ddmmyyyy}
+        \usepackage{mathtools}
     toc: true
     classoption: twocolumn
 
