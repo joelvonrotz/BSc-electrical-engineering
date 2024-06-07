@@ -1,16 +1,12 @@
 project:
   type: chribel-summary-quarto
-  output-dir: ".."
   render: 
     - s6_applied_industrial_robotics.qmd
 
 format:
   chribel-summary-quarto-pdf:
     include-in-header:
-    - text: | 
-        \usepackage[datesep=.]{datetime2}
-        \DTMsetdatestyle{ddmmyyyy}
-        \usepackage{mathtools}
+      - preamble.tex
     toc: true
     classoption: twocolumn
 

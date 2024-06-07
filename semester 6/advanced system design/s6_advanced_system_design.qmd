@@ -1,7 +1,6 @@
+```{=latex}
 \newpage
-
-![](images/cryptography%20meme.jpg)
-
+```
 
 # Crypto
 
@@ -23,6 +22,16 @@
 
 {{< include performance.qmd >}}
 
-# Trends
+# Trends - Low Power
 
 {{< include trends.qmd >}}
+
+\newpage
+
+# Anhang
+
+## Crypto
+
+### Permutation Tabellen
+
+![](images/crypto/permutation%20tables.pdf){fig-align="center"}

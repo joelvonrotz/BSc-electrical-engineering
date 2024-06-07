@@ -22,364 +22,64 @@ Bei der Rotation von Rechtssystemen kann die rechte Handregel angewendet werden.
 
 # Repetition Linear Algebra
 
-## Vektoren
+{{< include repetition_linear_algebra.qmd >}}
 
-### Skalarprodukt
+\newpage
 
-![](images/skalarprodukt.png){fig-align="center" width="9cm"}
+# Rotationen & Translationen
 
-Das Skalarprodukt entspricht der Multiplikation der Projektion $\overrightarrow{b_a}$ auf $\overrightarrow{a}$ mit $\overrightarrow{a}$
-
-$$ \overrightarrow{a} \bullet \overrightarrow{b} = \begin{bmatrix} a_1 \\ \vdots \\ a_n \end{bmatrix} \bullet \begin{bmatrix} b_1 \\ \vdots \\ b_n \end{bmatrix}= a_1 \cdot b_1 + \cdots + a_n \cdot b_n = \sum^n_{i=1}{a_i\cdot b_i} $$
-
-### Winkel & Orthogonalität
-
-![](images/winkel.png){fig-align="center" width="4.3cm" height="3.5cm"}
-
-Beim Berechnen des Winkels zwischen zwei Vektoren
-
-$$ \varphi = \arccos{\frac{x\bullet y}{\Vert x \Vert \cdot \Vert y \Vert}} $$
-
-Es gilt:
-
--   $\overrightarrow{a} \bullet \overrightarrow{b} > 0\quad\text{wenn}\quad{\varphi}<\frac{\pi}{2}$
--   $\overrightarrow{a} \bullet \overrightarrow{b} < 0\quad\text{wenn}\quad{\varphi}>\frac{\pi}{2}$
-
-::: callout-important
-### Definition Orthogonalität
-
-Sind zwei Vektoren *orthogonal*/*senkrecht* zueinander, ergibt das Skalarprodukt
-
-$$ \overrightarrow{a} \bullet \overrightarrow{b} = 0\quad\text{und}\quad\varphi = \frac{\pi}{2} $$
-:::
-
-`\vspace{2mm}`{=latex}
-
-::: callout-note
-## Richtungswinkel in $\mathbb{R}^3$
-
-$$ \cos\alpha=\frac{a_x}{a} \textcolor{gray}{\text{ \& }} \cos\beta=\frac{a_y}{a} \textcolor{gray}{\text{ \& }} \cos\gamma=\frac{a_z}{a} $$
-
-$$ \cos^2\alpha + \cos^2\beta + \cos^2\gamma = 1 $$
-:::
-
-### Kreuzprodukt
-
-## Matrizen
-
-Schiefsymmetrische Matrix: $A=-A^T$
-
-Asymmetrische Matrix: $A=A^T$
-
-Diagonalmatrix
-
-Inverse Matrix/Kehrmatrix
-
-Adjunkte
-
-Rank
-
-Selektion Untermatrizen oder Vektoren
-
-$$
-A = \begin{bmatrix}
-\textcolor{BrickRed}{1} & \textcolor{BrickRed}{0} & \textcolor{OliveGreen}{0}\\
-\textcolor{BrickRed}{0} & \textcolor{BrickRed}{3} & \textcolor{OliveGreen}{0}\\
-0 & 0 & \textcolor{OliveGreen}{5}
-\end{bmatrix}
-$$
-
-$$
-A(\textcolor{BrickRed}{1:2}, \textcolor{BrickRed}{1:2}) \quad A(\textcolor{OliveGreen}{:}, \textcolor{OliveGreen}{3})
-$$
-
-$$
-E = \begin{bmatrix}
--2 & 4 & 1\\
-4 & -1 & 0\\
-1 & 0 & 4
-\end{bmatrix}
-$$
-
-$$
-\text{Inv}(E)=E^{-1}=\frac{\text{adj}(E)}{\text{det}(E)}
-$$
-
-### Rang
-
-Anzahl linear unabhängige Spalten oder Zeilen einer Matrix
-
-$$
-\text{Rang}\leq (n,m)
-$$
-
-## Rotationsmatrix
-
-Rotationsmatrix beschreibt eine **Rotation** und wird in Form $\prescript{a}{b}{R}$ dargestellt. Das $\prescript{a}{b}{}$ beschreibt [Rotationsmatrix von **a** nach **b**]{.underline}.
-
-### Aufbau
-
-Die Matrix wird folgend beschrieben.
-
-$$
-\prescript{\color{BrickRed}a}{\color{NavyBlue}b}{R}=
-\begin{bmatrix}
-x^{({\color{NavyBlue}b})}_{\color{BrickRed}a} &
-y^{({\color{NavyBlue}b})}_{\color{BrickRed}a} &
-z^{({\color{NavyBlue}b})}_{\color{BrickRed}a}
-\end{bmatrix}
-$$
-
-::: callout-tip
-### Beispiel
-
-![](images/paste-2.png){width="7cm" fig-align="center"}
-
-```{=latex}
-\begin{center}
-  \resizebox{4cm}{!}{
-    \begin{tikzpicture}
-
-    \node[] at (0.5,1.5) {${v_{s,k}^{({\color{BrickRed}{\mathbf{k}}})}=\ \prescript{\color{OliveGreen}{{0}}}{\color{BrickRed}{\mathbf{k}}}{T}\cdot v_{s,k}^{({\color{OliveGreen}{{0}}})}}$};
-    \draw[-{Latex[width=1mm,length=1mm]}, OliveGreen] (1.4,1.8) .. controls (1.25,1.95) and (0.8,1.95) .. (0.65,1.75);
-    \draw[-{Latex[width=1mm,length=1mm]}, BrickRed] (0.45,1.25) .. controls (0.1,1.25) and (-0.05,1.35) .. (-0.15,1.5);
-    \draw[-{Latex[width=1mm,length=1mm]}, OliveGreen!50!BrickRed, rounded corners=2pt] (0.4,1.62) -- (0.275,1.62) -- (0.275,1.38) -- (0.45,1.38);
-    \end{tikzpicture}
-  }
-\end{center}
-
-```
-
-Vektor $v^{(0)}_{s,k}$ wird im $0$ Koordinatensystem dargestellt, nun wird es mit $\prescript{0}{k}{T}$ multipliziert. Das Endprodukt ist immer noch der gleiche Vektor, einfach nun im Bezug zum Koordinatensystem $k$
-:::
-
-### Eigenschaften
-
--   Zeilen- & Spaltenvektoren sind **orthogonal** zueinander
--   Determinante $\det{(\prescript{k}{0}{A})=1}$
--   Betrag von Spalten & Zeilen = 1
-
-### Inverse
-
-$$
-(\prescript{{\color{BrickRed}{\mathbf{k}}}}{0}{A})^{-1}=\prescript{0}{{\color{BrickRed}{\mathbf{k}}}}{A}=\prescript{{\color{BrickRed}{\mathbf{k}}}}{0}{A}^T
-$$
-
-
-### Verkettung
-
-$$
-\prescript{k  }{i  }{A}=
-\prescript{i+1}{i  }{A}\cdot
-\prescript{i+2}{i+1}{A}\cdot\cdots\cdot
-\prescript{k-1}{k-2}{A}\cdot
-\prescript{k  }{k-1}{A}
-$$
-
-und einer inverse Verkettung:
-
-$$
-\begin{split}
-\prescript{i  }{k  }{A}=
-\begin{bmatrix}\prescript{k  }{i  }{A}\end{bmatrix}^T&=
-\prescript{k  }{k-1}{A}^T\cdot
-\prescript{k-1}{k-2}{A}^T\cdot\cdots\cdot
-\prescript{i+2}{i+1}{A}^T\cdot
-\prescript{i+1}{i  }{A}^T   \\&= 
-\prescript{k-1}{k  }{A}\cdot
-\prescript{k-2}{k-1}{A}\cdot\cdots\cdot
-\prescript{i+1}{i+2}{A}\cdot
-\prescript{i  }{i+1}{A}
-\end{split}
-$$
-
-
-::: callout-tip
-#### Beispiel
-
-$$
-\prescript{3}{1}{A}=
-{\color{BrickRed}\prescript{2}{1}{A}}\cdot
-{\color{NavyBlue}\prescript{3}{2}{A}}
-$$
-
-$$
-\prescript{1}{3}{A}=
-{\color{NavyBlue}\prescript{3}{2}{A}}^T\cdot
-{\color{BrickRed}\prescript{2}{1}{A}}^T=
-\prescript{2}{3}{A}\cdot
-\prescript{1}{2}{A}
-$$
-
-:::
-
-```{=latex}
-\vfill
-```
-
-## Homogene Matrizen (Frames)
-
-Damit die Lage des Effektors im Raum eindeutig bestimmbar ist, wird die Rotationsmatrix mit einem Verschiebungsvektor erweitert. Dadurch ist **Orientierung** und **Position** bestimmbar.
-
-```{=latex}
-\begin{center}
-  \resizebox{5cm}{!}{
-    \begin{tikzpicture}
-
-    \node[] at (0.5,1.5) {${a^{({\color{BrickRed}{\mathbf{k}}})}=\ \prescript{\color{OliveGreen}{\mathbf{0}}}{\color{BrickRed}{\mathbf{k}}}{T}\cdot a^{({\color{OliveGreen}{\mathbf{0}}})}}$};
-    \draw[-{Latex[width=1mm,length=1mm]}, OliveGreen] (1.4,1.8) .. controls (1.25,1.95) and (0.8,1.95) .. (0.65,1.75);
-    \draw[-{Latex[width=1mm,length=1mm]}, BrickRed] (0.45,1.25) .. controls (0.1,1.25) and (-0.05,1.35) .. (-0.15,1.5);
-    \draw[-{Latex[width=1mm,length=1mm]}, OliveGreen!50!BrickRed, rounded corners=2pt] (0.4,1.62) -- (0.275,1.62) -- (0.275,1.38) -- (0.45,1.38);
-    \end{tikzpicture}
-  }
-\end{center}
-
-```
-
-> *Vom Bergspitz* ${\color{OliveGreen}\mathbf{0}}$ *aus den See* $\mathbf{a}$ *anschauen, dann via dem Wanderweg* $\prescript{\color{OliveGreen}\mathbf{0}}{\color{BrickRed}\mathbf{k}}{T}$ *zum Bergspitz* ${\color{BrickRed}\mathbf{k}}$ *und von dort auf denselben See* $\mathbf{a}$ *schauen.*
-
-Die homogene Matrix/Frame besteht aus einer `{\color{NavyBlue}\textbf{Rotation}}`{=latex}, einer `{\color{BrickRed}\textbf{Translation}}`{=latex} und einem sehr markanten **1**.
-
-$$
-\prescript{k}{i}{T}=\begin{bmatrix}
-{\color{NavyBlue}x_k^{(i)}} & {\color{NavyBlue}y_k^{(i)}} & {\color{NavyBlue}z_k^{(i)}} &{\color{BrickRed}p_{ik}^{(i)}} \\
-0         & 0         & 0         & \mathbf{1}
-\end{bmatrix}
-$$
-
-Die Verschiebung wird genutzt um ein Frame auf eine Position zu setzen, z.B. am TCP des Werkzeugs.
-
-![](images/paste-3.png){fig-align="center" width="7cm"}
-
-::: callout-tip
-### Beispiel
-
-
-Vektor $a$ wird vom Koordinatensystem $K_k$ ins System $K_i$ überführt. Bei **Freien** Vektor wird der Wert in der vierten Zeile auf ${\color{BrickRed}\mathbf{0}}$ gesetzt, da die Position des Vektors nicht wichtig ist $\rightarrow$ Rotation würde genügen
-
-$$
-\prescript{k}{i}{T}=\begin{bmatrix}
-{ 0} & {0} & {-1} & {0} \\
-{-1} & {0} & { 0} & {4} \\
-{ 0} & {1} & { 0} & {2} \\
- 0 & 0 &  0 & 1 \\
-\end{bmatrix},\quad a^{(k)}=\begin{bmatrix} 1\\ 2\\ 0\\ {\color{BrickRed} \mathbf{0}} \\\end{bmatrix}
-$$
-
-$$
-a^{(i)}=\prescript{k}{i}{T}\cdot a^{(k)} =\begin{bmatrix}
- 0 & 0 & -1 & {\color{BrickRed}\mathbf{0}} \\
--1 & 0 &  0 & {\color{BrickRed}\mathbf{4}} \\
- 0 & 1 &  0 & {\color{BrickRed}\mathbf{2}} \\
- 0 & 0 &  0 & {\color{BrickRed}\mathbf{1}} \\
-\end{bmatrix}\cdot
-\begin{bmatrix} 1\\ 2\\ 0\\ {\color{BrickRed}\mathbf{0}} \\\end{bmatrix}=
-\begin{bmatrix} 0\\ -1\\ 2\\ 0\end{bmatrix}
-$$
-
-Der Nutzen des Frames ist bei Ortsvektoren ersichtlich. Bei diesen Vektoren wird der vierte Wert auf ${\color{NavyBlue}\mathbf{1}}$ gesetzt. Vektor $u_{kP}^{(k)}$ zeigt auf Punkt $P$ und wird nun im Bezug zu $K_i$ in $u_{iP}^{(i)}$ transformiert. 
-
-$$
-u_{kP}^{(k)}=\begin{bmatrix} -2\\ -1\\ 0\\ 1\end{bmatrix}
-$$
-
-$$
-u_{iP}^{(i)}=\prescript{k}{i}{T}\cdot u_{kP}^{(k)} =\begin{bmatrix}
- 0 & 0 & -1 & {\color{NavyBlue}\mathbf{0}} \\
--1 & 0 &  0 & {\color{NavyBlue}\mathbf{4}} \\
- 0 & 1 &  0 & {\color{NavyBlue}\mathbf{2}} \\
- 0 & 0 &  0 & {\color{NavyBlue}\mathbf{1}} \\
-\end{bmatrix}\cdot
-\begin{bmatrix} -2\\ -1\\ 0\\ {\color{NavyBlue}\mathbf{1}} \\\end{bmatrix}=
-\begin{bmatrix} 0\\ 6\\ 1\\ 1\end{bmatrix}
-$$
-
-![](images/paste-4.png){fig-align="center"}
-
-Während ein freier Vektor sich nicht verändert, ändern sich Ortsvektoren zu komplett neuen Vektoren ($\vert u_{kP}^{(k)}\vert\neq\vert u_{iP}^{(i)}\vert$).
-
-:::
-
-### Inverse
-
-Zu **jeder** homogenen Matrix ist **immer** die inverse homogene Matrix gegeben und es gilt [speziell]{.underline}:
-
-$$
-\prescript{i}{k}{T}=(\prescript{k}{i}{T})^{-1}=\begin{bmatrix}
-\prescript{k}{i}{A}^T & -\prescript{k}{i}{A}^T\cdot p_{ik}^{(i)}\\
-\begin{bmatrix}0&0&0\end{bmatrix} & 1
-\end{bmatrix}
-$$
-
-### Verkettung
-
-$$
-\prescript{k  }{i  }{T}=
-\prescript{i+1}{i  }{T}\cdot
-\prescript{i+2}{i+1}{T}\cdot\cdots\cdot
-\prescript{k-1}{k-2}{T}\cdot
-\prescript{k  }{k-1}{T}
-$$
-
-und einer inverse Verkettung:
-
-$$
-\begin{split}
-\prescript{i  }{k  }{T}=
-\begin{bmatrix}\prescript{k  }{i  }{T}\end{bmatrix}^{\mathbf{-1}}&=
-\prescript{k  }{k-1}{T}^{\mathbf{-1}}\cdot
-\prescript{k-1}{k-2}{T}^{\mathbf{-1}}\cdot\cdots\cdot
-\prescript{i+2}{i+1}{T}^{\mathbf{-1}}\cdot
-\prescript{i+1}{i  }{T}^{\mathbf{-1}}   \\&= 
-\prescript{k-1}{k  }{T}\cdot
-\prescript{k-2}{k-1}{T}\cdot\cdots\cdot
-\prescript{i+1}{i+2}{T}\cdot
-\prescript{i  }{i+1}{T}
-\end{split}
-$$
-
-::: callout-warning
-#### $]^{-1}$ anstatt $]^T$
-
-Da die homogene Matrix nicht einfach so transponiert werden darf, muss die spezielle Umformung verwendet werden!
-:::
-
-## Orienterung durch Euler-Winkel
-
-Eine Drehung eines Frames im Bezug zu einem anderen ist durch **drei** Winkel angegeben. Diese drei Winkel werden **Euler-Winkel** genannt, wenn diese [nacheinander]{.underline} ausgeführt werden.
-
-
-
-$$
-R_X
-$$
-
-Rotationen
-
-\$\$
-
-\$\$
+{{< include rotationen_translationen.qmd >}}
 
 # Quaternion
 
+{{< include quaternion.qmd >}}
+
+`\textcolor{BrickRed}{[\textbf{TODO}]}`{=latex}
+
+# Umwandlungen $Q\leftrightarrow EA \leftrightarrow \prescript{k}{i}{A}$
+
+`\textcolor{BrickRed}{[\textbf{TODO}]}`{=latex}
+
+## Euler zu Quartenion
+
+`\textcolor{BrickRed}{[\textbf{TODO}]}`{=latex}
+
+## Quartenion zu Euler
+
+`\textcolor{BrickRed}{[\textbf{TODO}]}`{=latex}
+
+## Euler zu Rotationsmatrix
+
+`\textcolor{BrickRed}{[\textbf{TODO}]}`{=latex}
+
+## Rotationsmatrix zu Euler
+
+`\textcolor{BrickRed}{[\textbf{TODO}]}`{=latex}
+
+## Quaternion zu Rotationsmatrix
+
+`\textcolor{BrickRed}{[\textbf{TODO}]}`{=latex}
+
+## Rotationsmatrix zu Quaternion
+
 $$
-q = \begin{bmatrix}qt_1 \\ qt_2 \\ qt_3 \\ qt_4\end{bmatrix}
+\prescript{k}{i}{A}=\begin{bmatrix}
+  A_{11} & A_{12} & A_{13} \\
+  A_{21} & A_{22} & A_{23} \\
+  A_{31} & A_{32} & A_{33}
+\end{bmatrix}
 $$
 
 $$
-\dot{Q} = 
+\begin{bmatrix}qt_1 \\ qt_2 \\ qt_3 \\ qt_4\end{bmatrix}=\begin{bmatrix}
+  0.5\cdot \sqrt{A_{11}+A_{22}+A_{33}+1} \\
+  0.5\cdot\text{sgn}(A_{32}-A_{23})\cdot \sqrt{A_{11}-A_{22}-A_{33}+1}\\
+  0.5\cdot\text{sgn}(A_{13}-A_{31})\cdot \sqrt{A_{22}-A_{33}-A_{11}+1}\\
+  0.5\cdot\text{sgn}(A_{21}-A_{12})\cdot \sqrt{A_{33}-A_{11}-A_{22}+1}
+\end{bmatrix}
 $$
 
-$$
-\begin{array}{l}
-Q \longrightarrow EA \\
-EA \longrightarrow Q \\
-Q \longrightarrow DCM\ /\ ^w_0A \\
-DCM\ /\ ^w_0A \longrightarrow Q \\
-EA \longrightarrow DCM\ /\ ^w_0A \\
-DCM\ /\ ^w_0A \longrightarrow EA
-\end{array}
-$$
+# Spaghett
 
 {{< include notes.qmd >}}
 

@@ -1,3 +1,8 @@
+
+Für das meiste die [\faGithub Linear Algebra Zusammenfassung](https://github.com/joelvonrotz/BSc-electrical-engineering/tree/main/semester%202/summary/linear%20algebra) anschauen.
+
+Aber sonst das Wichtigste
+
 ## Vektoren
 
 ### Skalarprodukt
@@ -6,9 +11,9 @@
 
 Das Skalarprodukt entspricht der Multiplikation der Projektion $\overrightarrow{b_a}$ auf $\overrightarrow{a}$ mit $\overrightarrow{a}$
 
-$$ \overrightarrow{a} \bullet \overrightarrow{b} = \begin{bmatrix} a_1 \\ \vdots \\ a_n \end{bmatrix} \bullet \begin{bmatrix} b_1 \\ \vdots \\ b_n \end{bmatrix}= a_1 \cdot b_1 + \cdots + a_n \cdot b_n = \sum^n_{i=1}{a_i\cdot b_i} $$
-
-### 
+$$
+\overrightarrow{a} \bullet \overrightarrow{b} = \begin{bmatrix} a_1 \\ \vdots \\ a_n \end{bmatrix} \bullet \begin{bmatrix} b_1 \\ \vdots \\ b_n \end{bmatrix}= a_1 \cdot b_1 + \cdots + a_n \cdot b_n = \sum^n_{i=1}{a_i\cdot b_i}
+$$
 
 ### Winkel & Orthogonalität
 
@@ -16,12 +21,13 @@ $$ \overrightarrow{a} \bullet \overrightarrow{b} = \begin{bmatrix} a_1 \\ \vdots
 
 Beim Berechnen des Winkels zwischen zwei Vektoren
 
-$$ \varphi = \arccos{\frac{x\bullet y}{\Vert x \Vert \cdot \Vert y \Vert}} $$
+$$
+\varphi = \arccos{\frac{x\bullet y}{\Vert x \Vert \cdot \Vert y \Vert}}
+$$
 
 Es gilt:
 
 -   $\overrightarrow{a} \bullet \overrightarrow{b} > 0\quad\text{wenn}\quad{\varphi}<\frac{\pi}{2}$
-
 -   $\overrightarrow{a} \bullet \overrightarrow{b} < 0\quad\text{wenn}\quad{\varphi}>\frac{\pi}{2}$
 
 ::: callout-important
@@ -29,7 +35,9 @@ Es gilt:
 
 Sind zwei Vektoren *orthogonal*/*senkrecht* zueinander, ergibt das Skalarprodukt
 
-$$ \overrightarrow{a} \bullet \overrightarrow{b} = 0\quad\text{und}\quad\varphi = \frac{\pi}{2} $$
+$$
+\overrightarrow{a} \bullet \overrightarrow{b} = 0\quad\text{und}\quad\varphi = \frac{\pi}{2}
+$$
 :::
 
 `\vspace{2mm}`{=latex}
@@ -37,28 +45,93 @@ $$ \overrightarrow{a} \bullet \overrightarrow{b} = 0\quad\text{und}\quad\varphi 
 ::: callout-note
 ## Richtungswinkel in $\mathbb{R}^3$
 
-$$ \cos\alpha=\frac{a_x}{a} \textcolor{gray}{\text{ \& }} \cos\beta=\frac{a_y}{a} \textcolor{gray}{\text{ \& }} \cos\gamma=\frac{a_z}{a} $$
+$$
+\cos\alpha=\frac{a_x}{a} \textcolor{gray}{\text{ \& }} \cos\beta=\frac{a_y}{a} \textcolor{gray}{\text{ \& }} \cos\gamma=\frac{a_z}{a}
+$$
 
-$$ \cos^2\alpha + \cos^2\beta + \cos^2\gamma = 1 $$
+$$
+\cos^2\alpha + \cos^2\beta + \cos^2\gamma = 1
+$$
+
 :::
 
 ### Kreuzprodukt
 
+Mit dem Kreuzprodukt kann ein **orthogonaler** Vektor Teil eines Rechtssystems bestummen werden.
+
+$$
+\vec{\color{RoyalPurple}\mathbf{c}} = \vec{\color{BrickRed}\mathbf{a}}\times\vec{\color{NavyBlue}\mathbf{b}}=\begin{bmatrix}
+c_x\\
+c_y\\
+c_z
+\end{bmatrix} = 
+\begin{bmatrix}
+{\color{BrickRed}\mathbf{a}}_y\cdot {\color{NavyBlue}\mathbf{b}}_z -
+{\color{BrickRed}\mathbf{a}}_z\cdot {\color{NavyBlue}\mathbf{b}}_y \\
+{\color{BrickRed}\mathbf{a}}_z\cdot {\color{NavyBlue}\mathbf{b}}_x -
+{\color{BrickRed}\mathbf{a}}_x\cdot {\color{NavyBlue}\mathbf{b}}_z \\
+{\color{BrickRed}\mathbf{a}}_x\cdot {\color{NavyBlue}\mathbf{b}}_y -
+{\color{BrickRed}\mathbf{a}}_y\cdot {\color{NavyBlue}\mathbf{b}}_x 
+\end{bmatrix}
+$$
+
+Der Mittelfinger der beiden Vektoren ist das Kreuzprodukt. Je nach Betrachtung des Systems zeigt der Normalvektor in die andere Richtung
+
+![](images/RHR.svg.png){width="5cm" fig-align="center"}
+
+
+```{=latex}
+\begin{center}
+\begin{tikzpicture}[3d view={45}{35.26}]
+\draw[-,fill=white!95!red](0,0)--(3,0)--(3.5,2)--(0.5,2)--cycle;
+\node at (1.75,1) {$|\textcolor{NavyBlue}{a}\times \textcolor{BrickRed}{b}|$};
+\draw[ultra thick, line cap=round,-latex,NavyBlue](0,0)--(3,0)node[midway,below]{$a$};
+\draw[ultra thick, line cap=round,-latex,BrickRed](0,0)--(0.5,2)node[midway,above]{$b$};
+\draw[ultra thick, line cap=round,-latex,RoyalPurple](0,0,0)--(0,0,2.5)node[pos=0.7,right]{$c=a\times b$};
+\draw (0.6,0) arc [start angle=0,end angle=75,radius=0.6] node[pos=0.5,right]{$\theta$};
+
+\draw[gray, densely dotted] (2.9,2) arc [start angle=-180,end angle=-105,radius=0.6] node[pos=0.5,left]{$\theta$};
+
+\end{tikzpicture}
+\end{center}
+```
+
+
 ## Matrizen
 
-Schiefsymmetrische Matrix: $A=-A^T$
+### Schiefsymmetrische Matrix: $A=-A^T$
 
-Asymmetrische Matrix: $A=A^T$
 
-Diagonalmatrix
+$$
+A^T=-A\quad\Rightarrow\quad
+\begin{bmatrix}
+  {\mathbf{0}} & {\color{Orange} 7}            & {\color{Orange}23}\\
+ -7            & {\mathbf{0}} & {\color{Orange}-4}\\
+-23            & 4            &  {\mathbf{0}}
+\end{bmatrix}^T= \begin{bmatrix}
+ {\mathbf{0}} &  -7           & -23\\
+ {\color{Orange} 7}           & {\mathbf{0}} & 4\\
+ {\color{Orange}23}           &  {\color{Orange}-4}           & {\mathbf{0}}
+\end{bmatrix}
+$$
 
-Inverse Matrix/Kehrmatrix
 
-Adjunkte
+### Asymmetrische Matrix: $A=A^T$
 
-Rank
+$$
+A^T=-A\quad\Rightarrow\quad
+\begin{bmatrix}
+  {\mathbf{0}} & {\color{Orange}1}  & {\color{Orange}2} \\
+           1   &       {\mathbf{0}} & {\color{Orange}3} \\
+           2   &                3   &       {\mathbf{0}}
+\end{bmatrix}^T= \begin{bmatrix}
+        {\mathbf{0}} &                1   &          2  \\
+ {\color{Orange} 1}  &       {\mathbf{0}} &          3  \\
+ {\color{Orange} 2}  & {\color{Orange}3}  & {\mathbf{0}}
+\end{bmatrix}
+$$
 
-Selektion Untermatrizen oder Vektoren
+### Selektion Untermatrizen oder Vektoren
 
 $$
 A = \begin{bmatrix}
@@ -72,6 +145,89 @@ $$
 A(\textcolor{BrickRed}{1:2}, \textcolor{BrickRed}{1:2}) \quad A(\textcolor{OliveGreen}{:}, \textcolor{OliveGreen}{3})
 $$
 
+
+### Inverse Matrix/Kehrmatrix
+
+Für $2\times2$ Matrizen:
+
+$$
+A=\begin{bmatrix}a & b\\ c & d\end{bmatrix}
+$$
+
+$$
+A^{-1} = \frac1{\det{A}}\begin{bmatrix}d & -b\\ -c & a\end{bmatrix}=\frac1{ad-bc}\begin{bmatrix}d & -b\\ -c & a\end{bmatrix}
+$$
+
+Anhand der Adjunkte $\text{adj}(B)$ um $3\times3$ Matrizen zu invertieren (auch grössere möglich).
+
+$$
+B=\begin{bmatrix} a & b & c \\ d & e & f \\ g & h & i \end{bmatrix} 
+$$
+
+$$
+\text{inv}(B)=B^{-1}=\frac1{\det(B)}\cdot\text{adj}(B)\qquad \text{adj}(B)=[\text{cof}(B)]^T
+$$
+
+Bevor diese Berechnung gemacht werden kann, muss die Matrix auf die Invertierbarkeit geprüft werden $\rightarrow$ Determinante $\det(B)\neq0$
+
+```{=latex}
+\begin{tikzpicture}[remember picture]
+
+\node[left] at (0,0) (mat)
+{$B=\begin{bmatrix}
+	a^{\color{OliveGreen}\Plus} & b^{\color{BrickRed}\Minus}  & c^{\color{OliveGreen}\Plus} \\
+	d^{\color{BrickRed}\Minus}  & e^{\color{OliveGreen}\Plus} & f^{\color{BrickRed}\Minus}  \\
+	g^{\color{OliveGreen}\Plus} & h^{\color{BrickRed}\Minus}  & i^{\color{OliveGreen}\Plus} \\
+\end{bmatrix}$};
+
+
+\node[] at (2,-2) (mat2)
+{$
+\begin{bmatrix}
+  \subnode{a3}a & {\color{Maroon}\mathbf{b}} & {\color{Maroon}\mathbf{c}} \\
+  \subnode{d3}{\mathbf{d}} &             e   &           \subnode{f3}{f}  \\
+  \subnode{g3}g & {\color{Maroon}\mathbf{h}} & {\color{Maroon}\mathbf{i}} \\
+\end{bmatrix}\quad
+\begin{bmatrix}
+  \subnode{a1}{\mathbf{a}} &             b   &            \subnode{c1}c   \\
+              d & {\color{Maroon}\mathbf{e}} & {\color{Maroon}\mathbf{f}} \\
+  \subnode{g1}g & {\color{Maroon}\mathbf{h}} & {\color{Maroon}\mathbf{i}} \\
+\end{bmatrix}\quad
+\begin{bmatrix}
+  {\color{Maroon}\mathbf{a}} & \subnode{b2}b & {\color{Maroon}\mathbf{c}} \\
+            \subnode{d2}{d}  &  {\mathbf{e}} &           \subnode{f2}{f}  \\
+  {\color{Maroon}\mathbf{g}} & \subnode{h2}h & {\color{Maroon}\mathbf{i}} \\
+\end{bmatrix}
+$};
+
+\node[right] at (0,0) (mat3) {
+$ \text{adj}(B)=
+  \begingroup % keep the change local
+  \setlength\arraycolsep{1pt}
+  \begin{bmatrix}
+	{\color{OliveGreen}\Plus} \det(\left[\begin{smallmatrix} e & f \\ h & i\end{smallmatrix}\right]) & \cdots                                                                                           & \cdots \\
+	{\color{BrickRed}  \Minus}\det(\left[\begin{smallmatrix} b & c \\ h & i\end{smallmatrix}\right]) & {\color{OliveGreen}\Plus}\det(\left[\begin{smallmatrix} a & c \\ g & i \end{smallmatrix}\right]) &        \\
+    \vdots                                                                                           &                                                                                                  & \ddots \\
+  \end{bmatrix}
+  \endgroup^T
+$};
+
+\begin{scope}[on background layer, crossed/.style={draw,line width=10pt, line cap=round, gray!75,rounded corners=1pt}]
+\draw[crossed] (c1.center) -- (a1.center) -- (g1.center);
+\draw[crossed] (b2.center) -- (h2.center)(d2.center) -- (f2.center);
+\draw[crossed] (a3.center) -- (g3.center)(d3.center) -- (f3.center);
+\end{scope}
+\begin{scope}[indiactor/.style={Latex-,line width=0.5pt}]
+\draw[indiactor,NavyBlue!80] (5,-0.2) .. controls (5,-0.8) and (5,-0.9) .. (4.7,-1.3);
+\draw[indiactor,NavyBlue!80] (3.5,0.3) .. controls (3.9,-0.3) and (3.5,-1.1) .. (2.7,-1.3);
+\draw[indiactor,NavyBlue!80] (2.7,-0.2) .. controls (2.2,-0.8) and (1.4,-1.2)  .. (0.65,-1.35);
+\draw[indiactor,YellowOrange,preaction={draw, line width=3.5pt, white,-}] (1.85,0) .. controls (1.5,-0.45) and (1.3,-0.8) .. (0.8,-0.8) -- (-0.7,-0.8) .. controls (-1.7,-0.8) and (-1.8,-0.3) .. (-1.9,0) ;
+\draw[indiactor,YellowOrange,preaction={draw, line width=3.5pt, white,-}] (3.8,0.3) .. controls (3.8,1.2) and (3.3,1.2) .. (2.1,1.2) -- (0.1,1.2) .. controls (-0.5,1.2) and (-0.9,0.6) .. (-1.1,0.3) ;
+\draw[indiactor,YellowOrange,preaction={draw, line width=3.5pt, white,-}] (1.8,0.6) .. controls (0.8,1.1) and (-1,1.1) .. (-1.9,0.7);
+\end{scope}
+\end{tikzpicture}
+```
+
 $$
 E = \begin{bmatrix}
 -2 & 4 & 1\\
@@ -81,13 +237,5 @@ E = \begin{bmatrix}
 $$
 
 $$
-\text{Inv}(E)=E^{-1}=\frac{\text{adj}(E)}{\text{det}(E)}
-$$
-
-### Rang
-
-Anzahl linear unabhängige Spalten oder Zeilen einer Matrix
-
-$$
-\text{Rang}\leq (n,m)
+\text{inv}(E)=E^{-1}=\frac{\text{adj}(E)}{\text{det}(E)}
 $$

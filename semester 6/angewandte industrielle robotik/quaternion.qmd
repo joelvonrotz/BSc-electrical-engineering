@@ -1,8 +1,6 @@
-$$
-q = \begin{bmatrix}qt_1 \\ qt_2 \\ qt_3 \\ qt_4\end{bmatrix}
-$$
 
+Mit Quaternion können Drehungen in kompakter Form dargestellt werden, analog zu komplexen Zahlmultiplikation für Rotationen. Zusätzlich gibt es kein *Gimbal-Lock* (Zwei Rotationsachsen sind gleich und daher hat man ein Freiheitsgrad weniger). In AROB wird mit Einheitsquaternion gearbeitet: $\sqrt{qt_1^2+qt_2^2+qt_3^2+qt_4^2}=1$.
 
 $$
-\dot{Q} = 
+q = \begin{bmatrix}qt_1 \\ qt_2 \\ qt_3 \\ qt_4\end{bmatrix}=\underbrace{qt_1}_{\text{real/Skalar Komp.}}+\underbrace{qt_2~i+qt_3~j+qt_4~k}_{\text{imaginär/Vektor Komp.}}
 $$

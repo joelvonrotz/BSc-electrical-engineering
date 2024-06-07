@@ -1,11 +1,210 @@
-## [D]{.underline}ata [E]{.underline}ncryption [S]{.underline}tandard
+
+![](images/crypto_meme.jpg){width="7cm"}
+
+::: {.callout-note}
+Wenn Daten Sequenzen in Blöcke geteilt werden (z.B. 64-Bit), dann wird davon ausgegangen, dass bei unvollständigen Blöcken die restlichen Bits mit z.B. `0` augefüllt werden. 
+:::
+
+## Cesar Cipher / Substitution Cipher
+
+![](images/crypto/ceaserCipher.png)
+
+Buchstaben werden um $x$ Positionen verschoben (z.B. `A`$\overset{+2}{\rightarrow}$`C`). Nachteil ist, dass die Entschlüsselung sehr einfach ist.
+
+## Enigma Maschine [\color{BrickRed}\faYoutube](https://www.youtube.com/watch?v=ybkkiGtJmkM)
+
+Die Enigma Maschine ist ein komplexes Ent- & Verschlüsselungs System, welches während den Weltkriegen von den Nazis hauptsächlich verwendet wurde (und durch Alan Turing geknackt).
+
+![](images/crypto/enigma.pdf)
+
+Nachjedem Tastendruck leuchtet ein Buchstabe auf und die Rotoren drehen sich, damit der nächste gleiche Tastendruck nicht den gleichen Buchstabe ergibt. Mit den Steckern können die Buchstaben umkonfiguriert werden (bei Doppelstecker wird z.B. $A\rightarrow B$ & $B\rightarrow A$ und dadurch halbiert sich die Möglichkeiten zu 13).
 
 
-## [A]{.underline} [E]{.underline} [S]{.underline}
+## Stream & Block Cipher
 
-- [ ] Hello
+![](images/crypto/block_stream_cipher.pdf){fig-align="center"}
+
+
+## Konfusion
+
+Konfusion ist eine Verschlüsselungsoperation, bei der die **Beziehung zwischen Key und Ciphertext verschleiert** wird. Ein gängiges Element zur Erzielung von Konfusion ist heute die Substitution.
+
+Konfusion erhöht die Mehrdeutigkeit des Ciphertextes und wird sowohl von Block- als auch von Stream-Ciphern verwendet.
+
+## Diffusion
+
+Diffusion ist eine Verschlüsselungsoperation, bei der der Einfluss eines Klartextsymbols auf viele Ciphertext-Symbole verteilt wird, um die statistischen Eigenschaften des Klartextes zu verbergen.
+
+## Feistel Network [\color{BrickRed}\faYoutube](https://www.youtube.com/watch?v=FGhj3CGxl8I)
+
+Ein Feistel Netzwerk wird zum Ver- und Entschlüsseln von Datenpaketen verwendet. Folgend ist ein symmetrisches Feistel Netzwerk $\rightarrow$ Datenblock wird halbiert (64-Bit $\rightarrow$ 2 $\times$ 32-Bit). Eine Runde entspricht:
+
+$$
+\begin{split}
+  L_n &= R_{n-1}\\
+  R_n &= f(L_{n-1},k_n)
+\end{split}
+$$
+
+![](images/crypto/feistel_network.pdf){fig-align="center" width="4cm"}
+
+Funktion $f$ ist **wichtig**. Wenn diese sicher gegen Attacken ist, dann wird das Feistel Netzwerk mit jeder Runde und Key-Segment sicherer!
+
+::: {.callout-important}
+### Ver- & Entschlüsseln
+
+Verschlüsselte Informationen können mit dem genau gleichen Ablauf wieder entschlüsselt werden.
+:::
+
+## DES [\color{BrickRed}\faYoutube](https://www.youtube.com/watch?v=3BZRBfhpIb0)
+
+**D**ata **E**ncryption **S**tandard ist ein Cipher, der 64 Bit lange Blöcke mit einem 56 Bit langen Schlüssel verschlüsselt.
+
+![](images/crypto/des.pdf){fig-align="center"}
+
+1. Data $x$ wird mit einer *Initial Permutation* transponiert (**Diffusion**)
+2. Diffusierte Data wird wird im Feistel Netzwerk **16×** verschlüsselt
+3. Die verschlüsselte Data wird mit einer *Final Permutation* wieder transponiert (**Diffusion**)
+
+![](images/crypto/des_detailed.pdf){fig-align="center"}
+
+
+### Initial & Final Permutation
+
+Vor und nach dem Feistel Netzwerk werden die Blöcke bitweise permutiert, also wie kreuzverdrahtet (Enigma Steckerbrett) $\rightarrow$ Bit **Diffusion**
+
+::: {.callout-note}
+Diese Permutationen sind in Hardware einfacher implementierbar als in der Software.
+:::
+
+
+### $f$-Funktion
+
+Die $f$-Funktion vom DES ist das Herz des Algorithmus. 
+
+![](images/crypto/des_ffunction.pdf){fig-align="center"}
+
+1. Das Datenbyte $R_{i-1}$ wird mit expandiert (Doppelzuweisung) um auf 48 Bit zu kommen...
+2. ...danach wird dies mit dem Key ver**xor**t und...
+3. ...mit der jeweiligen Substitutationsbox (LUT) $S_x$ verarbeitet.
+4. Schlussendlich 
+
+### Expansion $E$
+
+Expansion $E$ ist eine spezielle Permutationsfunktion. Die Expansion wird von 32-Bits zu 48-Bits *expandiert*.
+
+![](images/crypto/expansion_function.png){width="6cm" fig-align="center"}
+
+::: {.callout-important}
+16-Bit der 32 Input-Bits kommen doppelt vor. **ABER** ein Input-Bit kommt **nicht** zweimal vor im selben 6-Bit Block $\rightarrow$ Diffusion wird verbessert, da gewisse Input-Bits zweimal vorkommen.  
+:::
+
+### Key Scheduling Transform $X$
+
+Der *Key Scheduler* generiert 16 Subkeys $k_i$ vom Hauptkey $k$.
+
+1. Der Key wird in $PC-1$ auf 56-Bits gekürzt. Die *Parity* Bits 8, 16, 24, 32, 40, 48, 56 & 64 werden entfernt $\rightarrow$ sinnlose Bits
+
+![](images/crypto/initial_key_permutation.png){fig-align="center" width="6cm"}
+
+2. In Runden $i=1,2,9,16$ wird $C_n$ **ein** Bit nach links geshiftet, ansonsten **zwei** Bits.
+
+3. In $PC-2$ werden erneut 8 Bits verworfen $\rightarrow$ 48 Bit Subkey $k_i$
+
+
+![](images/crypto/keyscheduler.pdf){fig-align="center"}
+
+
+### Das Coole
+
+Der Cipher kann mit dem gleichen System wieder entschlüsselt werden. DES verwendet als Grundelement das Feistel Netzwerk, welches diese Eigenschaft hat.
+
+### Das Problem
+
+DES ist wegen der kleinen 56 Bit Key nicht sicher (Fall: 1993 & 2008 Brute Force), was ja auch nid so doll is'. Ein Ansatz dafür ist den Key auf 112 Bits zu erweitern durch **triple DES** ($\text{DES}(k_1)+\text{DES}^{-1}(k_2)+\text{DES}(k_2)$).
+
+## TEA [\color{BrickRed}\faYoutube](https://www.youtube.com/watch?v=aR29pnuJ6fQ)
+
+**T**iny **E**ncryption **A**lgorithm ist ein bereits geknackter und daher auch einfacher Verschlüsselungsalgorithmus. Er verwendet ein *Feistel Network*, 64 Bit Datenblöcke und einen 128 Bit Key. Es werden 32 Runden gemacht, damit die Informationen mehr verschlüsselt werden. [Er erfordert sehr wenig Rechenleistung]{.underline}.
+
+![](images/crypto/TEA_InfoBox_Diagram.png){fig-align="center" width="6cm"}
+
+
+::: {.callout-important}
+### (Fast) kein Feistel Netzwerk
+
+Die verschlüsselten Blöcke können nicht so einfach wieder entschlüsselt, da im Algorithmus nebst XOR noch Additionen stattfinden. Für die Entschlüsselung werden die **Addition rückgängig** mit Subtraktionen gemacht.
+:::
+
+
+
+## XTEA
+
+e**X**tended **TEA** ist eine Erweiterung von TEA, welcher die Verschlüsselung besser macht. Gleiche Eigenschaften + Konstantwert `delta=0x9E3779B9`.
+
+![](images/crypto/XTEA_InfoBox_Diagram.png){fig-align="center" width="6cm"}
+
+::: {.callout-important}
+### XTEA sicher?
+
+XTEA ist ein sicherer Verschlüsselungsalgorithmus, wenn auch nicht so sicher wie RSA oder andere.
+:::
+
+
+## AES
+
+
+## Cipher Modi [\faWikipediaW](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#CTR)
+
+### ECB
+
+**E**lectronic **C**ode **B**ook
+
+### CBC
+
+**C**yber **B**lock **C**haining
+
+### CFB
+
+**C**ipiher **F**eed**B**ack
+
+### OFB
+
+**O**utput **F**eed**B**ack
+
+### CTR
+
+**C**oun**T**e**R**
+
+### GCM
+
+**G**alois **C**ounter **M**ode
+
+## Meet-In-The-Middle Attack
+
+## Double Encrpytion
+
+## Triple Encrpytion
+
+## Key Whitening
+
+
 
 ## Hash Functions
 
 ### Block 
 
+
+
+## weitere Begriffe
+
+```{=latex}
+{\small
+\textbf{Keyspace} Anzahl möglichen \& relevanten Keys
+
+\textbf{Brute Force} Alle Keykombination versuchen (Erfolg $\approx$ Keyspace/2)
+
+\textbf{Frequency Analysis} Gewisse Zeichen(kombinationen) werden häufiger verwendet 
+
+}
+```

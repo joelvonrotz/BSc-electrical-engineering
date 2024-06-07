@@ -1,27 +1,27 @@
-\begin{tikzpicture}[line/.style={-Straight Barb,shorten >=1mm,shorten <=1mm,draw=black}, label/.style={fill=white},  node font=\ttfamily]
+\begin{tikzpicture}[line/.style={-Straight Barb,shorten >=1mm,shorten <=1mm,draw=black, line width=1.5pt}, label/.style={black, fill=white, node font=\bfseries\ttfamily, inner sep=2pt},  node font=\ttfamily]
 
-\node[circle,draw=black, inner sep=0, minimum width=1.4cm] (stateRunning) at (4,6) {running};
-\node[circle,draw=black, inner sep=0, minimum width=1.4cm] (stateStopped) at (4,2) {stopped};
-\node[circle,draw=black, inner sep=0, minimum width=1.4cm] (stateDeleted) at (0,2) {deleted};
-\node[circle,draw=black, inner sep=0, minimum width=1.4cm] (stateCreated) at (0,6) {created};
-\node[circle,draw=black, inner sep=0, minimum width=1.4cm] (statePaused)  at (8,6) {paused};
+\node[circle,fill=YellowGreen!50,draw=black, inner sep=0, minimum width=1.4cm]   (stateRunning) at (4,6) {running};
+\node[circle,fill=BrickRed!50,draw=black, inner sep=0, minimum width=1.4cm]      (stateStopped) at (4,2) {stopped};
+\node[circle,fill=lightgray,draw=black, inner sep=0, minimum width=1.4cm]     (stateDeleted) at (0,2) {deleted};
+\node[circle,fill=RoyalBlue!30,draw=black, inner sep=0, minimum width=1.4cm]  (stateCreated) at (0,6) {created};
+\node[circle,fill=YellowOrange!50,draw=black, inner sep=0, minimum width=1.4cm]  (statePaused)  at (8,6) {paused};
 
-\node (entry1) at (-3,6) {};
-\node (entry2) at (4,8) {};
+\node (entry1)                at (-3,6)       {};
+\node (entry2)                at (4,8)        {};
+\node [label,left, fill=none] at (3.20,4.75)  {restart};
 
-\draw [line, rounded corners=5,gray] (stateRunning) .. controls (3.25,4.75) and (3.25,2.75) .. ([yshift=5mm]stateStopped.center) .. controls (4.75,2.75) and (4.75,4.75) .. (stateRunning);
+\draw [line, OliveGreen, rounded corners=5] (stateRunning) .. controls (3.25,4.75) and (3.25,2.75) .. ([yshift=5mm]stateStopped.center) .. controls (4.75,2.75) and (4.75,4.75) .. (stateRunning);
 
 
-\draw [line]                (stateCreated) edge node[label]        {start}  (stateRunning);
-\draw [line,bend right=5mm] (stateRunning) edge node[label,left=1pt]  {stop}   (stateStopped);
-\draw [line,bend right=5mm] (stateStopped) edge node[label,right=1pt] {start}  (stateRunning);
+\draw [line,YellowGreen]    (stateCreated) edge node[label]        {start}  (stateRunning);
+\draw [line,BrickRed,bend right=4mm] (stateRunning) edge node[label,left=1pt]  {stop}   (stateStopped);
+\draw [line,YellowGreen,bend right=4mm] (stateStopped) edge node[label,right=1pt] {start}  (stateRunning);
 
-\draw [line,bend right=5mm] (stateRunning) edge node[label]       {pause}   (statePaused);
-\draw [line,bend right=5mm] (statePaused)  edge node[label]       {unpause} (stateRunning);
-\draw [line]                (stateCreated) edge node[label]       {rm}      (stateDeleted);
-\draw [line]                (stateStopped) edge node[label]       {rm}      (stateDeleted);
+\draw [line,YellowOrange,bend right=4mm] (stateRunning) edge node[label]       {pause}   (statePaused);
+\draw [line,YellowGreen,bend right=4mm] (statePaused)  edge node[label]       {unpause} (stateRunning);
+\draw [line,Gray]                (stateCreated) edge node[label]       {rm}      (stateDeleted);
+\draw [line,Gray]                (stateStopped) edge node[label]       {rm}      (stateDeleted);
 
-\draw [line]                (entry1)       edge node[label]       {create}  (stateCreated);
-\draw [line]                (entry2)       edge node[label]       {run}     (stateRunning);
-\node [label,left, fill=none] at (3.25,4.75) {restart};
+\draw [line,RoyalBlue]                (entry1)       edge node[label]       {create}  (stateCreated);
+\draw [line,YellowGreen]    (entry2)       edge node[label]       {run}     (stateRunning);
 \end{tikzpicture}

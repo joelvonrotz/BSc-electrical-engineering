@@ -1,105 +1,343 @@
 ![](images/meme_docker.jpg){width="7cm" fig-align="center"}
 
 ::: callout-important
-
 Bash Befehle via Host sind mit `{\color{BrickRed}{\texttt{\textbf{\$}}}}`{=latex} gekennzeichnet.
 
-```{=latex}
 \begin{Shaded}
 \begin{Highlighting}[]
-\ExtensionTok{\$}\NormalTok{ echo }\StringTok{"this happens on WSL or SSH Pi"}
+\ExtensionTok{\$}\NormalTok{ echo }\StringTok{"this happens on the host"}
 \end{Highlighting}
 \end{Shaded}
-```
 
 Bash Befehle in einem Docker Container sind mit `{\color{BrickRed}{\texttt{\textbf{\#}}}}`{=latex} gekennzeichnet.
 
-```{=latex}
 \begin{Shaded}
 \begin{Highlighting}[]
 \ExtensionTok{\#}\NormalTok{ echo }\StringTok{"this happens in a Docker container"}
 \end{Highlighting}
 \end{Shaded}
-```
-
 :::
 
 ## Was'n Docka?
 
-Kurzgesagt: Docker "[containerisiert]{.underline}" Anwendungen.
+Docker ist eine Plattform zur Software-Virtualisierung mit Fokus auf [Wiederverwendbarkeit]{.underline} und [Containerisierung]{.underline}.
 
 Die Idee ist, eine Anwendunge mit der nötigen Konfiguration, Runtime und Bibliotheken in ein Paket zusammenzustellen und dann als **portables** Produkt weitergegeben, verarbeitet, etc. ausgeführt werden.
 
-Man unterscheidet zwischen **Image** & **Container**
+## Begriffe
 
-- **Image** ist eine Vorlage, welche beschreibt, wie ein Container aufzubauen ist.
-- **Container** ist die [ausgeführte Instanz eines Images]{.underline} und ist eine [isolierte]{.underline} Umgebung, welche die entsprechende Prozesse ausführt, **ohne** andere Systeme zu stören.
+Image
+:   eine schreibgeschützte und vorgefertigte Vorlage, welche alle nötigen Software and Dateien beinhaltet. Es ist eine "Momentaufnahme" des Filesystems.
 
-![](/images/docker/container-distribution.png){width="6cm" fig-align="center"}
+Container
+:   ist die [ausgeführte Instanz eines Images]{.underline} und ist eine [isolierte]{.underline} Umgebung, welche die entsprechende Prozesse ausführt, **ohne** andere Systeme zu stören.
 
-## Lebenszyklus
+Dockerfile
+:   beschreibt wie ein Docker Image zusammengebaut wird anhand Schritten $\rightarrow$ welche Tools installiert und Dateien kopiert werden
+
+Layers
+:   Ein Image ist auf Layern aufgebaut, welche während einem Build-Prozess mit einem Dockerfile erstellt werden. Jede Anweisung im Dockerfile erzeugt einen neuen Layer mit einer eindeutigen ID.
+
+Container Layer
+:   Wenn ein Container kreiert und gestartet wird, entsteht ein Container Layer, welcher alle Änderungen verfolgt. Mit `commit` kann ein neues Image mit diesen Änderungen kreiert werden.
+
+Docker daemon `dockerd` (Service)
+:   Auch bekannt als *Docker Engine*. Zuständig für Ausführungen der Container und Docker Kommandos.
+
+Volumes
+:   Dateien in Volumes bleiben nach Beendigung/Löschung des Containers erhalten (für Datenaustausch z.B. zwischen Host & Cont. oder seriell/parralel Cont. zu Cont.)
+
+## Docker Pfade
+
+- `/var/lib/docker/`: Hauptverzeichnis von Docker
+- `/var/lib/docker/images/`: enthält Metadaten zu den Images
+- `/var/lib/docker/<overlay-driver>/`: enthält ausgepackte Layer (Images & Container)
+- `/var/lib/docker/volumes/`: enthält Volumen
+
+<!--
+888                                
+ 8  8d8b.d8b. .d88 .d88 .d88b d88b 
+ 8  8P Y8P Y8 8  8 8  8 8.dP' `Yb. 
+888 8   8   8 `Y88 `Y88 `Y88P Y88P 
+                   wwdP
+-->
+
+## Images
+
+Images sind **schreibgeschützte** Pakete, welches schichtenweise mit Software und Strukturen aufgebaut ist.
+
+![](images/docker/image_structure.pdf){width="6cm" fig-align="center"} 
+
+
+### `{\small \faTerminal\hspace{1mm}}`{=latex} Auflisten
+
+Listet alle heruntergeladenen Images auf
+
+``` bash
+$ docker images
+$ docker image ls
+$ docker image list
+REPOSITORY   TAG       IMAGE ID       CREATED       SIZE
+debian       latest    5027089adc4c   3 weeks ago   117MB
+```
+
+### `{\small \faTerminal\hspace{1mm}}`{=latex} Löschen
+
+``` bash
+$ docker rm <image>
+$ docker images rm <Image>
+$ docker rmi <image>
+```
+
+Löscht ein Image (`\textcolor{RedOrange}{\textbf{WICHTIG}}`{=latex} kein Container mit diesem Image sollte dabei existieren, sonst gehts nicht)
+
+``` bash
+$ docker image prune
+```
+
+löscht *dangling* (nicht gekennzeichnete / Tag = `none`) Images. `-a` löscht alle Images, welche nicht verwendet werden
+
+
+### `{\small \faTerminal\hspace{1mm}}`{=latex} Neue Version veröffentlichen
+
+Nachdem eine Version kreiert wurde, kann diese auf DockerHub veröffentlicht werden.
+
+```bash
+$ docker image push [options] <name>[:tag]
+```
+
+### `{\small \faTerminal\hspace{1mm}}`{=latex} Grösse
+
+`{\small`{=latex}
+
+``` bash
+$ docker images
+REPOSITORY   TAG     IMAGE ID      CREATED        SIZE
+alpine       latest  1d34ffeaf190  2 weeks ago    7.79MB
+hello-world  latest  d2c94e258dcb  13 months ago  13.3kB
+```
+
+`}`{=latex}
+
+
+### `{\small \faTerminal\hspace{1mm}}`{=latex} Informationen abrufen
+
+```bash
+$ docker inspect <image>
+```
+
+<!--
+.d88b              w        w                  
+8P    .d8b. 8d8b. w8ww .d88 w 8d8b. .d88b 8d8b 
+8b    8' .8 8P Y8  8   8  8 8 8P Y8 8.dP' 8P   
+`Y88P `Y8P' 8   8  Y8P `Y88 8 8   8 `Y88P 8           
+-->
+
+## Container
+
+Container sind ausgeführte, **isolierte** Images.
+
+### Container-Layer
+
+Da das Image schreibgeschützt ist, werden alle Änderungen, Löschungen und Hinzufügungen am Image in der **Container-Layer** verfolgt $\rightarrow$ das Image bleibt heil und unversehen.
+
+Dies bedeutet auch, dass das Image nur **einmal** pro Version existiert.
+
+![](images/docker/volume_clayer.pdf){width="7cm" fig-align="center"}
+
+### `{\small \faTerminal\hspace{1mm}}`{=latex} Erstellen/Ausführen/Starten
+
+``` bash
+$ docker run <opt> <image> <args> #<1>
+$ docker create <opt> <image> <args> #<2>
+$ docker start <container>
+```
+1. Direkt erstellen & ausführen
+2. Container erstellen und dann ausführen
+
+### `{\small \faTerminal\hspace{1mm}}`{=latex} Auflisten
+
+``` bash
+$ docker ps # kurz für 'docker container ls'
+CONTAINER ID  IMAGE   COMMAND ... STATUS        ... NAMES
+79f3f8a71b46  debian  "bash"  ... Up 56 minutes ... musing_wozniak
+6201bc70ef8c  debian  "bash"  ... Up 58 minutes ... magical_villani
+```
+
+listet alle **momentan** ausgeführten Container auf. Mit `-a` listet alle Container auf
+
+
+### `{\small \faTerminal\hspace{1mm}}`{=latex} Attach/Detach
+
+Ein Container mit einer Shell, z.B. Bash, kann via `attach` oder `-it` zugegriffen werden.
+
+```bash
+docker attach <container> #<1>
+docker run -it <image> #<2>
+```
+1. Bei bereits aktiven Container
+2. Die Shell des Containers wird an den Vordergrund gebracht + Pseudo Terminal
+
+Mit `CTRL+Q CTRL+P` hängt man sich vom Container ab, ohne ihn zu beenden.
+`CTRL+C` oder im Shell `exit` beendet den Container.
+
+### `{\small \faTerminal\hspace{1mm}}`{=latex} Interaktivität
+
+Ein Container kann auf verschiedene Arten gestartet werden.
+
+```bash
+$ docker start <container> #<1>
+$ docker start -i <container> #<2>
+```
+1. im Hintergrund
+2. im Vordergrund
+
+`{\small`{=latex}
+
+`-i/--interactive`
+: Macht den Container interaktiv und verbindet die Standardeingabe.
+
+`-t/--tty`
+: Aktiviert einen Pseudo-Terminalsimulator für den Container (`...:/# <cmd>`).
+
+`}`{=latex}
+
+``` bash
+$ docker run -i debian #<1>
+echo hello world
+hello world
+
+$ docker run -it debian #<2>
+root@containerID:/# echo hello world
+hello world
+
+$ docker create -t debian #<3>
+$ docker start -i <container>
+```
+1. Interaktiv ohne TTY
+2. Interaktiv mit TTY
+3. In Einzelschritten
+
+
+### `{\small \faTerminal\hspace{1mm}}`{=latex} Löschen
+
+Es können nur *stopped* und *created* Container gelöscht werden.
+
+``` bash
+$ docker rm <container> [container ...]
+```
+
+::: callout-tip
+#### Löschen nach Beendung
+
+```bash
+$ docker run --rm <image>
+```
+:::
+
+::: callout-tip
+#### Inaktive Container löschen
+
+Löscht alle Container, welche nicht mehr verwendet werden.
+
+``` bash
+$ docker container prune
+```
+:::
+
+### `{\small \faTerminal\hspace{1mm}}`{=latex} (Um-)benennen
+
+Ein Name kann auf zwei Arten einem Container zugewiesen werden.
+
+``` bash
+$ docker rename <old> <new> #<1>
+$ docker run --name peter_enis debian #<2>
+```
+1. Ein bereits existierender Container wird umbenannt
+2. Bei **Erstellung** eines Containers kann direkt ein Name zugewiesen werden
+
+### `{\small \faTerminal\hspace{1mm}}`{=latex} Dateien kopieren Host $\rightleftarrows$ Container
+
+Der Docker Host kann Dateien in und aus dem Container kopieren.
+
+``` bash
+$ docker container cp <container>:<path> <dest> #<1>
+$ docker cp <src> <container>:<dest> #<2>
+```
+1. kopiert dateien vom Container zum Host
+2. kopiert vom Host zum Container
+
+### `{\small \faTerminal\hspace{1mm}}`{=latex} Ausgabe
+
+Zeigt Log Daten (z.B. Konsolenausgabe) während der Ausführung an (`-f` folgt dem Container/ kontinuierliches Update)
+
+``` bash
+$ docker logs <container>
+```
+
+### `{\small \faTerminal\hspace{1mm}}`{=latex} Prozesse ausführen/abfragen
+
+Führt Prozesse in einem aktiven Container aus. 
+
+``` bash
+$ docker exec <container> <cmd>
+```
+
+Gibt Prozesse des Containers an (`ax` als Argument gibt alle laufenden Prozesse an)
+
+``` bash
+$ docker top <container> <arg>
+$ docker container top <container> <arg>
+```
+
+### `{\small \faTerminal\hspace{1mm}}`{=latex} Logging
+
+Zeigt Log Daten während ausführung an (`-f` folgt dem Container/ kontinuierliches update).
+
+``` bash
+$ docker logs <container>
+```
+
+### Lebenszyklus
 
 Ein Docker-**Container** kann fünf Zustände annehmen ([Created]{.underline}, [Running]{.underline}, [Deleted]{.underline}, [Stopped]{.underline} und [Paused]{.underline}) und kann mit folgenden Docker-Befehlen gesteuert werden.
 
-
-```{=latex}
 \resizebox{\columnwidth}{!}{
-  \begin{tikzpicture}[line/.style={-Straight Barb,shorten >=1mm,shorten <=1mm,draw=black, line width=1.5pt}, label/.style={black, fill=white, node font=\bfseries\ttfamily, inner sep=2pt},  node font=\ttfamily]
-
-  \node[circle,fill=YellowGreen!50,draw=black, inner sep=0, minimum width=1.4cm]   (stateRunning) at (4,6) {running};
-  \node[circle,fill=BrickRed!50,draw=black, inner sep=0, minimum width=1.4cm]      (stateStopped) at (4,2) {stopped};
-  \node[circle,fill=lightgray,draw=black, inner sep=0, minimum width=1.4cm]     (stateDeleted) at (0,2) {deleted};
-  \node[circle,fill=RoyalBlue!30,draw=black, inner sep=0, minimum width=1.4cm]  (stateCreated) at (0,6) {created};
-  \node[circle,fill=YellowOrange!50,draw=black, inner sep=0, minimum width=1.4cm]  (statePaused)  at (8,6) {paused};
-
-  \node (entry1)                at (-3,6)       {};
-  \node (entry2)                at (4,8)        {};
-  \node [label,left, fill=none] at (3.20,4.75)  {restart};
-
-  \draw [line, OliveGreen, rounded corners=5] (stateRunning) .. controls (3.25,4.75) and (3.25,2.75) .. ([yshift=5mm]stateStopped.center) .. controls (4.75,2.75) and (4.75,4.75) .. (stateRunning);
-
-
-  \draw [line,YellowGreen]    (stateCreated) edge node[label]        {start}  (stateRunning);
-  \draw [line,BrickRed,bend right=4mm] (stateRunning) edge node[label,left=1pt]  {stop}   (stateStopped);
-  \draw [line,YellowGreen,bend right=4mm] (stateStopped) edge node[label,right=1pt] {start}  (stateRunning);
-
-  \draw [line,YellowOrange,bend right=4mm] (stateRunning) edge node[label]       {pause}   (statePaused);
-  \draw [line,YellowGreen,bend right=4mm] (statePaused)  edge node[label]       {unpause} (stateRunning);
-  \draw [line,Gray]                (stateCreated) edge node[label]       {rm}      (stateDeleted);
-  \draw [line,Gray]                (stateStopped) edge node[label]       {rm}      (stateDeleted);
-
-  \draw [line,RoyalBlue]                (entry1)       edge node[label]       {create}  (stateCreated);
-  \draw [line,YellowGreen]    (entry2)       edge node[label]       {run}     (stateRunning);
-  \end{tikzpicture}
+  \input{./tikzedt/life_cycle.tex}
 }
+
+::: callout-note
+### Unterschied *Stopped* und *Paused*
+
+Wenn ein Container gestoppt wird, werden alle ihm zugewiesenen Ressourcen freigegeben, während bei einem angehaltenen Container kein Speicher, aber die CPU freigegeben wird.
+:::
+
+### `{\small \faTerminal\hspace{1mm}}` Grösse `--size`
+
+Da ein Container Änderungen auf einer separaten Layer verfolgt, ist der Speicherplatz selbst meistens klein.
+
+`{\small`{=latex}
+
+``` bash
+$ docker ps -a --size
+CONTAINER ID   IMAGE       ...  NAMES               SIZE
+253be0a7fe55   alpine      ...  brave_pascal        8B (virtual 7.79MB)
+68bb3a7fdf37   hello-world ...  loving_mcclintock   0B (virtual 13.3kB)
+d20695e9fe4b   alpine      ...  unruffled_tesla     25B (virtual 7.79MB)
 ```
 
+`}`{=latex}
 
-## Image Reference Format
+`virtual` referenziert auf Container + Image = Totale theoretische Grösse.
 
-Standardmässig werden Images wie z.B. [`hello-world`](https://registry.hub.docker.com/_/hello-world) immer vom [DockerHub-registry](https://registry.hub.docker.com/) heruntergeladen, aber es ist möglich andere **repos** anzufragen. Grundsätzlich gilt folgende Struktur:
+### Image kreieren aus Container
 
-```{=latex}
-\begin{center}
-\texttt{\textbf{\color{BrickRed}{<repo>}}{\color{Gray}{/}}\textbf{\color{OliveGreen}{<source>}}{\color{Gray}{/}}\textbf{\color{NavyBlue}{<image>}}{\color{Gray}{/}}\textbf{\color{Periwinkle}{<tag>}}}
+Aus einem Container kann ein neues Image erstellt werden:
 
-\end{center}
+``` bash
+$ docker container commit <container> [image[:tag]]
+$ docker commit ...
 ```
-
-- `\textbf{\texttt{\color{BrickRed}{<repo>}}}`{=latex}: Repository/Content-Host (default `index.docker.io`)
-- `\textbf{\texttt{\color{OliveGreen}{<source>}}}`{=latex} Untergruppe, Hauptprojekt, User, Organisation, etc. (default `library`)
-- `\textbf{\texttt{\color{NavyBlue}{<image>}}}`{=latex} Projekt, wie z.B. eine Runtime
-- `\textbf{\texttt{\color{Periwinkle}{<tag>}}}`{=latex} Version oder Tag des Projektes (default `latest`)
-
-```{=latex}
-\begin{Shaded}
-\begin{Highlighting}[]
-\ExtensionTok{\$}\NormalTok{ docker run }\textbf{\texttt{\color{OliveGreen}{kaohslu}}}/\textbf{\texttt{\color{NavyBlue}{01-demo-img}}}:\textbf{\texttt{\color{Periwinkle}{latest}}}
-\end{Highlighting}
-\end{Shaded}
-```
-
-$\rightarrow$ Auf dem offiziellen Repository `\textbf{\texttt{\color{BrickRed}{DockerHub}}}`{=latex} wird unter dem User `\textbf{\texttt{\color{OliveGreen}{kaohslu}}}`{=latex} das Image `\textbf{\texttt{\color{NavyBlue}{01-demo-img}}}`{=latex} der Version `\textbf{\texttt{\color{Periwinkle}{latest}}}`{=latex} heruntergeladen und gestartet.
 
 <!--
 Yb    dP       8                       
@@ -107,61 +345,271 @@ Yb    dP       8
   YbdP   8' .8 8 8b d8 8P Y8P Y8 8.dP' 
    YP    `Y8P' 8 `Y8P8 8   8   8 `Y88P                
 -->
+
 ## Volume
 
-Da die Container voneinander isoliert sind, können diese auch nicht gegenseitig auf den Speicher zugreifen. Wenn man z.B. Dateien in einen bestimmten Ordner auf dem Host-Computer abspeichern möchte oder mehrere Container auf den gleichen Speicher zugreifen lassen, muss dies **explizit** angegeben werden.
+Container sind voneinander isoliert $\rightarrow$ Datenaustausch zwischen Host $\rightleftarrows$ Container & Container $\rightleftarrows$ Container wird mit **Volumen** gemacht. Dies muss **explizit** angegeben werden.
 
-::: callout-note
-### Volume Handling
+![](images/docker/volume_structure.pdf){width="9cm" fig-align="center"}
 
-Volumes werden durch 
-
-:::
+Mit dem Parameter `\AttributeTok{{-}v}`{=latex} und einem Pfad wird ein Volumen angegeben.
 
 ### Host Volumes
 
-````bash
-$ docker run -v /path/in/host:/path/in/container
-````
+``` bash
+$ docker run -v /path/in/host:/path/in/container <opt> <image>
+```
 
-- `/path/in/host`: Pfad auf dem Host
-- `/path/in/container`: Pfad im Container, welche mit dem Host-Pfad verbunden wird.
+-   `/path/in/host`: Pfad auf dem Host
+-   `/path/in/container`: Pfad im Container, welche mit dem Host-Pfad verbunden wird.
 
 ### Named Volumes
 
-````bash
-$ docker run -v name:/path/in/container
-````
+``` bash
+$ docker run -v name:/path/in/container <opt> <image>
+```
 
-- `name`: Name des Volumens
-- `/path/in/container`: Pfad im Container, welche geöffnet wird.
+-   `name`: Name des Volumens
+-   `/path/in/container`: Pfad im Container, welche geöffnet wird.
 
 ### Anonyme Volumes
 
-````bash
-$ docker run -v /path/in/container
-````
+``` bash
+$ docker run -v /path/in/container <opt> <image>
+```
 
-- `/path/in/container`: Pfad im Container, welche geöffnet wird.
+-   `/path/in/container`: Pfad im Container, welche geöffnet wird.
 
----
+### Datenaustasch
 
-![](images/docker/container_local_storage.png){height="4.5cm" fig-align="center"}
+`\circled{1}`{=latex} [Host & Container]{.underline}
+
+![](images/docker/volume_exchange_host.pdf){width="6cm" fig-align="center"}
+
+`\circled{2}`{=latex} [Container & Container (parallel)]{.underline}
+
+![](images/docker/volume_exchange_parallel.pdf){width="6cm" fig-align="center"}
+
+`\circled{3}`{=latex} [Container nach Container (seriell)]{.underline}
+
+![](images/docker/volume_exchange_series.pdf){width="6cm" fig-align="center"}
+
+### Speicherpfade
+
+[Benannte]{.underline} & [anonyme]{.underline} Volumen werden unter dem Pfad `/var/lib/docker/volumes/` angelegt.
+
+[Host]{.underline} Volumen werden an einem vom Host festgelegten Pfad angelegt.
+
+### `{\small \faTerminal\hspace{1mm}}`{=latex} Auflisten
+
+``` bash
+$ docker volume ls
+```
+
+### `{\small \faTerminal\hspace{1mm}}`{=latex} Volumen löschen
+
+Um ein Volumen zu löschen, muss der Name des Volumens angegeben werden. Ebenfalls darf es von keinem Container verwendet werden.
+
+``` bash
+$ docker volume rm <volume>
+```
+
+`prune` löscht nicht gebrauchte [anonyme]{.underline} Volumen. Mit `-a/--all` können ungebrauchte [anonyme und benannte]{.underline} Volumen gelöscht werden.
+
+``` bash
+$ docker volume prune
+```
+
+### `{\small \faTerminal\hspace{1mm}}`{=latex} Erstellen
+
+Mit dem `volume create` Befehl können anonyme und benannte Volumen erstellt werden. Einfach keine Pfad/Host Volumen.
+
+``` bash
+$ docker volume create [name]
+```
+<!--
+888b.            8                d8b w 8       
+8   8 .d8b. .d8b 8.dP .d88b 8d8b  8'  w 8 .d88b 
+8   8 8' .8 8    88b  8.dP' 8P   w8ww 8 8 8.dP' 
+888P' `Y8P' `Y8P 8 Yb `Y88P 8     8   8 8 `Y88P 
+-->
+## Dockerfile
+
+Mit einem `\faFile[regular]`{=latex}`Dockerfile` kann ein Image erstellt werden anhand Anweisungen. [Jede Anweisung erzeugt eine eigene Layer]{.underline}.
+
+![](images/docker/dockerfile_image.pdf){width="8cm" fig-align="center"}
+
+### Anweisungen
+
+```dockerfile
+FROM <image> # image oder 'scratch'
+```
+
+Mit der Anweisung `FROM` setzt man das Parent- oder Basis-Image. Es ist die erste Anweisung in einem Dockerfiles. Es können mehrere `FROM` verwendet werden, wenn man Multistage-Building machen möchte.
+
+```dockerfile
+COPY [OPTIONS] <src> ... <dest>
+COPY [OPTIONS] ["<src>", ... "<dest>"]
+```
+
+Kopiert die Quelle zur Destination. Wenn die Destination ein Ordner ist, können mehrer Dateien kopiert werden. 
+Mit dem Wildcard-Zeichen`*` und Wildcard-Einzelzeichen `?` können mehrere ähnliche Dateien auf einmal kopiert werden.
+
+```dockerfile
+COPY hom*.txt /mydir/
+# sammelt alle Dateien z.B. 'home.txt' und 'homie.txt'
+
+COPY hom?.txt /mydir/
+# findet 'home.txt', aber nicht 'homie.txt'
+```
+
+```dockerfile
+RUN [OPTIONS] <command> ...
+RUN [OPTIONS] [ "<command>", ... ]
+```
+
+Führt Befehle im Image aus, z.B. `RUN apt-get update && apt-get install -y curl`{.dockerfile}. Mit `\` kann der Befehl auf mehrere Zeilen gebrochen werden.
+
+```dockerfile
+ADD [OPTIONS] <src> ... <dest>
+ADD [OPTIONS] ["<src>", ... "<dest>"]
+```
+
+Ähnlich wie `COPY`, einfach können URLs angegeben werden und gezippte Dateien werden automatisch entpackt.
+
+### Startkommando
+
+Die Startkommandos eines Container können auf zwei Arten gesetzt: `CMD` und `ENTRYPOINT`.
 
 
-![](images/docker/container_shared_storage.png){height="4.5cm" fig-align="center"}
+```dockerfile
+ENTRYPOINT ["executable", "param1", "param2"]
+ENTRYPOINT command param1 param2
+```
+
+```dockerfile
+# wenn ENTRYPOINT nicht gesetzt ist, wird CMD als Startkommande verwendet.
+CMD ["executable","param1","param2"]
+
+# als default Parameter zu ENTRYPOINT
+CMD ["param1","param2"]
+```
+
+![](images/docker/image-1.png)
 
 
-## Container $\rightarrow$ Image
+```bash
+$ docker run [opts] <image> [command] [args...]
+$ docker run --rm -it debian ls -la # startet "ls -la" im Container
+```
+
+Um die Startkommandos eines Images anzuzeigen
+
+```bash
+$ docker inspect -f 'ENTRYPOINT:{{.Config.Entrypoint}}; CMD:{{.Config.Cmd}}' <image>
+"ENTRYPOINT:[]; CMD:[bash]"
+
+$ docker inspect -f 'ENTRYPOINT:{{.Config.Entrypoint}}; CMD:{{.Config.Cmd}}' kaohslu/01-demo-img
+"ENTRYPOINT:[dotnet ASYD_Demo.dll]; CMD:[]"
+```
+
+```dockerfile
+WORKDIR /path/to/workdir
+```
+
+Mit `WORKDIR` wird der Arbeitspfad gesetzt (ab Aufruf der Anweisung), wo Befehle wie `COPY` oder `ADD` ihre Arbeit verrichten.
+
+### Image builden
+
+```bash
+$ docker build <path> -t <name>:<tag>
+$ docker build -t <name>:<tag> <path>
+```
+
+### Image Build History zeigen
+
+Um die History eines Images anzuschauen $\rightarrow$ Wie das Image erstellt wurde.
+
+```bash
+$ docker history <image>
+```
+
+### Multistage
+
+```dockerfile
+# syntax=docker/dockerfile:1
+FROM golang:1.21
+# FROM golang:1.21 as build
+WORKDIR /src
+COPY <<EOF ./main.go
+package main
+
+import "fmt"
+
+func main() {
+  fmt.Println("hello, world")
+}
+EOF
+RUN go build -o /bin/hello ./main.go
+
+FROM scratch
+COPY --from=0 /bin/hello /bin/hello
+# COPY --from=build /bin/hello /bin/hello
+CMD ["/bin/hello"]
+```
 
 <!--
-888                                
- 8  8d8b.d8b. .d88 .d88 .d88b d88b 
- 8  8P Y8P Y8 8  8 8  8 8.dP' `Yb. 
-888 8   8   8 `Y88 `Y88 `Y88P Y88P 
-                   wwdP            
+8b  8        w                              8    
+8Ybm8 .d88b w8ww 888P Yb  db  dP .d88b 8d8b 8.dP 
+8  "8 8.dP'  8    dP   YbdPYbdP  8.dP' 8P   88b  
+8   8 `Y88P  Y8P d888   YP  YP   `Y88P 8    8 Yb 
 -->
-## Images
+## Netzwerke
 
-### `\texttt{{\color{NavyBlue}{\textbf{FROM}}} {\color{OliveGreen}{<image>}}}`{=latex}
+Da Container per default isoliert sind (laufen in einem privaten Netzwerk, welches sich Docker kümmert), muss man z.B. Netzwerke **explizit** nach aussen öffnen, wenn man das will.
 
+`\textcolor{BrickRed}{[\textbf{TODO?}]}`{=latex}
+
+
+
+
+<!--
+888b.            8                  8   8       8    
+8   8 .d8b. .d8b 8.dP .d88b 8d8b    8www8 8   8 88b. 
+8   8 8' .8 8    88b  8.dP' 8P      8   8 8b d8 8  8 
+888P' `Y8P' `Y8P 8 Yb `Y88P 8       8   8 `Y8P8 88P' 
+-->
+
+## Docker Hub
+
+### Images suchen & herunterladen
+
+``` bash
+$ docker search <searchterm>
+```
+
+``` bash
+$ docker pull <image>
+```
+
+### Image Reference Format
+
+Standardmässig werden Images wie z.B. [`hello-world`](https://registry.hub.docker.com/_/hello-world) immer vom [DockerHub-registry](https://registry.hub.docker.com/) heruntergeladen, aber es ist möglich andere **repos** anzufragen. Es gilt folgendes Format:
+
+\begin{center}
+\texttt{\textbf{\color{BrickRed}{<repo>}}{\color{Gray}{/}}\textbf{\color{OliveGreen}{<source>}}{\color{Gray}{/}}\textbf{\color{NavyBlue}{<image>}}{\color{Gray}{/}}\textbf{\color{Periwinkle}{<tag>}}}
+
+\end{center}
+
+-   `\textbf{\texttt{\color{BrickRed}{<repo>}}}`{=latex}: Repository/Content-Host (default `index.docker.io`)
+-   `\textbf{\texttt{\color{OliveGreen}{<source>}}}`{=latex} Untergruppe, Hauptprojekt, User, Organisation, etc. (default `library`)
+-   `\textbf{\texttt{\color{NavyBlue}{<image>}}}`{=latex} Projekt, wie z.B. eine Runtime
+-   `\textbf{\texttt{\color{Periwinkle}{<tag>}}}`{=latex} Version oder Tag des Projektes (default `latest`)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{\$}\NormalTok{ docker run }\textbf{\texttt{\color{OliveGreen}{kaohslu}}}/\textbf{\texttt{\color{NavyBlue}{01-demo-img}}}:\textbf{\texttt{\color{Periwinkle}{latest}}}
+\end{Highlighting}
+\end{Shaded}
+
+$\rightarrow$ Auf dem offiziellen Repository `\textbf{\texttt{\color{BrickRed}{DockerHub}}}`{=latex} wird unter dem User `\textbf{\texttt{\color{OliveGreen}{kaohslu}}}`{=latex} das Image `\textbf{\texttt{\color{NavyBlue}{01-demo-img}}}`{=latex} der Version `\textbf{\texttt{\color{Periwinkle}{latest}}}`{=latex} heruntergeladen und gestartet.

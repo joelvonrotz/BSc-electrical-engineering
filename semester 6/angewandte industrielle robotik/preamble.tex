@@ -1,0 +1,11 @@
+\usepackage[datesep=.]{datetime2}
+\DTMsetdatestyle{ddmmyyyy}
+\usepackage{mathtools}
+\usepackage{tikz}
+\usetikzlibrary{perspective,calc,tikzmark,backgrounds}
+
+\newcommand{\Plus}{\mathord{\tikz\draw[line width=0.2ex, x=1ex, y=1ex] (0.5,0) -- (0.5,1)(0,0.5) -- (1,0.5);}}
+\newcommand{\Minus}{\mathord{\tikz{
+	\draw[line width=0.2ex, x=1ex, y=1ex,white] (0.5,0) -- (0.5,1);
+	\draw[line width=0.2ex, x=1ex, y=1ex] (0,0.5) -- (1,0.5);
+	}}}

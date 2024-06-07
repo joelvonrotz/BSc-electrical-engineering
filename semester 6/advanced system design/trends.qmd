@@ -1,0 +1,7 @@
+![](images/trends_meme.jpg){fig-align="center" width="7cm"}
+
+## Firm-/Software Optimierungen
+
+-   `float` & `double` vermeiden $\rightarrow$ sehr Rechenintensiv bei Systemen ohne FPU (und auch sonst)
+-   Divisionen sind rechenintensiv, ausser durch Zweierpotenzen $2,4,8,16,...$, wo Bitshifting gemacht wird.
+-   Optimierungen einschalten beim Kompilieren :-)

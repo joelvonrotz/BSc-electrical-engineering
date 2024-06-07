@@ -7,8 +7,12 @@ project:
 format:
   chribel-summary-quarto-pdf:
     include-in-header:
-    - text: "\\usepackage[datesep=.]{datetime2}"
-    - text: "\\DTMsetdatestyle{ddmmyyyy}"
+      - text: |
+          \usepackage[datesep=.]{datetime2}
+          \DTMsetdatestyle{ddmmyyyy}
+          \usepackage{enumitem}
+          \setlist[description]{style=nextline,parsep=5mm}
+          \providecommand\phantomsection{}
     toc: true
     keep-tex: true
     classoption: twocolumn

@@ -1,0 +1,318 @@
+
+## Rotationsmatrix
+
+Rotationsmatrix beschreibt eine **Rotation** und wird in Form $\prescript{a}{b}{R}$ dargestellt. Das $\prescript{a}{b}{}$ beschreibt [Rotationsmatrix von **a** nach **b**]{.underline}.
+
+### Aufbau
+
+Die Matrix wird folgend beschrieben.
+
+$$
+\prescript{\color{BrickRed}a}{\color{NavyBlue}b}{R}=
+\begin{bmatrix}
+x^{({\color{NavyBlue}b})}_{\color{BrickRed}a} &
+y^{({\color{NavyBlue}b})}_{\color{BrickRed}a} &
+z^{({\color{NavyBlue}b})}_{\color{BrickRed}a}
+\end{bmatrix}
+$$
+
+::: callout-tip
+### Beispiel
+
+![](images/paste-2.png){width="7cm" fig-align="center"}
+
+```{=latex}
+\begin{center}
+  \resizebox{4cm}{!}{
+    \begin{tikzpicture}
+
+    \node[] at (0.5,1.5) {${v_{s,k}^{({\color{BrickRed}{\mathbf{k}}})}=\ \prescript{\color{OliveGreen}{{0}}}{\color{BrickRed}{\mathbf{k}}}{T}\cdot v_{s,k}^{({\color{OliveGreen}{{0}}})}}$};
+    \draw[-{Latex[width=1mm,length=1mm]}, OliveGreen] (1.4,1.8) .. controls (1.25,1.95) and (0.8,1.95) .. (0.65,1.75);
+    \draw[-{Latex[width=1mm,length=1mm]}, BrickRed] (0.45,1.25) .. controls (0.1,1.25) and (-0.05,1.35) .. (-0.15,1.5);
+    \draw[-{Latex[width=1mm,length=1mm]}, OliveGreen!50!BrickRed, rounded corners=2pt] (0.4,1.62) -- (0.275,1.62) -- (0.275,1.38) -- (0.45,1.38);
+    \end{tikzpicture}
+  }
+\end{center}
+
+```
+
+Vektor $v^{(0)}_{s,k}$ wird im $0$ Koordinatensystem dargestellt, nun wird es mit $\prescript{0}{k}{T}$ multipliziert. Das Endprodukt ist immer noch der gleiche Vektor, einfach nun im Bezug zum Koordinatensystem $k$
+:::
+
+### Eigenschaften
+
+-   Zeilen- & Spaltenvektoren sind **orthogonal** zueinander
+-   Determinante $\det{(\prescript{k}{0}{A})=1}$
+-   Betrag von Spalten & Zeilen = 1
+
+### Inverse
+
+$$
+(\prescript{{\color{BrickRed}{\mathbf{k}}}}{0}{A})^{-1}=\prescript{0}{{\color{BrickRed}{\mathbf{k}}}}{A}=\prescript{{\color{BrickRed}{\mathbf{k}}}}{0}{A}^T
+$$
+
+
+### Verkettung
+
+$$
+\prescript{k  }{i  }{A}=
+\prescript{i+1}{i  }{A}\cdot
+\prescript{i+2}{i+1}{A}\cdot\cdots\cdot
+\prescript{k-1}{k-2}{A}\cdot
+\prescript{k  }{k-1}{A}
+$$
+
+und einer inverse Verkettung:
+
+$$
+\begin{split}
+\prescript{i  }{k  }{A}=
+\begin{bmatrix}\prescript{k  }{i  }{A}\end{bmatrix}^T&=
+\prescript{k  }{k-1}{A}^T\cdot
+\prescript{k-1}{k-2}{A}^T\cdot\cdots\cdot
+\prescript{i+2}{i+1}{A}^T\cdot
+\prescript{i+1}{i  }{A}^T   \\&= 
+\prescript{k-1}{k  }{A}\cdot
+\prescript{k-2}{k-1}{A}\cdot\cdots\cdot
+\prescript{i+1}{i+2}{A}\cdot
+\prescript{i  }{i+1}{A}
+\end{split}
+$$
+
+
+::: callout-tip
+#### Beispiel
+
+$$
+\prescript{3}{1}{A}=
+{\color{BrickRed}\prescript{2}{1}{A}}\cdot
+{\color{NavyBlue}\prescript{3}{2}{A}}
+$$
+
+$$
+\prescript{1}{3}{A}=
+{\color{NavyBlue}\prescript{3}{2}{A}}^T\cdot
+{\color{BrickRed}\prescript{2}{1}{A}}^T=
+\prescript{2}{3}{A}\cdot
+\prescript{1}{2}{A}
+$$
+
+:::
+
+```{=latex}
+\vfill
+```
+
+## Homogene Matrizen (Frames)
+
+Damit die Lage des Effektors im Raum eindeutig bestimmbar ist, wird die Rotationsmatrix mit einem Verschiebungsvektor erweitert. Dadurch ist **Orientierung** und **Position** bestimmbar.
+
+```{=latex}
+\begin{center}
+  \resizebox{5cm}{!}{
+    \begin{tikzpicture}
+
+    \node[] at (0.5,1.5) {${a^{({\color{BrickRed}{\mathbf{k}}})}=\ \prescript{\color{OliveGreen}{\mathbf{0}}}{\color{BrickRed}{\mathbf{k}}}{T}\cdot a^{({\color{OliveGreen}{\mathbf{0}}})}}$};
+    \draw[-{Latex[width=1mm,length=1mm]}, OliveGreen] (1.4,1.8) .. controls (1.25,1.95) and (0.8,1.95) .. (0.65,1.75);
+    \draw[-{Latex[width=1mm,length=1mm]}, BrickRed] (0.45,1.25) .. controls (0.1,1.25) and (-0.05,1.35) .. (-0.15,1.5);
+    \draw[-{Latex[width=1mm,length=1mm]}, OliveGreen!50!BrickRed, rounded corners=2pt] (0.4,1.62) -- (0.275,1.62) -- (0.275,1.38) -- (0.45,1.38);
+    \end{tikzpicture}
+  }
+\end{center}
+
+```
+
+> *Vom Bergspitz* ${\color{OliveGreen}\mathbf{0}}$ *aus den See* $\mathbf{a}$ *anschauen, dann via dem Wanderweg* $\prescript{\color{OliveGreen}\mathbf{0}}{\color{BrickRed}\mathbf{k}}{T}$ *zum Bergspitz* ${\color{BrickRed}\mathbf{k}}$ *und von dort auf denselben See* $\mathbf{a}$ *schauen.*
+
+Die homogene Matrix/Frame besteht aus einer `{\color{NavyBlue}\textbf{Rotation}}`{=latex}, einer `{\color{BrickRed}\textbf{Translation}}`{=latex} und einem sehr markanten **1**.
+
+$$
+\prescript{k}{i}{T}=\begin{bmatrix}
+{\color{NavyBlue}x_k^{(i)}} & {\color{NavyBlue}y_k^{(i)}} & {\color{NavyBlue}z_k^{(i)}} &{\color{BrickRed}p_{ik}^{(i)}} \\
+0         & 0         & 0         & \mathbf{1}
+\end{bmatrix}
+$$
+
+Die Verschiebung wird genutzt um ein Frame auf eine Position zu setzen, z.B. am TCP des Werkzeugs.
+
+![](images/paste-3.png){fig-align="center" width="6cm"}
+
+::: callout-tip
+### Beispiel
+
+
+Vektor $a$ wird vom Koordinatensystem $K_k$ ins System $K_i$ überführt. Bei **Freien** Vektor wird der Wert in der vierten Zeile auf ${\color{BrickRed}\mathbf{0}}$ gesetzt, da die Position des Vektors nicht wichtig ist $\rightarrow$ Rotation würde genügen
+
+$$
+\prescript{k}{i}{T}=\begin{bmatrix}
+{ 0} & {0} & {-1} & {0} \\
+{-1} & {0} & { 0} & {4} \\
+{ 0} & {1} & { 0} & {2} \\
+ 0 & 0 &  0 & 1 \\
+\end{bmatrix},\quad a^{(k)}=\begin{bmatrix} 1\\ 2\\ 0\\ {\color{BrickRed} \mathbf{0}} \\\end{bmatrix}
+$$
+
+$$
+a^{(i)}=\prescript{k}{i}{T}\cdot a^{(k)} =\begin{bmatrix}
+ 0 & 0 & -1 & {\color{BrickRed}\mathbf{0}} \\
+-1 & 0 &  0 & {\color{BrickRed}\mathbf{4}} \\
+ 0 & 1 &  0 & {\color{BrickRed}\mathbf{2}} \\
+ 0 & 0 &  0 & {\color{BrickRed}\mathbf{1}} \\
+\end{bmatrix}\cdot
+\begin{bmatrix} 1\\ 2\\ 0\\ {\color{BrickRed}\mathbf{0}} \\\end{bmatrix}=
+\begin{bmatrix} 0\\ -1\\ 2\\ 0\end{bmatrix}
+$$
+
+Der Nutzen des Frames ist bei Ortsvektoren ersichtlich. Bei diesen Vektoren wird der vierte Wert auf ${\color{NavyBlue}\mathbf{1}}$ gesetzt. Vektor $u_{kP}^{(k)}$ zeigt auf Punkt $P$ und wird nun im Bezug zu $K_i$ in $u_{iP}^{(i)}$ transformiert. 
+
+$$
+u_{kP}^{(k)}=\begin{bmatrix} -2\\ -1\\ 0\\ 1\end{bmatrix}
+$$
+
+$$
+u_{iP}^{(i)}=\prescript{k}{i}{T}\cdot u_{kP}^{(k)} =\begin{bmatrix}
+ 0 & 0 & -1 & {\color{NavyBlue}\mathbf{0}} \\
+-1 & 0 &  0 & {\color{NavyBlue}\mathbf{4}} \\
+ 0 & 1 &  0 & {\color{NavyBlue}\mathbf{2}} \\
+ 0 & 0 &  0 & {\color{NavyBlue}\mathbf{1}} \\
+\end{bmatrix}\cdot
+\begin{bmatrix} -2\\ -1\\ 0\\ {\color{NavyBlue}\mathbf{1}} \\\end{bmatrix}=
+\begin{bmatrix} 0\\ 6\\ 1\\ 1\end{bmatrix}
+$$
+
+![](images/paste-4.png){fig-align="center"}
+
+Während ein freier Vektor sich nicht verändert, ändern sich Ortsvektoren zu komplett neuen Vektoren ($\vert u_{kP}^{(k)}\vert\neq\vert u_{iP}^{(i)}\vert$).
+
+:::
+
+### Inverse
+
+Zu **jeder** homogenen Matrix ist **immer** die inverse homogene Matrix gegeben und es gilt [speziell]{.underline}:
+
+$$
+\prescript{i}{k}{T}=(\prescript{k}{i}{T})^{-1}=\begin{bmatrix}
+\prescript{k}{i}{A}^T & -\prescript{k}{i}{A}^T\cdot p_{ik}^{(i)}\\
+\begin{bmatrix}0&0&0\end{bmatrix} & 1
+\end{bmatrix}
+$$
+
+### Verkettung
+
+$$
+\prescript{k  }{i  }{T}=
+\prescript{i+1}{i  }{T}\cdot
+\prescript{i+2}{i+1}{T}\cdot\cdots\cdot
+\prescript{k-1}{k-2}{T}\cdot
+\prescript{k  }{k-1}{T}
+$$
+
+und einer inverse Verkettung:
+
+$$
+\begin{split}
+\prescript{i  }{k  }{T}=
+\begin{bmatrix}\prescript{k  }{i  }{T}\end{bmatrix}^{\mathbf{-1}}&=
+\prescript{k  }{k-1}{T}^{\mathbf{-1}}\cdot
+\prescript{k-1}{k-2}{T}^{\mathbf{-1}}\cdot\cdots\cdot
+\prescript{i+2}{i+1}{T}^{\mathbf{-1}}\cdot
+\prescript{i+1}{i  }{T}^{\mathbf{-1}}   \\&= 
+\prescript{k-1}{k  }{T}\cdot
+\prescript{k-2}{k-1}{T}\cdot\cdots\cdot
+\prescript{i+1}{i+2}{T}\cdot
+\prescript{i  }{i+1}{T}
+\end{split}
+$$
+
+::: callout-warning
+#### $]^{-1}$ anstatt $]^T$
+
+Da die homogene Matrix nicht einfach so transponiert werden darf, muss die spezielle Umformung verwendet werden!
+:::
+
+## Orienterung durch Euler-Winkel
+
+Eine Drehung eines Frames im Bezug zu einem anderen ist durch **drei** Winkel angegeben. Diese drei Winkel werden **Euler-Winkel** genannt, wenn diese [nacheinander]{.underline} ausgeführt werden.
+
+$$
+\begin{split}
+&R_{\text{ZYX}}=\prescript{W}{R}{A}=\begin{pmatrix}x_W^{(R)} & y_W^{(R)} & z_W^{(R)}\end{pmatrix}=\underbrace{R_{\mathbf{Z}}(A)}_{\textbf{3.}}\cdot\underbrace{R_{\mathbf{Y}}(B)}_{\textbf{2.}}\cdot\underbrace{R_{\mathbf{X}}(C)}_{\textbf{1.}}\\[2mm]
+{} &= \begin{bmatrix}
+  C_A & -S_A & 0 \\
+  S_A & C_A & 0 \\
+  0 & 0 & 1
+\end{bmatrix}\cdot
+\begin{bmatrix}
+   C_B & 0 & S_B \\
+   0       & 1 & 0       \\
+  -S_B & 0 & C_B
+\end{bmatrix}\cdot
+\begin{bmatrix}
+  1 &  0      &  0 \\
+  0 &  C_C & -S_C \\
+  0 &  S_C &  C_C
+\end{bmatrix}\\[2mm]
+&=\begin{bmatrix}
+{\color{Orange}\mathbf{C_A \cdot C_B}} & -S_A \cdot C_C + C_A \cdot S_B \cdot S_C &  S_A \cdot S_C + C_A \cdot S_B \cdot C_C \\
+{\color{OliveGreen}\mathbf{S_A \cdot C_B}} &  C_A \cdot C_C + S_A \cdot S_B \cdot S_C & -C_A \cdot S_C + S_A \cdot S_B \cdot C_C \\
+{\color{BrickRed}\mathbf{-S_B}}      &  {\color{Blue}\mathbf{C_B \cdot S_C}}    &  {\color{Purple}\mathbf{C_B \cdot C_C}}
+\end{bmatrix}
+\end{split}
+$$
+
+$$
+\begin{split}
+B &= \arcsin(-{\color{BrickRed}\mathbf{R_{31}}})\\
+A &= \text{atan2}({\color{OliveGreen}\mathbf{R_{21}}},{\color{Orange}\mathbf{R_{11}}})\\
+C &= \text{atan2}({\color{Blue}\mathbf{R_{32}}},{\color{Purple}\mathbf{R_{33}}})
+\end{split}
+$$
+
+::: callout-tip
+Da $\cos$ eine gerade Funktion ist, ergeben $\cos(\pm{\alpha})$ den gleichen Wert, z.B. $\cos(\pm{45^\circ})=\frac{1}{\sqrt{2}}$
+
+$\sin$ ist ungerade und daher ist der $\sin$-Wert immer verkehrt $\sin(\pm\alpha)=\mp a$
+
+$$
+\text{atan2}(x,y)=
+\begin{cases}
+\arctan\left(\frac{y}{x}\right)       & \text{wenn } x > 0, \\ 
+\arctan\left(\frac{y}{x}\right) + \pi & \text{wenn } x < 0 \text{ und } y \ge 0, \\ 
+\arctan\left(\frac{y}{x}\right) - \pi & \text{wenn } x < 0 \text{ und } y < 0, \\ 
+                       +\frac{\pi}{2} & \text{wenn } x = 0 \text{ und } y > 0, \\ 
+                       -\frac{\pi}{2} & \text{wenn } x = 0 \text{ und } y < 0, \\ 
+          {\small \text{undefiniert}} & \text{wenn } x = 0 \text{ und } y = 0. 
+\end{cases}
+$$
+:::
+
+## Roll Pitch Yaw (Roll Neigung Gier)
+
+- Drehung um die $x$-**Basis**achse mit dem Winkel $\psi$ (**yaw**)
+- Drehung um die $y$-**Basis**achse mit dem Winkel $\theta$ (**pitch**)
+- Drehung um die $z$-**Basis**achse mit dem Winkel $\phi$ (**roll**)
+
+::: callout-caution
+### Unterschied RPY & Euler
+
+Während bei [Euler Drehungen]{.underline} immer [vom neuen Koordinatensystem gedreht]{.underline} wird, werden bei [RPY Drehungen]{.underline} immer vom [Ursprünglichen Koordinatensystem gedreht]{.underline}
+
+[Euler Winkel]{.underline}
+![](images/rotationen_translationen/image-1.png)
+
+[Roll Pitch Yaw]{.underline}
+![](images/rotationen_translationen/image.png)
+
+:::
+
+## Orientierung durch Drehvektor und -winkel
+
+Drehung wird um einen Drehvektor gemacht $\rightarrow$ den *direkten* Weg
+
+![](images/rotationen_translationen/image-2.png){fig-align="center" width="6cm"}
+
+$$
+\varphi_R={2\cdot \arccos(qt_1)}\qquad e_R=\begin{bmatrix}qt_2\\ qt_3\\ qt_4\end{bmatrix}/\sin(0.5\cdot\varphi_R)
+$$
+
+Da die Ermittelung des Drehvektors $e_R$ und des Drehwinkels $\varphi_R$ aufwendig ist, wird meistens mit Euler-Winkeln gearbeitet. Ein **Vorteil** von Drehvektor & -winkel bei der Bahnsteuerung/kontinuierliche Veränderung $\rightarrow$ Dies wird auch mit **Quarternions** gemacht!

@@ -51,14 +51,28 @@
 \setlength{\emergencystretch}{3em} % prevent overfull lines
 \setcounter{secnumdepth}{-\maxdimen} % remove section numbering
 % Make \paragraph and \subparagraph free-standing
+\makeatletter
 \ifx\paragraph\undefined\else
   \let\oldparagraph\paragraph
-  \renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+  \renewcommand{\paragraph}{
+    \@ifstar
+      \xxxParagraphStar
+      \xxxParagraphNoStar
+  }
+  \newcommand{\xxxParagraphStar}[1]{\oldparagraph*{#1}\mbox{}}
+  \newcommand{\xxxParagraphNoStar}[1]{\oldparagraph{#1}\mbox{}}
 \fi
 \ifx\subparagraph\undefined\else
   \let\oldsubparagraph\subparagraph
-  \renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+  \renewcommand{\subparagraph}{
+    \@ifstar
+      \xxxSubParagraphStar
+      \xxxSubParagraphNoStar
+  }
+  \newcommand{\xxxSubParagraphStar}[1]{\oldsubparagraph*{#1}\mbox{}}
+  \newcommand{\xxxSubParagraphNoStar}[1]{\oldsubparagraph{#1}\mbox{}}
 \fi
+\makeatother
 
 \usepackage{color}
 \usepackage{fancyvrb}
@@ -128,6 +142,9 @@
 \usepackage{floatrow}
 \usepackage[datesep=.]{datetime2}
 \DTMsetdatestyle{ddmmyyyy}
+\usepackage{enumitem}
+\setlist[description]{style=nextline,parsep=5mm}
+\providecommand\phantomsection{}
 \makeatletter
 \@ifpackageloaded{tcolorbox}{}{\usepackage[skins,breakable]{tcolorbox}}
 \@ifpackageloaded{fontawesome5}{}{\usepackage{fontawesome5}}
@@ -195,8 +212,14 @@
 \@ifundefined{codebgcolor}{\definecolor{codebgcolor}{HTML}{f7f7f7}}{}
 \makeatother
 \makeatletter
-\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[frame hidden, breakable, sharp corners, enhanced, colback={codebgcolor}, boxrule=0pt]}{\end{tcolorbox}}\fi
+\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[colback={codebgcolor}, enhanced, sharp corners, breakable, boxrule=0pt, frame hidden]}{\end{tcolorbox}}\fi
 \makeatother
+\makeatletter
+\@ifpackageloaded{tikz}{}{\usepackage{tikz}}
+\makeatother
+        \newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+          \node[shape=circle,draw,inner sep=1pt] (char) {{\scriptsize#1}};}}  
+                  
 \ifLuaTeX
 \usepackage[bidi=basic]{babel}
 \else
@@ -267,8 +290,8 @@
 % Tikz is really good at creating nice looking and clean drawings, diagramms, etc. 
 \usepackage{tikz}
 \usetikzlibrary{shapes,arrows,arrows.meta,matrix,decorations.pathmorphing}
-\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
-            \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}           
+%\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+%            \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
 
 % TIP: use 'TikzEdt' (http://www.tikzedt.org/) to preview the drawings.
 
@@ -529,24 +552,313 @@ Rotz \hspace{0.3cm}\textbf{/}\hspace{0.3cm}\mbox{\large \faGithub\space \href{ht
 }
 \newpage
 
-\includegraphics{images/cryptography meme.jpg}
-
 \section{Crypto}\label{crypto}
 
-\subsection{\texorpdfstring{\ul{D}ata \ul{E}ncryption
-\ul{S}tandard}{Data Encryption Standard}}\label{data-encryption-standard}
+\includegraphics[width=7cm,height=\textheight]{images/crypto_meme.jpg}
 
-\subsection{\texorpdfstring{\ul{A} \ul{E} \ul{S}}{A E S}}\label{a-e-s}
+\begin{tcolorbox}[enhanced jigsaw, colframe=quarto-callout-note-color-frame, bottomrule=.15mm, colback=white, left=2mm, toprule=.15mm, arc=.35mm, coltitle=black, opacityback=0, rightrule=.15mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Hinweis}, colbacktitle=quarto-callout-note-color!10!white, opacitybacktitle=0.6, toptitle=1mm, bottomtitle=1mm, titlerule=0mm, leftrule=.75mm, breakable]
 
-\begin{itemize}
+Wenn Daten Sequenzen in Blöcke geteilt werden (z.B. 64-Bit), dann wird
+davon ausgegangen, dass bei unvollständigen Blöcken die restlichen Bits
+mit z.B. \texttt{0} augefüllt werden.
+
+\end{tcolorbox}
+
+\subsection{Cesar Cipher / Substitution
+Cipher}\label{cesar-cipher-substitution-cipher}
+
+\includegraphics{images/crypto/ceaserCipher.png}
+
+Buchstaben werden um \(x\) Positionen verschoben (z.B.
+\texttt{A}\(\overset{+2}{\rightarrow}\)\texttt{C}). Nachteil ist, dass
+die Entschlüsselung sehr einfach ist.
+
+\subsection{\texorpdfstring{Enigma Maschine
+\href{https://www.youtube.com/watch?v=ybkkiGtJmkM}{\color{BrickRed}\faYoutube}}{Enigma Maschine }}\label{enigma-maschine}
+
+Die Enigma Maschine ist ein komplexes Ent- \& Verschlüsselungs System,
+welches während den Weltkriegen von den Nazis hauptsächlich verwendet
+wurde (und durch Alan Turing geknackt).
+
+\includegraphics{images/crypto/enigma.pdf}
+
+Nachjedem Tastendruck leuchtet ein Buchstabe auf und die Rotoren drehen
+sich, damit der nächste gleiche Tastendruck nicht den gleichen Buchstabe
+ergibt. Mit den Steckern können die Buchstaben umkonfiguriert werden
+(bei Doppelstecker wird z.B. \(A\rightarrow B\) \& \(B\rightarrow A\)
+und dadurch halbiert sich die Möglichkeiten zu 13).
+
+\subsection{Stream \& Block Cipher}\label{stream-block-cipher}
+
+\begin{center}
+\includegraphics{images/crypto/block_stream_cipher.pdf}
+\end{center}
+
+\subsection{Konfusion}\label{konfusion}
+
+Konfusion ist eine Verschlüsselungsoperation, bei der die
+\textbf{Beziehung zwischen Key und Ciphertext verschleiert} wird. Ein
+gängiges Element zur Erzielung von Konfusion ist heute die Substitution.
+
+Konfusion erhöht die Mehrdeutigkeit des Ciphertextes und wird sowohl von
+Block- als auch von Stream-Ciphern verwendet.
+
+\subsection{Diffusion}\label{diffusion}
+
+Diffusion ist eine Verschlüsselungsoperation, bei der der Einfluss eines
+Klartextsymbols auf viele Ciphertext-Symbole verteilt wird, um die
+statistischen Eigenschaften des Klartextes zu verbergen.
+
+\subsection{\texorpdfstring{Feistel Network
+\href{https://www.youtube.com/watch?v=FGhj3CGxl8I}{\color{BrickRed}\faYoutube}}{Feistel Network }}\label{feistel-network}
+
+Ein Feistel Netzwerk wird zum Ver- und Entschlüsseln von Datenpaketen
+verwendet. Folgend ist ein symmetrisches Feistel Netzwerk
+\(\rightarrow\) Datenblock wird halbiert (64-Bit \(\rightarrow\) 2
+\(\times\) 32-Bit). Eine Runde entspricht:
+
+\[
+\begin{split}
+  L_n &= R_{n-1}\\
+  R_n &= f(L_{n-1},k_n)
+\end{split}
+\]
+
+\begin{center}
+\includegraphics[width=4cm,height=\textheight]{images/crypto/feistel_network.pdf}
+\end{center}
+
+Funktion \(f\) ist \textbf{wichtig}. Wenn diese sicher gegen Attacken
+ist, dann wird das Feistel Netzwerk mit jeder Runde und Key-Segment
+sicherer!
+
+\begin{tcolorbox}[enhanced jigsaw, colframe=quarto-callout-important-color-frame, bottomrule=.15mm, colback=white, left=2mm, toprule=.15mm, arc=.35mm, coltitle=black, opacityback=0, rightrule=.15mm, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Ver- \& Entschlüsseln}, colbacktitle=quarto-callout-important-color!10!white, opacitybacktitle=0.6, toptitle=1mm, bottomtitle=1mm, titlerule=0mm, leftrule=.75mm, breakable]
+
+Verschlüsselte Informationen können mit dem genau gleichen Ablauf wieder
+entschlüsselt werden.
+
+\end{tcolorbox}
+
+\subsection{\texorpdfstring{DES
+\href{https://www.youtube.com/watch?v=3BZRBfhpIb0}{\color{BrickRed}\faYoutube}}{DES }}\label{des}
+
+\textbf{D}ata \textbf{E}ncryption \textbf{S}tandard ist ein Cipher, der
+64 Bit lange Blöcke mit einem 56 Bit langen Schlüssel verschlüsselt.
+
+\begin{center}
+\includegraphics{images/crypto/des.pdf}
+\end{center}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
 \tightlist
-\item[$\square$]
-  Hello
-\end{itemize}
+\item
+  Data \(x\) wird mit einer \emph{Initial Permutation} transponiert
+  (\textbf{Diffusion})
+\item
+  Diffusierte Data wird wird im Feistel Netzwerk \textbf{16×}
+  verschlüsselt
+\item
+  Die verschlüsselte Data wird mit einer \emph{Final Permutation} wieder
+  transponiert (\textbf{Diffusion})
+\end{enumerate}
+
+\begin{center}
+\includegraphics{images/crypto/des_detailed.pdf}
+\end{center}
+
+\subsubsection{Initial \& Final
+Permutation}\label{initial-final-permutation}
+
+Vor und nach dem Feistel Netzwerk werden die Blöcke bitweise permutiert,
+also wie kreuzverdrahtet (Enigma Steckerbrett) \(\rightarrow\) Bit
+\textbf{Diffusion}
+
+\begin{tcolorbox}[enhanced jigsaw, colframe=quarto-callout-note-color-frame, bottomrule=.15mm, colback=white, left=2mm, toprule=.15mm, arc=.35mm, coltitle=black, opacityback=0, rightrule=.15mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Hinweis}, colbacktitle=quarto-callout-note-color!10!white, opacitybacktitle=0.6, toptitle=1mm, bottomtitle=1mm, titlerule=0mm, leftrule=.75mm, breakable]
+
+Diese Permutationen sind in Hardware einfacher implementierbar als in
+der Software.
+
+\end{tcolorbox}
+
+\subsubsection{\texorpdfstring{\(f\)-Funktion}{f-Funktion}}\label{f-funktion}
+
+Die \(f\)-Funktion vom DES ist das Herz des Algorithmus.
+
+\begin{center}
+\includegraphics{images/crypto/des_ffunction.pdf}
+\end{center}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Das Datenbyte \(R_{i-1}\) wird mit expandiert (Doppelzuweisung) um auf
+  48 Bit zu kommen\ldots{}
+\item
+  \ldots danach wird dies mit dem Key ver\textbf{xor}t und\ldots{}
+\item
+  \ldots mit der jeweiligen Substitutationsbox (LUT) \(S_x\)
+  verarbeitet.
+\item
+  Schlussendlich
+\end{enumerate}
+
+\subsubsection{\texorpdfstring{Expansion
+\(E\)}{Expansion E}}\label{expansion-e}
+
+Expansion \(E\) ist eine spezielle Permutationsfunktion. Die Expansion
+wird von 32-Bits zu 48-Bits \emph{expandiert}.
+
+\begin{center}
+\includegraphics[width=6cm,height=\textheight]{images/crypto/expansion_function.png}
+\end{center}
+
+\begin{tcolorbox}[enhanced jigsaw, colframe=quarto-callout-important-color-frame, bottomrule=.15mm, colback=white, left=2mm, toprule=.15mm, arc=.35mm, coltitle=black, opacityback=0, rightrule=.15mm, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Wichtig}, colbacktitle=quarto-callout-important-color!10!white, opacitybacktitle=0.6, toptitle=1mm, bottomtitle=1mm, titlerule=0mm, leftrule=.75mm, breakable]
+
+16-Bit der 32 Input-Bits kommen doppelt vor. \textbf{ABER} ein Input-Bit
+kommt \textbf{nicht} zweimal vor im selben 6-Bit Block \(\rightarrow\)
+Diffusion wird verbessert, da gewisse Input-Bits zweimal vorkommen.
+
+\end{tcolorbox}
+
+\subsubsection{\texorpdfstring{Key Scheduling Transform
+\(X\)}{Key Scheduling Transform X}}\label{key-scheduling-transform-x}
+
+Der \emph{Key Scheduler} generiert 16 Subkeys \(k_i\) vom Hauptkey
+\(k\).
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Der Key wird in \(PC-1\) auf 56-Bits gekürzt. Die \emph{Parity} Bits
+  8, 16, 24, 32, 40, 48, 56 \& 64 werden entfernt \(\rightarrow\)
+  sinnlose Bits
+\end{enumerate}
+
+\begin{center}
+\includegraphics[width=6cm,height=\textheight]{images/crypto/initial_key_permutation.png}
+\end{center}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\item
+  In Runden \(i=1,2,9,16\) wird \(C_n\) \textbf{ein} Bit nach links
+  geshiftet, ansonsten \textbf{zwei} Bits.
+\item
+  In \(PC-2\) werden erneut 8 Bits verworfen \(\rightarrow\) 48 Bit
+  Subkey \(k_i\)
+\end{enumerate}
+
+\begin{center}
+\includegraphics{images/crypto/keyscheduler.pdf}
+\end{center}
+
+\subsubsection{Das Coole}\label{das-coole}
+
+Der Cipher kann mit dem gleichen System wieder entschlüsselt werden. DES
+verwendet als Grundelement das Feistel Netzwerk, welches diese
+Eigenschaft hat.
+
+\subsubsection{Das Problem}\label{das-problem}
+
+DES ist wegen der kleinen 56 Bit Key nicht sicher (Fall: 1993 \& 2008
+Brute Force), was ja auch nid so doll is'. Ein Ansatz dafür ist den Key
+auf 112 Bits zu erweitern durch \textbf{triple DES}
+(\(\text{DES}(k_1)+\text{DES}^{-1}(k_2)+\text{DES}(k_2)\)).
+
+\subsection{\texorpdfstring{TEA
+\href{https://www.youtube.com/watch?v=aR29pnuJ6fQ}{\color{BrickRed}\faYoutube}}{TEA }}\label{tea}
+
+\textbf{T}iny \textbf{E}ncryption \textbf{A}lgorithm ist ein bereits
+geknackter und daher auch einfacher Verschlüsselungsalgorithmus. Er
+verwendet ein \emph{Feistel Network}, 64 Bit Datenblöcke und einen 128
+Bit Key. Es werden 32 Runden gemacht, damit die Informationen mehr
+verschlüsselt werden. \ul{Er erfordert sehr wenig Rechenleistung}.
+
+\begin{center}
+\includegraphics[width=6cm,height=\textheight]{images/crypto/TEA_InfoBox_Diagram.png}
+\end{center}
+
+\begin{tcolorbox}[enhanced jigsaw, colframe=quarto-callout-important-color-frame, bottomrule=.15mm, colback=white, left=2mm, toprule=.15mm, arc=.35mm, coltitle=black, opacityback=0, rightrule=.15mm, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{(Fast) kein Feistel Netzwerk}, colbacktitle=quarto-callout-important-color!10!white, opacitybacktitle=0.6, toptitle=1mm, bottomtitle=1mm, titlerule=0mm, leftrule=.75mm, breakable]
+
+Die verschlüsselten Blöcke können nicht so einfach wieder entschlüsselt,
+da im Algorithmus nebst XOR noch Additionen stattfinden. Für die
+Entschlüsselung werden die \textbf{Addition rückgängig} mit
+Subtraktionen gemacht.
+
+\end{tcolorbox}
+
+\subsection{XTEA}\label{xtea}
+
+e\textbf{X}tended \textbf{TEA} ist eine Erweiterung von TEA, welcher die
+Verschlüsselung besser macht. Gleiche Eigenschaften + Konstantwert
+\texttt{delta=0x9E3779B9}.
+
+\begin{center}
+\includegraphics[width=6cm,height=\textheight]{images/crypto/XTEA_InfoBox_Diagram.png}
+\end{center}
+
+\begin{tcolorbox}[enhanced jigsaw, colframe=quarto-callout-important-color-frame, bottomrule=.15mm, colback=white, left=2mm, toprule=.15mm, arc=.35mm, coltitle=black, opacityback=0, rightrule=.15mm, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{XTEA sicher?}, colbacktitle=quarto-callout-important-color!10!white, opacitybacktitle=0.6, toptitle=1mm, bottomtitle=1mm, titlerule=0mm, leftrule=.75mm, breakable]
+
+XTEA ist ein sicherer Verschlüsselungsalgorithmus, wenn auch nicht so
+sicher wie RSA oder andere.
+
+\end{tcolorbox}
+
+\subsection{AES}\label{aes}
+
+\subsection{\texorpdfstring{Cipher Modi
+\href{https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation\#CTR}{\faWikipediaW}}{Cipher Modi }}\label{cipher-modi}
+
+\subsubsection{ECB}\label{ecb}
+
+\textbf{E}lectronic \textbf{C}ode \textbf{B}ook
+
+\subsubsection{CBC}\label{cbc}
+
+\textbf{C}yber \textbf{B}lock \textbf{C}haining
+
+\subsubsection{CFB}\label{cfb}
+
+\textbf{C}ipiher \textbf{F}eed\textbf{B}ack
+
+\subsubsection{OFB}\label{ofb}
+
+\textbf{O}utput \textbf{F}eed\textbf{B}ack
+
+\subsubsection{CTR}\label{ctr}
+
+\textbf{C}oun\textbf{T}e\textbf{R}
+
+\subsubsection{GCM}\label{gcm}
+
+\textbf{G}alois \textbf{C}ounter \textbf{M}ode
+
+\subsection{Meet-In-The-Middle Attack}\label{meet-in-the-middle-attack}
+
+\subsection{Double Encrpytion}\label{double-encrpytion}
+
+\subsection{Triple Encrpytion}\label{triple-encrpytion}
+
+\subsection{Key Whitening}\label{key-whitening}
 
 \subsection{Hash Functions}\label{hash-functions}
 
 \subsubsection{Block}\label{block}
+
+\subsection{weitere Begriffe}\label{weitere-begriffe}
+
+{\small
+\textbf{Keyspace} Anzahl möglichen \& relevanten Keys
+
+\textbf{Brute Force} Alle Keykombination versuchen (Erfolg $\approx$ Keyspace/2)
+
+\textbf{Frequency Analysis} Gewisse Zeichen(kombinationen) werden häufiger verwendet 
+
+}
 
 \section{\texorpdfstring{Docker \faIcon{docker}}{Docker }}\label{docker}
 
@@ -554,14 +866,14 @@ Rotz \hspace{0.3cm}\textbf{/}\hspace{0.3cm}\mbox{\large \faGithub\space \href{ht
 \includegraphics[width=7cm,height=\textheight]{images/meme_docker.jpg}
 \end{center}
 
-\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, bottomrule=.15mm, toptitle=1mm, left=2mm, colbacktitle=quarto-callout-important-color!10!white, colframe=quarto-callout-important-color-frame, titlerule=0mm, colback=white, rightrule=.15mm, toprule=.15mm, coltitle=black, leftrule=.75mm, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Wichtig}, breakable, bottomtitle=1mm, opacityback=0, arc=.35mm]
+\begin{tcolorbox}[enhanced jigsaw, colframe=quarto-callout-important-color-frame, bottomrule=.15mm, colback=white, left=2mm, toprule=.15mm, arc=.35mm, coltitle=black, opacityback=0, rightrule=.15mm, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Wichtig}, colbacktitle=quarto-callout-important-color!10!white, opacitybacktitle=0.6, toptitle=1mm, bottomtitle=1mm, titlerule=0mm, leftrule=.75mm, breakable]
 
 Bash Befehle via Host sind mit {\color{BrickRed}{\texttt{\textbf{\$}}}}
 gekennzeichnet.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\ExtensionTok{\$}\NormalTok{ echo }\StringTok{"this happens on WSL or SSH Pi"}
+\ExtensionTok{\$}\NormalTok{ echo }\StringTok{"this happens on the host"}
 \end{Highlighting}
 \end{Shaded}
 
@@ -578,73 +890,793 @@ Bash Befehle in einem Docker Container sind mit
 
 \subsection{Was'n Docka?}\label{wasn-docka}
 
-Kurzgesagt: Docker ``\ul{containerisiert}'' Anwendungen.
+Docker ist eine Plattform zur Software-Virtualisierung mit Fokus auf
+\ul{Wiederverwendbarkeit} und \ul{Containerisierung}.
 
 Die Idee ist, eine Anwendunge mit der nötigen Konfiguration, Runtime und
 Bibliotheken in ein Paket zusammenzustellen und dann als
 \textbf{portables} Produkt weitergegeben, verarbeitet, etc. ausgeführt
 werden.
 
-Man unterscheidet zwischen \textbf{Image} \& \textbf{Container}
+\subsection{Begriffe}\label{begriffe}
+
+\begin{description}
+\tightlist
+\item[Image]
+eine schreibgeschützte und vorgefertigte Vorlage, welche alle nötigen
+Software and Dateien beinhaltet. Es ist eine ``Momentaufnahme'' des
+Filesystems.
+\item[Container]
+ist die \ul{ausgeführte Instanz eines Images} und ist eine
+\ul{isolierte} Umgebung, welche die entsprechende Prozesse ausführt,
+\textbf{ohne} andere Systeme zu stören.
+\item[Dockerfile]
+beschreibt wie ein Docker Image zusammengebaut wird anhand Schritten
+\(\rightarrow\) welche Tools installiert und Dateien kopiert werden
+\item[Layers]
+Ein Image ist auf Layern aufgebaut, welche während einem Build-Prozess
+mit einem Dockerfile erstellt werden. Jede Anweisung im Dockerfile
+erzeugt einen neuen Layer mit einer eindeutigen ID.
+\item[Container Layer]
+Wenn ein Container kreiert und gestartet wird, entsteht ein Container
+Layer, welcher alle Änderungen verfolgt. Mit \texttt{commit} kann ein
+neues Image mit diesen Änderungen kreiert werden.
+\item[Docker daemon \texttt{dockerd} (Service)]
+Auch bekannt als \emph{Docker Engine}. Zuständig für Ausführungen der
+Container und Docker Kommandos.
+\item[Volumes]
+Dateien in Volumes bleiben nach Beendigung/Löschung des Containers
+erhalten (für Datenaustausch z.B. zwischen Host \& Cont. oder
+seriell/parralel Cont. zu Cont.)
+\end{description}
+
+\subsection{Docker Pfade}\label{docker-pfade}
 
 \begin{itemize}
 \tightlist
 \item
-  \textbf{Image} ist eine Vorlage, welche beschreibt, wie ein Container
-  aufzubauen ist.
+  \texttt{/var/lib/docker/}: Hauptverzeichnis von Docker
 \item
-  \textbf{Container} ist die \ul{ausgeführte Instanz eines Images} und
-  ist eine \ul{isolierte} Umgebung, welche die entsprechende Prozesse
-  ausführt, \textbf{ohne} andere Systeme zu stören.
+  \texttt{/var/lib/docker/images/}: enthält Metadaten zu den Images
+\item
+  \texttt{/var/lib/docker/\textless{}overlay-driver\textgreater{}/}:
+  enthält ausgepackte Layer (Images \& Container)
+\item
+  \texttt{/var/lib/docker/volumes/}: enthält Volumen
 \end{itemize}
 
+\subsection{Images}\label{images}
+
+Images sind \textbf{schreibgeschützte} Pakete, welches schichtenweise
+mit Software und Strukturen aufgebaut ist.
+
 \begin{center}
-\includegraphics[width=6cm,height=\textheight]{./images/docker/container-distribution.png}
+\includegraphics[width=6cm,height=\textheight]{images/docker/image_structure.pdf}
 \end{center}
 
-\subsection{Lebenszyklus}\label{lebenszyklus}
+\subsubsection{\texorpdfstring{{\small \faTerminal\hspace{1mm}}
+Auflisten}{ Auflisten}}\label{auflisten}
+
+Listet alle heruntergeladenen Images auf
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{$}\NormalTok{ docker images}
+\ExtensionTok{$}\NormalTok{ docker image ls}
+\ExtensionTok{$}\NormalTok{ docker image list}
+\ExtensionTok{REPOSITORY}\NormalTok{   TAG       IMAGE ID       CREATED       SIZE}
+\ExtensionTok{debian}\NormalTok{       latest    5027089adc4c   3 weeks ago   117MB}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{\texorpdfstring{{\small \faTerminal\hspace{1mm}}
+Löschen}{ Löschen}}\label{luxf6schen}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{$}\NormalTok{ docker rm }\OperatorTok{\textless{}}\NormalTok{image}\OperatorTok{\textgreater{}}
+\ExtensionTok{$}\NormalTok{ docker images rm }\OperatorTok{\textless{}}\NormalTok{Image}\OperatorTok{\textgreater{}}
+\ExtensionTok{$}\NormalTok{ docker rmi }\OperatorTok{\textless{}}\NormalTok{image}\OperatorTok{\textgreater{}}
+\end{Highlighting}
+\end{Shaded}
+
+Löscht ein Image (\textcolor{RedOrange}{\textbf{WICHTIG}} kein Container
+mit diesem Image sollte dabei existieren, sonst gehts nicht)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{$}\NormalTok{ docker image prune}
+\end{Highlighting}
+\end{Shaded}
+
+löscht \emph{dangling} (nicht gekennzeichnete / Tag = \texttt{none})
+Images. \texttt{-a} löscht alle Images, welche nicht verwendet werden
+
+\subsubsection{\texorpdfstring{{\small \faTerminal\hspace{1mm}} Neue
+Version
+veröffentlichen}{ Neue Version veröffentlichen}}\label{neue-version-veruxf6ffentlichen}
+
+Nachdem eine Version kreiert wurde, kann diese auf DockerHub
+veröffentlicht werden.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{$}\NormalTok{ docker image push }\PreprocessorTok{[}\SpecialStringTok{options}\PreprocessorTok{]} \OperatorTok{\textless{}}\NormalTok{name}\OperatorTok{\textgreater{}}\PreprocessorTok{[}\SpecialStringTok{:tag}\PreprocessorTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{\texorpdfstring{{\small \faTerminal\hspace{1mm}}
+Grösse}{ Grösse}}\label{gruxf6sse}
+
+{\small
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{$}\NormalTok{ docker images}
+\ExtensionTok{REPOSITORY}\NormalTok{   TAG     IMAGE ID      CREATED        SIZE}
+\ExtensionTok{alpine}\NormalTok{       latest  1d34ffeaf190  2 weeks ago    7.79MB}
+\ExtensionTok{hello{-}world}\NormalTok{  latest  d2c94e258dcb  13 months ago  13.3kB}
+\end{Highlighting}
+\end{Shaded}
+
+}
+
+\subsubsection{\texorpdfstring{{\small \faTerminal\hspace{1mm}}
+Informationen
+abrufen}{ Informationen abrufen}}\label{informationen-abrufen}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{$}\NormalTok{ docker inspect }\OperatorTok{\textless{}}\NormalTok{image}\OperatorTok{\textgreater{}}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Container}\label{container}
+
+Container sind ausgeführte, \textbf{isolierte} Images.
+
+\subsubsection{Container-Layer}\label{container-layer}
+
+Da das Image schreibgeschützt ist, werden alle Änderungen, Löschungen
+und Hinzufügungen am Image in der \textbf{Container-Layer} verfolgt
+\(\rightarrow\) das Image bleibt heil und unversehen.
+
+Dies bedeutet auch, dass das Image nur \textbf{einmal} pro Version
+existiert.
+
+\begin{center}
+\includegraphics[width=7cm,height=\textheight]{images/docker/volume_clayer.pdf}
+\end{center}
+
+\subsubsection{\texorpdfstring{{\small \faTerminal\hspace{1mm}}
+Erstellen/Ausführen/Starten}{ Erstellen/Ausführen/Starten}}\label{erstellenausfuxfchrenstarten}
+
+\phantomsection\label{annotated-cell-7}%
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{$}\NormalTok{ docker run }\OperatorTok{\textless{}}\NormalTok{opt}\OperatorTok{\textgreater{}} \OperatorTok{\textless{}}\NormalTok{image}\OperatorTok{\textgreater{}} \OperatorTok{\textless{}}\NormalTok{args}\OperatorTok{\textgreater{}} \hspace*{\fill}\NormalTok{\circled{1}}
+\ExtensionTok{$}\NormalTok{ docker create }\OperatorTok{\textless{}}\NormalTok{opt}\OperatorTok{\textgreater{}} \OperatorTok{\textless{}}\NormalTok{image}\OperatorTok{\textgreater{}} \OperatorTok{\textless{}}\NormalTok{args}\OperatorTok{\textgreater{}} \hspace*{\fill}\NormalTok{\circled{2}}
+\ExtensionTok{$}\NormalTok{ docker start }\OperatorTok{\textless{}}\NormalTok{container}\OperatorTok{\textgreater{}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{description}
+\tightlist
+\item[\circled{1}]
+Direkt erstellen \& ausführen
+\item[\circled{2}]
+Container erstellen und dann ausführen
+\end{description}
+
+\subsubsection{\texorpdfstring{{\small \faTerminal\hspace{1mm}}
+Auflisten}{ Auflisten}}\label{auflisten-1}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{$}\NormalTok{ docker ps }\CommentTok{\# kurz für \textquotesingle{}docker container ls\textquotesingle{}}
+\ExtensionTok{CONTAINER}\NormalTok{ ID  IMAGE   COMMAND ... STATUS        ... NAMES}
+\ExtensionTok{79f3f8a71b46}\NormalTok{  debian  }\StringTok{"bash"}\NormalTok{  ... Up 56 minutes ... musing\_wozniak}
+\ExtensionTok{6201bc70ef8c}\NormalTok{  debian  }\StringTok{"bash"}\NormalTok{  ... Up 58 minutes ... magical\_villani}
+\end{Highlighting}
+\end{Shaded}
+
+listet alle \textbf{momentan} ausgeführten Container auf. Mit
+\texttt{-a} listet alle Container auf
+
+\subsubsection{\texorpdfstring{{\small \faTerminal\hspace{1mm}}
+Attach/Detach}{ Attach/Detach}}\label{attachdetach}
+
+Ein Container mit einer Shell, z.B. Bash, kann via \texttt{attach} oder
+\texttt{-it} zugegriffen werden.
+
+\phantomsection\label{annotated-cell-9}%
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{docker}\NormalTok{ attach }\OperatorTok{\textless{}}\NormalTok{container}\OperatorTok{\textgreater{}} \hspace*{\fill}\NormalTok{\circled{1}}
+\ExtensionTok{docker}\NormalTok{ run }\AttributeTok{{-}it} \OperatorTok{\textless{}}\NormalTok{image}\OperatorTok{\textgreater{}} \hspace*{\fill}\NormalTok{\circled{2}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{description}
+\tightlist
+\item[\circled{1}]
+Bei bereits aktiven Container
+\item[\circled{2}]
+Die Shell des Containers wird an den Vordergrund gebracht + Pseudo
+Terminal
+\end{description}
+
+Mit \texttt{CTRL+Q\ CTRL+P} hängt man sich vom Container ab, ohne ihn zu
+beenden. \texttt{CTRL+C} oder im Shell \texttt{exit} beendet den
+Container.
+
+\subsubsection{\texorpdfstring{{\small \faTerminal\hspace{1mm}}
+Interaktivität}{ Interaktivität}}\label{interaktivituxe4t}
+
+Ein Container kann auf verschiedene Arten gestartet werden.
+
+\phantomsection\label{annotated-cell-10}%
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{$}\NormalTok{ docker start }\OperatorTok{\textless{}}\NormalTok{container}\OperatorTok{\textgreater{}} \hspace*{\fill}\NormalTok{\circled{1}}
+\ExtensionTok{$}\NormalTok{ docker start }\AttributeTok{{-}i} \OperatorTok{\textless{}}\NormalTok{container}\OperatorTok{\textgreater{}} \hspace*{\fill}\NormalTok{\circled{2}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{description}
+\tightlist
+\item[\circled{1}]
+im Hintergrund
+\item[\circled{2}]
+im Vordergrund
+\end{description}
+
+{\small
+
+\begin{description}
+\tightlist
+\item[\texttt{-i/-\/-interactive}]
+Macht den Container interaktiv und verbindet die Standardeingabe.
+\item[\texttt{-t/-\/-tty}]
+Aktiviert einen Pseudo-Terminalsimulator für den Container
+(\texttt{...:/\#\ \textless{}cmd\textgreater{}}).
+\end{description}
+
+}
+
+\phantomsection\label{annotated-cell-11}%
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{$}\NormalTok{ docker run }\AttributeTok{{-}i}\NormalTok{ debian }\hspace*{\fill}\NormalTok{\circled{1}}
+\BuiltInTok{echo}\NormalTok{ hello world}
+\ExtensionTok{hello}\NormalTok{ world}
+
+\ExtensionTok{$}\NormalTok{ docker run }\AttributeTok{{-}it}\NormalTok{ debian }\hspace*{\fill}\NormalTok{\circled{2}}
+\ExtensionTok{root@containerID:/\#}\NormalTok{ echo hello world}
+\ExtensionTok{hello}\NormalTok{ world}
+
+\ExtensionTok{$}\NormalTok{ docker create }\AttributeTok{{-}t}\NormalTok{ debian }\hspace*{\fill}\NormalTok{\circled{3}}
+\ExtensionTok{$}\NormalTok{ docker start }\AttributeTok{{-}i} \OperatorTok{\textless{}}\NormalTok{container}\OperatorTok{\textgreater{}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{description}
+\tightlist
+\item[\circled{1}]
+Interaktiv ohne TTY
+\item[\circled{2}]
+Interaktiv mit TTY
+\item[\circled{3}]
+In Einzelschritten
+\end{description}
+
+\subsubsection{\texorpdfstring{{\small \faTerminal\hspace{1mm}}
+Löschen}{ Löschen}}\label{luxf6schen-1}
+
+Es können nur \emph{stopped} und \emph{created} Container gelöscht
+werden.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{$}\NormalTok{ docker rm }\OperatorTok{\textless{}}\NormalTok{container}\OperatorTok{\textgreater{}}\NormalTok{ [container ...]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{tcolorbox}[enhanced jigsaw, colframe=quarto-callout-tip-color-frame, bottomrule=.15mm, colback=white, left=2mm, toprule=.15mm, arc=.35mm, coltitle=black, opacityback=0, rightrule=.15mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Löschen nach Beendung}, colbacktitle=quarto-callout-tip-color!10!white, opacitybacktitle=0.6, toptitle=1mm, bottomtitle=1mm, titlerule=0mm, leftrule=.75mm, breakable]
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{$}\NormalTok{ docker run }\AttributeTok{{-}{-}rm} \OperatorTok{\textless{}}\NormalTok{image}\OperatorTok{\textgreater{}}
+\end{Highlighting}
+\end{Shaded}
+
+\end{tcolorbox}
+
+\begin{tcolorbox}[enhanced jigsaw, colframe=quarto-callout-tip-color-frame, bottomrule=.15mm, colback=white, left=2mm, toprule=.15mm, arc=.35mm, coltitle=black, opacityback=0, rightrule=.15mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Inaktive Container löschen}, colbacktitle=quarto-callout-tip-color!10!white, opacitybacktitle=0.6, toptitle=1mm, bottomtitle=1mm, titlerule=0mm, leftrule=.75mm, breakable]
+
+Löscht alle Container, welche nicht mehr verwendet werden.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{$}\NormalTok{ docker container prune}
+\end{Highlighting}
+\end{Shaded}
+
+\end{tcolorbox}
+
+\subsubsection{\texorpdfstring{{\small \faTerminal\hspace{1mm}}
+(Um-)benennen}{ (Um-)benennen}}\label{um-benennen}
+
+Ein Name kann auf zwei Arten einem Container zugewiesen werden.
+
+\phantomsection\label{annotated-cell-13}%
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{$}\NormalTok{ docker rename }\OperatorTok{\textless{}}\NormalTok{old}\OperatorTok{\textgreater{}} \OperatorTok{\textless{}}\NormalTok{new}\OperatorTok{\textgreater{}} \hspace*{\fill}\NormalTok{\circled{1}}
+\ExtensionTok{$}\NormalTok{ docker run }\AttributeTok{{-}{-}name}\NormalTok{ peter\_enis debian }\hspace*{\fill}\NormalTok{\circled{2}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{description}
+\tightlist
+\item[\circled{1}]
+Ein bereits existierender Container wird umbenannt
+\item[\circled{2}]
+Bei \textbf{Erstellung} eines Containers kann direkt ein Name zugewiesen
+werden
+\end{description}
+
+\subsubsection{\texorpdfstring{{\small \faTerminal\hspace{1mm}} Dateien
+kopieren Host \(\rightleftarrows\)
+Container}{ Dateien kopieren Host \textbackslash rightleftarrows Container}}\label{dateien-kopieren-host-rightleftarrows-container}
+
+Der Docker Host kann Dateien in und aus dem Container kopieren.
+
+\phantomsection\label{annotated-cell-14}%
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{$}\NormalTok{ docker container cp }\OperatorTok{\textless{}}\NormalTok{container}\OperatorTok{\textgreater{}}\NormalTok{:}\OperatorTok{\textless{}}\NormalTok{path}\OperatorTok{\textgreater{}} \OperatorTok{\textless{}}\NormalTok{dest}\OperatorTok{\textgreater{}} \hspace*{\fill}\NormalTok{\circled{1}}
+\ExtensionTok{$}\NormalTok{ docker cp }\OperatorTok{\textless{}}\NormalTok{src}\OperatorTok{\textgreater{}} \OperatorTok{\textless{}}\NormalTok{container}\OperatorTok{\textgreater{}}\NormalTok{:}\OperatorTok{\textless{}}\NormalTok{dest}\OperatorTok{\textgreater{}} \hspace*{\fill}\NormalTok{\circled{2}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{description}
+\tightlist
+\item[\circled{1}]
+kopiert dateien vom Container zum Host
+\item[\circled{2}]
+kopiert vom Host zum Container
+\end{description}
+
+\subsubsection{\texorpdfstring{{\small \faTerminal\hspace{1mm}}
+Ausgabe}{ Ausgabe}}\label{ausgabe}
+
+Zeigt Log Daten (z.B. Konsolenausgabe) während der Ausführung an
+(\texttt{-f} folgt dem Container/ kontinuierliches Update)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{$}\NormalTok{ docker logs }\OperatorTok{\textless{}}\NormalTok{container}\OperatorTok{\textgreater{}}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{\texorpdfstring{{\small \faTerminal\hspace{1mm}} Prozesse
+ausführen/abfragen}{ Prozesse ausführen/abfragen}}\label{prozesse-ausfuxfchrenabfragen}
+
+Führt Prozesse in einem aktiven Container aus.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{$}\NormalTok{ docker exec }\OperatorTok{\textless{}}\NormalTok{container}\OperatorTok{\textgreater{}} \OperatorTok{\textless{}}\NormalTok{cmd}\OperatorTok{\textgreater{}}
+\end{Highlighting}
+\end{Shaded}
+
+Gibt Prozesse des Containers an (\texttt{ax} als Argument gibt alle
+laufenden Prozesse an)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{$}\NormalTok{ docker top }\OperatorTok{\textless{}}\NormalTok{container}\OperatorTok{\textgreater{}} \OperatorTok{\textless{}}\NormalTok{arg}\OperatorTok{\textgreater{}}
+\ExtensionTok{$}\NormalTok{ docker container top }\OperatorTok{\textless{}}\NormalTok{container}\OperatorTok{\textgreater{}} \OperatorTok{\textless{}}\NormalTok{arg}\OperatorTok{\textgreater{}}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{\texorpdfstring{{\small \faTerminal\hspace{1mm}}
+Logging}{ Logging}}\label{logging}
+
+Zeigt Log Daten während ausführung an (\texttt{-f} folgt dem Container/
+kontinuierliches update).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{$}\NormalTok{ docker logs }\OperatorTok{\textless{}}\NormalTok{container}\OperatorTok{\textgreater{}}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{Lebenszyklus}\label{lebenszyklus}
 
 Ein Docker-\textbf{Container} kann fünf Zustände annehmen (\ul{Created},
 \ul{Running}, \ul{Deleted}, \ul{Stopped} und \ul{Paused}) und kann mit
 folgenden Docker-Befehlen gesteuert werden.
 
 \resizebox{\columnwidth}{!}{
-  \begin{tikzpicture}[line/.style={-Straight Barb,shorten >=1mm,shorten <=1mm,draw=black, line width=1.5pt}, label/.style={black, fill=white, node font=\bfseries\ttfamily, inner sep=2pt},  node font=\ttfamily]
-
-  \node[circle,fill=YellowGreen!50,draw=black, inner sep=0, minimum width=1.4cm]   (stateRunning) at (4,6) {running};
-  \node[circle,fill=BrickRed!50,draw=black, inner sep=0, minimum width=1.4cm]      (stateStopped) at (4,2) {stopped};
-  \node[circle,fill=lightgray,draw=black, inner sep=0, minimum width=1.4cm]     (stateDeleted) at (0,2) {deleted};
-  \node[circle,fill=RoyalBlue!30,draw=black, inner sep=0, minimum width=1.4cm]  (stateCreated) at (0,6) {created};
-  \node[circle,fill=YellowOrange!50,draw=black, inner sep=0, minimum width=1.4cm]  (statePaused)  at (8,6) {paused};
-
-  \node (entry1)                at (-3,6)       {};
-  \node (entry2)                at (4,8)        {};
-  \node [label,left, fill=none] at (3.20,4.75)  {restart};
-
-  \draw [line, OliveGreen, rounded corners=5] (stateRunning) .. controls (3.25,4.75) and (3.25,2.75) .. ([yshift=5mm]stateStopped.center) .. controls (4.75,2.75) and (4.75,4.75) .. (stateRunning);
-
-
-  \draw [line,YellowGreen]    (stateCreated) edge node[label]        {start}  (stateRunning);
-  \draw [line,BrickRed,bend right=4mm] (stateRunning) edge node[label,left=1pt]  {stop}   (stateStopped);
-  \draw [line,YellowGreen,bend right=4mm] (stateStopped) edge node[label,right=1pt] {start}  (stateRunning);
-
-  \draw [line,YellowOrange,bend right=4mm] (stateRunning) edge node[label]       {pause}   (statePaused);
-  \draw [line,YellowGreen,bend right=4mm] (statePaused)  edge node[label]       {unpause} (stateRunning);
-  \draw [line,Gray]                (stateCreated) edge node[label]       {rm}      (stateDeleted);
-  \draw [line,Gray]                (stateStopped) edge node[label]       {rm}      (stateDeleted);
-
-  \draw [line,RoyalBlue]                (entry1)       edge node[label]       {create}  (stateCreated);
-  \draw [line,YellowGreen]    (entry2)       edge node[label]       {run}     (stateRunning);
-  \end{tikzpicture}
+  \input{./tikzedt/life_cycle.tex}
 }
 
-\subsection{Image Reference Format}\label{image-reference-format}
+\begin{tcolorbox}[enhanced jigsaw, colframe=quarto-callout-note-color-frame, bottomrule=.15mm, colback=white, left=2mm, toprule=.15mm, arc=.35mm, coltitle=black, opacityback=0, rightrule=.15mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Unterschied \emph{Stopped} und \emph{Paused}}, colbacktitle=quarto-callout-note-color!10!white, opacitybacktitle=0.6, toptitle=1mm, bottomtitle=1mm, titlerule=0mm, leftrule=.75mm, breakable]
+
+Wenn ein Container gestoppt wird, werden alle ihm zugewiesenen
+Ressourcen freigegeben, während bei einem angehaltenen Container kein
+Speicher, aber die CPU freigegeben wird.
+
+\end{tcolorbox}
+
+\subsubsection{\texorpdfstring{\texttt{\{\textbackslash{}small\ \textbackslash{}faTerminal\textbackslash{}hspace\{1mm\}\}}
+Grösse
+\texttt{-\/-size}}{\{\textbackslash small \textbackslash faTerminal\textbackslash hspace\{1mm\}\} Grösse -\/-size}}\label{small-faterminalhspace1mm-gruxf6sse---size}
+
+Da ein Container Änderungen auf einer separaten Layer verfolgt, ist der
+Speicherplatz selbst meistens klein.
+
+{\small
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{$}\NormalTok{ docker ps }\AttributeTok{{-}a} \AttributeTok{{-}{-}size}
+\ExtensionTok{CONTAINER}\NormalTok{ ID   IMAGE       ...  NAMES               SIZE}
+\ExtensionTok{253be0a7fe55}\NormalTok{   alpine      ...  brave\_pascal        8B }\ErrorTok{(}\ExtensionTok{virtual}\NormalTok{ 7.79MB}\KeywordTok{)}
+\ExtensionTok{68bb3a7fdf37}\NormalTok{   hello{-}world ...  loving\_mcclintock   0B }\ErrorTok{(}\ExtensionTok{virtual}\NormalTok{ 13.3kB}\KeywordTok{)}
+\ExtensionTok{d20695e9fe4b}\NormalTok{   alpine      ...  unruffled\_tesla     25B }\ErrorTok{(}\ExtensionTok{virtual}\NormalTok{ 7.79MB}\KeywordTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+}
+
+\texttt{virtual} referenziert auf Container + Image = Totale
+theoretische Grösse.
+
+\subsubsection{Image kreieren aus
+Container}\label{image-kreieren-aus-container}
+
+Aus einem Container kann ein neues Image erstellt werden:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{$}\NormalTok{ docker container commit }\OperatorTok{\textless{}}\NormalTok{container}\OperatorTok{\textgreater{}}\NormalTok{ [image}\PreprocessorTok{[}\SpecialStringTok{:tag}\PreprocessorTok{]}\NormalTok{]}
+\ExtensionTok{$}\NormalTok{ docker commit ...}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Volume}\label{volume}
+
+Container sind voneinander isoliert \(\rightarrow\) Datenaustausch
+zwischen Host \(\rightleftarrows\) Container \& Container
+\(\rightleftarrows\) Container wird mit \textbf{Volumen} gemacht. Dies
+muss \textbf{explizit} angegeben werden.
+
+\begin{center}
+\includegraphics[width=9cm,height=\textheight]{images/docker/volume_structure.pdf}
+\end{center}
+
+Mit dem Parameter \AttributeTok{{-}v} und einem Pfad wird ein Volumen
+angegeben.
+
+\subsubsection{Host Volumes}\label{host-volumes}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{$}\NormalTok{ docker run }\AttributeTok{{-}v}\NormalTok{ /path/in/host:/path/in/container }\OperatorTok{\textless{}}\NormalTok{opt}\OperatorTok{\textgreater{}} \OperatorTok{\textless{}}\NormalTok{image}\OperatorTok{\textgreater{}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{/path/in/host}: Pfad auf dem Host
+\item
+  \texttt{/path/in/container}: Pfad im Container, welche mit dem
+  Host-Pfad verbunden wird.
+\end{itemize}
+
+\subsubsection{Named Volumes}\label{named-volumes}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{$}\NormalTok{ docker run }\AttributeTok{{-}v}\NormalTok{ name:/path/in/container }\OperatorTok{\textless{}}\NormalTok{opt}\OperatorTok{\textgreater{}} \OperatorTok{\textless{}}\NormalTok{image}\OperatorTok{\textgreater{}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{name}: Name des Volumens
+\item
+  \texttt{/path/in/container}: Pfad im Container, welche geöffnet wird.
+\end{itemize}
+
+\subsubsection{Anonyme Volumes}\label{anonyme-volumes}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{$}\NormalTok{ docker run }\AttributeTok{{-}v}\NormalTok{ /path/in/container }\OperatorTok{\textless{}}\NormalTok{opt}\OperatorTok{\textgreater{}} \OperatorTok{\textless{}}\NormalTok{image}\OperatorTok{\textgreater{}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{/path/in/container}: Pfad im Container, welche geöffnet wird.
+\end{itemize}
+
+\subsubsection{Datenaustasch}\label{datenaustasch}
+
+\circled{1} \ul{Host \& Container}
+
+\begin{center}
+\includegraphics[width=6cm,height=\textheight]{images/docker/volume_exchange_host.pdf}
+\end{center}
+
+\circled{2} \ul{Container \& Container (parallel)}
+
+\begin{center}
+\includegraphics[width=6cm,height=\textheight]{images/docker/volume_exchange_parallel.pdf}
+\end{center}
+
+\circled{3} \ul{Container nach Container (seriell)}
+
+\begin{center}
+\includegraphics[width=6cm,height=\textheight]{images/docker/volume_exchange_series.pdf}
+\end{center}
+
+\subsubsection{Speicherpfade}\label{speicherpfade}
+
+\ul{Benannte} \& \ul{anonyme} Volumen werden unter dem Pfad
+\texttt{/var/lib/docker/volumes/} angelegt.
+
+\ul{Host} Volumen werden an einem vom Host festgelegten Pfad angelegt.
+
+\subsubsection{\texorpdfstring{{\small \faTerminal\hspace{1mm}}
+Auflisten}{ Auflisten}}\label{auflisten-2}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{$}\NormalTok{ docker volume ls}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{\texorpdfstring{{\small \faTerminal\hspace{1mm}} Volumen
+löschen}{ Volumen löschen}}\label{volumen-luxf6schen}
+
+Um ein Volumen zu löschen, muss der Name des Volumens angegeben werden.
+Ebenfalls darf es von keinem Container verwendet werden.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{$}\NormalTok{ docker volume rm }\OperatorTok{\textless{}}\NormalTok{volume}\OperatorTok{\textgreater{}}
+\end{Highlighting}
+\end{Shaded}
+
+\texttt{prune} löscht nicht gebrauchte \ul{anonyme} Volumen. Mit
+\texttt{-a/-\/-all} können ungebrauchte \ul{anonyme und benannte}
+Volumen gelöscht werden.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{$}\NormalTok{ docker volume prune}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{\texorpdfstring{{\small \faTerminal\hspace{1mm}}
+Erstellen}{ Erstellen}}\label{erstellen}
+
+Mit dem \texttt{volume\ create} Befehl können anonyme und benannte
+Volumen erstellt werden. Einfach keine Pfad/Host Volumen.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{$}\NormalTok{ docker volume create }\PreprocessorTok{[}\SpecialStringTok{name}\PreprocessorTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Dockerfile}\label{dockerfile}
+
+Mit einem \faFile[regular]\texttt{Dockerfile} kann ein Image erstellt
+werden anhand Anweisungen. \ul{Jede Anweisung erzeugt eine eigene
+Layer}.
+
+\begin{center}
+\includegraphics[width=8cm,height=\textheight]{images/docker/dockerfile_image.pdf}
+\end{center}
+
+\subsubsection{Anweisungen}\label{anweisungen}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{FROM}\NormalTok{ \textless{}image\textgreater{} }\CommentTok{\# image oder \textquotesingle{}scratch\textquotesingle{}}
+\end{Highlighting}
+\end{Shaded}
+
+Mit der Anweisung \texttt{FROM} setzt man das Parent- oder Basis-Image.
+Es ist die erste Anweisung in einem Dockerfiles. Es können mehrere
+\texttt{FROM} verwendet werden, wenn man Multistage-Building machen
+möchte.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{COPY}\NormalTok{ [OPTIONS] \textless{}src\textgreater{} ... \textless{}dest\textgreater{}}
+\KeywordTok{COPY}\NormalTok{ [OPTIONS] [}\StringTok{"\textless{}src\textgreater{}"}\NormalTok{, ... }\StringTok{"\textless{}dest\textgreater{}"}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+Kopiert die Quelle zur Destination. Wenn die Destination ein Ordner ist,
+können mehrer Dateien kopiert werden. Mit dem Wildcard-Zeichen\texttt{*}
+und Wildcard-Einzelzeichen \texttt{?} können mehrere ähnliche Dateien
+auf einmal kopiert werden.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{COPY}\NormalTok{ hom*.txt /mydir/}
+\CommentTok{\# sammelt alle Dateien z.B. \textquotesingle{}home.txt\textquotesingle{} und \textquotesingle{}homie.txt\textquotesingle{}}
+
+\KeywordTok{COPY}\NormalTok{ hom?.txt /mydir/}
+\CommentTok{\# findet \textquotesingle{}home.txt\textquotesingle{}, aber nicht \textquotesingle{}homie.txt\textquotesingle{}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{RUN}\NormalTok{ [OPTIONS] \textless{}command\textgreater{} ...}
+\KeywordTok{RUN}\NormalTok{ [OPTIONS] [ }\StringTok{"\textless{}command\textgreater{}"}\NormalTok{, ... ]}
+\end{Highlighting}
+\end{Shaded}
+
+Führt Befehle im Image aus, z.B.
+\VERB|\KeywordTok{RUN} \ExtensionTok{apt{-}get}\NormalTok{ update }\KeywordTok{\&\&} \ExtensionTok{apt{-}get}\NormalTok{ install }\AttributeTok{{-}y}\NormalTok{ curl}|.
+Mit \texttt{\textbackslash{}} kann der Befehl auf mehrere Zeilen
+gebrochen werden.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{ADD}\NormalTok{ [OPTIONS] \textless{}src\textgreater{} ... \textless{}dest\textgreater{}}
+\KeywordTok{ADD}\NormalTok{ [OPTIONS] [}\StringTok{"\textless{}src\textgreater{}"}\NormalTok{, ... }\StringTok{"\textless{}dest\textgreater{}"}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+Ähnlich wie \texttt{COPY}, einfach können URLs angegeben werden und
+gezippte Dateien werden automatisch entpackt.
+
+\subsubsection{Startkommando}\label{startkommando}
+
+Die Startkommandos eines Container können auf zwei Arten gesetzt:
+\texttt{CMD} und \texttt{ENTRYPOINT}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{ENTRYPOINT}\NormalTok{ [}\StringTok{"executable"}\NormalTok{, }\StringTok{"param1"}\NormalTok{, }\StringTok{"param2"}\NormalTok{]}
+\KeywordTok{ENTRYPOINT} \BuiltInTok{command}\NormalTok{ param1 param2}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# wenn ENTRYPOINT nicht gesetzt ist, wird CMD als Startkommande verwendet.}
+\KeywordTok{CMD}\NormalTok{ [}\StringTok{"executable"}\NormalTok{,}\StringTok{"param1"}\NormalTok{,}\StringTok{"param2"}\NormalTok{]}
+
+\CommentTok{\# als default Parameter zu ENTRYPOINT}
+\KeywordTok{CMD}\NormalTok{ [}\StringTok{"param1"}\NormalTok{,}\StringTok{"param2"}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{images/docker/image-1.png}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{$}\NormalTok{ docker run }\PreprocessorTok{[}\SpecialStringTok{opts}\PreprocessorTok{]} \OperatorTok{\textless{}}\NormalTok{image}\OperatorTok{\textgreater{}} \PreprocessorTok{[}\SpecialStringTok{command}\PreprocessorTok{]} \PreprocessorTok{[}\SpecialStringTok{args...}\PreprocessorTok{]}
+\ExtensionTok{$}\NormalTok{ docker run }\AttributeTok{{-}{-}rm} \AttributeTok{{-}it}\NormalTok{ debian ls }\AttributeTok{{-}la} \CommentTok{\# startet "ls {-}la" im Container}
+\end{Highlighting}
+\end{Shaded}
+
+Um die Startkommandos eines Images anzuzeigen
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{$}\NormalTok{ docker inspect }\AttributeTok{{-}f} \StringTok{\textquotesingle{}ENTRYPOINT:\{\{.Config.Entrypoint\}\}; CMD:\{\{.Config.Cmd\}\}\textquotesingle{}} \OperatorTok{\textless{}}\NormalTok{image}\OperatorTok{\textgreater{}}
+\StringTok{"ENTRYPOINT:[]; CMD:[bash]"}
+
+\ExtensionTok{$}\NormalTok{ docker inspect }\AttributeTok{{-}f} \StringTok{\textquotesingle{}ENTRYPOINT:\{\{.Config.Entrypoint\}\}; CMD:\{\{.Config.Cmd\}\}\textquotesingle{}}\NormalTok{ kaohslu/01{-}demo{-}img}
+\StringTok{"ENTRYPOINT:[dotnet ASYD\_Demo.dll]; CMD:[]"}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{WORKDIR}\NormalTok{ /path/to/workdir}
+\end{Highlighting}
+\end{Shaded}
+
+Mit \texttt{WORKDIR} wird der Arbeitspfad gesetzt (ab Aufruf der
+Anweisung), wo Befehle wie \texttt{COPY} oder \texttt{ADD} ihre Arbeit
+verrichten.
+
+\subsubsection{Image builden}\label{image-builden}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{$}\NormalTok{ docker build }\OperatorTok{\textless{}}\NormalTok{path}\OperatorTok{\textgreater{}}\NormalTok{ {-}t }\OperatorTok{\textless{}}\NormalTok{name}\OperatorTok{\textgreater{}}\NormalTok{:}\OperatorTok{\textless{}}\NormalTok{tag}\OperatorTok{\textgreater{}}
+\ExtensionTok{$}\NormalTok{ docker build }\AttributeTok{{-}t} \OperatorTok{\textless{}}\NormalTok{name}\OperatorTok{\textgreater{}}\NormalTok{:}\OperatorTok{\textless{}}\NormalTok{tag}\OperatorTok{\textgreater{}} \OperatorTok{\textless{}}\NormalTok{path}\OperatorTok{\textgreater{}}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{Image Build History
+zeigen}\label{image-build-history-zeigen}
+
+Um die History eines Images anzuschauen \(\rightarrow\) Wie das Image
+erstellt wurde.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{$}\NormalTok{ docker history }\OperatorTok{\textless{}}\NormalTok{image}\OperatorTok{\textgreater{}}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{Multistage}\label{multistage}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# }\CommentVarTok{syntax=docker/dockerfile:1}
+\KeywordTok{FROM}\NormalTok{ golang:1.21}
+\CommentTok{\# FROM golang:1.21 as build}
+\KeywordTok{WORKDIR}\NormalTok{ /src}
+\KeywordTok{COPY}\NormalTok{ \textless{}\textless{}EOF ./main.go}
+\NormalTok{package main}
+
+\NormalTok{import }\StringTok{"fmt"}
+
+\NormalTok{func main() \{}
+\NormalTok{  fmt.Println(}\StringTok{"hello, world"}\NormalTok{)}
+\NormalTok{\}}
+\NormalTok{EOF}
+\KeywordTok{RUN} \ExtensionTok{go}\NormalTok{ build }\AttributeTok{{-}o}\NormalTok{ /bin/hello ./main.go}
+
+\KeywordTok{FROM}\NormalTok{ scratch}
+\KeywordTok{COPY} \OperatorTok{{-}{-}from=0}\NormalTok{ /bin/hello /bin/hello}
+\CommentTok{\# COPY {-}{-}from=build /bin/hello /bin/hello}
+\KeywordTok{CMD}\NormalTok{ [}\StringTok{"/bin/hello"}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Netzwerke}\label{netzwerke}
+
+Da Container per default isoliert sind (laufen in einem privaten
+Netzwerk, welches sich Docker kümmert), muss man z.B. Netzwerke
+\textbf{explizit} nach aussen öffnen, wenn man das will.
+
+\textcolor{BrickRed}{[\textbf{TODO?}]}
+
+\subsection{Docker Hub}\label{docker-hub}
+
+\subsubsection{Images suchen \&
+herunterladen}\label{images-suchen-herunterladen}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{$}\NormalTok{ docker search }\OperatorTok{\textless{}}\NormalTok{searchterm}\OperatorTok{\textgreater{}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{$}\NormalTok{ docker pull }\OperatorTok{\textless{}}\NormalTok{image}\OperatorTok{\textgreater{}}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{Image Reference Format}\label{image-reference-format}
 
 Standardmässig werden Images wie z.B.
 \href{https://registry.hub.docker.com/_/hello-world}{\texttt{hello-world}}
 immer vom \href{https://registry.hub.docker.com/}{DockerHub-registry}
 heruntergeladen, aber es ist möglich andere \textbf{repos} anzufragen.
-Grundsätzlich gilt folgende Struktur:
+Es gilt folgendes Format:
 
 \begin{center}
 \texttt{\textbf{\color{BrickRed}{<repo>}}{\color{Gray}{/}}\textbf{\color{OliveGreen}{<source>}}{\color{Gray}{/}}\textbf{\color{NavyBlue}{<image>}}{\color{Gray}{/}}\textbf{\color{Periwinkle}{<tag>}}}
@@ -680,84 +1712,6 @@ Grundsätzlich gilt folgende Struktur:
 \textbf{\texttt{\color{Periwinkle}{latest}}} heruntergeladen und
 gestartet.
 
-\subsection{Volume}\label{volume}
-
-Da die Container voneinander isoliert sind, können diese auch nicht
-gegenseitig auf den Speicher zugreifen. Wenn man z.B. Dateien in einen
-bestimmten Ordner auf dem Host-Computer abspeichern möchte oder mehrere
-Container auf den gleichen Speicher zugreifen lassen, muss dies
-\textbf{explizit} angegeben werden.
-
-\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, bottomrule=.15mm, toptitle=1mm, left=2mm, colbacktitle=quarto-callout-note-color!10!white, colframe=quarto-callout-note-color-frame, titlerule=0mm, colback=white, rightrule=.15mm, toprule=.15mm, coltitle=black, leftrule=.75mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Volume Handling}, breakable, bottomtitle=1mm, opacityback=0, arc=.35mm]
-
-Volumes werden durch
-
-\end{tcolorbox}
-
-\subsubsection{Host Volumes}\label{host-volumes}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\ExtensionTok{$}\NormalTok{ docker run }\AttributeTok{{-}v}\NormalTok{ /path/in/host:/path/in/container}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{itemize}
-\tightlist
-\item
-  \texttt{/path/in/host}: Pfad auf dem Host
-\item
-  \texttt{/path/in/container}: Pfad im Container, welche mit dem
-  Host-Pfad verbunden wird.
-\end{itemize}
-
-\subsubsection{Named Volumes}\label{named-volumes}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\ExtensionTok{$}\NormalTok{ docker run }\AttributeTok{{-}v}\NormalTok{ name:/path/in/container}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{itemize}
-\tightlist
-\item
-  \texttt{name}: Name des Volumens
-\item
-  \texttt{/path/in/container}: Pfad im Container, welche geöffnet wird.
-\end{itemize}
-
-\subsubsection{Anonyme Volumes}\label{anonyme-volumes}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\ExtensionTok{$}\NormalTok{ docker run }\AttributeTok{{-}v}\NormalTok{ /path/in/container}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{itemize}
-\tightlist
-\item
-  \texttt{/path/in/container}: Pfad im Container, welche geöffnet wird.
-\end{itemize}
-
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
-
-\begin{center}
-\includegraphics[width=\textwidth,height=4.5cm]{images/docker/container_local_storage.png}
-\end{center}
-
-\begin{center}
-\includegraphics[width=\textwidth,height=4.5cm]{images/docker/container_shared_storage.png}
-\end{center}
-
-\subsection{\texorpdfstring{Container \(\rightarrow\)
-Image}{Container \textbackslash rightarrow Image}}\label{container-rightarrow-image}
-
-\subsection{Images}\label{images}
-
-\subsubsection{\texorpdfstring{\texttt{{\color{NavyBlue}{\textbf{FROM}}} {\color{OliveGreen}{<image>}}}}{}}\label{section}
-
 \section{Safety}\label{safety}
 
 \section{Ada Spark}\label{ada-spark}
@@ -766,7 +1720,7 @@ Image}{Container \textbackslash rightarrow Image}}\label{container-rightarrow-im
 
 \subsection{Cache}\label{cache}
 
-\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, bottomrule=.15mm, toptitle=1mm, left=2mm, colbacktitle=quarto-callout-note-color!10!white, colframe=quarto-callout-note-color-frame, titlerule=0mm, colback=white, rightrule=.15mm, toprule=.15mm, coltitle=black, leftrule=.75mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Was Cache?}, breakable, bottomtitle=1mm, opacityback=0, arc=.35mm]
+\begin{tcolorbox}[enhanced jigsaw, colframe=quarto-callout-note-color-frame, bottomrule=.15mm, colback=white, left=2mm, toprule=.15mm, arc=.35mm, coltitle=black, opacityback=0, rightrule=.15mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Was Cache?}, colbacktitle=quarto-callout-note-color!10!white, opacitybacktitle=0.6, toptitle=1mm, bottomtitle=1mm, titlerule=0mm, leftrule=.75mm, breakable]
 
 \end{tcolorbox}
 
@@ -797,7 +1751,7 @@ Cache-Zeilen}
 
 \texttt{funroll-loops}
 
-\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, bottomrule=.15mm, toptitle=1mm, left=2mm, colbacktitle=quarto-callout-tip-color!10!white, colframe=quarto-callout-tip-color-frame, titlerule=0mm, colback=white, rightrule=.15mm, toprule=.15mm, coltitle=black, leftrule=.75mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Enabling Optimization}, breakable, bottomtitle=1mm, opacityback=0, arc=.35mm]
+\begin{tcolorbox}[enhanced jigsaw, colframe=quarto-callout-tip-color-frame, bottomrule=.15mm, colback=white, left=2mm, toprule=.15mm, arc=.35mm, coltitle=black, opacityback=0, rightrule=.15mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Enabling Optimization}, colbacktitle=quarto-callout-tip-color!10!white, opacitybacktitle=0.6, toptitle=1mm, bottomtitle=1mm, titlerule=0mm, leftrule=.75mm, breakable]
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -807,9 +1761,40 @@ Cache-Zeilen}
 
 \end{tcolorbox}
 
-\subsection{}\label{section-1}
+\subsection{}\label{section}
 
-\section{Trends}\label{trends}
+\section{Trends - Low Power}\label{trends---low-power}
+
+\begin{center}
+\includegraphics[width=7cm,height=\textheight]{images/trends_meme.jpg}
+\end{center}
+
+\subsection{Firm-/Software
+Optimierungen}\label{firm-software-optimierungen}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{float} \& \texttt{double} vermeiden \(\rightarrow\) sehr
+  Rechenintensiv bei Systemen ohne FPU (und auch sonst)
+\item
+  Divisionen sind rechenintensiv, ausser durch Zweierpotenzen
+  \(2,4,8,16,...\), wo Bitshifting gemacht wird.
+\item
+  Optimierungen einschalten beim Kompilieren :-)
+\end{itemize}
+
+\newpage
+
+\section{Anhang}\label{anhang}
+
+\subsection{Crypto}\label{crypto-1}
+
+\subsubsection{Permutation Tabellen}\label{permutation-tabellen}
+
+\begin{center}
+\includegraphics{images/crypto/permutation tables.pdf}
+\end{center}
 
 
 
