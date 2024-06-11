@@ -70,7 +70,7 @@ $endfor$
 \titleformat
   {\section} % {⟨command⟩}
   [hang] % [⟨shape⟩]
-  {\normalfont\LARGE\bfseries\filright\sffamily} % {⟨format⟩}
+  {\normalfont\Large\bfseries\filright\sffamily} % {⟨format⟩}
   {\thesection} % {⟨label⟩}
   {3mm} % {⟨sep⟩}
   {%
@@ -79,14 +79,14 @@ $endfor$
 
 \titlespacing*{\section} % ⟨command⟩
   {0em} % ⟨left⟩
-  {12pt} % ⟨before-sep⟩
-  {6pt} % ⟨after-sep⟩
+  {1mm} % ⟨before-sep⟩
+  {1mm} % ⟨after-sep⟩
 
 % NUMBERLESS - SECTION
 \titleformat
   {name=\section,numberless} % {⟨command⟩}
   [hang] % [⟨shape⟩]
-  {\normalfont\LARGE\bfseries\filright\sffamily} % {⟨format⟩}
+  {\normalfont\Large\bfseries\filright\sffamily} % {⟨format⟩}
   {} % {⟨label⟩}
   {0mm} % {⟨sep⟩}
   {%
@@ -96,7 +96,7 @@ $endfor$
 % NUMBERED - SUBSECTION
 \titleformat{\subsection} % {⟨command⟩}
   [hang] % [⟨shape⟩]
-  {\normalfont\Large\bfseries\filright\sffamily} % {⟨format⟩}
+  {\normalfont\large\bfseries\filright\sffamily} % {⟨format⟩}
   {\thesection} % {⟨label⟩}
   {2mm} % {⟨sep⟩}
   {%
@@ -106,7 +106,7 @@ $endfor$
 % NUMBERLESS - SUBSECTION
 \titleformat{name=\subsection,numberless} % {⟨command⟩}
   [hang] % [⟨shape⟩]
-  {\normalfont\Large\bfseries\filright\sffamily} % {⟨format⟩}
+  {\normalfont\large\bfseries\filright\sffamily} % {⟨format⟩}
   {} % {⟨label⟩}
   {0mm} % {⟨sep⟩}
   {%
@@ -115,13 +115,13 @@ $endfor$
 
 \titlespacing*{\subsection} % <command>
   {0em} % <left>
-  {.5em} % <before-sep>
-  {.4em} % <after-sep>
+  {1mm} % <before-sep>
+  {1mm} % <after-sep>
 
 % NUMBERED - SUBSUBSECTION
 \titleformat{\subsubsection} % {⟨command⟩}
   [hang] % [⟨shape⟩]
-  {\normalfont\large\bfseries\sffamily} % {⟨format⟩}
+  {\normalfont\normalsize\bfseries\sffamily} % {⟨format⟩}
   {\thesection} % {⟨label⟩}
   {2mm} % {⟨sep⟩}
   {
@@ -131,7 +131,7 @@ $endfor$
 % NUMBERLESS - SUBSUBSECTION
 \titleformat{name=\subsubsection,numberless} % {⟨command⟩}
   [hang] % [⟨shape⟩]
-  {\normalfont\large\bfseries\sffamily} % {⟨format⟩}
+  {\normalfont\normalsize\bfseries\sffamily} % {⟨format⟩}
   {} % {⟨label⟩}
   {0mm} % {⟨sep⟩}
   {%
@@ -161,8 +161,13 @@ $endfor$
 \renewcommand{\subsectionmark}[1]{}
 
 % Adds a rules to the header and footer
+$if(fancyhdr)$
 \renewcommand{\headrulewidth}{1pt}
 \renewcommand{\footrulewidth}{1pt}
+$else$
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+$endif$
 
 \fancyhf{} % clear all header and footer fields
 % header

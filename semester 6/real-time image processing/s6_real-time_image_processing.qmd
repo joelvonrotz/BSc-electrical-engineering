@@ -1,33 +1,518 @@
-![](images/meme.png)
+```{=latex}
+\fontsize{9}{10}\selectfont
+```
 
-# Nichtlineare Filter
+<!--![](images/meme.png)-->
 
-## Rangordnungsoperatoren
+# Einführung
+
+CCD Sensoren
+:   wird der photoelektrische Effekt genutzt. Dabei wird bei Wellenlänge 1100nm (IR) Elektronen-Lochpaare erzeugt. Die Anzahl erzeugten Elektronen entspricht der Intensität des einfallenden Lichtes und werden beim Lesen aus dem Sensor herausgeschoben $\rightarrow$ *Eimerkettenprinzip*
+
+CMOS Sensoren
+:   Identisch zu CCD, ausser das jedes Pixel eine eigene Verstärker-Stufe besitzt. Dies erlaubt einen grösseren Dynamikbereich durch die Anpassung der individuellen Verstärker.
+
+![](images/s6_real-time_image_processing/image-1.png)
+
+## Quantisierung
+
+Bild-Auflösung abhängig von Pixelanzahl des Sensors. Dynamikbereich/Grau**tiefe**-Auflösung abhängig von Grenzen der A/D Wandler.
+
+Reduzieren der Bild-Auflösung reduziert den Dynamik-Bereich nicht, sondern schneidet die obere und untere Tiefengrenze ab.
+
+## Rasterung
+
+$$
+{1\over{g}}+{1\over{b}}={1\over{f}}\qquad {B\over{G}}={b\over{g}}
+$$
+
+![](images/paste-1.png){width="7.5cm" fig-align="center"}
+
+## Globale Charakterisierung von Bildern
+
+```{=latex}
+\begin{center}
+\textbf{Mittelwerk}\hspace{5mm}\textbf{Varianz}
+\end{center}
+$$
+\mu_I={1\over M\cdot N}\sum_{m,n}I_{m,n}\qquad \sigma_I^2={1\over M\cdot N}\sum_{m,n}(I_{m,n}-\mu_I)^2
+$$
+```
+
+Histogramm
+: Das Histogramm gibt die absolute oder relative Häufigkeit $p_i(g)$ aller Grauwerte $g\in [0,255]$ eines Bildes an: $$0\leq p_I(g)\leq 1\quad\forall g\quad\rightarrow\sum_g p_I(g)=1$$ Die kumulierte oder Summenhäufigkeit $h_I(g)$: $$h_I(g)=\sum_{g'\leq g}p_I(g')$$
+
+# Punkt Operationen & Bildverknüpfungen
+
+Look Up Tables
+: LUTs werden verwendet, um Transformationen von diskreten Werten (Ganzzahlen) zu machen. 
+
+## Lineare Grauwerttransformationen
+
+Lassen sich anhand Notation schreiben $f: [0,255] \rightarrow [0,255] \subset IR$
+
+Spreizung
+: Um ein Grauwert-Intervall (z.B. [50,166]) auf das gesamte Intervall [0,255] zu verteilen
+$$
+f(g)=\begin{cases}0 & \text{falls } g<g_1\\ 255\cdot\frac{g-g_1}{g_2-g_1} & \text{falls } g\in[g_1,g_2]\\ 255 & \text{falls }g>g_2\end{cases}\quad\includegraphics[width=0.3\linewidth, valign=c]{./images/spreizung.png}
+$$
+
+## Nichtlineare Operationen
+
+Gammakorrektur
+: um menschliche Helligkeitswahrnehmung zu korrigieren.
+
+$$
+f(g)=255\cdot\left[\frac{g}{255}\right]^\gamma\quad\includegraphics[width=0.3\linewidth, valign=c]{./images/gammakorrektur.png}
+$$
+
+Histogrammausgleich
+: Teilt die Wahrscheinlichkeit der Grauwerte gleichmässig auf
+
+$$
+f(g) = g_{max}\cdot \sum^g_{g'=0}p_I(g')\quad\includegraphics[width=0.3\linewidth, valign=c]{./images/histoausgleich.png}
+$$
+
+## Arithmetische & Logische Bildverknüpfungen
+
+### Differenzbildung
+
+Für Bewegungsdetektion!
+
+$$
+\begin{split}
+\Delta I_{k+n}&= \sfrac{1}{2}\cdot(255+\overbrace{I_{k+n}}^{\text{neuer}}-\overbrace{I_k}^{\text{älter}}) \\
+&=  \sfrac{1}{2}\cdot(255+I((k+n)\cdot \Delta t)-I(k\cdot \Delta t))
+\end{split}
+$$
+
+![](images/difference.png)
+
+## Schwellwert
+
+$$
+\begin{split}
+f(g)&=\begin{cases}
+255 & \text{falls }g < g_1\vee g_2 < g\\
+0   & \text{falls } g\in[g_1,g_2]
+\end{cases}\\
+\text{mit}& \quad g_1=128-thres\\
+& \quad g_2=128+thres
+\end{split}
+\quad\includegraphics[width=0.4\linewidth, valign=c]{./images/schwell.png}
+$$
+
+## Hintergrundschätzung
+
+$$
+\begin{split}
+B_k &= \alpha\cdot B_{k-1}+(1-\alpha)\cdot I_k\\
+\alpha &\in (0,1)
+\end{split}\quad\includegraphics[width=0.4\linewidth, valign=c]{./images/background.png}
+$$
+
+$$
+\rightarrow \Delta I_k = \sfrac{1}{2}\cdot(255+B_k-I_k)
+$$
+
+## Statistische Analyse
+
+Mittelwert $\mu_k$ & Varianz $\sigma_k$ des Bildes 
+
+$$
+\begin{split}
+\mu_k&=\alpha\cdot\mu_{k-1}+(1-\alpha)\cdot I_k\\
+\sigma_k&=\alpha\cdot\sigma_{k-1}+(1-\alpha)\cdots\\
+ &\phantom{~=} (\mu_k-I_k)^T\cdot (\mu_k - I_k)
+\end{split}\quad\includegraphics[width=0.44\linewidth, valign=c]{./images/statistic_background.png}
+$$
+
+# Filteroperatoren im Ortsraum
+
+## Lineare Filter
+
+### Faltung (convolution)
+
+$$
+I\otimes h~~:~~ I_{m,n}\rightarrow\sum_{p=-u}^{u}\sum_{q=-v}^{v}I_{m-p,n-q}\cdot h_{p,q}
+$$
+
+```{=latex}
+\begin{gather*}
+\text{Kommutativität}:\quad I\otimes J = J\otimes I\\
+\text{Assoziativität}:\quad(I\otimes J) \otimes K = I\otimes (J \otimes K)\\
+\text{Distributivität}:\quad I\otimes (J+K) = I\otimes J + I\otimes K\\
+\text{Asso. mit Faktor}:\quad a\cdot(I\otimes J) = \begin{cases}(a\cdot I)\otimes J\\I\otimes (a\cdot J)\end{cases}
+\end{gather*}
+```
+
+Damit die Indizierung verständlicher ist, wird anstatt Faltung die Korrelation (correlation) verwendet:
+
+$$
+I~\widetilde{\otimes}~ h~~:~~ I_{m,n}\rightarrow\sum_{p=-u}^{u}\sum_{q=-v}^{v}I_{m+p,n+q}\cdot h_{p,q}
+$$
+
+![](images/faltung1.png){width="6cm" fig-align="center"}
+
+
+Separierbare Masken können mit der Faltung zu einer gänzlichen Maske zusammengeführt werden.
+
+![](images/faltung.png){width="5cm" fig-align="center"}
+
+Anhand der Assoziativität können zwei sukzessive Faltungen mit eindimensionalen Masken durchgeführt werden.
+
+![](images/faltung2.png){width="8cm" fig-align="center"}
+
+
+### Tiefpass / Glätten
+
+Mittelung eines Pixels mit den Nachbarpixeln ist die einfachste Rauschunterdrückung.
+
+$$
+TP=\frac{1}{\textstyle\sum\text{Mask}} \cdot \text{Mask}
+$$
+
+$$
+Rechteck=\frac{1}{9}\cdot\begin{bmatrix}1 & 1 & 1\\1 & 1 & 1\\1 & 1 & 1\end{bmatrix}\quad Gauss=\frac{1}{16}\cdot\begin{bmatrix}1 & 2 & 1\\2 & 4 & 2\\1 & 2 & 1\end{bmatrix}
+$$
+
+### Hochpass / Kantenhervorhebung
+
+Via Ableitungen $\sfrac{\partial I}{\partial x}$ & $\sfrac{\partial I}{\partial y}$ können Kanten hervorgehoben werden. Folgend ist eine rauschanfällige Version...
+$$
+h_x=\sfrac{1}{2}\cdot\begin{bmatrix}-1 & 0 & 1\end{bmatrix}\quad h_y=\sfrac{1}{2}\cdot\begin{bmatrix}-1 \\ 0 \\ 1\end{bmatrix}
+$$
+
+... welche folgend mit Prewitt und Sobel Filter verbessert wurde.
+
+Prewitt-Filter
+: gleichmässige Pixelgewichtung
+$$
+\begin{split}
+h_x&=\left[\begin{smallmatrix}1 \\ 1 \\ 1\end{smallmatrix}\right]\otimes\left[\begin{smallmatrix}-1 & 0 & 1\end{smallmatrix}\right]=
+{\small\begin{bmatrix}-1 & \phantom{-}0 & \phantom{-}1\\ -1 & \phantom{-}0 & \phantom{-}1\\ -1 & \phantom{-}0 & \phantom{-}1\end{bmatrix}}\\
+h_y&=\left[\begin{smallmatrix}-1 \\ 0 \\ 1\end{smallmatrix}\right]\otimes\left[\begin{smallmatrix}1 & 1 & 1\end{smallmatrix}\right]={\small\begin{bmatrix}-1 & -1 & -1\\ \phantom{-}0 & \phantom{-}0 & \phantom{-}0\\ \phantom{-}1 & \phantom{-}1 & \phantom{-}1\end{bmatrix}}
+\end{split}
+$$
+
+Sobel-Filter
+: gewichtet die Pixel, die sich näher an der Mitte der Maske befinden, mehr.
+$$
+\begin{split}
+h_x&=\left[\begin{smallmatrix}1 \\ 2 \\ 1\end{smallmatrix}\right]\otimes\left[\begin{smallmatrix}-1 & 0 & 1\end{smallmatrix}\right]=
+{\small\begin{bmatrix}-1 & \phantom{-}0 & \phantom{-}1\\ -2 & \phantom{-}0 & \phantom{-}2\\ -1 & \phantom{-}0 & \phantom{-}1\end{bmatrix}}\\
+h_y&=\left[\begin{smallmatrix}-1 \\ 0 \\ 1\end{smallmatrix}\right]\otimes\left[\begin{smallmatrix}1 & 2 & 1\end{smallmatrix}\right]={\small\begin{bmatrix}-1 & -2 & -1\\ \phantom{-}0 & \phantom{-}0 & \phantom{-}0\\ \phantom{-}1 & \phantom{-}2 & \phantom{-}1\end{bmatrix}}
+\end{split}
+$$
+
+
+### Bildschärfung
+
+$\beta$ Schärfungsparameter
+
+```{=latex}
+\begin{gather*}
+L=\begin{bmatrix} 0 & -1 & 0 \\ -1 & 4 & -1 \\ 0 & -1 & 0\end{bmatrix}\\[2mm]
+I=\beta \cdot L
+\end{gather*}
+```
+
+## Nichtlineare Filter
+
+### Rangordnungsoperatoren
+
+Pixel im Frame werden der Grösse nach geordnet und dann wird der Pixelwert mit einer Strategie bestimmt. 
 
 ### Median Filter
 
-### Min/Max Filter
+![](images/median.png){width="6cm" fig-align="center"}
+
+Min/Max Filter
+: Mit dem gleichen Prinzip, einfach werden entsprechend der maximale oder minimale Wert genommen. Zusätzlich kann das **lokale** Maxima und Minima ermittelt werden.
+
+$$
+\begin{split}
+\text{LocMin}&=(I==\min{}_{R\times R}(I))\\
+\text{LocMax}&=(I==\max{}_{R\times R}(I))
+\end{split}
+$$
+
+
 
 ## Morphologische Operationen
 
-### Dilation $\oplus$
-
+Dilation $\oplus$
+: Pixel setzen, wenn mindestens ein Pixel gesetzt ist. Ist Kommutativ $I\oplus J=J\oplus I$ und Assoziativ $(I\oplus J)\oplus K=I\oplus (J\oplus K)$.
 $$
-I \oplus h = \bigl\{\normalsize(m,n)\vert (\hat{h})_{m,n} \cap I\neq\{\}\bigr\}\normalsize
-$$
-
-### Erosion $-$
-
-$$
-I - h = \bigl\{\normalsize(m,n)\vert (\hat{h})_{m,n} \subset I\bigr\}\normalsize
+I \oplus h = \bigl\{(m,n)~\vert~ (\hat{h})_{m,n} \cap I\neq\{\}\bigr\}
 $$
 
-### Öffnung $\bullet$
+::: {.callout-important appearance="simple"}
+### (Un)symmetrische Strukturelemente
+$\hat{h}$ bedeutet (Punkt-)Spiegelung. Bei symmetrischen Strukturelementen ist dies belanglos. Bei Unsymmetrischen muss für die Dilation (& Schliessung) immer mit dem gespiegelten Strukturelement gearbeitet werden.
+:::
 
-### Schliessung $\circ$
+Erosion $-$
+: Pixel setzen, wenn alle Pixel im Frame gesetzt sind. Ist weder kommutativ, noch assoziativ.
 
-{{< include fourier.qmd >}}
+$$
+I - h = \bigl\{(m,n)~\vert~ ({h})_{m,n} \subset I\bigr\}
+$$
 
-# GCC
+Kettenregel:$\quad I-(h\oplus g)=(I-h)-g$
 
-{{< include gcc.qmd >}}
+
+Schliessung $\bullet$
+: Mehr vom Vordergrund zeigen. Ist idempotent $(I\bullet g)\bullet g=I\bullet g$
+
+$$
+I \bullet h = (I\oplus h) - h
+$$
+
+Öffnung $\circ$
+: Mehr vom Hintergrund zeigen. Ist idempotent $(I\circ g)\circ g=I\circ g$
+
+$$
+I \circ h = (I- h) \oplus h
+$$
+
+
+![](images/morph.png)
+
+$$
+I-g\subseteq I\circ g\subseteq I\subseteq I\bullet g\subseteq I\oplus g
+$$
+
+### Hit- & Miss Operation
+
+Mit Hit- & Miss Operationen wird geprüft, wo die Nachbarschaftsumgebung eines Pixels genau der Struktur der Einsen und Nullen im Struk-Element entspricht. Das Strukturelement besteht gleichzeitig aus der Hit-Maske (mit Einsen ; $h_1$) und Miss-Maske (mit Nullen ; $h_0$).
+
+$$
+I\pm h=(I-h_1^i)\cap(I^{C}-h_0)
+$$
+
+$I^C$=Komplement aller Pixel ungleich Null im Bild $I$. Strukturelemente werden solange angewendet, bis keine Operation gemacht werden kann und dies für alle $i$ Strukturelemente!  
+
+$$
+\underset{\Large h^1=}{\begin{bmatrix}
+0 &         0  &  \\
+0 & {\color{BrickRed}\mathbf{1}} & 1\\
+  &         1  & 
+\end{bmatrix}}\quad\underset{\Large h^2=}{\begin{bmatrix}
+0 &                          0   & 0\\
+  & {\color{BrickRed}\mathbf{1}} &  \\
+1 &                          1   & 1
+\end{bmatrix}}\quad\underset{\Large h^3=}{\begin{bmatrix}
+  &                          1   &  \\
+0 & {\color{BrickRed}\mathbf{1}} & 1\\
+0 &                          0   & 
+\end{bmatrix}}\quad\underset{\Large h^4=}{\begin{bmatrix}
+0 &                              & 1\\
+0 & {\color{BrickRed}\mathbf{1}} & 1\\
+0 &                              & 1
+\end{bmatrix}}\cdots
+$$
+
+# Fouriertransformation
+
+Die 2D Fourier Transformation ist eine Faltung von zwei 1D Fourier Transformationen
+
+::: {.callout-important appearance="simple"}
+## Crash Kurs
+
+![](images/fourier_crashcourse.png)
+:::
+
+
+2D DFT
+: $t\rightarrow f \Leftrightarrow f\rightarrow t$
+```{=latex}
+\begin{gather*}
+\hat{h}_{lk}=\sum_{m=0}^{M-1}\sum_{n=0}^{N-1}h_{mn}\cdot e^{-i\cdot2\pi\cdot\left[\frac{l\cdot m}{M}+\frac{k\cdot n}{N}\right]}\\
+\Longleftrightarrow\\
+{h}_{mn}=\frac{1}{M\cdot N}\sum_{l=0}^{M-1}\sum_{k=0}^{N-1}\hat{h}_{lk}\cdot e^{i\cdot2\pi\cdot\left[\frac{l\cdot m}{M}+\frac{k\cdot n}{N}\right]}
+\end{gather*}
+```
+
+Parseval Theorem
+: Wie in der 1D gilt auch das Parseval Theorem in 2D
+
+$$
+M\cdot N\sum_{m=0}^{M-1}\sum_{n=0}^{N-1}h_{mn}^2=
+        \sum_{j=0}^{M-1}\sum_{l=0}^{N-1}\lvert \hat{h}_{lk}\rvert^2
+$$
+
+::: {.callout-note appearance="minimal"}
+Da die DFT für periodische Signale ausgelegt ist, können Artefakte entstehen. Mit einem **Hann**-Filter alle Pixel um die Bildmitte schwächen (im Bild Pixelwert $\rightarrow 0$)
+
+$$
+w_n=\frac{1}{2}\cdot\left[1-\cos\left(\frac{2\pi\cdot n}{N-1}\right)\right]
+$$
+
+![](images/fourier_hann.png)
+:::
+
+![](images/fourier1.png)
+
+![](images/fourier1-1.png)
+
+![](images/fourier2.png)
+
+![](images/fourier2-1.png)
+
+# Segmentierung und Merkmalsextraktion
+
+## Otsu / Automatische Schwellwertbestimmung
+
+Wahrscheinlichkeit $\omega_n$, Mittelwert $\mu_n$, Varianz $\sigma_n^2$
+
+### Klasse $C_0$
+
+$$
+\omega_0=\sum_{g=0}^Kp_I(g)\qquad \mu_0=\frac1{\omega_0}\sum_{g=0}^Kp_I(g)\cdot g
+$$
+
+$$
+\sigma_0^2=\frac1{\omega_0}\sum_{g=0}^K p_I(g)\cdot(g-\mu_0)^2
+$$
+
+### Klasse $C_1$
+
+
+$$
+\omega_1=\sum_{g=K+1}^{255}p_I(g)\qquad \mu_1=\frac1{\omega_1}\sum_{g=K+1}^{255}p_I(g)\cdot g
+$$
+
+$$
+\sigma_1^2=\frac1{\omega_1}\sum_{g=K+1}^{255} p_I(g)\cdot(g-\mu_1)^2
+$$
+
+### Bestimmung
+
+*Intra-Klassen* Varianz $\sigma_W^2$, *Inter-Klassen* Varianz $\sigma_B^2$, globaler Mittelwert $\mu_T$
+
+$$
+\begin{split}
+\sigma_W^2&=\omega_o\cdot\sigma_0^2+\omega_1\cdot\sigma_1^2\quad \underset{K\in[0,255]}{K_{opt}=\arg\min\{\sigma_W\}}\\[1mm]
+\sigma_B^2&=\omega_o\cdot(\mu_0-\mu_T)^2+\omega_1\cdot(\mu_1-\mu_T)^2\\[1mm]
+\mu_T&=\sum_{g=0}^{255}p_I(g)\cdot g
+\end{split}
+$$
+
+$$
+\begingroup
+\colorlet{savedleftcolor}{.}
+\color{BrickRed}\left[\color{savedleftcolor}\begin{split}
+&\underset{K\in[0,255]}{K_{opt}=\arg\max\{\sigma_B\}}\\
+&\sigma_B^2=\omega_0\cdot \omega_1\cdot (\mu_0-\mu_1)^2
+\end{split}\color{BrickRed}\right]
+\endgroup
+$$
+
+![](images/otsu.png)
+
+## Region Labeling
+
+Bitmap Bild wird von einer Seite durchgelabelt $\rightarrow$ Wird ein Bit erkannt, werden die Nachbarspixel geprüft. Ist bereits einer der Nachbaren in einer Regions of Interest (ROI), wird dieses Label übernommen, ansonsten wird eine neue Region kreiert. 
+
+![](images/roi.png)
+
+ROIs müssen dem Pixel-Wertebereich des Bildes entsprechen $\rightarrow$ 1-Byte Grauwertbild erlaubt 255 ROIs / 2-Byte erlaubt $2^{16}-1$ ROIs.
+
+Region Labeling hat grossen Speicherbedarf $\rightarrow$ Kettencodes
+
+## Kontour - Kettencodes
+
+Es wird der **Startpunkt** gemerkt und die Richtungen ($N\text{-Bits}\rightarrow 2^N \text{ Richtungen}$)
+
+Freeman Code
+: Mittelpunkt vom Pixel
+
+![](images/chaincodes.png){width="7cm" fig-align="center"}
+
+Eine "korrekte" Beschreibeng des Rands mit Crack Codes als Trennlinie zwischen Vorder- und Hintergrund. 
+
+![](images/chaincodes_better.png){width="7cm" fig-align="center"}
+
+## Merkmalextrakiton
+
+### Fläche $A$
+
+$$
+\begin{split}
+A &= \sum_{I_{mn}~\in~\text{ROI}}1 = \underbrace{-\oint_{\text{Rand}}y(x)dx}_{\text{mit Crack Codes}}\\[1mm]
+&=\underbrace{\sum_{I_{mn}~\in~\{2-Seg.\}} m - \sum_{I_{mn}~\in~\{0-Seg.\}} m}_{\text{Vertikale Richtungen haben kein Einfluss}}
+\end{split}
+$$
+
+### Massenmittelpunkt $(x_s, y_s)$
+
+$$
+x_s = \frac1{A}\sum_{I_{mn}~\in~\text{ROI}}n\qquad y_s = \frac1{A}\sum_{I_{mn}~\in~\text{ROI}}m
+$$
+
+### Orientierung $M$
+
+$$
+M=\begin{bmatrix} M_{xx} & M_{xy} \\ M_{yx} & M_{yy}\end{bmatrix}
+$$
+
+$$
+\begin{split}
+M_{yy}&=\frac1{A}\sum_{I_{mn}~\in~\text{ROI}}(m^2-y_s^2)\qquad M_{xx}=\frac1{A}\sum_{I_{mn}~\in~\text{ROI}}(n^2-x_s^2)\\[1mm]
+M_{xy}&=M_{yx}=\frac1{A}\sum_{I_{mn}~\in~\text{ROI}}(m\cdot n-x_s\cdot y_s)
+\end{split}
+$$
+
+### Bounding Box
+
+ROI wird mit einem Rechteck umfasst.
+
+# Linien Segmentierung und Merkmalsextraktion
+
+## Kantendetektion
+
+`{\color{BrickRed}\textbf{Problem}}`{=latex}: Kanten deutlich grösser als ein Pixel, globaler Schwellwert ergibt nicht in allen Bereichen des Bildes zufriedenstellende Kanten, zusammengehörige Kanten unterbrochen bei zu hohem Schwellwert.
+
+### Canny Kantendetektionsalgorithmus
+
+`\circled{1}`{=latex} **Glättung** mittels Gaussfilter `\circled{2}`{=latex} **Kantenfilter** mittels Sobel oder Prewitt `\circled{3}`{=latex} **Bestimmung der lokalen Maxima** entlang der Richtung der Gradienten (Pixel selektiert, wenn $\lvert\text{Gradient}\rvert$ grösser als Nachbarpixel) `\circled{4}`{=latex} **Kantenextraktion** anhand "oberen" Schwellwert (lok. Maxima über diesem wird es als Kante betrachtet) und sobald Pixel gefunden ist entlang der Kante mittels "unterem" Schwellwert zur Kante zugeordnet, durch Hysterese kann dynamisch auf Kontrast-schwankungen im Bild reagiert werden.
+
+
+## Linienextraktion mittels Hough-Transformation
+
+Die Gradienten-Informationen (Betrag und Richtung) in neuen Raum transferieren und dort kann aufgrund von Ansammlungen auf die Formen im Originalbild geschlossen werden.
+
+![](images/line_extraction.png){width="6cm" fig-align="center"}
+
+$$
+\begin{split}
+\alpha &~\in~ [-90^\circ,90^\circ]\\
+\rho &~\in~ [-D,D]\\
+D&=\sqrt{\Delta x^2+\Delta y^2}
+\end{split}\quad\includegraphics[width=0.5\linewidth, valign=c]{./images/hough_extraction.png}
+$$
+
+## Detektion von Kreisen mittels Hough
+
+$$
+x_c=x-R\cdot\frac{\partial I}{\partial x}\cdot \left[\frac{dI}{dr}\right]^{-1}\qquad y_c=y-R\cdot\frac{\partial I}{\partial y}\cdot\left[\frac{dI}{dr}\right]^{-1}
+$$
+
+![](images/hough_circle.png)
+
+# Farbe
+
+
+
+# Anwendung
+
+## Erkennung, Zählung und Markierung von kreisförmigen Objekten
+
+## Klassifikation mittels HOG
+
+## Interest Points, Feature Descriptor, Tracking
+
+## Klassifikation/Kategorisierung mittels CNN
+
+`\end{multicols*}`{=latex}

@@ -1,16 +1,27 @@
 project:
   type: chribel-summary-quarto
-  output-dir: ".."
   render: 
     - s6_real-time_image_processing.qmd
 
 format:
   chribel-summary-quarto-pdf:
-    include-in-header:
-    - text: "\\usepackage[datesep=.]{datetime2}"
-    - text: "\\DTMsetdatestyle{ddmmyyyy}"
-    toc: true
-    classoption: twocolumn
+    include-in-header: 
+    - text: |
+        \usepackage[datesep=.]{datetime2}
+        \DTMsetdatestyle{ddmmyyyy}
+        \usepackage[export]{adjustbox}
+        \usepackage{xfrac}
+        \usepackage[nodisplayskipstretch]{setspace}
+    toc: false
+    documentclass: article
+    classoption: [landscape]
+    fontenc: T1
+    geometry:
+      - "top=3mm"
+      - "bottom=3mm"
+      - "left=3mm"
+      - "right=3mm"
+    
 
 # [DOCUMENT INFORMATION]
 title: "Real-Time Image Processing"
@@ -22,15 +33,15 @@ lang: de-CH
 babel-lang: nswissgerman
 
 # [HEADER & FOOTER]
-fancyhdr:
-  header:
-    right: Real-Time Image Processing - Zusammenfassung
-    center: ""
-    left: "HSLU T&A"
-  footer:
-    right: "EBV"
-    center: "\\thepage\\ / \\pageref{LastPage}"
-    left: "\\DTMtoday"
+#fancyhdr:
+#  header:
+#    right: Real-Time Image Processing - Zusammenfassung
+#    center: ""
+#    left: "HSLU T&A"
+#  footer:
+#    right: "EBV"
+#    center: "\\thepage\\ / \\pageref{LastPage}"
+#    left: "\\DTMtoday"
   
 source:
   github: "https://www.youtube.com/watch?v=VGhcSupkNs8"
@@ -39,6 +50,7 @@ accentcolor: "124E82" # must be given as hex, sadly :(
 
 chribel-fontfamily:
   - name: AlegreyaSans      # used for section headings, title page
-  - name: cmbright          # used for paragraph and math
+  - name: cmbright
+  - name: euler
   - name: inconsolata
     options: "scaled=0.95"  # for code blocks
