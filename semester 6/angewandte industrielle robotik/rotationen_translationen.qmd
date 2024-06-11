@@ -292,15 +292,31 @@ $$
 - Drehung um die $y$-**Basis**achse mit dem Winkel $\theta$ (**pitch**)
 - Drehung um die $z$-**Basis**achse mit dem Winkel $\phi$ (**roll**)
 
+$$
+\begin{split}
+&\mathbf{R}(\psi, \theta, \phi)=\prescript{W}{R}{A}=\begin{pmatrix}x_W^{(R)} & y_W^{(R)} & z_W^{(R)}\end{pmatrix}\\
+&=\begin{bmatrix}
+C_A \cdot C_{\theta} & -S_A \cdot C_C + C_A \cdot S_{\theta} \cdot S_C &  S_A \cdot S_C + C_A \cdot S_{\theta} \cdot C_C \\
+S_A \cdot C_{\theta} &  C_A \cdot C_C + S_A \cdot S_{\theta} \cdot S_C & -C_A \cdot S_C + S_A \cdot S_{\theta} \cdot C_C \\
+-S_{\theta}      &  C_{\theta} \cdot S_C    &  C_{\theta} \cdot C_C
+\end{bmatrix}
+\end{split}
+$$
+
+
 ::: callout-caution
 ### Unterschied RPY & Euler
 
 Während bei [Euler Drehungen]{.underline} immer [vom neuen Koordinatensystem gedreht]{.underline} wird, werden bei [RPY Drehungen]{.underline} immer vom [Ursprünglichen Koordinatensystem gedreht]{.underline}
 
+\vspace{2mm}
+
 [Euler Winkel]{.underline}
+
 ![](images/rotationen_translationen/image-1.png)
 
 [Roll Pitch Yaw]{.underline}
+
 ![](images/rotationen_translationen/image.png)
 
 :::

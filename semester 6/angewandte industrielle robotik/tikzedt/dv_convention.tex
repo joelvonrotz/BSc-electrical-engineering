@@ -1,0 +1,34 @@
+
+
+
+
+
+\def\coordsys (#1,#2,#3) and (#4,#5,#6) node[#7] #8{
+	% Set the shift coordinate
+	\coordinate (shift) at (#1,#2,#3);
+	% Set the origin of the rotated coordinate system
+	\tdplotsetrotatedcoordsorigin{(shift)};
+	
+	% Apply the rotations
+	\begin{scope}[tdplot_rotated_coords, rotate around x=#4]
+    \begin{scope}[rotate around y=#5]
+    \begin{scope}[rotate around z=#6]
+        \draw[-Latex, thick, BrickRed]   (0,0,0) -- ++(1,0,0) node[pos=1.2, fill=white, inner sep=0.5] {$x$};
+        \draw[-Latex, thick, OliveGreen] (0,0,0) -- ++(0,1,0) node[pos=1.2, fill=white, inner sep=0.5] {$y$};
+        \draw[-Latex, thick, NavyBlue]   (0,0,0) -- ++(0,0,1) node[pos=1.2, fill=white, inner sep=0.5] {$z$};
+        \node[circle, fill, inner sep=2] at (0,0,0) {};
+        \node[#7] at (0,0,0) {#8};
+	\end{scope}
+	\end{scope}
+	\end{scope}
+}
+
+\tdplotsetmaincoords{60}{-75}
+\begin{tikzpicture}[tdplot_main_coords]
+\draw[densely dashed, thick] (0,0,0) -- ++(0,0,2) -- ++(0,-2,0) -- ++(0,0,4);
+\node[circle, fill, inner sep=2] at (0,0,0) {};
+
+\coordsys (0, 0,2) and (0, 0, -90) node[left] {$K_0$};
+\coordsys (0,-2,2) and (0,90, -90) node[left=8,below=-1] {$K_1$};
+\coordsys (0,-2,6) and (0,90, -180) node[left] {$K_2$};
+\end{tikzpicture}

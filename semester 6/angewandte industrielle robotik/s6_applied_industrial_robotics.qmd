@@ -1,4 +1,8 @@
+
+![](images/8tic94.jpg)
+
 \newpage
+
 
 ![](images/arob_meme.jpg){width="8cm" fig-align="center"}
 
@@ -60,6 +64,14 @@ Bei der Rotation von Rechtssystemen kann die rechte Handregel angewendet werden.
 
 `\textcolor{BrickRed}{[\textbf{TODO}]}`{=latex}
 
+$$
+{}^W_0A={\small\begin{bmatrix}
+  2\cdot(qt_1^2+qt_2^2)-1 & 2\cdot(qt_2\cdot qt_3-qt_1\cdot qt_4) 
+\end{bmatrix}}
+$$
+
+`\textcolor{BrickRed}{[\textbf{TODO}]}`{=latex}
+
 ## Rotationsmatrix zu Quaternion
 
 $$
@@ -79,6 +91,137 @@ $$
 \end{bmatrix}
 $$
 
+# Denavit-Hartenberg-Konvention
+
+Die DH-Konvention beschreibt die Achsen-Zusammenhänge mit vier Parametern (zwei Rotationen und zwei Translationen), welche in folgender Reihenfolge abgearbeitet wird.
+
+1. $\theta_i/^\circ$: Drehung an der $z_i$-Achse
+2. $d_i/\text{m}$: Verschiebung Richtung $z_i$-Achse
+3. $a_i/\text{m}$: Verschiebung Richtung $x_i$-Achse
+4. $\alpha_i/^\circ$: Drehung an der $x_i$-Achse 
+
+## Allgemein
+
+[Jedes]{.underline} Armteil $i(i=0,1,\ldots,n)$ eines Robotes mit $n$ Gelenken wird mit einem Koordinatensystem $K_i$ versehen. $K_i$ ist mit Armteil $i$ fest verbunden.
+
+Die DH Parameter sind so auszulegen, das man $K_i$ in $K_{i+1}$ überführt werden kann.
+
+## Festlegung Weltsystem $K_0$
+
+- $K_0$ ist fest mit ruhender Basis (AT0) verbunden
+- **Positon von **$\mathbf{K_0}$ irgendwo auf 1.Gelenkachse $\rightarrow$ möglichst nahe AT1
+- $z_0$**-Achse** zeigt entlang 1.Gelenkachse $\rightarrow ~x_0$- & $y_0$-Achse frei wählbar solange **Rechtssystem**
+
+## Festlegung $K_i(i=1,2,\ldots,n-1)$
+
+**Allgemein**: $K_i$ liegt auf Gelenkachse $i+1$
+
+### Position von $K_i$
+
+- $K_i$ liegt im Schnittpunkt von Gelenkachse $i$ & $i+1$
+
+- **oder** verlaufen Gelenkachsen $i$ & $i+1$ parallel, dann $K_i$ irgendwo auf Gelenkachse $i+1$
+  - [sinnvoll]{.underline}: zuerst $K_{i+1}$ festlegen, danach $K_i$ so legen, dass Abstand minimal ist.
+
+- **oder** Gelenkachsen $i$ & $i+1$ **nicht** parallel und **nicht** schneidend, dann $K_i$ auf Schnittpunkt der Normalen der Gelenkachsen setzen.
+
+### $z_i$-Achse von $K_i$
+
+- $z_i$-Achse entlang der Gelenkachse $i+1$ $\rightarrow$ 2 Möglichkeiten
+
+### $x_i$-Achse von $K_i$
+
+- Wenn $z_{i-1}$ & $z_i$-Achse schneiden: $x_i$-Achse parallel zum Kreuzprodukt von $z_{i-1}\times z_i$ $\rightarrow$ 2 Möglichkeiten
+
+- Wenn $z_{i-1}$ & $z_i$-Achse **nicht** schneiden: $x_i$-Achse entlang gemeinsame Normalen von Achsen $i$ & $i+1$
+
+- $z_{i-1}$-Achse auf $z_i$-Achse: $x_i$-Achse $=x_{i-1}$-Achse
+
+```{=latex}
+\begin{center}
+\input{./tikzedt/sometest.tex}
+\end{center}
+```
+
+## Festlegung $K_n$
+
+- $z_n$-Achse separat von $z_{n-1}$: $x_n$-Achse zeigt von Gelenkachse $n-1$ zu $n$.
+- $z_n$-Achse auf $z_{n-1}$-Achse: $x_n$-Achse zeigt in gleiche Richtung wie $x_{n-1}$-Achse
+
+```{=latex}
+\begin{center}
+\input{./tikzedt/festlegung_kn.tex}
+\end{center}
+```
+
+`\textcolor{BrickRed}{[\textbf{TODO}]}`{=latex}
+
+
+::: callout-tip
+### Beispiel
+
+Folgender Roboter wird in DH Parametern beschrieben.
+
+1. Weltsystem $K_0$ bestimmen (z.B. Ende des 1.Gelenkes)
+2. 
+
+![](images/s6_applied_industrial_robotics/image.png){fig-align="center"}
+
+\vspace{5mm}
+
+![](images/s6_applied_industrial_robotics/image-1.png){fig-align="center" width="6cm"}
+
+\vspace{5mm}
+
+```{=latex}
+\begin{center}
+\tdplotsetmaincoords{60}{-75}
+\begin{tikzpicture}[tdplot_main_coords]
+  \draw[densely dashed, thick] (0,0,0) -- ++(0,0,2) -- ++(0,-2,0) -- ++(0,0,4);
+  \node[circle, fill, inner sep=2] at (0,0,0) {};
+  \coordsys (0, 0,2) and (0, 0, -90) node[left] {$K_0$};
+  \coordsys (0,-2,2) and (0,90, -90) node[left=8,below=-1] {$K_1$};
+  \coordsys (0,-2,6) and (0,90, -180) node[left] {$K_2$};
+\end{tikzpicture}
+\end{center}
+```
+:::
+
+## Als Rotationsmatrix
+
+$$
+\begin{split}
+{}^{i}_{i-1}{T}&=\begin{bmatrix}
+x_i^{(i-1)} & y_i^{(i-1)} & z_i^{(i-1)} & p_{i-1,i}^{(i-1)}\\
+    0       &     0       &      0      &         1
+\end{bmatrix}\\
+&=\begin{bmatrix}
+C_{\theta_i}  & -S_{\theta_i}\cdot C_{\alpha_i} &  S_{\theta_i}\cdot S_{\alpha_i} & a_i\cdot C_{\theta_i} \\
+S_{\theta_i}  &  C_{\theta_i}\cdot C_{\alpha_i} & -C_{\theta_i}\cdot S_{\alpha_i} & a_i\cdot S_{\theta_i} \\
+0             &  S_{\alpha_i}                   &  C_{\alpha_i}                   & d_i                   \\
+0 & 0 & 0 & 1
+\end{bmatrix}
+\end{split}
+$$
+
+# Vorwärtstransformation
+
+Sind die Gelenkkoordinaten (Winkel) bekannt, kann die Lage des TCP und Orientierung des Effektors eindeutig beschrieben werden.
+
+$$
+T_W(q)={}^n_0T(q)={}^1_0T(q_1)\cdot{}^2_1T(q_2)\cdots{}^{n-1}_{n-2}T(q_{n-1})\cdot{}^{n}_{n-1}T(q_n)
+$$
+
+Ist ein Ortsvektor $u_{(i)}$, welcher mit Armteil $i$ verbunden ist und auf Punkt $P$ zeigt, gegeben, kann dieser im Raum berechnet (4.Komponente $=1$):
+
+$$
+u^{(0)}_{0P}={}^i_0T(q)\cdot u_{iP}^{(i)}={}^1_0T(q_1)\cdot{}^2_1T(q_2)\cdots{}^{i}_{i-1}T(q_i)\cdot u{(i)}_{iP}
+$$
+
+# Rückwärtstransformation
+
+{{< include rueckwarts.qmd >}}
+
 # Spaghett
 
 {{< include notes.qmd >}}
@@ -86,3 +229,5 @@ $$
 # Software mit Schneebeli
 
 {{< include software_schneebeli.qmd >}}
+
+# Differenzieren von Vektoren in bewegten Koordinatensystemen

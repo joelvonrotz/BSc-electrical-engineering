@@ -1,0 +1,33 @@
+\tdplotsetmaincoords{60}{-65}
+\begin{tikzpicture}[tdplot_main_coords]
+
+\begin{scope}
+\draw[-, densely dashed, line cap=round] (0, 0,0) -- ++(0,0,3) node[pos=0.9,right] {$n-1$};
+\draw[-, densely dashed, line cap=round] (0, -3,0) -- ++(0,0,3) node[pos=0.9,right] {$n$};
+
+\draw[-Latex, NavyBlue, densely dotted] (0, -0.2,2) -- (0, -2.8,2);
+
+\draw[-, densely dashed, BrickRed, line cap=round] (0,0.5,1) -- ++(0,-4,0);
+\draw[-Latex, thick, BrickRed, line cap=round]   (0,0,1) -- ++(0,-1,0) node[above=4, fill=white, inner sep=0.5] {$x_{n-1}$};
+\draw[-Latex, thick,NavyBlue, line cap=round]    (0,0,1) -- ++(0,0,1) node[left]{$z_{n-1}$};
+
+\draw[-Latex, thick, BrickRed, line cap=round]   (0,-3,1) -- ++(0,-1,0) node[pos=1.2, fill=white, inner sep=0.5] {$x_{n}$};
+\draw[-Latex, thick, OliveGreen, line cap=round] (0,-3,1) -- ++(1,0,0) node[pos=1.3, fill=white, inner sep=0.5] {$y_{n}$};
+\draw[-Latex, thick,NavyBlue, line cap=round]    (0,-3,1) -- ++(0,0,1) node[right=-1]{$z_{n}$};
+\end{scope}
+
+\begin{scope}[shift={(2,-5,-0.5)}]
+\draw[-, densely dashed, line cap=round] (0, 0,0) -- ++(0,0,4) node[pos=0.9,right] {$n=n-1$};
+
+
+\draw[Latex-, densely dotted, BrickRed, line cap=round] (0,-1,1.8) -- ++(0,0,-1.1);
+\draw[-Latex, thick, BrickRed, line cap=round]   (0,0,0.5) -- ++(0,-1,0) node[right=2, fill=white, inner sep=0.5] {$x_{n-1}$};
+\draw[-Latex, thick,NavyBlue, line cap=round]    (0,0,0.5) -- ++(0,0,1) node[left]{$z_{n-1}$};
+
+\draw[-Latex, thick, BrickRed, line cap=round]   (0,0,2) -- ++(0,-1,0) node[pos=1.2, fill=white, inner sep=0.5] {$x_{n}$};
+\draw[-Latex, thick, OliveGreen, line cap=round] (0,0,2) -- ++(1,0,0) node[pos=1.3, fill=white, inner sep=0.5] {$y_{n}$};
+\draw[-Latex, thick,NavyBlue, line cap=round]    (0,0,2) -- ++(0,0,1) node[left]{$z_{n}$};
+\end{scope}
+
+
+\end{tikzpicture}

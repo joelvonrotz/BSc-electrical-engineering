@@ -2,6 +2,7 @@
 \DTMsetdatestyle{ddmmyyyy}
 \usepackage{mathtools}
 \usepackage{tikz}
+\usepackage{tikz-3dplot}
 \usetikzlibrary{perspective,calc,tikzmark,backgrounds}
 
 \newcommand{\Plus}{\mathord{\tikz\draw[line width=0.2ex, x=1ex, y=1ex] (0.5,0) -- (0.5,1)(0,0.5) -- (1,0.5);}}
@@ -9,3 +10,27 @@
 	\draw[line width=0.2ex, x=1ex, y=1ex,white] (0.5,0) -- (0.5,1);
 	\draw[line width=0.2ex, x=1ex, y=1ex] (0,0.5) -- (1,0.5);
 	}}}
+
+
+	\def\coordsys (#1,#2,#3) and (#4,#5,#6) node[#7] #8{
+		% Set the shift coordinate
+		\coordinate (shift) at (#1,#2,#3);
+		% Set the origin of the rotated coordinate system
+		\tdplotsetrotatedcoordsorigin{(shift)};
+		
+		% Apply the rotations
+		\begin{scope}[tdplot_rotated_coords, rotate around x=#4]
+			\begin{scope}[rotate around y=#5]
+			\begin{scope}[rotate around z=#6]
+					\draw[-Latex, thick, BrickRed]   (0,0,0) -- ++(1,0,0) node[pos=1.2, fill=white, inner sep=0.5] {$x$};
+					\draw[-Latex, thick, OliveGreen] (0,0,0) -- ++(0,1,0) node[pos=1.2, fill=white, inner sep=0.5] {$y$};
+					\draw[-Latex, thick, NavyBlue]   (0,0,0) -- ++(0,0,1) node[pos=1.2, fill=white, inner sep=0.5] {$z$};
+					\node[circle, fill, inner sep=2] at (0,0,0) {};
+					\node[#7] at (0,0,0) {#8};
+		\end{scope}
+		\end{scope}
+		\end{scope}
+	}
+
+\usepackage{ragged2e}
+\RaggedRight

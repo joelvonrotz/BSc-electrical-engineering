@@ -1,0 +1,50 @@
+
+
+
+
+
+
+\tdplotsetmaincoords{60}{-75}
+\begin{tikzpicture}[tdplot_main_coords]
+\begin{scope}
+
+\draw[-, densely dashed] (0, 0,0) -- ++(0,-2.5,0)  node[pos=1.2]{$i+1$};
+\draw[-, densely dashed] (2,-1.5,0) -- ++(-3,0,0)  node[pos=1.2]{$i$};
+\draw[-Latex, thick,NavyBlue] (0,0,0) -- ++(0,-1,0) node[midway,above]{$z_i$};
+\draw[-Latex, thick,NavyBlue] (2,-1.5,0) -- ++(-1,0,0) node[midway,right]{$z_{i-1}$};
+\draw[-Latex, thick, OliveGreen]   (0,-1.5,0) -- ++(0,0,1) node[pos=1.2, fill=white, inner sep=0.5] {$n$};
+\draw[-Latex, thick, densely dotted, OliveGreen]   (0,-1.5,0) -- ++(0,0,-1) node[pos=1.2, fill=white, inner sep=0.5] {$n$};
+\node[cross out,draw=red, thick, inner sep=1, line cap=round] at (0,-1.5,0) {};
+
+\draw[-Latex, thick, BrickRed]   (0,0,0) -- ++(0,0,1) node[pos=1.2, fill=white, inner sep=0.5] {$x_i$};
+\draw[-Latex, thick, densely dotted, BrickRed]   (0,0,0) -- ++(0,0,-1) node[pos=1.2, fill=white, inner sep=0.5] {$x_i$};
+\end{scope}
+
+\begin{scope}[shift={(0,-4,0)}]
+\draw[-, densely dashed] (0, 0,0) -- ++(0,-2.5,0)  node[midway,below]{$i+1$};
+\draw[-, densely dashed] (2,-1.5,1) -- ++(-3,0,0)  node[pos=-0.2, below]{$i$};
+\draw[-Latex, thick,NavyBlue] (0,0,0) -- ++(0,-1,0) node[midway,above]{$z_i$};
+\draw[Latex-, thick,line cap=round, OliveGreen]   (0,-1.5,0) -- ++(0,0,1) node[right,midway, fill=white, inner sep=0.5] {$n$};
+
+
+\tdplotdefinepoints(0,-1.5,1)(-0.5,-1.5,1)(0,-1.5,0.5);
+\tdplotdrawpolytopearc[]{0.4}{anchor=west}{};
+
+\tdplotdefinepoints(0,-1.5,0)(0,-1.5,1)(0,-2,0);
+\tdplotdrawpolytopearc[]{0.3}{anchor=west}{};
+
+\draw[-Latex, thick, BrickRed]   (0,0,0) -- ++(0,0,-1) node[pos=1.2, fill=white, inner sep=0.5] {$x_i$};
+\end{scope}
+
+\begin{scope}[shift={(0,-3,-3)}]
+\draw[-Latex, densely dashed] (0, 0,0) -- ++(0,-3,0);
+\draw[-Latex, thick,NavyBlue] (0,0,0) -- ++(0,-1,0) node[midway,above]{$z_{i-1}$};
+\draw[-Latex, thick,NavyBlue] (0,-1.5,0) -- ++(0,-1,0) node[midway,above]{$z_{i}$};
+
+
+\draw[-Latex, thick, BrickRed]   (0,0,0) -- ++(0,0,1) node[pos=1.2, fill=white, inner sep=0.5] {$x_{i-1}$};
+\draw[-Latex, thick, BrickRed]   (0,-1.5,0) -- ++(0,0,1) node[pos=1.2, fill=white, inner sep=0.5] {$x_{i}$};
+\end{scope}
+
+
+\end{tikzpicture}

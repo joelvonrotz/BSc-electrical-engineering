@@ -1,0 +1,33 @@
+
+## Mehrdeutigkeit
+
+Mehrere Lösungen von Gelenkkoordinaten für die Lage des TCP (Orientierung & Position).
+
+![](images/rueckwarts/image.png){width="6cm" fig-align="center"}
+
+## Singularität
+
+
+Beispiel: $q_4$ & $q_6$ verfügen über unendlich viele Lösungen.
+
+![](images/rueckwarts/image-1.png)
+
+Ein Ansatz wäre das **Gütekriterium**, in welche man eine Lösung nimmt, welche am nächsten zur vorhergehenden Lösung liegt.
+
+$$
+f(q_4,q_6)=c_1\cdot(q_{4,A}-q_4)^2+c_2\cdot(q_{6,A}-q_6)^2\overset{!}{=} \text{MIN}
+$$
+
+## Geometrischer Ansatz
+
+![](images/rueckwarts/image-2.png)
+
+![](images/rueckwarts/image-3.png)
+
+$$
+\alpha=\text{arctan2}(p_y^{(0)},p_x^{(0)})
+$$
+
+$$
+q_1
+$$
