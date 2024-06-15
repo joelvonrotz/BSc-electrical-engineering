@@ -1,0 +1,55 @@
+\tdplotsetmaincoords{65}{155}
+\begin{tikzpicture}[scale=1,>=latex,line join=bevel]
+	% Figures ---------------------
+		%\begin{scope}[tdplot_main_coords, shift={(0,2,10)}]
+	%\tdplotdrawarc[-,Orange]{(0,0,0)}{0.5}{0}{50}{below=4,left=-2}{$R_Z$}
+	%\tdplotdrawarc[-,Orange,rotate around z=50,rotate around y=30,rotate around x=90]{(0,0,0)}{0.5}{0}{30}{anchor=north,midway}{$\phi$}
+	%\tdplotdrawarc[-,Orange,rotate around z=50,rotate around y=30,rotate around x=90]{(0,0,0)}{0.5}{0}{30}{anchor=north,midway}{$\phi$}
+	%\end{scope}
+	% Coordinates
+	\begin{scope}[shift={(0,0,0)}]
+		\begin{scope}[tdplot_main_coords]
+			\draw[->] (0,0,0) -- (2,0,0) node[anchor=east]{$X_0$};
+			\draw[->] (0,0,0) -- (0,2,0) node[anchor=north]{$Y_0$};
+			\draw[->] (0,0,0) -- (0,0,2) node[anchor=south]{$Z_0 ~\&~ {\color{blue}Z'}$};
+		\end{scope}
+		\tdplotdrawarc[-,Orange,tdplot_main_coords]{(0,0,0)}{0.5}{0}{30}{anchor=south}{$\varphi_Z$}
+		
+		\begin{scope}[tdplot_main_coords,rotate around z=30,blue]
+			\draw[densely dotted] (0,0,0) circle[radius=1.5] ;
+			\draw[->] (0,0,0) -- (2,0,0) node[anchor=east]{$X'$};
+			\draw[->] (0,0,0) -- (0,2,0) node[anchor=north,right]{$Y'$};
+			\draw[->,dashed] (0,0,0) -- (0,0,2) node[anchor=south]{};
+		\end{scope}
+	\end{scope}
+	
+	\begin{scope}[shift={(4.,0,0)}]
+		\begin{scope}[tdplot_main_coords,rotate around z=30]
+			\draw[->] (0,0,0) -- (2,0,0) node[anchor=east]{$X'$};
+			\draw[->] (0,0,0) -- (0,2,0) node[anchor=north]{};
+			\draw[->] (0,0,0) -- (0,0,2) node[anchor=south]{$Z'$};
+		\end{scope}
+		\tdplotdrawarc[-,Orange,tdplot_main_coords,rotate around z=30,rotate around x=-90]{(0,0,0)}{0.5}{0}{30}{anchor=north west}{$\varphi_Y$}
+		\begin{scope}[tdplot_main_coords,rotate around z=30,rotate around y=30,OliveGreen]
+			\draw[densely dotted] (0,0,0) circle[radius=1.5] ;
+			\draw[->] (0,0,0) -- (2,0,0) node[anchor=east]{$X''$};
+			\draw[->,dashed] (0,0,0) -- (0,2,0) node[anchor=north,right]{$\textcolor{black}{Y'~\&~}{\color{OliveGreen}Y''}$};
+			\draw[->] (0,0,0) -- (0,0,2) node[anchor=south]{$Z''$};
+		\end{scope}
+	\end{scope}
+	
+	\begin{scope}[shift={(8,0,0)}]
+		\begin{scope}[tdplot_main_coords,rotate around z=30,rotate around y=30]
+			\draw[->] (0,0,0) -- (2,0,0) node[anchor=east]{};
+			\draw[->] (0,0,0) -- (0,2,0) node[anchor=north]{$Y''$};
+			\draw[->] (0,0,0) -- (0,0,2) node[anchor=south]{$Z''$};
+		\end{scope}
+		\tdplotdrawarc[-,Orange,tdplot_main_coords,rotate around z=30,rotate around y=30,rotate around y=-90]{(0,0,0)}{0.5}{90}{60}{anchor=south}{$\varphi_X$}
+		\begin{scope}[tdplot_main_coords,rotate around z=30,rotate around y=30,rotate around x=30,BrickRed]
+			\draw[densely dotted] (0,0,0) circle[radius=1.5] ;
+			\draw[->,dashed] (0,0,0) -- (2,0,0) node[anchor=east]{$\textcolor{black}{X''~\&~}X_1$};
+			\draw[->] (0,0,0) -- (0,2,0) node[anchor=north,right]{$Y_1$};
+			\draw[->] (0,0,0) -- (0,0,2) node[anchor=south]{$Z_1$};
+		\end{scope}
+	\end{scope}
+\end{tikzpicture}

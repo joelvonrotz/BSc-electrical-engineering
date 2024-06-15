@@ -8,7 +8,6 @@ format:
     include-in-header:
       - preamble.tex
     toc: true
-    classoption: twocolumn
 
 # [DOCUMENT INFORMATION]
 title: "Angewandte Industrielle Robotik"

@@ -1,0 +1,101 @@
+## Offline vs. Online Programmierung
+
+### Offline Programmierung
+
+`\textbf{\color{OliveGreen}{Vorteile}}`{=latex}
+
+- Fahrwegoptimierung
+- Grosse Punktmengen
+- Komplexe Geometrien
+- Erschliessung neuer Aufgaben für Roboter
+- Kollisionsprüfung
+- Simulation der Bewegungen
+- Fahrbereichsabklärungen beim Auslegen der Anlage
+- Änderungen sind einfacher zu handhaben
+- Frühzeitiges Erkennen von Planungsfehlern
+- Erstellung der Programme ist möglich, während die Anlage noch aufgebaut oder benutzt wird
+- Strukturierung der Programme ist einfacher
+- Einfachere Dokumentation
+- Flächenprogrammierung
+- Häufige Änderungen am Prozess können besser abgebildet werden
+
+`\textbf{\color{BrickRed}{Nachteile}}`{=latex}
+
+- Abhängig von der Genauigkeit des Roboters
+- Abhängig von der Genauigkeit der CAD-Modelle
+- Bewegliche Teile am Roboter können nicht simuliert werden
+- Spezielle (teure) Software notwendig
+- Qualifizierte Programmierer sind notwendig
+- Unterschiedliche Programmiersprachen der Hersteller
+
+### Online Programmierung
+
+`\textbf{\color{OliveGreen}{Vorteile}}`{=latex}
+
+- Schneller fertig bei einfachen Bewegungen
+- Keine Genauigkeitsprobleme, da Wiederholgenauigkeit hoch ist
+- Intuitives Verfahren
+- Schnelles, direktes Feedback
+
+`\textbf{\color{BrickRed}{Nachteile}}`{=latex}
+
+- Roboter ist während Teach-In nicht produktiv
+- Potential für Chaosprogrammierung vorhanden
+
+## Qualitätsmerkmale eines guten Roboterprogramms
+
+### Lesbarkeit
+
+Das Programm muss so geschrieben sein, dass eine Person – welche etwas von Roboter-Programmierung versteht und eine Ahnung von der Aufgabe des Roboters hat – das Programm mit **vernünftigem Aufwand verstehen** und **ändern** kann.
+
+- Verwendung von sprechenden Namen: `pointHome`/`pHome`, `dioBulkheadOpen`
+- Einhalten von Standards: z.B. Code Guidelines
+- Verwendung von sinnvollen Kommentaren: *“[Say what you mean, simply and directly.]{.underline}”* - Brian Kernighan
+
+### Wiederverwendbarkeit
+
+In der Praxis zeigt sich, dass einzelne Teile der Programme oft verwendet werden können, andere für jede Anlage individuell angepasst werden müssen. $\rightarrow$ Modularisierung
+
+
+- [Was unabhängig voneinander ändern kann, muss getrennt werden.]{.underline} [IDesign Methode]
+- Eine gute Strukturierung der Programme hilft zudem, den Überblick zu behalten und beschleunigt auch die Programmierung.
+
+### Wenige unterschiedliche Ablaufpfade (tiefe Komplexität)
+
+Eine tiefe Komplexität hilft, dass das Programm verständlich bleibt und dass es einfacher zu erweitern und pflegen ist. Tiefe Komplexität heisst, dass es möglichst wenige unterschiedliche Pfade durch das Programm gibt.
+
+- Ein Roboter sollte eine klar definierte Aufgabe haben.
+- Möglichst wenige ‘If’, ‘Switch’ und andere Bedingungen einbauen.
+- Schachtelung von Unterscheidungsstatements möglichst vermeiden.
+- Keinen Copy/Paste-Code verwenden.
+- Unterteilung in Submodule
+- Arbeiten mit Variablen
+
+### Intelligente Bewegungen
+
+Der Roboter soll möglichst natürliche und keine mechanischen Bewegungen ausführen.
+
+- Ein genereller Ansatz ist, die Beschleunigungen aller Achsen möglichst tief zu halten.
+- Weitere Optionen:
+  - Kontinuierliche Bewegungen (Punkte und Orientierung)
+  - Keine unnötigen Fahrpunkte einbauen
+  - Kürzeste Wege suchen
+  - Nachbearbeiten von nicht optimalen Bewegungen
+
+### Roboter erfüllt den Auftrag
+
+- Jeder mögliche Ablaufpfad muss getestet werden.
+- Qualität des Produktes muss stimmen.
+- Kundenzufriedenheit ist wichtig.
+- Wow-Effekt ist wertvoll. [Wow-Effekt bedeutet, dass man mit geringem Aufwand dem Kunden einen Mehrwert liefert, indem man das Programm etwas effizienter, genauer, etc. macht]
+
+## Struktur
+
+![](images/software_schneebeli/image.png)
+
+![](images/software_schneebeli/image-1.png)
+
+![](images/software_schneebeli/image-2.png)
+
+## Parametrische Programmierung
+

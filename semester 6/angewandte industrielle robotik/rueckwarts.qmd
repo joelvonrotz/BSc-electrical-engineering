@@ -20,14 +20,10 @@ $$
 
 ## Geometrischer Ansatz
 
+Segmente in Dreiecke umwandeln und danach Kosinussatz anwenden!
+
 ![](images/rueckwarts/image-2.png)
 
-![](images/rueckwarts/image-3.png)
+# Kinematische Transformationen mit der Jacobi-Matrix
 
-$$
-\alpha=\text{arctan2}(p_y^{(0)},p_x^{(0)})
-$$
-
-$$
-q_1
-$$
+:)

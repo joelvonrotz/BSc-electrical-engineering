@@ -119,7 +119,7 @@ $$
 ### Asymmetrische Matrix: $A=A^T$
 
 $$
-A^T=-A\quad\Rightarrow\quad
+A^T=A\quad\Rightarrow\quad
 \begin{bmatrix}
   {\mathbf{0}} & {\color{Orange}1}  & {\color{Orange}2} \\
            1   &       {\mathbf{0}} & {\color{Orange}3} \\

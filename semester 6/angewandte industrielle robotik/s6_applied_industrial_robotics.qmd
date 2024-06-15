@@ -38,39 +38,124 @@ Bei der Rotation von Rechtssystemen kann die rechte Handregel angewendet werden.
 
 {{< include quaternion.qmd >}}
 
-`\textcolor{BrickRed}{[\textbf{TODO}]}`{=latex}
-
 # Umwandlungen $Q\leftrightarrow EA \leftrightarrow \prescript{k}{i}{A}$
-
-`\textcolor{BrickRed}{[\textbf{TODO}]}`{=latex}
 
 ## Euler zu Quartenion
 
-`\textcolor{BrickRed}{[\textbf{TODO}]}`{=latex}
+$A=\psi\qquad B=\theta\qquad C=\phi$
+
+$$
+qt=\begin{bmatrix}
+\cos(\sfrac{\phi}{2})\cdot\cos(\sfrac{\theta}{2})\cdot\cos(\sfrac{\psi}{2})+\sin(\sfrac{\phi}{2})\cdot\sin(\sfrac{\theta}{2})\cdot\sin(\sfrac{\psi}{2})\\
+\sin(\sfrac{\phi}{2})\cdot\cos(\sfrac{\theta}{2})\cdot\cos(\sfrac{\psi}{2})-\cos(\sfrac{\phi}{2})\cdot\sin(\sfrac{\theta}{2})\cdot\sin(\sfrac{\psi}{2})\\
+\cos(\sfrac{\phi}{2})\cdot\sin(\sfrac{\theta}{2})\cdot\cos(\sfrac{\psi}{2})+\sin(\sfrac{\phi}{2})\cdot\cos(\sfrac{\theta}{2})\cdot\sin(\sfrac{\psi}{2})\\
+\cos(\sfrac{\phi}{2})\cdot\cos(\sfrac{\theta}{2})\cdot\sin(\sfrac{\psi}{2})-\sin(\sfrac{\phi}{2})\cdot\sin(\sfrac{\theta}{2})\cdot\cos(\sfrac{\psi}{2})\end{bmatrix}
+$$
 
 ## Quartenion zu Euler
 
-`\textcolor{BrickRed}{[\textbf{TODO}]}`{=latex}
+$$
+\begin{bmatrix}\phi \\ \theta \\ \psi \end{bmatrix}=\begin{bmatrix}
+\text{atan2}(2 \cdot(qt_1 \cdot qt_2+qt_3 \cdot qt_4),qt_1^2-qt_2^2-qt_3^2+qt_4^2) \\
+\arcsin(2 \cdot (qt_1 \cdot qt_3-qt_2 \cdot qt_4)) \\
+\text{atan2}(2 \cdot (qt_1 \cdot qt_4+qt_2 \cdot qt_3),qt_1^2+qt_2^2-qt_3^2-qt_4^2) \\
+\end{bmatrix}
+$$
 
 ## Euler zu Rotationsmatrix
 
-`\textcolor{BrickRed}{[\textbf{TODO}]}`{=latex}
+Von Euler Rotation abhängig, folgend mit intrinsisch ZYX:
+
+$$
+\begin{split}
+&R_{\text{ZYX}}=\prescript{W}{R}{A}=\begin{pmatrix}x_W^{(R)} & y_W^{(R)} & z_W^{(R)}\end{pmatrix}=\underbrace{R_{\mathbf{Z}}(A)}_{\textbf{3.}}\cdot\underbrace{R_{\mathbf{Y}}(B)}_{\textbf{2.}}\cdot\underbrace{R_{\mathbf{X}}(C)}_{\textbf{1.}}\\[2mm]
+{} &= \underset{\textstyle\text{Z-Rotation}}{\begin{bmatrix}
+  C_A & -S_A & 0 \\
+  S_A & C_A & 0 \\
+  0 & 0 & 1
+\end{bmatrix}}\cdot
+\underset{\textstyle\text{Y-Rotation}}{\begin{bmatrix}
+   C_B & 0 & S_B \\
+   0       & 1 & 0       \\
+  -S_B & 0 & C_B
+\end{bmatrix}}\cdot
+\underset{\textstyle\text{X-Rotation}}{\begin{bmatrix}
+  1 &  0      &  0 \\
+  0 &  C_C & -S_C \\
+  0 &  S_C &  C_C
+\end{bmatrix}}\\[2mm]
+&=\begin{bmatrix}
+{{C_A \cdot C_B}} & -S_A \cdot C_C + C_A \cdot S_B \cdot S_C &  S_A \cdot S_C + C_A \cdot S_B \cdot C_C \\
+{{S_A \cdot C_B}} &  C_A \cdot C_C + S_A \cdot S_B \cdot S_C & -C_A \cdot S_C + S_A \cdot S_B \cdot C_C \\
+{{-S_B}}      &  {{C_B \cdot S_C}}    &  {{C_B \cdot C_C}}
+\end{bmatrix}
+\end{split}
+$$
 
 ## Rotationsmatrix zu Euler
 
-`\textcolor{BrickRed}{[\textbf{TODO}]}`{=latex}
+Von Euler Rotation abhängig, folgend mit intrinsisch ZYX:
+
+$$
+\begin{split}
+&R_{\text{ZYX}}=\prescript{W}{R}{A}=\begin{pmatrix}x_W^{(R)} & y_W^{(R)} & z_W^{(R)}\end{pmatrix}=\underbrace{R_{\mathbf{Z}}(A)}_{\textbf{3.}}\cdot\underbrace{R_{\mathbf{Y}}(B)}_{\textbf{2.}}\cdot\underbrace{R_{\mathbf{X}}(C)}_{\textbf{1.}}\\[2mm]
+{} &= \begin{bmatrix}
+  C_A & -S_A & 0 \\
+  S_A & C_A & 0 \\
+  0 & 0 & 1
+\end{bmatrix}\cdot
+\begin{bmatrix}
+   C_B & 0 & S_B \\
+   0       & 1 & 0       \\
+  -S_B & 0 & C_B
+\end{bmatrix}\cdot
+\begin{bmatrix}
+  1 &  0      &  0 \\
+  0 &  C_C & -S_C \\
+  0 &  S_C &  C_C
+\end{bmatrix}\\[2mm]
+&=\begin{bmatrix}
+{\color{Orange}\mathbf{C_A \cdot C_B}} & -S_A \cdot C_C + C_A \cdot S_B \cdot S_C &  S_A \cdot S_C + C_A \cdot S_B \cdot C_C \\
+{\color{OliveGreen}\mathbf{S_A \cdot C_B}} &  C_A \cdot C_C + S_A \cdot S_B \cdot S_C & -C_A \cdot S_C + S_A \cdot S_B \cdot C_C \\
+{\color{BrickRed}\mathbf{-S_B}}      &  {\color{Blue}\mathbf{C_B \cdot S_C}}    &  {\color{Purple}\mathbf{C_B \cdot C_C}}
+\end{bmatrix}
+\end{split}
+$$
+
+$$
+\begin{split}
+A &= \text{atan2}({\color{OliveGreen}\mathbf{R_{21}}},{\color{Orange}\mathbf{R_{11}}})\\
+B &= \arcsin(-{\color{BrickRed}\mathbf{R_{31}}})\\
+C &= \text{atan2}({\color{Blue}\mathbf{R_{32}}},{\color{Purple}\mathbf{R_{33}}})
+\end{split}
+$$
 
 ## Quaternion zu Rotationsmatrix
 
-`\textcolor{BrickRed}{[\textbf{TODO}]}`{=latex}
-
 $$
-{}^W_0A={\small\begin{bmatrix}
-  2\cdot(qt_1^2+qt_2^2)-1 & 2\cdot(qt_2\cdot qt_3-qt_1\cdot qt_4) 
-\end{bmatrix}}
+\begin{split}
+  {}^W_0A&=\begin{bmatrix}
+  {\mathbf{x_W^{(0)}}} &
+  {\mathbf{y_W^{(0)}}} &
+  {\mathbf{z_W^{(0)}}} =
+  \end{bmatrix}\qquad x_W^{(0)}=
+  \begin{bmatrix}
+    2\cdot(qt_1^2+qt_2^2)-1                \\
+    2\cdot(qt_2\cdot qt_3+qt_1\cdot qt_4)  \\
+    2\cdot(qt_2\cdot qt_4 - qt_1\cdot qt_3)
+  \end{bmatrix}\\[3mm]
+  y_W^{(0)}&=\begin{bmatrix}
+    2\cdot(qt_2\cdot qt_3-qt_1\cdot qt_4)  \\
+    2\cdot(qt_1^2+qt_3^2)-1             \\   
+    2\cdot(qt_3\cdot qt_4 + qt_1\cdot qt_2)
+  \end{bmatrix}\ z_W^{(0)}=
+  \begin{bmatrix}
+    2 \cdot(qt_2\cdot qt_4 + qt_1\cdot qt_3)\\
+    2\cdot (qt_3\cdot qt_4 - qt_1\cdot qt_2)\\
+    2\cdot(qt_1^2+qt_4^2)-1
+  \end{bmatrix}
+\end{split}
 $$
-
-`\textcolor{BrickRed}{[\textbf{TODO}]}`{=latex}
 
 ## Rotationsmatrix zu Quaternion
 
@@ -90,6 +175,18 @@ $$
   0.5\cdot\text{sgn}(A_{21}-A_{12})\cdot \sqrt{A_{33}-A_{11}-A_{22}+1}
 \end{bmatrix}
 $$
+
+::: callout-note
+### Vorzeichenfunktion $\text{sgn}(x)$
+$$
+\text{sgn}(x)=\begin{cases}
++1  & \text{für } x>0\\
+0   & \text{für } x=0\\
+-1  & \text{für } x<0\\
+\end{cases}
+$$
+
+:::
 
 # Denavit-Hartenberg-Konvention
 
@@ -145,6 +242,13 @@ Die DH Parameter sind so auszulegen, das man $K_i$ in $K_{i+1}$ überführt werd
 
 ## Festlegung $K_n$
 
+
+### $z_n$-Achse
+
+Die $z_n$-Achse wird in Richtung der $z_{n-1}$-Achsedurch den TCP gelegt.
+
+### $x_n$-Achse
+
 - $z_n$-Achse separat von $z_{n-1}$: $x_n$-Achse zeigt von Gelenkachse $n-1$ zu $n$.
 - $z_n$-Achse auf $z_{n-1}$-Achse: $x_n$-Achse zeigt in gleiche Richtung wie $x_{n-1}$-Achse
 
@@ -153,9 +257,6 @@ Die DH Parameter sind so auszulegen, das man $K_i$ in $K_{i+1}$ überführt werd
 \input{./tikzedt/festlegung_kn.tex}
 \end{center}
 ```
-
-`\textcolor{BrickRed}{[\textbf{TODO}]}`{=latex}
-
 
 ::: callout-tip
 ### Beispiel
@@ -187,7 +288,7 @@ Folgender Roboter wird in DH Parametern beschrieben.
 ```
 :::
 
-## Als Rotationsmatrix
+## Als Homogene Matrix
 
 $$
 \begin{split}
@@ -222,12 +323,8 @@ $$
 
 {{< include rueckwarts.qmd >}}
 
-# Spaghett
-
-{{< include notes.qmd >}}
-
 # Software mit Schneebeli
 
 {{< include software_schneebeli.qmd >}}
 
-# Differenzieren von Vektoren in bewegten Koordinatensystemen
+`\end{multicols*}`{=latex}

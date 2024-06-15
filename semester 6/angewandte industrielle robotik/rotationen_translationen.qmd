@@ -99,10 +99,6 @@ $$
 
 :::
 
-```{=latex}
-\vfill
-```
-
 ## Homogene Matrizen (Frames)
 
 Damit die Lage des Effektors im Raum eindeutig bestimmbar ist, wird die Rotationsmatrix mit einem Verschiebungsvektor erweitert. Dadurch ist **Orientierung** und **Position** bestimmbar.
@@ -262,11 +258,53 @@ $$
 
 $$
 \begin{split}
-B &= \arcsin(-{\color{BrickRed}\mathbf{R_{31}}})\\
 A &= \text{atan2}({\color{OliveGreen}\mathbf{R_{21}}},{\color{Orange}\mathbf{R_{11}}})\\
+B &= \arcsin(-{\color{BrickRed}\mathbf{R_{31}}})\\
 C &= \text{atan2}({\color{Blue}\mathbf{R_{32}}},{\color{Purple}\mathbf{R_{33}}})
 \end{split}
 $$
+
+::: {.callout-tip}
+
+### Beispiel
+
+Folgend ein Beispiel, welches die Darstellung von 
+
+$$
+\prescript{1}{0}{A}=
+\underbracket[0pt][0pt]{
+  \color{BrickRed}\left[\color{black}
+  \begin{matrix}-0.9397 \\  0 \\ -0.3420 \end{matrix}
+  \color{BrickRed}\right]
+}_{\textstyle \mathbf{x_1^{(0)}}}
+\underbracket[0pt][0pt]{
+  \color{OliveGreen}\left[\color{black}
+  \begin{matrix}-0.3420 \\  0 \\  0.9397 \end{matrix}
+  \color{OliveGreen}\right]
+}_{\textstyle \mathbf{y_1^{(0)}}}
+\underbracket[0pt][0pt]{
+  \color{NavyBlue}\left[\color{black}
+  \begin{matrix} 0      \\ -1 \\  0      \end{matrix}
+  \color{NavyBlue}\right]
+}_{\textstyle \mathbf{z_1^{(0)}}}
+\begin{matrix}
+x_0 \\ y_0 \\ z_0
+\end{matrix}
+$$
+
+$$
+\prescript{1}{0}{A}=R_Z(A)\cdot R_Y(B)\cdot R_X(C)
+$$
+
+$$
+\begin{split}
+A_{1\rightarrow0}=\text{atan2}(0,-0.9397)=180^\circ\\
+B_{1\rightarrow0}=\arcsin(-(-0.3420))\approx 20^\circ\\
+C_{1\rightarrow0}=\text{atan2}(-0.9397,0)= -90^\circ
+\end{split}
+$$
+
+:::
 
 ::: callout-tip
 Da $\cos$ eine gerade Funktion ist, ergeben $\cos(\pm{\alpha})$ den gleichen Wert, z.B. $\cos(\pm{45^\circ})=\frac{1}{\sqrt{2}}$
@@ -296,10 +334,18 @@ $$
 \begin{split}
 &\mathbf{R}(\psi, \theta, \phi)=\prescript{W}{R}{A}=\begin{pmatrix}x_W^{(R)} & y_W^{(R)} & z_W^{(R)}\end{pmatrix}\\
 &=\begin{bmatrix}
-C_A \cdot C_{\theta} & -S_A \cdot C_C + C_A \cdot S_{\theta} \cdot S_C &  S_A \cdot S_C + C_A \cdot S_{\theta} \cdot C_C \\
-S_A \cdot C_{\theta} &  C_A \cdot C_C + S_A \cdot S_{\theta} \cdot S_C & -C_A \cdot S_C + S_A \cdot S_{\theta} \cdot C_C \\
--S_{\theta}      &  C_{\theta} \cdot S_C    &  C_{\theta} \cdot C_C
+C_{\phi} \cdot C_{\theta} & -S_{\phi} \cdot C_{\psi} + C_{\phi} \cdot S_{\theta} \cdot S_{\psi} &  S_{\phi} \cdot S_{\psi} + C_{\phi} \cdot S_{\theta} \cdot C_{\psi} \\
+S_{\phi} \cdot C_{\theta} &  C_{\phi} \cdot C_{\psi} + S_{\phi} \cdot S_{\theta} \cdot S_{\psi} & -C_{\phi} \cdot S_{\psi} + S_{\phi} \cdot S_{\theta} \cdot C_{\psi} \\
+-S_{\theta}      &  C_{\theta} \cdot S_{\psi}    &  C_{\theta} \cdot C_{\psi}
 \end{bmatrix}
+\end{split}
+$$
+
+$$
+\begin{split}
+\phi &= \text{atan2}({R_{21}},{R_{11}})\\
+\theta &= \arcsin(-{R_{31}})\\
+\psi &= \text{atan2}({R_{32}},{R_{33}})
 \end{split}
 $$
 
@@ -307,15 +353,19 @@ $$
 ::: callout-caution
 ### Unterschied RPY & Euler
 
-Während bei [Euler Drehungen]{.underline} immer [vom neuen Koordinatensystem gedreht]{.underline} wird, werden bei [RPY Drehungen]{.underline} immer vom [Ursprünglichen Koordinatensystem gedreht]{.underline}
+Während bei [Euler Drehungen]{.underline} immer [vom neuen Koordinatensystem gedreht]{.underline} wird (**intrinsisch**), werden bei [RPY Drehungen]{.underline} immer vom [Ursprünglichen Koordinatensystem gedreht]{.underline} (**extrinsisch**).
 
 \vspace{2mm}
 
 [Euler Winkel]{.underline}
 
+$R_Z~\rightarrow~ R_{Y'}~\rightarrow~ R_{X''}$
+
 ![](images/rotationen_translationen/image-1.png)
 
 [Roll Pitch Yaw]{.underline}
+
+$R_X~\rightarrow~ R_Y~\rightarrow~ R_Z$
 
 ![](images/rotationen_translationen/image.png)
 
