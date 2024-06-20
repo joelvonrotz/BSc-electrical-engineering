@@ -145,6 +145,35 @@
 \usepackage{enumitem}
 \setlist[description]{style=nextline,parsep=5mm}
 \providecommand\phantomsection{}
+\usepackage{multicol}
+\usepackage{tikzscale}
+
+
+\usepackage{xfrac}
+
+
+\DeclareRobustCommand{\textHighlight}[1]{\tikz[baseline]{\node[anchor=base,fill=Gray!10, rounded corners=5pt, draw, densely dotted] {\bfseries{#1}};}}
+
+\makeatletter
+\newcommand{\shorteq}{\mathrel{\mkern0.2mu\mathpalette\shorteq@\relax\mkern0.2mu}}
+\newcommand{\shorteq@}[2]{\scalebox{0.5}[1]{$\m@th#1=$}}
+
+\newcommand{\longeq}[1]{\mathrel{\mathpalette\longeq@{#1}}}
+\newcommand{\longeq@}[2]{%
+  \begingroup
+  \sbox\z@{$\m@th#1=$}%
+  \ifdim#2<\wd\z@
+    \resizebox{#2}{\height}{\box\z@}%
+  \else
+    \ifdim#2<3\wd\z@
+      \hbox to #2{$\m@th#1=\hss=\hss=\hss=$}%
+    \else
+      \hbox to #2{$\m@th#1=\cleaders\hbox to 0.2\wd\z@{\hss$#1=$\hss}\hfil=$}%
+    \fi
+  \fi
+  \endgroup
+}
+\makeatother
 \makeatletter
 \@ifpackageloaded{tcolorbox}{}{\usepackage[skins,breakable]{tcolorbox}}
 \@ifpackageloaded{fontawesome5}{}{\usepackage{fontawesome5}}
@@ -212,7 +241,7 @@
 \@ifundefined{codebgcolor}{\definecolor{codebgcolor}{HTML}{f7f7f7}}{}
 \makeatother
 \makeatletter
-\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[colback={codebgcolor}, enhanced, sharp corners, breakable, boxrule=0pt, frame hidden]}{\end{tcolorbox}}\fi
+\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[frame hidden, enhanced, sharp corners, colback={codebgcolor}, breakable, boxrule=0pt]}{\end{tcolorbox}}\fi
 \makeatother
 \makeatletter
 \@ifpackageloaded{tikz}{}{\usepackage{tikz}}
@@ -438,6 +467,12 @@
   {\par\vspace{\abovedisplayskip}\noindent\begin{tabular}{>{$}l<{$} @{${}:{}$} l}}
   {\end{tabular}\par\vspace{\belowdisplayskip}}
 
+\usepackage{tabularx}
+\newenvironment{conditions*}
+  {\par\vspace{\abovedisplayskip}\noindent
+   \tabularx{\columnwidth}{>{$}l<{$} @{${}:{}$} >{\raggedright\arraybackslash}X}}
+  {\endtabularx\par\vspace{\belowdisplayskip}}
+
 % [FANCY VERBATIM] --------------------------------------------------------------------- %
 % in combination with the file 'before-content.tex' inside the 'config' folder, the
 % packages 'fancyvbr', 'fvextra' and 'floatrow' are used to restyle the implemented
@@ -487,6 +522,9 @@
 \date{}
 
 \begin{document}
+
+  \raggedcolumns
+  
 \makeatletter
 \begin{center}
   \vspace*{0.5cm}
@@ -556,7 +594,7 @@ Rotz \hspace{0.3cm}\textbf{/}\hspace{0.3cm}\mbox{\large \faGithub\space \href{ht
 
 \includegraphics[width=7cm,height=\textheight]{images/crypto_meme.jpg}
 
-\begin{tcolorbox}[enhanced jigsaw, colframe=quarto-callout-note-color-frame, bottomrule=.15mm, colback=white, left=2mm, toprule=.15mm, arc=.35mm, coltitle=black, opacityback=0, rightrule=.15mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Hinweis}, colbacktitle=quarto-callout-note-color!10!white, opacitybacktitle=0.6, toptitle=1mm, bottomtitle=1mm, titlerule=0mm, leftrule=.75mm, breakable]
+\begin{tcolorbox}[enhanced jigsaw, toprule=.15mm, opacityback=0, colbacktitle=quarto-callout-note-color!10!white, breakable, colframe=quarto-callout-note-color-frame, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Hinweis}, left=2mm, arc=.35mm, toptitle=1mm, bottomrule=.15mm, rightrule=.15mm, titlerule=0mm, bottomtitle=1mm, leftrule=.75mm, opacitybacktitle=0.6, coltitle=black, colback=white]
 
 Wenn Daten Sequenzen in Blöcke geteilt werden (z.B. 64-Bit), dann wird
 davon ausgegangen, dass bei unvollständigen Blöcken die restlichen Bits
@@ -632,7 +670,7 @@ Funktion \(f\) ist \textbf{wichtig}. Wenn diese sicher gegen Attacken
 ist, dann wird das Feistel Netzwerk mit jeder Runde und Key-Segment
 sicherer!
 
-\begin{tcolorbox}[enhanced jigsaw, colframe=quarto-callout-important-color-frame, bottomrule=.15mm, colback=white, left=2mm, toprule=.15mm, arc=.35mm, coltitle=black, opacityback=0, rightrule=.15mm, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Ver- \& Entschlüsseln}, colbacktitle=quarto-callout-important-color!10!white, opacitybacktitle=0.6, toptitle=1mm, bottomtitle=1mm, titlerule=0mm, leftrule=.75mm, breakable]
+\begin{tcolorbox}[enhanced jigsaw, toprule=.15mm, opacityback=0, colbacktitle=quarto-callout-important-color!10!white, breakable, colframe=quarto-callout-important-color-frame, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Ver- \& Entschlüsseln}, left=2mm, arc=.35mm, toptitle=1mm, bottomrule=.15mm, rightrule=.15mm, titlerule=0mm, bottomtitle=1mm, leftrule=.75mm, opacitybacktitle=0.6, coltitle=black, colback=white]
 
 Verschlüsselte Informationen können mit dem genau gleichen Ablauf wieder
 entschlüsselt werden.
@@ -674,7 +712,7 @@ Vor und nach dem Feistel Netzwerk werden die Blöcke bitweise permutiert,
 also wie kreuzverdrahtet (Enigma Steckerbrett) \(\rightarrow\) Bit
 \textbf{Diffusion}
 
-\begin{tcolorbox}[enhanced jigsaw, colframe=quarto-callout-note-color-frame, bottomrule=.15mm, colback=white, left=2mm, toprule=.15mm, arc=.35mm, coltitle=black, opacityback=0, rightrule=.15mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Hinweis}, colbacktitle=quarto-callout-note-color!10!white, opacitybacktitle=0.6, toptitle=1mm, bottomtitle=1mm, titlerule=0mm, leftrule=.75mm, breakable]
+\begin{tcolorbox}[enhanced jigsaw, toprule=.15mm, opacityback=0, colbacktitle=quarto-callout-note-color!10!white, breakable, colframe=quarto-callout-note-color-frame, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Hinweis}, left=2mm, arc=.35mm, toptitle=1mm, bottomrule=.15mm, rightrule=.15mm, titlerule=0mm, bottomtitle=1mm, leftrule=.75mm, opacitybacktitle=0.6, coltitle=black, colback=white]
 
 Diese Permutationen sind in Hardware einfacher implementierbar als in
 der Software.
@@ -714,7 +752,7 @@ wird von 32-Bits zu 48-Bits \emph{expandiert}.
 \includegraphics[width=6cm,height=\textheight]{images/crypto/expansion_function.png}
 \end{center}
 
-\begin{tcolorbox}[enhanced jigsaw, colframe=quarto-callout-important-color-frame, bottomrule=.15mm, colback=white, left=2mm, toprule=.15mm, arc=.35mm, coltitle=black, opacityback=0, rightrule=.15mm, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Wichtig}, colbacktitle=quarto-callout-important-color!10!white, opacitybacktitle=0.6, toptitle=1mm, bottomtitle=1mm, titlerule=0mm, leftrule=.75mm, breakable]
+\begin{tcolorbox}[enhanced jigsaw, toprule=.15mm, opacityback=0, colbacktitle=quarto-callout-important-color!10!white, breakable, colframe=quarto-callout-important-color-frame, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Wichtig}, left=2mm, arc=.35mm, toptitle=1mm, bottomrule=.15mm, rightrule=.15mm, titlerule=0mm, bottomtitle=1mm, leftrule=.75mm, opacitybacktitle=0.6, coltitle=black, colback=white]
 
 16-Bit der 32 Input-Bits kommen doppelt vor. \textbf{ABER} ein Input-Bit
 kommt \textbf{nicht} zweimal vor im selben 6-Bit Block \(\rightarrow\)
@@ -782,7 +820,7 @@ verschlüsselt werden. \ul{Er erfordert sehr wenig Rechenleistung}.
 \includegraphics[width=6cm,height=\textheight]{images/crypto/TEA_InfoBox_Diagram.png}
 \end{center}
 
-\begin{tcolorbox}[enhanced jigsaw, colframe=quarto-callout-important-color-frame, bottomrule=.15mm, colback=white, left=2mm, toprule=.15mm, arc=.35mm, coltitle=black, opacityback=0, rightrule=.15mm, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{(Fast) kein Feistel Netzwerk}, colbacktitle=quarto-callout-important-color!10!white, opacitybacktitle=0.6, toptitle=1mm, bottomtitle=1mm, titlerule=0mm, leftrule=.75mm, breakable]
+\begin{tcolorbox}[enhanced jigsaw, toprule=.15mm, opacityback=0, colbacktitle=quarto-callout-important-color!10!white, breakable, colframe=quarto-callout-important-color-frame, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{(Fast) kein Feistel Netzwerk}, left=2mm, arc=.35mm, toptitle=1mm, bottomrule=.15mm, rightrule=.15mm, titlerule=0mm, bottomtitle=1mm, leftrule=.75mm, opacitybacktitle=0.6, coltitle=black, colback=white]
 
 Die verschlüsselten Blöcke können nicht so einfach wieder entschlüsselt,
 da im Algorithmus nebst XOR noch Additionen stattfinden. Für die
@@ -801,7 +839,7 @@ Verschlüsselung besser macht. Gleiche Eigenschaften + Konstantwert
 \includegraphics[width=6cm,height=\textheight]{images/crypto/XTEA_InfoBox_Diagram.png}
 \end{center}
 
-\begin{tcolorbox}[enhanced jigsaw, colframe=quarto-callout-important-color-frame, bottomrule=.15mm, colback=white, left=2mm, toprule=.15mm, arc=.35mm, coltitle=black, opacityback=0, rightrule=.15mm, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{XTEA sicher?}, colbacktitle=quarto-callout-important-color!10!white, opacitybacktitle=0.6, toptitle=1mm, bottomtitle=1mm, titlerule=0mm, leftrule=.75mm, breakable]
+\begin{tcolorbox}[enhanced jigsaw, toprule=.15mm, opacityback=0, colbacktitle=quarto-callout-important-color!10!white, breakable, colframe=quarto-callout-important-color-frame, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{XTEA sicher?}, left=2mm, arc=.35mm, toptitle=1mm, bottomrule=.15mm, rightrule=.15mm, titlerule=0mm, bottomtitle=1mm, leftrule=.75mm, opacitybacktitle=0.6, coltitle=black, colback=white]
 
 XTEA ist ein sicherer Verschlüsselungsalgorithmus, wenn auch nicht so
 sicher wie RSA oder andere.
@@ -813,29 +851,19 @@ sicher wie RSA oder andere.
 \subsection{\texorpdfstring{Cipher Modi
 \href{https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation\#CTR}{\faWikipediaW}}{Cipher Modi }}\label{cipher-modi}
 
-\subsubsection{ECB}\label{ecb}
+\subsubsection{Electronic Code Book
+(ECB)}\label{electronic-code-book-ecb}
 
-\textbf{E}lectronic \textbf{C}ode \textbf{B}ook
+\subsubsection{Cyber Block Chaining
+(CBC)}\label{cyber-block-chaining-cbc}
 
-\subsubsection{CBC}\label{cbc}
+\subsubsection{Cipiher FeedBack (CFB)}\label{cipiher-feedback-cfb}
 
-\textbf{C}yber \textbf{B}lock \textbf{C}haining
+\subsubsection{Output FeedBack (OFB)}\label{output-feedback-ofb}
 
-\subsubsection{CFB}\label{cfb}
+\subsubsection{CounTeR (CTR)}\label{counter-ctr}
 
-\textbf{C}ipiher \textbf{F}eed\textbf{B}ack
-
-\subsubsection{OFB}\label{ofb}
-
-\textbf{O}utput \textbf{F}eed\textbf{B}ack
-
-\subsubsection{CTR}\label{ctr}
-
-\textbf{C}oun\textbf{T}e\textbf{R}
-
-\subsubsection{GCM}\label{gcm}
-
-\textbf{G}alois \textbf{C}ounter \textbf{M}ode
+\subsubsection{Galois Counter Mode (GCM)}\label{galois-counter-mode-gcm}
 
 \subsection{Meet-In-The-Middle Attack}\label{meet-in-the-middle-attack}
 
@@ -860,13 +888,15 @@ sicher wie RSA oder andere.
 
 }
 
+\newpage
+
 \section{\texorpdfstring{Docker \faIcon{docker}}{Docker }}\label{docker}
 
 \begin{center}
 \includegraphics[width=7cm,height=\textheight]{images/meme_docker.jpg}
 \end{center}
 
-\begin{tcolorbox}[enhanced jigsaw, colframe=quarto-callout-important-color-frame, bottomrule=.15mm, colback=white, left=2mm, toprule=.15mm, arc=.35mm, coltitle=black, opacityback=0, rightrule=.15mm, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Wichtig}, colbacktitle=quarto-callout-important-color!10!white, opacitybacktitle=0.6, toptitle=1mm, bottomtitle=1mm, titlerule=0mm, leftrule=.75mm, breakable]
+\begin{tcolorbox}[enhanced jigsaw, toprule=.15mm, opacityback=0, colbacktitle=quarto-callout-important-color!10!white, breakable, colframe=quarto-callout-important-color-frame, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Wichtig}, left=2mm, arc=.35mm, toptitle=1mm, bottomrule=.15mm, rightrule=.15mm, titlerule=0mm, bottomtitle=1mm, leftrule=.75mm, opacitybacktitle=0.6, coltitle=black, colback=white]
 
 Bash Befehle via Host sind mit {\color{BrickRed}{\texttt{\textbf{\$}}}}
 gekennzeichnet.
@@ -1071,6 +1101,9 @@ Container erstellen und dann ausführen
 \subsubsection{\texorpdfstring{{\small \faTerminal\hspace{1mm}}
 Auflisten}{ Auflisten}}\label{auflisten-1}
 
+listet alle \textbf{momentan} ausgeführten Container auf. Mit
+\texttt{-a} listet alle Container auf
+
 \begin{Shaded}
 \begin{Highlighting}[]
 \ExtensionTok{$}\NormalTok{ docker ps }\CommentTok{\# kurz für \textquotesingle{}docker container ls\textquotesingle{}}
@@ -1079,9 +1112,6 @@ Auflisten}{ Auflisten}}\label{auflisten-1}
 \ExtensionTok{6201bc70ef8c}\NormalTok{  debian  }\StringTok{"bash"}\NormalTok{  ... Up 58 minutes ... magical\_villani}
 \end{Highlighting}
 \end{Shaded}
-
-listet alle \textbf{momentan} ausgeführten Container auf. Mit
-\texttt{-a} listet alle Container auf
 
 \subsubsection{\texorpdfstring{{\small \faTerminal\hspace{1mm}}
 Attach/Detach}{ Attach/Detach}}\label{attachdetach}
@@ -1173,16 +1203,16 @@ In Einzelschritten
 \subsubsection{\texorpdfstring{{\small \faTerminal\hspace{1mm}}
 Löschen}{ Löschen}}\label{luxf6schen-1}
 
-Es können nur \emph{stopped} und \emph{created} Container gelöscht
-werden.
-
 \begin{Shaded}
 \begin{Highlighting}[]
 \ExtensionTok{$}\NormalTok{ docker rm }\OperatorTok{\textless{}}\NormalTok{container}\OperatorTok{\textgreater{}}\NormalTok{ [container ...]}
 \end{Highlighting}
 \end{Shaded}
 
-\begin{tcolorbox}[enhanced jigsaw, colframe=quarto-callout-tip-color-frame, bottomrule=.15mm, colback=white, left=2mm, toprule=.15mm, arc=.35mm, coltitle=black, opacityback=0, rightrule=.15mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Löschen nach Beendung}, colbacktitle=quarto-callout-tip-color!10!white, opacitybacktitle=0.6, toptitle=1mm, bottomtitle=1mm, titlerule=0mm, leftrule=.75mm, breakable]
+Es können nur \emph{stopped} und \emph{created} Container gelöscht
+werden.
+
+\begin{tcolorbox}[enhanced jigsaw, toprule=.15mm, opacityback=0, colbacktitle=quarto-callout-tip-color!10!white, breakable, colframe=quarto-callout-tip-color-frame, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Löschen nach Beendung}, left=2mm, arc=.35mm, toptitle=1mm, bottomrule=.15mm, rightrule=.15mm, titlerule=0mm, bottomtitle=1mm, leftrule=.75mm, opacitybacktitle=0.6, coltitle=black, colback=white]
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1192,7 +1222,7 @@ werden.
 
 \end{tcolorbox}
 
-\begin{tcolorbox}[enhanced jigsaw, colframe=quarto-callout-tip-color-frame, bottomrule=.15mm, colback=white, left=2mm, toprule=.15mm, arc=.35mm, coltitle=black, opacityback=0, rightrule=.15mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Inaktive Container löschen}, colbacktitle=quarto-callout-tip-color!10!white, opacitybacktitle=0.6, toptitle=1mm, bottomtitle=1mm, titlerule=0mm, leftrule=.75mm, breakable]
+\begin{tcolorbox}[enhanced jigsaw, toprule=.15mm, opacityback=0, colbacktitle=quarto-callout-tip-color!10!white, breakable, colframe=quarto-callout-tip-color-frame, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Inaktive Container löschen}, left=2mm, arc=.35mm, toptitle=1mm, bottomrule=.15mm, rightrule=.15mm, titlerule=0mm, bottomtitle=1mm, leftrule=.75mm, opacitybacktitle=0.6, coltitle=black, colback=white]
 
 Löscht alle Container, welche nicht mehr verwendet werden.
 
@@ -1303,7 +1333,7 @@ folgenden Docker-Befehlen gesteuert werden.
   \input{./tikzedt/life_cycle.tex}
 }
 
-\begin{tcolorbox}[enhanced jigsaw, colframe=quarto-callout-note-color-frame, bottomrule=.15mm, colback=white, left=2mm, toprule=.15mm, arc=.35mm, coltitle=black, opacityback=0, rightrule=.15mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Unterschied \emph{Stopped} und \emph{Paused}}, colbacktitle=quarto-callout-note-color!10!white, opacitybacktitle=0.6, toptitle=1mm, bottomtitle=1mm, titlerule=0mm, leftrule=.75mm, breakable]
+\begin{tcolorbox}[enhanced jigsaw, toprule=.15mm, opacityback=0, colbacktitle=quarto-callout-note-color!10!white, breakable, colframe=quarto-callout-note-color-frame, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Unterschied \emph{Stopped} und \emph{Paused}}, left=2mm, arc=.35mm, toptitle=1mm, bottomrule=.15mm, rightrule=.15mm, titlerule=0mm, bottomtitle=1mm, leftrule=.75mm, opacitybacktitle=0.6, coltitle=black, colback=white]
 
 Wenn ein Container gestoppt wird, werden alle ihm zugewiesenen
 Ressourcen freigegeben, während bei einem angehaltenen Container kein
@@ -1311,9 +1341,8 @@ Speicher, aber die CPU freigegeben wird.
 
 \end{tcolorbox}
 
-\subsubsection{\texorpdfstring{\texttt{\{\textbackslash{}small\ \textbackslash{}faTerminal\textbackslash{}hspace\{1mm\}\}}
-Grösse
-\texttt{-\/-size}}{\{\textbackslash small \textbackslash faTerminal\textbackslash hspace\{1mm\}\} Grösse -\/-size}}\label{small-faterminalhspace1mm-gruxf6sse---size}
+\subsubsection{\texorpdfstring{{\small \faTerminal\hspace{1mm}} Grösse
+\texttt{-\/-size}}{ Grösse -\/-size}}\label{gruxf6sse---size}
 
 Da ein Container Änderungen auf einer separaten Layer verfolgt, ist der
 Speicherplatz selbst meistens klein.
@@ -1480,7 +1509,7 @@ Volumen erstellt werden. Einfach keine Pfad/Host Volumen.
 
 \subsection{Dockerfile}\label{dockerfile}
 
-Mit einem \faFile[regular]\texttt{Dockerfile} kann ein Image erstellt
+Mit einem \faFile[regular] \texttt{Dockerfile} kann ein Image erstellt
 werden anhand Anweisungen. \ul{Jede Anweisung erzeugt eine eigene
 Layer}.
 
@@ -1621,6 +1650,8 @@ erstellt wurde.
 
 \subsubsection{Multistage}\label{multistage}
 
+Mit Multistage Building können komplexe Images erzeugt werden.
+
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{\# }\CommentVarTok{syntax=docker/dockerfile:1}
@@ -1712,15 +1743,13 @@ Es gilt folgendes Format:
 \textbf{\texttt{\color{Periwinkle}{latest}}} heruntergeladen und
 gestartet.
 
-\section{Safety}\label{safety}
-
-\section{Ada Spark}\label{ada-spark}
+\newpage
 
 \section{Performance}\label{performance}
 
 \subsection{Cache}\label{cache}
 
-\begin{tcolorbox}[enhanced jigsaw, colframe=quarto-callout-note-color-frame, bottomrule=.15mm, colback=white, left=2mm, toprule=.15mm, arc=.35mm, coltitle=black, opacityback=0, rightrule=.15mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Was Cache?}, colbacktitle=quarto-callout-note-color!10!white, opacitybacktitle=0.6, toptitle=1mm, bottomtitle=1mm, titlerule=0mm, leftrule=.75mm, breakable]
+\begin{tcolorbox}[enhanced jigsaw, toprule=.15mm, opacityback=0, colbacktitle=quarto-callout-note-color!10!white, breakable, colframe=quarto-callout-note-color-frame, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Was Cache?}, left=2mm, arc=.35mm, toptitle=1mm, bottomrule=.15mm, rightrule=.15mm, titlerule=0mm, bottomtitle=1mm, leftrule=.75mm, opacitybacktitle=0.6, coltitle=black, colback=white]
 
 \end{tcolorbox}
 
@@ -1751,7 +1780,7 @@ Cache-Zeilen}
 
 \texttt{funroll-loops}
 
-\begin{tcolorbox}[enhanced jigsaw, colframe=quarto-callout-tip-color-frame, bottomrule=.15mm, colback=white, left=2mm, toprule=.15mm, arc=.35mm, coltitle=black, opacityback=0, rightrule=.15mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Enabling Optimization}, colbacktitle=quarto-callout-tip-color!10!white, opacitybacktitle=0.6, toptitle=1mm, bottomtitle=1mm, titlerule=0mm, leftrule=.75mm, breakable]
+\begin{tcolorbox}[enhanced jigsaw, toprule=.15mm, opacityback=0, colbacktitle=quarto-callout-tip-color!10!white, breakable, colframe=quarto-callout-tip-color-frame, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Enabling Optimization}, left=2mm, arc=.35mm, toptitle=1mm, bottomrule=.15mm, rightrule=.15mm, titlerule=0mm, bottomtitle=1mm, leftrule=.75mm, opacitybacktitle=0.6, coltitle=black, colback=white]
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1762,6 +1791,814 @@ Cache-Zeilen}
 \end{tcolorbox}
 
 \subsection{}\label{section}
+
+\newpage
+
+\section{Safety}\label{safety}
+
+\subsection{Terms}\label{terms}
+
+\begin{description}
+\tightlist
+\item[Hazard]
+A hazard is a situation in which there is actual or potential danger to
+people or the environment.
+\item[Accident]
+An accident is an unintended event harming people or the environment.
+\item[Incident]
+An incident (or near miss) is an unintended event which does not harm,
+but has the potential to do so.
+\item[Risk]
+To each hazard, the risk describes the likelihood of occurrence and the
+likely consequences.
+\item[Fault]
+A fault is a defect within the system. Faults can be categorized into
+random faults and systematic faults.
+\item[Error]
+An error is a deviation from the required operation of the system or
+subsystem.
+\item[System Failure]
+A system failure occurs when the system fails to perform its required
+function.
+\item[Causalities]
+The presence of a fault may lead to an error, which may lead to a system
+failure, which may lead to an accident.
+\end{description}
+
+\subsection{Requirements}\label{requirements}
+
+\includegraphics{images/safety/image-29.png}
+
+\includegraphics{images/safety/image-30.png}
+
+\subsection{V\&V\&C}\label{vvc}
+
+\begin{description}
+\tightlist
+\item[Verification]
+Verification is the process of determining that a system, or module,
+meets its specification.
+\item[Validation]
+Validation it the process of determining that a system is appropriate
+for its purpose.
+\item[Certification]
+Certification it the process of convincing a regulatory bodies about a
+systems properties.
+\end{description}
+
+\subsection{Computers in Safety Related
+Systems?}\label{computers-in-safety-related-systems}
+
+\includegraphics{images/safety/image-32.png}
+
+\includegraphics{images/safety/image-33.png}
+
+\subsection{Silver Bullet}\label{silver-bullet}
+
+There is good evidence that better processes lead to programs with fewer
+defect. Some numbers in relation to the CMM (Capability Maturity Model)
+level defined by Software Engineering Institute (SEI) according to:
+
+\begin{center}
+\includegraphics[width=\textwidth,height=4cm]{images/safety/image-31.png}
+\end{center}
+
+Brooks argues that \textbf{``there is no single development, in either
+technology or management technique, which by itself promises even one
+order of magnitude {[}tenfold{]} improvement within a decade in
+productivity, in reliability, in simplicity.''} He also states that
+\textbf{``we cannot expect ever to see two-fold gains every two years''}
+in software development, as there is in hardware development (Moore's
+law).
+
+\subsection{Hazard Analysis}\label{hazard-analysis}
+
+\vspace{-2mm}{\color{Orchid}\faQuestionCircle[regular]} \emph{How to
+identify the ways in which a system can cause harm?}
+
+\subsubsection{FMEA: Failure mode and effects
+analysis}\label{fmea-failure-mode-and-effects-analysis}
+
+Consider the failure of any component within a system and track the
+effects of this failure to determine its ultimate consequences.
+
+\subsubsection{HAZOP: Hazard and operability
+studies}\label{hazop-hazard-and-operability-studies}
+
+Use a series of 'guide words' to investigate the effects of deviations
+from normal operating conditions.
+
+\includegraphics{images/safety/image.png}
+
+\subsubsection{ETA: Event tree analysis}\label{eta-event-tree-analysis}
+
+Take the events that can affect the system as starting point and track
+them forward to determine their possible consequences.
+
+\includegraphics{images/safety/image-1.png}
+
+\subsubsection{FTA: Fault tree analysis}\label{fta-fault-tree-analysis}
+
+Start with all identified hazards and work backwards to determine their
+possible causes. (Reverse to ETA)
+
+\includegraphics{images/safety/image-2.png}
+
+\subsection{Risk Analysis}\label{risk-analysis}
+
+\begin{tcolorbox}[enhanced jigsaw, toprule=.15mm, left=2mm, arc=.35mm, opacityback=0, rightrule=.15mm, breakable, bottomrule=.15mm, colframe=quarto-callout-important-color-frame, leftrule=.75mm, colback=white]
+\begin{minipage}[t]{5.5mm}
+\textcolor{quarto-callout-important-color}{\faExclamation}
+\end{minipage}%
+\begin{minipage}[t]{\textwidth - 5.5mm}
+
+\vspace{-3mm}\textbf{Fundamental Rule}\vspace{3mm}
+
+\[
+\text{Risk} = \text{Severity} \times \text{Frequency} 
+\]
+
+\end{minipage}%
+\end{tcolorbox}
+
+\resizebox{\columnwidth}{!}{
+  \input{./tikzedt/risk_overview.tikz}
+}
+
+\begin{minipage}[c][1cm][c]{.7\columnwidth}
+
+\subsubsection{Severity}\label{severity}
+
+\vspace{-2mm}{\color{Orchid}\faQuestionCircle[regular]} \emph{How severe
+is an accident?}
+
+\end{minipage}%
+\begin{minipage}[c][1cm][c]{.3\columnwidth}
+\makebox[30mm][r]{
+\resizebox{!}{0.9cm}{
+  \input{./tikzedt/riskover1.tikz}
+}}
+\end{minipage}
+
+\includegraphics{images/safety/image-3.png}
+
+\begin{minipage}[c][1cm][c]{.7\columnwidth}
+
+\subsubsection{Frequency}\label{frequency}
+
+\vspace{-2mm}{\color{Orchid}\faQuestionCircle[regular]} \emph{How
+frequent does it occur?}
+
+\end{minipage}%
+\begin{minipage}[c][1cm][c]{.3\columnwidth}
+\makebox[30mm][r]{
+\resizebox{!}{0.9cm}{
+  \input{./tikzedt/riskover2.tikz}
+}}
+\end{minipage}
+
+\includegraphics{images/safety/image-4.png}
+
+\begin{minipage}[c][1cm][c]{.7\columnwidth}
+
+\subsubsection{Risk}\label{risk}
+
+\vspace{-2mm}{\color{Orchid}\faQuestionCircle[regular]} \emph{What is
+the risk associated?}
+
+\end{minipage}%
+\begin{minipage}[c][1cm][c]{.3\columnwidth}
+\makebox[30mm][r]{
+\resizebox{!}{0.9cm}{
+  \input{./tikzedt/riskover3.tikz}
+}}
+\end{minipage}
+
+\includegraphics{images/safety/image-5.png}
+
+\begin{minipage}[c][1cm][c]{.7\columnwidth}
+
+\subsubsection{Integrity}\label{integrity}
+
+\vspace{-2mm}{\color{Orchid}\faQuestionCircle[regular]} \emph{Is the
+risk acceptable?}
+
+\end{minipage}%
+\begin{minipage}[c][1cm][c]{.3\columnwidth}
+\makebox[30mm][r]{
+\resizebox{!}{0.9cm}{
+  \input{./tikzedt/riskover4.tikz}
+}}
+\end{minipage}
+
+\includegraphics{images/safety/image-6.png}
+
+\subsubsection{Integrity Levels}\label{integrity-levels}
+
+\vspace{-2mm}{\color{Orchid}\faQuestionCircle[regular]} \emph{What
+failure rate is tolerable?}
+
+\includegraphics{images/safety/image-7.png}
+
+\begin{tcolorbox}[enhanced jigsaw, toprule=.15mm, opacityback=0, colbacktitle=quarto-callout-tip-color!10!white, breakable, colframe=quarto-callout-tip-color-frame, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Example -- Parachute}, left=2mm, arc=.35mm, toptitle=1mm, bottomrule=.15mm, rightrule=.15mm, titlerule=0mm, bottomtitle=1mm, leftrule=.75mm, opacitybacktitle=0.6, coltitle=black, colback=white]
+
+{\small Hazard of free fall, severity rated as catastrophic with occasional frequency. Therefore risk is intolerable and a parachute is selected as safety feature. It works on demand mode and has to reduce the frequency by 2 orders of magnitudes, so SIL 2 is required at least.}
+
+\end{tcolorbox}
+
+\begin{tcolorbox}[enhanced jigsaw, toprule=.15mm, opacityback=0, colbacktitle=quarto-callout-important-color!10!white, breakable, colframe=quarto-callout-important-color-frame, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Distinguish!}, left=2mm, arc=.35mm, toptitle=1mm, bottomrule=.15mm, rightrule=.15mm, titlerule=0mm, bottomtitle=1mm, leftrule=.75mm, opacitybacktitle=0.6, coltitle=black, colback=white]
+
+{\bfseries\color{Orange}Risk} is a measure of the likelihood, and the
+consequences, of a hazardous event.
+{\bfseries\color{Orange}Safety integrity} is a measure of the likelihood
+of the safety system correctly performing its task.
+
+\end{tcolorbox}
+
+\begin{minipage}[c][1cm][c]{.7\columnwidth}
+
+\subsubsection{Allocating Levels}\label{allocating-levels}
+
+\vspace{-2mm}{\color{Orchid}\faQuestionCircle[regular]} \emph{What is
+contributing?}
+
+\end{minipage}%
+\begin{minipage}[c][1cm][c]{.3\columnwidth}
+\makebox[30mm][r]{
+\resizebox{!}{0.9cm}{
+  \input{./tikzedt/riskover5.tikz}
+}}
+\end{minipage}
+
+\ul{Hardware} integrity is that part of the safety integrity relating to
+dangerous \textbf{random} hardware failures.
+
+\ul{Systematic} integrity is that part of the safety integrity relating
+to dangerous \textbf{systematic} failures.
+
+\ul{Software} integrity is that part of the safety integrity relating to
+dangerous \textbf{software} failures.
+
+\subsection{Design for Safety}\label{design-for-safety}
+
+\begin{tcolorbox}[enhanced jigsaw, toprule=.15mm, opacityback=0, colbacktitle=quarto-callout-tip-color!10!white, breakable, colframe=quarto-callout-tip-color-frame, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{General, \ul{Iterative} Design Process}, left=2mm, arc=.35mm, toptitle=1mm, bottomrule=.15mm, rightrule=.15mm, titlerule=0mm, bottomtitle=1mm, leftrule=.75mm, opacitybacktitle=0.6, coltitle=black, colback=white]
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Abstraction} Generlization \& ID of essentials
+\item
+  \textbf{Decomposition} Objects into smaller parts + Analysis
+\item
+  \textbf{Elaboration} detailing \& adding features
+\item
+  \textbf{Decision} identification \& selection of alternatives
+\end{enumerate}
+
+\end{tcolorbox}
+
+\subsubsection{Types of Fault}\label{types-of-fault}
+
+\vspace{-2mm}{\color{Orchid}\faQuestionCircle[regular]} \emph{What types
+of fault may occure?}
+
+\textHighlight{\bfseries N{\fontsize{7pt}{8pt}\selectfont{ATURE}}}
+
+\begin{itemize}
+\tightlist
+\item
+  Random (HW)
+\item
+  Systematic
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Specification
+  \item
+    HW Design
+  \item
+    SW Design
+  \end{itemize}
+\end{itemize}
+
+\textHighlight{\bfseries D{\fontsize{7pt}{8pt}\selectfont{URATION}}}
+
+\begin{itemize}
+\tightlist
+\item
+  Permanent -- most HW faults, design
+\item
+  Transient -- e.g.~\(\alpha\) particles
+\item
+  Intermittent -- e.g.~contacts, interference (EMC)
+\end{itemize}
+
+\textHighlight{\bfseries E{\fontsize{7pt}{8pt}\selectfont{XTEND}}}
+
+\begin{itemize}
+\tightlist
+\item
+  Localized -- affecting only part of the system
+\item
+  Global -- effects which permeate throughout the system
+\end{itemize}
+
+\subsection{Fault Tolerance}\label{fault-tolerance}
+
+\subsubsection{Triple Modular Redundancy
+(TMR)}\label{triple-modular-redundancy-tmr}
+
+{\small\textit{Three identical moduls get fed by the same signal. A voter compares the results and produces an output corresponding to the majority view.}}
+
+\begin{center}
+\input{./tikzedt/tmr.tikz}
+\end{center}
+
+{\small\begin{description}[parsep=0mm,labelsep=2pt,labelwidth=10pt]
+  \item[\color{OliveGreen}\faPlus] simple
+  \item[\color{OliveGreen}\faPlus] prevents from failure of a single component, i.e. \textit{single-point failure}
+  \item[\color{BrickRed}\faMinus] leaves input and voter as sources for single-point failures
+  \item[\color{BrickRed}\faMinus] does not prevent from systematic failures
+  \item[\color{BrickRed}\faMinus] voter is dependable
+\end{description}}
+
+\subsubsection{Voter}\label{voter}
+
+{\small\textit{To make voting unit reliable, keep it as simple as possible.}}
+
+\begin{center}
+\input{./tikzedt/voter.tikz}
+\end{center}
+
+{\small\begin{description}[parsep=0mm,labelsep=2pt,labelwidth=10pt]
+  \item[\color{OliveGreen}\faPlus] simple, low complexity
+  \item[\color{OliveGreen}\faPlus] high reliability
+  \item[\color{BrickRed}\faMinus] no indication in case of discrepancies
+\end{description}}
+
+\subsubsection{TMR with triple voting}\label{tmr-with-triple-voting}
+
+{\small\textit{Use triple input signals and triple voting instances.}}
+
+\begin{center}
+\input{./tikzedt/tmr_triplevote.tikz}
+\end{center}
+
+{\small\begin{description}[parsep=0mm,labelsep=2pt,labelwidth=10pt]
+  \item[\color{OliveGreen}\faPlus] \textbf{all} outputs are correct in case a single module fails
+  \item[\color{BrickRed}\faMinus] more components required
+  \item[\color{BrickRed}\faMinus] no protection against simultaneous failure of two or more modules
+  \item[\color{BrickRed}\faMinus] does not prevent from systematic failures
+\end{description}}
+
+\subsubsection{Multistage TMR}\label{multistage-tmr}
+
+{\small\textit{Cascading TMRs with triple voters can deal with failed voting unit.}}
+
+\resizebox{\columnwidth}{!}{
+\input{./tikzedt/multistage_tmr.tikz}}
+
+{\small\begin{description}[parsep=0mm,labelsep=2pt,labelwidth=10pt]
+  \item[\color{OliveGreen}\faPlus] allows a single module to fail at each level
+  \item[\color{OliveGreen}\faPlus] allows a single voter to fail at each level
+  \item[\color{BrickRed}\faMinus] no protection against simultaneous failure of two or more units at same level
+  \item[\color{BrickRed}\faMinus] does not prevent from systematic failure
+\end{description}}
+
+\subsubsection{\texorpdfstring{NMR - \(N\) Modular
+Redundancy}{NMR - N Modular Redundancy}}\label{nmr---n-modular-redundancy}
+
+{\small\textit{Use a large (odd) number of modules to increase ability to withstand failures.}}
+
+\begin{center}
+\input{./tikzedt/nmr.tikz}
+\end{center}
+
+{\small\begin{description}[parsep=0mm,labelsep=2pt,labelwidth=10pt]
+  \item[\color{OliveGreen}\faPlus] allows  $\sfrac{(N-1)}{2}$ modules to fail
+  \item[\color{BrickRed}\faMinus] higher complexity of voter
+  \item[\color{BrickRed}\faMinus] higher cost, size, power consumption
+\end{description}}
+
+\subsubsection{Dynamic Redundancy}\label{dynamic-redundancy}
+
+{\small\textit{While no fault is detected, one module drives the output. In case of a fault, a switch reconfigures the system such that the output is taken from a ’standby spare’ module.}}
+
+\begin{center}
+\input{./tikzedt/dynamicred.tikz}
+\end{center}
+
+{\small\begin{description}[parsep=0mm,labelsep=2pt,labelwidth=10pt]
+  \item[\color{OliveGreen}\faPlus] allows one modules to fail
+  \item[\color{OliveGreen}\faPlus] gives indication of fault
+  \item[\color{BrickRed}\faMinus] fault detector required (single-point failure!)
+  \item[\color{Orange}\bfseries ±] either \textit{hot standby} or \textit{cold standby} possible
+  \item[\color{Orange}\bfseries ±] can be extended to $N$ modules
+\end{description}}
+
+\subsubsection{Self Checking Pair}\label{self-checking-pair}
+
+{\small\textit{The output of two identical modules are compared to give an indication of failure.}}
+
+\begin{center}
+\input{./tikzedt/self_check_pair.tikz}
+\end{center}
+
+{\small\begin{description}[parsep=0mm,labelsep=2pt,labelwidth=10pt]
+  \item[\color{OliveGreen}\faPlus] simple, reliable
+  \item[\color{OliveGreen}\faPlus] gives indication of fault
+  \item[\color{BrickRed}\faMinus] no redundancy
+\end{description}}
+
+\subsubsection{Redundancy Combining}\label{redundancy-combining}
+
+{\small\begin{description}[style=sameline,parsep=0mm,labelsep=2pt,labelwidth=10pt]
+  \item[\textHighlight{\bfseries S{\fontsize{6.5pt}{7pt}\selectfont{TATIC}}}] Voting to produce \textit{fault masking} at the cost of large amount of redundancy.
+  \item[\textHighlight{\bfseries D{\fontsize{6.5pt}{7pt}\selectfont{YNAMIC}}}] Fault detection and some form of switching, but \textbf{do not} mask faults.
+  \item[\textHighlight{\bfseries H{\fontsize{6.5pt}{7pt}\selectfont{YBRID}}}] Combination of voting, fault detection and module switching $\rightarrow$ Most reduced down to \textit{N-modular redundancy with spares}.
+\end{description}}
+
+\subsubsection{Software Faults}\label{software-faults}
+
+{\small\textit{Software faults are systematic by nature, duplicating the systems gives therefore no protection from faults.}}
+
+{\small\begin{description}[style=sameline,parsep=0mm,labelsep=2pt,labelwidth=10pt]
+  \item[\textHighlight{\bfseries $\mathbf{N}$-Version Programming}] Same function gets implemented differently with the same specifications. ($N=3$ for Airbus, $N=4$ for Space Shuttle)
+  \item[\textHighlight{\bfseries Recovery Blocks}] When a module fails, it induces (triggers) the execution of a secondary implementation of the same module.
+\end{description}}
+
+\subsection{Reliability}\label{reliability}
+
+\subsubsection{\texorpdfstring{(Un)-Reliability \(R\)
+(\(Q\))}{(Un)-Reliability R (Q)}}\label{un-reliability-r-q}
+
+Reliability \(R\) is the probability of a component/system functioning
+correctly over a given period of time and a given set of operating
+condition.
+
+\[
+R(t)=\frac{n(t)}{N}
+\]
+
+\begin{conditions*}
+  N & Amount of identical components \\
+  n(t) & expected number of components operating correctly at some time $t$
+\end{conditions*}
+
+The \textbf{un}reliability \(Q\) defines how likely it is that the
+system/component will break.
+
+\[
+Q(t)=\frac{n_f(t)}{N}=1-R(t)
+\]
+
+\begin{conditions*}
+  n_f(t) & expected number of malfunctioning components at some time $t$.
+\end{conditions*}
+
+\subsubsection{\texorpdfstring{Failure Rate
+\(z(t)\)}{Failure Rate z(t)}}\label{failure-rate-zt}
+
+Is the rate at which a device fails. Number of devices failing within a
+given period of time as a fraction of the devices still functioning.
+
+\[
+z(t)=\frac{1}{n(t)}\cdot\frac{d~n_f(t)}{dt}
+\]
+
+\subsubsection{Bathtub Curve}\label{bathtub-curve}
+
+\begin{center}
+\includegraphics[width=6cm,height=\textheight]{images/safety/image-10.png}
+\end{center}
+
+{\small\begin{description}[style=sameline,parsep=0mm,labelsep=2pt,labelwidth=10pt]
+  \item[\textbf{Burn in}] high ’infant mortality’ due to manufacturing faults.
+  \item[\textbf{Useful life}]  the failure rate takes in a fairly constant level $\lambda$.
+  \item[\textbf{Wear out}] ageing becomes apart and the failure rate rises.
+\end{description}}
+
+\subsubsection{Useful-Life}\label{useful-life}
+
+If the failure rate is constant, \(z(t)=\lambda\),
+
+\[
+z(t)=\lambda=\frac{1}{n(t)}\cdot\frac{d~n_f(t)}{dt}
+\]
+
+with \(n_f(t) = N - n(t)\) we get the differential equation
+
+\[
+\lambda n(t) = \frac{dN-n}{dt}=-\frac{dt}{dt}
+\]
+
+with solution for \(R(t) = \sfrac{n(t)}{N}\)
+
+\[
+R(t)=\exp(-\lambda\cdot t)
+\]
+
+\subsubsection{Time-Variant Failure
+Rates}\label{time-variant-failure-rates}
+
+For software failures, which are systematic and therefore correctable
+after detection, the failure rate decreases with time. The reliability
+resulting can by modelled by the \emph{Weibull} distribution:
+
+\[
+R(t)=\exp(-(\sfrac{t}{\eta})^\beta)
+\]
+
+\begin{conditions*}
+  \beta & shape parameter\\
+  \eta & characteristic life
+\end{conditions*}
+
+\subsection{Mean times}\label{mean-times}
+
+\subsubsection{Mean Time to Failure}\label{mean-time-to-failure}
+
+\vspace{-2mm}{\color{Orchid}\faQuestionCircle[regular]} \emph{What is
+the expected time that a system will operate before the first failure
+occures?}
+
+\[
+MTTF=\int_0^\infty R(t)~dt\rightarrow\int_0^\infty \exp(-\lambda\cdot t)~dt=\frac{1}{\lambda}
+\]
+
+\begin{tcolorbox}[enhanced jigsaw, toprule=.15mm, opacityback=0, colbacktitle=quarto-callout-caution-color!10!white, breakable, colframe=quarto-callout-caution-color-frame, title=\textcolor{quarto-callout-caution-color}{\faFire}\hspace{0.5em}{Beware!}, left=2mm, arc=.35mm, toptitle=1mm, bottomrule=.15mm, rightrule=.15mm, titlerule=0mm, bottomtitle=1mm, leftrule=.75mm, opacitybacktitle=0.6, coltitle=black, colback=white]
+
+{\small A system with $\lambda=0.001$ failure/h does have a MTTF of $1000$ hour. But the reliability at t = 1000 hour is $R(t)=e^{-\lambda\cdot t}=e^{-1}\approx 0.37$. Chances that any given system runs for 1000 hour are only $\approx37\%$!}
+
+\end{tcolorbox}
+
+\begin{tcolorbox}[enhanced jigsaw, toprule=.15mm, opacityback=0, colbacktitle=quarto-callout-important-color!10!white, breakable, colframe=quarto-callout-important-color-frame, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Reliability vs.~MTTF}, left=2mm, arc=.35mm, toptitle=1mm, bottomrule=.15mm, rightrule=.15mm, titlerule=0mm, bottomtitle=1mm, leftrule=.75mm, opacitybacktitle=0.6, coltitle=black, colback=white]
+
+\begin{description}
+\tightlist
+\item[Reliability]
+a function of time, depends on the time for which the system must
+operate.
+\item[MTTF]
+fixed characteristic that does not change with time.
+\end{description}
+
+\end{tcolorbox}
+
+\subsubsection{Mean Time to Repair}\label{mean-time-to-repair}
+
+\vspace{-2mm}{\color{Orchid}\faQuestionCircle[regular]} \emph{What is
+the average time required to repair a system that has failed?}
+
+\[
+MTTR=\frac{1}{\mu}\qquad MTBF=MTTF + MTTR
+\]
+
+\begin{conditions*}
+  MTTR & Mean time to repair\\
+  MTBF & Mean time between failures
+\end{conditions*}
+
+\subsection{Failure in time}\label{failure-in-time}
+
+\vspace{-2mm}{\color{Orchid}\faQuestionCircle[regular]} \emph{How many
+failures are to be expected?}
+
+Failure in time (FIT) is the number of failures that can be expected in
+\(1\times 10^9\) h of operation.
+
+\[
+FIT = 1\times 10^9\cdot\frac{1}{MTBF}
+\]
+
+\subsection{Reliability modelling}\label{reliability-modelling}
+
+\begin{center}
+\input{./tikzedt/series.tikz}
+\end{center}
+
+\[
+R(t)=R_1(t)\cdot R_2(t)\cdot\cdots\cdot R_N(t)=\prod_{i=1}^N R_i(t)
+\]
+
+\[
+\lambda=\lambda_1+\lambda_2+\cdots=\sum_{i=1}^N \lambda_i
+\]
+
+\begin{center}
+\input{./tikzedt/parallel.tikz}
+\end{center}
+
+\[
+R(t)=1-Q(t)=1-\prod_{i=1}^N(1-R_i(t))
+\]
+
+\[
+Q(t)=Q_1(t)\cdot Q_2(t)\cdots Q_N(t)=\prod_{i=1}^N Q_i(t)
+\]
+
+\subsubsection{Triple Modular
+Redundancy}\label{triple-modular-redundancy}
+
+\begin{center}
+\includegraphics[width=\textwidth,height=4cm]{images/safety/image-11.png}
+\end{center}
+
+\[
+\begin{split}
+R_{TMR}=R_1(t)\cdot R_2(t)\cdot R_3(t) &+ (1-R_1(t))\cdot R_2(t)\cdot R_3(t)\\
+                                       &+ (1-R_2(t))\cdot R_1(t)\cdot R_3(t)\\
+                                       &+ (1-R_3(t))\cdot R_1(t)\cdot R_2(t)\\
+\end{split}
+\]
+
+For \(R_1=R_2=R_3=R_m\): \(R(t)=3\cdot R_m^2(t)-2\cdot R_m^3(t)\)
+
+\begin{tcolorbox}[enhanced jigsaw, toprule=.15mm, opacityback=0, colbacktitle=quarto-callout-important-color!10!white, breakable, colframe=quarto-callout-important-color-frame, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{N-Modular Redundancy}, left=2mm, arc=.35mm, toptitle=1mm, bottomrule=.15mm, rightrule=.15mm, titlerule=0mm, bottomtitle=1mm, leftrule=.75mm, opacitybacktitle=0.6, coltitle=black, colback=white]
+
+{\bfseries\color{Orange}M out of N voting}: System works correctly as
+long as {\bfseries\color{Orange}less then M} modules fail.
+
+\begin{center}
+\includegraphics[width=\textwidth,height=4cm]{images/safety/image-12.png}
+\end{center}
+
+\[
+R_{MtoN}(t)=\sum_{i=0}^{N-M}\frac{N!}{(N-i)!\cdot i!}\cdot R_m^{N-i}(t)\cdot (1-R_m(t))^i
+\]
+
+\end{tcolorbox}
+
+\subsubsection{Dynamic Redundancy}\label{dynamic-redundancy-1}
+
+\begin{center}
+\includegraphics[width=\textwidth,height=3cm]{images/safety/image-13.png}
+\end{center}
+
+\[
+\begin{split}
+R(t)&=R_1(t)+(1-R_1(t))\cdot C_1\cdot R_2(t)\\
+    &=R_m(t)+(1-R_m(t))\cdot C_m\cdot R_m(t)
+\end{split}
+\]
+
+\begin{conditions*}
+  R_n & Module Probabilities\\
+  C_n & Fault Coverage
+\end{conditions*}
+
+\subsubsection{Cut and Tie Sets}\label{cut-and-tie-sets}
+
+\includegraphics{images/safety/image-14.png}
+
+\begin{conditions*}
+  {\color{Orange}\rightsquigarrow\textbf{ cut}} & sets of simultaneous failures leading to a system failure\\
+  {\color{OliveGreen}\rightsquigarrow\textbf{ tie}} & sets of working modules guaranteeing a working system
+\end{conditions*}
+
+\[
+1-\sum_{j=1}^{\textcolor{Orange}{\mathbf{N_C}}}\prod_{i=1}^{n_j}(1-R_i(t))\leq R(t) \leq \sum_{j=1}^{\textcolor{OliveGreen}{\mathbf{N_T}}}\prod_{i=1}^{n_j}(1-R_i(t))
+\]
+
+\subsection{Reliability prediction}\label{reliability-prediction}
+
+\subsubsection{Resistor (DoD MIL-Handbook
+217)}\label{resistor-dod-mil-handbook-217}
+
+\[
+\lambda_p = \lambda_b\cdot\pi_R\cdot\pi_Q\cdot\pi_E\quad[\text{failure}/1\times10^6\text{h}]
+\]
+
+\begin{conditions*}
+  \lambda_b & Base rate, temperature ($0.7\times10^{-3}\ldots 6.5\times 10^{-3}$)\\
+  \pi_R     & Resistance range ($1.0\ldots 2.5$)\\
+  \pi_Q     & Quality of manufacturing ($0.03\ldots 15$)\\
+  \pi_E     & Environment ($1\ldots 490$)\\
+  \lambda_p & Per part ($0.21\times10^{-3}\ldots 119.4$)
+\end{conditions*}
+
+\subsubsection{Capacitor (DoD MIL-Handbook
+217)}\label{capacitor-dod-mil-handbook-217}
+
+\[
+\lambda_p = (C_1\cdot\pi_T+C_2\cdot\pi_E)\cdot\pi_Q\cdot\pi_L\quad[\text{failure}/1\times10^6\text{h}]
+\]
+
+\begin{conditions*}
+  C_1   & Die complexity\\
+  C_2   & Packaging\\
+  \pi_T & Ambient temperature\\
+  \pi_E & Environment\\
+  \pi_Q & Quality\\
+  \pi_L & Learning (production)
+\end{conditions*}
+
+\subsubsection{Prediction of software
+reliability}\label{prediction-of-software-reliability}
+
+\textbf{Task}: estimate the number of faults within a given piece of
+software.
+
+\includegraphics{images/safety/image-15.png}
+
+\includegraphics{images/safety/image-16.png}
+
+\subsection{Reliability assessment}\label{reliability-assessment}
+
+\textbf{Task}: demonstrate that a system meets its reliability
+requirement.
+
+\begin{tcolorbox}[enhanced jigsaw, toprule=.15mm, opacityback=0, colbacktitle=quarto-callout-tip-color!10!white, breakable, colframe=quarto-callout-tip-color-frame, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{How to\ldots{}}, left=2mm, arc=.35mm, toptitle=1mm, bottomrule=.15mm, rightrule=.15mm, titlerule=0mm, bottomtitle=1mm, leftrule=.75mm, opacitybacktitle=0.6, coltitle=black, colback=white]
+
+\ldots{} proof that a system fails less then once in \(1\times 10^{9}\)
+hour (i.e. \(\approx 100 000\) year) of operation?
+
+{\textcolor{OliveGreen}{Trust the development techniques}}.
+
+\end{tcolorbox}
+
+\subsection{Software - Formal Methods}\label{software---formal-methods}
+
+\includegraphics{images/safety/image-17.png}
+
+\subsubsection{Spark}\label{spark}
+
+\includegraphics{images/safety/image-19.png}
+
+\includegraphics{images/safety/image-18.png}
+
+\phantomsection\label{annotated-cell-43}%
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{procedure} \DecValTok{Increment}\NormalTok{ (X }\OtherTok{:} \KeywordTok{in} \KeywordTok{out} \DataTypeTok{Integer}\NormalTok{)}
+\KeywordTok{with}
+\NormalTok{    Global =\textgreater{} }\KeywordTok{null}\NormalTok{, }\hspace*{\fill}\NormalTok{\circled{1}}
+\NormalTok{    Depends =\textgreater{} (X }\OtherTok{=\textgreater{}}\NormalTok{ X), }\hspace*{\fill}\NormalTok{\circled{2}}
+\NormalTok{    Pre =\textgreater{} X \textless{} Integer\textquotesingle{}Last, }\hspace*{\fill}\NormalTok{\circled{3}}
+\NormalTok{    Post =\textgreater{} X = X\textquotesingle{}Old + 1 }\hspace*{\fill}\NormalTok{\circled{4}}
+  \ControlFlowTok{is}
+  \KeywordTok{begin}
+\NormalTok{    X }\OtherTok{:=}\NormalTok{ X }\OtherTok{+} \DecValTok{1}\NormalTok{;}
+  \KeywordTok{end Increment;}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{description}
+\tightlist
+\item[\circled{1}]
+\textbf{Global}: does not read or write any global variables
+\item[\circled{2}]
+\textbf{Dependance}: Value of \textbf{X} after call depends on the
+(previous) value of \textbf{X}
+\item[\circled{3}]
+\textbf{Condition}: \texttt{Increment} only callable if
+\(X \leq \text{max value}\)
+\item[\circled{4}]
+\textbf{Conformance}: Check if the function does actually produce the
+desired result.
+\end{description}
+
+\begin{tcolorbox}[enhanced jigsaw, toprule=.15mm, opacityback=0, colbacktitle=quarto-callout-caution-color!10!white, breakable, colframe=quarto-callout-caution-color-frame, title=\textcolor{quarto-callout-caution-color}{\faFire}\hspace{0.5em}{Vorsicht}, left=2mm, arc=.35mm, toptitle=1mm, bottomrule=.15mm, rightrule=.15mm, titlerule=0mm, bottomtitle=1mm, leftrule=.75mm, opacitybacktitle=0.6, coltitle=black, colback=white]
+
+This check is done by \emph{Spark}, \textbf{NOT} \emph{Ada}.
+
+These properties are not only declared, but these are \textbf{proved} by
+a dedicated proof-engine \texttt{GNATprove}!
+
+\end{tcolorbox}
+
+\subsection{Hardware - Safety
+Processors}\label{hardware---safety-processors}
+
+\subsubsection{Hercules RM42 MCU}\label{hercules-rm42-mcu}
+
+\includegraphics{images/safety/image-21.png}
+
+\includegraphics{images/safety/image-20.png}
+
+\includegraphics{images/safety/image-22.png}
+
+\subsubsection{Dual CPU}\label{dual-cpu}
+
+\includegraphics{images/safety/image-26.png}
+
+\includegraphics{images/safety/image-23.png}
+
+\subsubsection{Memory}\label{memory}
+
+\includegraphics{images/safety/image-25.png}
+
+\includegraphics{images/safety/image-24.png}
+
+\subsubsection{Watchdog}\label{watchdog}
+
+\includegraphics{images/safety/image-27.png}
+
+\includegraphics{images/safety/image-28.png}
+
+\newpage
 
 \section{Trends - Low Power}\label{trends---low-power}
 

@@ -1,0 +1,39 @@
+\begin{tikzpicture}[
+	textbox/.style={font=\small, draw, minimum width=5mm, minimum height=5mm, inner sep=0, align=center},
+	circ/.style={circle, draw, minimum width=3, minimum height=3, inner sep=0, fill, align=center}
+]
+%text width
+\node[textbox] (v1) at (-0.5,1) {\&};
+\node[textbox] (v2) at (-0.5,0) {\&};
+\node[textbox] (v3) at (-0.5,-1) {\&};
+\node[textbox] (v5) at (1.5,0) {\&};
+
+\node[circ] (dot1) at (-1.5,1.125) {};
+\draw  (dot1) -- ++(-1.75,0) node[above right=-2] {\small Input 1};
+\node[circ] (dot2) at (-1.25,0.125) {};
+\draw  (dot2) -- ++(-2,0) node[above right=-2] {\small Input 2};
+\node[circ] (dot3) at (-1,-0.875) {};
+\draw  (dot3) -- ++(-2.25,0) node[above right=-2] {\small Input 3};
+
+
+\draw [{Circle[open]}-] (v5) -- ++(2,0) node[above left=-2] {\small Output};
+\node (v4) at (-0.75,1.125) {};
+\node (v10) at (-0.75,0.875) {};
+\node (v8) at (-0.75,0.125) {};
+\node (v9) at (-0.75,-0.125) {};
+\node (v7) at (-0.75,-0.875) {};
+\node (v6) at (-0.75,-1.125) {};
+\node (v11) at (1.25,0.15) {};
+\node (v12) at (1.25,0) {};
+\node (v13) at (1.25,-0.15) {};
+\node (info) at (2,1) {\bfseries (example)};
+\draw  (dot1) |- (v4.center);
+\draw  (dot1) |- (v6.center);
+\draw  (dot3) |- (v7.center);
+\draw  (dot2) |- (v8.center);
+\draw  (dot3) |- (v9.center);
+\draw  (dot2) |- (v10.center);
+\draw [{Circle[open]}-Latex] (v1) -| ++(1,0) |-  (v11.center);
+\draw [{Circle[open]}-Latex] (v2) edge (v12.center);
+\draw [{Circle[open]}-Latex] (v3) -| ++(1,0) |- (v13.center);
+\end{tikzpicture}

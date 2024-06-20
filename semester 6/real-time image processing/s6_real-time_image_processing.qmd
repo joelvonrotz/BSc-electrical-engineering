@@ -503,16 +503,295 @@ $$
 
 # Farbe
 
+## Das Auge
 
+Das Auge nimmt Helligkeit via Makula's Stäbchen war und über die Netzhaut sind **S**mall-, **M**- und **L**-Zapfen (445,540,565nm) verteilt im Verhältnis 1:5:10, welche als Farbfilter funktionieren.
+
+![](images/s6_real-time_image_processing/image-2.png){fig-align="center" width="7cm"}
+
+Die Linse des Auges besteht aus Hornhaut und Augenlinse. Ein paar Infos: 
+
+![](images/s6_real-time_image_processing/image-3.png){fig-align="center" width="7cm"}
+
+Hornhaut & Augenlinse $\leftrightarrow$ Objektiv, Iris $\leftrightarrow$ Blende, Netzhaut $\leftrightarrow$ Diafilm/CCD, Akkomodation durch Änderung der Linsenkrümmung  $\leftrightarrow$ Akkomodation duch Verschieben des Objektives.
+
+::: {.callout-note appearance="simple"}
+Strahlengang (Bild von aussen nach innen) ist beim Auge gleich wie bei der Kamera: auf dem Kopf.
+:::
+
+![](images/s6_real-time_image_processing/image-4.png)
+
+## RGB (additiv) & CMY (subtraktiv)
+
+![](images/s6_real-time_image_processing/image-5.png)
+
+![](images/s6_real-time_image_processing/additivesubtractivecolour-1024x524.png)
+
+
+$$
+\begin{bmatrix}C \\ M \\ Y\end{bmatrix}=\begin{bmatrix}1 \\ 1 \\ 1\end{bmatrix}-\begin{bmatrix}R \\ G \\ B\end{bmatrix}
+$$
+
+![](images/s6_real-time_image_processing/image-7.png)
+
+## HSV
+
+**H**ue, **S**aturation, **V**isibility
+
+![](images/s6_real-time_image_processing/HSV_cone.png){width="5cm" fig-align="center"}
+
+## YCbCr
+
+YCbBr separiert die Farben in Luminanz- ($Y$ ; Helligkeits- oder Grau-) und Chrominanz- ($Cb,Cr$ ; Farb-) Werten.
+
+$$
+\begin{bmatrix} Y \\ Cb \\ Cr \end{bmatrix} =
+\begin{bmatrix} 16 \\ 128 \\ 128 \end{bmatrix} +
+\begin{bmatrix} 65.481 & 128.553 &  24.966 \\ 
+               -37.797 & -74.203 & 112.000 \\ 
+               112.000 & -93.786 & -18.214
+\end{bmatrix} \cdot 
+\begin{bmatrix} R \\ G \\ B \end{bmatrix}
+$$
+
+Mit $R,G,B~\in~[0,1]$ und $16\leq Y \leq 235$, $16\leq Cb$, $Cr\leq 240$
+
+## Farbbasierte Objekterkennung
+
+Mit Korrelation können Objekte in einem Bild gefunden werden.
+
+![](images/s6_real-time_image_processing/image-9.png)
+
+![](images/s6_real-time_image_processing/image-8.png)
 
 # Anwendung
 
 ## Erkennung, Zählung und Markierung von kreisförmigen Objekten
+
+![](images/s6_real-time_image_processing/image-10.png)
 
 ## Klassifikation mittels HOG
 
 ## Interest Points, Feature Descriptor, Tracking
 
 ## Klassifikation/Kategorisierung mittels CNN
+
+Die 'beste' Art Objekte in Echtzeit zu erkennen. Das Bild wird mit Filtermasken verkleinert (z.B. Canny, Sobel-Filter) und daraus wichtige Informationen entnommen, wie z.B. Form der erkannten Objekten.
+
+![](images/s6_real-time_image_processing/image-16.png)
+
+![](images/s6_real-time_image_processing/image-12.png)
+
+![](images/s6_real-time_image_processing/image-13.png)
+
+![](images/s6_real-time_image_processing/image-15.png)
+
+Canny Kantendetektion $\rightarrow$ Dilation $\rightarrow$ Mit Bounding Boxes die Nummern ausschneiden $\rightarrow$ in CNN stecken und mit einem Wahrsch.-Schwellwert die Nummer auswählen.
+
+# Matlab
+
+`Uebung01`: Bild einlesen, umwandeln Grauwert, Darstellung Histogram
+
+`Uebung02`: LUT, Gamma, Gleitendes Mittel, MotionDetektion, Spreiz.
+
+`Uebung03`: Bildschärfung, Faltung/Korrelation, Glättung, Gradient
+
+`Uebung04`: Skeleton, KugelnSeparieren, Morphologie
+
+`Uebung05`: Aliasing, NotchFilter, DFT, Frequenzen aus bild Filtern
+
+`Uebung06`: Otsu, Knossos, Kugeln Label/Zählen, MerkmalsExtraktion
+
+`Uebung07`: GradientCanny/Simple, HoughTransform
+
+`Uebung08`: BlueScreen, Background, FarbHistogramm
+
+`Uebung13`: Training Mnist CNN,
+
+# Git Crashkurs
+
+## Setup & init
+
+```bash
+git config --global user.name “<name>”
+git config --global user.email “<email>”
+git init # initalize folder as git repo
+git clone <url> # retrieve a repo from given URL
+```
+
+## Stage & Snapshot
+
+```bash
+git status # show staged, modified & untracked files
+git add <file> # adds file to the staged
+git reset <file> # unstage file
+git diff # shows unstaged changes
+git diff --staged # shows staged changes
+git commit -m “<msg>” # commit your staged content as a new commit snapshot
+```
+
+## Branch & Merge
+
+```bash
+git branch # list branches
+git branch <branch-name> # create branch
+git checkout <branch-name> # switch to another branch
+git merge <branch> # merge given branch into current branch
+```
+
+## Inspect & Compare
+
+```bash
+git log # show the commit history for the currently active branch
+git log branchB..branchA # show the commits on branchA that are not on branchB
+git log --follow <file> # show the commits that changed file, even across renames
+git diff branchB...branchA # show the diff of what is in branchA that is not in branchB
+git show <SHA> # show any object in Git in human-readable format
+```
+
+##  Tracking Path Changes
+
+```bash
+git rm <file> # delete the file from project and stage the removal for commit
+git mv <existing-path> <new-path> # change an existing file path and stage the move
+git log --stat -M # show all commit logs with indication of any paths that moved
+```
+
+## Share & Update
+
+Retrieving updates from another repository and updating local repos
+
+```bash
+git remote add <alias> <url> # add a git URL as an alias
+git fetch <alias> # fetch down all the branches from that Git remote
+git merge <alias>/<branch> # merge a remote branch into your current branch to bring it up to date
+git push <alias> <branch> # Transmit local branch commits to the remote repository branch
+git pull # fetch and merge any commits from the tracking remote branch
+git pull -t <url> # additionally includes all tags
+```
+
+## Temporary Commits
+
+Temporarily store modified, tracked files in order to change branches
+
+```bash
+git stash # Save modified and staged changes
+git stash list # list stack-order of stashed file changes
+git stash pop # write working from top of stash stack
+git stash drop # discard the changes from top of stash stack
+```
+
+# `make` & Makefiles
+
+`make` wird zum Automatisieren von Kompilierung und Linking gemacht.
+
+## Targets
+
+```bash
+make <target> # build target <target>, or on empty build first target in the makefile
+```
+
+Im Makefile wird folgend aufgeführt.
+
+```makefile
+<target>: <depend1> <depend2> ...
+  <command1>
+  <command2>
+```
+
+## Pattern Regeln
+
+${}$
+
+```makefile
+%.o: %.c # '%' ist Wildcard ; erzeugte .o dateien aller .c Dateien 
+  gcc -Wall -g -c $<
+
+#'$<' erste Abhängigkeit
+#'$@' Name des targets
+#'$+' Liste aller Abhängigkeiten
+#'$^' Liste aller Abhängigkeiten (ohne Doppeinträgen)
+```
+
+## Variablen
+
+```makefile
+VERSION = 3.02
+CC = /usr/bin/gcc
+CFLAGS = -Wall -g -D_REENTRANT
+LDFLAGS = -lm -lpthread
+
+OBJ = datei1.o datei2.o datei3.o datei4.o datei5.o
+
+prog: $(OBJ)
+  $(CC) $(CFLAGS) -o prog $(OBJ) $(LDFLAGS)
+
+%.o: %.c
+  $(CC) $(CFLAGS) -c $<
+```
+
+## Beispiel
+
+```makefile
+COMPILER=g++
+OPTIONS=-g -std=c++17 -pedantic -Wall -Wextra -Werror -Wshadow -Wconversion -Wunreachable-code
+COMPILE=$(COMPILER) $(OPTIONS)
+BUILD=build
+
+# Compile main by default
+all: program
+
+# $(BUILD)/*.o expands to all .o files in the $(BUILD) directory
+# In this case, we'll get $(BUILD)/file1.o $(BUILD)/file2.o
+program: main.cpp $(BUILD)/file1.o $(BUILD)/file2.o
+	$(COMPILE) $< $(BUILD)/*.o -o $@
+
+$(BUILD)/file1.o: file1.cpp file1.h build
+	$(COMPILE) -c $< -o $@
+
+$(BUILD)/file2.o: file2.cpp build
+	$(COMPILE) -c $< -o $@
+
+# Make the build directory if it doesn't exist
+build:
+	mkdir -p $(BUILD)
+
+# Delete the build directory and program
+clean:
+	rm -rf $(BUILD) program
+
+# These rules do not correspond to a specific file
+.PHONY: build clean
+```
+
+# Pi Stuff
+
+[Filehandling]{.underline}:
+- `ls -l`: Zeigt den detaillierten Inhalt des aktuellen Verzeichnisses an
+- `pwd`: Zeigt den aktuellen Pfad an
+- `cp`: Kopiert ein File oder ein Verzeichnis
+- `rm`: löscht ein File oder ein Verzeichnis
+- `chown –R pi:pi`: Ändert die Besitzer- und Gruppenzugehörigkeit der angegebenen Datein(en) rekursiv auf pi.
+
+[Prozesse]{.underline}:
+- `chmod a+x app`: erteilt allen Benutzern Ausführrechte der Applikation app13
+- `./app`: Started die ausführbare Applikation app14
+- `./run.sh`: Startet Shell Skript run.sh
+- `top`: Zeigt alle aktuell laufenden Prozess an (mit Ctrl-C beenden)
+
+[Netzwerk]{.underline}:
+- `ping 192.168.1.10`: Sendet einen Ping Request an den Raspberry Pi
+- `ifconfig`: Zeigt bzw. ändert die aktuelle Netzwerkkonfiguration
+- `sudo service networking restart`: Neustart der Netzwerkinterfaces15
+- `netstat –r`: Zeigt die Routing Tabelle an.
+- `route del`: Löscht eine Route
+- `route add`: Fügt eine Route hinzu
+
+[Makefiles]{.underline}:
+- `make`: erstellt eine Applikation mittels Makefile
+- `make clean`: löscht alle Binär- und Objektfiles einer Applikation
+
+[Remote]{.underline}:
+- `ssh pi@192.168.1.10` oder `ssh 192.168.1.10`: Stellt eine SSH-Verbindung zum oder Raspberry Pi her als User pi her16.
 
 `\end{multicols*}`{=latex}

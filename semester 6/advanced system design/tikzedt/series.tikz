@@ -1,0 +1,17 @@
+\begin{tikzpicture}[
+	textbox/.style={font=\small, draw, text width=20, minimum height=20, inner sep=0, align=center},
+	circ/.style={circle, draw, minimum width=2, minimum height=2, inner sep=0, fill, align=center}
+]
+\node[textbox] (b1) at (0, 0) {1};
+\node[textbox] (b2) at (1.5, 0) {2};
+\node[textbox] (b3) at (4.5, 0) {N};
+
+\draw[Latex-] (b1) -- ++(-1.5,0) node[above right=-1] {\small Input};
+\draw[-Latex] (b3) -- ++(1.5,0) node[above left=-1] {\small Output};
+\draw[-] (b2) -- ++(1,0) ;
+\draw[-,dashed] (b2) ++(1,0) -- ++(1,0);
+\draw[-] (b2) ++(2,0) -- (b3);
+\draw[-Latex] (b3) -- ++(1.5,0) node[above left=-1] {\small Output};
+
+\draw [-Latex] (b1) edge (b2);
+\end{tikzpicture}

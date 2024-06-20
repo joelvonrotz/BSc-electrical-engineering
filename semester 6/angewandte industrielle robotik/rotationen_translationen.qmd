@@ -232,7 +232,7 @@ Eine Drehung eines Frames im Bezug zu einem anderen ist durch **drei** Winkel an
 
 $$
 \begin{split}
-&R_{\text{ZYX}}=\prescript{W}{R}{A}=\begin{pmatrix}x_W^{(R)} & y_W^{(R)} & z_W^{(R)}\end{pmatrix}=\underbrace{R_{\mathbf{Z}}(A)}_{\textbf{3.}}\cdot\underbrace{R_{\mathbf{Y}}(B)}_{\textbf{2.}}\cdot\underbrace{R_{\mathbf{X}}(C)}_{\textbf{1.}}\\[2mm]
+&R_{\text{ZYX}}=\prescript{W}{R}{A}=\begin{pmatrix}x_W^{(R)} & y_W^{(R)} & z_W^{(R)}\end{pmatrix}= R_{\mathbf{Z}}\cdot R_{\mathbf{Y}}\cdot R_{\mathbf{X}}\\[2mm]
 {} &= \begin{bmatrix}
   C_A & -S_A & 0 \\
   S_A & C_A & 0 \\
@@ -247,8 +247,8 @@ $$
   1 &  0      &  0 \\
   0 &  C_C & -S_C \\
   0 &  S_C &  C_C
-\end{bmatrix}\\[2mm]
-&=\begin{bmatrix}
+\end{bmatrix}=\\[2mm]
+&\begin{bmatrix}
 {\color{Orange}\mathbf{C_A \cdot C_B}} & -S_A \cdot C_C + C_A \cdot S_B \cdot S_C &  S_A \cdot S_C + C_A \cdot S_B \cdot C_C \\
 {\color{OliveGreen}\mathbf{S_A \cdot C_B}} &  C_A \cdot C_C + S_A \cdot S_B \cdot S_C & -C_A \cdot S_C + S_A \cdot S_B \cdot C_C \\
 {\color{BrickRed}\mathbf{-S_B}}      &  {\color{Blue}\mathbf{C_B \cdot S_C}}    &  {\color{Purple}\mathbf{C_B \cdot C_C}}
@@ -263,6 +263,48 @@ B &= \arcsin(-{\color{BrickRed}\mathbf{R_{31}}})\\
 C &= \text{atan2}({\color{Blue}\mathbf{R_{32}}},{\color{Purple}\mathbf{R_{33}}})
 \end{split}
 $$
+
+::: {.callout-important}
+### Stäubli vs. KUKA
+
+**Stäubli** haben eine [$X,Y',Z''$-Reihenfolge]{.underline} ($R_X(\alpha)\cdot R_Y(\beta)\cdot R_Z(\gamma)$)...
+
+$$
+\begin{split}
+&R_{\text{XYZ}}=\prescript{W}{R}{A}=\begin{pmatrix}x_W^{(R)} & y_W^{(R)} & z_W^{(R)}\end{pmatrix}=R_{\mathbf{X}}(A)\cdot R_{\mathbf{Y}}(B)\cdot R_{\mathbf{Z}}(C)\\[2mm]
+{} &= 
+\begin{bmatrix}
+  1 &  0      &  0 \\
+  0 &  C_A & -S_A \\
+  0 &  S_A &  C_A
+\end{bmatrix}\cdot
+\begin{bmatrix}
+   C_B & 0 & S_B \\
+   0       & 1 & 0       \\
+  -S_B & 0 & C_B
+\end{bmatrix}\cdot\begin{bmatrix}
+  C_C & -S_C & 0 \\
+  S_C & C_C & 0 \\
+  0 & 0 & 1
+\end{bmatrix}=\\[2mm]
+&\begin{bmatrix}
+\mathbf{\color{Purple}C_B \cdot C_C}                         & \mathbf{\color{Blue}-C_B \cdot S_C}               & \mathbf{\color{BrickRed}S_B}\\
+C_A \cdot S_C+S_A \cdot S_B \cdot C_C &  C_A \cdot C_C - S_A \cdot S_B \cdot S_C & \mathbf{\color{OliveGreen}-S_A \cdot C_B}\\
+S_A \cdot S_C-C_A \cdot S_B \cdot C_C &  C_A \cdot S_B \cdot S_C + S_A \cdot C_C & \mathbf{\color{Orange}C_A \cdot C_B}
+\end{bmatrix}
+\end{split}
+$$
+
+$$
+\begin{split}
+A &= \text{atan2}(-{\color{OliveGreen}\mathbf{R_{23}}},{\color{Orange}\mathbf{R_{33}}})\\
+B &= \arcsin({\color{BrickRed}\mathbf{R_{13}}})\\
+C &= \text{atan2}(-{\color{Blue}\mathbf{R_{12}}},{\color{Purple}\mathbf{R_{11}}})
+\end{split}
+$$
+
+...und **KUKA** haben eine [$Z,Y',X''$-Reihenfolge]{.underline} ($R_Z(\gamma)\cdot R_Y(\beta)\cdot R_Z(\alpha)$). Die Gleichungen für diese ist oben angegeben.
+:::
 
 ::: {.callout-tip}
 

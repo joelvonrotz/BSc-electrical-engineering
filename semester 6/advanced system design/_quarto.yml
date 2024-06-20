@@ -1,18 +1,12 @@
 project:
   type: chribel-summary-quarto
-  output-dir: ".."
   render: 
     - s6_advanced_system_design.qmd
 
 format:
   chribel-summary-quarto-pdf:
     include-in-header:
-      - text: |
-          \usepackage[datesep=.]{datetime2}
-          \DTMsetdatestyle{ddmmyyyy}
-          \usepackage{enumitem}
-          \setlist[description]{style=nextline,parsep=5mm}
-          \providecommand\phantomsection{}
+      - file: "./preamble.tex"
     toc: true
     keep-tex: true
     classoption: twocolumn
@@ -46,5 +40,8 @@ accentcolor: "124E82" # must be given as hex, sadly :(
 chribel-fontfamily:
   - name: AlegreyaSans      # used for section headings, title page
   - name: cmbright          # used for paragraph and math
+  #- name: lmodern
+  #- name: iwona
+  #  options: light,condensed,math
   - name: inconsolata
     options: "scaled=0.95"  # for code blocks

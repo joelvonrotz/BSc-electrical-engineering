@@ -1,0 +1,22 @@
+\begin{tikzpicture}[
+	textbox/.style={font=\small, draw, text width=40, minimum height=25, inner sep=3, align=center},
+	circ/.style={circle, draw, minimum width=2, minimum height=2, inner sep=0, fill, align=center}
+]
+\node[textbox] (mod1) at (0, 1) {Module 1};
+\node[textbox] (mod2) at (0, 0) {Module 2};
+\node[textbox] (mod3) at (0,-2) {Module 3};
+\node[circ] at (0,-0.75) {};
+\node[circ] at (0,-1) {};
+\node[circ] at (0,-1.25) {};
+
+\node[textbox] (vote) at (3,-0.5) {Voting\\element};
+
+\draw[Latex-]  (mod1) -- ++(-2.5,0) node[above right=-2] {\small Input 1};
+\draw[Latex-]  (mod2) -- ++(-2.5,0) node[above right=-2] {\small Input 2};
+\draw[Latex-]  (mod3) -- ++(-2.5,0) node[above right=-2] {\small Input N};
+
+\draw[-Latex]  (vote) -- ++(2.5,0) node[above left=-2] {\small Output};
+\draw[-Latex]  (mod2.east) edge (vote.west);
+\draw[-Latex]  (mod1.east) edge ([yshift=5]vote.west);
+\draw[-Latex]  (mod3.east) edge ([yshift=-5]vote.west);
+\end{tikzpicture}

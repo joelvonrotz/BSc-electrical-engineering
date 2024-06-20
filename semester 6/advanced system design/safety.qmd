@@ -1,0 +1,741 @@
+## Terms
+
+Hazard
+: A hazard is a situation in which there is actual or potential danger to people or the environment.
+
+Accident
+: An accident is an unintended event harming people or the environment.
+
+Incident
+: An incident (or near miss) is an unintended event which does not harm, but has the potential to do so.
+
+Risk
+: To each hazard, the risk describes the likelihood of occurrence and the likely consequences.
+
+Fault
+: A fault is a defect within the system. Faults can be categorized into random faults and systematic faults.
+
+Error
+: An error is a deviation from the required operation of the system or subsystem.
+
+System Failure
+: A system failure occurs when the system fails to perform its required function.
+
+Causalities
+: The presence of a fault may lead to an error, which may lead to a system failure, which may lead to an accident.
+
+## Requirements
+
+![](images/safety/image-29.png)
+
+![](images/safety/image-30.png)
+
+## V&V&C
+
+Verification
+: Verification is the process of determining that a system, or module, meets its specification.
+
+Validation
+: Validation it the process of determining that a system is appropriate for its purpose.
+
+Certification
+: Certification it the process of convincing a regulatory bodies about a systems properties.
+
+## Computers in Safety Related Systems?
+
+![](images/safety/image-32.png)
+
+![](images/safety/image-33.png)
+
+## Silver Bullet 
+
+There is good evidence that better processes lead to programs with fewer defect. Some numbers in relation to the CMM (Capability Maturity Model) level defined by Software Engineering Institute (SEI) according to:
+
+![](images/safety/image-31.png){fig-align="center" height="4cm"}
+
+Brooks argues that **"there is no single development, in either technology or management technique, which by itself promises even one order of magnitude [tenfold] improvement within a decade in productivity, in reliability, in simplicity."** He also states that **"we cannot expect ever to see two-fold gains every two years"** in software development, as there is in hardware development (Moore's law).
+
+## Hazard Analysis
+
+`\vspace{-2mm}{\color{Orchid}\faQuestionCircle[regular]}`{=latex} *How to identify the ways in which a system can cause harm?*
+
+### FMEA: Failure mode and effects analysis
+
+Consider the failure of any component within a system and track the effects of this failure to determine its ultimate consequences.
+
+### HAZOP: Hazard and operability studies
+
+Use a series of ’guide words’ to investigate the effects of deviations from normal operating conditions.
+
+![](images/safety/image.png)
+
+### ETA: Event tree analysis
+
+Take the events that can affect the system as starting point and track them forward to determine their possible consequences.
+
+![](images/safety/image-1.png)
+
+### FTA: Fault tree analysis
+
+Start with all identified hazards and work backwards to determine their possible causes. (Reverse to ETA)
+
+![](images/safety/image-2.png)
+
+## Risk Analysis
+
+::: {.callout-important appearance="simple"}
+### Fundamental Rule
+
+$$
+\text{Risk} = \text{Severity} \times \text{Frequency} 
+$$
+:::
+
+```{=latex}
+\resizebox{\columnwidth}{!}{
+  \input{./tikzedt/risk_overview.tikz}
+}
+```
+
+`\begin{minipage}[c][1cm][c]{.7\columnwidth}`{=latex}
+
+### Severity
+
+`\vspace{-2mm}{\color{Orchid}\faQuestionCircle[regular]}`{=latex} *How severe is an accident?*
+
+```{=latex}
+\end{minipage}%
+\begin{minipage}[c][1cm][c]{.3\columnwidth}
+\makebox[30mm][r]{
+\resizebox{!}{0.9cm}{
+  \input{./tikzedt/riskover1.tikz}
+}}
+\end{minipage}
+```
+
+
+![](images/safety/image-3.png)
+
+`\begin{minipage}[c][1cm][c]{.7\columnwidth}`{=latex}
+
+### Frequency
+
+`\vspace{-2mm}{\color{Orchid}\faQuestionCircle[regular]}`{=latex} *How frequent does it occur?*
+
+```{=latex}
+\end{minipage}%
+\begin{minipage}[c][1cm][c]{.3\columnwidth}
+\makebox[30mm][r]{
+\resizebox{!}{0.9cm}{
+  \input{./tikzedt/riskover2.tikz}
+}}
+\end{minipage}
+```
+
+![](images/safety/image-4.png)
+
+
+`\begin{minipage}[c][1cm][c]{.7\columnwidth}`{=latex}
+
+### Risk
+
+`\vspace{-2mm}{\color{Orchid}\faQuestionCircle[regular]}`{=latex} *What is the risk associated?*
+
+```{=latex}
+\end{minipage}%
+\begin{minipage}[c][1cm][c]{.3\columnwidth}
+\makebox[30mm][r]{
+\resizebox{!}{0.9cm}{
+  \input{./tikzedt/riskover3.tikz}
+}}
+\end{minipage}
+```
+
+![](images/safety/image-5.png)
+
+
+
+`\begin{minipage}[c][1cm][c]{.7\columnwidth}`{=latex}
+
+### Integrity
+
+`\vspace{-2mm}{\color{Orchid}\faQuestionCircle[regular]}`{=latex} *Is the risk acceptable?*
+
+```{=latex}
+\end{minipage}%
+\begin{minipage}[c][1cm][c]{.3\columnwidth}
+\makebox[30mm][r]{
+\resizebox{!}{0.9cm}{
+  \input{./tikzedt/riskover4.tikz}
+}}
+\end{minipage}
+```
+
+![](images/safety/image-6.png)
+
+
+### Integrity Levels
+
+`\vspace{-2mm}{\color{Orchid}\faQuestionCircle[regular]}`{=latex} *What failure rate is tolerable?*
+
+![](images/safety/image-7.png)
+
+::: callout-tip
+#### Example -- Parachute
+
+`{\small Hazard of free fall, severity rated as catastrophic with occasional frequency. Therefore risk is intolerable and a parachute is selected as safety feature. It works on demand mode and has to reduce the frequency by 2 orders of magnitudes, so SIL 2 is required at least.}`{=latex}
+:::
+
+::: callout-important
+#### Distinguish!
+
+`{\bfseries\color{Orange}Risk}`{=latex} is a measure of the likelihood, and the consequences, of a hazardous event. `{\bfseries\color{Orange}Safety integrity}`{=latex} is a measure of the likelihood of the safety system correctly performing its task.
+:::
+
+
+`\begin{minipage}[c][1cm][c]{.7\columnwidth}`{=latex}
+
+### Allocating Levels
+
+`\vspace{-2mm}{\color{Orchid}\faQuestionCircle[regular]}`{=latex} *What is contributing?*
+
+```{=latex}
+\end{minipage}%
+\begin{minipage}[c][1cm][c]{.3\columnwidth}
+\makebox[30mm][r]{
+\resizebox{!}{0.9cm}{
+  \input{./tikzedt/riskover5.tikz}
+}}
+\end{minipage}
+```
+
+[Hardware]{.underline} integrity is that part of the safety integrity relating to dangerous **random** hardware failures.
+
+[Systematic]{.underline} integrity is that part of the safety integrity relating to dangerous **systematic** failures.
+
+[Software]{.underline} integrity is that part of the safety integrity relating to dangerous **software** failures.
+
+## Design for Safety
+
+::: callout-tip
+### General, [Iterative]{.underline} Design Process
+
+1. **Abstraction** Generlization & ID of essentials
+2. **Decomposition** Objects into smaller parts + Analysis
+3. **Elaboration** detailing & adding features
+4. **Decision** identification & selection of alternatives
+
+:::
+
+### Types of Fault
+
+`\vspace{-2mm}{\color{Orchid}\faQuestionCircle[regular]}`{=latex} *What types of fault may occure?*
+
+`\textHighlight{\bfseries N{\fontsize{7pt}{8pt}\selectfont{ATURE}}}`{=latex}
+
+- Random (HW)
+- Systematic
+  - Specification
+  - HW Design
+  - SW Design
+
+`\textHighlight{\bfseries D{\fontsize{7pt}{8pt}\selectfont{URATION}}}`{=latex}
+
+- Permanent -- most HW faults, design
+- Transient -- e.g. $\alpha$ particles
+- Intermittent -- e.g. contacts, interference (EMC)
+
+`\textHighlight{\bfseries E{\fontsize{7pt}{8pt}\selectfont{XTEND}}}`{=latex}
+
+- Localized -- affecting only part of the system
+- Global -- effects which permeate throughout the system
+
+
+
+## Fault Tolerance
+
+### Triple Modular Redundancy (TMR)
+
+`{\small\textit{Three identical moduls get fed by the same signal. A voter compares the results and produces an output corresponding to the majority view.}}`{=latex}
+
+```{=latex}
+\begin{center}
+\input{./tikzedt/tmr.tikz}
+\end{center}
+
+{\small\begin{description}[parsep=0mm,labelsep=2pt,labelwidth=10pt]
+  \item[\color{OliveGreen}\faPlus] simple
+  \item[\color{OliveGreen}\faPlus] prevents from failure of a single component, i.e. \textit{single-point failure}
+  \item[\color{BrickRed}\faMinus] leaves input and voter as sources for single-point failures
+  \item[\color{BrickRed}\faMinus] does not prevent from systematic failures
+  \item[\color{BrickRed}\faMinus] voter is dependable
+\end{description}}
+```
+
+### Voter
+
+`{\small\textit{To make voting unit reliable, keep it as simple as possible.}}`{=latex}
+
+```{=latex}
+\begin{center}
+\input{./tikzedt/voter.tikz}
+\end{center}
+
+{\small\begin{description}[parsep=0mm,labelsep=2pt,labelwidth=10pt]
+  \item[\color{OliveGreen}\faPlus] simple, low complexity
+  \item[\color{OliveGreen}\faPlus] high reliability
+  \item[\color{BrickRed}\faMinus] no indication in case of discrepancies
+\end{description}}
+```
+
+### TMR with triple voting
+
+`{\small\textit{Use triple input signals and triple voting instances.}}`{=latex}
+
+```{=latex}
+\begin{center}
+\input{./tikzedt/tmr_triplevote.tikz}
+\end{center}
+
+{\small\begin{description}[parsep=0mm,labelsep=2pt,labelwidth=10pt]
+  \item[\color{OliveGreen}\faPlus] \textbf{all} outputs are correct in case a single module fails
+  \item[\color{BrickRed}\faMinus] more components required
+  \item[\color{BrickRed}\faMinus] no protection against simultaneous failure of two or more modules
+  \item[\color{BrickRed}\faMinus] does not prevent from systematic failures
+\end{description}}
+```
+
+### Multistage TMR
+
+`{\small\textit{Cascading TMRs with triple voters can deal with failed voting unit.}}`{=latex}
+
+```{=latex}
+\resizebox{\columnwidth}{!}{
+\input{./tikzedt/multistage_tmr.tikz}}
+
+{\small\begin{description}[parsep=0mm,labelsep=2pt,labelwidth=10pt]
+  \item[\color{OliveGreen}\faPlus] allows a single module to fail at each level
+  \item[\color{OliveGreen}\faPlus] allows a single voter to fail at each level
+  \item[\color{BrickRed}\faMinus] no protection against simultaneous failure of two or more units at same level
+  \item[\color{BrickRed}\faMinus] does not prevent from systematic failure
+\end{description}}
+```
+
+### NMR - $N$ Modular Redundancy
+
+`{\small\textit{Use a large (odd) number of modules to increase ability to withstand failures.}}`{=latex}
+
+```{=latex}
+\begin{center}
+\input{./tikzedt/nmr.tikz}
+\end{center}
+
+{\small\begin{description}[parsep=0mm,labelsep=2pt,labelwidth=10pt]
+  \item[\color{OliveGreen}\faPlus] allows  $\sfrac{(N-1)}{2}$ modules to fail
+  \item[\color{BrickRed}\faMinus] higher complexity of voter
+  \item[\color{BrickRed}\faMinus] higher cost, size, power consumption
+\end{description}}
+```
+
+### Dynamic Redundancy
+
+`{\small\textit{While no fault is detected, one module drives the output. In case of a fault, a switch reconfigures the system such that the output is taken from a ’standby spare’ module.}}`{=latex}
+
+```{=latex}
+\begin{center}
+\input{./tikzedt/dynamicred.tikz}
+\end{center}
+
+{\small\begin{description}[parsep=0mm,labelsep=2pt,labelwidth=10pt]
+  \item[\color{OliveGreen}\faPlus] allows one modules to fail
+  \item[\color{OliveGreen}\faPlus] gives indication of fault
+  \item[\color{BrickRed}\faMinus] fault detector required (single-point failure!)
+  \item[\color{Orange}\bfseries ±] either \textit{hot standby} or \textit{cold standby} possible
+  \item[\color{Orange}\bfseries ±] can be extended to $N$ modules
+\end{description}}
+```
+
+### Self Checking Pair
+
+`{\small\textit{The output of two identical modules are compared to give an indication of failure.}}`{=latex}
+
+```{=latex}
+\begin{center}
+\input{./tikzedt/self_check_pair.tikz}
+\end{center}
+
+{\small\begin{description}[parsep=0mm,labelsep=2pt,labelwidth=10pt]
+  \item[\color{OliveGreen}\faPlus] simple, reliable
+  \item[\color{OliveGreen}\faPlus] gives indication of fault
+  \item[\color{BrickRed}\faMinus] no redundancy
+\end{description}}
+```
+
+### Redundancy Combining
+
+```{=latex}
+{\small\begin{description}[style=sameline,parsep=0mm,labelsep=2pt,labelwidth=10pt]
+  \item[\textHighlight{\bfseries S{\fontsize{6.5pt}{7pt}\selectfont{TATIC}}}] Voting to produce \textit{fault masking} at the cost of large amount of redundancy.
+  \item[\textHighlight{\bfseries D{\fontsize{6.5pt}{7pt}\selectfont{YNAMIC}}}] Fault detection and some form of switching, but \textbf{do not} mask faults.
+  \item[\textHighlight{\bfseries H{\fontsize{6.5pt}{7pt}\selectfont{YBRID}}}] Combination of voting, fault detection and module switching $\rightarrow$ Most reduced down to \textit{N-modular redundancy with spares}.
+\end{description}}
+```
+
+### Software Faults
+
+`{\small\textit{Software faults are systematic by nature, duplicating the systems gives therefore no protection from faults.}}`{=latex}
+
+```{=latex}
+{\small\begin{description}[style=sameline,parsep=0mm,labelsep=2pt,labelwidth=10pt]
+  \item[\textHighlight{\bfseries $\mathbf{N}$-Version Programming}] Same function gets implemented differently with the same specifications. ($N=3$ for Airbus, $N=4$ for Space Shuttle)
+  \item[\textHighlight{\bfseries Recovery Blocks}] When a module fails, it induces (triggers) the execution of a secondary implementation of the same module.
+\end{description}}
+```
+
+## Reliability
+
+### (Un)-Reliability $R$ ($Q$)
+
+Reliability $R$ is the probability of a component/system functioning correctly over a given period of time and a given set of operating condition.
+
+$$
+R(t)=\frac{n(t)}{N}
+$$
+
+```{=latex}
+\begin{conditions*}
+  N & Amount of identical components \\
+  n(t) & expected number of components operating correctly at some time $t$
+\end{conditions*}
+```
+
+The **un**reliability $Q$ defines how likely it is that the system/component will break.
+
+$$
+Q(t)=\frac{n_f(t)}{N}=1-R(t)
+$$
+
+```{=latex}
+\begin{conditions*}
+  n_f(t) & expected number of malfunctioning components at some time $t$.
+\end{conditions*}
+```
+
+### Failure Rate $z(t)$
+
+Is the rate at which a device fails. Number of devices failing within a given period of time as a fraction of the devices still functioning.
+
+$$
+z(t)=\frac{1}{n(t)}\cdot\frac{d~n_f(t)}{dt}
+$$
+
+### Bathtub Curve
+
+![](images/safety/image-10.png){fig-align="center" width="6cm"}
+
+```{=latex}
+{\small\begin{description}[style=sameline,parsep=0mm,labelsep=2pt,labelwidth=10pt]
+  \item[\textbf{Burn in}] high ’infant mortality’ due to manufacturing faults.
+  \item[\textbf{Useful life}]  the failure rate takes in a fairly constant level $\lambda$.
+  \item[\textbf{Wear out}] ageing becomes apart and the failure rate rises.
+\end{description}}
+```
+
+### Useful-Life
+
+If the failure rate is constant, $z(t)=\lambda$,
+
+$$
+z(t)=\lambda=\frac{1}{n(t)}\cdot\frac{d~n_f(t)}{dt}
+$$
+
+with $n_f(t) = N - n(t)$ we get the differential equation
+
+$$
+\lambda n(t) = \frac{dN-n}{dt}=-\frac{dt}{dt}
+$$
+
+with solution for $R(t) = \sfrac{n(t)}{N}$
+
+$$
+R(t)=\exp(-\lambda\cdot t)
+$$
+
+### Time-Variant Failure Rates
+
+For software failures, which are systematic and therefore correctable after detection, the failure rate decreases with time. The reliability resulting can by modelled by the *Weibull* distribution:
+
+$$
+R(t)=\exp(-(\sfrac{t}{\eta})^\beta)
+$$
+
+```{=latex}
+\begin{conditions*}
+  \beta & shape parameter\\
+  \eta & characteristic life
+\end{conditions*}
+```
+
+## Mean times
+
+### Mean Time to Failure
+
+`\vspace{-2mm}{\color{Orchid}\faQuestionCircle[regular]}`{=latex} *What is the expected time that a system will operate before the first failure occures?*
+
+$$
+MTTF=\int_0^\infty R(t)~dt\rightarrow\int_0^\infty \exp(-\lambda\cdot t)~dt=\frac{1}{\lambda}
+$$
+
+::: callout-caution
+#### Beware!
+
+`{\small A system with $\lambda=0.001$ failure/h does have a MTTF of $1000$ hour. But the reliability at t = 1000 hour is $R(t)=e^{-\lambda\cdot t}=e^{-1}\approx 0.37$. Chances that any given system runs for 1000 hour are only $\approx37\%$!}`{=latex}
+
+:::
+
+::: {.callout-important}
+#### Reliability vs. MTTF
+
+Reliability
+: a function of time, depends on the time for which the system must operate.
+
+MTTF
+: fixed characteristic that does not change with time.
+:::
+
+### Mean Time to Repair
+
+`\vspace{-2mm}{\color{Orchid}\faQuestionCircle[regular]}`{=latex} *What is the average time required to repair a system that has failed?*
+
+$$
+MTTR=\frac{1}{\mu}\qquad MTBF=MTTF + MTTR
+$$
+
+
+```{=latex}
+\begin{conditions*}
+  MTTR & Mean time to repair\\
+  MTBF & Mean time between failures
+\end{conditions*}
+```
+
+## Failure in time
+
+`\vspace{-2mm}{\color{Orchid}\faQuestionCircle[regular]}`{=latex} *How many failures are to be expected?*
+
+Failure in time (FIT) is the number of failures that can be expected in $1\times 10^9$ h of operation.
+
+$$
+FIT = 1\times 10^9\cdot\frac{1}{MTBF}
+$$
+
+## Reliability modelling
+
+```{=latex}
+\begin{center}
+\input{./tikzedt/series.tikz}
+\end{center}
+```
+
+$$
+R(t)=R_1(t)\cdot R_2(t)\cdot\cdots\cdot R_N(t)=\prod_{i=1}^N R_i(t)
+$$
+
+$$
+\lambda=\lambda_1+\lambda_2+\cdots=\sum_{i=1}^N \lambda_i
+$$
+
+```{=latex}
+\begin{center}
+\input{./tikzedt/parallel.tikz}
+\end{center}
+```
+
+$$
+R(t)=1-Q(t)=1-\prod_{i=1}^N(1-R_i(t))
+$$
+
+$$
+Q(t)=Q_1(t)\cdot Q_2(t)\cdots Q_N(t)=\prod_{i=1}^N Q_i(t)
+$$
+
+### Triple Modular Redundancy
+
+![](images/safety/image-11.png){height="4cm" fig-align="center"}
+
+$$
+\begin{split}
+R_{TMR}=R_1(t)\cdot R_2(t)\cdot R_3(t) &+ (1-R_1(t))\cdot R_2(t)\cdot R_3(t)\\
+                                       &+ (1-R_2(t))\cdot R_1(t)\cdot R_3(t)\\
+                                       &+ (1-R_3(t))\cdot R_1(t)\cdot R_2(t)\\
+\end{split}
+$$
+
+For $R_1=R_2=R_3=R_m$: $R(t)=3\cdot R_m^2(t)-2\cdot R_m^3(t)$
+
+::: callout-important
+### N-Modular Redundancy
+
+`{\bfseries\color{Orange}M out of N voting}`{=latex}: System works correctly as long as `{\bfseries\color{Orange}less then M}`{=latex} modules fail.
+
+
+![](images/safety/image-12.png){height="4cm" fig-align="center"}
+
+
+$$
+R_{MtoN}(t)=\sum_{i=0}^{N-M}\frac{N!}{(N-i)!\cdot i!}\cdot R_m^{N-i}(t)\cdot (1-R_m(t))^i
+$$
+
+:::
+
+### Dynamic Redundancy
+
+![](images/safety/image-13.png){height="3cm" fig-align="center"}
+
+$$
+\begin{split}
+R(t)&=R_1(t)+(1-R_1(t))\cdot C_1\cdot R_2(t)\\
+    &=R_m(t)+(1-R_m(t))\cdot C_m\cdot R_m(t)
+\end{split}
+$$
+
+```{=latex}
+\begin{conditions*}
+  R_n & Module Probabilities\\
+  C_n & Fault Coverage
+\end{conditions*}
+```
+
+### Cut and Tie Sets
+
+![](images/safety/image-14.png)
+
+```{=latex}
+\begin{conditions*}
+  {\color{Orange}\rightsquigarrow\textbf{ cut}} & sets of simultaneous failures leading to a system failure\\
+  {\color{OliveGreen}\rightsquigarrow\textbf{ tie}} & sets of working modules guaranteeing a working system
+\end{conditions*}
+```
+
+$$
+1-\sum_{j=1}^{\textcolor{Orange}{\mathbf{N_C}}}\prod_{i=1}^{n_j}(1-R_i(t))\leq R(t) \leq \sum_{j=1}^{\textcolor{OliveGreen}{\mathbf{N_T}}}\prod_{i=1}^{n_j}(1-R_i(t))
+$$
+
+## Reliability prediction
+
+### Resistor (DoD MIL-Handbook 217)
+
+$$
+\lambda_p = \lambda_b\cdot\pi_R\cdot\pi_Q\cdot\pi_E\quad[\text{failure}/1\times10^6\text{h}]
+$$
+
+```{=latex}
+\begin{conditions*}
+  \lambda_b & Base rate, temperature ($0.7\times10^{-3}\ldots 6.5\times 10^{-3}$)\\
+  \pi_R     & Resistance range ($1.0\ldots 2.5$)\\
+  \pi_Q     & Quality of manufacturing ($0.03\ldots 15$)\\
+  \pi_E     & Environment ($1\ldots 490$)\\
+  \lambda_p & Per part ($0.21\times10^{-3}\ldots 119.4$)
+\end{conditions*}
+```
+
+### Capacitor (DoD MIL-Handbook 217)
+
+$$
+\lambda_p = (C_1\cdot\pi_T+C_2\cdot\pi_E)\cdot\pi_Q\cdot\pi_L\quad[\text{failure}/1\times10^6\text{h}]
+$$
+
+```{=latex}
+\begin{conditions*}
+  C_1   & Die complexity\\
+  C_2   & Packaging\\
+  \pi_T & Ambient temperature\\
+  \pi_E & Environment\\
+  \pi_Q & Quality\\
+  \pi_L & Learning (production)
+\end{conditions*}
+```
+
+### Prediction of software reliability
+
+**Task**: estimate the number of faults within a given piece of software.
+
+![](images/safety/image-15.png)
+
+![](images/safety/image-16.png)
+
+## Reliability assessment
+
+**Task**: demonstrate that a system meets its reliability requirement.
+
+::: callout-tip
+### How to... 
+
+... proof that a system fails less then once in $1\times 10^{9}$ hour (i.e.
+$\approx 100 000$ year) of operation?
+
+`{\textcolor{OliveGreen}{Trust the development techniques}}`{=latex}.
+:::
+
+## Software - Formal Methods
+
+![](images/safety/image-17.png)
+
+
+### Spark
+
+![](images/safety/image-19.png)
+
+![](images/safety/image-18.png)
+
+
+```vhdl
+procedure Increment (X : in out Integer)
+with
+    Global => null,           --<1>
+    Depends => (X => X),      --<2>
+    Pre => X < Integer'Last,  --<3>
+    Post => X = X'Old + 1     --<4>
+  is
+  begin
+    X := X + 1;
+  end Increment;
+```
+1. **Global**: does not read or write any global variables
+2. **Dependance**: Value of **X** after call depends on the (previous) value of **X**
+3. **Condition**: `Increment` only callable if $X \leq \text{max value}$
+4. **Conformance**: Check if the function does actually produce the desired result.
+
+::: callout-caution
+This check is done by *Spark*, **NOT** *Ada*.
+
+These properties are not only declared, but these are **proved** by a dedicated proof-engine `GNATprove`!
+:::
+
+## Hardware - Safety Processors
+
+### Hercules RM42 MCU
+
+![](images/safety/image-21.png)
+
+![](images/safety/image-20.png)
+
+![](images/safety/image-22.png)
+
+### Dual CPU
+
+![](images/safety/image-26.png)
+
+![](images/safety/image-23.png)
+
+### Memory
+
+![](images/safety/image-25.png)
+
+![](images/safety/image-24.png)
+
+### Watchdog
+
+![](images/safety/image-27.png)
+
+![](images/safety/image-28.png)

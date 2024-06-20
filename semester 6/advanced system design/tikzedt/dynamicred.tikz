@@ -1,0 +1,24 @@
+\begin{tikzpicture}[
+	textbox/.style={font=\small, draw, text width=40, minimum height=25, inner ysep=0, align=center},
+	circ/.style={circle, draw, minimum width=3, minimum height=3, inner sep=0, fill, align=center}
+]
+\node[textbox] (mod1) at (0, 1) {Module 1};
+\node[textbox] (mod2) at (0, 0) {Module 2};
+\node[textbox] (fault) at (1.75,2.25) {Fault\\detector};
+\node[textbox, minimum height=55, text width=30] (switch) at (3.5,0.5) {Switch};
+
+\node [circ] (v3) at (-1.25,0.5) {};
+
+\draw[-]  (v3) -- ++(-1.25,0) node[above right=-2] {\small Input};
+\draw[-Latex]  (switch) -- ++(2,0) node[above left=-2] {\small Output};
+
+\draw[-Latex]  (mod1.east) -- (switch.west |- mod1);
+\draw[-Latex]  (mod2.east) -- (switch.west |- mod2);
+\node [circ] (v1) at (2.15,1) {};
+\node [circ] (v2) at (1.35,0) {};
+\draw [-Latex] (v1) -- (fault.south -| v1);
+\draw [-Latex] (v2) -- (fault.south -| v2);
+\draw [-Latex,rounded corners] (fault) -| (switch);
+\draw [-Latex,rounded corners] (v3) |- (mod1);
+\draw [-Latex,rounded corners] (v3) |- (mod2);
+\end{tikzpicture}

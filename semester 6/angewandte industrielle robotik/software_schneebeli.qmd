@@ -97,5 +97,6 @@ Der Roboter soll möglichst natürliche und keine mechanischen Bewegungen ausfü
 
 ![](images/software_schneebeli/image-2.png)
 
-## Parametrische Programmierung
+## Werkzeug Ausrichtung
 
+![](images/software_schneebeli/image-3.png)

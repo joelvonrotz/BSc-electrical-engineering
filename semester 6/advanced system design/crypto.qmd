@@ -156,29 +156,17 @@ XTEA ist ein sicherer Verschlüsselungsalgorithmus, wenn auch nicht so sicher wi
 
 ## Cipher Modi [\faWikipediaW](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#CTR)
 
-### ECB
+### Electronic Code Book (ECB)
 
-**E**lectronic **C**ode **B**ook
+### Cyber Block Chaining (CBC)
 
-### CBC
+### Cipiher FeedBack (CFB)
 
-**C**yber **B**lock **C**haining
+### Output FeedBack (OFB)
 
-### CFB
+### CounTeR (CTR)
 
-**C**ipiher **F**eed**B**ack
-
-### OFB
-
-**O**utput **F**eed**B**ack
-
-### CTR
-
-**C**oun**T**e**R**
-
-### GCM
-
-**G**alois **C**ounter **M**ode
+### Galois Counter Mode (GCM)
 
 ## Meet-In-The-Middle Attack
 

@@ -206,6 +206,12 @@ $endif$
   {\par\vspace{\abovedisplayskip}\noindent\begin{tabular}{>{$$}l<{$$} @{$${}:{}$$} l}}
   {\end{tabular}\par\vspace{\belowdisplayskip}}
 
+\usepackage{tabularx}
+\newenvironment{conditions*}
+  {\par\vspace{\abovedisplayskip}\noindent
+   \tabularx{\columnwidth}{>{$$}l<{$$} @{$${}:{}$$} >{\raggedright\arraybackslash}X}}
+  {\endtabularx\par\vspace{\belowdisplayskip}}
+
 % [FANCY VERBATIM] --------------------------------------------------------------------- %
 % in combination with the file 'before-content.tex' inside the 'config' folder, the
 % packages 'fancyvbr', 'fvextra' and 'floatrow' are used to restyle the implemented

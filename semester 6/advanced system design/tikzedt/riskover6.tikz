@@ -1,0 +1,16 @@
+\begin{tikzpicture}[textbox/.style={font=\small, draw, minimum width=30, minimum height=20, inner sep=5, align=center}]
+%text width
+\node[textbox] (v1) at (-2.5,1.5) {};
+\node[textbox] (v3) at (-2.5,-0.5) {};
+\node[textbox] (v2) at (-1.5,0.5) {};.
+\node[textbox] (v4) at (0,0.5) {};
+\node[textbox] (v5) at (1,1.5) {};
+\node[textbox, fill=Orange!40] (v6) at (1,-0.5) {};
+\node[textbox] (v7) at (2.5,-0.5) {};
+\draw [-Latex] (v1) edge (v2);
+\draw [-Latex] (v3) edge (v2);
+\draw [-Latex] (v2) edge (v4);
+\draw [-Latex] (v4) edge (v5);
+\draw [-Latex] (v4) edge (v6);
+\draw [-Latex] (v6) edge (v7);
+\end{tikzpicture}

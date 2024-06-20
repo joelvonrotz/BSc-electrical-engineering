@@ -1,17 +1,17 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.6.3)  3 JUN 2024 14:08
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.6.19)  20 JUN 2024 11:26
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**"C:/dev/repo/BSc-electrical-engineering/semester 6/advanced system design/tikzedt/feistelnetwork.tex.preview.tex"
+**"C:/dev/repo/BSc-electrical-engineering/semester 6/advanced system design/tikzedt/dynamicred.tikz.preview.tex"
 
 ! Emergency stop.
-<*> ...ign/tikzedt/feistelnetwork.tex.preview.tex"
+<*> ...design/tikzedt/dynamicred.tikz.preview.tex"
                                                    
 Here is how much of TeX's memory you used:
- 4 strings out of 475499
- 205 string characters out of 5773516
- 1925893 words of memory out of 5000000
- 22743 multiletter control sequences out of 15000+600000
+ 4 strings out of 475475
+ 202 string characters out of 5771891
+ 1925908 words of memory out of 5000000
+ 22746 multiletter control sequences out of 15000+600000
  558069 words of font info for 36 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
  0i,0n,0p,1b,6s stack positions out of 10000i,1000n,20000p,200000b,200000s

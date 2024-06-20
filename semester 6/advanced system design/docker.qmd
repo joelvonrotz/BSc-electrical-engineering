@@ -157,6 +157,8 @@ $ docker start <container>
 
 ### `{\small \faTerminal\hspace{1mm}}`{=latex} Auflisten
 
+listet alle **momentan** ausgeführten Container auf. Mit `-a` listet alle Container auf
+
 ``` bash
 $ docker ps # kurz für 'docker container ls'
 CONTAINER ID  IMAGE   COMMAND ... STATUS        ... NAMES
@@ -164,7 +166,6 @@ CONTAINER ID  IMAGE   COMMAND ... STATUS        ... NAMES
 6201bc70ef8c  debian  "bash"  ... Up 58 minutes ... magical_villani
 ```
 
-listet alle **momentan** ausgeführten Container auf. Mit `-a` listet alle Container auf
 
 
 ### `{\small \faTerminal\hspace{1mm}}`{=latex} Attach/Detach
@@ -221,11 +222,12 @@ $ docker start -i <container>
 
 ### `{\small \faTerminal\hspace{1mm}}`{=latex} Löschen
 
-Es können nur *stopped* und *created* Container gelöscht werden.
-
 ``` bash
 $ docker rm <container> [container ...]
 ```
+
+Es können nur *stopped* und *created* Container gelöscht werden.
+
 
 ::: callout-tip
 #### Löschen nach Beendung
@@ -312,7 +314,7 @@ Ein Docker-**Container** kann fünf Zustände annehmen ([Created]{.underline}, [
 Wenn ein Container gestoppt wird, werden alle ihm zugewiesenen Ressourcen freigegeben, während bei einem angehaltenen Container kein Speicher, aber die CPU freigegeben wird.
 :::
 
-### `{\small \faTerminal\hspace{1mm}}` Grösse `--size`
+### `{\small \faTerminal\hspace{1mm}}`{=latex} Grösse `--size`
 
 Da ein Container Änderungen auf einer separaten Layer verfolgt, ist der Speicherplatz selbst meistens klein.
 
@@ -427,6 +429,9 @@ Mit dem `volume create` Befehl können anonyme und benannte Volumen erstellt wer
 ``` bash
 $ docker volume create [name]
 ```
+
+
+  
 <!--
 888b.            8                d8b w 8       
 8   8 .d8b. .d8b 8.dP .d88b 8d8b  8'  w 8 .d88b 
@@ -435,7 +440,7 @@ $ docker volume create [name]
 -->
 ## Dockerfile
 
-Mit einem `\faFile[regular]`{=latex}`Dockerfile` kann ein Image erstellt werden anhand Anweisungen. [Jede Anweisung erzeugt eine eigene Layer]{.underline}.
+Mit einem `\faFile[regular]`{=latex} `Dockerfile` kann ein Image erstellt werden anhand Anweisungen. [Jede Anweisung erzeugt eine eigene Layer]{.underline}.
 
 ![](images/docker/dockerfile_image.pdf){width="8cm" fig-align="center"}
 
@@ -535,6 +540,8 @@ $ docker history <image>
 ```
 
 ### Multistage
+
+Mit Multistage Building können komplexe Images erzeugt werden. 
 
 ```dockerfile
 # syntax=docker/dockerfile:1

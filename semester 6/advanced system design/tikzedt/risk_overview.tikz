@@ -1,0 +1,16 @@
+\begin{tikzpicture}[textbox/.style={font=\small, draw, text width=55, minimum height=40, inner sep=5, align=center}]
+%text width
+\node[textbox] (v1) at (-3.5,2.5) {Severity of hazardous event};
+\node[textbox] (v3) at (-3.5,-1.5) {Frequency of hazardous event};
+\node[textbox] (v2) at (-1,0.5) {Risk\\classification};
+\node[textbox] (v4) at (2,0.5) {Integrity classification};
+\node[textbox] (v5) at (4.5,2.5) {Hardware integrity classification};
+\node[textbox] (v6) at (4.5,-1.5) {Systematic integrity classification};
+\node[textbox] (v7) at (7.5,-1.5) {Software integrity classification};
+\draw [-Latex] (v1) edge (v2);
+\draw [-Latex] (v3) edge (v2);
+\draw [-Latex] (v2) edge (v4);
+\draw [-Latex] (v4) edge (v5);
+\draw [-Latex] (v4) edge (v6);
+\draw [-Latex] (v6) edge (v7);
+\end{tikzpicture}

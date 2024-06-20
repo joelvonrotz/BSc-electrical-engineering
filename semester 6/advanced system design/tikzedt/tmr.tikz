@@ -1,0 +1,19 @@
+\begin{tikzpicture}[
+	textbox/.style={font=\small, draw, minimum width=30, minimum height=20, inner sep=5, align=center},
+	circ/.style={circle, draw, minimum width=3, minimum height=3, inner sep=0, fill, align=center}
+]
+%text width
+\node[textbox] (v1) at (-1,1) {Module 1};
+\node[textbox] (v2) at (-1,0) {Module 2};
+\node[textbox] (v4) at (-1,-1) {Module 3};
+\node[textbox] (v5) at (1.5,0) {Voting\\element};
+\node[circ] (v3) at (-2.5,0) {};
+\draw  (v3) -- ++(-1.5,0) node[above right=-2] {\small Input};
+\draw [-Latex, rounded corners] (v3) |- (v1);
+\draw [-Latex, rounded corners] (v3) -- (v2);
+\draw [-Latex, rounded corners] (v3) |- (v4);
+\draw [-Latex] (v1) edge (v5);
+\draw [-Latex] (v2) edge (v5);
+\draw [-Latex] (v4) edge (v5);
+\draw [-Latex] (v5) -- ++(2,0) node[above left=-2] {\small Output};
+\end{tikzpicture}

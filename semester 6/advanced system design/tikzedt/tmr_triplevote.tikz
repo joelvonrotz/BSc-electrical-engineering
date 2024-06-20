@@ -1,0 +1,29 @@
+\begin{tikzpicture}[
+	textbox/.style={font=\small, draw, text width=40, minimum height=25, inner sep=3, align=center},
+	circ/.style={circle, draw, minimum width=3, minimum height=3, inner sep=0, fill, align=center}
+]
+\node[textbox] (mod1) at (0, 1) {Module 1};
+\node[textbox] (mod2) at (0, 0) {Module 2};
+\node[textbox] (mod3) at (0,-1) {Module 3};
+
+\node[textbox] (vote1) at (3, 1) {Voting\\element};
+\node[textbox] (vote2) at (3, 0) {Voting\\element};
+\node[textbox] (vote3) at (3,-1) {Voting\\element};
+\draw[-Latex]  (mod1.east) -- (vote1.west);
+\draw[-Latex]  (mod1.east) -- ([yshift=3]vote2.west);
+\draw[-Latex]  (mod1.east) -- ([yshift=8]vote3.west);
+\draw[-Latex]  (mod2.east) -- ([yshift=-3]vote1.west);
+\draw[-Latex]  (mod2.east) -- (vote2.west);
+\draw[-Latex]  (mod2.east) -- ([yshift=3]vote3.west);
+\draw[-Latex]  (mod3.east) -- ([yshift=-8]vote1.west);
+\draw[-Latex]  (mod3.east) -- ([yshift=-3]vote2.west);
+\draw[-Latex]  (mod3.east) -- (vote3.west);
+
+\draw[Latex-]  (mod1) -- ++(-2.5,0) node[above right=-2] {\small Input 1};
+\draw[Latex-]  (mod2) -- ++(-2.5,0) node[above right=-2] {\small Input 2};
+\draw[Latex-]  (mod3) -- ++(-2.5,0) node[above right=-2] {\small Input 3};
+
+\draw[-Latex]  (vote1) -- ++(2.5,0) node[above left=-2] {\small Output 1};
+\draw[-Latex]  (vote2) -- ++(2.5,0) node[above left=-2] {\small Output 2};
+\draw[-Latex]  (vote3) -- ++(2.5,0) node[above left=-2] {\small Output 3};
+\end{tikzpicture}

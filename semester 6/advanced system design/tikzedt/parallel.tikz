@@ -1,0 +1,23 @@
+\begin{tikzpicture}[
+	textbox/.style={font=\small, draw, text width=20, minimum height=20, inner sep=0, align=center},
+	circ/.style={circle, draw, minimum width=3, minimum height=3, inner sep=0, fill, align=center}
+]
+\node[textbox] (b1) at (1,1) {1};
+\node[textbox] (b2) at (1,0) {2};
+\node[textbox] (b3) at (1,-1.5) {N};
+\node [circ] (dot1) at (0,0) {};
+\node [circ] (dot2) at (2,0) {};
+
+\draw[-] (dot1) -- ++(-1.5,0) node[above right=-1] {\small Input};
+\draw[-Latex] (dot2) -- ++(1.5,0) node[above left=-1] {\small Output};
+
+
+\draw [-Latex] (dot1) |- (b1);
+\draw [-Latex] (dot1) |- (b2);
+\draw [-Latex] (dot1) |- (b3);
+\draw [-] (b3) -| (dot2);
+\draw [-] (b2) -| (dot2);
+\draw [-] (b1) -| (dot2);
+\node[circ, minimum width=2, minimum height=2] at (1,-0.65) {};
+\node[circ, minimum width=2, minimum height=2] at (1,-0.85) {};
+\end{tikzpicture}

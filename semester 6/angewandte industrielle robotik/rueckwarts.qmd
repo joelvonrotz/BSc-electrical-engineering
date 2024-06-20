@@ -26,4 +26,3 @@ Segmente in Dreiecke umwandeln und danach Kosinussatz anwenden!
 
 # Kinematische Transformationen mit der Jacobi-Matrix
 
-:)

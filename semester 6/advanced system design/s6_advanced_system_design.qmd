@@ -6,21 +6,25 @@
 
 {{< include crypto.qmd >}}
 
+\newpage
+
 # Docker `\faIcon{docker}`{=latex}
 
 {{< include docker.qmd >}}
+
+\newpage
+
+# Performance
+
+{{< include performance.qmd >}}
+
+\newpage
 
 # Safety
 
 {{< include safety.qmd >}}
 
-# Ada Spark
-
-{{< include ada_spark.qmd >}}
-
-# Performance
-
-{{< include performance.qmd >}}
+\newpage
 
 # Trends - Low Power
 

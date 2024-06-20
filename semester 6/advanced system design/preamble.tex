@@ -1,0 +1,34 @@
+\usepackage[datesep=.]{datetime2}
+\DTMsetdatestyle{ddmmyyyy}
+\usepackage{enumitem}
+\setlist[description]{style=nextline,parsep=5mm}
+\providecommand\phantomsection{}
+\usepackage{multicol}
+\usepackage{tikzscale}
+
+
+\usepackage{xfrac}
+
+
+\DeclareRobustCommand{\textHighlight}[1]{\tikz[baseline]{\node[anchor=base,fill=Gray!10, rounded corners=5pt, draw, densely dotted] {\bfseries{#1}};}}
+
+\makeatletter
+\newcommand{\shorteq}{\mathrel{\mkern0.2mu\mathpalette\shorteq@\relax\mkern0.2mu}}
+\newcommand{\shorteq@}[2]{\scalebox{0.5}[1]{$\m@th#1=$}}
+
+\newcommand{\longeq}[1]{\mathrel{\mathpalette\longeq@{#1}}}
+\newcommand{\longeq@}[2]{%
+  \begingroup
+  \sbox\z@{$\m@th#1=$}%
+  \ifdim#2<\wd\z@
+    \resizebox{#2}{\height}{\box\z@}%
+  \else
+    \ifdim#2<3\wd\z@
+      \hbox to #2{$\m@th#1=\hss=\hss=\hss=$}%
+    \else
+      \hbox to #2{$\m@th#1=\cleaders\hbox to 0.2\wd\z@{\hss$#1=$\hss}\hfil=$}%
+    \fi
+  \fi
+  \endgroup
+}
+\makeatother

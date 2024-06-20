@@ -1,0 +1,51 @@
+\begin{tikzpicture}[
+	textbox/.style={font=\scriptsize, draw, text width=30, minimum height=20, inner sep=3, align=center},
+	circ/.style={circle, draw, minimum width=3, minimum height=3, inner sep=0, fill, align=center}
+]
+\node[textbox] (mod11) at (0, 1) {Module};
+\node[textbox] (mod12) at (0, 0) {Module};
+\node[textbox] (mod13) at (0,-1) {Module};
+
+\node[textbox] (vote11) at (2.5, 1) {Voting\\element};
+\node[textbox] (vote12) at (2.5, 0) {Voting\\element};
+\node[textbox] (vote13) at (2.5,-1) {Voting\\element};
+
+\draw[-Latex]  (mod11.east) -- (vote11.west);
+\draw[-Latex]  (mod11.east) -- ([yshift=3]vote12.west);
+\draw[-Latex]  (mod11.east) -- ([yshift=8]vote13.west);
+\draw[-Latex]  (mod12.east) -- ([yshift=-3]vote11.west);
+\draw[-Latex]  (mod12.east) -- (vote12.west);
+\draw[-Latex]  (mod12.east) -- ([yshift=3]vote13.west);
+\draw[-Latex]  (mod13.east) -- ([yshift=-8]vote11.west);
+\draw[-Latex]  (mod13.east) -- ([yshift=-3]vote12.west);
+\draw[-Latex]  (mod13.east) -- (vote13.west);
+	
+\draw[Latex-]  (mod11) -- ++(-2,0) node[above right=-2] {\footnotesize Input 1};
+\draw[Latex-]  (mod12) -- ++(-2,0) node[above right=-2] {\footnotesize Input 2};
+\draw[Latex-]  (mod13) -- ++(-2,0) node[above right=-2] {\footnotesize Input 3};
+
+\node[textbox] (mod21) at (4.5,1) {Module};
+\node[textbox] (mod22) at (4.5,0) {Module};
+\node[textbox] (mod23) at (4.5,-1) {Module};
+
+\node[textbox] (vote21) at (7,1) {Voting\\element};
+\node[textbox] (vote22) at (7,0) {Voting\\element};
+\node[textbox] (vote23) at (7,-1) {Voting\\element};
+
+\draw [-Latex] (vote11) -- (mod21);
+\draw [-Latex] (vote12) -- (mod22);
+\draw [-Latex] (vote13) -- (mod23);
+\draw [-Latex] (mod21.east) -- (vote21.west);
+\draw [-Latex] (mod21.east) -- ([yshift=3]vote22.west);
+\draw [-Latex] (mod21.east) -- ([yshift=8]vote23.west);
+\draw [-Latex] (mod22.east) -- ([yshift=-3]vote21.west);
+\draw [-Latex] (mod22.east) -- (vote22.west);
+\draw [-Latex] (mod22.east) -- ([yshift=3]vote23.west);
+\draw [-Latex] (mod23.east) -- (vote23.west);
+\draw [-Latex] (mod23.east) -- ([yshift=-3]vote22.west);
+\draw [-Latex] (mod23.east) -- ([yshift=-8]vote21.west);
+
+\draw[-Latex]  (vote21) -- ++(2,0) node[above left=-2] {\footnotesize Output 1};
+\draw[-Latex]  (vote22) -- ++(2,0) node[above left=-2] {\footnotesize Output 2};
+\draw[-Latex]  (vote23) -- ++(2,0) node[above left=-2] {\footnotesize Output 3};
+\end{tikzpicture}
