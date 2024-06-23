@@ -151,32 +151,534 @@ XTEA ist ein sicherer Verschlüsselungsalgorithmus, wenn auch nicht so sicher wi
 :::
 
 
-## AES
+## Advanced Encryption Standard (AES)
 
+Die US National Institute of Standards and Technology (NIST) hat in 1977 neuen *Advanced Encryption Standard* (AES) präsentiert und verschiedene Blockcipher wurden evaluiert. *Rijndael* 'gewann' die Runden in 2001 und wurde zu AES umbenannt.
+
+AES ist ein Byte-orientierter Cipher!
+
+::: callout-note
+#### Anforderungen & Kandidaten
+
+**Anforderungen**
+- block cipher with 128 bit block size
+- three key lengths must be supported: 128, 192 and 256 bit
+- security relative to other submitted algorithms
+- efficiency in software and hardware
+
+**Kandidaten**
+- *Mars* by IBM Corporation
+- *RC6* by RSA Laboratories
+- *Rijndael*, by Joan Daemen and Vincent Rijmen
+- *Serpent*, by Ross Anderson, Eli Biham and Lars Knudsen
+- *Twofish*, by Bruce Schneier, John Kelsey, Doug Whiting, David Wagner, Chris Hall and Niels Ferguson
+:::
+
+![](images/crypto/image-8.png){height="4cm" fig-align="center"}
+
+`{\footnotesize $k_{128b  }\rightarrow n_r=10\text{ rounds}\quad k_{192b  }\rightarrow 12\quad k_{256b  }\rightarrow 14$}`{=latex}
+
+![](images/crypto/image-9.png)
+
+![](images/crypto/image-10.png)
+
+Key Addition Layer
+: Ein 128b *Round*-Key/Subkey (vom Hauptkey) wird in das Datenpaket ge**xor**ed (Key Whitening)
+
+Byte Substitution layer (S-Box)
+: Eine Nichtlineare Datentransformation (Konfusion)
+
+Diffusion layer
+: Wendet Diffusion an alle Bits an auf zwei Sublayers an. `\circled{1}`{=latex} *ShiftRows* Layer verändert die Daten auf Byte-Ebene. `\circled{2}`{=latex} *MixColumn* Layer kombiniert/vermischt 4-Byte-Blöcke via Matrix Operationen.
+
+
+::: {.callout-warning}
+Letzte Runde macht **keinen** MixColumn!
+:::
+
+::: {.callout-note}
+#### Eine AES Runde für Runden $1,2,...,n_r$
+
+![](images/crypto/image-15.png)
+
+Für die Byte Substitution wird folgende S-Box verwendet:
+
+![](images/crypto/image-16.png){width="7cm" fig-align="center"}
+
+*Shiftrows* basiert auf folgendem Verschiebungsmuster.
+
+![](images/crypto/shiftrow.pdf)
+
+*MixColumns* wird mit folgender Matrix-Multiplikation gemacht. Analog kann diese Operation auf die anderen Byte-Gruppen gleich angewendet werden.
+
+$$
+\begin{bmatrix}
+C_0\\ C_1\\ C_2 \\ C_3
+\end{bmatrix}=\begin{bmatrix}
+\mathtt{02} & \mathtt{03} & \mathtt{01} & \mathtt{01}\\
+\mathtt{01} & \mathtt{02} & \mathtt{03} & \mathtt{01}\\
+\mathtt{01} & \mathtt{01} & \mathtt{02} & \mathtt{03}\\
+\mathtt{03} & \mathtt{01} & \mathtt{01} & \mathtt{02}
+\end{bmatrix}\cdot\begin{bmatrix}
+B_0\\ B_{5}\\ B_{10} \\ B_{15}
+\end{bmatrix}
+$$
+
+$\mathtt{01},\mathtt{02},\mathtt{03}$ sind Representationen eines Elements von $GF(2^8)$. **Addition** wird mit XOR Operationen gemacht (1+1+1=1 - ohne Carry!). **Multiplikation** wird mit Polynom Multiplikation gemacht (`\circled{1}`{=latex} Polynom Multiplikation `\circled{2}`{=latex} Modulo Operation).
+
+Beispiel mit Input $\mathtt{25_h,25_h,25_h,25_h}$
+
+![](images/crypto/image-17.png){fig-align="center" height="2.5cm"}
+
+:::
+
+### Key Scheduler / Subkey Generierung
+
+![](images/crypto/image-11.png)
+
+Wie in der Abbildung zu sehen ist, wird das ganz linke *Word* eines Subkeys
+$W[4i]$, wobei $i = 1,\ldots,10$ ist, wird berechnet als:
+
+$$
+W[4i] = W[4(i-1)]+g(W[4i-1])
+$$
+
+
+::: callout-note
+#### g-Funktion
+
+Die $g$-Funktion hat zwei Aufgaben. Erstens wird **Nichtlinearität** zum Key Scheduler hinzugefügt. Zweitens wird die **Symmetrie** weggenommen. Beides ist nötig um Block Cipher Attacken zu verhindern.
+
+![](images/crypto/image-12.png){width="7cm" fig-align="center"}
+
+Die $g$-Funktion rotiert die vier input bytes, führt eine byte-weise S-Box substitution und fügt einen Runden-Koeffizient $RC$ dazu. Der Runden-Koeffizient ist ein Element vom Galois field $GF(2^8)$ und wird nur am Byte ganz links dazugefügt. Die Koeffizienten variieren von Runde zu Runde mit folgender Regel:
+
+$$
+\begin{split}
+RC[~] = [&(\mathtt{0{\times}01})_{16},(\mathtt{0{\times}02})_{16},(\mathtt{0{\times}04})_{16},(\mathtt{0{\times}08})_{16},(\mathtt{0{\times}10})_{16},\\
+         &(\mathtt{0{\times}20})_{16},(\mathtt{0{\times}40})_{16},(\mathtt{0{\times}80})_{16},(\mathtt{0{\times}1B})_{16},(\mathtt{0{\times}36})_{16}]
+\end{split}
+$$
+
+
+:::
+
+
+### Entschlüsselung
+
+Da AES keine Feistel Netzwerke besitzt, müssen alle Layers invertiert werden, also schrittweise alles Rückwärts machen. Für die Entschlüsselung wird mit angefangen $k_{10}$ (bei 128b) verwendet, dann $k_9$, $\ldots$.
+
+![](images/crypto/image-13.png)
+
+![](images/crypto/image-14.png)
+
+Bei der Verschlüsselung wird zuletzt der MixColumn **nicht** ausgeführt und ist somit analog daselbe bei der Entschlüsselung einfach am Anfang!
+
+#### Round funktion 
+
+Die Sublayers werden ebenfalls verkehrt abgelaufen! Die Inverse der MixColumn Sublayer verläuft auf dem gleichen GF-Prinzip, wiederum einfach umgekehrt.
+
+![](images/crypto/image-18.png)
+
+
+$$
+\begin{bmatrix}
+B_0\\ B_1\\ B_2 \\ B_3
+\end{bmatrix}=\begin{bmatrix}
+\mathtt{0E} & \mathtt{0B} & \mathtt{0D} & \mathtt{09}\\
+\mathtt{09} & \mathtt{0E} & \mathtt{0B} & \mathtt{0D}\\
+\mathtt{0D} & \mathtt{09} & \mathtt{0E} & \mathtt{0B}\\
+\mathtt{0B} & \mathtt{0D} & \mathtt{09} & \mathtt{0E}
+\end{bmatrix}\cdot\begin{bmatrix}
+C_0\\ C_{1}\\ C_{2} \\ C_{3}
+\end{bmatrix}
+$$
+
+![](images/crypto/invshiftrow.pdf)
+
+![](images/crypto/invsbox.png){width="7cm" fig-align="center"}
 
 ## Cipher Modi [\faWikipediaW](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#CTR)
 
 ### Electronic Code Book (ECB)
 
-### Cyber Block Chaining (CBC)
+Jeder Block wird separat verschlüsselt.
 
-### Cipiher FeedBack (CFB)
+![](images/crypto/image.png)
 
-### Output FeedBack (OFB)
+```{=latex}
+{\footnotesize\begin{description}[parsep=0mm,labelsep=2pt,labelwidth=8pt]
+  \item[\color{OliveGreen}\faPlus] No block synchronization required
+  \item[\color{OliveGreen}\faPlus] Bit errors only affect the corresponding block
+  \item[\color{OliveGreen}\faPlus] Block cipher operating can be \textbf{parallelized}
+  \item[\color{BrickRed}\faMinus] Plaintext blocks are encrypted independently of previous blocks
+  \item[\color{BrickRed}\faMinus] Identical plaintexts result in identical ciphertexts $\rightarrow$ double sending is detectable
+  \item[\color{BrickRed}\faMinus] An attacker may reorder or exchange ciphertext blocks $\rightarrow$ \textbf{Man in the middle attack}
+\end{description}}
+```
 
-### CounTeR (CTR)
+### Cipher Block Chaining (CBC)
+
+![](images/crypto/image-1.png)
+
+$X_1$ wird by einem öffentlich(!) Initialvektor $IV$ (auch *nonce* $IV$ genannt). Alle weiteren Pakete werden mit dem vorherigen Paket verschlüsselt!
+
+
+```{=latex}
+{\footnotesize\begin{description}[parsep=0mm,labelsep=2pt,labelwidth=8pt]
+  \item[\color{OliveGreen}\faPlus] Ciphertext $y_1$ depends on plaintext $x_1$, the key and the $IV$
+  \item[\color{OliveGreen}\faPlus] Ciphertext $y_i$ depends on \textbf{all} previous plaintext blocks (and $k$, $IV$)
+  \item[\color{BrickRed}\faMinus] No parallelization possible
+  \item[\color{BrickRed}\faMinus] A transmission error destroys \textbf{all} following information
+\end{description}}
+```
+
+### Output Feedback (OFB)
+
+![](images/crypto/image-2.png)
+
+Block Cipher zu synchronem Stream Cipher (**synchron**: Key stream $S_i$ ist nicht vom Cipher selbst abhängig und somit kann der Key Stream komplett vorgerechnet werden).
+
+```{=latex}
+{\footnotesize\begin{description}[parsep=0mm,labelsep=2pt,labelwidth=8pt]
+  \item[\color{OliveGreen}\faPlus] Ciphertext $y_1$ depends on plaintext $x_1$, $k$ and the nonce $IV$
+  \item[\color{OliveGreen}\faPlus] Encryption and decryption is exactly the same operation
+  \item[\color{OliveGreen}\faPlus] Very fast, $S_i$ can be precomputed
+  \item[\color{BrickRed}\faMinus] Ciphertext $y_i$ only depends on plaintext $x_i$, $k$ (not on previous plaintexts)
+\end{description}}
+```
+
+### Cipher Feedback (CFB)
+
+![](images/crypto/image-3.png)
+
+Block Cipher zu **a**synchronem Stream Cipher (**asynchron**: Key stream $S_i$ ist vom Cipher abhängig und ist daher eher langsamer im Vergleich zu OFB).
+
+```{=latex}
+{\footnotesize\begin{description}[parsep=0mm,labelsep=2pt,labelwidth=8pt]
+  \item[\color{OliveGreen}\faPlus] Ciphertext $y_i$ depends on all previous plaintext blocks (and $k$, $IV$)
+  \item[\color{BrickRed}\faMinus] No parallelization possible
+\end{description}}
+```
+
+### Counter (CTR)
+
+Block Cipher zu synchronem Stream Cipher. $IV$ wird zusammen mit einem Counter zur Key Stream generierung verwendet, was eine Vorberechnung des gesamten Streams erlaubt.
+
+![](images/crypto/image-4.png){height="4cm" fig-align="center"} 
+
+```{=latex}
+{\footnotesize\begin{description}[parsep=0mm,labelsep=2pt,labelwidth=8pt]
+  \item[\color{OliveGreen}\faPlus] Parallelization is possible (no dependance of previous cypher)!
+  \item[\color{OliveGreen}\faPlus]  Very fast, can be precomputed
+  \item[\color{BrickRed}\faMinus] Ciphertext 
+  $y_i$ only depends on plaintext $x_i$, $k$
+\end{description}}
+```
 
 ### Galois Counter Mode (GCM)
 
-## Meet-In-The-Middle Attack
+![](images/crypto/image-5.png)
 
-## Double Encrpytion
+Fügt **message authentication & integrity** als CTR-Erweiterung ein. Alle Multiplikationen werden mit dem 128-Bit Galois Feld $GF(2^128)$ und dem irreduziblen Polynom $P(x) = x^{128} +x^7 +x^2 +x+1$ gemacht.
+
+```{=latex}
+{\footnotesize\begin{description}[parsep=0mm,labelsep=2pt,labelwidth=8pt]
+  \item[\color{OliveGreen}\faPlus] 
+  \item[\color{BrickRed}\faMinus] 
+\end{description}}
+```
+
+::: callout-note
+### message authentication & integrity?
+
+...authentication
+: Bob kann prüfen, ob Alice wirklich die Nachricht gesendet hat.
+
+...integrity
+: Bob kann prüfen, dass niemand den Ciphertext während der Übertragung manipuliert hat.
+
+:::
+
+## Double Encrpytion & Meet-In-The-Middle Attack (MITM)
+
+
+![](images/crypto/image-6.png)
+
+*Double Encryption* wird der Plaintext $x$ zuerst mit $k_L$ verschlüsselt und dann mit $k_R$ folgend entschlüsselt $\rightarrow$ Ciphertext $y$.
+
+*Meet-In-The-Middle Attack*:
+
+1. **Table Computation** Linke Seite wird via *Brute-Force* den Key $k_L$ ermittelt und daraus ein Lookup Table mit $2^k$ Einträgen erstellt.
+2. **Key Matching** Via *Decryption-Brute-Force* wird die Rechte Seite entschlüsselt und $z_{R,j}$ mit dem entsprechenden Werte von $z_{L,i}$ im Lookuptable verglichen. 
+
+Dies reduziert die Komplexizität von $2^{2k}$ zu $2^{k+1}$ Suchoperationen.
 
 ## Triple Encrpytion
 
+![](images/crypto/image-7.png)
+
+Der Plaintext wird *encrypted-decrypted-encrypted* (EDE) mit drei verschiedenen Keys. Bei einer Key-Grösse von 56-Bits (168-Bit Key komplett) verlängert sich der Aufwand zurück zu $2^{2k}$ Operationen.
+
+$$
+y=e_{k1}(e_{k2}^{-1}(e_{k3}(x)))
+$$
+
+Der MITM-Angriff reduziert die [effektive]{.underline} Keygrösse von $3\cdot56=168$ zu 112 Bits.
+
 ## Key Whitening
 
+![](images/crypto/keywhitening.pdf){fig-align="center"}
 
+Damit wird DES resistenter gegenüber Brute-Force-Attacken gemacht. Zwei Whitening Keys $k_1$ & $k_2$ werden verwendet. Zum Beispiel DESX verwendet Key Whitening.
+
+::: callout-warning
+
+Schützt den Blockcipher nicht vor **analytischen** Angriffen wie lineare oder differentiale Kryptoanalyse. Daher ist dieser nutzlos bei schwachen Cipher.
+
+:::
+
+## Asymmetrische Kryptographie
+
+### Key Distribution Problem
+
+Das Problem der symmetrischen Kryptographie ist, dass jeder Teilnehmer eines Kommunikationsnetzwerkes über die Schlüssel aller anderen Teilnehmer verfügen muss.
+
+$$
+\#_{keys}(n_{user})=n_{user}\cdot\frac{n_{user}-1}{2}\text{ Key Paare}
+$$
+
+![](images/crypto/keyprob.pdf){fig-align="center" height="4cm
+"}
+
+### Public Key Cryptography [\color{BrickRed}\faYoutube](https://www.youtube.com/watch?v=GSIDS_lvRv4)
+
+- Key besteht aus **public** und **private** Teile.
+  - **private**: wird zur **Ent**schlüsselung verwendet
+  - **public**: wird zur **Ver**schlüsselung verwendet
+- Löst das Key Distribution System! **Aber** ist sehr Rechenintensiv!
+
+![](images/crypto/asyncrypto.pdf){fig-align="center"}
+
+::: callout-caution
+#### Man-In-The-Middle Attack [\color{BrickRed}\faYoutube](https://www.youtube.com/watch?v=vsXMMT2CqqE)
+
+
+![](images/crypto/diffie_problem.pdf){fig-align="center"}
+
+Sean (oder Mallory) fängt den Key (`ga`, `gb`) Austausch zwischen Alice & Bob ab und antwortet beidseitig mit dem eigenen Key (`s`$\rightarrow$`gas`, `gab`). Damit kann Sean jegliche Nachrichten lesen und verändern, ohne dass es Alice & Bob merken. 
+
+:::
+
+### Diffie Hellman [\color{BrickRed}\faYoutube${}_1$](https://www.youtube.com/watch?v=NmM9HA2MQGI), [\color{BrickRed}\faYoutube${}_2$](https://www.youtube.com/watch?v=Yjrfm_oRO0w)
+
+![](images/crypto/diffie.pdf){fig-align="center"}
+
+**Vorbereitung**:
+
+1. Wählen einer **grossen** Primzahl ${\color{OliveGreen}\mathbf{p}}$
+2. Wählen einer **grossen** Ganzzahl ${\color{OliveGreen}\mathbf{g}}\in(2,3,\ldots,n-2)$
+3. ${\color{OliveGreen}\mathbf{p}}$ & ${\color{OliveGreen}\mathbf{g}}$ veröffentlichen
+
+**Ausführung**:
+
+```{=latex}
+{\small\begin{description}[parsep=2mm,labelsep=2pt,labelwidth=8pt]
+  \item[\textbf{Alice}] \circled{1} Wählen eines zufälligen {\color{BrickRed}\textbf{private}} Key ${\color{BrickRed}\mathbf{a}}$ \\
+                        \circled{2} {\color{OliveGreen}\textbf{Public}} Key berechnen: ${\color{OliveGreen}\mathbf{k_{A}}}={\color{OliveGreen}\mathbf{g}}^{\color{BrickRed}\mathbf{a}}~\text{mod}~{\color{OliveGreen}\mathbf{p}}$ \\
+                        \circled{3} Key ${\color{OliveGreen}\mathbf{k_{A}}}$ veröffentlichen
+  \item[\textbf{Bob}] \circled{1} Wählen eines zufälligen {\color{BrickRed}\textbf{private}} Key ${\color{BrickRed}\mathbf{b}}$ \\ \circled{2} {\color{OliveGreen}\textbf{Public}} Key berechnen: ${\color{OliveGreen}\mathbf{k_{B}}}={\color{OliveGreen}\mathbf{g}}^{\color{BrickRed}\mathbf{b}}~\text{mod}~{\color{OliveGreen}\mathbf{p}}$ \\ \circled{3} Key ${\color{OliveGreen}\mathbf{k_{B}}}$ veröffentlichen
+  \item[\textbf{Alice}] Session Key berechnen: ${\color{BrickRed}\mathbf{k_{AB}}}={\color{OliveGreen}\mathbf{k_{B}}}^{\color{BrickRed}\mathbf{a}}~\text{mod}~ {{\color{OliveGreen}\mathbf{p}}}={\color{OliveGreen}\mathbf{g}}^{\color{BrickRed}\mathbf{ab}}~\text{mod}~ {{\color{OliveGreen}\mathbf{p}}}$
+  \item[\textbf{Bob}] Session Key berechnen: ${\color{BrickRed}\mathbf{k_{AB}}}={\color{OliveGreen}\mathbf{k_{A}}}^{\color{BrickRed}\mathbf{b}}~\text{mod}~ {{\color{OliveGreen}\mathbf{p}}}={\color{OliveGreen}\mathbf{g}}^{\color{BrickRed}\mathbf{ab}}~\text{mod}~ {{\color{OliveGreen}\mathbf{p}}}$
+\end{description}}
+```
+
+Um die Verschlüsselung zu knacken, müsste Oskar (the bad guy) '$g^a ~\text{mod}~ n = k_A$' oder '$g^b~\text{mod}~ n = k_B$' faktorisieren.
+
+![](images/crypto/image-19.png){height="2cm" fig-align="center"}
+
+::: {.callout-tip appearance="simple"}
+#### Beispiel
+
+![](images/crypto/image-20.png){width="7cm" fig-align="center"}
+
+**!!!** Jedes weitere bit in $p$ verdoppelt den nötigen Aufwand um einen Private Key zu finden **!!!**
+:::
+
+### Elgamal Encryption Scheme
+
+Erweiterung von DHKE $\rightarrow$ Ähnlicher Ablauf wie bei DHKE, einfach wird ein neuen private Key für jeden Block generiert! Dies **verdoppelt** die Sende-Bandbreite, dafür können die Schlüssel vorgerechnet werden (Im Beispiel auf Alice bezogen)! 
+
+![](images/crypto/image-21.png){width="8cm" fig-align="center"}
+
+### RSA
+
+
+**Vorbereitung**:
+
+1. **Zwei grosse** Primzahlen ${\color{BrickRed}\mathbf{p}}$, ${\color{BrickRed}\mathbf{q}}$
+2. Berechne den `{\color{OliveGreen}\text{public}}`{=latex} Wert ${\color{OliveGreen}\mathbf{n}}={\color{BrickRed}\mathbf{p}}\cdot {\color{BrickRed}\mathbf{q}}$ (one way *trapdoor* function)
+3. Berechne ${\color{BrickRed}\varphi} ({\color{OliveGreen}\mathbf{n}})=({\color{BrickRed}\mathbf{p}}-1)\cdot({\color{BrickRed}\mathbf{q}}-1)$
+4. Wählen des `{\color{OliveGreen}\text{public}}`{=latex} Exponenten ${\color{OliveGreen}\mathbf{e}}\in\{1,2,\ldots,{\color{BrickRed}\varphi}({\color{OliveGreen}\mathbf{n}})-1\}$ sodass $\text{gcd}({\color{OliveGreen}\mathbf{e}},{\color{BrickRed}\varphi}({\color{OliveGreen}\mathbf{n}}))=1$ (greatest common divisor)
+5. `{\color{OliveGreen}\text{private}}`{=latex} Key ${\color{BrickRed}\mathbf{d}}$ sodass $({\color{BrickRed}\mathbf{d}}\cdot {\color{OliveGreen}\mathbf{e}})~\text{mod}~ {\color{BrickRed}\varphi}({\color{OliveGreen}\mathbf{n}})=1$ gilt
+
+**Ausführung**:
+
+```{=latex}
+{\small\begin{description}[parsep=2mm,labelsep=2pt,labelwidth=8pt]
+  \item[\textbf{Alice}] Verschlüsselt $y=x^{\color{OliveGreen}\mathbf{e}}~\text{mod}~{\color{OliveGreen}\mathbf{n}}$
+  \item[\textbf{Bob}] Verschlüsselt $x=y^{\color{BrickRed}\mathbf{d}}~\text{mod}~{\color{OliveGreen}\mathbf{n}}$
+  \item[\textbf{Oskar}] Muss Faktor ${\color{OliveGreen}\mathbf{n}}$ aufwenden, um ${\color{BrickRed}\mathbf{d}}$ zu erhalten
+\end{description}}
+```
+
+::: {.callout-tip appearance="simple"}
+#### Beispiel
+
+![](images/crypto/image-22.png){width="8cm" fig-align="center"}
+:::
+
+::: callout-important
+#### Side Channel Attacks
+
+Ein *Side Channel Attack* oder Seitenkanalangriff ist eine Sicherheitslücke, die darauf abzielt, Informationen von einem System zu sammeln oder die Programmausführung eines Systems zu beeinflussen, indem indirekte Effekte des Systems oder seiner Hardware gemessen oder ausgenutzt werden, anstatt das Programm oder seinen Code direkt anzugreifen.
+:::
+
+### Eliptic-Curve-Cryptography (ECC)
+
+Die Eliptic-Curve-Cryptography ist einer vieler Ansätze, um einen Public Key zu generieren. Dieser Ansatz verwendet die Struktur einer eliptischen Kurve, um anhand 'Ketten-Schnittpunkten' einen möglichst lange Kette abzulaufen. Das Endprodukt dabei ist ein kürzerer Key, welcher aber gleichwertige Sicherheit im Vergleich zu Nicht-ECC-Verfahren bietet.
+
+#### Addition  $P \neq Q$
+
+![](images/crypto/image-25.png){width="6cm" fig-align="center"}
+
+$$
+\begin{split}
+R(x_3,y_3) &= P(x_1,y_1) + Q(x_2,y_2) \\
+\text{slope } s &= (y_2-y_1)/(x_2-x_1) ~\text{mod}~ p \\
+x_3 &= s^2-x_1-x_2 ~\text{mod}~ p \\
+y_3 &= s\cdot(x_1-x_3)-y_1 ~\text{mod}~ p \\
+\end{split}
+$$
+
+- Linie $PQ$ schneidet die Ellipse $E$ an einem dritten Punkt $R'$.
+- $R=P+Q ~\rightarrow$ is die Inverse von $R’$ (gespiegelt an der X-Achse)
+
+#### Addition $P = Q$
+
+![](images/crypto/image-23.png){width="6cm" fig-align="center"}
+
+$$
+\begin{split}
+R(x_3,y_3) &= P(x_1,y_1) + P(x_1,y_1)\\
+s &= \text{tangent} = (3\cdot x_1^2+a)/(2\cdot y_1) ~\text{mod}~ p\\
+x_3 &= s^2-x_1-x_2 ~\text{mod}~ p \quad\qquad {\small\text{wie bei } P\neq Q}\\
+y_3 &= s\cdot (x_1-x_3)-y_1 ~\text{mod}~ p \quad {\small\text{wie bei } P\neq Q}\\
+\end{split}
+$$
+
+### Eliptic-Curve Diffie-Hellmann Key Exchange (ECDH)
+
+![](images/crypto/image-24.png)
+
+## Security Services
+
+*auf English, da ich keine Lust aufs übersetzen habe* :-)
+
+1. **Confidentiality**: Information is kept secret from all but authorized parties
+2. **Integrity**: Ensures that a message has not been modified in transit
+3. **Message authentication**: Ensures that the sender of a message is authentic (An alternative term is data origin authentication)
+4. **Non-repudiation**: Ensures that the sender of a message can not deny to be the creation of the message. (e.g. order of a pink car)
+5. **Identification/entity authentication**: Establishing and verification of the identity of an entity, e.g. a person, a computer, or a credit card
+6. **Access control**: Restricting access to the resources to privileged entities
+7. **Availability**: The electronic system is reliably available
+8. **Auditing**: Provides evidences about security relevant activities, e.g., by keeping logs about certain events
+9. **Physical security**: Providing protection against physical tampering and/or responses to physical tampering attempts
+10. **Anonymity**: Providing protection against discovery and misuse of identity
+
+## RSA Signature Scheme
+
+Die Schlüssel anhand RSA generieren!
+
+
+```{=latex}
+{\small\begin{description}[parsep=2mm,labelsep=2pt,labelwidth=8pt]
+  \item[\textbf{Bob} erzeugt die Signatur] "Verschlüsselt" die Nachricht ${\color{OliveGreen}\textbf{x}}$ **mit** dem **private Key** ${\color{BrickRed}\mathbf{d}}$ \\
+                    ${\color{OliveGreen}\mathbf{s}}=\text{sign}_{\color{BrickRed}K_{Priv}}({\color{OliveGreen}\textbf{x}})={\color{OliveGreen}\textbf{x}}^{\color{BrickRed}\textbf{d}} ~\text{mod}~ {\color{OliveGreen}\textbf{n}}$ \\
+                    Anhängen der Signatur ${\color{OliveGreen}\textbf{s}}$ an die verschlüsselte Nachricht ${\color{OliveGreen}\textbf{x}}$
+  \item[\textbf{Alice} verifiziert die Signatur] **Entschlüsselt** die Signatur **mit** Bob's **öffentlichen Key** (${\color{OliveGreen}\textbf{n}}$,${\color{OliveGreen}\textbf{e}}$) \\
+  ${\color{OliveGreen}\mathbf{x}}'=\text{verif}_{\color{OliveGreen}K_{Pub}}({\color{OliveGreen}\textbf{s}})={\color{OliveGreen}\textbf{s}}^{\color{OliveGreen}\textbf{e}} ~\text{mod}~ {\color{OliveGreen}\textbf{n}}$
+  \end{description}}
+```
+
+Die Signatur ist gültig wenn ${\color{OliveGreen}\mathbf{x}}={\color{OliveGreen}\mathbf{x}}'$
+
+**Benötigt Padding**: Oscar in der Mitte kann verschiedene & gültige Signaturen generieren, in dem er eine eigene Signatur $s\in Z_n$ wählt und $x=s^e~\text{mod}~n$ berechnet. **Jedoch** kann er keine eigene gültige Nachricht erstellen.
+
+## Digital Signature Algorithm (DSA)
+
+![](images/crypto/image-26.png)
+
+![](images/crypto/image-27.png)
+
+![](images/crypto/image-28.png)
+
+::: callout-tip
+### (von Livio gestohlenes) Beispiel
+
+![](images/crypto/image-29.png)
+
+![](images/crypto/image-30.png)
+:::
+
+![](images/crypto/image-31.png)
+
+::: callout-note
+
+- Federal US Government standard for digital signatures (DSS) by NIST
+
+Based on Elgamal
+: `\faPlus`{=latex} Signature is only 320 bits long | `\faMinus`{=latex} Slower than RSA signature scheme
+:::
+
+### Elliptic Curve Digital Signature Algorithm (EC-DSA)
+
+- DSA auf der Grundlage der Elliptischen Kurven-Kryptographie (ECC)
+- Bitlängen im Bereich von 160-256 Bit können gewählt werden, um eine Sicherheit zu erreichen, die der von RSA mit 1024-3072 Bit entspricht (symmetrische Sicherheitsstufe 80-128 Bit)
+- Eine Signatur besteht aus zwei Punkten, d. h. die Signatur ist doppelt so lang wie die verwendete Bitlänge (d. h. 320-512 Bit für die Sicherheitsstufe 80-128 Bit).
+- Die kürzere Bitlänge von ECDSA führt oft zu einer kürzeren Verarbeitungszeit
+
+
+## Key Freshness
+
+Key Freshness... (change keys frequently) 
+
+- Limited damage if a key is exposed but was changed often
+- Attacks are more difficult if the ciphertext for one key is limited
+- Attackers must recover several keys for long pieces of ciphertext ... with Key Derivation
+- derive multiple session keys $k_{ses}$ from a given key $k_{AB}$ and $a$ nonce $r$ ("number used only once")
+
+## Key Distribution Center (KDC)
+
+![](images/crypto/image-32.png)
+
+## Asymmetric Key Distribution (DHKE, RSA, ECDSA…)
+
+### Certifying Authority (CA)
+
+
+```{=latex}
+{\small\begin{description}[parsep=2mm,labelsep=2pt,labelwidth=8pt]
+  \item[Role:] Issues certificates like sigKCA(kpub, …)
+  \item[Trust:] Must be trusted by all users.
+  \item[Certificate:] Contains public key and user ID with CA's digital signature (e.g., $Cert_Alice$ = ($k_{pub}$, $ID_{Alice}$, $sig_{KCA}$($k_{pub}$, $ID_{Alice}$))), binding identity to key.
+  \item[Security Risk:] Vulnerable to man-in-the-middle attacks if the attacker (Oscar) replaces the public key during communication.
+  \item[Verification:] Requires the CA's public key, which must be distributed over an authenticated channel.
+  \item[Distribution:] CA public key is typically distributed once during system setup (e.g., pre-installed in web browsers).
+  \item[Weakness:] Initial transmission of CA public key is not authenticated.
+  \item[Standard:] X.509 is a common standard with fields like serial number, algorithm, issuer, validity dates, subject, subject's public key, and signature.
+\end{description}}
+```
 
 ## Hash Functions
 
@@ -196,3 +698,7 @@ XTEA ist ein sicherer Verschlüsselungsalgorithmus, wenn auch nicht so sicher wi
 
 }
 ```
+
+## Buzzwords
+
+S-Box Substitution-Box `{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}}`{=latex} Man in the middle attack `{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}}`{=latex} Initialization Vector (IV) `{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}}`{=latex} Differential cryptanalysis `{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}}`{=latex} NSA No Such Agency ;-) `{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}}`{=latex} GCM Galois Counter Mode `{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}}`{=latex} Meet-in-the-Middle Attack `{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}}`{=latex} TLA Three Letter Acronym `{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}}`{=latex} Miller-Rabin Primality-Test `{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}}`{=latex} One way trap door function `{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}}`{=latex} CFB Cipher Feedback Mode `{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}}`{=latex} OFB Output Feedback Mode `{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}}`{=latex} Nonlinear $f(A)+f(B)\neq f(A+B)$ `{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}}`{=latex} Elgamal Encryption Scheme `{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}}`{=latex} RSA Rivest Shamir Adleman `{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}}`{=latex} DC Differential Cryptanalysis `{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}}`{=latex} GCD Greatest Common Divisor `{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}}`{=latex} RSA Public Key Cryptography `{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}}`{=latex} ECC Elliptic curve cryptography `{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}}`{=latex} Probabilistic encryption scheme `{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}}`{=latex} ECB Electronic Code Book mode `{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}}`{=latex} DSA Digital Signature Algorithm `{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}}`{=latex} DLP Discrete Logarithm Problem `{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}}`{=latex} CBC Cyber Block Chaining mode `{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}}`{=latex} NONCE Number Used Only Once `{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}}`{=latex} DES Digitsal Encryption Standard `{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}}`{=latex} EEA Extended Euclidian Algorithm `{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}}`{=latex} DHKE Diffie–Hellman Key Exchange `{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}}`{=latex} AES Advanced Encryption Standard `{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}}`{=latex} X-TEA Extended Tiny Encryption Algorithm `{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}}`{=latex} EDE encryption-decryption-encryption mode `{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}}`{=latex} ECDH Elliptic Curve Diffie-Hellman Key Exchange `{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}}`{=latex} EC-DSA Elliptic Curve Digital Signature Algorithm `{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}}`{=latex} NIST National Institute of Standards and Technology `{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}}`{=latex} Key-Whitening `{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}}`{=latex} Confidentiality `{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}}`{=latex} Block-Cypher `{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}}`{=latex} Prime Fields `{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}}`{=latex} Block-Chain `{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}}`{=latex} Key-Space `{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}}`{=latex} Ciphertext `{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}}`{=latex} Puplic-Key `{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}}`{=latex} Malleable `{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}}`{=latex} Confusion `{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}}`{=latex} Integrity `{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}}`{=latex} Diffusion `{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}}`{=latex} Padding `{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}}`{=latex} Enigma `{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}}`{=latex} Rounds `{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}}`{=latex} Bijectiv `{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}}`{=latex} Hash `{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}}`{=latex} Traffic analysis attack `{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}}`{=latex} Alice / Bob vs Charlie `{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}}`{=latex} Fermat Primality-Test `{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}}`{=latex} Square-and-Multiply `{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}}`{=latex} Side channel attack `{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}}`{=latex} CTR Counter Mode `{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}}`{=latex} OTP One Time Pad `{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}}`{=latex} Double-Encryption `{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}}`{=latex} Frequeny-Analysis `{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}}`{=latex} Tripple-Encryption `{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}}`{=latex} Bute-Force Attack `{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}}`{=latex} Symmetric cipher `{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}}`{=latex} Cyclic subgroups `{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}}`{=latex} Feistel-Network `{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}}`{=latex} Vignere-Cipher `{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}}`{=latex} Stream-Cipher `{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}}`{=latex} Elliptic Curves `{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}}`{=latex} Proof of identity `{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}}`{=latex} Smart Contracts `{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}}`{=latex} Non-repudiation `{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}}`{=latex} Double-spending `{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}}`{=latex} Central authority `{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}}`{=latex} double spending `{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}}`{=latex} Birthday paradox `{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}}`{=latex} Immutable ledger `{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}}`{=latex} Consensus system `{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}}`{=latex} Collision resistance `{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}}`{=latex} Hirose Construction `{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}}`{=latex} Preimage resistance `{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}}`{=latex} Proof of elapsed time `{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}}`{=latex} Single point of failure `{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}}`{=latex} Distributed consensus `{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}}`{=latex} Initial Coin Offering `{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}}`{=latex} “proof of work” puzzle `{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}}`{=latex} CA Certifying authority `{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}}`{=latex} RSA signature scheme `{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}}`{=latex} Message authentication `{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}}`{=latex} KEK key encryption key `{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}}`{=latex} Perfect Forward Secrecy `{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}}`{=latex} Davies-Meyer construction `{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}}`{=latex} Communication bottleneck `{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}}`{=latex} Second preimage resistance `{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}}`{=latex} Asymmetric Key Distribution `{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}}`{=latex} KDC Key Distribution Centre `{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}}`{=latex} Secure Hash Algorithm SHA-1 `{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}}`{=latex} Merkle-D\aa mgard construction `{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}}`{=latex} Miyaguchi–Preneel construction `{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}}`{=latex} Matyas-Meyer-Oseas construction `{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}}`{=latex} Electronic cash `{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}}`{=latex} Key Derivation `{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}}`{=latex} Key Freshness `{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}}`{=latex} Hash Function `{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}}`{=latex} Pseudonymity `{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}}`{=latex} Genesis Block `{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}}`{=latex} Proof of stake `{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}}`{=latex} MD-4 family `{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}}`{=latex} Hash-Chain `{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}}`{=latex} Immutable `{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}}`{=latex} Anonymity `{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}}`{=latex} Kerberos `{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}}`{=latex} Satoshi `{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}}`{=latex} Bitcoin `{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}}`{=latex} Mining `{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}}`{=latex} X.509

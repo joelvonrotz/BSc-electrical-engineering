@@ -6,7 +6,7 @@
 \documentclass[
   10pt,
   a4paper,
-  twocolumn]{article}
+]{article}
 
 \usepackage{amsmath,amssymb}
 \usepackage{iftex}
@@ -241,7 +241,7 @@
 \@ifundefined{codebgcolor}{\definecolor{codebgcolor}{HTML}{f7f7f7}}{}
 \makeatother
 \makeatletter
-\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[frame hidden, enhanced, sharp corners, colback={codebgcolor}, breakable, boxrule=0pt]}{\end{tcolorbox}}\fi
+\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[boxrule=0pt, colback={codebgcolor}, enhanced, breakable, frame hidden, sharp corners]}{\end{tcolorbox}}\fi
 \makeatother
 \makeatletter
 \@ifpackageloaded{tikz}{}{\usepackage{tikz}}
@@ -309,6 +309,7 @@
 
 \usepackage{AlegreyaSans}
 \usepackage{cmbright}
+\usepackage{euler}
 \usepackage[scaled=0.95]{inconsolata}
 
 % \usepackage{AlegreyaSans}
@@ -522,7 +523,8 @@
 \date{}
 
 \begin{document}
-
+\begin{multicols*}{2}
+  
   \raggedcolumns
   
 \makeatletter
@@ -594,7 +596,7 @@ Rotz \hspace{0.3cm}\textbf{/}\hspace{0.3cm}\mbox{\large \faGithub\space \href{ht
 
 \includegraphics[width=7cm,height=\textheight]{images/crypto_meme.jpg}
 
-\begin{tcolorbox}[enhanced jigsaw, toprule=.15mm, opacityback=0, colbacktitle=quarto-callout-note-color!10!white, breakable, colframe=quarto-callout-note-color-frame, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Hinweis}, left=2mm, arc=.35mm, toptitle=1mm, bottomrule=.15mm, rightrule=.15mm, titlerule=0mm, bottomtitle=1mm, leftrule=.75mm, opacitybacktitle=0.6, coltitle=black, colback=white]
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, toprule=.15mm, colframe=quarto-callout-note-color-frame, breakable, titlerule=0mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Hinweis}, toptitle=1mm, colback=white, leftrule=.75mm, bottomtitle=1mm, colbacktitle=quarto-callout-note-color!10!white, left=2mm, bottomrule=.15mm, rightrule=.15mm, arc=.35mm, opacityback=0, opacitybacktitle=0.6]
 
 Wenn Daten Sequenzen in Blöcke geteilt werden (z.B. 64-Bit), dann wird
 davon ausgegangen, dass bei unvollständigen Blöcken die restlichen Bits
@@ -670,7 +672,7 @@ Funktion \(f\) ist \textbf{wichtig}. Wenn diese sicher gegen Attacken
 ist, dann wird das Feistel Netzwerk mit jeder Runde und Key-Segment
 sicherer!
 
-\begin{tcolorbox}[enhanced jigsaw, toprule=.15mm, opacityback=0, colbacktitle=quarto-callout-important-color!10!white, breakable, colframe=quarto-callout-important-color-frame, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Ver- \& Entschlüsseln}, left=2mm, arc=.35mm, toptitle=1mm, bottomrule=.15mm, rightrule=.15mm, titlerule=0mm, bottomtitle=1mm, leftrule=.75mm, opacitybacktitle=0.6, coltitle=black, colback=white]
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, toprule=.15mm, colframe=quarto-callout-important-color-frame, breakable, titlerule=0mm, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Ver- \& Entschlüsseln}, toptitle=1mm, colback=white, leftrule=.75mm, bottomtitle=1mm, colbacktitle=quarto-callout-important-color!10!white, left=2mm, bottomrule=.15mm, rightrule=.15mm, arc=.35mm, opacityback=0, opacitybacktitle=0.6]
 
 Verschlüsselte Informationen können mit dem genau gleichen Ablauf wieder
 entschlüsselt werden.
@@ -712,7 +714,7 @@ Vor und nach dem Feistel Netzwerk werden die Blöcke bitweise permutiert,
 also wie kreuzverdrahtet (Enigma Steckerbrett) \(\rightarrow\) Bit
 \textbf{Diffusion}
 
-\begin{tcolorbox}[enhanced jigsaw, toprule=.15mm, opacityback=0, colbacktitle=quarto-callout-note-color!10!white, breakable, colframe=quarto-callout-note-color-frame, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Hinweis}, left=2mm, arc=.35mm, toptitle=1mm, bottomrule=.15mm, rightrule=.15mm, titlerule=0mm, bottomtitle=1mm, leftrule=.75mm, opacitybacktitle=0.6, coltitle=black, colback=white]
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, toprule=.15mm, colframe=quarto-callout-note-color-frame, breakable, titlerule=0mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Hinweis}, toptitle=1mm, colback=white, leftrule=.75mm, bottomtitle=1mm, colbacktitle=quarto-callout-note-color!10!white, left=2mm, bottomrule=.15mm, rightrule=.15mm, arc=.35mm, opacityback=0, opacitybacktitle=0.6]
 
 Diese Permutationen sind in Hardware einfacher implementierbar als in
 der Software.
@@ -752,7 +754,7 @@ wird von 32-Bits zu 48-Bits \emph{expandiert}.
 \includegraphics[width=6cm,height=\textheight]{images/crypto/expansion_function.png}
 \end{center}
 
-\begin{tcolorbox}[enhanced jigsaw, toprule=.15mm, opacityback=0, colbacktitle=quarto-callout-important-color!10!white, breakable, colframe=quarto-callout-important-color-frame, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Wichtig}, left=2mm, arc=.35mm, toptitle=1mm, bottomrule=.15mm, rightrule=.15mm, titlerule=0mm, bottomtitle=1mm, leftrule=.75mm, opacitybacktitle=0.6, coltitle=black, colback=white]
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, toprule=.15mm, colframe=quarto-callout-important-color-frame, breakable, titlerule=0mm, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Wichtig}, toptitle=1mm, colback=white, leftrule=.75mm, bottomtitle=1mm, colbacktitle=quarto-callout-important-color!10!white, left=2mm, bottomrule=.15mm, rightrule=.15mm, arc=.35mm, opacityback=0, opacitybacktitle=0.6]
 
 16-Bit der 32 Input-Bits kommen doppelt vor. \textbf{ABER} ein Input-Bit
 kommt \textbf{nicht} zweimal vor im selben 6-Bit Block \(\rightarrow\)
@@ -820,7 +822,7 @@ verschlüsselt werden. \ul{Er erfordert sehr wenig Rechenleistung}.
 \includegraphics[width=6cm,height=\textheight]{images/crypto/TEA_InfoBox_Diagram.png}
 \end{center}
 
-\begin{tcolorbox}[enhanced jigsaw, toprule=.15mm, opacityback=0, colbacktitle=quarto-callout-important-color!10!white, breakable, colframe=quarto-callout-important-color-frame, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{(Fast) kein Feistel Netzwerk}, left=2mm, arc=.35mm, toptitle=1mm, bottomrule=.15mm, rightrule=.15mm, titlerule=0mm, bottomtitle=1mm, leftrule=.75mm, opacitybacktitle=0.6, coltitle=black, colback=white]
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, toprule=.15mm, colframe=quarto-callout-important-color-frame, breakable, titlerule=0mm, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{(Fast) kein Feistel Netzwerk}, toptitle=1mm, colback=white, leftrule=.75mm, bottomtitle=1mm, colbacktitle=quarto-callout-important-color!10!white, left=2mm, bottomrule=.15mm, rightrule=.15mm, arc=.35mm, opacityback=0, opacitybacktitle=0.6]
 
 Die verschlüsselten Blöcke können nicht so einfach wieder entschlüsselt,
 da im Algorithmus nebst XOR noch Additionen stattfinden. Für die
@@ -839,14 +841,191 @@ Verschlüsselung besser macht. Gleiche Eigenschaften + Konstantwert
 \includegraphics[width=6cm,height=\textheight]{images/crypto/XTEA_InfoBox_Diagram.png}
 \end{center}
 
-\begin{tcolorbox}[enhanced jigsaw, toprule=.15mm, opacityback=0, colbacktitle=quarto-callout-important-color!10!white, breakable, colframe=quarto-callout-important-color-frame, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{XTEA sicher?}, left=2mm, arc=.35mm, toptitle=1mm, bottomrule=.15mm, rightrule=.15mm, titlerule=0mm, bottomtitle=1mm, leftrule=.75mm, opacitybacktitle=0.6, coltitle=black, colback=white]
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, toprule=.15mm, colframe=quarto-callout-important-color-frame, breakable, titlerule=0mm, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{XTEA sicher?}, toptitle=1mm, colback=white, leftrule=.75mm, bottomtitle=1mm, colbacktitle=quarto-callout-important-color!10!white, left=2mm, bottomrule=.15mm, rightrule=.15mm, arc=.35mm, opacityback=0, opacitybacktitle=0.6]
 
 XTEA ist ein sicherer Verschlüsselungsalgorithmus, wenn auch nicht so
 sicher wie RSA oder andere.
 
 \end{tcolorbox}
 
-\subsection{AES}\label{aes}
+\subsection{Advanced Encryption Standard
+(AES)}\label{advanced-encryption-standard-aes}
+
+Die US National Institute of Standards and Technology (NIST) hat in 1977
+neuen \emph{Advanced Encryption Standard} (AES) präsentiert und
+verschiedene Blockcipher wurden evaluiert. \emph{Rijndael} `gewann' die
+Runden in 2001 und wurde zu AES umbenannt.
+
+AES ist ein Byte-orientierter Cipher!
+
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, toprule=.15mm, colframe=quarto-callout-note-color-frame, breakable, titlerule=0mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Anforderungen \& Kandidaten}, toptitle=1mm, colback=white, leftrule=.75mm, bottomtitle=1mm, colbacktitle=quarto-callout-note-color!10!white, left=2mm, bottomrule=.15mm, rightrule=.15mm, arc=.35mm, opacityback=0, opacitybacktitle=0.6]
+
+\textbf{Anforderungen} - block cipher with 128 bit block size - three
+key lengths must be supported: 128, 192 and 256 bit - security relative
+to other submitted algorithms - efficiency in software and hardware
+
+\textbf{Kandidaten} - \emph{Mars} by IBM Corporation - \emph{RC6} by RSA
+Laboratories - \emph{Rijndael}, by Joan Daemen and Vincent Rijmen -
+\emph{Serpent}, by Ross Anderson, Eli Biham and Lars Knudsen -
+\emph{Twofish}, by Bruce Schneier, John Kelsey, Doug Whiting, David
+Wagner, Chris Hall and Niels Ferguson
+
+\end{tcolorbox}
+
+\begin{center}
+\includegraphics[width=\textwidth,height=4cm]{images/crypto/image-8.png}
+\end{center}
+
+{\footnotesize $k_{128b  }\rightarrow n_r=10\text{ rounds}\quad k_{192b  }\rightarrow 12\quad k_{256b  }\rightarrow 14$}
+
+\includegraphics{images/crypto/image-9.png}
+
+\includegraphics{images/crypto/image-10.png}
+
+\begin{description}
+\tightlist
+\item[Key Addition Layer]
+Ein 128b \emph{Round}-Key/Subkey (vom Hauptkey) wird in das Datenpaket
+ge\textbf{xor}ed (Key Whitening)
+\item[Byte Substitution layer (S-Box)]
+Eine Nichtlineare Datentransformation (Konfusion)
+\item[Diffusion layer]
+Wendet Diffusion an alle Bits an auf zwei Sublayers an. \circled{1}
+\emph{ShiftRows} Layer verändert die Daten auf Byte-Ebene. \circled{2}
+\emph{MixColumn} Layer kombiniert/vermischt 4-Byte-Blöcke via Matrix
+Operationen.
+\end{description}
+
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, toprule=.15mm, colframe=quarto-callout-warning-color-frame, breakable, titlerule=0mm, title=\textcolor{quarto-callout-warning-color}{\faExclamationTriangle}\hspace{0.5em}{Warnung}, toptitle=1mm, colback=white, leftrule=.75mm, bottomtitle=1mm, colbacktitle=quarto-callout-warning-color!10!white, left=2mm, bottomrule=.15mm, rightrule=.15mm, arc=.35mm, opacityback=0, opacitybacktitle=0.6]
+
+Letzte Runde macht \textbf{keinen} MixColumn!
+
+\end{tcolorbox}
+
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, toprule=.15mm, colframe=quarto-callout-note-color-frame, breakable, titlerule=0mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Eine AES Runde für Runden \(1,2,...,n_r\)}, toptitle=1mm, colback=white, leftrule=.75mm, bottomtitle=1mm, colbacktitle=quarto-callout-note-color!10!white, left=2mm, bottomrule=.15mm, rightrule=.15mm, arc=.35mm, opacityback=0, opacitybacktitle=0.6]
+
+\includegraphics{images/crypto/image-15.png}
+
+Für die Byte Substitution wird folgende S-Box verwendet:
+
+\begin{center}
+\includegraphics[width=7cm,height=\textheight]{images/crypto/image-16.png}
+\end{center}
+
+\emph{Shiftrows} basiert auf folgendem Verschiebungsmuster.
+
+\includegraphics{images/crypto/shiftrow.pdf}
+
+\emph{MixColumns} wird mit folgender Matrix-Multiplikation gemacht.
+Analog kann diese Operation auf die anderen Byte-Gruppen gleich
+angewendet werden.
+
+\[
+\begin{bmatrix}
+C_0\\ C_1\\ C_2 \\ C_3
+\end{bmatrix}=\begin{bmatrix}
+\mathtt{02} & \mathtt{03} & \mathtt{01} & \mathtt{01}\\
+\mathtt{01} & \mathtt{02} & \mathtt{03} & \mathtt{01}\\
+\mathtt{01} & \mathtt{01} & \mathtt{02} & \mathtt{03}\\
+\mathtt{03} & \mathtt{01} & \mathtt{01} & \mathtt{02}
+\end{bmatrix}\cdot\begin{bmatrix}
+B_0\\ B_{5}\\ B_{10} \\ B_{15}
+\end{bmatrix}
+\]
+
+\(\mathtt{01},\mathtt{02},\mathtt{03}\) sind Representationen eines
+Elements von \(GF(2^8)\). \textbf{Addition} wird mit XOR Operationen
+gemacht (1+1+1=1 - ohne Carry!). \textbf{Multiplikation} wird mit
+Polynom Multiplikation gemacht (\circled{1} Polynom Multiplikation
+\circled{2} Modulo Operation).
+
+Beispiel mit Input \(\mathtt{25_h,25_h,25_h,25_h}\)
+
+\begin{center}
+\includegraphics[width=\textwidth,height=2.5cm]{images/crypto/image-17.png}
+\end{center}
+
+\end{tcolorbox}
+
+\subsubsection{Key Scheduler / Subkey
+Generierung}\label{key-scheduler-subkey-generierung}
+
+\includegraphics{images/crypto/image-11.png}
+
+Wie in der Abbildung zu sehen ist, wird das ganz linke \emph{Word} eines
+Subkeys \(W[4i]\), wobei \(i = 1,\ldots,10\) ist, wird berechnet als:
+
+\[
+W[4i] = W[4(i-1)]+g(W[4i-1])
+\]
+
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, toprule=.15mm, colframe=quarto-callout-note-color-frame, breakable, titlerule=0mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{g-Funktion}, toptitle=1mm, colback=white, leftrule=.75mm, bottomtitle=1mm, colbacktitle=quarto-callout-note-color!10!white, left=2mm, bottomrule=.15mm, rightrule=.15mm, arc=.35mm, opacityback=0, opacitybacktitle=0.6]
+
+Die \(g\)-Funktion hat zwei Aufgaben. Erstens wird
+\textbf{Nichtlinearität} zum Key Scheduler hinzugefügt. Zweitens wird
+die \textbf{Symmetrie} weggenommen. Beides ist nötig um Block Cipher
+Attacken zu verhindern.
+
+\begin{center}
+\includegraphics[width=7cm,height=\textheight]{images/crypto/image-12.png}
+\end{center}
+
+Die \(g\)-Funktion rotiert die vier input bytes, führt eine byte-weise
+S-Box substitution und fügt einen Runden-Koeffizient \(RC\) dazu. Der
+Runden-Koeffizient ist ein Element vom Galois field \(GF(2^8)\) und wird
+nur am Byte ganz links dazugefügt. Die Koeffizienten variieren von Runde
+zu Runde mit folgender Regel:
+
+\[
+\begin{split}
+RC[~] = [&(\mathtt{0{\times}01})_{16},(\mathtt{0{\times}02})_{16},(\mathtt{0{\times}04})_{16},(\mathtt{0{\times}08})_{16},(\mathtt{0{\times}10})_{16},\\
+         &(\mathtt{0{\times}20})_{16},(\mathtt{0{\times}40})_{16},(\mathtt{0{\times}80})_{16},(\mathtt{0{\times}1B})_{16},(\mathtt{0{\times}36})_{16}]
+\end{split}
+\]
+
+\end{tcolorbox}
+
+\subsubsection{Entschlüsselung}\label{entschluxfcsselung}
+
+Da AES keine Feistel Netzwerke besitzt, müssen alle Layers invertiert
+werden, also schrittweise alles Rückwärts machen. Für die
+Entschlüsselung wird mit angefangen \(k_{10}\) (bei 128b) verwendet,
+dann \(k_9\), \(\ldots\).
+
+\includegraphics{images/crypto/image-13.png}
+
+\includegraphics{images/crypto/image-14.png}
+
+Bei der Verschlüsselung wird zuletzt der MixColumn \textbf{nicht}
+ausgeführt und ist somit analog daselbe bei der Entschlüsselung einfach
+am Anfang!
+
+\paragraph{Round funktion}\label{round-funktion}
+
+Die Sublayers werden ebenfalls verkehrt abgelaufen! Die Inverse der
+MixColumn Sublayer verläuft auf dem gleichen GF-Prinzip, wiederum
+einfach umgekehrt.
+
+\includegraphics{images/crypto/image-18.png}
+
+\[
+\begin{bmatrix}
+B_0\\ B_1\\ B_2 \\ B_3
+\end{bmatrix}=\begin{bmatrix}
+\mathtt{0E} & \mathtt{0B} & \mathtt{0D} & \mathtt{09}\\
+\mathtt{09} & \mathtt{0E} & \mathtt{0B} & \mathtt{0D}\\
+\mathtt{0D} & \mathtt{09} & \mathtt{0E} & \mathtt{0B}\\
+\mathtt{0B} & \mathtt{0D} & \mathtt{09} & \mathtt{0E}
+\end{bmatrix}\cdot\begin{bmatrix}
+C_0\\ C_{1}\\ C_{2} \\ C_{3}
+\end{bmatrix}
+\]
+
+\includegraphics{images/crypto/invshiftrow.pdf}
+
+\begin{center}
+\includegraphics[width=7cm,height=\textheight]{images/crypto/invsbox.png}
+\end{center}
 
 \subsection{\texorpdfstring{Cipher Modi
 \href{https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation\#CTR}{\faWikipediaW}}{Cipher Modi }}\label{cipher-modi}
@@ -854,24 +1033,570 @@ sicher wie RSA oder andere.
 \subsubsection{Electronic Code Book
 (ECB)}\label{electronic-code-book-ecb}
 
-\subsubsection{Cyber Block Chaining
-(CBC)}\label{cyber-block-chaining-cbc}
+Jeder Block wird separat verschlüsselt.
 
-\subsubsection{Cipiher FeedBack (CFB)}\label{cipiher-feedback-cfb}
+\includegraphics{images/crypto/image.png}
 
-\subsubsection{Output FeedBack (OFB)}\label{output-feedback-ofb}
+{\footnotesize\begin{description}[parsep=0mm,labelsep=2pt,labelwidth=8pt]
+  \item[\color{OliveGreen}\faPlus] No block synchronization required
+  \item[\color{OliveGreen}\faPlus] Bit errors only affect the corresponding block
+  \item[\color{OliveGreen}\faPlus] Block cipher operating can be \textbf{parallelized}
+  \item[\color{BrickRed}\faMinus] Plaintext blocks are encrypted independently of previous blocks
+  \item[\color{BrickRed}\faMinus] Identical plaintexts result in identical ciphertexts $\rightarrow$ double sending is detectable
+  \item[\color{BrickRed}\faMinus] An attacker may reorder or exchange ciphertext blocks $\rightarrow$ \textbf{Man in the middle attack}
+\end{description}}
 
-\subsubsection{CounTeR (CTR)}\label{counter-ctr}
+\subsubsection{Cipher Block Chaining
+(CBC)}\label{cipher-block-chaining-cbc}
+
+\includegraphics{images/crypto/image-1.png}
+
+\(X_1\) wird by einem öffentlich(!) Initialvektor \(IV\) (auch
+\emph{nonce} \(IV\) genannt). Alle weiteren Pakete werden mit dem
+vorherigen Paket verschlüsselt!
+
+{\footnotesize\begin{description}[parsep=0mm,labelsep=2pt,labelwidth=8pt]
+  \item[\color{OliveGreen}\faPlus] Ciphertext $y_1$ depends on plaintext $x_1$, the key and the $IV$
+  \item[\color{OliveGreen}\faPlus] Ciphertext $y_i$ depends on \textbf{all} previous plaintext blocks (and $k$, $IV$)
+  \item[\color{BrickRed}\faMinus] No parallelization possible
+  \item[\color{BrickRed}\faMinus] A transmission error destroys \textbf{all} following information
+\end{description}}
+
+\subsubsection{Output Feedback (OFB)}\label{output-feedback-ofb}
+
+\includegraphics{images/crypto/image-2.png}
+
+Block Cipher zu synchronem Stream Cipher (\textbf{synchron}: Key stream
+\(S_i\) ist nicht vom Cipher selbst abhängig und somit kann der Key
+Stream komplett vorgerechnet werden).
+
+{\footnotesize\begin{description}[parsep=0mm,labelsep=2pt,labelwidth=8pt]
+  \item[\color{OliveGreen}\faPlus] Ciphertext $y_1$ depends on plaintext $x_1$, $k$ and the nonce $IV$
+  \item[\color{OliveGreen}\faPlus] Encryption and decryption is exactly the same operation
+  \item[\color{OliveGreen}\faPlus] Very fast, $S_i$ can be precomputed
+  \item[\color{BrickRed}\faMinus] Ciphertext $y_i$ only depends on plaintext $x_i$, $k$ (not on previous plaintexts)
+\end{description}}
+
+\subsubsection{Cipher Feedback (CFB)}\label{cipher-feedback-cfb}
+
+\includegraphics{images/crypto/image-3.png}
+
+Block Cipher zu \textbf{a}synchronem Stream Cipher (\textbf{asynchron}:
+Key stream \(S_i\) ist vom Cipher abhängig und ist daher eher langsamer
+im Vergleich zu OFB).
+
+{\footnotesize\begin{description}[parsep=0mm,labelsep=2pt,labelwidth=8pt]
+  \item[\color{OliveGreen}\faPlus] Ciphertext $y_i$ depends on all previous plaintext blocks (and $k$, $IV$)
+  \item[\color{BrickRed}\faMinus] No parallelization possible
+\end{description}}
+
+\subsubsection{Counter (CTR)}\label{counter-ctr}
+
+Block Cipher zu synchronem Stream Cipher. \(IV\) wird zusammen mit einem
+Counter zur Key Stream generierung verwendet, was eine Vorberechnung des
+gesamten Streams erlaubt.
+
+\begin{center}
+\includegraphics[width=\textwidth,height=4cm]{images/crypto/image-4.png}
+\end{center}
+
+{\footnotesize\begin{description}[parsep=0mm,labelsep=2pt,labelwidth=8pt]
+  \item[\color{OliveGreen}\faPlus] Parallelization is possible (no dependance of previous cypher)!
+  \item[\color{OliveGreen}\faPlus]  Very fast, can be precomputed
+  \item[\color{BrickRed}\faMinus] Ciphertext 
+  $y_i$ only depends on plaintext $x_i$, $k$
+\end{description}}
 
 \subsubsection{Galois Counter Mode (GCM)}\label{galois-counter-mode-gcm}
 
-\subsection{Meet-In-The-Middle Attack}\label{meet-in-the-middle-attack}
+\includegraphics{images/crypto/image-5.png}
 
-\subsection{Double Encrpytion}\label{double-encrpytion}
+Fügt \textbf{message authentication \& integrity} als CTR-Erweiterung
+ein. Alle Multiplikationen werden mit dem 128-Bit Galois Feld
+\(GF(2^128)\) und dem irreduziblen Polynom
+\(P(x) = x^{128} +x^7 +x^2 +x+1\) gemacht.
+
+{\footnotesize\begin{description}[parsep=0mm,labelsep=2pt,labelwidth=8pt]
+  \item[\color{OliveGreen}\faPlus] 
+  \item[\color{BrickRed}\faMinus] 
+\end{description}}
+
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, toprule=.15mm, colframe=quarto-callout-note-color-frame, breakable, titlerule=0mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{message authentication \& integrity?}, toptitle=1mm, colback=white, leftrule=.75mm, bottomtitle=1mm, colbacktitle=quarto-callout-note-color!10!white, left=2mm, bottomrule=.15mm, rightrule=.15mm, arc=.35mm, opacityback=0, opacitybacktitle=0.6]
+
+\begin{description}
+\tightlist
+\item[\ldots authentication]
+Bob kann prüfen, ob Alice wirklich die Nachricht gesendet hat.
+\item[\ldots integrity]
+Bob kann prüfen, dass niemand den Ciphertext während der Übertragung
+manipuliert hat.
+\end{description}
+
+\end{tcolorbox}
+
+\subsection{Double Encrpytion \& Meet-In-The-Middle Attack
+(MITM)}\label{double-encrpytion-meet-in-the-middle-attack-mitm}
+
+\includegraphics{images/crypto/image-6.png}
+
+\emph{Double Encryption} wird der Plaintext \(x\) zuerst mit \(k_L\)
+verschlüsselt und dann mit \(k_R\) folgend entschlüsselt \(\rightarrow\)
+Ciphertext \(y\).
+
+\emph{Meet-In-The-Middle Attack}:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Table Computation} Linke Seite wird via \emph{Brute-Force} den
+  Key \(k_L\) ermittelt und daraus ein Lookup Table mit \(2^k\)
+  Einträgen erstellt.
+\item
+  \textbf{Key Matching} Via \emph{Decryption-Brute-Force} wird die
+  Rechte Seite entschlüsselt und \(z_{R,j}\) mit dem entsprechenden
+  Werte von \(z_{L,i}\) im Lookuptable verglichen.
+\end{enumerate}
+
+Dies reduziert die Komplexizität von \(2^{2k}\) zu \(2^{k+1}\)
+Suchoperationen.
 
 \subsection{Triple Encrpytion}\label{triple-encrpytion}
 
+\includegraphics{images/crypto/image-7.png}
+
+Der Plaintext wird \emph{encrypted-decrypted-encrypted} (EDE) mit drei
+verschiedenen Keys. Bei einer Key-Grösse von 56-Bits (168-Bit Key
+komplett) verlängert sich der Aufwand zurück zu \(2^{2k}\) Operationen.
+
+\[
+y=e_{k1}(e_{k2}^{-1}(e_{k3}(x)))
+\]
+
+Der MITM-Angriff reduziert die \ul{effektive} Keygrösse von
+\(3\cdot56=168\) zu 112 Bits.
+
 \subsection{Key Whitening}\label{key-whitening}
+
+\begin{center}
+\includegraphics{images/crypto/keywhitening.pdf}
+\end{center}
+
+Damit wird DES resistenter gegenüber Brute-Force-Attacken gemacht. Zwei
+Whitening Keys \(k_1\) \& \(k_2\) werden verwendet. Zum Beispiel DESX
+verwendet Key Whitening.
+
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, toprule=.15mm, colframe=quarto-callout-warning-color-frame, breakable, titlerule=0mm, title=\textcolor{quarto-callout-warning-color}{\faExclamationTriangle}\hspace{0.5em}{Warnung}, toptitle=1mm, colback=white, leftrule=.75mm, bottomtitle=1mm, colbacktitle=quarto-callout-warning-color!10!white, left=2mm, bottomrule=.15mm, rightrule=.15mm, arc=.35mm, opacityback=0, opacitybacktitle=0.6]
+
+Schützt den Blockcipher nicht vor \textbf{analytischen} Angriffen wie
+lineare oder differentiale Kryptoanalyse. Daher ist dieser nutzlos bei
+schwachen Cipher.
+
+\end{tcolorbox}
+
+\subsection{Asymmetrische
+Kryptographie}\label{asymmetrische-kryptographie}
+
+\subsubsection{Key Distribution Problem}\label{key-distribution-problem}
+
+Das Problem der symmetrischen Kryptographie ist, dass jeder Teilnehmer
+eines Kommunikationsnetzwerkes über die Schlüssel aller anderen
+Teilnehmer verfügen muss.
+
+\[
+\#_{keys}(n_{user})=n_{user}\cdot\frac{n_{user}-1}{2}\text{ Key Paare}
+\]
+
+\begin{center}
+\includegraphics{images/crypto/keyprob.pdf}
+\end{center}
+
+\subsubsection{\texorpdfstring{Public Key Cryptography
+\href{https://www.youtube.com/watch?v=GSIDS_lvRv4}{\color{BrickRed}\faYoutube}}{Public Key Cryptography }}\label{public-key-cryptography}
+
+\begin{itemize}
+\tightlist
+\item
+  Key besteht aus \textbf{public} und \textbf{private} Teile.
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \textbf{private}: wird zur \textbf{Ent}schlüsselung verwendet
+  \item
+    \textbf{public}: wird zur \textbf{Ver}schlüsselung verwendet
+  \end{itemize}
+\item
+  Löst das Key Distribution System! \textbf{Aber} ist sehr
+  Rechenintensiv!
+\end{itemize}
+
+\begin{center}
+\includegraphics{images/crypto/asyncrypto.pdf}
+\end{center}
+
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, toprule=.15mm, colframe=quarto-callout-caution-color-frame, breakable, titlerule=0mm, title=\textcolor{quarto-callout-caution-color}{\faFire}\hspace{0.5em}{Man-In-The-Middle Attack
+\href{https://www.youtube.com/watch?v=vsXMMT2CqqE}{\color{BrickRed}\faYoutube}}, toptitle=1mm, colback=white, leftrule=.75mm, bottomtitle=1mm, colbacktitle=quarto-callout-caution-color!10!white, left=2mm, bottomrule=.15mm, rightrule=.15mm, arc=.35mm, opacityback=0, opacitybacktitle=0.6]
+
+\begin{center}
+\includegraphics{images/crypto/diffie_problem.pdf}
+\end{center}
+
+Sean (oder Mallory) fängt den Key (\texttt{ga}, \texttt{gb}) Austausch
+zwischen Alice \& Bob ab und antwortet beidseitig mit dem eigenen Key
+(\texttt{s}\(\rightarrow\)\texttt{gas}, \texttt{gab}). Damit kann Sean
+jegliche Nachrichten lesen und verändern, ohne dass es Alice \& Bob
+merken.
+
+\end{tcolorbox}
+
+\subsubsection{\texorpdfstring{Diffie Hellman
+\href{https://www.youtube.com/watch?v=NmM9HA2MQGI}{\color{BrickRed}\faYoutube\({}_1\)},
+\href{https://www.youtube.com/watch?v=Yjrfm_oRO0w}{\color{BrickRed}\faYoutube\({}_2\)}}{Diffie Hellman \{\}\_1, \{\}\_2}}\label{diffie-hellman-_1-_2}
+
+\begin{center}
+\includegraphics{images/crypto/diffie.pdf}
+\end{center}
+
+\textbf{Vorbereitung}:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Wählen einer \textbf{grossen} Primzahl
+  \({\color{OliveGreen}\mathbf{p}}\)
+\item
+  Wählen einer \textbf{grossen} Ganzzahl
+  \({\color{OliveGreen}\mathbf{g}}\in(2,3,\ldots,n-2)\)
+\item
+  \({\color{OliveGreen}\mathbf{p}}\) \&
+  \({\color{OliveGreen}\mathbf{g}}\) veröffentlichen
+\end{enumerate}
+
+\textbf{Ausführung}:
+
+{\small\begin{description}[parsep=2mm,labelsep=2pt,labelwidth=8pt]
+  \item[\textbf{Alice}] \circled{1} Wählen eines zufälligen {\color{BrickRed}\textbf{private}} Key ${\color{BrickRed}\mathbf{a}}$ \\
+                        \circled{2} {\color{OliveGreen}\textbf{Public}} Key berechnen: ${\color{OliveGreen}\mathbf{k_{A}}}={\color{OliveGreen}\mathbf{g}}^{\color{BrickRed}\mathbf{a}}~\text{mod}~{\color{OliveGreen}\mathbf{p}}$ \\
+                        \circled{3} Key ${\color{OliveGreen}\mathbf{k_{A}}}$ veröffentlichen
+  \item[\textbf{Bob}] \circled{1} Wählen eines zufälligen {\color{BrickRed}\textbf{private}} Key ${\color{BrickRed}\mathbf{b}}$ \\ \circled{2} {\color{OliveGreen}\textbf{Public}} Key berechnen: ${\color{OliveGreen}\mathbf{k_{B}}}={\color{OliveGreen}\mathbf{g}}^{\color{BrickRed}\mathbf{b}}~\text{mod}~{\color{OliveGreen}\mathbf{p}}$ \\ \circled{3} Key ${\color{OliveGreen}\mathbf{k_{B}}}$ veröffentlichen
+  \item[\textbf{Alice}] Session Key berechnen: ${\color{BrickRed}\mathbf{k_{AB}}}={\color{OliveGreen}\mathbf{k_{B}}}^{\color{BrickRed}\mathbf{a}}~\text{mod}~ {{\color{OliveGreen}\mathbf{p}}}={\color{OliveGreen}\mathbf{g}}^{\color{BrickRed}\mathbf{ab}}~\text{mod}~ {{\color{OliveGreen}\mathbf{p}}}$
+  \item[\textbf{Bob}] Session Key berechnen: ${\color{BrickRed}\mathbf{k_{AB}}}={\color{OliveGreen}\mathbf{k_{A}}}^{\color{BrickRed}\mathbf{b}}~\text{mod}~ {{\color{OliveGreen}\mathbf{p}}}={\color{OliveGreen}\mathbf{g}}^{\color{BrickRed}\mathbf{ab}}~\text{mod}~ {{\color{OliveGreen}\mathbf{p}}}$
+\end{description}}
+
+Um die Verschlüsselung zu knacken, müsste Oskar (the bad guy)
+`\(g^a ~\text{mod}~ n = k_A\)' oder `\(g^b~\text{mod}~ n = k_B\)'
+faktorisieren.
+
+\begin{center}
+\includegraphics[width=\textwidth,height=2cm]{images/crypto/image-19.png}
+\end{center}
+
+\begin{tcolorbox}[enhanced jigsaw, rightrule=.15mm, colback=white, colframe=quarto-callout-tip-color-frame, breakable, leftrule=.75mm, bottomrule=.15mm, toprule=.15mm, arc=.35mm, opacityback=0, left=2mm]
+\begin{minipage}[t]{5.5mm}
+\textcolor{quarto-callout-tip-color}{\faLightbulb}
+\end{minipage}%
+\begin{minipage}[t]{\textwidth - 5.5mm}
+
+\vspace{-3mm}\textbf{Beispiel}\vspace{3mm}
+
+\begin{center}
+\includegraphics[width=7cm,height=\textheight]{images/crypto/image-20.png}
+\end{center}
+
+\textbf{!!!} Jedes weitere bit in \(p\) verdoppelt den nötigen Aufwand
+um einen Private Key zu finden \textbf{!!!}
+
+\end{minipage}%
+\end{tcolorbox}
+
+\subsubsection{Elgamal Encryption
+Scheme}\label{elgamal-encryption-scheme}
+
+Erweiterung von DHKE \(\rightarrow\) Ähnlicher Ablauf wie bei DHKE,
+einfach wird ein neuen private Key für jeden Block generiert! Dies
+\textbf{verdoppelt} die Sende-Bandbreite, dafür können die Schlüssel
+vorgerechnet werden (Im Beispiel auf Alice bezogen)!
+
+\begin{center}
+\includegraphics[width=8cm,height=\textheight]{images/crypto/image-21.png}
+\end{center}
+
+\subsubsection{RSA}\label{rsa}
+
+\textbf{Vorbereitung}:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Zwei grosse} Primzahlen \({\color{BrickRed}\mathbf{p}}\),
+  \({\color{BrickRed}\mathbf{q}}\)
+\item
+  Berechne den {\color{OliveGreen}\text{public}} Wert
+  \({\color{OliveGreen}\mathbf{n}}={\color{BrickRed}\mathbf{p}}\cdot {\color{BrickRed}\mathbf{q}}\)
+  (one way \emph{trapdoor} function)
+\item
+  Berechne
+  \({\color{BrickRed}\varphi} ({\color{OliveGreen}\mathbf{n}})=({\color{BrickRed}\mathbf{p}}-1)\cdot({\color{BrickRed}\mathbf{q}}-1)\)
+\item
+  Wählen des {\color{OliveGreen}\text{public}} Exponenten
+  \({\color{OliveGreen}\mathbf{e}}\in\{1,2,\ldots,{\color{BrickRed}\varphi}({\color{OliveGreen}\mathbf{n}})-1\}\)
+  sodass
+  \(\text{gcd}({\color{OliveGreen}\mathbf{e}},{\color{BrickRed}\varphi}({\color{OliveGreen}\mathbf{n}}))=1\)
+  (greatest common divisor)
+\item
+  {\color{OliveGreen}\text{private}} Key
+  \({\color{BrickRed}\mathbf{d}}\) sodass
+  \(({\color{BrickRed}\mathbf{d}}\cdot {\color{OliveGreen}\mathbf{e}})~\text{mod}~ {\color{BrickRed}\varphi}({\color{OliveGreen}\mathbf{n}})=1\)
+  gilt
+\end{enumerate}
+
+\textbf{Ausführung}:
+
+{\small\begin{description}[parsep=2mm,labelsep=2pt,labelwidth=8pt]
+  \item[\textbf{Alice}] Verschlüsselt $y=x^{\color{OliveGreen}\mathbf{e}}~\text{mod}~{\color{OliveGreen}\mathbf{n}}$
+  \item[\textbf{Bob}] Verschlüsselt $x=y^{\color{BrickRed}\mathbf{d}}~\text{mod}~{\color{OliveGreen}\mathbf{n}}$
+  \item[\textbf{Oskar}] Muss Faktor ${\color{OliveGreen}\mathbf{n}}$ aufwenden, um ${\color{BrickRed}\mathbf{d}}$ zu erhalten
+\end{description}}
+
+\begin{tcolorbox}[enhanced jigsaw, rightrule=.15mm, colback=white, colframe=quarto-callout-tip-color-frame, breakable, leftrule=.75mm, bottomrule=.15mm, toprule=.15mm, arc=.35mm, opacityback=0, left=2mm]
+\begin{minipage}[t]{5.5mm}
+\textcolor{quarto-callout-tip-color}{\faLightbulb}
+\end{minipage}%
+\begin{minipage}[t]{\textwidth - 5.5mm}
+
+\vspace{-3mm}\textbf{Beispiel}\vspace{3mm}
+
+\begin{center}
+\includegraphics[width=8cm,height=\textheight]{images/crypto/image-22.png}
+\end{center}
+
+\end{minipage}%
+\end{tcolorbox}
+
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, toprule=.15mm, colframe=quarto-callout-important-color-frame, breakable, titlerule=0mm, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Side Channel Attacks}, toptitle=1mm, colback=white, leftrule=.75mm, bottomtitle=1mm, colbacktitle=quarto-callout-important-color!10!white, left=2mm, bottomrule=.15mm, rightrule=.15mm, arc=.35mm, opacityback=0, opacitybacktitle=0.6]
+
+Ein \emph{Side Channel Attack} oder Seitenkanalangriff ist eine
+Sicherheitslücke, die darauf abzielt, Informationen von einem System zu
+sammeln oder die Programmausführung eines Systems zu beeinflussen, indem
+indirekte Effekte des Systems oder seiner Hardware gemessen oder
+ausgenutzt werden, anstatt das Programm oder seinen Code direkt
+anzugreifen.
+
+\end{tcolorbox}
+
+\subsubsection{Eliptic-Curve-Cryptography
+(ECC)}\label{eliptic-curve-cryptography-ecc}
+
+Die Eliptic-Curve-Cryptography ist einer vieler Ansätze, um einen Public
+Key zu generieren. Dieser Ansatz verwendet die Struktur einer
+eliptischen Kurve, um anhand `Ketten-Schnittpunkten' einen möglichst
+lange Kette abzulaufen. Das Endprodukt dabei ist ein kürzerer Key,
+welcher aber gleichwertige Sicherheit im Vergleich zu
+Nicht-ECC-Verfahren bietet.
+
+\paragraph{\texorpdfstring{Addition
+\(P \neq Q\)}{Addition P \textbackslash neq Q}}\label{addition-p-neq-q}
+
+\begin{center}
+\includegraphics[width=6cm,height=\textheight]{images/crypto/image-25.png}
+\end{center}
+
+\[
+\begin{split}
+R(x_3,y_3) &= P(x_1,y_1) + Q(x_2,y_2) \\
+\text{slope } s &= (y_2-y_1)/(x_2-x_1) ~\text{mod}~ p \\
+x_3 &= s^2-x_1-x_2 ~\text{mod}~ p \\
+y_3 &= s\cdot(x_1-x_3)-y_1 ~\text{mod}~ p \\
+\end{split}
+\]
+
+\begin{itemize}
+\tightlist
+\item
+  Linie \(PQ\) schneidet die Ellipse \(E\) an einem dritten Punkt
+  \(R'\).
+\item
+  \(R=P+Q ~\rightarrow\) is die Inverse von \(R’\) (gespiegelt an der
+  X-Achse)
+\end{itemize}
+
+\paragraph{\texorpdfstring{Addition
+\(P = Q\)}{Addition P = Q}}\label{addition-p-q}
+
+\begin{center}
+\includegraphics[width=6cm,height=\textheight]{images/crypto/image-23.png}
+\end{center}
+
+\[
+\begin{split}
+R(x_3,y_3) &= P(x_1,y_1) + P(x_1,y_1)\\
+s &= \text{tangent} = (3\cdot x_1^2+a)/(2\cdot y_1) ~\text{mod}~ p\\
+x_3 &= s^2-x_1-x_2 ~\text{mod}~ p \quad\qquad {\small\text{wie bei } P\neq Q}\\
+y_3 &= s\cdot (x_1-x_3)-y_1 ~\text{mod}~ p \quad {\small\text{wie bei } P\neq Q}\\
+\end{split}
+\]
+
+\subsubsection{Eliptic-Curve Diffie-Hellmann Key Exchange
+(ECDH)}\label{eliptic-curve-diffie-hellmann-key-exchange-ecdh}
+
+\includegraphics{images/crypto/image-24.png}
+
+\subsection{Security Services}\label{security-services}
+
+\emph{auf English, da ich keine Lust aufs übersetzen habe} :-)
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Confidentiality}: Information is kept secret from all but
+  authorized parties
+\item
+  \textbf{Integrity}: Ensures that a message has not been modified in
+  transit
+\item
+  \textbf{Message authentication}: Ensures that the sender of a message
+  is authentic (An alternative term is data origin authentication)
+\item
+  \textbf{Non-repudiation}: Ensures that the sender of a message can not
+  deny to be the creation of the message. (e.g.~order of a pink car)
+\item
+  \textbf{Identification/entity authentication}: Establishing and
+  verification of the identity of an entity, e.g.~a person, a computer,
+  or a credit card
+\item
+  \textbf{Access control}: Restricting access to the resources to
+  privileged entities
+\item
+  \textbf{Availability}: The electronic system is reliably available
+\item
+  \textbf{Auditing}: Provides evidences about security relevant
+  activities, e.g., by keeping logs about certain events
+\item
+  \textbf{Physical security}: Providing protection against physical
+  tampering and/or responses to physical tampering attempts
+\item
+  \textbf{Anonymity}: Providing protection against discovery and misuse
+  of identity
+\end{enumerate}
+
+\subsection{RSA Signature Scheme}\label{rsa-signature-scheme}
+
+Die Schlüssel anhand RSA generieren!
+
+{\small\begin{description}[parsep=2mm,labelsep=2pt,labelwidth=8pt]
+  \item[\textbf{Bob} erzeugt die Signatur] "Verschlüsselt" die Nachricht ${\color{OliveGreen}\textbf{x}}$ **mit** dem **private Key** ${\color{BrickRed}\mathbf{d}}$ \\
+                    ${\color{OliveGreen}\mathbf{s}}=\text{sign}_{\color{BrickRed}K_{Priv}}({\color{OliveGreen}\textbf{x}})={\color{OliveGreen}\textbf{x}}^{\color{BrickRed}\textbf{d}} ~\text{mod}~ {\color{OliveGreen}\textbf{n}}$ \\
+                    Anhängen der Signatur ${\color{OliveGreen}\textbf{s}}$ an die verschlüsselte Nachricht ${\color{OliveGreen}\textbf{x}}$
+  \item[\textbf{Alice} verifiziert die Signatur] **Entschlüsselt** die Signatur **mit** Bob's **öffentlichen Key** (${\color{OliveGreen}\textbf{n}}$,${\color{OliveGreen}\textbf{e}}$) \\
+  ${\color{OliveGreen}\mathbf{x}}'=\text{verif}_{\color{OliveGreen}K_{Pub}}({\color{OliveGreen}\textbf{s}})={\color{OliveGreen}\textbf{s}}^{\color{OliveGreen}\textbf{e}} ~\text{mod}~ {\color{OliveGreen}\textbf{n}}$
+  \end{description}}
+
+Die Signatur ist gültig wenn
+\({\color{OliveGreen}\mathbf{x}}={\color{OliveGreen}\mathbf{x}}'\)
+
+\textbf{Benötigt Padding}: Oscar in der Mitte kann verschiedene \&
+gültige Signaturen generieren, in dem er eine eigene Signatur
+\(s\in Z_n\) wählt und \(x=s^e~\text{mod}~n\) berechnet. \textbf{Jedoch}
+kann er keine eigene gültige Nachricht erstellen.
+
+\subsection{Digital Signature Algorithm
+(DSA)}\label{digital-signature-algorithm-dsa}
+
+\includegraphics{images/crypto/image-26.png}
+
+\includegraphics{images/crypto/image-27.png}
+
+\includegraphics{images/crypto/image-28.png}
+
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, toprule=.15mm, colframe=quarto-callout-tip-color-frame, breakable, titlerule=0mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{(von Livio gestohlenes) Beispiel}, toptitle=1mm, colback=white, leftrule=.75mm, bottomtitle=1mm, colbacktitle=quarto-callout-tip-color!10!white, left=2mm, bottomrule=.15mm, rightrule=.15mm, arc=.35mm, opacityback=0, opacitybacktitle=0.6]
+
+\includegraphics{images/crypto/image-29.png}
+
+\includegraphics{images/crypto/image-30.png}
+
+\end{tcolorbox}
+
+\includegraphics{images/crypto/image-31.png}
+
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, toprule=.15mm, colframe=quarto-callout-note-color-frame, breakable, titlerule=0mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Hinweis}, toptitle=1mm, colback=white, leftrule=.75mm, bottomtitle=1mm, colbacktitle=quarto-callout-note-color!10!white, left=2mm, bottomrule=.15mm, rightrule=.15mm, arc=.35mm, opacityback=0, opacitybacktitle=0.6]
+
+\begin{itemize}
+\tightlist
+\item
+  Federal US Government standard for digital signatures (DSS) by NIST
+\end{itemize}
+
+\begin{description}
+\tightlist
+\item[Based on Elgamal]
+\faPlus Signature is only 320 bits long \textbar{} \faMinus Slower than
+RSA signature scheme
+\end{description}
+
+\end{tcolorbox}
+
+\subsubsection{Elliptic Curve Digital Signature Algorithm
+(EC-DSA)}\label{elliptic-curve-digital-signature-algorithm-ec-dsa}
+
+\begin{itemize}
+\tightlist
+\item
+  DSA auf der Grundlage der Elliptischen Kurven-Kryptographie (ECC)
+\item
+  Bitlängen im Bereich von 160-256 Bit können gewählt werden, um eine
+  Sicherheit zu erreichen, die der von RSA mit 1024-3072 Bit entspricht
+  (symmetrische Sicherheitsstufe 80-128 Bit)
+\item
+  Eine Signatur besteht aus zwei Punkten, d.~h. die Signatur ist doppelt
+  so lang wie die verwendete Bitlänge (d.~h. 320-512 Bit für die
+  Sicherheitsstufe 80-128 Bit).
+\item
+  Die kürzere Bitlänge von ECDSA führt oft zu einer kürzeren
+  Verarbeitungszeit
+\end{itemize}
+
+\subsection{Key Freshness}\label{key-freshness}
+
+Key Freshness\ldots{} (change keys frequently)
+
+\begin{itemize}
+\tightlist
+\item
+  Limited damage if a key is exposed but was changed often
+\item
+  Attacks are more difficult if the ciphertext for one key is limited
+\item
+  Attackers must recover several keys for long pieces of ciphertext
+  \ldots{} with Key Derivation
+\item
+  derive multiple session keys \(k_{ses}\) from a given key \(k_{AB}\)
+  and \(a\) nonce \(r\) (``number used only once'')
+\end{itemize}
+
+\subsection{Key Distribution Center
+(KDC)}\label{key-distribution-center-kdc}
+
+\includegraphics{images/crypto/image-32.png}
+
+\subsection{Asymmetric Key Distribution (DHKE, RSA,
+ECDSA\ldots)}\label{asymmetric-key-distribution-dhke-rsa-ecdsa}
+
+\subsubsection{Certifying Authority (CA)}\label{certifying-authority-ca}
+
+{\small\begin{description}[parsep=2mm,labelsep=2pt,labelwidth=8pt]
+  \item[Role:] Issues certificates like sigKCA(kpub, …)
+  \item[Trust:] Must be trusted by all users.
+  \item[Certificate:] Contains public key and user ID with CA's digital signature (e.g., $Cert_Alice$ = ($k_{pub}$, $ID_{Alice}$, $sig_{KCA}$($k_{pub}$, $ID_{Alice}$))), binding identity to key.
+  \item[Security Risk:] Vulnerable to man-in-the-middle attacks if the attacker (Oscar) replaces the public key during communication.
+  \item[Verification:] Requires the CA's public key, which must be distributed over an authenticated channel.
+  \item[Distribution:] CA public key is typically distributed once during system setup (e.g., pre-installed in web browsers).
+  \item[Weakness:] Initial transmission of CA public key is not authenticated.
+  \item[Standard:] X.509 is a common standard with fields like serial number, algorithm, issuer, validity dates, subject, subject's public key, and signature.
+\end{description}}
 
 \subsection{Hash Functions}\label{hash-functions}
 
@@ -888,6 +1613,136 @@ sicher wie RSA oder andere.
 
 }
 
+\subsection{Buzzwords}\label{buzzwords}
+
+S-Box Substitution-Box {\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}}
+Man in the middle attack {\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}}
+Initialization Vector (IV)
+{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}} Differential
+cryptanalysis {\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}} NSA No Such
+Agency ;-) {\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}} GCM Galois
+Counter Mode {\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}}
+Meet-in-the-Middle Attack {\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}}
+TLA Three Letter Acronym {\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}}
+Miller-Rabin Primality-Test
+{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}} One way trap door
+function {\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}} CFB Cipher
+Feedback Mode {\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}} OFB Output
+Feedback Mode {\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}} Nonlinear
+\(f(A)+f(B)\neq f(A+B)\) {\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}}
+Elgamal Encryption Scheme {\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}}
+RSA Rivest Shamir Adleman {\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}}
+DC Differential Cryptanalysis
+{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}} GCD Greatest Common
+Divisor {\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}} RSA Public Key
+Cryptography {\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}} ECC Elliptic
+curve cryptography {\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}}
+Probabilistic encryption scheme
+{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}} ECB Electronic Code Book
+mode {\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}} DSA Digital
+Signature Algorithm {\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}} DLP
+Discrete Logarithm Problem
+{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}} CBC Cyber Block Chaining
+mode {\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}} NONCE Number Used
+Only Once {\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}} DES Digitsal
+Encryption Standard {\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}} EEA
+Extended Euclidian Algorithm
+{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}} DHKE Diffie--Hellman Key
+Exchange {\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}} AES Advanced
+Encryption Standard {\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}} X-TEA
+Extended Tiny Encryption Algorithm
+{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}} EDE
+encryption-decryption-encryption mode
+{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}} ECDH Elliptic Curve
+Diffie-Hellman Key Exchange
+{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}} EC-DSA Elliptic Curve
+Digital Signature Algorithm
+{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}} NIST National Institute
+of Standards and Technology
+{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}} Key-Whitening
+{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}} Confidentiality
+{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}} Block-Cypher
+{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}} Prime Fields
+{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}} Block-Chain
+{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}} Key-Space
+{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}} Ciphertext
+{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}} Puplic-Key
+{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}} Malleable
+{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}} Confusion
+{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}} Integrity
+{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}} Diffusion
+{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}} Padding
+{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}} Enigma
+{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}} Rounds
+{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}} Bijectiv
+{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}} Hash
+{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}} Traffic analysis attack
+{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}} Alice / Bob vs Charlie
+{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}} Fermat Primality-Test
+{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}} Square-and-Multiply
+{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}} Side channel attack
+{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}} CTR Counter Mode
+{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}} OTP One Time Pad
+{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}} Double-Encryption
+{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}} Frequeny-Analysis
+{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}} Tripple-Encryption
+{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}} Bute-Force Attack
+{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}} Symmetric cipher
+{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}} Cyclic subgroups
+{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}} Feistel-Network
+{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}} Vignere-Cipher
+{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}} Stream-Cipher
+{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}} Elliptic Curves
+{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}} Proof of identity
+{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}} Smart Contracts
+{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}} Non-repudiation
+{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}} Double-spending
+{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}} Central authority
+{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}} double spending
+{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}} Birthday paradox
+{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}} Immutable ledger
+{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}} Consensus system
+{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}} Collision resistance
+{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}} Hirose Construction
+{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}} Preimage resistance
+{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}} Proof of elapsed time
+{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}} Single point of failure
+{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}} Distributed consensus
+{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}} Initial Coin Offering
+{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}} ``proof of work'' puzzle
+{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}} CA Certifying authority
+{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}} RSA signature scheme
+{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}} Message authentication
+{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}} KEK key encryption key
+{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}} Perfect Forward Secrecy
+{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}} Davies-Meyer construction
+{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}} Communication bottleneck
+{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}} Second preimage
+resistance {\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}} Asymmetric Key
+Distribution {\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}} KDC Key
+Distribution Centre {\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}}
+Secure Hash Algorithm SHA-1
+{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}} Merkle-D\aa mgard
+construction {\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}}
+Miyaguchi--Preneel construction
+{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}} Matyas-Meyer-Oseas
+construction {\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}} Electronic
+cash {\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}} Key Derivation
+{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}} Key Freshness
+{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}} Hash Function
+{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}} Pseudonymity
+{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}} Genesis Block
+{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}} Proof of stake
+{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}} MD-4 family
+{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}} Hash-Chain
+{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}} Immutable
+{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}} Anonymity
+{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}} Kerberos
+{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}} Satoshi
+{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}} Bitcoin
+{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}} Mining
+{\vspace{2mm}\color{NavyBlue!70},\vspace{2mm}} X.509
+
 \newpage
 
 \section{\texorpdfstring{Docker \faIcon{docker}}{Docker }}\label{docker}
@@ -896,7 +1751,7 @@ sicher wie RSA oder andere.
 \includegraphics[width=7cm,height=\textheight]{images/meme_docker.jpg}
 \end{center}
 
-\begin{tcolorbox}[enhanced jigsaw, toprule=.15mm, opacityback=0, colbacktitle=quarto-callout-important-color!10!white, breakable, colframe=quarto-callout-important-color-frame, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Wichtig}, left=2mm, arc=.35mm, toptitle=1mm, bottomrule=.15mm, rightrule=.15mm, titlerule=0mm, bottomtitle=1mm, leftrule=.75mm, opacitybacktitle=0.6, coltitle=black, colback=white]
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, toprule=.15mm, colframe=quarto-callout-important-color-frame, breakable, titlerule=0mm, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Wichtig}, toptitle=1mm, colback=white, leftrule=.75mm, bottomtitle=1mm, colbacktitle=quarto-callout-important-color!10!white, left=2mm, bottomrule=.15mm, rightrule=.15mm, arc=.35mm, opacityback=0, opacitybacktitle=0.6]
 
 Bash Befehle via Host sind mit {\color{BrickRed}{\texttt{\textbf{\$}}}}
 gekennzeichnet.
@@ -1212,7 +2067,7 @@ Löschen}{ Löschen}}\label{luxf6schen-1}
 Es können nur \emph{stopped} und \emph{created} Container gelöscht
 werden.
 
-\begin{tcolorbox}[enhanced jigsaw, toprule=.15mm, opacityback=0, colbacktitle=quarto-callout-tip-color!10!white, breakable, colframe=quarto-callout-tip-color-frame, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Löschen nach Beendung}, left=2mm, arc=.35mm, toptitle=1mm, bottomrule=.15mm, rightrule=.15mm, titlerule=0mm, bottomtitle=1mm, leftrule=.75mm, opacitybacktitle=0.6, coltitle=black, colback=white]
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, toprule=.15mm, colframe=quarto-callout-tip-color-frame, breakable, titlerule=0mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Löschen nach Beendung}, toptitle=1mm, colback=white, leftrule=.75mm, bottomtitle=1mm, colbacktitle=quarto-callout-tip-color!10!white, left=2mm, bottomrule=.15mm, rightrule=.15mm, arc=.35mm, opacityback=0, opacitybacktitle=0.6]
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1222,7 +2077,7 @@ werden.
 
 \end{tcolorbox}
 
-\begin{tcolorbox}[enhanced jigsaw, toprule=.15mm, opacityback=0, colbacktitle=quarto-callout-tip-color!10!white, breakable, colframe=quarto-callout-tip-color-frame, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Inaktive Container löschen}, left=2mm, arc=.35mm, toptitle=1mm, bottomrule=.15mm, rightrule=.15mm, titlerule=0mm, bottomtitle=1mm, leftrule=.75mm, opacitybacktitle=0.6, coltitle=black, colback=white]
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, toprule=.15mm, colframe=quarto-callout-tip-color-frame, breakable, titlerule=0mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Inaktive Container löschen}, toptitle=1mm, colback=white, leftrule=.75mm, bottomtitle=1mm, colbacktitle=quarto-callout-tip-color!10!white, left=2mm, bottomrule=.15mm, rightrule=.15mm, arc=.35mm, opacityback=0, opacitybacktitle=0.6]
 
 Löscht alle Container, welche nicht mehr verwendet werden.
 
@@ -1333,7 +2188,7 @@ folgenden Docker-Befehlen gesteuert werden.
   \input{./tikzedt/life_cycle.tex}
 }
 
-\begin{tcolorbox}[enhanced jigsaw, toprule=.15mm, opacityback=0, colbacktitle=quarto-callout-note-color!10!white, breakable, colframe=quarto-callout-note-color-frame, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Unterschied \emph{Stopped} und \emph{Paused}}, left=2mm, arc=.35mm, toptitle=1mm, bottomrule=.15mm, rightrule=.15mm, titlerule=0mm, bottomtitle=1mm, leftrule=.75mm, opacitybacktitle=0.6, coltitle=black, colback=white]
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, toprule=.15mm, colframe=quarto-callout-note-color-frame, breakable, titlerule=0mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Unterschied \emph{Stopped} und \emph{Paused}}, toptitle=1mm, colback=white, leftrule=.75mm, bottomtitle=1mm, colbacktitle=quarto-callout-note-color!10!white, left=2mm, bottomrule=.15mm, rightrule=.15mm, arc=.35mm, opacityback=0, opacitybacktitle=0.6]
 
 Wenn ein Container gestoppt wird, werden alle ihm zugewiesenen
 Ressourcen freigegeben, während bei einem angehaltenen Container kein
@@ -1749,48 +2604,579 @@ gestartet.
 
 \subsection{Cache}\label{cache}
 
-\begin{tcolorbox}[enhanced jigsaw, toprule=.15mm, opacityback=0, colbacktitle=quarto-callout-note-color!10!white, breakable, colframe=quarto-callout-note-color-frame, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Was Cache?}, left=2mm, arc=.35mm, toptitle=1mm, bottomrule=.15mm, rightrule=.15mm, titlerule=0mm, bottomtitle=1mm, leftrule=.75mm, opacitybacktitle=0.6, coltitle=black, colback=white]
+\subsubsection{Simple 8x8 Cache}\label{simple-8x8-cache}
 
-\end{tcolorbox}
+\includegraphics{images/performance/image-8.png}
 
-\subsubsection{Trashing}\label{trashing}
+\begin{itemize}
+\tightlist
+\item
+  \(8\times 8\text{ Cache}=64\text{ Instr.}\Rightarrow\) 8 cache
+  lines/\textbf{pages} containing 8 Instructions and three Tag bits
+  each.
+\item
+  Valid Bit determines the validity of entry
+\end{itemize}
+
+\[
+\small\text{Tag}\times\text{Index}=\text{Cache Address}\qquad A_{2-0}=\text{Line Offset}
+\]
+
+\subsubsection{Direct Cache Mapping}\label{direct-cache-mapping}
+
+\includegraphics{images/performance/image-9.png}
+
+Simple \& oldest caching system \(\rightarrow\)
 
 \subsubsection{\texorpdfstring{Thrashing /
 \href{https://de.wikipedia.org/wiki/Seitenflattern}{Seitenflattern}}{Thrashing / Seitenflattern}}\label{thrashing-seitenflattern}
 
+\includegraphics{images/performance/image-6.png}
+
+Where main memory is accessed in a pattern that leads to multiple main
+memory locations competing for the same cache lines, resulting in
+excessive cache misses. This is most problematic for caches that have
+low associativity.
+
+\subsubsection{Set Associative Cache
+Mapping}\label{set-associative-cache-mapping}
+
+\includegraphics{images/performance/image-7.png}
+
+A set-associative caching system reorganises cache lines into sets
+e.g.~with four cache lines per set (\emph{four-way set-associative}
+cache).
+
 \subsubsection{Cache Struktur}\label{cache-struktur}
 
-\begin{figure}[H]
-
-\centering{
-
 \includegraphics{images/performance/cache-line-structure.png}
+{\footnotesize Struktur einer Cache-Zeilen}
+
+\subsubsection{Advanced Cache Lines}\label{advanced-cache-lines}
+
+\includegraphics{images/performance/image-17.png}
+
+{\footnotesize\begin{description}[style=sameline,parsep=0mm,labelsep=4pt]
+\item[\textbf{Cache Tag}] Cache line source in system memory
+\item[\textbf{Index}] Identifies cache line location
+\item[\textbf{Offset}] Points at specific data word/byte
+\item[\textbf{Valid Bit}] Set on valid data in cache line
+\item[\textbf{Dirty Bit}] Set when data has been changed/overwritten by the CPU $\rightarrow$ write back required
+\end{description}}
+
+\subsubsection{Line Replacement
+Strategies}\label{line-replacement-strategies}
+
+{\small\begin{description}[style=sameline,parsep=0mm,labelsep=4pt]
+\item[\textbf{FIFO}] Oldest written line is replaced 
+\item[\textbf{LRU}] (Least Recently Used) the lien with the oldest timestamp is replaced $\rightarrow$ complex system
+\item[\textbf{Random}] Cheap and effective, makes thrashing unlikely 
+\item[\textbf{NMRU}] (Not most recently used) randomly, except \textbf{not} most recent $\rightarrow$ performs a bit better than randomly
+\item[\textbf{Valid Bit}] Set on valid data in cache line
+\item[\textbf{Dirty Bit}] Set when data has been changed/overwritten by the CPU $\rightarrow$ write back required
+\end{description}}
+
+\subsubsection{Write Back Strategies}\label{write-back-strategies}
+
+{\small\begin{description}[style=sameline,parsep=0mm,labelsep=4pt]
+\item[\textbf{Write-Through}] Any time a data word in a cache line is changed by the CPU, the cache line is written to memory immediately. This wastes time but the CPU’s view of memory is consistent.
+\item[\textbf{Write-Back}] A “dirty” cache line is written back to memory only when the replacement policy has chosen to evict this line from cache. {\footnotesize Write-back avoids a lot of unnecessary system memory writes at the cost of a more relaxed consistency (may cause problems in multi-CPU systems)}
+\end{description}}
+
+\subsection{Memory Management Unit
+(MMU)}\label{memory-management-unit-mmu}
+
+\includegraphics{images/performance/image-20.png}
+
+\subsubsection{Tasks}\label{tasks}
+
+{\small\begin{description}[style=sameline,parsep=0mm,labelsep=4pt]
+\item[\textbf{Memory Protection}:] Without an MMU, processes can 'reach' into other processes' memory (unstable \& security suffer). Modern systems isolate this by using an MMU.
+\item[\textbf{Virtual Memory}:] Supports memory swapping, to move infrequently used memory out to a disk and allow high-memory processes to use these areas.
+\item[\textbf{Defragmentation}:] cleans unused memory caused by long run program
+\end{description}}
+
+\subsubsection{Memory Protection Unit
+(MPU)}\label{memory-protection-unit-mpu}
+
+\includegraphics{images/performance/image-18.png}
+
+{\small
+
+\begin{itemize}
+\tightlist
+\item
+  Separates processes, enforces privilege and access rules to memory
+\item
+  Prevents task's \textbf{stack overflows} into other tasks
+\item
+  Defineable \textbf{No instruction fetch} areas (protect from malicious
+  execution)
+\item
+  Access type configuration (read-only, write-read)
+\item
+  Access without permission raises permission fault
+\end{itemize}
+
+}
+{\footnotesize MPU on Cortex M4 supports 8 programmable overlapping protection regions, with write, execute bits, cache policy and shareability}
+
+\subsubsection{Caching and Virtual
+Memory}\label{caching-and-virtual-memory}
+
+\includegraphics{images/performance/image-19.png}
+
+{\footnotesize \textbf{Goal}: Give each process the \textbf{illusion} that it has its own \textbf{private}, \textbf{$\approx$ infinite} system memory}
+
+{\small
+
+\begin{itemize}
+\tightlist
+\item
+  Is a cooperative venture between the operating system and hardware
+  memory management unit (MMU)
+\item
+  Virtual address space is divided into many small pages (often 4KB)
+\end{itemize}
 
 }
 
-\caption{\label{fig-performance-cache-line-structure}Struktur einer
-Cache-Zeilen}
+\subsubsection{Simplified MMU}\label{simplified-mmu}
+
+\includegraphics{images/performance/image-21.png}
+
+{\small
+
+If {\bfseries\color{Orange}Block 5} is mapped, one of the pages need to
+be swapped (since no page accesses 5's memory). For example B3 is
+unused, therefore it is swapped with the page of B5.
+
+}
+
+\subsubsection{Address Translation
+32-Bit}\label{address-translation-32-bit}
+
+\includegraphics{images/performance/image-22.png}
+
+{\small
+
+\begin{itemize}
+\tightlist
+\item
+  Divides 32-Bit virtual address into 20-bit \textbf{page number} and
+  12-bit \textbf{page offset} (\(2^{12}=\) 4kB pages)
+\item
+  Virtual Address \(\rightarrow\) 20-bit lookup in \ul{page table} +
+  \ul{permission check} \(\rightarrow\) Physical address is
+  `returned'/`set'
+\item
+  Page table entries are usually 4-Byte:
+  \(2^{32}/2^{12}\text{ pages}\times 4\sfrac{\text{bytes}}{\text{page}}=\)
+  4MB in size.
+\end{itemize}
+
+}
+
+\subsubsection{Two-Level Page Table}\label{two-level-page-table}
+
+\begin{figure}[H]
+
+{\centering \includegraphics{images/performance/image-23.png}
+
+}
+
+\caption{alt text}
 
 \end{figure}%
 
-\subsection{GCC Optimization}\label{gcc-optimization}
+{\small
 
-\texttt{-O0} no optimization \texttt{-O3} all optimization
-(\texttt{-O1},\texttt{-O2}) + function inlining and more
+\begin{itemize}
+\tightlist
+\item
+  Page table is split up in two
+\item
+  Does not create unused 4Mb pages
+\end{itemize}
 
-\texttt{funroll-loops}
+}
 
-\begin{tcolorbox}[enhanced jigsaw, toprule=.15mm, opacityback=0, colbacktitle=quarto-callout-tip-color!10!white, breakable, colframe=quarto-callout-tip-color-frame, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Enabling Optimization}, left=2mm, arc=.35mm, toptitle=1mm, bottomrule=.15mm, rightrule=.15mm, titlerule=0mm, bottomtitle=1mm, leftrule=.75mm, opacitybacktitle=0.6, coltitle=black, colback=white]
+\subsection{Single-Instruction, Multiple Data
+(SIMD)}\label{single-instruction-multiple-data-simd}
+
+SIMD allows the calculation of multiple data at once via a single
+instruction (\ul{Vector} calculations). This is useful for example RGB
+channel calculations.
+
+\includegraphics{images/performance/image-24.png}
+
+\subsubsection{ARM NEON}\label{arm-neon}
+
+ARM NEON is a SIMD Coprocessor for the ARM architecture (ARM11, ARMv6
+ISA).
+
+\begin{itemize}
+\tightlist
+\item
+  16 Registers à 128 bits
+\item
+  Separate pipeline
+\item
+  \textgreater100 SIMD instructions
+\end{itemize}
+
+\includegraphics{images/performance/image-25.png}
+
+\paragraph{NEON Registers}\label{neon-registers}
+
+are 16 \(\times\) 128bit. \textbf{Q}-Registers are 128 bits \&
+\textbf{D}-Registers are 64 bits and are mapped to the same Flip-Flops
+(analogy C/C++ \texttt{union}). Vector Floating Point (VFP)
+\textbf{S}-registers use Q0-7/D0-15
+
+\begin{center}
+\includegraphics[width=8cm,height=\textheight]{images/performance/image-26.png}
+\end{center}
+
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, toprule=.15mm, colframe=quarto-callout-tip-color-frame, breakable, titlerule=0mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Optimization \emph{Loop Unrolling}}, toptitle=1mm, colback=white, leftrule=.75mm, bottomtitle=1mm, colbacktitle=quarto-callout-tip-color!10!white, left=2mm, bottomrule=.15mm, rightrule=.15mm, arc=.35mm, opacityback=0, opacitybacktitle=0.6]
+
+\emph{von Livio Stadelmann Zusammenfassung} :)
+
+Ist eine Compiler-Optimierungstechnik, um die Leistung zu verbessern.
+Dabei werden Schleifen aufgetrennt und als mehrere aufeinander folgende
+Schritte aufgeführt, um die Ausführungszeit zu reduzieren. Somit können
+die Operationen parallel im SIMD durgeführt werden.
+
+\textbf{Achtung}: Durch das Unrolling wird mehr Speicher benötigt, was
+zu erhöhtem Risiko von Cache-Miss führen kann.
+
+\end{tcolorbox}
+
+\subsection{Graphics Processing Unit
+(GPU)}\label{graphics-processing-unit-gpu}
+
+GPUs are used to calculate mathematical \emph{recipes}, meaning they can
+do calculations on repeat really well. Operations such as Additions,
+Multiplications, Transformations, Comparisons, etc. can be done. An
+example would be the calculation of graphics for computer games or
+rendering of movies and models.
+
+The high count of cores (12 Quad Processing Units) and the ability for
+parallelization makes a GPU suitable for performing many similar
+calculations. Essentially a calculation recipe is given to the GPU,
+which applies it to data.
+
+\subsubsection{Open Graphics Library
+(OpenGL)}\label{open-graphics-library-opengl}
+
+\includegraphics{images/performance/image-27.png}
+
+\emph{OpenGL} is a cross-language, cross-platform application
+programming interface (API) for rendering 2D and 3D vector graphics. The
+API is typically used to interact with a graphics processing unit (GPU),
+to achieve hardware-accelerated rendering, but can also be implemented
+on a CPU.
+
+The Raspberry Pi GPU supports OpenGL ES 1.1 and ES 2.0 standards.
+
+{\small\begin{description}[style=sameline,parsep=0mm,labelsep=4pt]
+\item[\textbf{Vertex Processing}:] Vertices define position and shape of an object in 3D space
+\item[\textbf{Rasterization}:] Converts the 3D space to a (2D) pixel space through analysing the pixel space
+\item[\textbf{Fragment Processing}:] Series of Operations such as texturing, colouring and blending
+\item[\textbf{Fragment Processing}:] Fragments are combined to render a 3D object onto a 2D screen.
+\end{description}}
+
+\subsubsection{Modern GPU Hardware}\label{modern-gpu-hardware}
+
+Now comes the question: how can a GPU handle a 1080p, 4 \(\times\)
+multi-sampled with 32 bits of colour and depth data of \textasciitilde60
+MB of data, 60fps (2.5 GB/s)?
+
+Through a hierarchy of caches, large and fast DRAM and various
+specialized DSPs!
+
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, toprule=.15mm, colframe=quarto-callout-note-color-frame, breakable, titlerule=0mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{VD3: RPi 3 Video Core GPU}, toptitle=1mm, colback=white, leftrule=.75mm, bottomtitle=1mm, colbacktitle=quarto-callout-note-color!10!white, left=2mm, bottomrule=.15mm, rightrule=.15mm, arc=.35mm, opacityback=0, opacitybacktitle=0.6]
+
+\includegraphics{images/performance/image-28.png}
+
+\end{tcolorbox}
+
+\subsubsection{Quad Processor Unit (QPU)}\label{quad-processor-unit-qpu}
+
+\includegraphics{images/performance/image-30.png}
+
+\includegraphics{images/performance/image-29.png}
+
+\subsection{Direct Memory Access (DMA)
+Coprocessor}\label{direct-memory-access-dma-coprocessor}
+
+Coprocessor to efficiently move data between memories and/or peripherals
+independent of the main CPU.
+
+\includegraphics{images/performance/image-13.png}
+
+\begin{description}[style=sameline,parsep=0mm,labelsep=4pt]
+\item[\textbf{\texttt(a)}] Memory to Interface
+\item[\textbf{\texttt(b)}] Interface to Memory
+\item[\textbf{\texttt(c)}] Memory to Memory
+\end{description}
+
+\subsubsection{Internal \& External DMA
+Controller}\label{internal-external-dma-controller}
+
+\textbf{Internal} (e.g.~STM32 Microcontrollers)
+
+\includegraphics{images/performance/image-14.png}
+
+\textbf{External} (e.g.~BCM2835 \(\rightarrow\) Raspi)
+
+\includegraphics{images/performance/image-16.png}
+
+\subsubsection{Block Diagramm}\label{block-diagramm}
+
+\includegraphics{images/performance/image-15.png}
+
+\includegraphics{images/performance/image-31.png}
+
+\subsubsection{Raspberry Pi BCM2835 DMA}\label{raspberry-pi-bcm2835-dma}
+
+\begin{itemize}
+\tightlist
+\item
+  block-to-block memory transfers and simple peripherals
+\item
+  must use the \textbf{Physical} (hardware) \textbf{addresses} of the
+  peripherals
+\item
+  read only \textbf{prefetch} mode to LOAD \textbf{into} the \textbf{L2
+  cache} in anticipation of its later use
+\item
+  \textbf{16 DMA channels}
+\item
+  Each DMA channel loads a \textbf{Control Block (CB) data structure}
+  from memory
+\item
+  A \textbf{linked list of Control Blocks} allows to execute a sequence
+  of DMA operations without software intervention
+\item
+  onto one of the 3 system busses
+\item
+  bandwidth can be controlled by the bus-arbiter settings
+\item
+  supports \textbf{AXI read bursts} to ensure efficient SDRAM use
+\item
+  Paced by the peripheral \textbf{Data Request (DREQ) signal}
+\item
+  \textbf{Panic signal} to indicate imminent danger of \textbf{FIFO}
+  underflow or overflow (sets the AXI apriority level)
+\end{itemize}
+
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, toprule=.15mm, colframe=quarto-callout-note-color-frame, breakable, titlerule=0mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{DMA Control Block}, toptitle=1mm, colback=white, leftrule=.75mm, bottomtitle=1mm, colbacktitle=quarto-callout-note-color!10!white, left=2mm, bottomrule=.15mm, rightrule=.15mm, arc=.35mm, opacityback=0, opacitybacktitle=0.6]
+
+\includegraphics{images/performance/image-32.png}
+
+\end{tcolorbox}
+
+\subsection{Reduced Instruction Set Computer
+(RISC-V)}\label{reduced-instruction-set-computer-risc-v}
+
+\subsubsection{RISC}\label{risc}
+
+\includegraphics{images/performance/image-10.png}
+
+\begin{itemize}
+\tightlist
+\item
+  All instructions have the same size
+\item
+  One instruction per clock cycle
+\item
+  Load/Store architecture
+\item
+  Harvard architecture (instruction + data bus interfaces)
+\item
+  Many multi purpose register
+\item
+  Small simple core, big caches
+\end{itemize}
+
+\subsubsection{RISC - V}\label{risc---v}
+
+\begin{itemize}
+\tightlist
+\item
+  A high-quality, license-free, royalty-free RISC ISA (Instruction Set
+  Architecture)
+\item
+  Modular ISA:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Small base RV32I (RV64I) \textbf{I}=Integer, \textless50
+    instructions (x86-ISA 1338 instr. (2015) vs.~80 instr. (1978))
+  \item
+    Suits all sizes of processor, from smallest microcontroller to
+    largest supercomputer
+  \end{itemize}
+\item
+  \textbf{Standard Instruction Extensions}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    RV32I+\textbf{C}: \textbf{c}ompressed \ul{16-bit} instructions
+  \item
+    \textbf{M}=Integer multiply/divide
+  \item
+    \textbf{A}=Atomic memory operations;
+    \textbf{F/D/Q}=Single/Double/Quad-precision floating-point;
+    V=Vector\ldots{}
+  \end{itemize}
+\end{itemize}
+
+\subsubsection{Register File}\label{register-file}
+
+\includegraphics{images/performance/image-2.png}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{PC} Program Counter outside register file
+\end{itemize}
+
+\subsubsection{Integer operations}\label{integer-operations}
+
+\includegraphics{images/performance/image.png}
+
+\begin{itemize}
+\tightlist
+\item
+  47 \({\times}\) fixed-width instructions (32-bit,
+  bit{[}1-0{]}=\texttt{11}) + 2 illegal (all \texttt{0}/\texttt{1})
+\item
+  3 \({\times}\) 5-bit register addresses in fixed locations (read
+  parallel to I-decode)
+\item
+  5 instruction formats:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \textbf{R}: Register-register operations
+  \item
+    \textbf{I/U}: short-lower/long-upper Immediate
+  \item
+    \textbf{S}: Store operation
+  \item
+    \textbf{B}: conditional Branches (S with rotated immediate)
+  \item
+    \textbf{J}: unconditional Jumps (U with rotated immediate)
+  \end{itemize}
+\item
+  I+U together give one 32b constant in any register (also relative in
+  PC)
+\item
+  Immediate fields are always sign-extended
+\end{itemize}
+
+\subsubsection{ALU}\label{alu}
+
+The ALU of the RISC-V architecture has \textbf{NO FLAGS} (C,O,N;Z)
+
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, toprule=.15mm, colframe=quarto-callout-tip-color-frame, breakable, titlerule=0mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{64-Bit Zahl rechnen}, toptitle=1mm, colback=white, leftrule=.75mm, bottomtitle=1mm, colbacktitle=quarto-callout-tip-color!10!white, left=2mm, bottomrule=.15mm, rightrule=.15mm, arc=.35mm, opacityback=0, opacitybacktitle=0.6]
+
+\(R=A+B\) 64-bit Addition ohne Carry (A in \texttt{a3}, \texttt{a2}; B
+in \texttt{a5}, a4; R in \texttt{a1}, \texttt{a0}):
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\PreprocessorTok{\#pragma GCC optimize ("O0")}
+\NormalTok{add a0,a2,a4  \# a0=a2+a4}
+\NormalTok{sltu a2,a0,a2 \# a0\textless{}a2? a2=1:a2=0, calculate carry in a2}
+\NormalTok{add a5,a3,a5  \# a5=a5+a3}
+\NormalTok{add a1,a2,a5  \# add carry, a1=a2+a5}
 \end{Highlighting}
 \end{Shaded}
 
 \end{tcolorbox}
 
-\subsection{}\label{section}
+\texttt{csr} Status and Control Register are 64-bit counter for system
+ticks, excecuted instructions, productive clock cycles
+
+\subsubsection{\texorpdfstring{\texttt{+C} Compressed / 16-Bit
+Operations}{+C Compressed / 16-Bit Operations}}\label{c-compressed-16-bit-operations}
+
+\includegraphics{images/performance/image-1.png}
+
+{\footnotesize 16b decoder is ~700 gates (presentation) / 400-8000 gates of the smallest RV32 (book)}
+
+\begin{itemize}
+\tightlist
+\item
+  CIW, CL, CS, CA, CB: rx' = a0-a5, sp, ra for integers (= s1-s5 for
+  floats)
+\item
+  Each 16-bit instruction maps to exactly one 32-bit instruction
+  =\textgreater{} programmer/compiler does not need to know
+\item
+  32-bit instructions can be 16-bit aligned
+\item
+  50-60\% instructions can be compressed =\textgreater{} 25-30\% smaller
+  code size
+\end{itemize}
+
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, toprule=.15mm, colframe=quarto-callout-note-color-frame, breakable, titlerule=0mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Illegal Instructions}, toptitle=1mm, colback=white, leftrule=.75mm, bottomtitle=1mm, colbacktitle=quarto-callout-note-color!10!white, left=2mm, bottomrule=.15mm, rightrule=.15mm, arc=.35mm, opacityback=0, opacitybacktitle=0.6]
+
+Following instructions are illegal:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#CIW 0...0}
+\DecValTok{0000} \DecValTok{0000} \DecValTok{0000} \DecValTok{0000}
+\CommentTok{\#CIW 1...1}
+\DecValTok{1111} \DecValTok{1111} \DecValTok{1111} \DecValTok{1111}
+\end{Highlighting}
+\end{Shaded}
+
+\end{tcolorbox}
+
+\subsubsection{Code Density \&
+Performance}\label{code-density-performance}
+
+\includegraphics{images/performance/image-3.png}
+
+\includegraphics{images/performance/image-4.png}
+
+\subsubsection{ARM vs RISC-V}\label{arm-vs-risc-v}
+
+\textbf{ARM}
+{\footnotesize\begin{description}[parsep=0mm,labelsep=2pt,labelwidth=8pt]
+  \item[\color{OliveGreen}\faPlus] Industry standard, Dense machine code, Large tool base, Large IP base, Barrel shifter in front of ALU, PC in register file, Many address modes, Hard cores on all major technologies, Lots of Tools (e.g. compilers)
+  \item[\color{BrickRed}\faMinus] Really expensive (royalties), Large area, Complex design, Complex to understand, Lots of patents
+\end{description}}
+
+\textbf{RISC-V}
+{\footnotesize\begin{description}[parsep=0mm,labelsep=2pt,labelwidth=8pt]
+  \item[\color{OliveGreen}\faPlus] Open ISA, Simple HW design, Simple to understand, Small area, Large register file (31*32-bit), Cheap (no royalties), User extendable, No royalties
+  \item[\color{BrickRed}\faMinus] HW hard to compile, Code density
+\end{description}}
+
+\subsubsection{ARM}\label{arm}
+
+\includegraphics{images/performance/image-11.png}
+
+\includegraphics{images/performance/image-12.png}
+
+{\footnotesize 32 Bit, nach aussen von Neumann}
+{\small\begin{description}[style=sameline,parsep=0mm,labelsep=4pt]
+  \item[Reg] Register = Speicher (FlipFlop, RAM)
+  \item[PC] Programm Counter
+  \item[ALU] Arithmetic Logic Unit
+  \item[APSR] Condition Code Register
+  \item[SP] Stack Pointer (Stapelspeicher für Kontext und Parameter)
+  \item[LR] Link Register
+\end{description}
+}
 
 \newpage
 
@@ -1906,7 +3292,7 @@ possible causes. (Reverse to ETA)
 
 \subsection{Risk Analysis}\label{risk-analysis}
 
-\begin{tcolorbox}[enhanced jigsaw, toprule=.15mm, left=2mm, arc=.35mm, opacityback=0, rightrule=.15mm, breakable, bottomrule=.15mm, colframe=quarto-callout-important-color-frame, leftrule=.75mm, colback=white]
+\begin{tcolorbox}[enhanced jigsaw, rightrule=.15mm, colback=white, colframe=quarto-callout-important-color-frame, breakable, leftrule=.75mm, bottomrule=.15mm, toprule=.15mm, arc=.35mm, opacityback=0, left=2mm]
 \begin{minipage}[t]{5.5mm}
 \textcolor{quarto-callout-important-color}{\faExclamation}
 \end{minipage}%
@@ -2000,13 +3386,13 @@ failure rate is tolerable?}
 
 \includegraphics{images/safety/image-7.png}
 
-\begin{tcolorbox}[enhanced jigsaw, toprule=.15mm, opacityback=0, colbacktitle=quarto-callout-tip-color!10!white, breakable, colframe=quarto-callout-tip-color-frame, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Example -- Parachute}, left=2mm, arc=.35mm, toptitle=1mm, bottomrule=.15mm, rightrule=.15mm, titlerule=0mm, bottomtitle=1mm, leftrule=.75mm, opacitybacktitle=0.6, coltitle=black, colback=white]
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, toprule=.15mm, colframe=quarto-callout-tip-color-frame, breakable, titlerule=0mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Example -- Parachute}, toptitle=1mm, colback=white, leftrule=.75mm, bottomtitle=1mm, colbacktitle=quarto-callout-tip-color!10!white, left=2mm, bottomrule=.15mm, rightrule=.15mm, arc=.35mm, opacityback=0, opacitybacktitle=0.6]
 
 {\small Hazard of free fall, severity rated as catastrophic with occasional frequency. Therefore risk is intolerable and a parachute is selected as safety feature. It works on demand mode and has to reduce the frequency by 2 orders of magnitudes, so SIL 2 is required at least.}
 
 \end{tcolorbox}
 
-\begin{tcolorbox}[enhanced jigsaw, toprule=.15mm, opacityback=0, colbacktitle=quarto-callout-important-color!10!white, breakable, colframe=quarto-callout-important-color-frame, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Distinguish!}, left=2mm, arc=.35mm, toptitle=1mm, bottomrule=.15mm, rightrule=.15mm, titlerule=0mm, bottomtitle=1mm, leftrule=.75mm, opacitybacktitle=0.6, coltitle=black, colback=white]
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, toprule=.15mm, colframe=quarto-callout-important-color-frame, breakable, titlerule=0mm, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Distinguish!}, toptitle=1mm, colback=white, leftrule=.75mm, bottomtitle=1mm, colbacktitle=quarto-callout-important-color!10!white, left=2mm, bottomrule=.15mm, rightrule=.15mm, arc=.35mm, opacityback=0, opacitybacktitle=0.6]
 
 {\bfseries\color{Orange}Risk} is a measure of the likelihood, and the
 consequences, of a hazardous event.
@@ -2041,7 +3427,7 @@ dangerous \textbf{software} failures.
 
 \subsection{Design for Safety}\label{design-for-safety}
 
-\begin{tcolorbox}[enhanced jigsaw, toprule=.15mm, opacityback=0, colbacktitle=quarto-callout-tip-color!10!white, breakable, colframe=quarto-callout-tip-color-frame, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{General, \ul{Iterative} Design Process}, left=2mm, arc=.35mm, toptitle=1mm, bottomrule=.15mm, rightrule=.15mm, titlerule=0mm, bottomtitle=1mm, leftrule=.75mm, opacitybacktitle=0.6, coltitle=black, colback=white]
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, toprule=.15mm, colframe=quarto-callout-tip-color-frame, breakable, titlerule=0mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{General, \ul{Iterative} Design Process}, toptitle=1mm, colback=white, leftrule=.75mm, bottomtitle=1mm, colbacktitle=quarto-callout-tip-color!10!white, left=2mm, bottomrule=.15mm, rightrule=.15mm, arc=.35mm, opacityback=0, opacitybacktitle=0.6]
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -2328,13 +3714,13 @@ occures?}
 MTTF=\int_0^\infty R(t)~dt\rightarrow\int_0^\infty \exp(-\lambda\cdot t)~dt=\frac{1}{\lambda}
 \]
 
-\begin{tcolorbox}[enhanced jigsaw, toprule=.15mm, opacityback=0, colbacktitle=quarto-callout-caution-color!10!white, breakable, colframe=quarto-callout-caution-color-frame, title=\textcolor{quarto-callout-caution-color}{\faFire}\hspace{0.5em}{Beware!}, left=2mm, arc=.35mm, toptitle=1mm, bottomrule=.15mm, rightrule=.15mm, titlerule=0mm, bottomtitle=1mm, leftrule=.75mm, opacitybacktitle=0.6, coltitle=black, colback=white]
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, toprule=.15mm, colframe=quarto-callout-caution-color-frame, breakable, titlerule=0mm, title=\textcolor{quarto-callout-caution-color}{\faFire}\hspace{0.5em}{Beware!}, toptitle=1mm, colback=white, leftrule=.75mm, bottomtitle=1mm, colbacktitle=quarto-callout-caution-color!10!white, left=2mm, bottomrule=.15mm, rightrule=.15mm, arc=.35mm, opacityback=0, opacitybacktitle=0.6]
 
 {\small A system with $\lambda=0.001$ failure/h does have a MTTF of $1000$ hour. But the reliability at t = 1000 hour is $R(t)=e^{-\lambda\cdot t}=e^{-1}\approx 0.37$. Chances that any given system runs for 1000 hour are only $\approx37\%$!}
 
 \end{tcolorbox}
 
-\begin{tcolorbox}[enhanced jigsaw, toprule=.15mm, opacityback=0, colbacktitle=quarto-callout-important-color!10!white, breakable, colframe=quarto-callout-important-color-frame, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Reliability vs.~MTTF}, left=2mm, arc=.35mm, toptitle=1mm, bottomrule=.15mm, rightrule=.15mm, titlerule=0mm, bottomtitle=1mm, leftrule=.75mm, opacitybacktitle=0.6, coltitle=black, colback=white]
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, toprule=.15mm, colframe=quarto-callout-important-color-frame, breakable, titlerule=0mm, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Reliability vs.~MTTF}, toptitle=1mm, colback=white, leftrule=.75mm, bottomtitle=1mm, colbacktitle=quarto-callout-important-color!10!white, left=2mm, bottomrule=.15mm, rightrule=.15mm, arc=.35mm, opacityback=0, opacitybacktitle=0.6]
 
 \begin{description}
 \tightlist
@@ -2416,7 +3802,7 @@ R_{TMR}=R_1(t)\cdot R_2(t)\cdot R_3(t) &+ (1-R_1(t))\cdot R_2(t)\cdot R_3(t)\\
 
 For \(R_1=R_2=R_3=R_m\): \(R(t)=3\cdot R_m^2(t)-2\cdot R_m^3(t)\)
 
-\begin{tcolorbox}[enhanced jigsaw, toprule=.15mm, opacityback=0, colbacktitle=quarto-callout-important-color!10!white, breakable, colframe=quarto-callout-important-color-frame, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{N-Modular Redundancy}, left=2mm, arc=.35mm, toptitle=1mm, bottomrule=.15mm, rightrule=.15mm, titlerule=0mm, bottomtitle=1mm, leftrule=.75mm, opacitybacktitle=0.6, coltitle=black, colback=white]
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, toprule=.15mm, colframe=quarto-callout-important-color-frame, breakable, titlerule=0mm, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{N-Modular Redundancy}, toptitle=1mm, colback=white, leftrule=.75mm, bottomtitle=1mm, colbacktitle=quarto-callout-important-color!10!white, left=2mm, bottomrule=.15mm, rightrule=.15mm, arc=.35mm, opacityback=0, opacitybacktitle=0.6]
 
 {\bfseries\color{Orange}M out of N voting}: System works correctly as
 long as {\bfseries\color{Orange}less then M} modules fail.
@@ -2510,7 +3896,7 @@ software.
 \textbf{Task}: demonstrate that a system meets its reliability
 requirement.
 
-\begin{tcolorbox}[enhanced jigsaw, toprule=.15mm, opacityback=0, colbacktitle=quarto-callout-tip-color!10!white, breakable, colframe=quarto-callout-tip-color-frame, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{How to\ldots{}}, left=2mm, arc=.35mm, toptitle=1mm, bottomrule=.15mm, rightrule=.15mm, titlerule=0mm, bottomtitle=1mm, leftrule=.75mm, opacitybacktitle=0.6, coltitle=black, colback=white]
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, toprule=.15mm, colframe=quarto-callout-tip-color-frame, breakable, titlerule=0mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{How to\ldots{}}, toptitle=1mm, colback=white, leftrule=.75mm, bottomtitle=1mm, colbacktitle=quarto-callout-tip-color!10!white, left=2mm, bottomrule=.15mm, rightrule=.15mm, arc=.35mm, opacityback=0, opacitybacktitle=0.6]
 
 \ldots{} proof that a system fails less then once in \(1\times 10^{9}\)
 hour (i.e. \(\approx 100 000\) year) of operation?
@@ -2560,7 +3946,7 @@ hour (i.e. \(\approx 100 000\) year) of operation?
 desired result.
 \end{description}
 
-\begin{tcolorbox}[enhanced jigsaw, toprule=.15mm, opacityback=0, colbacktitle=quarto-callout-caution-color!10!white, breakable, colframe=quarto-callout-caution-color-frame, title=\textcolor{quarto-callout-caution-color}{\faFire}\hspace{0.5em}{Vorsicht}, left=2mm, arc=.35mm, toptitle=1mm, bottomrule=.15mm, rightrule=.15mm, titlerule=0mm, bottomtitle=1mm, leftrule=.75mm, opacitybacktitle=0.6, coltitle=black, colback=white]
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, toprule=.15mm, colframe=quarto-callout-caution-color-frame, breakable, titlerule=0mm, title=\textcolor{quarto-callout-caution-color}{\faFire}\hspace{0.5em}{Vorsicht}, toptitle=1mm, colback=white, leftrule=.75mm, bottomtitle=1mm, colbacktitle=quarto-callout-caution-color!10!white, left=2mm, bottomrule=.15mm, rightrule=.15mm, arc=.35mm, opacityback=0, opacitybacktitle=0.6]
 
 This check is done by \emph{Spark}, \textbf{NOT} \emph{Ada}.
 
@@ -2632,6 +4018,14 @@ Optimierungen}\label{firm-software-optimierungen}
 \begin{center}
 \includegraphics{images/crypto/permutation tables.pdf}
 \end{center}
+
+\section{Bild von Spaghetti}\label{bild-von-spaghetti}
+
+\includegraphics{images/s6_advanced_system_design/Easyspaghettiwithtomatosauce_11715_DDMFS_1x2_2425-c67720e4ea884f22a852f0bb84a87a80.jpg}
+
+\footnotesize I'm tired
+
+\end{multicols*}
 
 
 

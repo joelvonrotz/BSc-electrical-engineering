@@ -9,8 +9,9 @@ format:
       - file: "./preamble.tex"
     toc: true
     keep-tex: true
-    classoption: twocolumn
+    #classoption: twocolumn
     fig-align: center
+
 
 # [DOCUMENT INFORMATION]
 title: "Advanced System Design"
@@ -40,6 +41,7 @@ accentcolor: "124E82" # must be given as hex, sadly :(
 chribel-fontfamily:
   - name: AlegreyaSans      # used for section headings, title page
   - name: cmbright          # used for paragraph and math
+  - name: euler
   #- name: lmodern
   #- name: iwona
   #  options: light,condensed,math

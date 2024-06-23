@@ -1,33 +1,469 @@
+<!--
+.d88b           8           
+8P    .d88 .d8b 8d8b. .d88b 
+8b    8  8 8    8P Y8 8.dP' 
+`Y88P `Y88 `Y8P 8   8 `Y88P 
+-->
 ## Cache
 
-::: callout-note
-## Was Cache?
-:::
+### Simple 8x8 Cache
 
-### Trashing
+![](images/performance/image-8.png)
+
+- $8\times 8\text{ Cache}=64\text{ Instr.}\Rightarrow$ 8 cache lines/**pages** containing 8 Instructions and three Tag bits each.
+- Valid Bit determines the validity of entry
+
+$$
+\small\text{Tag}\times\text{Index}=\text{Cache Address}\qquad A_{2-0}=\text{Line Offset}
+$$
+
+### Direct Cache Mapping
+
+![](images/performance/image-9.png)
+
+Simple & oldest caching system $\rightarrow$ 
 
 ### Thrashing / [Seitenflattern](https://de.wikipedia.org/wiki/Seitenflattern)
 
+![](images/performance/image-6.png)
+
+Where main memory is accessed in a pattern that leads to multiple main memory locations competing for the same cache lines, resulting in excessive cache misses. This is most problematic for caches that have low associativity.
+
+### Set Associative Cache Mapping
+
+![](images/performance/image-7.png)
+
+A set-associative caching system reorganises cache lines into sets e.g. with four cache lines per set (*four-way set-associative* cache).
+
+
+
 ### Cache Struktur
 
-![Struktur einer Cache-Zeilen](images/performance\cache-line-structure.png){#fig-performance-cache-line-structure}
+![](images/performance\cache-line-structure.png)
+`{\footnotesize Struktur einer Cache-Zeilen}`{=latex}
 
-## GCC Optimization
 
-`-O0` no optimization
-`-O3` all optimization (`-O1`,`-O2`) + function inlining and more
+### Advanced Cache Lines
 
-`funroll-loops`
+![](images/performance/image-17.png)
 
-::: {.callout-tip}
-### Enabling Optimization
+```{=latex}
+{\footnotesize\begin{description}[style=sameline,parsep=0mm,labelsep=4pt]
+\item[\textbf{Cache Tag}] Cache line source in system memory
+\item[\textbf{Index}] Identifies cache line location
+\item[\textbf{Offset}] Points at specific data word/byte
+\item[\textbf{Valid Bit}] Set on valid data in cache line
+\item[\textbf{Dirty Bit}] Set when data has been changed/overwritten by the CPU $\rightarrow$ write back required
+\end{description}}
+```
 
-```c
-#pragma GCC optimize ("O0")
+### Line Replacement Strategies
+
+```{=latex}
+{\small\begin{description}[style=sameline,parsep=0mm,labelsep=4pt]
+\item[\textbf{FIFO}] Oldest written line is replaced 
+\item[\textbf{LRU}] (Least Recently Used) the lien with the oldest timestamp is replaced $\rightarrow$ complex system
+\item[\textbf{Random}] Cheap and effective, makes thrashing unlikely 
+\item[\textbf{NMRU}] (Not most recently used) randomly, except \textbf{not} most recent $\rightarrow$ performs a bit better than randomly
+\item[\textbf{Valid Bit}] Set on valid data in cache line
+\item[\textbf{Dirty Bit}] Set when data has been changed/overwritten by the CPU $\rightarrow$ write back required
+\end{description}}
+```
+
+### Write Back Strategies
+
+```{=latex}
+{\small\begin{description}[style=sameline,parsep=0mm,labelsep=4pt]
+\item[\textbf{Write-Through}] Any time a data word in a cache line is changed by the CPU, the cache line is written to memory immediately. This wastes time but the CPU’s view of memory is consistent.
+\item[\textbf{Write-Back}] A “dirty” cache line is written back to memory only when the replacement policy has chosen to evict this line from cache. {\footnotesize Write-back avoids a lot of unnecessary system memory writes at the cost of a more relaxed consistency (may cause problems in multi-CPU systems)}
+\end{description}}
+```
+
+<!--
+8b   d8 8b   d8 8    8 
+8YbmdP8 8YbmdP8 8    8 
+8  "  8 8  "  8 8b..d8 
+8     8 8     8 `Y88P' 
+-->
+## Memory Management Unit (MMU)
+
+![](images/performance/image-20.png)
+
+### Tasks
+
+```{=latex}
+{\small\begin{description}[style=sameline,parsep=0mm,labelsep=4pt]
+\item[\textbf{Memory Protection}:] Without an MMU, processes can 'reach' into other processes' memory (unstable \& security suffer). Modern systems isolate this by using an MMU.
+\item[\textbf{Virtual Memory}:] Supports memory swapping, to move infrequently used memory out to a disk and allow high-memory processes to use these areas.
+\item[\textbf{Defragmentation}:] cleans unused memory caused by long run program
+\end{description}}
+```
+
+### Memory Protection Unit (MPU)
+
+![](images/performance/image-18.png)
+
+```{=latex}
+{\small
+```
+
+- Separates processes, enforces privilege and access rules to memory
+- Prevents task's **stack overflows** into other tasks
+- Defineable **No instruction fetch** areas (protect from malicious execution)
+- Access type configuration (read-only, write-read)
+- Access without permission raises permission fault
+
+
+```{=latex}
+}
+{\footnotesize MPU on Cortex M4 supports 8 programmable overlapping protection regions, with write, execute bits, cache policy and shareability}
+```
+
+### Caching and Virtual Memory
+
+![](images/performance/image-19.png)
+
+```{=latex}
+{\footnotesize \textbf{Goal}: Give each process the \textbf{illusion} that it has its own \textbf{private}, \textbf{$\approx$ infinite} system memory}
+
+{\small
+```
+
+- Is a cooperative venture between the operating system and hardware memory management unit (MMU)
+- Virtual address space is divided into many small pages (often 4KB)
+
+
+```{=latex}
+}
+```
+
+### Simplified MMU
+
+![](images/performance/image-21.png)
+
+```{=latex}
+{\small
+```
+
+If `{\bfseries\color{Orange}Block 5}`{=latex} is mapped, one of the pages need to be swapped (since no page accesses 5's memory). For example B3 is unused, therefore it is swapped with the page of B5.
+
+```{=latex}
+}
+```
+
+### Address Translation 32-Bit
+
+![](images/performance/image-22.png)
+
+```{=latex}
+{\small
+```
+
+- Divides 32-Bit virtual address into 20-bit **page number** and 12-bit **page offset** ($2^{12}=$ 4kB pages)
+- Virtual Address $\rightarrow$ 20-bit lookup in [page table]{.underline} + [permission check]{.underline} $\rightarrow$ Physical address is 'returned'/'set' 
+- Page table entries are usually 4-Byte: $2^{32}/2^{12}\text{ pages}\times 4\sfrac{\text{bytes}}{\text{page}}=$ 4MB in size.
+
+```{=latex}
+}
+```
+
+### Two-Level Page Table
+
+![alt text](images/performance/image-23.png)
+
+```{=latex}
+{\small
+```
+
+- Page table is split up in two
+- Does not create unused 4Mb pages
+
+```{=latex}
+}
+```
+
+<!--
+.d88b. 888 8b   d8 888b. 
+YPwww.  8  8YbmdP8 8   8 
+    d8  8  8  "  8 8   8 
+`Y88P' 888 8     8 888P' 
+-->
+## Single-Instruction, Multiple Data (SIMD)
+
+SIMD allows the calculation of multiple data at once via a single instruction ([Vector]{.underline} calculations). This is useful for example RGB channel calculations.
+
+![](images/performance/image-24.png)
+
+### ARM NEON
+
+ARM NEON is a SIMD Coprocessor for the ARM architecture (ARM11, ARMv6 ISA).
+
+- 16 Registers à 128 bits
+- Separate pipeline
+- \>100 SIMD instructions
+
+![](images/performance/image-25.png)
+
+#### NEON Registers
+
+are 16 $\times$ 128bit. **Q**-Registers are 128 bits & **D**-Registers are 64 bits and are mapped to the same Flip-Flops (analogy C/C++ `union`). Vector Floating Point (VFP) **S**-registers use Q0-7/D0-15
+
+![](images/performance/image-26.png){width="8cm" fig-align="center"}
+
+
+::: callout-tip
+#### Optimization *Loop Unrolling*
+
+*von Livio Stadelmann Zusammenfassung* :)
+
+Ist eine Compiler-Optimierungstechnik, um die Leistung zu verbessern. Dabei werden Schleifen
+aufgetrennt und als mehrere aufeinander folgende Schritte aufgeführt, um die Ausführungszeit zu
+reduzieren. Somit können die Operationen parallel im SIMD durgeführt werden.
+
+**Achtung**: Durch das Unrolling wird mehr Speicher benötigt, was zu erhöhtem Risiko von Cache-Miss führen kann.
+:::
+
+<!--
+.d88b  888b. 8    8 
+8P www 8  .8 8    8 
+8b  d8 8wwP' 8b..d8 
+`Y88P' 8     `Y88P' 
+-->
+## Graphics Processing Unit (GPU)
+
+GPUs are used to calculate mathematical *recipes*, meaning they can do calculations on repeat really well. Operations such as Additions, Multiplications, Transformations, Comparisons, etc. can be done. An example would be the calculation of graphics for computer games or rendering of movies and models.
+
+The high count of cores (12 Quad Processing Units) and the ability for parallelization makes a GPU suitable for performing many similar calculations. Essentially a calculation recipe is given to the GPU, which applies it to data.
+
+
+### Open Graphics Library (OpenGL)
+
+![](images/performance/image-27.png)
+
+*OpenGL* is a cross-language, cross-platform application programming interface (API) for rendering 2D and 3D vector graphics. The API is typically used to interact with a graphics processing unit (GPU), to achieve hardware-accelerated rendering, but can also be implemented on a CPU.
+
+The Raspberry Pi GPU supports OpenGL ES 1.1 and ES 2.0 standards.
+
+
+```{=latex}
+{\small\begin{description}[style=sameline,parsep=0mm,labelsep=4pt]
+\item[\textbf{Vertex Processing}:] Vertices define position and shape of an object in 3D space
+\item[\textbf{Rasterization}:] Converts the 3D space to a (2D) pixel space through analysing the pixel space
+\item[\textbf{Fragment Processing}:] Series of Operations such as texturing, colouring and blending
+\item[\textbf{Fragment Processing}:] Fragments are combined to render a 3D object onto a 2D screen.
+\end{description}}
+```
+
+### Modern GPU Hardware
+
+Now comes the question: how can a GPU handle a 1080p, 4 $\times$ multi-sampled with 32 bits of colour and depth data of ~60 MB of data, 60fps (2.5 GB/s)?
+
+Through a hierarchy of caches, large and fast DRAM and various specialized DSPs!
+
+::: callout-note
+#### VD3: RPi 3 Video Core GPU
+
+![](images/performance/image-28.png)
+
+:::
+
+### Quad Processor Unit (QPU)
+
+![](images/performance/image-30.png)
+
+![](images/performance/image-29.png)
+
+<!--
+888b. 8b   d8    db    
+8   8 8YbmdP8   dPYb   
+8   8 8  "  8  dPwwYb  
+888P' 8     8 dP    Yb 
+-->
+## Direct Memory Access (DMA) Coprocessor
+
+Coprocessor to efficiently move data between memories and/or peripherals independent of the main CPU.
+
+![](images/performance/image-13.png)
+
+```{=latex}
+\begin{description}[style=sameline,parsep=0mm,labelsep=4pt]
+\item[\textbf{\texttt(a)}] Memory to Interface
+\item[\textbf{\texttt(b)}] Interface to Memory
+\item[\textbf{\texttt(c)}] Memory to Memory
+\end{description}
+```
+
+### Internal & External DMA Controller
+
+**Internal** (e.g. STM32 Microcontrollers)
+
+![](images/performance/image-14.png)
+
+**External** (e.g. BCM2835 $\rightarrow$ Raspi)
+
+![](images/performance/image-16.png)
+
+### Block Diagramm
+
+![](images/performance/image-15.png)
+
+![](images/performance/image-31.png)
+
+### Raspberry Pi BCM2835 DMA
+
+- block-to-block memory transfers and simple peripherals
+- must use the **Physical** (hardware) **addresses** of the peripherals
+- read only **prefetch** mode to LOAD **into** the **L2 cache** in anticipation of its later use
+- **16 DMA channels**
+- Each DMA channel loads a **Control Block (CB) data structure** from memory
+- A **linked list of Control Blocks** allows to execute a sequence of DMA operations without software intervention
+- onto one of the 3 system busses
+- bandwidth can be controlled by the bus-arbiter settings
+- supports **AXI read bursts** to ensure efficient SDRAM use
+- Paced by the peripheral **Data Request (DREQ) signal**
+- **Panic signal** to indicate imminent danger of **FIFO** underflow or overflow (sets the AXI apriority level)
+
+::: callout-note
+#### DMA Control Block
+
+![](images/performance/image-32.png)
+
+:::
+
+<!--
+888b. 888 .d88b. .d88b      Yb    dP 
+8  .8  8  YPwww. 8P          Yb  dP  
+8wwK'  8      d8 8b    wwww   YbdP   
+8  Yb 888 `Y88P' `Y88P         YP    
+-->
+## Reduced Instruction Set Computer (RISC-V)
+
+### RISC
+
+![](images/performance/image-10.png)
+
+- All instructions have the same size
+- One instruction per clock cycle
+- Load/Store architecture
+- Harvard architecture (instruction + data bus interfaces)
+- Many multi purpose register
+- Small simple core, big caches
+
+### RISC - V
+
+- A high-quality, license-free, royalty-free RISC ISA (Instruction Set Architecture)
+- Modular ISA:
+  - Small base RV32I (RV64I) **I**=Integer, <50 instructions (x86-ISA 1338 instr. (2015) vs. 80 instr. (1978))
+  - Suits all sizes of processor, from smallest microcontroller to largest supercomputer
+- **Standard Instruction Extensions**
+  - RV32I+**C**: **c**ompressed [16-bit]{.underline} instructions
+  - **M**=Integer multiply/divide
+  - **A**=Atomic memory operations; **F/D/Q**=Single/Double/Quad-precision floating-point; V=Vector…
+
+### Register File
+
+![](images/performance/image-2.png)
+
+- **PC** Program Counter outside register file
+
+### Integer operations
+
+![](images/performance/image.png)
+
+- 47 ${\times}$ fixed-width instructions (32-bit, bit[1-0]=`11`) + 2 illegal (all `0`/`1`)
+- 3 ${\times}$ 5-bit register addresses in fixed locations (read parallel to I-decode)
+- 5 instruction formats:
+  - **R**: Register-register operations
+  - **I/U**: short-lower/long-upper Immediate
+  - **S**: Store operation
+  - **B**: conditional Branches (S with rotated immediate)
+  - **J**: unconditional Jumps (U with rotated immediate)
+- I+U together give one 32b constant in any register (also relative in PC)
+- Immediate fields are always sign-extended
+
+### ALU
+
+The ALU of the RISC-V architecture has **NO FLAGS** (C,O,N;Z)
+
+::: callout-tip
+#### 64-Bit Zahl rechnen
+
+$R=A+B$ 64-bit Addition ohne Carry (A in `a3`, `a2`; B in `a5`, a4; R in `a1`, `a0`):
+
+```assembly
+add a0,a2,a4  # a0=a2+a4
+sltu a2,a0,a2 # a0<a2? a2=1:a2=0, calculate carry in a2
+add a5,a3,a5  # a5=a5+a3
+add a1,a2,a5  # add carry, a1=a2+a5
 ```
 :::
 
+`csr` Status and Control Register are 64-bit counter for system ticks,
+excecuted instructions, productive clock cycles
 
-<!--[CPU/MCU MMU]------------------------------------------------------------------------>
+### `+C` Compressed / 16-Bit Operations
 
-##
+![](images/performance/image-1.png)
+
+`{\footnotesize 16b decoder is ~700 gates (presentation) / 400-8000 gates of the smallest RV32 (book)}`{=latex}
+
+- CIW, CL, CS, CA, CB: rx’ = a0-a5, sp, ra for integers (= s1-s5 for floats)
+- Each 16-bit instruction maps to exactly one 32-bit instruction => programmer/compiler does not need to know
+- 32-bit instructions can be 16-bit aligned
+- 50-60% instructions can be compressed => 25-30% smaller code size
+
+::: {.callout-note}
+#### Illegal Instructions
+
+Following instructions are illegal:
+
+```python
+#CIW 0...0
+0000 0000 0000 0000
+#CIW 1...1
+1111 1111 1111 1111
+```
+
+:::
+
+### Code Density & Performance
+
+![](images/performance/image-3.png)
+
+![](images/performance/image-4.png)
+
+### ARM vs RISC-V
+
+```{=latex}
+\textbf{ARM}
+{\footnotesize\begin{description}[parsep=0mm,labelsep=2pt,labelwidth=8pt]
+  \item[\color{OliveGreen}\faPlus] Industry standard, Dense machine code, Large tool base, Large IP base, Barrel shifter in front of ALU, PC in register file, Many address modes, Hard cores on all major technologies, Lots of Tools (e.g. compilers)
+  \item[\color{BrickRed}\faMinus] Really expensive (royalties), Large area, Complex design, Complex to understand, Lots of patents
+\end{description}}
+
+\textbf{RISC-V}
+{\footnotesize\begin{description}[parsep=0mm,labelsep=2pt,labelwidth=8pt]
+  \item[\color{OliveGreen}\faPlus] Open ISA, Simple HW design, Simple to understand, Small area, Large register file (31*32-bit), Cheap (no royalties), User extendable, No royalties
+  \item[\color{BrickRed}\faMinus] HW hard to compile, Code density
+\end{description}}
+```
+
+### ARM
+
+![](images/performance/image-11.png)
+
+![](images/performance/image-12.png)
+
+```{=latex}
+{\footnotesize 32 Bit, nach aussen von Neumann}
+{\small\begin{description}[style=sameline,parsep=0mm,labelsep=4pt]
+  \item[Reg] Register = Speicher (FlipFlop, RAM)
+  \item[PC] Programm Counter
+  \item[ALU] Arithmetic Logic Unit
+  \item[APSR] Condition Code Register
+  \item[SP] Stack Pointer (Stapelspeicher für Kontext und Parameter)
+  \item[LR] Link Register
+\end{description}
+}
+```
+

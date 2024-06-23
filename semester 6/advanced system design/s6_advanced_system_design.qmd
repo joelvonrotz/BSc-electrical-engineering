@@ -39,3 +39,14 @@
 ### Permutation Tabellen
 
 ![](images/crypto/permutation%20tables.pdf){fig-align="center"}
+
+
+# Bild von Spaghetti
+
+![](images/s6_advanced_system_design/Easyspaghettiwithtomatosauce_11715_DDMFS_1x2_2425-c67720e4ea884f22a852f0bb84a87a80.jpg)
+
+`\footnotesize I'm tired`{=latex}
+
+```{=latex}
+\end{multicols*}
+```
