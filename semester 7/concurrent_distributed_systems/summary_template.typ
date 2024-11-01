@@ -1,3 +1,6 @@
+
+#import "@preview/octique:0.1.0": *
+
 #let conf(
   title: none,
   subtitle:none,
@@ -44,37 +47,34 @@
           colspan: 3,
           line(length: 100%, stroke: (cap: "round", thickness: 0.5pt))
         ),
-        text(datetime.today().display("[day].[month].[year]")),
-        counter(page).display("1 of 1", both: true),
+        text(datetime.today().display("[day].[month].[year]")), 
+        context counter(page).display("1 of 1", both: true),
         text(subject),
       )
     ]
   )
-  set text(font: "Linux Libertine")
   show heading: set text(font: "Alegreya Sans")
 
   show heading.where(level: 1): it => [
     #set text(20pt)
-    #text(it.body, rgb(accent_color))
+    #block[#text(it.body, rgb(accent_color))
     #box(
       width: 1fr,
       baseline: -2mm,
       inset: (left: 1mm),
       line(length: 100%, stroke: (thickness: 2pt, paint: rgb(accent_color)))
-    )
-    #v(2mm)
+    )]
   ]
 
   show heading.where(level: 2): it => [
     #set text(16pt)
-    #text(it.body)
+    #block[#text(it.body)
     #box(
       width: 1fr,
       baseline: -1.5mm,
       inset: (left: 1mm),
       line(length: 100%, stroke: (cap: "round", dash: (0pt,5pt),thickness: 2pt, paint: rgb(accent_color)))
-    )
-    #v(2mm)
+    )]
   ]
 
   align(center)[
@@ -84,7 +84,8 @@
     #par(
       leading: 3mm,
       text(24pt,title, weight: "bold")
-    )#v(-5mm)
+    )
+    #v(-5mm)
     // subtitle
     #text(subtitle, style: "italic")#v(0mm)
     // author + link
@@ -96,13 +97,11 @@
         stroke: (dash: "dashed", 
         paint: rgb(accent_color)),
         baseline: 3pt)[
-        #text(weight: "bold", rgb(accent_color))[Quelldateien]]
+        #text(weight: "bold", rgb(accent_color), baseline: -1pt)[#octique-inline("link", baseline: 0pt, color: rgb(accent_color))#h(1pt) Quelldateien]]
     ]
   ]
-  
   outline(
-    indent: 2em
+    indent: 2em,
   )
-  
   doc
 }
