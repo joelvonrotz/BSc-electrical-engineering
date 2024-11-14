@@ -9,8 +9,13 @@
   source: "",
   place:none,
   accent_color: "425eaf",
+  fontsize: 10pt,
+  font-paragraph: "Ubuntu Sans",
+  font-heading: "Ubuntu Sans",
   doc
 ) = {
+  // set globally the font size and the paragraph sizing
+  set text(fontsize, font: font-paragraph)
   set page(
     columns: 2,
     paper: "a4",
@@ -22,11 +27,11 @@
     ),
     numbering: "1 / 1",
     header: [
-      #set text(10pt, font: "Alegreya Sans")
+      #set text(0.9em, font: font-paragraph)
       #grid(
         columns: (20%,1fr),
         rows: (auto),
-        row-gutter: 2mm,
+        row-gutter: 0.4em,
         align: (left, right),
         text(place),
         text()[#title - #subtitle],
@@ -37,11 +42,11 @@
       )
     ],
     footer: [
-      #set text(10pt, font: "Alegreya Sans")
+      #set text(0.9em, font: font-paragraph)
       #grid(
         columns: (1fr,1fr,1fr),
         rows: (auto),
-        row-gutter: 2mm,
+        row-gutter: 0.4em,
         align: (left, center, right),
         grid.cell(
           colspan: 3,
@@ -53,10 +58,10 @@
       )
     ]
   )
-  show heading: set text(font: "Alegreya Sans")
+  show heading: set text(font: font-heading)
 
   show heading.where(level: 1): it => [
-    #set text(20pt)
+    #set text(1.4em)
     #block[#text(it.body, rgb(accent_color))
     #box(
       width: 1fr,
@@ -67,7 +72,7 @@
   ]
 
   show heading.where(level: 2): it => [
-    #set text(16pt)
+    #set text(1.3em)
     #block[#text(it.body)
     #box(
       width: 1fr,
@@ -78,30 +83,30 @@
   ]
 
   align(center)[
-    #set text(12pt, font: "Alegreya Sans")
-    #v(5mm)
+    #set text(1.1em, font: font-heading)
+    #v(2em)
     // title
     #par(
       leading: 3mm,
-      text(24pt,title, weight: "bold")
+      text(2em,title, weight: "bold")
     )
-    #v(-5mm)
+    #v(-1em)
     // subtitle
     #text(subtitle, style: "italic")#v(0mm)
     // author + link
     #text(author)#h(2mm)#text(weight: "bold")[/]#h(2mm)
     #link(source)[
-        #box(fill: rgb(accent_color).lighten(85%), radius: 6pt, height: 14pt, 
-        outset: (x:4pt, y:1pt), 
-        inset: (y:2pt), 
+        #box(fill: rgb(accent_color).lighten(85%), radius: 4pt, height: 1.1em, 
+        outset: (x:0.2em, y:0.1em), 
+        inset: (y:0.15em), 
         stroke: (dash: "dashed", 
         paint: rgb(accent_color)),
-        baseline: 3pt)[
+        baseline: 0.25em)[
         #text(weight: "bold", rgb(accent_color), baseline: -1pt)[#octique-inline("link", baseline: 0pt, color: rgb(accent_color))#h(1pt) Quelldateien]]
     ]
   ]
   outline(
-    indent: 2em,
+    indent: 1.5em,
   )
   doc
 }

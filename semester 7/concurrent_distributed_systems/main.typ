@@ -1,12 +1,14 @@
-#import "summary_template.typ": conf
+#import "../summary_template.typ": conf
+#import "../commands.typ": *
 
 #import "@preview/octique:0.1.0": *
 #import "@preview/cetz:0.3.1" as cetz
 #import "@preview/fletcher:0.5.2" as fletcher: node, edge, shapes
 
+
 #let accent="425eaf"
 
-#set text(lang: "de", font: "Open Sans", 10pt)
+#set text(lang: "de", font: "Ubuntu Sans", 10pt)
 
 #show: conf.with(
   title: [Concurrent Distributed Systems],
@@ -16,12 +18,6 @@
   accent_color: "425eaf",
   place: [HSLU T&A],
   source: "https://github.com/joelvonrotz/BSc-electrical-engineering/tree/main/semester%207"
-)
-
-#import cetz.draw
-#let arrow-mark = (
-  inherit: "|>",
-  size: 15
 )
 
 
@@ -69,6 +65,10 @@ git diff --staged [file]
 
 = C\# / .NET
 
+```cs
+string str = $"Create string with directly concatting {variables} into it!";
+```
+
 == Threads
 
 == Streams
@@ -94,15 +94,21 @@ git diff --staged [file]
   edge((3.5,1),(4.5,1),"|-|", stroke: 1pt, label-anchor: "center", label-sep: 0pt, label-fill: white, label-size: 9pt)[*Backend*]
 )]
 
-== Model
+Die _Model-Viewmodel-View_-Struktur erstellt 
 
+== View
+#v(-2mm)
+#small[_What to display, Flow of interaction_]
 
 
 == View Model
+#v(-2mm)
+#small[_Business Logic, Data Objects_]
 
-Hello World
 
-== View
+== Model
+#v(-2mm)
+#small[_How to display information_]
 
 #pagebreak()
 
