@@ -1,5 +1,8 @@
+#import "@preview/octique:0.1.0": *
+
 #import "../summary_template.typ": conf
 #import "../commands.typ": *
+
 
 #set math.cases(gap: 0.4em)
 
@@ -26,7 +29,9 @@
 
 = Digitale Regelung
 
-#callout()[Hello]
+#callout(title: "Wichtig!", icon: "alert", color: rgb("#f09c00"))[
+  Hello World
+]
 
 Digitales Integrieren
 
@@ -34,12 +39,16 @@ _Mittelpunkt_ Riemann-Summe
 
 $
   integral_0^t e(t) dot d t approx sum cases(
-    e[k]dot Delta T,
-    e[k-1]dot Delta T,
-    (e[k]+e[k-1])\/2 dot Delta T
+    e[k] dot Delta T ,
+    e[k-1] dot Delta T,
+    (e[k] + e[k-1])\/2 dot Delta T
   )
 $
 
+== PID Diskretisierung
+
+
+
 $
-  
+  u(t) = u_"k,a"(e(t))+ u_"i,a"(e(t))+ u_"d,a"(e(t))
 $

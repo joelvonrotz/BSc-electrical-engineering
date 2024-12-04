@@ -9,6 +9,7 @@
 #let accent="425eaf"
 
 #set text(lang: "de", font: "Ubuntu Sans", 10pt)
+#show raw: set text(ligatures: true, font: "Cascadia Code", size: 1.1em)
 
 #show: conf.with(
   title: [Concurrent Distributed Systems],
@@ -27,28 +28,37 @@
 
 #image("Git_operations_curved.svg")
 
+#callout(title: "Commit - Pull - Push")[
+  Bei Projekten mit mehreren Entwickler, bevor Änderungen gepusht werden
+  #set enum(numbering: n => text(weight: "bold")[#n.])
+  + *Commit*
+  + *Pull*
+    - Merge-Konlikte lösen
+  + *Push*
+]
 
-== Configuration
+== Konfiguration
 
 ```bash
 git config user.name "[name]"
 git config user.email "[email]"
 ```
 
-== Starting a Project
+== Ein Projekt starten
 
 ```bash
 git init
 git clone [url]
 ```
 
-== Day-To-Day
+== Wichtigste Befehle
+
+Zeigt den *Status des Working Directory* relativ zum aktuellen Branch an.
 
 ```bash
 git status
 ```
 
-Zeigt den *Status des Working Directory* relativ zum aktuellen Branch an. 
 
 ```bash
 git add [file]
@@ -112,3 +122,24 @@ Die _Model-Viewmodel-View_-Struktur erstellt
 
 #pagebreak()
 
+
+= Espressif ESP32
+
+== FreeRTOS SMP
+
+SMP $arrow.r$ #b[S]ymmetric #b[M]ulti#b[p]rocessing
+
+`CPU0` $arrow$ `PRO_CPU` Protocol
+
+`CPU1` $arrow$ `APP_CPU` Application (`app_main()`)
+
+
+=== Task für separatem Core erstellen
+
+Hello 
+
+```c
+xTaskCreatePinnedToCore(
+  ...,
+  tskNO_AFFINITY)
+```

@@ -4,27 +4,37 @@
   text(0.8em)[#body]
 }
 
-
-// Display inline code in a small box
-// that retains the correct baseline.
-#show raw.where(block: false): box.with(
-  fill: luma(240),
-  inset: (x: 3pt, y: 0pt),
-  outset: (y: 3pt),
-  radius: 2pt,
-)
-
-// Display block code in a larger block
-// with more padding.
-#show raw.where(block: true): block.with(
-  fill: luma(240),
-  inset: 8pt,
-  radius: 4pt,
-  width: 100%,
-  stroke: (cap: "round", dash: (0pt,2.5pt),thickness: 1pt, paint: gray)
-)
+#let b(body) = {
+  text(weight: "bold")[#body]
+}
 
 
-#let callout(body, color: red, title: "Callout", icon: "") = {
-  block(body)
+
+#let callout(color: rgb("#7a9bfd"), title: "Callout", title-color: white, icon: "info", body, ..args) = {
+  block(..args, stroke: (paint: color), radius: 5pt, above: 1.5em, below: 1.5em)[
+    #if (body!=[]) {
+      block(fill: color, radius: (top: 5pt), below: 0pt)[
+        #grid(
+          columns: (2em,1fr),
+          rows: 2em,
+          align: (center + horizon, left + horizon),
+          octique-inline(icon, color: title-color, width: 1.2em),
+          box(inset: (left: 0.15em))[#text(title, 1.2em, weight: "bold", title-color)]
+        )
+      ]
+    } else {
+      block(fill: color, radius: 5pt, below: 0pt)[
+        #grid(
+          columns: (2em,1fr),
+          rows: 2em,
+          align: (center + horizon, left + horizon),
+          octique-inline(icon, color: title-color, width: 1.2em),
+          box(inset: (left: 0.15em))[#text(title, 1.2em, weight: "bold", title-color)]
+        )
+      ]
+    }
+    #if (body!=[]) {
+      block(inset: (x:0.6em, y: 0.7em))[#body]
+    }
+  ]
 }

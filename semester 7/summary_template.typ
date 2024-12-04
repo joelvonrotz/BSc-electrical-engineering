@@ -12,18 +12,20 @@
   fontsize: 10pt,
   font-paragraph: "Ubuntu Sans",
   font-heading: "Ubuntu Sans",
+  show-outline: false,
   doc
 ) = {
   // set globally the font size and the paragraph sizing
   set text(fontsize, font: font-paragraph)
   set page(
-    columns: 2,
+    columns: 3,
     paper: "a4",
+    flipped: true,
     margin: (
-      top: 2cm,
-      bottom: 2cm,
-      left: 1cm,
-      right: 1cm 
+      top: 1.1cm,
+      bottom: 1.1cm,
+      left: 0.6cm,
+      right: 0.6cm 
     ),
     numbering: "1 / 1",
     header: [
@@ -82,6 +84,30 @@
     )]
   ]
 
+  
+
+
+  // Display inline code in a small box
+  // that retains the correct baseline.
+  show raw.where(block: false): box.with(
+    fill: luma(240),
+    inset: (x: 3pt, y: 0pt),
+    outset: (y: 3pt),
+    radius: 2pt,
+  )
+
+  // Display block code in a larger block
+  // with more padding.
+  show raw.where(block: true): block.with(
+    fill: luma(240),
+    width: 100%,
+    breakable: true,
+    inset: 7pt,
+    radius: 4pt,
+  )
+
+  // [TITLEBLOCK] --------------------------------------------------
+
   align(center)[
     #set text(1.1em, font: font-heading)
     #v(2em)
@@ -105,8 +131,10 @@
         #text(weight: "bold", rgb(accent_color), baseline: -1pt)[#octique-inline("link", baseline: 0pt, color: rgb(accent_color))#h(1pt) Quelldateien]]
     ]
   ]
-  outline(
-    indent: 1.5em,
-  )
+  if(show-outline){
+    outline(
+      indent: 1.5em,
+    )
+  }
   doc
 }
