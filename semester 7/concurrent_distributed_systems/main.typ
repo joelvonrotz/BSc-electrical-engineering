@@ -7,12 +7,17 @@
 
 
 #let accent = "425eaf"
-#let color_alert = rgb("#cb4154")
+#let color_redish = rgb("#cb4154")
+#let color_alert = color_redish
 #let color_caution = rgb("#e79925")
+#let color_links = rgb("#2549e7")
+#let color_green = rgb("#025809")
 
 #set enum(numbering: (it => strong[#it.]))
 
 #set text(lang: "de", font: "Ubuntu Sans", 10pt)
+#set par(justify: true)
+
 #show raw: set text(ligatures: true, font: "Cascadia Code", size: 1.1em)
 
 #show: conf.with(
@@ -289,7 +294,7 @@ static void Waiter() {
 
 #image("semaphore.png")
 
-Mit Semaphoren können an vorbestimmte Anzahl _Teilnehmer_ erlaubt werden, bevor der Ressourcen-Zugang gesperrt wird.
+Mit Semaphoren können an vorbestimmte Anzahl _Teilnehmer_ Ressourcen erlaubt werden, bevor der Ressourcen-Zugang gesperrt wird.
 
 / `.WaitOne()` ($"sema"."P"()$): Eintritt (Passieren) in einen synchronisierten Bereich, wobei mitgezählt wird, der wievielte Bereich es ist.
 
@@ -346,19 +351,402 @@ static void Main() {
 }
 ```
 
+
+== Streams
+
+Streams dienen dazu, drei elementare Operationen ausführen zu können:
+
+/ Schreiben: Dateninformationen müssen in einem Stream geschrieben werden. Das Format hängt vom Stream ab.
+
+/ Lesen : Aus dem Datenstrom muss gelesen werden, ansonsten könnte man die Daten nicht weiterverarbeiten.
+
+/ Wahlfreien Zugriff: Nicht immer ist es erforderlich, den Datenstrom vom ersten bis zum letzten Byte auszuwerten. Manchmal reicht es, erst ab einer bestimmten Position zu lesen.
+
+C\# implementiert Stream-Klassen mit sequentielle Ein-/Ausgabe auf verschiedene Datentypen:
+
+/ Zeichenorientiert: (`StreamReader/-Writer`, `StringReader``/-Writer`) mit Wandlung zwischen interner Binärdarstellung und externer Textdarstellung. Grundlage ist die byteorientierte Ein- und Ausgabe mit den Klassen `TextReader` und `TextWriter`
+
+/ Binär: (`BinaryReader/-Writer`, Unterklassen von `Stream`) ohne Wandlung der Binärdarstellung
+
+=== Stream Architektur
+
+
+.NET-Stream-Architektur konzentriert sich auf drei Konzepte:
+
+/ Adapter: formen Daten (Strings, elementare Datentypen, etc.) aus Programmen um. (siehe #link("https://de.wikipedia.org/wiki/Adapter_(Entwurfsmuster)")[#text(fill: color_links)[Adapter Entwurfsmusters]])
+
+/ Dekorator: fügen neue Eigenschaften zu dem Stream hinzu. (siehe #link("https://de.wikipedia.org/wiki/Decorator")[#text(fill: color_links)[Dekorator Entwurfsmusters]])
+
+/ Sicherungsspeicher: ist ein Speichermedium, wie etwa ein Datenträger oder Arbeitsspeicher.
+
+#image("streams.png")
+
+=== Lesen
+
+Lesen aus einem Netzwerk TCP-Socket (`SR` = `StreamReader`)::
+
+#small[```cs
+TcpClient client = new TcpClient("192.53.1.103",13);
+SR inStream = new SR(client.GetStream());
+Console.WriteLine(inStream.ReadLine());
+client.Close();
+```]
+
+Lesen aus einer Datei (`SR` = `StreamReader`):
+
+#small[```cs
+try {
+  using (SR sr = new SR("t.txt")) {
+  string line;
+    while ((line = sr.ReadLine()) != null) {
+      Console.WriteLine(line);
+    }
+  }
+} catch (Exception e) {
+  Console.WriteLine(e);
+}
+```]
+
+Lesen aus einer Datei mit einem Pass-Through-Stream:
+
+#small[```cs
+Stream stm = new FileStream("Daten.txt",
+                    FileMode.Open,
+                    FileAccess.Read);
+ICryptoTransform ict = new ToBase64Transform();
+CryptoStream cs = new CryptoStream(stm,
+                        ict,
+                        CryptoStreamMode.Read);
+TextReader tr = new StreamReader(cs);
+string s = tr.ReadToEnd();
+Console.WriteLine(s);
+
+```]
+
+=== Schreiben
+
+Lesen von einer Tastatur und Schreiben auf den Bildschirm:
+
+#small[```cs
+string line;
+Console.Write("Bitte Eingabe: ");
+while ((line = Console.ReadLine()) != null) {
+  Console.WriteLine("Eingabe war: " + line);
+  Console.Write("Bitte Eingabe: ");
+}
+```]
+
+Schreiben in eine Daten mit implizitem FileStream:
+
+#small[```cs
+try {
+  using (StreamWriter sw = new StreamWriter("Daten.txt")) {
+    string[] text = { "Titel", "Köln", "4711" };
+for (int i = 0; i < text.Length; i++)
+sw.WriteLine(text[i]);
+}
+Console.WriteLine("fertig.");
+}
+catch (Exception e) { Console.WriteLine(e); }
+```]
+
+```cs
+StreamWriter sw = new StreamWriter("Daten.txt")
+// equals to
+FileStream fs = new FileStream("Daten.txt",
+                      FileMode.Create);
+StreamWriter sw = new StreamWriter(fs);
+```
+
+#colbreak(weak: true)
+
+/* -------------------------- Socket Kommunikation -------------------------- */
+
+#grid(
+  columns: (auto, auto),
+  align: center + horizon,
+  heading(level: 2)[Socket Kommunikation], small[`System.Net.Sockets.Socket`],
+)
+
+#align(center)[#image("endtoend.png", width: 90%)]
+
+Sockets werden für _Interprozesskommunikation_ verwendet, also zwischen zwei oder mehrere Prozesse (z.B. Applikation). Damit zwei Prozesse sich verstehen, müssen beide die #u[selbe Sprache] (Protokoll) sprechen: _TCP/IP_, _UDP_, _Datagram-Sockets_, _Multicast-Sockets_, etc.
+
+Sockets können#sym.dots.h
+
+- #sym.dots.h\Einen Port binden
+- #sym.dots.h\An einem Port auf Verbindungsanfragen hören
+- #sym.dots.h\Verbindung zu entfernten Prozess aufbauen
+- #sym.dots.h\Verbindungsanfragen akzeptieren
+- #sym.dots.h\Daten an entfernten Prozess senden
+
+=== UDP Protokoll
+#v(-2em)
+#h(1fr)#small[User Data Protocol]
+#v(0.1em)
+
+Ermöglicht das Senden von gekapselte rohe IP Datagramme zu übertragen, ohne Verbindungsaufbau.
+
+$arrow.double$ _Verbindungslos_ bedeutet keine Garantie, dass das gesendete Paket beim Empfänger ankommen.
+
+#align(center)[#image("udp_datagram.png", width: 90%)]
+
+#align(center)[#image("udp_header.png", width: 90%)]
+
+UDP Header besteht aus 8 Byte. Die _Länge_ entspricht Header Bytes + Daten Bytes. Die Prüfsumme wird über das gesamte Frame berechnet (IP Paket).
+
+#align(center)[#image("udp_ports.png", width: 90%)]
+
+Der Ziel-Port bestimmt, für welche Anwendung ein Datenpaket bestimmt ist.
+
+#todo[Add Code Snippets here?]
+
+=== TCP Protokoll
+#v(-2em)
+#h(1fr)#small[Transmission Control Protocol]
+#v(0.1em)
+
+Datagram ist ähnlich wie bei UDP.
+
+*IP* sorgt dafür, dass die Pakete von Knoten zu Knoten gelangen; *TCP* behandelt den Inhalt der Pakete und korrigiert dies (durch erneutes Senden)
+
+TCP kann als End-to-End Verbindung in Vollduplex betrachtet werden $arrow$ Möglich mit separierten Sende- & Empfangs-Counter.
+
+#align(center)[#image("tcp_header.png", width: 90%)]
+
+Wichtige Merkmale:
+
+/ Verbindungsorientiert: Vor Datenübertragung, wird eine Verbindung aufgebaut (Threeway Handshake)
+
+/ Zuverlässige Datenübertragung: Sicherstellung, dass alle gesendeten Daten korrekt beim Empfänger ankommen (Sequenz-Counter, ACK, Fehlerkorrektur [z.B. Prüfsummen])  
+
+/ Segmentierung und Reassemblierung: Grosse Datenmengen werden in kleinere Segmente (65535 bytes [64KB]) aufgeteilt und entsprechend beim Empfänger wieder zusammengesetzt.
+
+/ Flow Control: damit Sender den Empfänger nicht mit mehr Daten überfordert.
+
+/ Congestion Control: Dynamische Datenübertragungsrate anhand Netzwerkauslastung
+
+#align(center)[#image("tcp_ports.png", width: 90%)]
+
+Verbindungsaufbau wird via _Three-Way_ Handshake gemacht (folgendes Bild rechts). Der Abbau mit einem _Four-Way_ Handshake (folgendes Bild links).
+
+#image("tcp_connection.png")
+
+#todo[Add Code Snippets here?]
+
 == Interfaces
 
-== Socket Kommunikation
+#todo[Hello]
 
-== MVVM/MVC
+= MVVM
 
-= Werkzeuge
+#align(center)[
+  #fletcher.diagram(
+    spacing: (10mm, 7mm),
+    node-corner-radius: 3pt,
+    node-outset: 2mm,
+    label-size: 8pt,
 
-== Espressif ESP-IDF
+    node((0, 0), [View(s)], fill: green.lighten(80%), stroke: green.mix((black, 30%)), height: 4em, width: 4em, inset: 0pt),
+    node((2, 0), [View\ Model], fill: red.lighten(80%), stroke: red.mix((black, 30%)), height: 4em, width: 4em, inset: 0pt),
+    node((4, 0), [Model], fill: blue.lighten(80%), stroke: blue.mix((black, 30%)), height: 4em, width: 4em, inset: 0pt),
+    edge((0, 0), (2, 0), "-solid", stroke: 1pt, bend: 20deg)[User Action],
+    edge((2, 0), (0, 0), "-solid", stroke: 1pt, bend: 20deg)[`Binding`],
+    edge((2, 0), (4, 0), "-solid", stroke: 1pt, bend: 20deg)[Update Model],
+    edge((4, 0), (2, 0), "-solid", stroke: 1pt, bend: 20deg)[Model Changed],
+
+    edge(
+      (-0.5, 1),
+      (2.5, 1),
+      "|-|",
+      stroke: 1pt,
+      label-anchor: "center",
+      label-sep: 0pt,
+      label-fill: white,
+      label-size: 9pt,
+    )[*Frontend*],
+    edge(
+      (3.5, 1),
+      (4.5, 1),
+      "|-|",
+      stroke: 1pt,
+      label-anchor: "center",
+      label-sep: 0pt,
+      label-fill: white,
+      label-size: 9pt,
+    )[*Backend*],
+  )]
+
+#small[*Model-View-ViewModel* (MVVM) ist ein Entwurfsmuster und eine Variante des *Model-View-Controller*-Musters (MVC).]
+
+Darstellung und Logik wird getrennt in UI und Backend. 
+
+#columns(2)[
+  #text(fill: color_green)[#octicon("check-circle", color: color_green) *Vorteile*]
+  #small[
+  - ViewModel kann unabhängig von der Darstellung bearbeitet werden
+  - Testbarkeit keine UI-Tests nötig
+  - Weniger _Glue Code_ zwischen Model & View
+  - Views kann separat von Model & ViewModel implementiert werden
+  - Verschiedene Views mit dem selben ViewModel.
+  ]
+  #colbreak()
+  #text(fill: color_redish)[#octicon("x-circle", color: color_redish) *Nachteile*]
+  #small[
+  - Höherer Rechenaufwand wegen bi-direktionalen "Beobachters"
+  - Overkill für simple Applikationen
+  - Datenbindung kann grosse Speicher einnehmen
+  #v(0.94cm)
+  #h(1fr)#text(fill: color_links)[#link("https://learn.microsoft.com/en-us/archive/blogs/johngossman/advantages-and-disadvantages-of-m-v-vm")[Link 1]], #text(fill: color_links)[#link("https://de.wikipedia.org/wiki/Model_View_ViewModel")[Link 2]]
+]
+  ]
+
+== View
+#v(-0.9em)
+#h(1fr)#small[_What to display, Flow of interaction_]
+
+Ist das User Interface des Programmes und ist via `Binding` und `Command` and das ViewModel gebunden.
+
+== View Model
+#v(-0.9em)
+#h(1fr)#small[_Business Logic, Data Objects_]
+
+Bildet den Zustand der View(s) ab. Es können verschieden Views mit dem selben ViewModel verbunden werden.
+
+== Model
+#v(-0.9em)
+#h(1fr)#small[_How to display information_]
+
+Beschreibt den Zustand für das Backend und kommuniziert mit anderen Prozessen (z.B. Betriebssystemroutinen)
+
+= Werkzeuge & Entwicklung
+
+== Espressif
+
+Chinesische Firma in Shanghai (Gründung 2008). Halbleiter-Chips werden bei TSMC hergestellt (_fabless_ Herstellung).
+
+=== Mikrocontroller
+#small[
+/ ESP8266 (2014): Tensilica Xtensa LX106, 64KB iRAM, 96KB DRAM, WiFi, ext. SPI Flash
+/ ESP32 (2016): Wi-Fi + BLE, Single/Dual Core Xtensa LX6 \@240 Mhz
+/ ESP32-S2 (2019): Single-Core, Security, WiFi, keine FPU, kein Bluetooth, Xtensa LX7 \@240 MHz
+/ ESP32-S3 (2019): (FPU, WiFi+BLE, Dual-Xtensa LX7 \@240 MHz, + RISC-V)
+/ ESP32-C3 (2020): (Single-Core RISC-V \@160 MHz, Security, WiFi+BLE)
+/ ESP32-C6 (2021): (RISC-V \@160 MHz, RISC-V \@160 MHz + LP RISC-V \@20 MHz, WiFi, Bluetooth/BLE, IEEE 802.15.4)
+/ ESP32-H2 (2023): (Single-core RISC-V \@96 MHz, IEEE802.15.4, BLE, no WiFi)
+]
 
 
+#align(center)[#image("esp32_blockdiagramm.png", height: 75%)]
+
+== ESP-IDF
+
+#image("esp32_espidf.png")
+
+=== ESP32 Startup
+
+1. Power-On oder Reset
+2. Bootloader
+3. EN Low? $arrow$ Neue Anwendung über UART laden
+4. Startup IDF (Initialisierung, Memory,#sym.dots.h)
+5. Starten FreeRTOS
+6. 'main' Task $arrow$ ruft `app_main()` Funktion auf
+7. Anwendung läuft in `app_main()`, oder started neue Tasks
+
+#align(center)[#image("esp32_startup.png", width: 80%)]
+
+=== ESP app_main()
+
+- `app_main()` wird von einem Task gerufen $arrow$ Task hat tiefste Priorität `0` (`tskIDLE_PRIORITY`)
+- *FreeRTOS*: Preemptive, Highest Priority Task läuft
+- `printf` wird auf Konsole (UART) umgeleitet
 
 == Verteilte Entwicklung
+
+#todo[muss noch machen :)]
+
+== #octicon("git-merge") Git
+
+_Git_ ist eine Versionsverwaltungssoftware!
+
+=== Konzepte
+
+#columns(2, gutter: 4mm)[
+
+Following shows the most basic concepts used in version control systems such as Git.
+#v(2mm)
+
+#b[Basic Checkins]
+#image("git_concept_checkin.png", width: 100%)
+
+#b[Checkout and Edit]
+#image("git_concept_checkout_edit.png", width: 100%)
+
+#b[Branching]
+#image("git_concept_branching.png", width: 100%)
+
+#colbreak()
+
+#b[Diffs]
+#image("git_concept_diffs.png", width: 100%)
+
+#b[Merging]
+#image("git_concept_merging.png", width: 100%)
+
+#b[Conflicts]
+#image("git_concept_conflicts.png", width: 100%)
+]
+
+=== Was gehört in ein VSC
+
+- *Kein* Backup: Source, Derived, Other
+- `.gitignore`
+- Stufen: Repository, Verzeichnis, rekursiv
+- Empfehlungen
+
+=== Modell
+
+#image("git_modell.png")
+
+- *Connector*: git bash, Client
+- *Server*: git (local und als Server (z.B. GitHub))
+- Server & Repository: local, remote, verteilt
+  - Zentralisiert (z.B. SVN) oder verteilt (z.B. git)
+- Überlegungen: Platz, Übertragung, Arbeitsfluss
+
+=== Workflow
+
+#image("git_workflow.png")
+
+#align(center)[#quote[_Commit Early, commit often_]]
+
+=== Befehle
+
+#image("Git_operations_curved.svg")
+
+- Optionales *Remote Repository*
+- *Local Repository* (clone)
+- Lokale Datenbank existiert als *Working Directory* auf Disk
+- *Index*: Cache, Stage, Sammlung von Änderungen, welche in die Datenbank überführt (*commit*) werden
+- *fetch*, *pull*, *push*
+- *checkout*, *add*
+
+=== Konfiguration
+
+#todo[ist dies nötig?]
+
+```bash
+git config user.name "[name]"
+git config user.email "[email]"
+git init
+git clone [url]
+git status
+git add [file]
+git diff [file]
+git diff --staged [file]
+```
+
+=== Branch & Merge
 
 = Verteile Architekturen
 
@@ -399,32 +787,6 @@ static void Main() {
 === Message Buffer
 
 
-= #octique-inline("repo") Git
-
-#image("Git_operations_curved.svg")
-
-#callout(title: "Commit - Pull - Push")[
-  Bei Projekten mit mehreren Entwickler, bevor Änderungen gepusht werden
-  #set enum(numbering: n => text(weight: "bold")[#n.])
-  + *Commit*
-  + *Pull*
-    - Merge-Konlikte lösen
-  + *Push*
-]
-
-== Konfiguration
-
-```bash
-git config user.name "[name]"
-git config user.email "[email]"
-git init
-git clone [url]
-git status
-git add [file]
-git diff [file]
-git diff --staged [file]
-```
-
 = CI/CD
 #v(-1.1em)
 #h(1fr)#small[*C*\ontinuous *I*\ntegration and *C*\ontinuous *D*\elivery]
@@ -456,60 +818,7 @@ string str = $"Create string with directly concatting {variables} into it!";
 
 == Streams
 
-= MVVM
 
-#align(center)[
-  #fletcher.diagram(
-    spacing: (10mm, 7mm),
-    node-corner-radius: 3pt,
-    node-outset: 2mm,
-    label-size: 8pt,
-
-    node((0, 0), [View(s)], fill: green.lighten(80%), stroke: green.mix((black, 30%)), height: 4em, width: 4em),
-    node((2, 0), [View Model], fill: red.lighten(80%), stroke: red.mix((black, 30%)), height: 4em, width: 4em),
-    node((4, 0), [Model], fill: blue.lighten(80%), stroke: blue.mix((black, 30%)), height: 4em, width: 4em),
-    edge((0, 0), (2, 0), "-solid", stroke: 1pt, bend: 20deg)[User Action],
-    edge((2, 0), (0, 0), "-solid", stroke: 1pt, bend: 20deg)[`Binding`],
-    edge((2, 0), (4, 0), "-solid", stroke: 1pt, bend: 20deg)[Update Model],
-    edge((4, 0), (2, 0), "-solid", stroke: 1pt, bend: 20deg)[Model Changed],
-
-    edge(
-      (-0.5, 1),
-      (2.5, 1),
-      "|-|",
-      stroke: 1pt,
-      label-anchor: "center",
-      label-sep: 0pt,
-      label-fill: white,
-      label-size: 9pt,
-    )[*Frontend*],
-    edge(
-      (3.5, 1),
-      (4.5, 1),
-      "|-|",
-      stroke: 1pt,
-      label-anchor: "center",
-      label-sep: 0pt,
-      label-fill: white,
-      label-size: 9pt,
-    )[*Backend*],
-  )]
-
-Die _Model-Viewmodel-View_-Struktur erstellt
-
-== View
-#v(-2mm)
-#small[_What to display, Flow of interaction_]
-
-
-== View Model
-#v(-2mm)
-#small[_Business Logic, Data Objects_]
-
-
-== Model
-#v(-2mm)
-#small[_How to display information_]
 
 
 
