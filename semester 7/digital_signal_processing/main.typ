@@ -22,7 +22,9 @@
   source: "https://github.com/joelvonrotz/BSc-electrical-engineering/tree/main/semester%207"
 )
 
-
+/* -------------------------------------------------------------------------- */
+/*                                Wassner Teil                                */
+/* -------------------------------------------------------------------------- */
 
 = DSP
 
@@ -117,16 +119,51 @@
     z[n] = sum_(i=-infinity)^infinity x[i]y[n - i] = x[n]*y[n]
   $
 
-  #small[circular convolution]
+  circular convolution
   $N_X eq N_Y$
   $
     z[n] = x[n] ast.circle_N y[n]
   $
+
   
   #image("circ_xy.png")
   #image("circular_conv.png")
   #image("circ_z.png",height: 3mm)
+
+
+
+
 ]
+
+== A/D & D/A Conversion
+
+#image("adc_conversion.png")
+#image("dac_conversion.png")
+
+_Code/Decode_ z.B. DFT & IDFT ; _Interpolate_ z.B. Tiefpass-Filter
+
+== Sampling & Aliasing
+
+#columns(2,gutter: 0mm)[
+$
+  x_s(t) = sum^infinity_(n=-infinity)x(t) dot delta(t-n T_s)
+$
+#colbreak()
+#image("sampling.png")
+]
+
+#align(center)[
+#octique-inline("alert", color: red) Sampling $->$ period. Spektrum mit $f_s$-vielfachen _Spiegelbilder_ #octique-inline("alert", color: red) 
+]
+
+Bei _Bilderüberlagerung_ entsteht #u[Aliasing].#h(1fr)*#tc("Theorem!",red)* $[f_(max) < f_S/2]$
+
+
+
+/* -------------------------------------------------------------------------- */
+/*                                Hunziker Teil                               */
+/* -------------------------------------------------------------------------- */
+
 
 
 
