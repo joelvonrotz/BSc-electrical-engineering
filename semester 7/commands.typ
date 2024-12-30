@@ -4,11 +4,26 @@
   text(0.8em)[#body]
 }
 
-#let b(body) = {
-  text(weight: "bold")[#body]
+#let b(body, color: black) = {
+  text(weight: "bold", fill: color)[#body]
+}
+
+#let u(body) = {
+  underline(body)
+}
+
+#let mc(body, color) = {
+  text(fill: color)[$#body$]
 }
 
 
+#let tc(body, color) = {
+  text(fill: color)[#body]
+}
+
+#let octicon(icon) = {
+  octique-inline(icon, baseline: 15%)
+}
 
 #let callout(color: rgb("#7a9bfd"), title: "Callout", title-color: white, icon: "info", body, ..args) = {
   block(..args, stroke: (paint: color), radius: 5pt, above: 1.5em, below: 1.5em)[
