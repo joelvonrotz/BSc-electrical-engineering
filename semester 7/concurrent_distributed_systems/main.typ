@@ -27,12 +27,43 @@
   author: [Joel von Rotz],
   accent_color: "425eaf",
   fontsize: 9pt,
-  show-outline: true,
+  show-outline: false,
   place: [HSLU T&A],
   source: "https://github.com/joelvonrotz/BSc-electrical-engineering/tree/main/semester%207",
 )
 
-#colbreak(weak: true)
+#heading(outlined: false)[
+  Table of Contents
+]
+#context {
+  let sections = query(
+    heading.where(
+      level: 1,
+      outlined: true,
+    ).or(heading.where(
+        level: 2
+      )).or(heading.where(
+        level: 3
+        )
+      )
+  )
+
+
+  for chapter in sections {
+    let loc = chapter.location()
+    let page = numbering(
+      loc.page-numbering(),
+      ..counter(page).at(loc),
+    )
+    let spacing = 1.5em * (chapter.level - 1);
+    if (chapter.level == 1) {
+      [#v(5pt)#b[#h(spacing)#chapter.body #h(1fr) #page]\ ]
+    } else {
+      [#h(spacing)#chapter.body #h(1fr) #page \ ]
+    }
+  }
+}
+
 #colbreak()
 
 
@@ -661,9 +692,34 @@ Chinesische Firma in Shanghai (Gründung 2008). Halbleiter-Chips werden bei TSMC
 - *FreeRTOS*: Preemptive, Highest Priority Task läuft
 - `printf` wird auf Konsole (UART) umgeleitet
 
+== OpenOCD
+#v(-1.1em)
+#h(1fr)#small[Open On-Chip Debugging]
+#v(-0.3em)
+
+#todo[]
+
+=== GBD Client-Server Architektur
+#v(-2em)
+#h(1fr)#small[GNU Debugger]
+#v(0.1em)
+
+#todo[]
+
+=== JTAG
+#v(-2em)
+#h(1fr)#small[Joint Test Action Group]
+#v(0.1em)
+
+#todo[]
+
+== CMake
+
+#todo[]
+
 == Verteilte Entwicklung
 
-#todo[muss noch machen :)]
+#todo[]
 
 == #octicon("git-merge") Git
 
@@ -731,22 +787,104 @@ Following shows the most basic concepts used in version control systems such as 
 - *fetch*, *pull*, *push*
 - *checkout*, *add*
 
-=== Konfiguration
 
-#todo[ist dies nötig?]
+
+=== Setup & Konfiguration
+
+Mit #raw("git init", lang: "bash") wird der aktuelle Arbeitsordner zu einem Git Repo konvertiert (rückgängig durch löschen von `.git` Ordner)
+
+Möchte man ein Remote Repo _herunterladen_ kann dies mit #raw("git clone [url]", lang: "bash") gemacht werden.
+
+Danach muss das Repo konfiguriert werden.\
+#small[Services wie GitLab & GitHub nutzen diese Information um die entsprechenden Profile anzugeben.]
 
 ```bash
+# local
 git config user.name "[name]"
 git config user.email "[email]"
-git init
-git clone [url]
+
+# global
+git config user.name "[name]"
+git config user.email "[email]"
+```
+=== Add & Commit
+
+```bash
+# check current state of the repo
 git status
-git add [file]
+# add/stage files based on pattern (or path)
+git add [pattern]
+# commit staged files with message 
+git commit -m "[msg]"
+# push changes to the remote repo
+git push
+# unstage staged files
+git reset -- [pattern]
+# compare changes of the file
 git diff [file]
+# compare changes of the staged file
 git diff --staged [file]
 ```
 
 === Branch & Merge
+
+Branches sind nützlich für separate Entwicklungen von Funktionen, welche nach Testen in den Hauptbranch gemerget werden.
+
+Branches werden erstellt mit folgendem Befehl (+ weitere nützliche Befehle)
+
+```bash
+git branch [new_branch] # create
+git branch -m [old_branch] [new_branch] # rename
+git branch -c [old_branch] [new_branch] # copy
+git branch -d [branch] # delete
+git switch [branch] # switch to branch
+```
+
+Branch Merging verläuft mit dem Prinzip:
+
+#align(center)[
+  _Merge commits *FROM* the stated branch_
+]
+
+Also muss man sich im Destinations-Branch befinden und von dort aus die Änderungen von Merge-Branch reinmergen!
+
+1. Änderungen im Branch `dummy` *commiten* und *pushen*
+
+2. Branch zu `main` wechseln
+   ```bash
+   git switch main
+   ```
+
+3. Merge Operation ausführen
+   ```bash
+   git merge [-m "[msg]"] dummy
+   # No automatic merge commit (used for inspection)
+   git merge --no-commit dummy
+   ```
+
+=== Merge-Konflikten
+
+Merge-Konflikte treten in der Regel in den folgenden Szenarien auf:
+
+#text(0.9em)[
+
+/ Simultaneous Edits: Zwei Entwickler ändern dieselbe Codezeile in verschiedenen Branches
+/ Conflicting Changes: Eine Datei wird in einem Branch gelöscht und im anderen geändert
+/ Complex Merges: Mehrere Branches werden gemerget und es entstehen Änderungen über mehrere Dateien und Zeilen
+]
+
+Bei Konflikten, kann das Mergetool verwendet werden
+
+```bash
+git mergetool
+```
+
+Möchte man den Merge rückgängig machen
+
+```bash
+git merge --abort # revert to pre-merge state
+```
+
 
 = Verteile Architekturen
 
@@ -765,6 +903,27 @@ git diff --staged [file]
 /* -------------------------------------------------------------------------- */
 
 = FreeRTOS Crash Kurs
+
+== FreeRTOS SMP
+#v(-1.1em)
+#h(1fr)#small[#b[S]ymmetric #b[M]ulti#b[P]rocessing]
+#v(-0.3em)
+
+
+`CPU0` $arrow$ `PRO_CPU` Protocol\
+`CPU1` $arrow$ `APP_CPU` Application (`app_main()`)
+
+
+=== Task für separatem Core erstellen
+
+Hello
+
+```c
+xTaskCreatePinnedToCore(
+  ...,
+  tskNO_AFFINITY)
+```
+
 
 == Critical Sections, Reentrancy
 
@@ -802,43 +961,3 @@ when: manual        # .gitlab-ci.yml
 git push -o ci.skip # command line
 ```
 
-
-
-/* -------------------------------------------------------------------------- */
-/*                                  Jost Teil                                 */
-/* -------------------------------------------------------------------------- */
-
-= C\# / .NET
-
-```cs
-string str = $"Create string with directly concatting {variables} into it!";
-```
-
-== Threads
-
-== Streams
-
-
-
-
-
-= Espressif ESP32
-
-== FreeRTOS SMP
-
-SMP $arrow.r$ #b[S]ymmetric #b[M]ulti#b[p]rocessing
-
-`CPU0` $arrow$ `PRO_CPU` Protocol
-
-`CPU1` $arrow$ `APP_CPU` Application (`app_main()`)
-
-
-=== Task für separatem Core erstellen
-
-Hello
-
-```c
-xTaskCreatePinnedToCore(
-  ...,
-  tskNO_AFFINITY)
-```
