@@ -24,6 +24,10 @@
   octique-inline(icon, baseline: 15%, color: color)
 }
 
+#let cimage(..args) = {
+  align(center,image(..args))
+}
+
 #let todo(body) = {
   rect(inset: (x: 4pt, y: 5pt), radius: 5pt, stroke: (paint: red, dash: (4pt, 4pt)))[
     #text(fill: red)[#b(color: red)[TODO]~#body]

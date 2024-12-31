@@ -27,42 +27,10 @@
   author: [Joel von Rotz],
   accent_color: "425eaf",
   fontsize: 9pt,
-  show-outline: false,
+  show-outline: true,
   place: [HSLU T&A],
   source: "https://github.com/joelvonrotz/BSc-electrical-engineering/tree/main/semester%207",
 )
-
-#heading(outlined: false)[
-  Table of Contents
-]
-#context {
-  let sections = query(
-    heading.where(
-      level: 1,
-      outlined: true,
-    ).or(heading.where(
-        level: 2
-      )).or(heading.where(
-        level: 3
-        )
-      )
-  )
-
-
-  for chapter in sections {
-    let loc = chapter.location()
-    let page = numbering(
-      loc.page-numbering(),
-      ..counter(page).at(loc),
-    )
-    let spacing = 1.5em * (chapter.level - 1);
-    if (chapter.level == 1) {
-      [#v(5pt)#b[#h(spacing)#chapter.body #h(1fr) #page]\ ]
-    } else {
-      [#h(spacing)#chapter.body #h(1fr) #page \ ]
-    }
-  }
-}
 
 #colbreak()
 

@@ -13,6 +13,7 @@
   font-paragraph: "Ubuntu Sans",
   font-heading: "Ubuntu Sans",
   show-outline: false,
+  compact_spacing: false,
   doc,
 ) = {
   // set globally the font size and the paragraph sizing
@@ -63,29 +64,47 @@
 
   show heading.where(level: 1): it => [
     #set text(1.4em)
-    #block[#text(it.body, 0.8em, rgb(accent_color))
+
+    #let space_above = 8pt
+    #let space_below = 20pt
+    #if (compact_spacing) { space_below = space_above }
+
+    #block(below: space_below, above: space_above)[
+      #text(it.body, 0.8em, rgb(accent_color))
       #box(
         width: 1fr,
         baseline: -2mm,
         inset: (left: 0pt),
         line(length: 100%, stroke: (thickness: 2pt, paint: rgb(accent_color))),
       )]
+
   ]
 
   show heading.where(level: 2): it => [
     #set text(1.3em)
-    #block[#text(it.body, 0.8em)
+
+    #let space_above = 7pt
+    #let space_below = 15pt
+    #if (compact_spacing) { space_below = space_above }
+
+    #block(below: space_below, above: space_above)[
+      #text(it.body, 0.8em)
       #box(
         width: 1fr,
         baseline: -1.5mm,
         inset: (left: 1mm),
         line(length: 100%, stroke: (cap: "round", dash: (0pt, 5pt), thickness: 2pt, paint: rgb(accent_color))),
       )]
+
   ]
 
   show heading.where(level: 3): it => [
     #set text(1.1em)
-    #block(below: 7pt, above: 10pt)[
+
+    #let space_above = 7pt
+    #let space_below = 10pt
+    #if (compact_spacing) { space_below = space_above }
+    #block(below: space_below, above: space_above)[
       #rect(
         width: 100%,
         inset: (
@@ -98,6 +117,7 @@
         #text(it.body)
       ]
     ]
+
   ]
 
 
@@ -157,7 +177,35 @@
     ]
 
     #if (show-outline) {
-      outline(indent: 1.5em)
+      heading(outlined: false)[
+        Table of Contents
+      ]
+      context {
+        let sections = query(
+          heading
+            .where(
+              level: 1,
+              outlined: true,
+            )
+            .or(heading.where(level: 2))
+            .or(heading.where(level: 3)),
+        )
+
+
+        for chapter in sections {
+          let loc = chapter.location()
+          let page = numbering(
+            loc.page-numbering(),
+            ..counter(page).at(loc),
+          )
+          let spacing = 1.5em * (chapter.level - 1)
+          if (chapter.level == 1) {
+            [#v(5pt)#text(weight: "bold")[#h(spacing)#chapter.body #h(1fr) #page]\ ]
+          } else {
+            [#h(spacing)#chapter.body #h(1fr) #page \ ]
+          }
+        }
+      }
     }
 
     #doc
