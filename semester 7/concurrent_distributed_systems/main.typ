@@ -13,6 +13,8 @@
 #let color_links = rgb("#2549e7")
 #let color_green = rgb("#025809")
 
+#set highlight(top-edge: "baseline", fill: rgb("#9ed0ff"))
+
 #set enum(numbering: (it => strong[#it.]))
 
 #set text(lang: "de", font: "Ubuntu Sans", 10pt)
@@ -28,10 +30,12 @@
   accent_color: "425eaf",
   fontsize: 9pt,
   show-outline: true,
+  compact_spacing: false,
   place: [HSLU T&A],
   source: "https://github.com/joelvonrotz/BSc-electrical-engineering/tree/main/semester%207",
 )
 
+#colbreak(weak: true)
 #colbreak()
 
 
@@ -601,19 +605,19 @@ Darstellung und Logik wird getrennt in UI und Backend.
   ]
 
 == View
-#v(-0.9em)
+#v(-0.8em)
 #h(1fr)#small[_What to display, Flow of interaction_]
 
 Ist das User Interface des Programmes und ist via `Binding` und `Command` and das ViewModel gebunden.
 
 == View Model
-#v(-0.9em)
+#v(-0.8em)
 #h(1fr)#small[_Business Logic, Data Objects_]
 
 Bildet den Zustand der View(s) ab. Es können verschieden Views mit dem selben ViewModel verbunden werden.
 
 == Model
-#v(-0.9em)
+#v(-0.8em)
 #h(1fr)#small[_How to display information_]
 
 Beschreibt den Zustand für das Backend und kommuniziert mit anderen Prozessen (z.B. Betriebssystemroutinen)
@@ -636,7 +640,7 @@ Chinesische Firma in Shanghai (Gründung 2008). Halbleiter-Chips werden bei TSMC
 ]
 
 
-#align(center)[#image("esp32_blockdiagramm.png", height: 75%)]
+#align(center)[#image("esp32_blockdiagramm.png", height: 74%)]
 
 == ESP-IDF
 
@@ -665,25 +669,39 @@ Chinesische Firma in Shanghai (Gründung 2008). Halbleiter-Chips werden bei TSMC
 #h(1fr)#small[Open On-Chip Debugging]
 #v(-0.3em)
 
-#todo[]
+Ein *GDB-Server* für Debugging, In-System Programming und _boundry-scan_ testing für Mikrocontroller-Systeme. Was eigentlich zwischen GBD und Mikrocontroller eingesetzt wird.
+
+(ESP-IDF hat eine eigene modifizierte Version)
 
 === GBD Client-Server Architektur
 #v(-2em)
 #h(1fr)#small[GNU Debugger]
 #v(0.1em)
 
-#todo[]
+
+#image("gbd_architecture.png")
+
+- IDE $<=>$ GDB MI Protokoll $<=>$ GDB
+- IDE verbindet sich via GDB-Client zum GDB-Server (z.B. OpenOCD, Jlink GDB Server)
+- Server übersetzt Befehle in *Debug* Signale (JTAG, SWD)
 
 === JTAG
 #v(-2em)
 #h(1fr)#small[Joint Test Action Group]
 #v(0.1em)
 
-#todo[]
+- Shift Register Protokoll, für Design-Verifikation und Testen von Halbleitern.
+- Daisy-Chain möglich!
+
+#image("jtag_pins.png")
+
+$=>$ *cJTAG* Variante mit weniger Pins: _TMS_ $->$ _TMSC_, #strike[TDI] 
+
+\
 
 == CMake
 
-#todo[]
+Löst das Problem der Abhängigkeit von Host & Toolchain von `make` $->$ `cmake` ist ein *Generator*, welches dann mit `make` oder `ninja` weiterverarbeitet wird.
 
 == Verteilte Entwicklung
 
@@ -742,7 +760,9 @@ Following shows the most basic concepts used in version control systems such as 
 
 #image("git_workflow.png")
 
-#align(center)[#quote[_Commit Early, commit often_]]
+#v(2mm)
+#align(center)[#box(stroke: (dash: (5pt,3pt), paint: color_caution), fill: color.lighten(color_caution, 80%), inset: 5pt, radius: 5pt)[#text(1.2em)[#quote[_Commit Early, commit often_]]]]
+#v(3mm)
 
 === Befehle
 
@@ -853,8 +873,173 @@ Möchte man den Merge rückgängig machen
 git merge --abort # revert to pre-merge state
 ```
 
+= ESP32
+
+== WiFi
+#v(-0.8em)
+#h(1fr)#small[Erich Styper Implementation]
+
+[`initialise_wifi`]:
+- FreeRTOS Event Group erstellt für Connections/Disconnections/etc. verwendet
+  ```c
+  s_wifi_event_group = xEventGroupCreate();
+  esp_netif_init();
+  esp_event_loop_create_default();
+  APP_WiFi_NetIf = esp_netif_create_default_wifi_sta();
+  ```
+- WiFi Konfiguration basierend auf MAC holen
+  ```c
+  config = ESP32_GetDeviceConfig();
+  esp_netif_set_hostname(APP_WiFi_NetIf, config->hostName);
+  ```
+- Standard WiFi Konfiguration initialisieren
+  ```c
+  config = ESP32_GetDeviceConfig();
+  esp_netif_set_hostname(APP_WiFi_NetIf, config->hostName);
+  ```
+- Event Handler registrieren
+  - Callback, wo Event Group bits gesetzt werden
+  ```c
+  esp_event_handler_register(WIFI_EVENT,
+      ESP_EVENT_ANY_ID, &event_handler, NULL);
+  esp_event_handler_register(IP_EVENT,
+      IP_EVENT_STA_GOT_IP, &event_handler, NULL);
+  ```
+
+$=>$ Falls eine Verbindung nicht geht, wird die alternative Verbindung (z.B. Home-WiFi) genommen.
+
+== UDP
+#v(-0.8em)
+#h(1fr)#small[User Data Protocol]
+
+- UDP-Datagramm:\ #box(stroke: gray, radius: 5pt, inset: 5pt)[#text(font: "Roboto Mono")[SrcPort#sub[16b] + DstPort#sub[16b] + Length#sub[16b] + CRC#sub[16b] + Data]]
+- IP-Datagramm:\ #box(stroke: gray, radius: 5pt, inset: 5pt)[#text(font: "Roboto Mono")[IP-Header#sub[96b (IPv4)] + UDP-Datagramm]]
+- IPv4 Header:\ #box(stroke: gray, radius: 5pt, inset: 5pt)[#text(font: "Roboto Mono")[SrcIP#sub[32b] + DstIP#sub[32b] + 0#sub[8b] + P-ID#sub[8b] + Length#sub[16b]]]
+
+#align(center)[#box(stroke: color_caution, radius: 5pt, inset: 5pt)[UDP hat einen kleineren Header als TCP (8-Byte vs 20 Byte)!]]
+
+#cimage("udp_server_startup.png", width: 70%)
+
+== (Espressif) FreeRTOS SMP
+#v(-0.8em)
+#h(1fr)#small[Symmetric Multiprocessing]
+
+- *RTOS*: Skalierbarkeit, Erweiterbarkeit, #highlight[Synchronisation]
+
+- SMP wurde von Espressif entwickelt (gleiche MIT Lizenz)
+  - Dual-Core Tensilica, gemeinsamer Speicher
+  - `CPU0` $arrow$ `PRO_CPU` Protocol
+  - `CPU1` $arrow$ `APP_CPU` Application (`app_main()`)
+- Tasks können an spezifischen Task gepinnt werden
+
+=== Prioritäten
+
+#image("freertos_priorities.png")
+
+- 0 (`tskIDLE_PRIORITY`) ist tiefste Dringlichkeit (FreeRTOS: Val$arrow.t$Prio$arrow.t$, ARM: V$arrow.t$P$arrow.b$)
+- Es läuft "ready" Task mit höchster Prio
+- preemptive: Scheduler unterbricht Tasks
+
+=== SMP Round Robin (RR) Scheduling
+
+- Standard FreeRTOS: _RR_ für Tasks gleicher Prio
+
+#image("freertos_roundrobin_scheduling.png")
+
+- #highlight[FreeRTOS SMP: _Best-Effort RR_]
+  - Scheduler auf *jedem* Core! $->$ behandelt nur eigene Tasks, tick interrupt *NICHT* synchronisiert
+  - *Gemeinsame* Task Liste
+
+#image("freertos_smp_roundrobin_scheduling_p1.png")
+
+- #highlight[Core-Scheduler überspringt Tasks gleicher Prioritäten des anderen Cores!]
+
+#image("freertos_smp_roundrobin_scheduling_p2.png")
+
+=== Tasks
+
+Erstellen eines Tasks ist ähnlich wie beim Standard-FreeRTOS, ausser die Zuweisung auf einen Core (wird mit wrapper umgangen!)
+
+```c
+// Standard & Wrapper
+BaseType_t xTaskCreate(
+  TaskFunction_t pvTaskCode, const char *const pcName,
+  const uint32_t usStackSize, void *const pvParam,
+  UBaseType_t uxPrio, TaskHandle_t *const pvTaskHndl);
+// SMP
+xTaskCreatePinnedToCore(
+  ...,
+  tskNO_AFFINITY)
+```
+
+`0`: auf `PRO_CPU` ; `1`: auf `APP_CPU` ; `tskNO_AFFINITY`: auf beiden
+
+= RNet
+
+#grid(columns: (0.8fr, 1fr), column-gutter: 2mm)[
+  #image("rnet_layers.png")
+  
+][
+  #small[
+
+  #v(3mm)*APP*: SendMessage(0x12,"hello")
+  #v(5pt)*NWK*: resend(msg), route(msg,dst), connect(addr, port), etc.
+  #v(3pt)*MAC*: SelectChannel(6), ScanChannels(all)
+  #v(3pt)*PYH*: GetLQI(), SetRxMode(), SetTxMode(), SPITransmit(buf)
+  ]
+]
+
+== nRF24L01+
+
+#columns(2)[
+
+- Nordic nRF24L01+
+- Pins: SPI, CE, CSN, IRQ
+- 2.4 GHz ISM
+- 250 kbps, 1 Mbps, 2 Mbps
+- Enhanced ShockBurst: auto ACK & retry
+- Payload: max 32 Bytes
+- 6 data pipe MulitCeiver
+
+Receive Data Pipes: Empfangs-"Kanäle"
+#colbreak()
+
+#image("nrf_datapipes.png")
+]
+
+== Übliche WSN Anwendung und Stack
+
+#cimage("nrf_typical_app.png", width: 80%)
+
+== RNet Stack Anwendung
+
+#cimage("rnet_stack_app.png", width: 80%)
+
+== Payload Packaging
+
+#cimage("nrf_payload_packaging.png", width: 80%)
+
+== Radio States & Processing
+
+#image("radio_states.png")
+
+
+#cimage("radio_processing.png", width: 80%)
+
+Der Radio-Stack behandlet die Payloads via Queues (mit einem Task)! Senden wird direkt in die Queue geschrieben via Wrapper Funktion. Lesen wird über ein `OnPackt`-Event ausgelöst.
+
+#callout(title: "Copy-Less Stack Operation")[
+  Pakete werden durch den Stack gereicht, damit nicht alles kopiert werden muss! Am Schluss werden Dateien hinzugefügt.
+
+  #small[#highlight[Beispiel]: *MAC* & *PHY* sind inhaltlich gleich, nur die Betrachtung anders]
+  #v(-7pt)
+  #image("radio_copyless_framing.png")
+]
+
 
 = Verteile Architekturen
+
+
 
 == Multicore
 
@@ -873,24 +1058,11 @@ git merge --abort # revert to pre-merge state
 = FreeRTOS Crash Kurs
 
 == FreeRTOS SMP
-#v(-1.1em)
+#v(-0.7em)
 #h(1fr)#small[#b[S]ymmetric #b[M]ulti#b[P]rocessing]
 #v(-0.3em)
 
 
-`CPU0` $arrow$ `PRO_CPU` Protocol\
-`CPU1` $arrow$ `APP_CPU` Application (`app_main()`)
-
-
-=== Task für separatem Core erstellen
-
-Hello
-
-```c
-xTaskCreatePinnedToCore(
-  ...,
-  tskNO_AFFINITY)
-```
 
 
 == Critical Sections, Reentrancy
