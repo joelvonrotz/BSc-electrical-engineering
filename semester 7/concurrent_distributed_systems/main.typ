@@ -35,7 +35,6 @@
   source: "https://github.com/joelvonrotz/BSc-electrical-engineering/tree/main/semester%207",
 )
 
-#colbreak(weak: true)
 #colbreak()
 
 
@@ -1001,7 +1000,7 @@ xTaskCreatePinnedToCore(
 - Payload: max 32 Bytes
 - 6 data pipe MulitCeiver
 
-Receive Data Pipes: Empfangs-"Kanäle"
+Receive Data Pipes: Empfangs-"Kanäle" $==>$
 #colbreak()
 
 #image("nrf_datapipes.png")
@@ -1009,15 +1008,15 @@ Receive Data Pipes: Empfangs-"Kanäle"
 
 == Übliche WSN Anwendung und Stack
 
-#cimage("nrf_typical_app.png", width: 80%)
+#cimage("nrf_typical_app.png", width: 95%)
 
 == RNet Stack Anwendung
 
-#cimage("rnet_stack_app.png", width: 80%)
+#cimage("rnet_stack_app.png", width: 95%)
 
 == Payload Packaging
 
-#cimage("nrf_payload_packaging.png", width: 80%)
+#cimage("nrf_payload_packaging.png", width: 95%)
 
 == Radio States & Processing
 
