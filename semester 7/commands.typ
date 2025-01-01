@@ -43,7 +43,7 @@
           rows: 2em,
           align: (center + horizon, left + horizon),
           octique-inline(icon, color: title-color, width: 1.2em),
-          box(inset: (left: 0.15em))[#text(title, 1.2em, weight: "bold", title-color)],
+          box(inset: (left: 0.15em))[#text(title, weight: "bold", title-color)],
         )
       ]
     } else {

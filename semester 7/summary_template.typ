@@ -65,8 +65,8 @@
   show heading.where(level: 1): it => [
     #set text(1.4em)
 
-    #let space_above = 8pt
-    #let space_below = 20pt
+    #let space_above = 12pt
+    #let space_below = 8pt
     #if (compact_spacing) { space_below = space_above }
 
     #block(below: space_below, above: space_above)[
@@ -83,8 +83,8 @@
   show heading.where(level: 2): it => [
     #set text(1.3em)
 
-    #let space_above = 7pt
-    #let space_below = 15pt
+    #let space_above = 10pt
+    #let space_below = 7pt
     #if (compact_spacing) { space_below = space_above }
 
     #block(below: space_below, above: space_above)[
@@ -101,8 +101,8 @@
   show heading.where(level: 3): it => [
     #set text(1.1em)
 
-    #let space_above = 7pt
-    #let space_below = 10pt
+    #let space_above = 10pt
+    #let space_below = 7pt
     #if (compact_spacing) { space_below = space_above }
     #block(below: space_below, above: space_above)[
       #rect(
