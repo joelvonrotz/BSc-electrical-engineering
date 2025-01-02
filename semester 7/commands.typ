@@ -8,6 +8,10 @@
   text(weight: "bold", fill: color)[#body]
 }
 
+#let circ(body, ..args) = {
+  box(stroke: black + 0.4pt, width: 1.2em, height: 1.2em, radius: 50%, inset: 1pt, baseline: 0.25em, ..args)[#align(center+horizon)[#body]]
+}
+
 #let u(body) = {
   underline(body)
 }
@@ -34,8 +38,12 @@
   ]
 }
 
+#let transform = {
+  $bullet#h(-0.2em)-#h(-0.15em)circle.stroked.small#h(0.2em)$
+}
+
 #let callout(color: rgb("#7a9bfd"), title: "Callout", title-color: white, icon: "info", body, ..args) = {
-  block(..args, stroke: (paint: color), radius: 5pt, above: 1.5em, below: 1.5em)[
+  block(..args, stroke: (paint: color), radius: 5pt, above: 1em, below: 1em)[
     #if (body != []) {
       block(fill: color, radius: (top: 5pt), below: 0pt)[
         #grid(
@@ -58,7 +66,7 @@
       ]
     }
     #if (body != []) {
-      block(inset: (x: 0.6em, y: 0.7em))[#body]
+      block(inset: (x: 0.6em, y: 0.7em), width: 100%)[#body]
     }
   ]
 }

@@ -14,13 +14,14 @@
   font-heading: "Ubuntu Sans",
   show-outline: false,
   compact_spacing: false,
+  flipped: false,
   doc,
 ) = {
   // set globally the font size and the paragraph sizing
   set text(fontsize, font: font-paragraph)
   set page(
     paper: "a4",
-    flipped: true,
+    flipped: flipped,
     margin: (
       top: 1.1cm,
       bottom: 1.1cm,
@@ -65,9 +66,9 @@
   show heading.where(level: 1): it => [
     #set text(1.4em)
 
-    #let space_above = 12pt
-    #let space_below = 8pt
-    #if (compact_spacing) { space_below = space_above }
+    #let space_above = 1.0em
+    #let space_below = 0.6em
+    #if (compact_spacing) { space_above = space_below }
 
     #block(below: space_below, above: space_above)[
       #text(it.body, 0.8em, rgb(accent_color))
@@ -83,9 +84,9 @@
   show heading.where(level: 2): it => [
     #set text(1.3em)
 
-    #let space_above = 10pt
-    #let space_below = 7pt
-    #if (compact_spacing) { space_below = space_above }
+    #let space_above = 0.9em
+    #let space_below = 0.6em
+    #if (compact_spacing) { space_above = space_below }
 
     #block(below: space_below, above: space_above)[
       #text(it.body, 0.8em)
@@ -101,14 +102,16 @@
   show heading.where(level: 3): it => [
     #set text(1.1em)
 
-    #let space_above = 10pt
-    #let space_below = 7pt
-    #if (compact_spacing) { space_below = space_above }
+
+    #let space_above = 0.7em
+    #let space_below = 0.6em
+    #if (compact_spacing) { space_above = space_below }
     #block(below: space_below, above: space_above)[
       #rect(
         width: 100%,
         inset: (
           x: 0pt,
+          y: 0.5em,
         ),
         stroke: (
           y: (cap: "round", dash: (3pt, 3pt), thickness: 0.5pt, paint: gray),
@@ -140,7 +143,7 @@
     radius: 4pt,
   )
 
-  columns(3, gutter: 4mm)[
+  [
     // [TITLEBLOCK] --------------------------------------------------
     #align(center)[
       #set text(1.1em, font: font-heading)
@@ -187,8 +190,18 @@
               level: 1,
               outlined: true,
             )
-            .or(heading.where(level: 2))
-            .or(heading.where(level: 3)),
+            .or(
+              heading.where(
+                level: 2,
+                outlined: true,
+              ),
+            )
+            .or(
+              heading.where(
+                level: 3,
+                outlined: true,
+              ),
+            ),
         )
 
 
@@ -200,9 +213,9 @@
           )
           let spacing = 1.5em * (chapter.level - 1)
           if (chapter.level == 1) {
-            [#v(5pt)#text(weight: "bold")[#h(spacing)#chapter.body #h(1fr) #page]\ ]
+            [#v(0.5em)#text(weight: "bold")[#h(spacing)#chapter.body #h(1fr) #page]\ ]
           } else {
-            [#h(spacing)#chapter.body #h(1fr) #page \ ]
+            [#v(-0.2em)#h(spacing)#chapter.body #h(1fr) #page \ ]
           }
         }
       }
