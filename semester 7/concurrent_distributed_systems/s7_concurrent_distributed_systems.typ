@@ -5,6 +5,8 @@
 #import "@preview/cetz:0.3.1" as cetz
 #import "@preview/fletcher:0.5.2" as fletcher: node, edge, shapes
 
+#set columns(gutter: 4mm)
+#set page(columns: 3)
 
 #let accent = "425eaf"
 #let color_redish = rgb("#cb4154")
@@ -31,6 +33,7 @@
   fontsize: 9pt,
   show-outline: true,
   compact_spacing: false,
+  flipped: true,
   place: [HSLU T&A],
   source: "https://github.com/joelvonrotz/BSc-electrical-engineering/tree/main/semester%207",
 )
@@ -315,7 +318,7 @@ static void Main() {
 static void Go(object number) {
   while (true) {
     s.WaitOne(); // thread X waits
-  
+
     // thread X enters critical section
     Thread.Sleep(1000); // entries limited to 3
 
@@ -330,7 +333,7 @@ static void Go(object number) {
 
 #image("mutex.png")
 
-Nützlich, wenn eine Ressource (z.B. Ethernet-Schnittstelle) von mehreren Threads verwendet werden möchte. 
+Nützlich, wenn eine Ressource (z.B. Ethernet-Schnittstelle) von mehreren Threads verwendet werden möchte.
 
 #callout(title: "Freigabe-Scope")[
   Im Vergleich zu Semaphoren, welches erlaubt von anderen Aktivitätsträgern freizugeben, muss die Mutex vom Mutex-Besitzer freigegeben werden!
@@ -360,7 +363,7 @@ Streams dienen dazu, drei elementare Operationen ausführen zu können:
 
 / Schreiben: Dateninformationen müssen in einem Stream geschrieben werden. Das Format hängt vom Stream ab.
 
-/ Lesen : Aus dem Datenstrom muss gelesen werden, ansonsten könnte man die Daten nicht weiterverarbeiten.
+/ Lesen: Aus dem Datenstrom muss gelesen werden, ansonsten könnte man die Daten nicht weiterverarbeiten.
 
 / Wahlfreien Zugriff: Nicht immer ist es erforderlich, den Datenstrom vom ersten bis zum letzten Byte auszuwerten. Manchmal reicht es, erst ab einer bestimmten Position zu lesen.
 
@@ -388,69 +391,69 @@ C\# implementiert Stream-Klassen mit sequentielle Ein-/Ausgabe auf verschiedene 
 Lesen aus einem Netzwerk TCP-Socket (`SR` = `StreamReader`)::
 
 #small[```cs
-TcpClient client = new TcpClient("192.53.1.103",13);
-SR inStream = new SR(client.GetStream());
-Console.WriteLine(inStream.ReadLine());
-client.Close();
-```]
+  TcpClient client = new TcpClient("192.53.1.103",13);
+  SR inStream = new SR(client.GetStream());
+  Console.WriteLine(inStream.ReadLine());
+  client.Close();
+  ```]
 
 Lesen aus einer Datei (`SR` = `StreamReader`):
 
 #small[```cs
-try {
-  using (SR sr = new SR("t.txt")) {
-  string line;
-    while ((line = sr.ReadLine()) != null) {
-      Console.WriteLine(line);
+  try {
+    using (SR sr = new SR("t.txt")) {
+    string line;
+      while ((line = sr.ReadLine()) != null) {
+        Console.WriteLine(line);
+      }
     }
+  } catch (Exception e) {
+    Console.WriteLine(e);
   }
-} catch (Exception e) {
-  Console.WriteLine(e);
-}
-```]
+  ```]
 
 Lesen aus einer Datei mit einem Pass-Through-Stream:
 
 #small[```cs
-Stream stm = new FileStream("Daten.txt",
-                    FileMode.Open,
-                    FileAccess.Read);
-ICryptoTransform ict = new ToBase64Transform();
-CryptoStream cs = new CryptoStream(stm,
-                        ict,
-                        CryptoStreamMode.Read);
-TextReader tr = new StreamReader(cs);
-string s = tr.ReadToEnd();
-Console.WriteLine(s);
+  Stream stm = new FileStream("Daten.txt",
+                      FileMode.Open,
+                      FileAccess.Read);
+  ICryptoTransform ict = new ToBase64Transform();
+  CryptoStream cs = new CryptoStream(stm,
+                          ict,
+                          CryptoStreamMode.Read);
+  TextReader tr = new StreamReader(cs);
+  string s = tr.ReadToEnd();
+  Console.WriteLine(s);
 
-```]
+  ```]
 
 === Schreiben
 
 Lesen von einer Tastatur und Schreiben auf den Bildschirm:
 
 #small[```cs
-string line;
-Console.Write("Bitte Eingabe: ");
-while ((line = Console.ReadLine()) != null) {
-  Console.WriteLine("Eingabe war: " + line);
+  string line;
   Console.Write("Bitte Eingabe: ");
-}
-```]
+  while ((line = Console.ReadLine()) != null) {
+    Console.WriteLine("Eingabe war: " + line);
+    Console.Write("Bitte Eingabe: ");
+  }
+  ```]
 
 Schreiben in eine Daten mit implizitem FileStream:
 
 #small[```cs
-try {
-  using (StreamWriter sw = new StreamWriter("Daten.txt")) {
-    string[] text = { "Titel", "Köln", "4711" };
-for (int i = 0; i < text.Length; i++)
-sw.WriteLine(text[i]);
-}
-Console.WriteLine("fertig.");
-}
-catch (Exception e) { Console.WriteLine(e); }
-```]
+  try {
+    using (StreamWriter sw = new StreamWriter("Daten.txt")) {
+      string[] text = { "Titel", "Köln", "4711" };
+  for (int i = 0; i < text.Length; i++)
+  sw.WriteLine(text[i]);
+  }
+  Console.WriteLine("fertig.");
+  }
+  catch (Exception e) { Console.WriteLine(e); }
+  ```]
 
 ```cs
 StreamWriter sw = new StreamWriter("Daten.txt")
@@ -520,7 +523,7 @@ Wichtige Merkmale:
 
 / Verbindungsorientiert: Vor Datenübertragung, wird eine Verbindung aufgebaut (Threeway Handshake)
 
-/ Zuverlässige Datenübertragung: Sicherstellung, dass alle gesendeten Daten korrekt beim Empfänger ankommen (Sequenz-Counter, ACK, Fehlerkorrektur [z.B. Prüfsummen])  
+/ Zuverlässige Datenübertragung: Sicherstellung, dass alle gesendeten Daten korrekt beim Empfänger ankommen (Sequenz-Counter, ACK, Fehlerkorrektur [z.B. Prüfsummen])
 
 / Segmentierung und Reassemblierung: Grosse Datenmengen werden in kleinere Segmente (65535 bytes [64KB]) aufgeteilt und entsprechend beim Empfänger wieder zusammengesetzt.
 
@@ -549,8 +552,24 @@ Verbindungsaufbau wird via _Three-Way_ Handshake gemacht (folgendes Bild rechts)
     node-outset: 2mm,
     label-size: 8pt,
 
-    node((0, 0), [View(s)], fill: green.lighten(80%), stroke: green.mix((black, 30%)), height: 4em, width: 4em, inset: 0pt),
-    node((2, 0), [View\ Model], fill: red.lighten(80%), stroke: red.mix((black, 30%)), height: 4em, width: 4em, inset: 0pt),
+    node(
+      (0, 0),
+      [View(s)],
+      fill: green.lighten(80%),
+      stroke: green.mix((black, 30%)),
+      height: 4em,
+      width: 4em,
+      inset: 0pt,
+    ),
+    node(
+      (2, 0),
+      [View\ Model],
+      fill: red.lighten(80%),
+      stroke: red.mix((black, 30%)),
+      height: 4em,
+      width: 4em,
+      inset: 0pt,
+    ),
     node((4, 0), [Model], fill: blue.lighten(80%), stroke: blue.mix((black, 30%)), height: 4em, width: 4em, inset: 0pt),
     edge((0, 0), (2, 0), "-solid", stroke: 1pt, bend: 20deg)[User Action],
     edge((2, 0), (0, 0), "-solid", stroke: 1pt, bend: 20deg)[`Binding`],
@@ -581,27 +600,27 @@ Verbindungsaufbau wird via _Three-Way_ Handshake gemacht (folgendes Bild rechts)
 
 #small[*Model-View-ViewModel* (MVVM) ist ein Entwurfsmuster und eine Variante des *Model-View-Controller*-Musters (MVC).]
 
-Darstellung und Logik wird getrennt in UI und Backend. 
+Darstellung und Logik wird getrennt in UI und Backend.
 
 #columns(2)[
   #text(fill: color_green)[#octicon("check-circle", color: color_green) *Vorteile*]
   #small[
-  - ViewModel kann unabhängig von der Darstellung bearbeitet werden
-  - Testbarkeit keine UI-Tests nötig
-  - Weniger _Glue Code_ zwischen Model & View
-  - Views kann separat von Model & ViewModel implementiert werden
-  - Verschiedene Views mit dem selben ViewModel.
+    - ViewModel kann unabhängig von der Darstellung bearbeitet werden
+    - Testbarkeit keine UI-Tests nötig
+    - Weniger _Glue Code_ zwischen Model & View
+    - Views kann separat von Model & ViewModel implementiert werden
+    - Verschiedene Views mit dem selben ViewModel.
   ]
   #colbreak()
   #text(fill: color_redish)[#octicon("x-circle", color: color_redish) *Nachteile*]
   #small[
-  - Höherer Rechenaufwand wegen bi-direktionalen "Beobachters"
-  - Overkill für simple Applikationen
-  - Datenbindung kann grosse Speicher einnehmen
-  #v(0.94cm)
-  #h(1fr)#text(fill: color_links)[#link("https://learn.microsoft.com/en-us/archive/blogs/johngossman/advantages-and-disadvantages-of-m-v-vm")[Link 1]], #text(fill: color_links)[#link("https://de.wikipedia.org/wiki/Model_View_ViewModel")[Link 2]]
-]
+    - Höherer Rechenaufwand wegen bi-direktionalen "Beobachters"
+    - Overkill für simple Applikationen
+    - Datenbindung kann grosse Speicher einnehmen
+    #v(0.94cm)
+    #h(1fr)#text(fill: color_links)[#link("https://learn.microsoft.com/en-us/archive/blogs/johngossman/advantages-and-disadvantages-of-m-v-vm")[Link 1]], #text(fill: color_links)[#link("https://de.wikipedia.org/wiki/Model_View_ViewModel")[Link 2]]
   ]
+]
 
 == View
 #v(-0.8em)
@@ -629,13 +648,13 @@ Chinesische Firma in Shanghai (Gründung 2008). Halbleiter-Chips werden bei TSMC
 
 === Mikrocontroller
 #small[
-/ ESP8266 (2014): Tensilica Xtensa LX106, 64KB iRAM, 96KB DRAM, WiFi, ext. SPI Flash
-/ ESP32 (2016): Wi-Fi + BLE, Single/Dual Core Xtensa LX6 \@240 Mhz
-/ ESP32-S2 (2019): Single-Core, Security, WiFi, keine FPU, kein Bluetooth, Xtensa LX7 \@240 MHz
-/ ESP32-S3 (2019): (FPU, WiFi+BLE, Dual-Xtensa LX7 \@240 MHz, + RISC-V)
-/ ESP32-C3 (2020): (Single-Core RISC-V \@160 MHz, Security, WiFi+BLE)
-/ ESP32-C6 (2021): (RISC-V \@160 MHz, RISC-V \@160 MHz + LP RISC-V \@20 MHz, WiFi, Bluetooth/BLE, IEEE 802.15.4)
-/ ESP32-H2 (2023): (Single-core RISC-V \@96 MHz, IEEE802.15.4, BLE, no WiFi)
+  / ESP8266 (2014): Tensilica Xtensa LX106, 64KB iRAM, 96KB DRAM, WiFi, ext. SPI Flash
+  / ESP32 (2016): Wi-Fi + BLE, Single/Dual Core Xtensa LX6 \@240 Mhz
+  / ESP32-S2 (2019): Single-Core, Security, WiFi, keine FPU, kein Bluetooth, Xtensa LX7 \@240 MHz
+  / ESP32-S3 (2019): (FPU, WiFi+BLE, Dual-Xtensa LX7 \@240 MHz, + RISC-V)
+  / ESP32-C3 (2020): (Single-Core RISC-V \@160 MHz, Security, WiFi+BLE)
+  / ESP32-C6 (2021): (RISC-V \@160 MHz, RISC-V \@160 MHz + LP RISC-V \@20 MHz, WiFi, Bluetooth/BLE, IEEE 802.15.4)
+  / ESP32-H2 (2023): (Single-core RISC-V \@96 MHz, IEEE802.15.4, BLE, no WiFi)
 ]
 
 
@@ -694,7 +713,7 @@ Ein *GDB-Server* für Debugging, In-System Programming und _boundry-scan_ testin
 
 #image("jtag_pins.png")
 
-$=>$ *cJTAG* Variante mit weniger Pins: _TMS_ $->$ _TMSC_, #strike[TDI] 
+$=>$ *cJTAG* Variante mit weniger Pins: _TMS_ $->$ _TMSC_, #strike[TDI]
 
 \
 
@@ -714,28 +733,28 @@ _Git_ ist eine Versionsverwaltungssoftware!
 
 #columns(2, gutter: 4mm)[
 
-Following shows the most basic concepts used in version control systems such as Git.
-#v(2mm)
+  Following shows the most basic concepts used in version control systems such as Git.
+  #v(2mm)
 
-#b[Basic Checkins]
-#image("git_concept_checkin.png", width: 100%)
+  #b[Basic Checkins]
+  #image("git_concept_checkin.png", width: 100%)
 
-#b[Checkout and Edit]
-#image("git_concept_checkout_edit.png", width: 100%)
+  #b[Checkout and Edit]
+  #image("git_concept_checkout_edit.png", width: 100%)
 
-#b[Branching]
-#image("git_concept_branching.png", width: 100%)
+  #b[Branching]
+  #image("git_concept_branching.png", width: 100%)
 
-#colbreak()
+  #colbreak()
 
-#b[Diffs]
-#image("git_concept_diffs.png", width: 100%)
+  #b[Diffs]
+  #image("git_concept_diffs.png", width: 100%)
 
-#b[Merging]
-#image("git_concept_merging.png", width: 100%)
+  #b[Merging]
+  #image("git_concept_merging.png", width: 100%)
 
-#b[Conflicts]
-#image("git_concept_conflicts.png", width: 100%)
+  #b[Conflicts]
+  #image("git_concept_conflicts.png", width: 100%)
 ]
 
 === Was gehört in ein VSC
@@ -760,7 +779,12 @@ Following shows the most basic concepts used in version control systems such as 
 #image("git_workflow.png")
 
 #v(2mm)
-#align(center)[#box(stroke: (dash: (5pt,3pt), paint: color_caution), fill: color.lighten(color_caution, 80%), inset: 5pt, radius: 5pt)[#text(1.2em)[#quote[_Commit Early, commit often_]]]]
+#align(center)[#box(
+    stroke: (dash: (5pt, 3pt), paint: color_caution),
+    fill: color.lighten(color_caution, 80%),
+    inset: 5pt,
+    radius: 5pt,
+  )[#text(1.2em)[#quote[_Commit Early, commit often_]]]]
 #v(3mm)
 
 === Befehle
@@ -801,7 +825,7 @@ git config user.email "[email]"
 git status
 # add/stage files based on pattern (or path)
 git add [pattern]
-# commit staged files with message 
+# commit staged files with message
 git commit -m "[msg]"
 # push changes to the remote repo
 git push
@@ -838,16 +862,16 @@ Also muss man sich im Destinations-Branch befinden und von dort aus die Änderun
 1. Änderungen im Branch `dummy` *commiten* und *pushen*
 
 2. Branch zu `main` wechseln
-   ```bash
-   git switch main
-   ```
+  ```bash
+  git switch main
+  ```
 
 3. Merge Operation ausführen
-   ```bash
-   git merge [-m "[msg]"] dummy
-   # No automatic merge commit (used for inspection)
-   git merge --no-commit dummy
-   ```
+  ```bash
+  git merge [-m "[msg]"] dummy
+  # No automatic merge commit (used for inspection)
+  git merge --no-commit dummy
+  ```
 
 === Merge-Konflikten
 
@@ -855,9 +879,9 @@ Merge-Konflikte treten in der Regel in den folgenden Szenarien auf:
 
 #text(0.9em)[
 
-/ Simultaneous Edits: Zwei Entwickler ändern dieselbe Codezeile in verschiedenen Branches
-/ Conflicting Changes: Eine Datei wird in einem Branch gelöscht und im anderen geändert
-/ Complex Merges: Mehrere Branches werden gemerget und es entstehen Änderungen über mehrere Dateien und Zeilen
+  / Simultaneous Edits: Zwei Entwickler ändern dieselbe Codezeile in verschiedenen Branches
+  / Conflicting Changes: Eine Datei wird in einem Branch gelöscht und im anderen geändert
+  / Complex Merges: Mehrere Branches werden gemerget und es entstehen Änderungen über mehrere Dateien und Zeilen
 ]
 
 Bei Konflikten, kann das Mergetool verwendet werden
@@ -915,7 +939,11 @@ $=>$ Falls eine Verbindung nicht geht, wird die alternative Verbindung (z.B. Hom
 - IP-Datagramm:\ #box(stroke: gray, radius: 5pt, inset: 5pt)[#text(font: "Roboto Mono")[IP-Header#sub[96b (IPv4)] + UDP-Datagramm]]
 - IPv4 Header:\ #box(stroke: gray, radius: 5pt, inset: 5pt)[#text(font: "Roboto Mono")[SrcIP#sub[32b] + DstIP#sub[32b] + 0#sub[8b] + P-ID#sub[8b] + Length#sub[16b]]]
 
-#align(center)[#box(stroke: color_caution, radius: 5pt, inset: 5pt)[UDP hat einen kleineren Header als TCP (8-Byte vs 20 Byte)!]]
+#align(center)[#box(
+    stroke: color_caution,
+    radius: 5pt,
+    inset: 5pt,
+  )[UDP hat einen kleineren Header als TCP (8-Byte vs 20 Byte)!]]
 
 #cimage("udp_server_startup.png", width: 70%)
 
@@ -977,14 +1005,14 @@ xTaskCreatePinnedToCore(
 
 #grid(columns: (0.8fr, 1fr), column-gutter: 2mm)[
   #image("rnet_layers.png")
-  
+
 ][
   #small[
 
-  #v(3mm)*APP*: SendMessage(0x12,"hello")
-  #v(5pt)*NWK*: resend(msg), route(msg,dst), connect(addr, port), etc.
-  #v(3pt)*MAC*: SelectChannel(6), ScanChannels(all)
-  #v(3pt)*PYH*: GetLQI(), SetRxMode(), SetTxMode(), SPITransmit(buf)
+    #v(3mm)*APP*: SendMessage(0x12,"hello")
+    #v(5pt)*NWK*: resend(msg), route(msg,dst), connect(addr, port), etc.
+    #v(3pt)*MAC*: SelectChannel(6), ScanChannels(all)
+    #v(3pt)*PYH*: GetLQI(), SetRxMode(), SetTxMode(), SPITransmit(buf)
   ]
 ]
 
@@ -992,18 +1020,18 @@ xTaskCreatePinnedToCore(
 
 #columns(2)[
 
-- Nordic nRF24L01+
-- Pins: SPI, CE, CSN, IRQ
-- 2.4 GHz ISM
-- 250 kbps, 1 Mbps, 2 Mbps
-- Enhanced ShockBurst: auto ACK & retry
-- Payload: max 32 Bytes
-- 6 data pipe MulitCeiver
+  - Nordic nRF24L01+
+  - Pins: SPI, CE, CSN, IRQ
+  - 2.4 GHz ISM
+  - 250 kbps, 1 Mbps, 2 Mbps
+  - Enhanced ShockBurst: auto ACK & retry
+  - Payload: max 32 Bytes
+  - 6 data pipe MulitCeiver
 
-Receive Data Pipes: Empfangs-"Kanäle" $==>$
-#colbreak()
+  Receive Data Pipes: Empfangs-"Kanäle" $==>$
+  #colbreak()
 
-#image("nrf_datapipes.png")
+  #image("nrf_datapipes.png")
 ]
 
 == Übliche WSN Anwendung und Stack
@@ -1038,7 +1066,79 @@ Der Radio-Stack behandlet die Payloads via Queues (mit einem Task)! Senden wird 
 
 = Verteile Architekturen
 
+== Modelle
 
+#columns(2, gutter: 3mm)[
+  === Schichtenmodell
+  #v(-1.9em)
+  #h(1fr)#small[asynchron]
+  #v(0.1em)
+
+  #image("modell_layers.png")
+
+  Anfragen gehen \'#imageIcon("arrow-narrow-down.svg")\' \
+  Antworten nach \'#imageIcon("arrow-narrow-up.svg")\'
+
+  === Dienst-Schichten
+  #v(-1.9em)
+  #h(1fr)#small[synchron]
+  #v(0.1em)
+
+  #cimage("modell_application_layer.png", width: 50%)
+
+  Schichtung der Hardware und Software.
+
+  === Objektorientiert
+
+  #image("modell_objectoriented.png")
+
+  Objekte (Knoten) als Info-Quellen und -Senken.
+
+  === Events
+
+  #image("modell_events.png")
+
+  Gemeinsamer Bus. Publish-Subscribe Modell. Oft mit objektorientiertem Ansatz kombiniert
+
+  === Shared Data Space
+  #small[z.B. Dropbox, VCS]
+
+  #image("modell_shareddataspace.png")
+
+  Variante eines Event-Systems $->$ typisch Subscriber-Publisher!
+
+  Daten persistent gespeichert.
+
+  === Client-Server
+
+  #image("modell_clientserver.png")
+
+  #todo[ letzter Stand]
+
+  === Mehrfach-Server
+
+  #image("modell_multipleservers.png")
+
+  === Proxy
+
+  #image("modell_proxy.png")
+
+  === Mobiler Client
+
+  #image("modell_mobileclient.png")
+
+  === Thin Client
+
+  #image("modell_thinclient.png")
+
+  === Peer-to-Peer
+
+  #image("modell_p2p.png")
+
+  === Environment
+
+  #cimage("modell_environment.png", width: 60%)
+]
 
 == Multicore
 

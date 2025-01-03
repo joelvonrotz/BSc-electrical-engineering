@@ -533,47 +533,73 @@ $Omega$: normalized angular frequency
 
 #highlight[Transition to Finite Measurement Level]
 
-Fourier hat $infinity$ Messzeit $-->$ Bei DFT geht das nicht! Daher limitieren auf $N$ Samples.
+Fourier has $infinity$ long measurement time $->$ Confine to $N$ sample points, which leads to a discrete frequency range.
 
 #v(1mm)
 
 #columns(2, gutter: 5pt)[
-Frequenzbereich für die kommende DFT:
-$ 0, f_S/N, 2 f_S/N, dots , (N-1) f_S/N $
+  Discrete frequency range:
+  $ 0, f_S / N, 2 f_S / N, dots , (N-1) f_S / N $
 
-#colbreak()
-#callout(title: "Tiefste erfassbare Frequenz")[
-  #small[(Mit Ausnahme DC Anteil)]
-  $ f_min = f_1 = 1 / T=1 / (N dot T_S) = f_S / N $
+
+  Measurement Interval: $T = N dot T_S$
+
+  #colbreak()
+  #callout(title: "Lowest capturable frequency")[
+    #small[(With exception of any DC component)]
+    $ f_min = f_1 = 1 / T=1 / (N dot T_S) = f_S / N $
+  ]
 ]
-]
-*Discrete Fourier Transform (DFT)*#h(1fr)*Inverse Discrete Fourier Transform (IDFT)*
 
 #columns(2, gutter: 0pt)[
-  $ X[k]=1 / N sum_(n=0)^(N-1) x[n] dot e^(-j 2 pi n k / N) $
+  *Discrete Fourier Transform (DFT)*
+ 
+  $ X[k]= sum_(n=0)^(N-1) x[n] dot e^(-j 2 pi n k / N) $
 
   $ "with" k=0,1,2,dots,N-1 $ #h(1fr)
   #colbreak()
+  *Inv. Discrete Fourier Transform (IDFT)*
 
+  #small[_synthesis equation_: $x[n]$ is periodic at $T_S dot N$]
   $ x[n]=1 / N sum_(k=0)^(N-1) X[k] dot e^(j 2 pi n k / N) $ $ "with" n=0,1,2,dots,N-1 $
 
 ]
 
-
-
-
-
-
-
-
-
-#todo[Transition to Finite Measurement Interval | Fourier Method Comparison]
+#cimage("fourier_method_comparison.png", width: 60%)
 
 === DFT Intuitive
 
-#todo[]
+
+$ X[k] &= sum_(n=0)^(N-1) x[n] dot e^(-j 2 pi n k / N)\ 
+       &= sum_(n=0)^(N-1) x[n] cos(-2 pi n k/N) + j dot sum_(n=0)^(N-1) x[n] sin(-2 pi n k/N) \
+       &= underbrace(sum_(n=0)^(N-1) x[n] cos(2pi n k/N), Re(X[k])) + j dot underbrace(sum_(n=0)^(N-1) x[n] (-1) sin(2pi n k/N), Re(X[k]))
+$
+
+#callout(title: "Static Correlation")[
+  Every DFT coefficient $X[k]$ is equal to the _static_ correlation between the signal $x[n]$ and discrete sine and cosine functions of frequency $k f_S\/N$.
+]
+
 
 === Properties of the DFT
+
+/ Periodicity: DFT works with #highlight[discrete time signal samples], the spectrum is $f_S$ periodic.
+
+$ "DFT": X[k] = X[k+N] quad quad "IDFT": x[n]=x[n+N] "with" T = N T_S $
+
+/ Symmetry: DFT of a real-valued signal is #highlight[symmetric] around the point $k=N\/2$
+
+$ X[N/2 + m] = X^* [N/2 - m] $
+
+/ Time/Frequency Shifting: Shifting a periodic time sequence corresponds to a linear phase offset to all spectral values
+
+$ x [n+n_0] quad quad e$
+
+/ Modulation: 
+/ Parseval Theorem:
+/ Correspondence of Convolution and Multiplication:
+/ Range of Validity of the DFT:
+
+
 
 #todo[Important DFT Properties | Range of Validity of the DFT]
 

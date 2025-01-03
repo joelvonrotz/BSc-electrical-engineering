@@ -213,9 +213,10 @@
           )
           let spacing = 1.5em * (chapter.level - 1)
           if (chapter.level == 1) {
-            [#v(0.5em)#text(weight: "bold")[#h(spacing)#chapter.body #h(1fr) #page]\ ]
+            [#v(0.5em)#text(weight: "bold")[#h(spacing)#chapter.body #h(1fr) #page]\
+             #v(-1em)#line(length: 100%, stroke: 0.5pt)]
           } else {
-            [#v(-0.2em)#h(spacing)#chapter.body #h(1fr) #page \ ]
+            [#v(-0.2em)#h(spacing)#chapter.body #box(width: 1fr)[#line(length: 100%, stroke: (dash: (0pt,3pt), thickness: 1pt, cap: "round", paint: black))]#h(1pt)#page \ ]
           }
         }
       }

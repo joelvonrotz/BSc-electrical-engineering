@@ -20,6 +20,24 @@
   text(fill: color)[$#body$]
 }
 
+#let formula(body, boxalign: none, ..args) = {
+  if(boxalign == none) {
+    box(
+      stroke: red + 0.5pt,
+      radius: 4pt,
+      ..args,
+    )[#body]
+  } else {
+    align(boxalign,
+    box(
+      stroke: red + 0.5pt,
+      radius: 4pt,
+      ..args,
+    )[#body])
+  }
+  
+}
+
 #let tc(body, color) = {
   text(fill: color)[#body]
 }
@@ -36,6 +54,10 @@
   rect(inset: (x: 4pt, y: 5pt), radius: 5pt, stroke: (paint: red, dash: (4pt, 4pt)))[
     #text(fill: red)[#b(color: red)[TODO]~#body]
   ]
+}
+
+#let imageIcon(..icon) = {
+  box(align(center + horizon, image(..icon, fit: "cover", width: 1.2em)), width: 0.8em, height: 1.2em, baseline: 0.2em)
 }
 
 #let transform = {
