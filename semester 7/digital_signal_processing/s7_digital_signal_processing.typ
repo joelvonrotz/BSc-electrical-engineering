@@ -7,6 +7,7 @@
 
 #set math.cases(gap: 0.4em)
 
+
 #show image: set align(center) // default image alignments
 
 #set highlight(fill: rgb("#bcd9ff"), top-edge: "baseline")
@@ -57,7 +58,6 @@
   #image("decimation_block.png", width: 100%)
   #v(-2mm)
   #image("decimation_graph.png", width: 100%)
-
 
   #colbreak()
   #image("decimation.png")
@@ -432,8 +432,8 @@ DSP concerned in the application of the following methods: #circ[1] *Signal Gene
 
 = A/D & D/A Conversion
 
-#image("adc_conversion.png")
-#image("dac_conversion.png")
+#image("adc_conversion.png", width: 80%)
+#image("dac_conversion.png", width: 80%)
 
 _Code/Decode_ z.B. DFT & IDFT ; _Interpolate_ z.B. Tiefpass-Filter
 
@@ -497,7 +497,7 @@ _Code/Decode_ z.B. DFT & IDFT ; _Interpolate_ z.B. Tiefpass-Filter
     Zum prüfen, ob eine Sampling Frequenz für ein Band-Pass Signal gültig ist:]
   $ 2 dot f_min / N >= f_S >= 2 dot f_max / (N+1) $
 
-  #todo[]
+#image("bandpass_evenN.png")
 
   #colbreak()
 
@@ -675,7 +675,6 @@ Bits are spread across different frequencies.
 - Important lobe-structure characteristics
   - *Width of the main lobe* (example: $approx 0.03$ cycles per sample)
   - *Attenuation of the first side lobe* relative to main lobe ($approx 12"dB"$)
-#small[#todo[Verstehe ich noch nicht so genau :(]]
 #v(-2mm)
 
 #image("dft_zeropadding_p1.png", width: 100%)
@@ -720,8 +719,16 @@ $==>$ *Ideal*: DC-function $->$ indefinitely small main lobe, no side lobes ($N-
 
 #image("dft_shorttime.png")
 
-#colbreak()
 == Fast Fourier Transformation (FFT)
+#v(-2.0em)
+#h(1fr)#box(
+  fill: white,
+  inset: (y: 2pt, left: 2pt),
+  outset: (right: 1pt),
+)[Fast DFT]
+
+
+
 
 === Complexity of the FFT
 #v(-2.2em)
@@ -731,7 +738,12 @@ $==>$ *Ideal*: DC-function $->$ indefinitely small main lobe, no side lobes ($N-
   outset: (right: 1pt),
 )[Divide-and-Conquer principle]
 
-#todo[]
+- *Divided* get either $N$ sample values (*decimation-in-time*) or $N$ spectral values (*decimation-in-frequency*)
+  - Split values recursively into $r$ sub-sequences ($r$: radix) $->$ radix-2 algo often used
+
+$ N = 2^L "where" L "is some integer" $
+
+- $N$ almost always a power of two
 
 $
   "DFT"&: quad quad [N^2]_("cpl.Mul.") &&+ [N^2 - N]_("cpl.Add.") \
@@ -746,19 +758,77 @@ $
 
 === Properties of the Twiddle Factors
 
-#todo[]
+In order to reduce the computational effort we introduce the *twiddle factor* $W_N = e^(−j 2 pi/N)$ and can write the DFT new:
+
+$ X[k] = sum_(n = 0)^(N-1) x[n] dot W_N^(n dot k), quad k={0, 1, 2,dots, N-1} $
+
+#columns(2)[
+
+#highlight[Periodicity]
+#small[$W_N^k$ can evaluate to $N$ different numbers only]
+
+$ W_N^(k+N) = W_N^(k) $
+
+
+#highlight[Symmetry]
+#small[Apart from sign, every $W_N^k$ takes on only $N\/2$ different values within each period.]
+
+$ W_N^(k+N\/2) = -W_N^k $
+
+#v(1em)
+MCU only requires $N/2 dot 2 space (Re \& Im)$ space.
+#colbreak()
+
+#image("twiddlefactor_circle.png", width:90%)
+
+
+]
 
 === Radix-2 decimation-in-time FFT
 
-#todo[]
+#small[Splitting the twiddle-factor DFT up into $"odd"$ and $"even"$ yields two new sequences of length $N\/2$]:
 
-=== Efficient FFT Implementation
+$ X[k] = underbrace(sum_(n=0)^(N\/2-1) x_1[n] W_N^(2 n k), x_1 space -> space n "even") + underbrace(sum_(n=0)^(N\/2-1) x_2[n] W_N^((2 n + 1) k), x_2 space -> space n "odd")\ 
+    "introducing" W_N^2 = W_(N\/2): quad  = underbrace(sum_(n=0)^(N\/2-1) x_1[n] W_(N\/2)^(n k), display(X_1[tilde(k)])) + W_(N)^(k) dot underbrace(sum_(n=0)^(N\/2-1) x_2[n] W_(N\/2)^(n k), display(X_2[tilde(k)])) $
 
-#todo[]
+$=>$ $X_1[tilde(k)]$, $X_2[tilde(k)]$: $N\/2$-point DFT $-->$ $tilde(k) = k mod N\/2$ (limit $k$-range to meaningful $N\/2$ )
+
+Recursively applying the splitting procedure leads to $N/2$ $2$-point DFTs:
+
+$
+  X[k] = sum_(n=0)^(0) x_1 [n] W_2^(n k) + W_2^k dot sum_(n=0)^(0) x_2 [n] W_2^(n k) = underline(x_1[0] + W_2^k dot x_2[0]), quad quad k = {0,1}
+$
+
+#image("butterfly_radix2.png", width: 90%)
+
+- Butterfly structure requires $log_2(N)$ processing stages ($N=8 -> 3 "stages"$)
+
+
+#small(callout(title: [Efficient FFT Implementation])[
+  1. As soon as the butterfly operation has been performed, input pair can be re-used to store the calculated output-pair, thus performing the entire FFT *in-place*.
+  2. Order of input values is *bit-reversed*: 0 (`000`), 4 (`001`$->$`100`), 2 (`010`), 6 (`110`), 1, 5, 3, 7.
+])
+#small[Matlab command `bitrevorder` for bit-reversed order]
+
+#image("fft_3stage_radix2_butterfly.png")
 
 == The Goertzel Algorithm
 
-#todo[]
+Goertzel is used, if only an individual $X[k]$ of all $N$ spectral components is required:
+
+#grid(columns: (1fr,1fr))[
+
+$ s[n]   &= x[n] + a dot s[n-1] - s[n-2]\
+  y_k[n] &= s[n] - W_N^k dot s[n-1] $
+
+$ P_k = 2 abs(X[k]/N)^2= 2/N^2 (Re^2 + Im^2) $
+
+  $ f_k = k f_S/N  $
+
+$ a = 2 dot cos(2 pi k/N), quad W_N^k = e^(-j dot 2pi k\/N) $
+][
+  #image("goertzel.png")
+]
 
 = Digital LTI Systems
 
@@ -784,7 +854,7 @@ $
 
 #image("lit_impulse_response.png", width: 70%)
 
-$ y[n] = sum_(i=-infinity)^(infinity) x[i] dot h[n-i] = x[n] ast h[n] -> "Linear Convolution" $ 
+$ y[n] = sum_(i=-infinity)^(infinity) x[i] dot h[n-i] = x[n] ast h[n] -> "Linear Convolution" $
 
 #image("lit_step_response.png", width: 70%)
 
@@ -798,7 +868,21 @@ $ h[n] = g[n] - g[n-1] quad <==> quad g[n] = sum_(k=0)^n h[k] $
   outset: (right: 1pt),
 )[System Implementation (algorithm)]
 
-#todo[]
+$ y[n] = sum_(k=0)^(N) b_k dot x[n-k] - sum_(k=1)^(M) a_k dot y[n-k] $
+
+#columns(2, gutter: 10pt)[
+  #box(width: 100%, stroke: (right: (thickness: 0.5pt, dash: (4pt, 3pt), paint: gray)), outset: (right: 5pt))[
+    #highlight[System Order]
+
+    System order is defined by $max(N,M) $
+  ]
+
+  #colbreak()
+
+  #highlight[Recursive]
+
+  A system is recursive, when $M >= 1$.
+]
 
 === Signal-Flow Diagram
 #v(-2.2em)
@@ -808,11 +892,24 @@ $ h[n] = g[n] - g[n-1] quad <==> quad g[n] = sum_(k=0)^n h[k] $
   outset: (right: 1pt),
 )[System Implementation (architecture)]
 
-#todo[]
+#columns(2, gutter: 0pt)[
+  #align(center)[#highlight[Direct Form 1]]
+  #image("signalflow_directform1.png")
+
+  #align(center)[#highlight[Tranposed Direct Form 1]]
+  #image("signalflow_transposeddirectform1.png")
+
+  #colbreak()
+
+  #align(center)[#highlight[Direct Form 2]]
+  #image("signalflow_directform2.png")
+
+  #align(center)[#highlight[Transposed Direct Form 2]]
+  #image("signalflow_transposeddirectform2.png")
+]
+
 
 == System Descriptions in the Frequency Domain
-
-#todo[]
 
 === Transfer Function
 #v(-2.2em)
@@ -822,7 +919,19 @@ $ h[n] = g[n] - g[n-1] quad <==> quad g[n] = sum_(k=0)^n h[k] $
   outset: (right: 1pt),
 )[Coupling Analysis and Implementation]
 
-#todo[]
+#grid(columns: (1.2fr, 1fr), column-gutter: 0pt)[
+  $ y[n] &= sum_(k=0)^(N) b_k dot x[n-k] - sum_(k=1)^(M) a_k dot y[n-k] $
+  #v(-0.8em)
+  $ #rotate(-90deg)[$image$] $
+  #v(-0.8em)
+  $ y[n] &= sum_(k=0)^(N) b_k space z^(-k) dot X(z) - sum_(k=1)^(M) a_k space z^(-k) dot Y(z) $
+][
+  #highlight[z-Transfer-Function]
+
+  $
+    H(z)=Y(z) / X(z)=(product_(n=0)^(N) b_n z^(-n)) / (product_(m=0)^(M) a_m z^(-m))
+  $
+]
 
 === Pol/Zero-Plot
 #v(-2.2em)
@@ -832,7 +941,18 @@ $ h[n] = g[n] - g[n-1] quad <==> quad g[n] = sum_(k=0)^n h[k] $
   outset: (right: 1pt),
 )[Intuitive Analysis and Design]
 
-#todo[]
+#grid(columns: (1fr, 0.3fr))[
+  $ H(z) = K_0 dot ((z-z_1)(z-z_2)dots(z-z_N)) / ((z-p_1)(z-p_2)dots(z-p_M)) dot z^(M-N) $
+][
+  #small[$z_i$ zeros ; $p_i$ poles\ $K_0$ gain]
+]
+
+
+#formula(inset: (x: 1pt, y: 3pt), baseline: 0.4em)[$(M > N) and b_0 != 0$] $-> M - N$ additional zeros at $z=0$ & only this case holds $K_0 = b_0$
+
+#formula(inset: (x: 1pt, y: 3pt), baseline: 0.4em)[$N > M$] $-> N - M$ additional poles at $z=0$
+
+#small[*Causal LTI System* is stable if $abs(p_i) < 1, i=1, dots, M$ (all poles within the unit circle of z-plane)]
 
 === Frequency Response
 #v(-2.2em)
@@ -842,32 +962,212 @@ $ h[n] = g[n] - g[n-1] quad <==> quad g[n] = sum_(k=0)^n h[k] $
   outset: (right: 1pt),
 )[System Identification, Analysis and Design]
 
-#todo[]
+$
+  h[n] original H[Omega] quad ; quad H(Omega) = abs(H(Omega)) dot e^(j dot phi(H(Omega))) quad ; quad abs(H(Omega))_"dB" = 20 dot log_10 (abs(H(Omega)))
+$
+
+#small[$abs(H(Omega))$: amplitude response ; $phi(H(Omega))$ phase response ; ]
+
+- Frequency components in input are delayed differently, the output suffers from distortions $->$ Therefore, linear phase response $phi(H(Omega)) = -K dot Omega$ is desirable, since only then all frequency components are delayed: *group delay*
+
+$ tau_g = - (d phi(H(Omega))) / (d Omega) $
+
+Any LTI system reacts to a sinusoidal input signal with a sinusoidal output signal of the #u[same frequency]:
+
+$ x[n] = cos(2 pi f_0 dot n dot T_S) ==> y[n] = |H(Omega_0)| dot cos(2 pi f_0 dot n dot T_S + phi(H(Omega_0))) $
+
+The phase and amplitude can be extracted through:
+
+$ abs(Y(Omega)) = abs(X(Omega)) dot abs(H(Omega)) quad ; quad phi(Y(Omega)) = phi(X(Omega)) + phi(H(Omega)) $
+
 
 === Relation between frequency response and transfer function
 
-#todo[]
+- DTFT and z-transform relation $quad => z = r dot e^(j Omega) $
+- Frequency response = DTFT of impulse response $quad => H(Omega) = H(z)|_(z=e^(j Omega))$
+- To obtain frequency response by evaluating:
+#columns(2, gutter: 0pt)[
+  #highlight[Amplitude response]
+
+  $ abs(H(z)) = abs(K) (product_(n=1)^(N) abs(z-z_n)) / (product_(m=1)^(M) abs(z-p_M)) abs(z)^(M-N) $
+
+  #colbreak()
+
+  #highlight[Phase response]
+
+  $ phi(H(Omega)) = &sum_(k=1)^(N) phi(z-z_k) - sum_(k=1)^(M) phi(z-p_k)\ &+sum_(k=N+1)^(M) phi(z) $
+]
 
 = Design of Digital Filters
 
-#todo[]
+#image("filterdesign.png", width: 80%)
 
-=== Introduction
-
-#todo[]
+$
+  a_k, b_k --> "filter coefficients" #h(5em)  N, M --> "filter order"
+$
 
 == FIR Filter
 
-#todo[]
-
 === Definition and Properties
 
-#todo[]
+FIR filter of order $N$ has the transfer function & impulse response:
+
+$
+  H(z) = b_0 + b_1 z^(-1) + dots + b_N z^(-N)\
+  h[n] = {b_0, b_1, dots, b_N, 0,0, dots} #h(3em) "size" N+1
+$
+
+with $N + 1$ coefficients.
+
+- *Stability* per definition, all poles are at $z=0$
+- *Linear Phase*: easier to realize a linear-phase transfer characteristics (group delay)
+- *Implementation*: easy implementation on HW and SW
+
+#small[
+  *Disadvantages*: higher order requires more computational effort.
+
+  *Other names*: all-zero filter, transversal filter, moving-average filter
+]
 
 === Symmetric FIR Filters
 
-#todo[]
+A FIR filter is symmetric when #formula(inset:(x: 1pt, y: 3pt), baseline: 0.4em)[$b_i = plus.minus b_(N-1), quad i = 0,0,dots, N$]
+- #highlight[in case of $+$]: (mirror-)symmetric
+- #highlight[in other cases]: anti-symmetric
+
+#callout(title: "Lineare Phase Response for all symmetric FIR filters")[
+  #grid(columns: (1fr, 0.7fr))[
+    #small[1
+      All symmetric FIR filters feature a linear phase response within their *pass* band (group delay):
+    ]
+  ][
+    $ tau_g = N / 2 dot T_S $
+  ]
+]
+
+
+#image("fir_linear_phase_types.png", width: 90%)
+
+#[
+  #show table.cell.where(x: 0): it => small(strong(it))
+  #show table.cell.where(y: 0): it => small(strong(it))
+  #set table(
+    stroke: (x, y) => {
+      // draw "border"
+      if y == 0 {
+        (bottom: 0.25pt, top: 0.25pt)
+      }
+      if x == 0 or x == 5 {
+        (right: 0.25pt)
+      }
+
+      if x == 0 {
+        (left: 0.25pt)
+      }
+
+      // draw special lines
+      if (x > 1 and x < 5) and (y == 1 or y == 3) {
+        (bottom: (thickness: 0.25pt, paint: gray))
+      }
+      if (x >= 2 and x <= 5) {
+        (left: (thickness: 0.25pt, dash: (1pt, 4pt), paint: gray))
+      }
+
+      if ((y == 2 or (y == 1 and (x == 1 or x == 5))) or (y == 4 or (y == 3 and (x == 1 or x == 5)))) {
+        (bottom: 0.25pt)
+      }
+    },
+  )
+  #table(
+    columns: (3.1em, 2.1cm, 1fr, 1fr, 1.2fr, 2cm),
+    align: (center + horizon),
+    inset: (x: 2pt),
+    [Type], [Symmetry], [Order $N$], [$abs(H(f=0))$], [$abs(H(f=f_S\/2))$], [$H(Omega)$#text(red)[$#[]^1$]],
+    [1], table.cell(rowspan: 2)[$ h[n]=h[N-n] $ #small[(symmetric)]], [even], [any], [any], table.cell(rowspan: 2)[$
+        e^(-j Omega N / 2) dot H_"zp"(Omega)
+      $],
+    [2], [odd], [any], [$ 0 $],
+    [3], table.cell(rowspan: 2)[$ h[n]=-h[N-n] $ #small[(anti-symmetric)]], [even], [0], [0], table.cell(rowspan: 2)[$
+        e^(-j (Omega N / 2 - pi / 2)) dot H_"zp"(Omega)
+      $],
+    [4], [odd], [0], [any]
+  )
+]
+
+#[
+#set par(leading: 0.8em)
+#small[#text(red)[*$#[]^1$*]: transfer function of symm. FIR are the product of a #highlight[linear-phase term] and some #highlight[real-valued transfer function] $H_"zp"(Omega)$ (*$"zp"$*: #highlight[zero-phase filter])] 
+]
+#small[$==>$ anti-symmetric: constant $90 degree$ phase offset]
+
+
+#small[
+#callout(title: [Stop Band $180 degree$ Jump])[
+    In the stop band of a symm. FIR filter there can be $180 degree$-phase-jumps. Such discontinuities in phase response occur at a #highlight[pair of complex-conj. zeros at the unit circle]. This are often tolerated in #highlight[favor of sufficient attenuation in the stop band]
+  ]
+]
+
+#[
+  #set align(center)
+  #show table.cell: it => small(it)
+  #show table.cell.where(x: 0): it => small(strong(it))
+  #show table.cell.where(y: 0): it => small(strong(it))
+  #set table(
+    stroke: (x, y) => {
+      if y == 0 {(bottom: 0.25pt, top: 0.25pt)}
+      if x == 0 or x == 4 {(right: 0.25pt)}
+      if x == 0 {(left: 0.25pt)}
+      if (x >= 2 and x <= 5) {(left: (thickness: 0.25pt, dash: (2pt, 4pt), paint: gray))}
+      if (y > 0) {(bottom: 0.25pt)}
+    },
+  )
+  #table(
+    columns: (2.6em, auto,auto,auto,auto),
+    align: (center + horizon),
+    inset: (x: 2pt, y: 3pt),
+    [Type], [low-pass (LP)], [high-pass (HP)], [band-pass(BP)], [band-stop (BS)],
+    [1], [yes],[yes],[yes],[yes],
+    [2], [yes],[--],[yes],[--],
+    [3], [--],[--],[yes],[--],
+    [4], [--],[yes],[yes],[--],
+  )
+]
+
+#colbreak()
 
 === Window Design Method
+#v(-2.2em)
+#h(1fr)#box(
+  fill: white,
+  inset: (y: 2pt, left: 2pt),
+  outset: (right: 1pt),
+)[Matlab: #raw("fir1",lang: "matlab")]
 
-#todo[]
+The _Window Design Method_ always yields low pass filters $->$ other filters are done via sum and difference of low-pass filters at different cut-off frequencies.
+
+Start of with a desired frequency response $H_d(Omega)$ of an ideal TP-filter with cutoff at $f_C$:
+
+$ h_(d"TP")[n] = (sin(Omega_C dot n))/(pi dot n) image "rectangular signal in freq. domain" $
+
+- #b[Restrictions]: finite length ideal impulse response (corresponds to multiplication with $square$-window *\/* convolution with sinc-function) $->$ overshoot at edges of pass and stop bands
+  - persists for $N -> infinity$ (only helps to reduce the width of the transition band)
+  - Solution: use different windowing functions to smooth the overshoot at a cost of wider transition bands
+
+#small(callout(title: "Example High-Pass Filter", color: color.lighten(color_green, 20%), icon: "repo")[
+TP with cutoff at $f_S\/2$ minus TP with cutoff at $f_C$:
+
+$ h_(d"HP")[n] &= (sin(pi dot n))/(pi dot n) - sin(Omega_C dot n)/(pi dot n) \
+               &= {dots, -h_(d"TP")[-2], -h_(d"TP")[-1], 1-h_(d"TP")[0], -h_(d"TP")[1], -h_(d"TP")[2], dots} $
+
+])
+
+#columns(2, gutter: 0pt)[
+  #image("window_part1.png")
+  #colbreak()
+  #image("windowing_part2.png")
+]
+
+#[
+  #set par(leading: 0.5em)
+  #small[Steps of the window design method for FIR filters: Ideal low-pass frequency response #circ[1], ideal low-pass impulse response #circ[2], windowed #circ[3] and shifted #circ[4] practical low-pass impulse response.]
+]

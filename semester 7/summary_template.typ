@@ -92,7 +92,7 @@
       #text(it.body, 0.8em)
       #box(
         width: 1fr,
-        baseline: -1.5mm,
+        baseline: -0.25em,
         inset: (left: 1mm),
         line(length: 100%, stroke: (cap: "round", dash: (0pt, 5pt), thickness: 2pt, paint: rgb(accent_color))),
       )]
