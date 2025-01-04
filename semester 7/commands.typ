@@ -1,4 +1,5 @@
 #import "@preview/octique:0.1.0": *
+#import "@preview/cetz:0.3.1"
 
 #let small(body) = {
   text(0.85em)[#body]
@@ -20,11 +21,13 @@
   text(fill: color)[$#body$]
 }
 
+/* ------------------------------- Math Stuff ------------------------------- */
+
 #let formula(body, boxalign: none, ..args) = {
   if(boxalign == none) {
     box(
       stroke: red + 0.5pt,
-      radius: 4pt,
+      radius: 2pt,
       ..args,
     )[#body]
   } else {
@@ -37,6 +40,10 @@
   }
   
 }
+
+// Transformation handle
+
+/* ---------------------------------- Misc ---------------------------------- */
 
 #let tc(body, color) = {
   text(fill: color)[#body]
@@ -60,9 +67,7 @@
   box(align(center + horizon, image(..icon, fit: "cover", width: 1.2em)), width: 0.8em, height: 1.2em, baseline: 0.2em)
 }
 
-#let transform = {
-  $bullet#h(-0.2em)-#h(-0.15em)circle.stroked.small#h(0.2em)$
-}
+
 
 #let callout(color: rgb("#7a9bfd"), title: "Callout", title-color: white, icon: "info", body, ..args) = {
   block(..args, stroke: (paint: color), radius: 5pt, above: 1em, below: 1em)[
