@@ -7,6 +7,8 @@
 
 #set math.cases(gap: 0.4em)
 
+#show image: set align(center) // default image alignments
+
 #set highlight(fill: rgb("#bcd9ff"), top-edge: "baseline")
 
 #let color_redish = rgb("#cb4154")
@@ -52,9 +54,9 @@
 
 
 #columns(2, gutter: 0pt)[
-  #cimage("decimation_block.png", width: 100%)
+  #image("decimation_block.png", width: 100%)
   #v(-2mm)
-  #cimage("decimation_graph.png", width: 100%)
+  #image("decimation_graph.png", width: 100%)
 
 
   #colbreak()
@@ -100,7 +102,7 @@
   #text(0.9em)[Downsampling beforehand allows the multiplier to operate at the reduced sampling rate $arrow$ #highlight(top-edge: 1.0em)[*much better!*]]
 ]
 
-#cimage("decimation_implementation.png", width: 90%)
+#image("decimation_implementation.png", width: 90%)
 
 
 == Interpolation
@@ -170,7 +172,7 @@ $
   #text(0.9em)[Upsampling after filtering $arrow$ multiplier operates at *reduced* sampling rate ($F_Y$) $arrow$ #highlight(top-edge: 1.0em)[*much better!*]]
 ]
 
-#cimage("interpolation_implementation.png", width: 100%)
+#image("interpolation_implementation.png", width: 100%)
 
 
 
@@ -200,9 +202,9 @@ Split filter into $M$ *downsampled* variants of the impulse resonse $h[k]$. Ever
 ]
 
 
-#cimage("polyphase.png", width: 95%)
+#image("polyphase.png", width: 95%)
 
-#cimage("polyphase_responses.png", width: 95%)
+#image("polyphase_responses.png", width: 95%)
 
 #todo[include fourier transform equation by hand!]
 
@@ -309,7 +311,8 @@ DSP concerned in the application of the following methods: #circ[1] *Signal Gene
 #highlight[Pros (3 P's)]: #b[P]rogrammability, #b[P]arametrizability, Re-#b[P]eatability
 
 #highlight[Cons]: additional effort for ADC & DAC, No processing of broadband HF, electro-magnetic disturbance
-== Signal Analysis
+
+= Signal Analysis
 
 #columns(3, gutter: 2mm)[
 
@@ -427,14 +430,14 @@ DSP concerned in the application of the following methods: #circ[1] *Signal Gene
 
 ]
 
-== A/D & D/A Conversion
+= A/D & D/A Conversion
 
 #image("adc_conversion.png")
 #image("dac_conversion.png")
 
 _Code/Decode_ z.B. DFT & IDFT ; _Interpolate_ z.B. Tiefpass-Filter
 
-== Sampling & Aliasing
+= Sampling & Aliasing
 
 #columns(2, gutter: 1mm)[
   $
@@ -465,7 +468,7 @@ _Code/Decode_ z.B. DFT & IDFT ; _Interpolate_ z.B. Tiefpass-Filter
     #image("sampling.png")
     #small[period. Spektrum mit $f_s$-vielfachen _Spiegelbilder_. Mit spektraler Verschiebung]
 
-    $ x(t) e^(j 2 pi f_0 t) transform X(f- f_0) $
+    $ x(t) e^(j 2 pi f_0 t) image X(f- f_0) $
 
     #small[ergibt]
 
@@ -478,7 +481,7 @@ _Code/Decode_ z.B. DFT & IDFT ; _Interpolate_ z.B. Tiefpass-Filter
 
   #align(center)[#box(stroke: red + 0.5pt, inset: 4pt, radius: 5pt)[
 
-      *Generalisiertes Abtasttheorem*
+      generalized sampling theorem:
 
       $ -(N+1) / 2 f_S <= f <= -N / 2 f_S quad "and" $
 
@@ -494,7 +497,7 @@ _Code/Decode_ z.B. DFT & IDFT ; _Interpolate_ z.B. Tiefpass-Filter
     Zum prüfen, ob eine Sampling Frequenz für ein Band-Pass Signal gültig ist:]
   $ 2 dot f_min / N >= f_S >= 2 dot f_max / (N+1) $
 
-  #todo{}
+  #todo[]
 
   #colbreak()
 
@@ -508,9 +511,11 @@ _Code/Decode_ z.B. DFT & IDFT ; _Interpolate_ z.B. Tiefpass-Filter
 ]
 
 
-== Digital Signals in Frequency Domain
+= Digital Signals in Frequency Domain
 
-=== Fourier Transformation to DFT
+== Fourier Transformation to DFT
+
+=== Discrete-Time Fourier Transform (DTFT)
 
 #highlight[Transition to Discrete Time]
 
@@ -524,7 +529,7 @@ $==> space X(Omega)$: *Discrete-Time Fourier Transform (DTFT)*
 
 $Omega$: normalized angular frequency
 
-#grid(columns: (1fr, 0.7fr), column-gutter: 3mm)[
+#grid(columns: (1fr, 0.6fr), column-gutter: 3mm)[
   #v(3mm)
   #image("dft_circled.png")
 ][
@@ -533,7 +538,7 @@ $Omega$: normalized angular frequency
 
 #highlight[Transition to Finite Measurement Level]
 
-Fourier has $infinity$ long measurement time $->$ Confine to $N$ sample points, which leads to a discrete frequency range.
+#small[Fourier has $infinity$ long measurement time $->$ Confine to $N$ sample points, which leads to a discrete frequency range.]
 
 #v(1mm)
 
@@ -552,35 +557,54 @@ Fourier has $infinity$ long measurement time $->$ Confine to $N$ sample points, 
 ]
 
 #columns(2, gutter: 0pt)[
-  *Discrete Fourier Transform (DFT)*
- 
-  $ X[k]= sum_(n=0)^(N-1) x[n] dot e^(-j 2 pi n k / N) $
+  === Discrete Fourier Transform (DFT)
+
+  #formula(boxalign: center, inset: (x: 2pt, y: 2pt))[
+    $ X[k]= sum_(n=0)^(N-1) x[n] dot e^(-j 2 pi n k / N) $
+  ]
 
   $ "with" k=0,1,2,dots,N-1 $ #h(1fr)
   #colbreak()
-  *Inv. Discrete Fourier Transform (IDFT)*
+  === Inv. Discrete Fourier Transform (IDFT)
 
   #small[_synthesis equation_: $x[n]$ is periodic at $T_S dot N$]
-  $ x[n]=1 / N sum_(k=0)^(N-1) X[k] dot e^(j 2 pi n k / N) $ $ "with" n=0,1,2,dots,N-1 $
+
+  #formula(boxalign: center, inset: (x: 2pt, y: 2pt))[$ x[n]=1 / N dot sum_(k=0)^(N-1) X[k] dot e^(j 2 pi n k / N) $]
+
+  $ "with" n=0,1,2,dots,N-1 $
 
 ]
 
-#cimage("fourier_method_comparison.png", width: 60%)
+#small[Either DFT or IDFT require the normalization factor $1\/N$ to re-obtain the original signal. $=>$ IDFT has the normalization factor above.]
 
-=== DFT Intuitive
+#image("fourier_method_comparison.png", width: 55%)
+
+- periodicity in time $->$ discrete line spectra in frequency (Fourier & DFT)
+- sampling in time $->$ periodic in frequency (DFT, DTFT)
 
 
-$ X[k] &= sum_(n=0)^(N-1) x[n] dot e^(-j 2 pi n k / N)\ 
-       &= sum_(n=0)^(N-1) x[n] cos(-2 pi n k/N) + j dot sum_(n=0)^(N-1) x[n] sin(-2 pi n k/N) \
-       &= underbrace(sum_(n=0)^(N-1) x[n] cos(2pi n k/N), Re(X[k])) + j dot underbrace(sum_(n=0)^(N-1) x[n] (-1) sin(2pi n k/N), Re(X[k]))
+
+== DFT Intuitive
+
+
+$
+  X[k] &= sum_(n=0)^(N-1) x[n] dot e^(-j 2 pi n k / N)\
+  &= sum_(n=0)^(N-1) x[n] cos(-2 pi n k/N) + j dot sum_(n=0)^(N-1) x[n] sin(-2 pi n k/N) \
+  &= underbrace(sum_(n=0)^(N-1) x[n] cos(2pi n k/N), Re(X[k])) + j dot underbrace(sum_(n=0)^(N-1) x[n] (-1) sin(2pi n k/N), Re(X[k]))
 $
 
 #callout(title: "Static Correlation")[
   Every DFT coefficient $X[k]$ is equal to the _static_ correlation between the signal $x[n]$ and discrete sine and cosine functions of frequency $k f_S\/N$.
+
+  #v(2mm)
+
+  #highlight[*Meaning*]: the DFT indicates how similar the signal is to harmonic oscillations with frequency k
 ]
 
 
-=== Properties of the DFT
+== Properties of the DFT
+
+=== Important Properties
 
 / Periodicity: DFT works with #highlight[discrete time signal samples], the spectrum is $f_S$ periodic.
 
@@ -588,50 +612,262 @@ $ "DFT": X[k] = X[k+N] quad quad "IDFT": x[n]=x[n+N] "with" T = N T_S $
 
 / Symmetry: DFT of a real-valued signal is #highlight[symmetric] around the point $k=N\/2$
 
-$ X[N/2 + m] = X^* [N/2 - m] $
+$ X[N / 2 + m] = X^* [N / 2 - m] $
 
 / Time/Frequency Shifting: Shifting a periodic time sequence corresponds to a linear phase offset to all spectral values
 
-$ x [n+n_0] quad quad e$
+$ x[n+n_0] quad original quad e^(j 2 pi dot n_0 k / N) dot X[k] $
 
-/ Modulation: 
-/ Parseval Theorem:
-/ Correspondence of Convolution and Multiplication:
-/ Range of Validity of the DFT:
+The inverse is also true $->$ mult. complex exp. in time leads to frequency shift
 
+$ e^(j 2 pi dot n_0 k / N) dot x[n] quad original quad X[k-k_0] $
 
 
-#todo[Important DFT Properties | Range of Validity of the DFT]
+/ Modulation: Direct consequence of frequency shift $->$ modulation property
 
-=== Practical Application Aspects of the DFT
+$ cos(2 pi k_0 n/N) dot x[n] quad image quad 1 / 2 (x[k+k_0] + X[k-k_0]) $
 
-#todo[Choice of Measurement Interval| DFT and Zero-padding | DFT and Windowing | Choice of Windowing Function]
+/ Parseval Theorem: left side equals to energy of signal $->$ right side has use for SNR (separate noise frequency from signal frequency)
+
+$ 1 / N sum_(n=0)^(N-1) x[n]^2 = sum_(n=0)^(N-1) abs(X[k]/N)^2 $
+
+/ Correspondence of Conv. and Multi.: #highlight[fast conv.] $->$ $"IDFT"("DFT"(x[n] dot "DFT"(y[n])))$
+
+$ x[n] ast.circle_N y[n] quad original quad X[k] dot Y[k] quad (k=0,1,dots N-1) $
+
+=== Range of Validity of the DFT
+
+/ aperiodic $x[n]$: all signal values $x[n]$ are zero outside the range $0 <= n <= N$. DFT samples the DTFT at discrete points of normalized angular frequency:
+
+$ X[k] = X(Omega)|_(Omega = 2 pi k / N) $
+
+#text(fill:red)[*IF NOT*] (range outside $ != 0$) $->$ DFT = approximation of DTFT $->$ solution: _windowing_
+
+#v(2mm)
+
+/ periodic $x[n]$: measurement interval $N dot T_S$ is an integer multiple of the period duration of $x[n]$
+
+== OFDM Principle
+#v(-2em)
+#h(1fr)#box(
+  fill: white,
+  inset: (y: 2pt, left: 2pt),
+  outset: (right: 1pt),
+)[Orthogonal Frequency Division Multiplexing]
+
+Bits are spread across different frequencies.
+
+#circ[1] bits are converted to phase (QPSK) #v(-0.5em)#circ[2] the result $->$ IDFT #circ[3] $x[n] -> x(t)$ via DAC
+
+#image("ofdm_synthesis.png", width: 85%)
+#image("ofdm_waves.png", width: 55%)
+#image("ofdm_analyse.png", width: 85%)
 
 
-=== Short-Time DFT
 
-=== Fast Fourier Transformation (FFT)
+== Practical Application Aspects of the DFT
 
-#todo[Complexity of the FFT | Properties of the Twiddle Factors | Radix-2 decimation-in-time FFT | Efficient FFT Implementation]
+=== DFT and Zero-padding
 
-=== The Goertzel Algorithm
+- Extending signal$(t)$ with zeros $->$ better interpolation (thinner frequency _bins_)
+- does not modify DTFT $X[Omega]$, but provides additional sample points along $Omega$
+- Rectangular window of length $N$ $->$ convolution of $X[k]$ with $sin(x)\/x$ (lobes)
+- Important lobe-structure characteristics
+  - *Width of the main lobe* (example: $approx 0.03$ cycles per sample)
+  - *Attenuation of the first side lobe* relative to main lobe ($approx 12"dB"$)
+#small[#todo[Verstehe ich noch nicht so genau :(]]
+#v(-2mm)
 
-== Digital LTI Systems
+#image("dft_zeropadding_p1.png", width: 100%)
+#image("dft_zeropadding_p2.png", width: 100%)
 
-#todo[Definition of LTI Systems | Descriptions of LTI systems]
 
-=== System Descriptions in the Time Domain
+=== Choice of Measurement Interval & Leakage Effect
 
-#todo[Impulse Response | Difference Equation | Signal-Flow Diagram]
+Example: $N=64, f_0=f_S\/4, T=N dot T_S = 16 dot T_0$
 
-=== System Descriptions in the Frequency Domain
+#image("interval_good.png", width: 80%)
 
-#todo[Transfer Function | Pol/Zero-Plot | Frequency Response | Relation between frequency response and transfer function]
+Example: $f_0=f_S\/4 + f_S\/128 ->$ measurement interval no integer multiple of the period duration: *Leakage effect*:
 
-== Design of Digital Filters
+#image("interval_bad.png", width: 80%)
 
-#todo[Introduction]
+=== DFT and Windowing
+- DFT applies rectangular window $N$ samples
+- Applying the _Blackman Window_ and afterwards appending zeros
+  - Reduces virtual periodic continuation of the signal "outside" of signal, thus reducing the leakage effect.
 
-=== FIR Filter
 
-#todo[Definition and Properties | Symmetric FIR Filters | Window Design Method]
+=== Choice of Windowing Function
+
+
+#small[#callout(
+    title: "Choice Compromise",
+  )[Choice of Window function leads to a compromise between the attenuation of leakage and spectral resolution in the spectrum $X[k]$ ]]
+
+- *Narrow main lobe*: higher the spectral resolution for $X[k]$
+- *Higher the side lobe attenuation*: better suppression of leakage in $X[k]$
+
+$==>$ *Ideal*: DC-function $->$ indefinitely small main lobe, no side lobes ($N->infinity$)
+
+#image("window_comparison.png", width: 80%)
+
+== Short-Time DFT
+
+- continuous evaluation of the frequency spectrum of short signal sections
+  - Allows the observation of frequency spectrum over time
+  - *BUT* more computation required $->$ solution: FFT
+
+#image("dft_shorttime.png")
+
+#colbreak()
+== Fast Fourier Transformation (FFT)
+
+=== Complexity of the FFT
+#v(-2.2em)
+#h(1fr)#box(
+  fill: white,
+  inset: (y: 2pt, left: 2pt),
+  outset: (right: 1pt),
+)[Divide-and-Conquer principle]
+
+#todo[]
+
+$
+  "DFT"&: quad quad [N^2]_("cpl.Mul.") &&+ [N^2 - N]_("cpl.Add.") \
+  "FFT"&: quad quad [N / 2 dot log_2(N)]_("cpl.Mul.") &&+ [N dot log_2(N)]_("cpl.Add.")
+$
+
+#grid(columns: (1fr, 1.1fr), align: horizon)[
+  assuming $T_"compute,Add"=T_"compute,Mul"$:
+][
+  $ "speedup factor"_"FFT" = (8N-2) / (5 dot log_2(N)) approx 1.5N / (log_2(N)) $
+]
+
+=== Properties of the Twiddle Factors
+
+#todo[]
+
+=== Radix-2 decimation-in-time FFT
+
+#todo[]
+
+=== Efficient FFT Implementation
+
+#todo[]
+
+== The Goertzel Algorithm
+
+#todo[]
+
+= Digital LTI Systems
+
+#image("lti_block.png", height: 1.2cm)
+
+- *Definition* of LTI Systems
+  - *Linearity*: $quad y[n] = k_1 dot S{x_1} + k_2 dot S{x_2} = S{k_1 dot x_1 + k_2 dot x_2}$
+  - *Time-Invariance*: $quad x[n] -> y[n] quad ==> quad x[n-d] -> y[n-d]$
+- Allowed *Operations*
+  - Multiplication of a signal with a #u[constant]: $quad x[n] dot a$
+  - Addition of two signals: $quad x[n] + y[n]$
+  - Time delay of a signal by $k dot T_s$: $quad x[n - k dot T_S]$
+
+== System Descriptions in the Time Domain
+
+=== Impulse Response
+#v(-2.2em)
+#h(1fr)#box(
+  fill: white,
+  inset: (y: 2pt, left: 2pt),
+  outset: (right: 1pt),
+)[System Identification, Measurement]
+
+#image("lit_impulse_response.png", width: 70%)
+
+$ y[n] = sum_(i=-infinity)^(infinity) x[i] dot h[n-i] = x[n] ast h[n] -> "Linear Convolution" $ 
+
+#image("lit_step_response.png", width: 70%)
+
+$ h[n] = g[n] - g[n-1] quad <==> quad g[n] = sum_(k=0)^n h[k] $
+
+=== Difference Equation
+#v(-2.2em)
+#h(1fr)#box(
+  fill: white,
+  inset: (y: 2pt, left: 2pt),
+  outset: (right: 1pt),
+)[System Implementation (algorithm)]
+
+#todo[]
+
+=== Signal-Flow Diagram
+#v(-2.2em)
+#h(1fr)#box(
+  fill: white,
+  inset: (y: 2pt, left: 2pt),
+  outset: (right: 1pt),
+)[System Implementation (architecture)]
+
+#todo[]
+
+== System Descriptions in the Frequency Domain
+
+#todo[]
+
+=== Transfer Function
+#v(-2.2em)
+#h(1fr)#box(
+  fill: white,
+  inset: (y: 2pt, left: 2pt),
+  outset: (right: 1pt),
+)[Coupling Analysis and Implementation]
+
+#todo[]
+
+=== Pol/Zero-Plot
+#v(-2.2em)
+#h(1fr)#box(
+  fill: white,
+  inset: (y: 2pt, left: 2pt),
+  outset: (right: 1pt),
+)[Intuitive Analysis and Design]
+
+#todo[]
+
+=== Frequency Response
+#v(-2.2em)
+#h(1fr)#box(
+  fill: white,
+  inset: (y: 2pt, left: 2pt),
+  outset: (right: 1pt),
+)[System Identification, Analysis and Design]
+
+#todo[]
+
+=== Relation between frequency response and transfer function
+
+#todo[]
+
+= Design of Digital Filters
+
+#todo[]
+
+=== Introduction
+
+#todo[]
+
+== FIR Filter
+
+#todo[]
+
+=== Definition and Properties
+
+#todo[]
+
+=== Symmetric FIR Filters
+
+#todo[]
+
+=== Window Design Method
+
+#todo[]
