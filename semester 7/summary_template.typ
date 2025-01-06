@@ -74,7 +74,7 @@
       #text(it.body, 0.8em, rgb(accent_color))
       #box(
         width: 1fr,
-        baseline: -2mm,
+        baseline: -0.25em,
         inset: (left: 0pt),
         line(length: 100%, stroke: (thickness: 2pt, paint: rgb(accent_color))),
       )]

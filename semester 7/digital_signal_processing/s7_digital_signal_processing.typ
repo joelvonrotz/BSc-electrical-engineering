@@ -40,8 +40,13 @@
 )
 
 #colbreak(weak: true)
+#colbreak(weak: true)
 #colbreak()
-#colbreak()
+
+
+/* -------------------------------------------------------------------------- */
+/*                                Hunziker Part                               */
+/* -------------------------------------------------------------------------- */
 
 = Sampling Rate Conversion
 
@@ -217,9 +222,8 @@ Split filter into $M$ *downsampled* variants of the impulse resonse $h[k]$. Ever
 
 #text(0.9em)[Decimation $=>$ loss of information #h(1fr) Interpolation $=>$ higher intermediate sampling rate]
 #columns(2)[
-
   $ F_H (Omega) = min(pi/I,pi/D) $
-  #todo[$"FIR-order" = "FIR-length"$]
+
   #colbreak()
 
   $ I / D = underbrace(I dot (1/D), H_I->I->D->H_D)= underbrace((1/D) dot I, I->H->D) $
@@ -227,21 +231,158 @@ Split filter into $M$ *downsampled* variants of the impulse resonse $h[k]$. Ever
 
 = Filter Banks
 
-#todo[]
-
 == Quadrature Mirror Filters
 
-#todo[]
+#small[QMF: compensate loss of information caused by decimation]
+
+#image("quadrature_mirror_filters.png", width: 90%)
+
+$ Y_i (Omega) = 1 / 2 (H_i (Omega / 2) dot X(Omega / 2) + H_i (Omega / 2-pi) dot X(Omega / 2-pi)) $
+
+$H_0 (z), G_0(z)$ : lowpass filter ; $H_1 (z), G_1(z)$ : highpass filter
+
+$
+  hat(X) (Omega) &= 1 / 2 (H_0 (Omega) dot G_0 (Omega) + H_1 (Omega) dot G_1 (Omega)) dot X(Omega)\
+  &+ underbrace( 1/2 (H_0 (Omega - pi) dot G_0 (Omega) + H_1 (Omega - pi) dot G_1 (Omega)) dot X(Omega - pi) ,"alias term")
+$
+
+
+
+#grid(columns: (1fr, 0.9fr))[
+  Condition for $hat(x)[n]$ free of aliasing:
+
+  $ H_0(Omega - pi) dot G_0(Omega) + H_1(Omega - pi) dot G_1(Omega) = 0 $
+
+  #line(length: 100%, stroke: 0.5pt + gray)
+
+  #small[For getting rid of aliasing and manage #u[perfect reconstruction]:]
+
+  $
+    H_0(Omega) = H(Omega) quad H_1(Omega) = H(Omega - pi) \
+    G_0(Omega) = H(Omega) quad G_1(Omega) = -H(Omega - pi)
+  $
+][
+  #image("quadrature_mirror_filters_funnygraph.png")
+]
+
+#colbreak()
+
+#callout(title: "Perfect Reconstruction", color: color.lighten(color_green, 30%))[
+  Synthesized signal $hat(x)[n]$ is identical to input signal $x[n]$ except for *arbitrary delay* and *scaling* by a #u[constant] factor.
+]
+
+#image("subbandencoding.png")
+#v(-5em)
+#columns(2, gutter: 10pt)[
+  #v(5em)
+
+  $R_"in"$: Abtastrate
+
+  #colbreak()
+
+  #image("subband_encoder.png")
+]
+
+#image("delays.png")
+
+#highlight[Example with $d=5$ sample delays]\
+$ D_1 = 5 quad ; quad D_2 = d + 2 dot D_1 = 15 quad ; quad D_3 = d + 2 dot D_2 = 35 $
+
+#small[- $D_3$ is viewed from outside, therefore the sample rate is halved leading to $35$ spl delay]
 
 == DFT Filter Banks
 
-#todo[]
+- QMFB (Quadrature-$M$-Filter-Banks) $->$ downsamples the sampling frequency by $M$
+  - _critical sampling_ $->$ $"channels" = "downsampling factor" D$ #small[(over: $C > D$ ; under: $C <D$)]
+  - slightly imperfect reconstruction with critical sampling $->$ oversampling (longer)
+
+#image("qmfb_filterbank.png")
+
+$
+  H_(ell) (z) = H(z dot e^(-j 2 pi ell \/ M)) #h(0.5em)\;#h(0.5em) H_(ell) (Omega) = H(Omega - 2 pi ell\/M) #h(0.5em)\;#h(0.5em) l=0,1,dots, M-1
+$
+
+#columns(2, gutter: 0pt)[
+
+  #image("dftfilterbank.png")
+
+  #colbreak()
+
+  #highlight([Example])
+
+  #set par(leading: 0.8em)
+  #small[following describes a filter bank with\ $M = 4 "channels"$ and $"oversampling factor" D=2$]
+
+  #image("transferfunction_4channelbank.png", width: 79%)
+]
+
+#v(-5em)
+#grid(columns: (1.1fr, 1fr), gutter: 4pt)[
+  #image("4channel_filterbank.png", width: 100%)
+  #small[input: $h[0], h[1],dots, h[M-1]$]
+][
+  #v(5em)
+]
+
+#small(
+  callout(title: "Some Basics")[
+    / deterministic: value can be determined at any time
+    / transient: begrenzte Zeitdauer
+
+
+    #line(length: 100%, stroke: 0.5pt + gray)
+    #columns(2)[
+      #set math.cancel(cross: true, stroke: 0.4pt + red)
+
+      / Finite Impulse Response:
+      - Impulse response is infinite
+      - No feedback ($y[n space cancel(-m) space]$)
+      - always stable
+
+      $ y[n] = sum_(a=0)^(N-1) b_a dot x[n-a] $
+
+      #todo[grafisch Falten]
+
+      #colbreak()
+
+      / Infinite Impulse Response:
+      - Impulse response infinite due to feedback
+      - Feedback of signals ($y[n -m]$)
+      - not necessarily stable
+
+      $ y[n] = sum_(n=0)^(N-1) b_n dot x[k-n] - sum_(m=1)^(M) a_m dot y[n-m] $
+      
+      #todo[Levinson-Durbin-Rekursion]
+    ]
+
+  ],
+)
 
 = Random Signals
 
-#todo[]
+== Autocorrelation $gamma$ and Spectrum
 
-== Autocorrelation and Spectrum
+#columns(2, gutter: 5pt)[
+  #highlight[first-order statistic: *Mean value*]
+  $ m_x & = E{x[n]} \ dot(m)_x &= 0 "for stationary signals (time)" $
+
+  #[#highlight[autocovariance] (for signals with $m_x != 1$)]
+
+  $ c_(x x)[m]=E{(x[n]-m_x)^* dot (x[n+m] - m_x)} $
+
+  $c_(x x)[0]$: #small[Variance of signal ($E{abs(x[n]-m+x)^2}$)]
+
+  #colbreak()
+
+  #highlight[second-order statistic: *Autocorrelation*]
+
+  $ gamma_(x x)[m] = E{x^*[n] dot x[n+m]} $
+
+  $ gamma_(x x)[m] = gamma_(x x)^*[-m] $
+
+
+
+]
 
 #todo[]
 
@@ -289,10 +430,6 @@ Split filter into $M$ *downsampled* variants of the impulse resonse $h[k]$. Ever
 
 #todo[]
 
-=== Hello World
-
-Hello World
-
 
 
 
@@ -300,7 +437,7 @@ Hello World
 /* -------------------------------------------------------------------------- */
 /*                                Wassner Teil                                */
 /* -------------------------------------------------------------------------- */
-#set page(columns: 3) // this creates a new page :)
+#set page(columns: 3) // this creates a new page
 
 = Digital Signal Processing (DSP)
 
@@ -497,7 +634,7 @@ _Code/Decode_ z.B. DFT & IDFT ; _Interpolate_ z.B. Tiefpass-Filter
     Zum prüfen, ob eine Sampling Frequenz für ein Band-Pass Signal gültig ist:]
   $ 2 dot f_min / N >= f_S >= 2 dot f_max / (N+1) $
 
-#image("bandpass_evenN.png")
+  #image("bandpass_evenN.png")
 
   #colbreak()
 
@@ -590,7 +727,7 @@ $Omega$: normalized angular frequency
 $
   X[k] &= sum_(n=0)^(N-1) x[n] dot e^(-j 2 pi n k / N)\
   &= sum_(n=0)^(N-1) x[n] cos(-2 pi n k/N) + j dot sum_(n=0)^(N-1) x[n] sin(-2 pi n k/N) \
-  &= underbrace(sum_(n=0)^(N-1) x[n] cos(2pi n k/N), Re(X[k])) + j dot underbrace(sum_(n=0)^(N-1) x[n] (-1) sin(2pi n k/N), Re(X[k]))
+  &= underbrace(sum_(n=0)^(N-1) x[n] cos(2pi n k/N), Re(X[k])) + j dot underbrace(sum_(n=0)^(N-1) x[n] (-1) sin(2pi n k/N), Im(X[k]))
 $
 
 #callout(title: "Static Correlation")[
@@ -625,7 +762,7 @@ $ e^(j 2 pi dot n_0 k / N) dot x[n] quad original quad X[k-k_0] $
 
 / Modulation: Direct consequence of frequency shift $->$ modulation property
 
-$ cos(2 pi k_0 n/N) dot x[n] quad image quad 1 / 2 (x[k+k_0] + X[k-k_0]) $
+$ cos(2 pi k_0 n/N) dot x[n] quad image quad 1 / 2 (X[k+k_0] + X[k-k_0]) $
 
 / Parseval Theorem: left side equals to energy of signal $->$ right side has use for SNR (separate noise frequency from signal frequency)
 
@@ -683,7 +820,7 @@ Bits are spread across different frequencies.
 
 === Choice of Measurement Interval & Leakage Effect
 
-Example: $N=64, f_0=f_S\/4, T=N dot T_S = 16 dot T_0$
+Example: $N=64, f_0=f_S\/4, T=N dot T_S = 16 dot T_0$ (peak at $k=16$ & $k=48$)
 
 #image("interval_good.png", width: 80%)
 
@@ -764,22 +901,22 @@ $ X[k] = sum_(n = 0)^(N-1) x[n] dot W_N^(n dot k), quad k={0, 1, 2,dots, N-1} $
 
 #columns(2)[
 
-#highlight[Periodicity]
-#small[$W_N^k$ can evaluate to $N$ different numbers only]
+  #highlight[Periodicity]
+  #small[$W_N^k$ can evaluate to $N$ different numbers only]
 
-$ W_N^(k+N) = W_N^(k) $
+  $ W_N^(k+N) = W_N^(k) $
 
 
-#highlight[Symmetry]
-#small[Apart from sign, every $W_N^k$ takes on only $N\/2$ different values within each period.]
+  #highlight[Symmetry]
+  #small[Apart from sign, every $W_N^k$ takes on only $N\/2$ different values within each period.]
 
-$ W_N^(k+N\/2) = -W_N^k $
+  $ W_N^(k+N\/2) = -W_N^k $
 
-#v(1em)
-MCU only requires $N/2 dot 2 space (Re \& Im)$ space.
-#colbreak()
+  #v(1em)
+  MCU only requires $N/2 dot 2 space (Re \& Im)$ space.
+  #colbreak()
 
-#image("twiddlefactor_circle.png", width:90%)
+  #image("twiddlefactor_circle.png", width: 90%)
 
 
 ]
@@ -788,8 +925,10 @@ MCU only requires $N/2 dot 2 space (Re \& Im)$ space.
 
 #small[Splitting the twiddle-factor DFT up into $"odd"$ and $"even"$ yields two new sequences of length $N\/2$]:
 
-$ X[k] = underbrace(sum_(n=0)^(N\/2-1) x_1[n] W_N^(2 n k), x_1 space -> space n "even") + underbrace(sum_(n=0)^(N\/2-1) x_2[n] W_N^((2 n + 1) k), x_2 space -> space n "odd")\ 
-    "introducing" W_N^2 = W_(N\/2): quad  = underbrace(sum_(n=0)^(N\/2-1) x_1[n] W_(N\/2)^(n k), display(X_1[tilde(k)])) + W_(N)^(k) dot underbrace(sum_(n=0)^(N\/2-1) x_2[n] W_(N\/2)^(n k), display(X_2[tilde(k)])) $
+$
+  X[k] = underbrace(sum_(n=0)^(N\/2-1) x_1[n] W_N^(2 n k), x_1 space -> space n "even") + underbrace(sum_(n=0)^(N\/2-1) x_2[n] W_N^((2 n + 1) k), x_2 space -> space n "odd")\
+  "introducing" W_N^2 = W_(N\/2): quad = underbrace(sum_(n=0)^(N\/2-1) x_1[n] W_(N\/2)^(n k), display(X_1[tilde(k)])) + W_(N)^(k) dot underbrace(sum_(n=0)^(N\/2-1) x_2[n] W_(N\/2)^(n k), display(X_2[tilde(k)]))
+$
 
 $=>$ $X_1[tilde(k)]$, $X_2[tilde(k)]$: $N\/2$-point DFT $-->$ $tilde(k) = k mod N\/2$ (limit $k$-range to meaningful $N\/2$ )
 
@@ -804,10 +943,12 @@ $
 - Butterfly structure requires $log_2(N)$ processing stages ($N=8 -> 3 "stages"$)
 
 
-#small(callout(title: [Efficient FFT Implementation])[
-  1. As soon as the butterfly operation has been performed, input pair can be re-used to store the calculated output-pair, thus performing the entire FFT *in-place*.
-  2. Order of input values is *bit-reversed*: 0 (`000`), 4 (`001`$->$`100`), 2 (`010`), 6 (`110`), 1, 5, 3, 7.
-])
+#small(
+  callout(title: [Efficient FFT Implementation])[
+    1. As soon as the butterfly operation has been performed, input pair can be re-used to store the calculated output-pair, thus performing the entire FFT *in-place*.
+    2. Order of input values is *bit-reversed*: 0 (`000`), 4 (`001`$->$`100`), 2 (`010`), 6 (`110`), 1, 5, 3, 7.
+  ],
+)
 #small[Matlab command `bitrevorder` for bit-reversed order]
 
 #image("fft_3stage_radix2_butterfly.png")
@@ -816,16 +957,18 @@ $
 
 Goertzel is used, if only an individual $X[k]$ of all $N$ spectral components is required:
 
-#grid(columns: (1fr,1fr))[
+#grid(columns: (1fr, 1fr))[
 
-$ s[n]   &= x[n] + a dot s[n-1] - s[n-2]\
-  y_k[n] &= s[n] - W_N^k dot s[n-1] $
+  $
+    s[n] &= x[n] + a dot s[n-1] - s[n-2]\
+    y_k[n] &= s[n] - W_N^k dot s[n-1]
+  $
 
-$ P_k = 2 abs(X[k]/N)^2= 2/N^2 (Re^2 + Im^2) $
+  $ P_k = 2 abs(X[k]/N)^2= 2 / N^2 (Re^2 + Im^2) $
 
-  $ f_k = k f_S/N  $
+  $ f_k = k f_S / N $
 
-$ a = 2 dot cos(2 pi k/N), quad W_N^k = e^(-j dot 2pi k\/N) $
+  $ a = 2 dot cos(2 pi k/N), quad W_N^k = e^(-j dot 2pi k\/N) $
 ][
   #image("goertzel.png")
 ]
@@ -1095,14 +1238,14 @@ A FIR filter is symmetric when #formula(inset:(x: 1pt, y: 3pt), baseline: 0.4em)
 ]
 
 #[
-#set par(leading: 0.8em)
-#small[#text(red)[*$#[]^1$*]: transfer function of symm. FIR are the product of a #highlight[linear-phase term] and some #highlight[real-valued transfer function] $H_"zp"(Omega)$ (*$"zp"$*: #highlight[zero-phase filter])] 
+  #set par(leading: 0.8em)
+  #small[#text(red)[*$#[]^1$*]: transfer function of symm. FIR are the product of a #highlight[linear-phase term] and some #highlight[real-valued transfer function] $H_"zp"(Omega)$ (*$"zp"$*: #highlight[zero-phase filter])]
 ]
 #small[$==>$ anti-symmetric: constant $90 degree$ phase offset]
 
 
 #small[
-#callout(title: [Stop Band $180 degree$ Jump])[
+  #callout(title: [Stop Band $180 degree$ Jump])[
     In the stop band of a symm. FIR filter there can be $180 degree$-phase-jumps. Such discontinuities in phase response occur at a #highlight[pair of complex-conj. zeros at the unit circle]. This are often tolerated in #highlight[favor of sufficient attenuation in the stop band]
   ]
 ]
@@ -1114,22 +1257,22 @@ A FIR filter is symmetric when #formula(inset:(x: 1pt, y: 3pt), baseline: 0.4em)
   #show table.cell.where(y: 0): it => small(strong(it))
   #set table(
     stroke: (x, y) => {
-      if y == 0 {(bottom: 0.25pt, top: 0.25pt)}
-      if x == 0 or x == 4 {(right: 0.25pt)}
-      if x == 0 {(left: 0.25pt)}
-      if (x >= 2 and x <= 5) {(left: (thickness: 0.25pt, dash: (2pt, 4pt), paint: gray))}
-      if (y > 0) {(bottom: 0.25pt)}
+      if y == 0 { (bottom: 0.25pt, top: 0.25pt) }
+      if x == 0 or x == 4 { (right: 0.25pt) }
+      if x == 0 { (left: 0.25pt) }
+      if (x >= 2 and x <= 5) { (left: (thickness: 0.25pt, dash: (2pt, 4pt), paint: gray)) }
+      if (y > 0) { (bottom: 0.25pt) }
     },
   )
   #table(
-    columns: (2.6em, auto,auto,auto,auto),
+    columns: (2.6em, auto, auto, auto, auto),
     align: (center + horizon),
     inset: (x: 2pt, y: 3pt),
     [Type], [low-pass (LP)], [high-pass (HP)], [band-pass(BP)], [band-stop (BS)],
-    [1], [yes],[yes],[yes],[yes],
-    [2], [yes],[--],[yes],[--],
-    [3], [--],[--],[yes],[--],
-    [4], [--],[yes],[yes],[--],
+    [1], [yes], [yes], [yes], [yes],
+    [2], [yes], [--], [yes], [--],
+    [3], [--], [--], [yes], [--],
+    [4], [--], [yes], [yes], [--],
   )
 ]
 
@@ -1147,19 +1290,23 @@ The _Window Design Method_ always yields low pass filters $->$ other filters are
 
 Start of with a desired frequency response $H_d(Omega)$ of an ideal TP-filter with cutoff at $f_C$:
 
-$ h_(d"TP")[n] = (sin(Omega_C dot n))/(pi dot n) image "rectangular signal in freq. domain" $
+$ h_(d"TP")[n] = (sin(Omega_C dot n)) / (pi dot n) image "rectangular signal in freq. domain" $
 
 - #b[Restrictions]: finite length ideal impulse response (corresponds to multiplication with $square$-window *\/* convolution with sinc-function) $->$ overshoot at edges of pass and stop bands
   - persists for $N -> infinity$ (only helps to reduce the width of the transition band)
   - Solution: use different windowing functions to smooth the overshoot at a cost of wider transition bands
 
-#small(callout(title: "Example High-Pass Filter", color: color.lighten(color_green, 20%), icon: "repo")[
-TP with cutoff at $f_S\/2$ minus TP with cutoff at $f_C$:
+#small(
+  callout(title: "Example High-Pass Filter", color: color.lighten(color_green, 20%), icon: "repo")[
+    TP with cutoff at $f_S\/2$ minus TP with cutoff at $f_C$:
 
-$ h_(d"HP")[n] &= (sin(pi dot n))/(pi dot n) - sin(Omega_C dot n)/(pi dot n) \
-               &= {dots, -h_(d"TP")[-2], -h_(d"TP")[-1], 1-h_(d"TP")[0], -h_(d"TP")[1], -h_(d"TP")[2], dots} $
+    $
+      h_(d"HP")[n] &= (sin(pi dot n)) / (pi dot n) - sin(Omega_C dot n) / (pi dot n) \
+      &= {dots, -h_(d"TP")[-2], -h_(d"TP")[-1], 1-h_(d"TP")[0], -h_(d"TP")[1], -h_(d"TP")[2], dots}
+    $
 
-])
+  ],
+)
 
 #columns(2, gutter: 0pt)[
   #image("window_part1.png")
