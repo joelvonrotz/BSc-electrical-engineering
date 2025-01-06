@@ -8,6 +8,9 @@
 #set columns(gutter: 4mm)
 #set page(columns: 3)
 
+
+#show image: set align(center) // default image alignments
+
 #let accent = "425eaf"
 #let color_redish = rgb("#cb4154")
 #let color_alert = color_redish
@@ -176,7 +179,7 @@ Die Funktion #raw(".Abort()", lang: "cs") "killed" den Thread à la:
 
 ...ist eine Konstellation, in denen das Ergebnis einer Operation vom zeitlichen Verhalten bestimmter Einzeloperationen abhängt.
 
-#align(center)[#image("race_conditions.png")]
+#image("race_conditions.png")]
 
 Gute Lösung dazu muss vier Bedingungen erfüllen:
 
@@ -190,7 +193,7 @@ Gute Lösung dazu muss vier Bedingungen erfüllen:
 
 Entsteht, wenn Threads auf Resourcen warten, welche sie gegenseitig sperren und somit kein Thread sich befreien kann.
 
-#align(center)[#image("deadlock.png", width: 7cm)]
+#image("deadlock.png", width: 7cm)]
 
 === Join-Funktion
 
@@ -473,7 +476,7 @@ StreamWriter sw = new StreamWriter(fs);
   heading(level: 2)[Socket Kommunikation], small[`System.Net.Sockets.Socket`],
 )
 
-#align(center)[#image("endtoend.png", width: 90%)]
+#image("endtoend.png", width: 90%)
 
 Sockets werden für _Interprozesskommunikation_ verwendet, also zwischen zwei oder mehrere Prozesse (z.B. Applikation). Damit zwei Prozesse sich verstehen, müssen beide die #u[selbe Sprache] (Protokoll) sprechen: _TCP/IP_, _UDP_, _Datagram-Sockets_, _Multicast-Sockets_, etc.
 
@@ -494,13 +497,13 @@ Ermöglicht das Senden von gekapselte rohe IP Datagramme zu übertragen, ohne Ve
 
 $arrow.double$ _Verbindungslos_ bedeutet keine Garantie, dass das gesendete Paket beim Empfänger ankommen.
 
-#align(center)[#image("udp_datagram.png", width: 90%)]
+#image("udp_datagram.png", width: 90%)
 
-#align(center)[#image("udp_header.png", width: 90%)]
+#image("udp_header.png", width: 90%)
 
 UDP Header besteht aus 8 Byte. Die _Länge_ entspricht Header Bytes + Daten Bytes. Die Prüfsumme wird über das gesamte Frame berechnet (IP Paket).
 
-#align(center)[#image("udp_ports.png", width: 90%)]
+#image("udp_ports.png", width: 90%)
 
 Der Ziel-Port bestimmt, für welche Anwendung ein Datenpaket bestimmt ist.
 
@@ -517,7 +520,7 @@ Datagram ist ähnlich wie bei UDP.
 
 TCP kann als End-to-End Verbindung in Vollduplex betrachtet werden $arrow$ Möglich mit separierten Sende- & Empfangs-Counter.
 
-#align(center)[#image("tcp_header.png", width: 90%)]
+#image("tcp_header.png", width: 90%)
 
 Wichtige Merkmale:
 
@@ -531,7 +534,7 @@ Wichtige Merkmale:
 
 / Congestion Control: Dynamische Datenübertragungsrate anhand Netzwerkauslastung
 
-#align(center)[#image("tcp_ports.png", width: 90%)]
+#image("tcp_ports.png", width: 90%)
 
 Verbindungsaufbau wird via _Three-Way_ Handshake gemacht (folgendes Bild rechts). Der Abbau mit einem _Four-Way_ Handshake (folgendes Bild links).
 
@@ -658,7 +661,7 @@ Chinesische Firma in Shanghai (Gründung 2008). Halbleiter-Chips werden bei TSMC
 ]
 
 
-#align(center)[#image("esp32_blockdiagramm.png", height: 74%)]
+#image("esp32_blockdiagramm.png", height: 74%)
 
 == ESP-IDF
 
@@ -674,7 +677,7 @@ Chinesische Firma in Shanghai (Gründung 2008). Halbleiter-Chips werden bei TSMC
 6. 'main' Task $arrow$ ruft `app_main()` Funktion auf
 7. Anwendung läuft in `app_main()`, oder started neue Tasks
 
-#align(center)[#image("esp32_startup.png", width: 80%)]
+#image("esp32_startup.png", width: 80%)
 
 === ESP app_main()
 
@@ -945,7 +948,7 @@ $=>$ Falls eine Verbindung nicht geht, wird die alternative Verbindung (z.B. Hom
     inset: 5pt,
   )[UDP hat einen kleineren Header als TCP (8-Byte vs 20 Byte)!]]
 
-#cimage("udp_server_startup.png", width: 70%)
+#image("udp_server_startup.png", width: 70%)
 
 == (Espressif) FreeRTOS SMP
 #v(-0.8em)
@@ -1036,22 +1039,22 @@ xTaskCreatePinnedToCore(
 
 == Übliche WSN Anwendung und Stack
 
-#cimage("nrf_typical_app.png", width: 95%)
+#image("nrf_typical_app.png", width: 95%)
 
 == RNet Stack Anwendung
 
-#cimage("rnet_stack_app.png", width: 95%)
+#image("rnet_stack_app.png", width: 95%)
 
 == Payload Packaging
 
-#cimage("nrf_payload_packaging.png", width: 95%)
+#image("nrf_payload_packaging.png", width: 95%)
 
 == Radio States & Processing
 
 #image("radio_states.png")
 
 
-#cimage("radio_processing.png", width: 80%)
+#image("radio_processing.png", width: 80%)
 
 Der Radio-Stack behandlet die Payloads via Queues (mit einem Task)! Senden wird direkt in die Queue geschrieben via Wrapper Funktion. Lesen wird über ein `OnPackt`-Event ausgelöst.
 
@@ -1084,7 +1087,7 @@ Der Radio-Stack behandlet die Payloads via Queues (mit einem Task)! Senden wird 
   #h(1fr)#small[synchron]
   #v(0.1em)
 
-  #cimage("modell_application_layer.png", width: 50%)
+  #image("modell_application_layer.png", width: 50%)
 
   Schichtung der Hardware und Software.
 
@@ -1096,14 +1099,14 @@ Der Radio-Stack behandlet die Payloads via Queues (mit einem Task)! Senden wird 
 
   === Events
 
-  #image("modell_events.png")
+  #image("modell_events.png", width: 80%)
 
   Gemeinsamer Bus. Publish-Subscribe Modell. Oft mit objektorientiertem Ansatz kombiniert
 
   === Shared Data Space
   #small[z.B. Dropbox, VCS]
 
-  #image("modell_shareddataspace.png")
+  #image("modell_shareddataspace.png", width: 80%)
 
   Variante eines Event-Systems $->$ typisch Subscriber-Publisher!
 
@@ -1111,34 +1114,89 @@ Der Radio-Stack behandlet die Payloads via Queues (mit einem Task)! Senden wird 
 
   === Client-Server
 
-  #image("modell_clientserver.png")
+  #image("modell_clientserver.png", width: 80%)
 
-  #todo[ letzter Stand]
+  #small[
+
+  - *Server*: passiv \
+    - *Stateless*: behält keine Infos
+    - *Stateful*: merkt sich Infos (zwischen Anfragen)
+  - *Client*: aktiv, Leader
+
+  #octicon("x-circle", color: color_redish): nicht gut skalierbar, _single point of failure_
+  ]
 
   === Mehrfach-Server
 
   #image("modell_multipleservers.png")
 
+  #small[
+    - Mehrere Server (virtuell 1 Service)
+    - Server untereinander verbunden
+    #octicon("check-circle", color: color_green) redundanz, skalierbar\
+    #octicon("alert", color: color_caution) Server Synchronisation
+  ]
+
   === Proxy
 
   #image("modell_proxy.png")
 
+  #small[
+    - Zugriffskontroller
+    - Caching
+  ]
+
   === Mobiler Client
 
-  #image("modell_mobileclient.png")
+  #image("modell_mobileclient.png") 
+
+  #small[
+    - Mobiler Code/Applet
+    - Übertragung/Transfer Applet
+    - Verteilung von Server Code und/oder Daten
+    - Reduktion Netzbelastung
+  ]
 
   === Thin Client
 
   #image("modell_thinclient.png")
 
+  #small[
+    - Verlagerung rechenintensiver Arbeit auf den Server
+    - Verwendung schwache Clients
+    - Balance Rechenleistung vs. übertragender Datenmenge
+  ]
+
   === Peer-to-Peer
 
   #image("modell_p2p.png")
 
+  #small[
+    - 'Shareable Objects'
+    - Symmetrisch, allehaben die gleichen Rechte, echt verteilt
+    - Braucht Daten/Discovery-Management
+    - Ausfallsicherheit durch Redundanz
+  ]
+
   === Environment
 
-  #cimage("modell_environment.png", width: 60%)
+  #image("modell_environment.png", width: 60%)
+
+  #small[
+    - Design Beeinflusst durch Umgebung
+    - Hierarchien
+    - Kommunikationswege
+    - Latenzen
+
+    Beispiel für _country_-server: Games Multiplayer Server
+  ]
 ]
+
+== SystemView
+
+#image("systemview.png")
+
+Es kann SystemView für ESP32 angewendet werden, einfach nicht realtime. Es wird geloggt via die JTAG Schnittstelle (UART um genau zu sein). Wenn _HW Up Buffer_ voll ist (durch zu langsames transferieren), muss dieser geleert werden $->$ in SystemView gibt es einen auffälligen Unterbruch.
 
 == Multicore
 
