@@ -49,8 +49,8 @@
   text(fill: color)[#body]
 }
 
-#let octicon(icon, color: black) = {
-  octique-inline(icon, baseline: 15%, color: color)
+#let octicon(icon, color: black, baseline: 15%) = {
+  octique-inline(icon, baseline: baseline, color: color)
 }
 
 #let cimage(..args) = {
@@ -63,8 +63,8 @@
   ]
 }
 
-#let imageIcon(..icon) = {
-  box(align(center + horizon, image(..icon, fit: "cover", width: 1.2em)), width: 0.8em, height: 1.2em, baseline: 0.2em)
+#let imageIcon(..icon, baseline: 0.2em) = {
+  box(align(center + horizon, image(..icon, fit: "cover", width: 1.2em)), width: 0.8em, height: 1.2em, baseline: baseline)
 }
 
 

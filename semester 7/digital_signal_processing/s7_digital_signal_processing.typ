@@ -1,5 +1,6 @@
 #import "@preview/octique:0.1.0": *
-#import "@preview/physica:0.9.4": *
+#import "@preview/physica:0.9.4"
+#import "../symbols.typ": *
 
 #import "../summary_template.typ": conf
 #import "../commands.typ": *
@@ -311,7 +312,7 @@ $
   #highlight([Example])
 
   #set par(leading: 0.8em)
-  #small[following describes a filter bank with\ $M = 4 "channels"$ and $"oversampling factor" D=2$]
+  #[following describes a filter bank with\ $M = 4 "chls"$ and $"oversmpl'ing factor" D=2$]
 
   #image("transferfunction_4channelbank.png", width: 79%)
 ]
@@ -327,7 +328,7 @@ $
 #small(
   callout(title: "Some Basics")[
     / deterministic: value can be determined at any time
-    / transient: begrenzte Zeitdauer
+    / transient: limited time duration
 
 
     #line(length: 100%, stroke: 0.5pt + gray)
@@ -351,7 +352,7 @@ $
       - not necessarily stable
 
       $ y[n] = sum_(n=0)^(N-1) b_n dot x[k-n] - sum_(m=1)^(M) a_m dot y[n-m] $
-      
+
       #todo[Levinson-Durbin-Rekursion]
     ]
 
@@ -359,74 +360,447 @@ $
 )
 
 = Random Signals
+#[
+  #set par(leading: 0.8em)
+  #small[
+    #grid(columns: (1fr, 1.2fr))[
+
+      - Characterization
+        - first-order statistic: *Mean value*
+        - second-order statistic: *Autocorrelation*
+    ][
+      - Stationary Signals
+        - no change in mean value ($dot(m)_x=dot(gamma)_(x x)=0$)
+        - infinite energy $->$ no fourier transform ($underbrace(X_(["n1","n2"])(Omega),"ranged DTFT")$)
+    ]
+    #v(-1em)
+    ($gamma_(x x)$ #highlight(top-edge: "ascender")[higher $->$ more determinable/similar ; more fluctuating $->$ narrower the $gamma_(x x)$])
+  ]
+]
 
 == Autocorrelation $gamma$ and Spectrum
 
 #columns(2, gutter: 5pt)[
-  #highlight[first-order statistic: *Mean value*]
-  $ m_x & = E{x[n]} \ dot(m)_x &= 0 "for stationary signals (time)" $
+  #highlight[Mean value]
+  $ m_x & = E{x[n]} \ dot(m)_x &= 0 "for stationary signals" $
 
-  #[#highlight[autocovariance] (for signals with $m_x != 1$)]
+  #[#highlight[Autocovariance] (for signals with $m_x != 0$)]
 
   $ c_(x x)[m]=E{(x[n]-m_x)^* dot (x[n+m] - m_x)} $
 
   $c_(x x)[0]$: #small[Variance of signal ($E{abs(x[n]-m+x)^2}$)]
 
+  #line(length: 100%, stroke: 0.5pt + gray)
+
+  Power: $P=gamma_(x x)[0]$
+
+
   #colbreak()
 
-  #highlight[second-order statistic: *Autocorrelation*]
+  #highlight[Autocorrelation]
 
   $ gamma_(x x)[m] = E{x^*[n] dot x[n+m]} $
 
-  $ gamma_(x x)[m] = gamma_(x x)^*[-m] $
+  $
+    gamma_(x x)[m] = gamma_(x x)^*[-m] "for real random" \
+    dot(gamma)_(x x) = 0 "for stationary signals"
+  $
+
+  #align(center)[$m$: distance between two samples]
+
+  #small(callout(title: [stationary time $!=$ stationary frequency])[A stationary random signal has fluctuating $f$ ])
+]
+
+=== Power Density Spectrum
+#v(-2.2em)
+#h(1fr)#box(
+  fill: white,
+  inset: (y: 2pt, left: 2pt),
+  outset: (right: 1pt),
+)[Power cannot be negative!]
+
+- Reveals Spectral composition of a stationary process ("where energy is")
+- Mirrored on Y-axis (range $Omega in [0, pi]$ suffices) #h(2mm) #sym.bullet #h(2pt) $Gamma_(x x) = transform.fourier (gamma_(x x))$
+
+$
+  Gamma_(x x) (Omega) = sum_(m=-infinity)^(infinity) gamma_(x x)[m] dot e^(-j Omega m) quad ; quad P_x=1 / (2 pi) integral_(-pi)^pi Gamma_(x x) (Omega) d Omega
+$
+
+#highlight[White Noise]
+
+#columns(2)[
+  #text(0.9em)[White noise has a *constant* spectrum, as they represent all noises at the same time!]
+
+  #colbreak()
+  #v(-1em)
+  $
+    gamma_(w w)[m] = cases(sigma^2  "if" m = 0, 0  "if" m != 0) #h(0.5em) ; #h(0.5em) Gamma_(w w) (Omega) = sigma_w^2
+  $
+]
+
+== Spectral Shaping
+#v(-2em)
+#h(1fr)#box(
+  fill: white,
+  inset: (y: 2pt, left: 2pt),
+  outset: (right: 1pt),
+)[Stationary random in, stationary random out]
+
+#grid(columns: (1fr, 1.5fr), column-gutter: 4pt)[
+  #image("spectralshaping.png")
+
+][
+  $
+    y[n] = sum_(k=-infinity)^(infinity) h[k] dot x[n-k] quad #small[$H(Omega) = sum_(k=-infinity)^(infinity) h[k] dot e^(-j Omega k)$]
+  $
+  $
+    m_y &= H(0) dot m_x quad | quad
+    gamma_(y y) &= h^*[-i] convolve gamma_(x x)[m] convolve h[k]
+  $
+]
+
+#small[for auto correlation one $h[n]$ is mirrored and complex conjugated! $ quad quad i = -infinity, dots, -1, 0, 1, dots, infinity$]
+
+$
+  Gamma_(y y)(Omega) = H^*(Omega) dot Gamma_(x x)(Omega) dot H(Omega) = abs(H(Omega))^2 dot Gamma_(x x)(Omega) = undershell(abs(H(Omega))^2 dot sigma_(w)^2, "white noise")
+$
+
+== Linear Models for Stochastic Processes
+#v(-2em)
+#h(1fr)#box(
+  fill: white,
+  inset: (y: 2pt, left: 2pt),
+  outset: (right: 1pt),
+)[#small[Include noise in simulations!]]
+
+#grid(columns: (1.2fr, 1fr))[
+  $ Gamma_(w w)(z) = sum_(m=-infinity)^(infinity) gamma_(w w)[m] dot z^(-m) = sigma_w^2 $
+
+  #small[#imageIcon("arrow-narrow-down.svg") Stable when all poles and zeroes inside unit circle #imageIcon("arrow-narrow-down.svg")]
+  #v(-1mm)
+
+][
+  $
+    Gamma_(y y) &= H(z^(-1)) dot Gamma_(x x)(z) dot H(z)\
+    &= sigma_w^2 (z) dot H(z) dot H(z^(-1))
+  $
+
+]
+#grid(columns: (3fr, 1fr), align: horizon)[
+
+  $
+    H(z) = B(z) / A(z) = (sum b_k z^(-k)) / (1 + sum a_k z^(-k)) ==> Gamma_(y y)(z) = sigma_w^2 dot (B(z) dot B(z^(-1))) / (A(z) dot A(z^(-1)))
+  $
+][
+  #set par(leading: 0.8em)
+  #text(0.8em)[white no. provides complete random portion]
+]
+
+#[
+  #set par(leading: 0.5em)
+  #highlight[Noise Whitening]: reverse operation #formula(inset: (x: 1pt, y: 2pt), stroke: gray + 0.5pt, baseline: 20%)[$H_w (Omega) = 1\/(H(Omega))$] reverses the generated random noise back to white noise. $w[n]$: "innovations process" of $y[n]$.
+]
+
+$
+  w[n] = 1 / b_0 dot (y[n] + sum_(k=1)^(N) a_k y[n-k] - sum_(k=1)^(M) b_k w[n-k])
+$
+
+example: Pre-Filter for making calculation of wiener-filters easier.
+
+=== Moving Average (MA) model
+#v(-2.1em)
+#h(1fr)#box(
+  fill: white,
+  inset: (y: 2pt, left: 2pt),
+  outset: (right: 1pt),
+)[#small[Wideband applications]]
+
+- White noise + FIR-Filter $H(z)$ with $M$th order ($M$ delays + no poles)
+
+#columns(2)[
+  $ y[n] = sum_(k=0)^(M) b_k w[n-k] $
+  #colbreak()
+
+  $H(z)$ : FIR filter \ $1\/H(z)$: IIR Filter
+]
 
 
+- $b_0 = b_1 = dots = (M+1)^(-1)$: every output sample = avg, over sliding window $M+1$
+- different coefficients result in selective combinations of white noise input
+- _World Representation_: every stat. stoc. process $=>$ infinite moving average process
+
+$
+  gamma_(y y)[m] = cases(sigma_w^2 sum_(k=m)^(M) b_k dot b_(k-m)^* &"if" 0 <= m <= M, 0 &"if" m > M , gamma_(y y)^*[-m] &"if" m<0)
+$
+
+=== Autoregressive (AR) model
+#v(-2.1em)
+#h(1fr)#box(
+  fill: white,
+  inset: (y: 2pt, left: 2pt),
+  outset: (right: 1pt),
+)[#small[Narrowband applications (Human Vocal Tract: all pole filter)]]
+
+#grid(columns: (1fr, 1.1fr))[
+  #v(1mm)
+  - $B(dots)=1$: no zeroes, only poles
+
+  $ y[n] = w[n] - sum_(k=1)^(N) a_k dot y[n-k] $
+
+
+][
+  $
+    gamma_(y y)[m] = cases(
+  - sum_(k=1)^(N) a_k dot gamma_(y y)[m-k] &"if" m > 0,
+  sigma_m^2 - sum_(k=1)^(N) a_k dot gamma_(y y)[-k] &"if" m=0,
+  gamma_(y y)^*[-m] &"if" m<0
+)
+  $
+]
+
+- weighted sum older values + noise $=>$ staionary not guaranteed
+#small[_Yule-Walker equations_:]
+$
+  mat(gamma_(y y)[0], gamma_(y y)[-1], dots.c, gamma_(y y)[-N];
+     gamma_(y y)[1], gamma_(y y)[0], dots.c, gamma_(y y)[-N+1];
+     dots.v,  dots.v,   , dots.v;
+     gamma_(y y)[N], gamma_(y y)[N-1], dots.c, gamma_(y y)[0]) dot mat(1; a_1 ; dots.v ; a_N)= mat(sigma_w^2; 0; dots.v ; 0)
+$
+
+#colbreak()
+
+=== ARMA model
+
+#columns(2)[
+
+  - Generalization of MA & AR
+  - $B(dots): M >= 1$ and $A(dots): N >= 1$
+  #colbreak()
+  - More suitable for random processes due to having fewer coefficients for "same" accuracy.
 
 ]
 
-#todo[]
-
-== Spectral Shaping
-
-#todo[]
-
-== Linear Models for Stochastic Processes
-
-#todo[]
-
 == Spectral Density Estimation
 
+=== Nonparametric Method
+
+#callout(title: small[Big no-no: periodogram])[
+  #grid(columns: (1fr, 1.4fr))[
+    $"DTFT"^2$ = _periodogram_
+    $ hat(Gamma)_(x x) (Omega) = 1 / N abs(sum_(n=0)^(N-1) x[n] dot e^(-j Omega n))^2 $
+  ][
+    #small[
+
+      #octicon("x-circle", color: red): any $Omega_0 ->$ $hat(Gamma) (Omega_0)$ has large variance
+
+      #[
+        #set par(leading: 0.5em)
+        #octicon("x-circle", color: red): variance does not decrease with increasing sample basis
+      ]
+    ]
+  ]
+
+]
+
+#columns(2)[
+  #highlight[Biased Autocorrelation Estimator]
+  #colbreak()
+
+  #highlight[Unbiased Autocorrelation Estimator]
+]
+$ "for" m "between" 0 "and" N-1 quad \/ quad =0,1,dots,N-1 $
+
+#columns(2)[
+
+  $ hat(gamma)_(x x) [m] = 1 / N sum_(n=0)^(N-m-1) x^*[n] dot x[n+m] $
+
+  #small[
+    #set list(marker: text(color_green)[*$+$*])
+    - Easy to calculate
+
+    #set list(marker: text(color_redish)[*$-$*])
+    - Distorts result, as higher $m$ leads to less data in the sum
+    - same problem as periodogram
+  ]
+
+
+  #colbreak()
+
+
+  $ hat(gamma)_(x x) [m] = 1 / (N-m) sum_(n=0)^(N-m-1) x^*[n] dot x[n+m] $
+
+  #small[
+    #set list(marker: text(color_green)[*$+$*])
+    - No distortion $->$ corrected by $1\/(N m)$
+
+    #set list(marker: text(color_redish)[*$-$*])
+    - a bit complexer to calculate
+    - High variance at $abs(m)approx N ->$ few summands
+    - does not guarantee $hat(Gamma)_(x x)(Omega) >= 0$ (big nono)
+  ]
+]
+
+#small[
+  #[*Possible estimator corrections*]
+  - Bartlett's method: segmentation and averaging
+  - Windowing: smooth spectral density $->$ deceases variance at cost of resolution]
+
+=== Parametric Method
+
+#small[
+  - Structure of a noise source is known (to some degree) $->$ build on specific model tuned by a fixed number of parameters
+    - ARMA models are populars, due few parameters with tight fitting to real sources
+    #columns(2)[
+
+      #set list(marker: text(color_green)[*$+$*])
+      - High accuracy
+
+      #colbreak()
+      #set list(marker: text(color_redish)[*$-$*])
+      - Complexer to calculate
+      - improper parameters leads to instability]
+
+]
+
+#columns(2)[
+  #highlight[Yule-Walker] (using AR model)
+  #small[
+
+    Substituting $gamma_(x x)[m]$ in the equations with $hat(gamma)_(x x)[m]$
+
+
+    #set list(marker: text(color_redish)[*$-$*])
+    - unbiased variant can lead to unstable AR
+
+  ]
+  #highlight[Burg's Method]
+
+  #small[
+    Uses forward and backwards prediction similar to Levinson-Durbin recursion.
+
+    #set list(marker: text(color_green)[*$+$*])
+    - Better results, even with fewer samples
+    - More efficient, as forward and backwards error is minimized
+  ]
+  #colbreak()
+
+  #highlight[Least Square model fitting] (with AR)
+
+  #small[Fitting via square error. $hat(y)=$ interpreted as forward prediction from the preceding $N$ samples]
+
+  $ hat(y) = -sum_(k=1)^(N) a_k dot y[n-k] $
+
+  #small[prediction error:]#h(2mm) $w[n]= y[n]-hat(y)[n]$
+
+  #small[- might lead to same values as Yule-Walker]
+]
+
+#small[*Use Case of AR model*: nuclear reactors. AR model fitted to reactor noise during normal operation. Deviating noise leads to sudden increase in prediction error $abs(y[n] - hat(y)[n])$.]
+
+= Optimal Linear Filters
+
+Perfect reconstruction might not be possible in presence of noise $->$ approximate original signal as accurately as possible. _Estimation_ is interpreted in various different ways, but _mean squared error_ is generally used (also used for power/energy calc.).
+
+#[
+  #set list(marker: text(color_green)[*$+$*])
+- Simple structure
+- Linear filters are preferred: (almost) as powerful as complex nonlinear estimators.
+]
+
+#[#set list(marker: text(color_redish)[*$-$*])
+    - MSE: strong deviations are heavily weighted by squaring
+]
+
+== Wiener Filters
+- For discrete & continuous #u[stationary] signals/noise
+- Efficient implementation using Levinson-Durbin recursion
+- $s[n]$ & $v[n]$ are independent, zero-mean stationary random signals
+- Calculate filter coefficients $w_0, w_1, dots, w_M$ to keep MSE low
+  - difficult if SNR is low
+
+#grid(columns: (1fr, 0.6fr), gutter: 5pt)[
+#image("wiener_filter.png", width: 100%)
+#align(center)[
+  #v(-2.7em)
+  #h(2.8em)#small[*FIR Filter $M$th order*]
+  #v(1em)
+]
+
+][
+
+#v(-6mm)
+#image("wienerfilter_flow.png")
+  #text(color_green)[*current*], #text(orange)[*observed samples*]
+]
+#grid(columns: (1fr, 1.4fr))[
+  #highlight[Estimated signal $hat(s)$ with $D$ delays]:
+
+  $ hat(s) [n+D] = sum_(i=0)^(M) omega_i dot y[n-i] $
+][
+
+  _Smoothing_ $D<0$: eliminate noise \
+  _filtering_ $D=0$: (almost) recover signal in real time \
+  _prediction_ $D>0$: forecast the future course
+]
+
+#columns(2)[
+
+
+#v(1em)
+$ epsilon_"MSE" = E{abs(hat(s)[n+D]-s[n+D])^2} $
+#v(-0.8em)#h(33.5%)#small[*mean*#imageIcon("arrow-narrow-up.svg")]#h(15%)#small[#imageIcon("arrow-narrow-up.svg")*original*]
+#v(-4.4em)#h(43.5%)#small[#imageIcon("arrow-narrow-down.svg")*prediction*]
+
+#colbreak()
+#highlight[optimal coefficients]:
+
+$ tilde(underline(w)) = arg min_underline(w) (epsilon_"MSE" (underline(w))) => "derivative = 0" $
+]
+
+=== Wiener Hopf Equation
+
+$ R_(y y) = mat(gamma_(y y)[0], gamma_(y y)[-1], dots.c, gamma_(y y)[-M];
+                gamma_(y y)[1], gamma_(y y)[0], dots.c, gamma_(y y)[1-M];
+                dots.v, dots.v,,dots.v;
+                gamma_(y y)[M], gamma_(y y)[M-1], dots.c, gamma_(y y)[0]) quad r_(s y)=mat(gamma_(s y)[D]; gamma_(s y)[D+1]; dots.v; gamma_(s y)[D+M]) quad tilde(w)=mat(tilde(w)_0;tilde(w)_1; dots.v ; tilde(w)_M) $
+
+Autocorrelation of filter input: #h(1fr) $gamma_(y y)[m] = E{y[n] dot y^*[n-m]}$\ #v(0.5em)
+Autocorrelation of white noise: #h(1fr) $display(gamma_(v v)[m] = delta[m] = cases(1 & "if" m = 0, 0 &"if" m != 0))$\ #v(0.5em)
+Crosscorrelation of filter input and desired response: #h(1fr) $gamma_(s y)[m] = E{s[n] dot y^*[n-m]}$
+
+$
+  R_(y y) dot tilde(w) = r_(s y) quad ==> quad tilde(w) = R_(y y)^(-1) dot r_(s y) 
+$
+
 #todo[]
 
-= Wiener Filters
+=== Unconstrained Wiener Filters
 
 #todo[]
 
-== Unconstrained Wiener Filters
+=== The Principle of Orthogonality
 
 #todo[]
 
-== The Principle of Orthogonality
+== Kalman Filter
 
 #todo[]
 
-= Kalman Filter
+= Adaptive Filters
+
+== Linear Predictive Coding
 
 #todo[]
 
-= Linear Predictive Coding
+== LMS Algorithm
 
 #todo[]
 
-= LMS Algorithm
+=== The LMS Algorithm
 
 #todo[]
 
-== The LMS Algorithm
-
-#todo[]
-
-== Acoustic Echo Cancellation
+=== Acoustic Echo Cancellation
 
 #todo[]
 
@@ -1067,7 +1441,7 @@ $ y[n] = sum_(k=0)^(N) b_k dot x[n-k] - sum_(k=1)^(M) a_k dot y[n-k] $
   #v(-0.8em)
   $ #rotate(-90deg)[$image$] $
   #v(-0.8em)
-  $ y[n] &= sum_(k=0)^(N) b_k space z^(-k) dot X(z) - sum_(k=1)^(M) a_k space z^(-k) dot Y(z) $
+  $ Y(z) &= sum_(k=0)^(N) b_k space z^(-k) dot X(z) - sum_(k=1)^(M) a_k space z^(-k) dot Y(z) $
 ][
   #highlight[z-Transfer-Function]
 
