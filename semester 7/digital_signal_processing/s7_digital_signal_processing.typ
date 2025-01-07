@@ -19,6 +19,7 @@
 #let color_blue = rgb("#2549e7")
 #set text(lang: "de")
 #set par(leading: 1em, spacing: 0.9em, justify: true)
+#set enum(numbering: (it => strong[#it.]))
 
 
 #set columns(gutter: 4mm)
@@ -190,8 +191,6 @@ $
   outset: (right: 1pt),
 )[Efficient filter implementation]
 
-#todo[Relearn]
-
 Split filter into $M$ *downsampled* variants of the impulse resonse $h[k]$. Every variant $p_i[k]$ holds only every $M$-th coefficient ("sum" of variants = $h[k]$)
 
 #align(center)[
@@ -212,7 +211,6 @@ Split filter into $M$ *downsampled* variants of the impulse resonse $h[k]$. Ever
 
 #image("polyphase_responses.png", width: 95%)
 
-#todo[include fourier transform equation by hand!]
 
 == Sampling Rate Conversion
 
@@ -304,7 +302,6 @@ $
 $
 
 #columns(2, gutter: 0pt)[
-
   #image("dftfilterbank.png")
 
   #colbreak()
@@ -315,47 +312,52 @@ $
   #[following describes a filter bank with\ $M = 4 "chls"$ and $"oversmpl'ing factor" D=2$]
 
   #image("transferfunction_4channelbank.png", width: 79%)
-]
 
-#v(-5em)
+  #h(2mm)
+  $arrow.l.double$ input: $h[0], h[1],dots, h[M-1]$
+]
+#v(-7em)
 #grid(columns: (1.1fr, 1fr), gutter: 4pt)[
-  #image("4channel_filterbank.png", width: 100%)
-  #small[input: $h[0], h[1],dots, h[M-1]$]
+  #image("4channel_filterbank.png", width: 90%)
 ][
   #v(5em)
 ]
 
 #small(
   callout(title: "Some Basics")[
-    / deterministic: value can be determined at any time
-    / transient: limited time duration
+    *deterministic*: value can be determined at any time #h(3em) *transient*: limited time duration
 
 
     #line(length: 100%, stroke: 0.5pt + gray)
     #columns(2)[
       #set math.cancel(cross: true, stroke: 0.4pt + red)
 
-      / Finite Impulse Response:
+      / Finite Impulse Response (always stable):
       - Impulse response is infinite
       - No feedback ($y[n space cancel(-m) space]$)
-      - always stable
 
       $ y[n] = sum_(a=0)^(N-1) b_a dot x[n-a] $
 
-      #todo[grafisch Falten]
-
       #colbreak()
 
-      / Infinite Impulse Response:
+      / Infinite Impulse Response (un-/stable):
       - Impulse response infinite due to feedback
       - Feedback of signals ($y[n -m]$)
-      - not necessarily stable
-
       $ y[n] = sum_(n=0)^(N-1) b_n dot x[k-n] - sum_(m=1)^(M) a_m dot y[n-m] $
 
-      #todo[Levinson-Durbin-Rekursion]
     ]
 
+
+    / Levinson-Durbin-Rekursion:
+    - efficient algo for solving linear equation systems with the _Toeplitz_-Matrix
+    - instead of inverting matrices, the TM is used to iteratively determine the solution.
+
+    #columns(2)[
+    / (linear) convolution:
+      $ z[n] = sum_(i=-infinity)^infinity x[i]y[n - i] = x[n]*y[n] $
+      #colbreak()
+
+    ]
   ],
 )
 
@@ -703,12 +705,12 @@ Perfect reconstruction might not be possible in presence of noise $->$ approxima
 
 #[
   #set list(marker: text(color_green)[*$+$*])
-- Simple structure
-- Linear filters are preferred: (almost) as powerful as complex nonlinear estimators.
+  - Simple structure
+  - Linear filters are preferred: (almost) as powerful as complex nonlinear estimators.
 ]
 
 #[#set list(marker: text(color_redish)[*$-$*])
-    - MSE: strong deviations are heavily weighted by squaring
+  - MSE: strong deviations are heavily weighted by squaring
 ]
 
 == Wiener Filters
@@ -719,17 +721,17 @@ Perfect reconstruction might not be possible in presence of noise $->$ approxima
   - difficult if SNR is low
 
 #grid(columns: (1fr, 0.6fr), gutter: 5pt)[
-#image("wiener_filter.png", width: 100%)
-#align(center)[
-  #v(-2.7em)
-  #h(2.8em)#small[*FIR Filter $M$th order*]
-  #v(1em)
-]
+  #image("wiener_filter.png", width: 100%)
+  #align(center)[
+    #v(-2.7em)
+    #h(2.8em)#small[*FIR Filter $M$th order*]
+    #v(1em)
+  ]
 
 ][
 
-#v(-6mm)
-#image("wienerfilter_flow.png")
+  #v(-6mm)
+  #image("wienerfilter_flow.png")
   #text(color_green)[*current*], #text(orange)[*observed samples*]
 ]
 #grid(columns: (1fr, 1.4fr))[
@@ -746,63 +748,243 @@ Perfect reconstruction might not be possible in presence of noise $->$ approxima
 #columns(2)[
 
 
-#v(1em)
-$ epsilon_"MSE" = E{abs(hat(s)[n+D]-s[n+D])^2} $
-#v(-0.8em)#h(33.5%)#small[*mean*#imageIcon("arrow-narrow-up.svg")]#h(15%)#small[#imageIcon("arrow-narrow-up.svg")*original*]
-#v(-4.4em)#h(43.5%)#small[#imageIcon("arrow-narrow-down.svg")*prediction*]
+  #v(1em)
+  $ epsilon_"MSE" = E{abs(hat(s)[n+D]-s[n+D])^2} $
+  #v(
+    -0.8em,
+  )#h(33.5%)#small[*mean*#imageIcon("arrow-narrow-up.svg")]#h(15%)#small[#imageIcon("arrow-narrow-up.svg")*original*]
+  #v(-4.4em)#h(43.5%)#small[#imageIcon("arrow-narrow-down.svg")*prediction*]
 
-#colbreak()
-#highlight[optimal coefficients]:
+  #colbreak()
+  #highlight[optimal coefficients]:
 
-$ tilde(underline(w)) = arg min_underline(w) (epsilon_"MSE" (underline(w))) => "derivative = 0" $
+  $ tilde(underline(w)) = arg min_underline(w) (epsilon_"MSE" (underline(w))) => "derivative = 0" $
 ]
 
 === Wiener Hopf Equation
 
-$ R_(y y) = mat(gamma_(y y)[0], gamma_(y y)[-1], dots.c, gamma_(y y)[-M];
+$
+  R_(y y) = mat(gamma_(y y)[0], gamma_(y y)[-1], dots.c, gamma_(y y)[-M];
                 gamma_(y y)[1], gamma_(y y)[0], dots.c, gamma_(y y)[1-M];
                 dots.v, dots.v,,dots.v;
-                gamma_(y y)[M], gamma_(y y)[M-1], dots.c, gamma_(y y)[0]) quad r_(s y)=mat(gamma_(s y)[D]; gamma_(s y)[D+1]; dots.v; gamma_(s y)[D+M]) quad tilde(w)=mat(tilde(w)_0;tilde(w)_1; dots.v ; tilde(w)_M) $
+                gamma_(y y)[M], gamma_(y y)[M-1], dots.c, gamma_(y y)[0]) quad r_(s y)=mat(gamma_(s y)[D]; gamma_(s y)[D+1]; dots.v; gamma_(s y)[D+M]) quad tilde(w)=mat(tilde(w)_0;tilde(w)_1; dots.v ; tilde(w)_M)
+$
 
 Autocorrelation of filter input: #h(1fr) $gamma_(y y)[m] = E{y[n] dot y^*[n-m]}$\ #v(0.5em)
 Autocorrelation of white noise: #h(1fr) $display(gamma_(v v)[m] = delta[m] = cases(1 & "if" m = 0, 0 &"if" m != 0))$\ #v(0.5em)
 Crosscorrelation of filter input and desired response: #h(1fr) $gamma_(s y)[m] = E{s[n] dot y^*[n-m]}$
 
 $
-  R_(y y) dot tilde(w) = r_(s y) quad ==> quad tilde(w) = R_(y y)^(-1) dot r_(s y) 
+  R_(y y) dot tilde(w) = r_(s y) quad ==> quad tilde(w) = R_(y y)^(-1) dot r_(s y)
 $
 
-#todo[]
+#highlight[*Special Case*] undistorted signal of interest appears superimposed
+by additive noise:
+
+$ gamma_(y y)[m] = gamma_(s s)[m] + gamma_(v v)[m] quad quad gamma_(s y)[m] = gamma_(s s)[m] $
+
 
 === Unconstrained Wiener Filters
 
-#todo[]
+Neglecting the constraints imposing causality and finite length. Obtain optimal, non-causal IIR filter with the impulse response $dots,tilde(w)_(-1),tilde(w)_0, tilde(w)_1,dots$ setting $D=0$.
+
+#v(1mm)
+#grid(columns: (1fr, 1.2fr))[
+
+
+  $
+    sum_(i=0)^(M) tilde(w)_i dot gamma_(y y)[m-i]=gamma_(s y)[m+D] \
+  #rotate(90deg,[#h(-5mm)$original$])
+  $
+  #v(-2mm)
+  $ tilde(W)(z) dot Gamma_(y y)(z) = Gamma_(s y)(z) $
+][
+  #small[
+    with $Gamma_(y y)(z) = Gamma_(s s)(z) + Gamma_(v v)(z)$ and $Gamma_(s y)(z) = Gamma_(s s)(z)$:]
+
+  $
+    tilde(W)(z) = (Gamma_(s s)(z)) / (Gamma_(s s)(z) + Gamma_(v v)(z)) \ tilde(W)(Omega) = (Gamma_(s s)(Omega)) / (Gamma_(s s)(Omega) + Gamma_(v v)(Omega))
+  $
+]
+
+- At frequencies $Omega$ with very low noise power density $tilde(W)(Omega) approx 1$\
+  $space arrow.r.curve$ #sym.dots with very high noise power density $tilde(W)(Omega) approx 0$
+- The higher the noise power density, the greater the attenuation imposed on the spectrum input
+
+#octicon("alert", color: orange) #u[Filter need to be causal]
+#[#set list(marker: ([$arrow.r.curve$], [$arrow.r.curve$]))
+  - Method of omitting anti-causal values is *suboptimal*
+    - *Special case*: white noise $->$ apply _noise whitening_ before filter
+]
 
 === The Principle of Orthogonality
 
-#todo[]
+- necessary condition for optimality
+- estimation error is orthogonal (thus uncorrelated) to the filter input
+  - error does not contribute to the estimation
+  - not meeting the condition leads to suboptimal filter
+
+#image("orthogonal.png")
+
+$ E{hat(s)_"MMSE" [n+D] - s[n+D]} = 0$ to achieve minimum mean square error!
 
 == Kalman Filter
+#v(-2em)
+#h(1fr)#box(
+  fill: white,
+  inset: (y: 2pt, left: 2pt),
+  outset: (right: 1pt),
+)[#small[for discrete systems ; for continuous it's called _Kalman Bucy_-filter]]
 
-#todo[]
+- "Improvement" over Wiener Filter
+- Can be employed in dynamic systems $->$ not stationary signals needed
+  - due to generic character/nature can be used for various applications (such as coordinate tracking of aircraft or spacecraft)
+- Wiener filter has finite order $=>$ Kalman algorithm has a recursive nature and thus represents an *infinite-length filter*
+- Iterative error reduction (error starts high, reduced over time)
+
+$ "Prediction" arrows.lr "Correction" $
+
+
+#image("kalman_filter_block.png")
+
+#highlight[Measurement equation]#h(1fr)#highlight[Process equation]\
+#h(1fr)#small[$t_k$ contains all information of the system state at time $k$]
+
+#columns(2)[
+
+  $ y_k = H_k dot t_k + v_k $
+  #colbreak()
+  $ t_k = B_k dot t_(k-1) + q_k $
+]
+
+#image("kalman_filter_state_model.png", width: 90%)
+
+#[
+  #set list(marker: text(color_green)[*$+$*])
+  - No limit on filter order (it's recursive, therefore infinite)
+  - Dynamic adaptation in time-variant systems
+  - Supports systems with stochastic and determinable components
+]
+
+#image("kalman_filter_conventionalalgorithm.png", width: 90%)
+
+#text(1.2em)[#align(center)[$hat(x)$: real estimation$quad ; quad overline(x)$: predictive estimation]]
 
 = Adaptive Filters
 
-== Linear Predictive Coding
+- Wiener & Kalman filters are optimal filters under the assumption, the statistics of the processes are known $->$ Rarely met in practice :(
+- Filters which adapt to #u[unknown] and #u[possibly varying] environmental conditions are known as *adaptive filters*
+  - _Example application_: wireless radio receivers to compensate for signal distortions in the channel
+- *Optimal Linear Filters*: estimate the necessary autocorrelation and crosscorrelation sequences to derive filter coefficients
+- *Filters with minimization of a cost function*: typically LMS deviation of the filter output from the desired response
 
-#todo[]
+== Linear Predictive Coding
+#v(-2em)
+#h(1fr)#box(
+  fill: white,
+  inset: (y: 2pt, left: 2pt),
+  outset: (right: 1pt),
+)[#small[For speech coding]]
+
+- estimate the necessary autocorrelation and crosscorrelation sequences to derive filter coefficients
+
+- *Vocoders* $->$ built on certain speech synthesis model and extract the model parameters
+  - transmitting only necessary parameters requires less bandwidth than transmitting the sampled waveform directly!
+  - _Code Excited Linear Prediction_ (CELP) compresses speech into a 13kbit/s signal.
+  - _LPC-10e_ compresses with 2400bit/s at the cost of reduced audio quality
+- *Waveform coders* $->$ aim to preserve the signal waveform
+  - usually requires high bandwidth
+
+=== Example: Human Vocal Tract
+Approximation of the human vocal tract as an all-pole filter:
+
+#columns(2)[
+
+  $ H(z) = g / (1-sum_(k=1)^P a_k dot z^(-k)) $
+
+  #colbreak()
+
+  *$P$*: filter order #h(2em) *$g$*: gain\
+  *$a_k$* coefficients
+]
+
+The vocoder determines following parameters: filter coefficients $a_1, dots, a_10$, gain $g$, voiced or unvoiced $v[n]$ and the voiced period $T_0$.
+
+#image("vocoder_graph.png", width: 80%)
+
+- *unvoiced* (noise-like): consonants such as "f"
+- *voiced* (show periodical signals): vocals and some consonants
+- lower $k$ coefficients ($a_1, dots, a_4$) carry more information, than "loud" coefficients ($a_9, a_10$)
+
+#image("vocoder_model.png", width: 80%)
 
 == LMS Algorithm
+#v(-1em)
+#h(1fr)#box(
+  fill: white,
+  inset: (y: 2pt, left: 2pt),
+  outset: (right: 1pt),
+)[#small[Least mean square -- tries to minimize its cost function (sample-by-sample)]]
 
-#todo[]
+#[
+  #set list(marker: text(color_green)[*$+$*])
+  - Less complex (steps until sufficent optimum) than Recursive Least Square (RLS)
 
-=== The LMS Algorithm
+  #set list(marker: text(color_redish)[*$-$*])
+  - Slow convergence than RLS
+  - More issues with non-stationary signals than RLS
+]
 
-#todo[]
+#line(length: 100%, stroke: 0.5pt + gray)
 
-=== Acoustic Echo Cancellation
+1. Calculate gradient (iterative process) usingmean-squared error $epsilon_"MSE"$
+  - Large step size $mu$ overshoots the target and oscillates around it
+  - Small $mu$ leads to slow *convergence speed* ($prop#[]^(-1)$ iterations)
 
-#todo[]
+$
+  epsilon_"MSE" (underline(w)) = E{(underline(w)^"T" dot underline(y)_n - s[n])^2} ==> gradient epsilon_"MSE" (underline(w)) = E{2 dot (underline(w)^"T" dot underline(y)_n - s[n]) dot underline(y)_n }
+$
+
+#grid(columns: (1.6fr, 1fr), gutter: 0pt)[
+  2. Update values for next steps\ #small[$(n)$ indicates the iteration count + $underline(w)^((0))= 0_(M+1)$]
+
+
+  $
+    underline(w)^((n+1)) = underline(w)^((n)) + underbrace(mu dot (s[n] - (underline(w)^((n)))^T dot underline(y)_n) dot underline(y)_n, #text(1.3em, $=underline(w)_Delta^((n))$))
+  $
+
+  #small[$(-1)$ due to going against the gradient (go to *local* minima)]
+][
+  #image("gradient.png")
+]
+
+#line(length: 100%, stroke: 0.5pt + gray)
+
+
+
+#image("lms_algorithm.png", width: 85%)
+
+
+/ P1: #highlight[Training]: data is known $->$ for calibration and distortion
+#image("lms_algo_preamble.png", width: 70%)
+
+/ P2: #highlight[Decision Directed Operation]: Filter is checked and adjusted
+
+#image("lms_algorithm_example.png")
+
+=== Acoustic Echo Cancellation (AEC)
+
+- AEC's task is to remove far end components from signal delivered by microphone.
+- Filter adjusts itself to transmitted time variant sample
+- reproduce echo & subtract from microphone-sample
+- mode detection: speaker A, speaker B, both speakers, none
+  - None: switch with ambient noise to protect the adaptive filter from its own degradation (when exposed to ambient noise)
+
+#image("acoustic.png", width: 80%)
+
+
+
+#image("echo_cancellation.png", width: 80%)
 
 
 
