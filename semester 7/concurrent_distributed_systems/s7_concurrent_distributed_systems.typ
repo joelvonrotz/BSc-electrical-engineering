@@ -25,7 +25,8 @@
 #set text(lang: "de", font: "Ubuntu Sans", 10pt)
 #set par(justify: true)
 
-#show raw: set text(ligatures: true, font: "Cascadia Code", size: 1.1em)
+#show raw: set text(ligatures: true, font: "Cascadia Code", size: 0.9em)
+
 
 #show: conf.with(
   title: [Concurrent Distributed Systems],
@@ -1220,27 +1221,123 @@ Es kann SystemView für ESP32 angewendet werden, einfach nicht realtime. Es wird
 
 
 
+#[
+#set image(width: 80%)
 
 == Critical Sections, Reentrancy
 
-=== Semaphore
+#image("reentrancy.png")
 
-=== Mutex
+=== Semaphore/Mutex
+#v(-1.9em)
+#h(1fr)#small[$N$ Producer (#b[T]ask #b[I]nterrupt) $->$ $N$ Consumer (TI)]
+#v(0.1em)
 
-== Nachrichten
+#image("semaphore_mutex.png")
 
-=== Semaphore
+```c
+SemaphoreHandle_t IPC_Semaphore;
+BaseType_t res;
+IPC_Semaphore = xSemaphoreCreateBinary();  // NULL on fail
 
-=== Event Flags
+res = xSemaphoreGive(IPC_Semaphore);
+if (res!=pdTRUE) {/* failed give */}
 
-=== Queues
+res = xSemaphoreTake(IPC_Semaphore, pdMS_TO_TICKS(50));
+if (res == pdTRUE) {/* received */}
+```
+
+=== Event Bits
+#v(-1.9em)
+#h(1fr)#small[$N$ Producer (TI) $->$ $N$ Consumer (TI)]
+#v(0.1em)
+
+#image("eventsbits.png")
+
+```c
+EventGroupHandle_t IPC_EventBits;
+IPC_EventBits = xEventGroupCreate(); // NULL on fail
+
+uxBits = xEventGroupSetBits(IPC_EventBits, value);
+uxBits = xEventGroupWaitBits(
+  IPC_EventBits,
+  /* the bits within the event group to wait for. */
+  0x02 | 0x03,
+  pdTRUE, /* both should be cleared before returning. */
+  pdFALSE, /* don’t wait for both bits, either bit will do. */
+  pdMS_TO_TICKS(100) /* timeout */
+);
+```
+
+=== Message Queues
+#v(-1.9em)
+#h(1fr)#small[$N$ Producer (TI) $->$ $N$ Consumer (TI)]
+#v(0.1em)
+
+```c
+QueueHandle_t IPC_Queue;
+IPC_Queue = xQueueCreate(<count>, sizeof(<type>)); // NULL on fail
+xQueueSendToBack(IPC_Queue, <obj>, <timeout>); // pdTRUE
+xQueueReceive(IPC_Queue, <*dest>, <timeout>); // pdTRUE on read
+// errQUEUE_EMPTY if empty
+```
+
+
 
 === Direct Task Notification
+#v(-1.9em)
+#h(1fr)#small[$N$ Producer (TI) $->$ $1$ Consumer (T)]
+#v(0.1em)
+
+```c
+TaskHandle_t taskHandle;
+xTaskNotify(taskHandle, <value>, <event>);
+// <event>: eNoAction, eSetBits, eIncrement,
+//   eSetValueWithOverwrite, eSetValueWithoutOverwrite
+res = xTaskNotifyWait(<clear-on-entry>, <clear-on-exit>, <*dest>,
+  <timeout>);
+```
 
 === Stream Buffer
+#v(-1.9em)
+#h(1fr)#small[$1$ Producer (TI) $->$ $1$ Consumer (TI)]
+#v(0.1em)
+
+```c
+StreamBufferHandle_t stream;
+stream = xStreamBufferCreate(<buffer-size>, <minimum-for-event);
+xStreamBufferSend(stream, <src>, <size-src>, <timeout>);
+uint8_t buf[16];
+size_t size = xStreamBufferReceive(stream, buf, sizeof(buf),
+  portMAX_DELAY);
+if (size!=0) {
+  ...
+}
+```
 
 === Message Buffer
+#v(-1.9em)
+#h(1fr)#small[$1$ Producer (TI) $->$ $1$ Consumer (TI)]
+#v(0.1em)
+Basiert auf Stream Buffer!
 
+```c
+MessageBufferHandle_t xMessageBuffer;
+xMessageBuffer = xMessageBufferCreate(<bytes>);
+xBytesSent = xMessageBufferSend(xMessageBuffer,
+  (void*) src,
+  sizeof(src),
+  <timeout>);
+if (xBytesSent>0) {}
+
+xReceivedBytes = xMessageBufferReceive(xMessageBuffer,
+  (void*)dst,
+  sizeof(src),
+  <timeout>);
+if (xReceivedBytes>0) { ... }
+```
+
+]
 
 = CI/CD
 #v(-1.1em)
