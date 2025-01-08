@@ -40,10 +40,13 @@
   flipped: true,
   source: "https://github.com/joelvonrotz/BSc-electrical-engineering/tree/main/semester%207",
 )
-
 #colbreak(weak: true)
+#v(45.3em)
+#[
+  #show image: set align(right)
+  #image("meme.png", width: 140%)
+]
 #colbreak(weak: true)
-#colbreak()
 
 
 /* -------------------------------------------------------------------------- */
@@ -356,7 +359,10 @@ $
     / (linear) convolution:
       $ z[n] = sum_(i=-infinity)^infinity x[i]y[n - i] = x[n]*y[n] $
       #colbreak()
-
+      #h(-6em)*Linear Correlation*
+      #v(-2em)
+      $ r_(x y)[n]=1 / N sum^(N-1)_(i=0)x[i]y[i+n] $
+  $ N_(x y)=N_x+N_y-1 quad r_(x y)[n] != r_(y x)[n] $
     ]
   ],
 )
@@ -419,7 +425,7 @@ $
   fill: white,
   inset: (y: 2pt, left: 2pt),
   outset: (right: 1pt),
-)[Power cannot be negative!]
+)[Power cannot be negative! Squared Amplitude Spectrum]
 
 - Reveals Spectral composition of a stationary process ("where energy is")
 - Mirrored on Y-axis (range $Omega in [0, pi]$ suffices) #h(2mm) #sym.bullet #h(2pt) $Gamma_(x x) = transform.fourier (gamma_(x x))$
@@ -431,13 +437,26 @@ $
 #highlight[White Noise]
 
 #columns(2)[
-  #text(0.9em)[White noise has a *constant* spectrum, as they represent all noises at the same time!]
+  #small[White noise has a *constant* spectrum, as they represent all noises at the same time!]
 
   #colbreak()
   #v(-1em)
   $
     gamma_(w w)[m] = cases(sigma^2  "if" m = 0, 0  "if" m != 0) #h(0.5em) ; #h(0.5em) Gamma_(w w) (Omega) = sigma_w^2
   $
+]
+
+#grid(columns: (1fr, 1fr), align: horizon)[
+
+
+#highlight[Wiener-Khinchin-Theorem]
+
+#small[
+Power Spectrum Density corresponds to the DTFT of the autocorrelation sequence (of stat. rand. sig)
+]
+][
+
+  $ Gamma_(x x)(Omega) = sum_(m=-infinity)^(infinity) gamma_(x x)[m] dot e^(-j Omega m) $
 ]
 
 == Spectral Shaping
