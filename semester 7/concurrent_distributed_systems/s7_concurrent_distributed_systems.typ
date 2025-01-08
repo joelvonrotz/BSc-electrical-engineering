@@ -41,8 +41,7 @@
   source: "https://github.com/joelvonrotz/BSc-electrical-engineering/tree/main/semester%207",
 )
 
-#colbreak()
-
+#set page(columns: 3)
 
 /* -------------------------------------------------------------------------- */
 /*                             Struktur Übersicht                             */
@@ -179,7 +178,7 @@ Die Funktion #raw(".Abort()", lang: "cs") "killed" den Thread à la:
 
 ...ist eine Konstellation, in denen das Ergebnis einer Operation vom zeitlichen Verhalten bestimmter Einzeloperationen abhängt.
 
-#image("race_conditions.png")]
+#image("race_conditions.png")
 
 Gute Lösung dazu muss vier Bedingungen erfüllen:
 
@@ -191,9 +190,9 @@ Gute Lösung dazu muss vier Bedingungen erfüllen:
 
 === Deadlocks
 
-Entsteht, wenn Threads auf Resourcen warten, welche sie gegenseitig sperren und somit kein Thread sich befreien kann.
+Entsteht, wenn Threads auf Ressourcen warten, welche sie gegenseitig sperren und somit kein Thread sich befreien kann.
 
-#image("deadlock.png", width: 7cm)]
+#image("deadlock.png", width: 7cm)
 
 === Join-Funktion
 
