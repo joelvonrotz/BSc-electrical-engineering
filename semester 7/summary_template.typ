@@ -217,13 +217,13 @@
           }
 
           if (chapter.level == 1) {
-            [#v(0.5em)#text(weight: "bold")[#h(spacing)#chapter.body #h(1fr) #page]\
+            [#v(0.5em)#text(weight: "bold")[#h(spacing)#link(loc.position(),[#chapter.body #h(1fr) #page])]\
               #v(level1_line_spacing)#line(length: 100%, stroke: 0.5pt)]
           } else {
-            [#v(-0.2em)#h(spacing)#chapter.body #box(width: 1fr)[#line(
+            [#v(-0.2em)#h(spacing)#link(loc.position(),[#chapter.body #box(width: 1fr)[#line(
                   length: 100%,
                   stroke: (dash: (0pt, 3pt), thickness: 1pt, cap: "round", paint: black),
-                )]#h(1pt)#page \ ]
+                )]#h(1pt)#page])]
           }
         }
       }
