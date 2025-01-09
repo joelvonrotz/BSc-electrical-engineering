@@ -215,7 +215,7 @@
           if (compact_spacing) {
             level1_line_spacing = -0.6em
           }
-
+          show link: set text(fill: black)
           if (chapter.level == 1) {
             [#v(0.5em)#text(weight: "bold")[#h(spacing)#link(loc.position(),[#chapter.body #h(1fr) #page])]\
               #v(level1_line_spacing)#line(length: 100%, stroke: 0.5pt)]
