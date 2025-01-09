@@ -5,12 +5,6 @@
 #import "@preview/cetz:0.3.1" as cetz
 #import "@preview/fletcher:0.5.2" as fletcher: node, edge, shapes
 
-#set columns(gutter: 4mm)
-#set page(columns: 3)
-
-
-#show image: set align(center) // default image alignments
-
 #let accent = "425eaf"
 #let color_redish = rgb("#cb4154")
 #let color_alert = color_redish
@@ -18,15 +12,18 @@
 #let color_links = rgb("#2549e7")
 #let color_green = rgb("#025809")
 
+#set columns(gutter: 4mm)
+#set page(columns: 3)
 #set highlight(top-edge: "baseline", fill: rgb("#9ed0ff"))
-
 #set enum(numbering: (it => strong[#it.]))
-
 #set text(lang: "de", font: "Ubuntu Sans", 10pt)
 #set par(justify: true)
 
-#show raw: set text(ligatures: true, font: "Cascadia Code", size: 0.9em)
+#show image: set align(center) // default image alignments
+#show link: set text(fill: color_links)
+#show raw: set text(ligatures: false, font: "Cascadia Code", size: 1.1em)
 
+#show raw.where(block: true): set text(size: 0.8em)
 
 #show: conf.with(
   title: [Concurrent Distributed Systems],
@@ -41,6 +38,9 @@
   place: [HSLU T&A],
   source: "https://github.com/joelvonrotz/BSc-electrical-engineering/tree/main/semester%207",
 )
+
+#image("meme.jpg")
+#image("meme.jpeg")
 
 #set page(columns: 3)
 
@@ -231,7 +231,6 @@ finally { Monitor.Exit(<object>) }
 Threads warten an einem inaktiven Event-Objekt, bis dieses aktiv (frei) geschaltet wird. Es gibt zwei Arten:
 
 / `AutoResetEvent`: Threadaktivierung durch das Event setzt das Eventsignal automatisch zurück zu _inaktiv_ (nur `.Set()`)
-
 / `ManualResetEvent`: Eventsignal muss manuel zurückgesetzt werden (`.Set()` $arrow$ dann `.Reset()`)
 
 ```cs
@@ -330,7 +329,6 @@ static void Go(object number) {
 }
 ```
 
-#colbreak()
 
 === Mutex
 
@@ -399,6 +397,8 @@ Lesen aus einem Netzwerk TCP-Socket (`SR` = `StreamReader`)::
   Console.WriteLine(inStream.ReadLine());
   client.Close();
   ```]
+
+#colbreak()
 
 Lesen aus einer Datei (`SR` = `StreamReader`):
 
@@ -507,7 +507,46 @@ UDP Header besteht aus 8 Byte. Die _Länge_ entspricht Header Bytes + Daten Byte
 
 Der Ziel-Port bestimmt, für welche Anwendung ein Datenpaket bestimmt ist.
 
-#todo[Add Code Snippets here?]
+=== UDP: Client
+
+```cs
+string host = "eee-00123.simple.eee.intern";
+int port = 1234;
+string msg = "Nachricht...";
+```
+
+```cs
+UdpClient udpClient = new UdpClient(host, port);
+byte[] data = Encoding.ASCII.GetBytes(msg);
+udpClient.Send(data, data.Length);
+```
+
+```cs
+IPEndPoint remote = new IPEndPoint(IPAddress.Any, 0);
+byte[] dataReceived = udpClient.Receive(ref remote);
+string rec = Encoding.ASCII.GetString(dataReceived);
+Console.WriteLine("Received: " + rec + " from " + remote);
+```
+
+=== UDP: Server
+
+```cs
+int port = 1234;
+IPEndPoint iPEndPoint = new IPEndPoint(IPAddress.Any, port);
+UdpClient udpServer = new UdpClient(iPEndPoint);
+IPEndPoint sender = new IPEndPoint(IPAddress.Any, 0);
+```
+
+```cs
+Console.WriteLine($"Waiting for UDP-Packets from {iPEndPoint}");
+while (true) {
+  byte[] data = udpServer.Receive(ref sender);
+  string s = Encoding.ASCII.GetString(data);
+  Console.WriteLine("Server received: " + s);
+  Thread.Sleep(1000);
+  udpServer.Send(data, data.Length, sender);
+}
+```
 
 === TCP Protokoll
 #v(-2em)
@@ -540,11 +579,146 @@ Verbindungsaufbau wird via _Three-Way_ Handshake gemacht (folgendes Bild rechts)
 
 #image("tcp_connection.png")
 
-#todo[Add Code Snippets here?]
+=== TCP: Client
+
+```cs
+TcpClient tcpClient2 = new TcpClient();
+tcpClient2.Connect("hostname", 1234);
+```
+
+```cs
+// Get the underlying socket:
+Socket socket = tcpClient.Client;
+```
+
+```cs
+// Returns the bidirectional communication stream:
+NetworkStream networkstream = tcpClient.GetStream();
+StreamReader sr = new StreamReader(networkstream);
+StreamWriter sw = new StreamWriter(networkstream);
+string s = sr.ReadLine();
+```
+
+```cs
+tcpClient.Close();
+```
+
+
+=== TCP: Server
+
+```cs
+TcpListener listen = new TcpListener(5555);
+listen.Start();
+while (true) {
+  Console.WriteLine("Warte auf Verbindung auf Port " +
+                    listen.LocalEndpoint + "...");
+  TcpClient client = listen.AcceptTcpClient();
+  Console.WriteLine("Verbindung zu " +
+                    client.Client.RemoteEndPoint);
+  StreamWriter sw = new StreamWriter(client.GetStream());
+  sw.Write(DateTime.Now.ToString());
+  sw.Flush();
+  client.Close();
+}
+```
+
+
 
 == Interfaces
 
-#todo[Hello]
+```cs
+interface ISampleInterface {
+    void SampleMethod();
+}
+```
+
+```cs
+class ImplementationClass : ISampleInterface {
+  // Explicit interface member implementation:
+  void ISampleInterface.SampleMethod() {
+    // Method implementation.
+  }
+  static void Main() {
+    // Declare an interface instance.
+    ISampleInterface obj = new ImplementationClass();
+    // Call the member.
+    obj.SampleMethod();
+  }
+}
+```
+
+== Andere Sachen
+
+=== Labels im Takt ändern (z.B. Datum + Zeit Anzeige)
+
+```cs
+timer = new DispatcherTimer();
+timer.Interval = TimeSpan.FromMilliseconds(250);
+timer.Tick += Timer_Tick;
+timer.Start();
+```
+
+```cs
+private void Timer_Tick(object sender, EventArgs e) {
+    Time = DateTime.Now.ToString("HH:mm:ss");
+}
+```
+
+=== MVVM Binding Data
+
+Im Main-View wird das ViewModel als _DataContext_ mit dem View verknüpft
+
+```xml
+<View:MoveUserControl DataContext="{Binding MovementViewModel}" ... />
+```
+
+#small(callout(title: "Benamslig vom ViewModel-Objekt")[
+  Im Main-View gibt man an, welches Model genommen wird. Es können z.B. verschiedene Views das gleiche ViewModel verwende.n
+])
+\
+
+Im _View_ wird eine Eigenschaft mit einem _Property_ verbunden:
+
+```xml
+<Line Visibility="{Binding ArrowVisibility}" ...>
+```
+
+Im _ViewModel_ werden die Properties des entsprechenden Typs definiert: 
+
+```cs
+public Visibility ArrowVisibility {
+    get { return arrowVisibility; }
+    set { SetField(ref arrowVisibility, value); }
+}
+```
+
+Es können auch _Commands_ (Interaktion im View, z.B. Button-Klicks) abgefangen und verarbeitet werden. Im ViewModel mit einem Button:
+
+```cs
+<Button Content="Beep" Command="{Binding Beep}" .../> 
+```
+
+Im ViewModel wird eine Command Properties
+
+```cs
+// somewhere inside class
+public Command Beep { get; }
+```
+
+```cs
+// in constructor
+Beep = new Command(execute => DoBeep(), // or 'execute => { ... }'
+  param => frequencyHz > 0 && timeMs > 0);
+```
+
+```cs
+// somewhere inside class
+public void DoBeep() {
+    BuzzerModel.Beep(FrequencyHz, TimeMs);
+}
+```
+
+#colbreak()
 
 = MVVM
 
@@ -723,10 +897,6 @@ $=>$ *cJTAG* Variante mit weniger Pins: _TMS_ $->$ _TMSC_, #strike[TDI]
 == CMake
 
 Löst das Problem der Abhängigkeit von Host & Toolchain von `make` $->$ `cmake` ist ein *Generator*, welches dann mit `make` oder `ninja` weiterverarbeitet wird.
-
-== Verteilte Entwicklung
-
-#todo[]
 
 == #octicon("git-merge") Git
 
@@ -1069,7 +1239,39 @@ Der Radio-Stack behandlet die Payloads via Queues (mit einem Task)! Senden wird 
 
 = Verteile Architekturen
 
-== Modelle
+== Art der Verbindung
+
+/ Tightly Couples: (PC, ESP, Roboter)
+- Hoch integriert, eng verbunden
+- Erscheint 'aus einem Guss'
+- 'Share everything'
+- Ressourcen-basiert, Distributed Shared Memory (DSM)
+
+/ Loosely Coupled: Verbindung zwischen PC, ESP, Roboter
+- Client-Server, Master-Slave
+- Peer-to-Peer
+- 'Share nothing', meldungsbasiert
+- Programmier-Schnittstellen
+  - Verteilte Objekte
+  - Web Services
+
+=== Tightly Coupled: Distributed Shared Memory
+
+- Verteilter Speicher, virtuell als Ganzes gesehen
+- Kein Versenden von Meldungen, Teile durch Netzwerk/Bus verbunden
+- Anwendung: _Multicore_
+- Kritisch: Bandwidth, Latency, Delays, Concurrency, Coherency
+
+#image("distributed_shared_memory.png")
+
+== Loose Coupled: Stilarten
+
+- Schichtenmodell
+- Dienst-Schichten
+- Objektorientiert
+- Event-basiert
+- Daten-zentriert
+- Client-Server
 
 #columns(2, gutter: 3mm)[
   === Schichtenmodell
@@ -1118,12 +1320,12 @@ Der Radio-Stack behandlet die Payloads via Queues (mit einem Task)! Senden wird 
 
   #small[
 
-  - *Server*: passiv \
-    - *Stateless*: behält keine Infos
-    - *Stateful*: merkt sich Infos (zwischen Anfragen)
-  - *Client*: aktiv, Leader
+    - *Server*: passiv \
+      - *Stateless*: behält keine Infos
+      - *Stateful*: merkt sich Infos (zwischen Anfragen)
+    - *Client*: aktiv, Leader
 
-  #octicon("x-circle", color: color_redish): nicht gut skalierbar, _single point of failure_
+    #octicon("x-circle", color: color_redish): nicht gut skalierbar, _single point of failure_
   ]
 
   === Mehrfach-Server
@@ -1148,7 +1350,7 @@ Der Radio-Stack behandlet die Payloads via Queues (mit einem Task)! Senden wird 
 
   === Mobiler Client
 
-  #image("modell_mobileclient.png") 
+  #image("modell_mobileclient.png")
 
   #small[
     - Mobiler Code/Applet
@@ -1198,144 +1400,168 @@ Der Radio-Stack behandlet die Payloads via Queues (mit einem Task)! Senden wird 
 
 Es kann SystemView für ESP32 angewendet werden, einfach nicht realtime. Es wird geloggt via die JTAG Schnittstelle (UART um genau zu sein). Wenn _HW Up Buffer_ voll ist (durch zu langsames transferieren), muss dieser geleert werden $->$ in SystemView gibt es einen auffälligen Unterbruch.
 
-== Multicore
-
-== Konfiguration
-
-== Feldbus
-
-== Drahtlos
-
-== Remote Access
-
 /* -------------------------------------------------------------------------- */
 /*                                 Styger Teil                                */
 /* -------------------------------------------------------------------------- */
 
 = FreeRTOS Crash Kurs
 
-== FreeRTOS SMP
-#v(-0.7em)
-#h(1fr)#small[#b[S]ymmetric #b[M]ulti#b[P]rocessing]
-#v(-0.3em)
-
-
-
-#[
-#set image(width: 80%)
-
-== Critical Sections, Reentrancy
-
-#image("reentrancy.png")
-
-=== Semaphore/Mutex
-#v(-1.9em)
-#h(1fr)#small[$N$ Producer (#b[T]ask #b[I]nterrupt) $->$ $N$ Consumer (TI)]
-#v(0.1em)
-
-#image("semaphore_mutex.png")
+== Task (Threads)
 
 ```c
-SemaphoreHandle_t IPC_Semaphore;
 BaseType_t res;
-IPC_Semaphore = xSemaphoreCreateBinary();  // NULL on fail
-
-res = xSemaphoreGive(IPC_Semaphore);
-if (res!=pdTRUE) {/* failed give */}
-
-res = xSemaphoreTake(IPC_Semaphore, pdMS_TO_TICKS(50));
-if (res == pdTRUE) {/* received */}
-```
-
-=== Event Bits
-#v(-1.9em)
-#h(1fr)#small[$N$ Producer (TI) $->$ $N$ Consumer (TI)]
-#v(0.1em)
-
-#image("eventsbits.png")
-
-```c
-EventGroupHandle_t IPC_EventBits;
-IPC_EventBits = xEventGroupCreate(); // NULL on fail
-
-uxBits = xEventGroupSetBits(IPC_EventBits, value);
-uxBits = xEventGroupWaitBits(
-  IPC_EventBits,
-  /* the bits within the event group to wait for. */
-  0x02 | 0x03,
-  pdTRUE, /* both should be cleared before returning. */
-  pdFALSE, /* don’t wait for both bits, either bit will do. */
-  pdMS_TO_TICKS(100) /* timeout */
+TaskHandle_t taskHndl;
+res = xTaskCreate (BlinkyTask , /* function */
+  "Blinky", /* Kernel awareness name */
+  500/ sizeof( StackType_t ), /* stack size */
+  (void *)NULL , /* task parameter */
+  tskIDLE_PRIORITY +1, /* priority */
+  &taskHndl /* handle */
 );
-```
 
-=== Message Queues
-#v(-1.9em)
-#h(1fr)#small[$N$ Producer (TI) $->$ $N$ Consumer (TI)]
-#v(0.1em)
-
-```c
-QueueHandle_t IPC_Queue;
-IPC_Queue = xQueueCreate(<count>, sizeof(<type>)); // NULL on fail
-xQueueSendToBack(IPC_Queue, <obj>, <timeout>); // pdTRUE
-xQueueReceive(IPC_Queue, <*dest>, <timeout>); // pdTRUE on read
-// errQUEUE_EMPTY if empty
-```
-
-
-
-=== Direct Task Notification
-#v(-1.9em)
-#h(1fr)#small[$N$ Producer (TI) $->$ $1$ Consumer (T)]
-#v(0.1em)
-
-```c
-TaskHandle_t taskHandle;
-xTaskNotify(taskHandle, <value>, <event>);
-// <event>: eNoAction, eSetBits, eIncrement,
-//   eSetValueWithOverwrite, eSetValueWithoutOverwrite
-res = xTaskNotifyWait(<clear-on-entry>, <clear-on-exit>, <*dest>,
-  <timeout>);
-```
-
-=== Stream Buffer
-#v(-1.9em)
-#h(1fr)#small[$1$ Producer (TI) $->$ $1$ Consumer (TI)]
-#v(0.1em)
-
-```c
-StreamBufferHandle_t stream;
-stream = xStreamBufferCreate(<buffer-size>, <minimum-for-event);
-xStreamBufferSend(stream, <src>, <size-src>, <timeout>);
-uint8_t buf[16];
-size_t size = xStreamBufferReceive(stream, buf, sizeof(buf),
-  portMAX_DELAY);
-if (size!=0) {
-  ...
+if (res != pdPASS) {
+  /* error handling here */
 }
 ```
 
-=== Message Buffer
-#v(-1.9em)
-#h(1fr)#small[$1$ Producer (TI) $->$ $1$ Consumer (TI)]
-#v(0.1em)
-Basiert auf Stream Buffer!
-
 ```c
-MessageBufferHandle_t xMessageBuffer;
-xMessageBuffer = xMessageBufferCreate(<bytes>);
-xBytesSent = xMessageBufferSend(xMessageBuffer,
-  (void*) src,
-  sizeof(src),
-  <timeout>);
-if (xBytesSent>0) {}
-
-xReceivedBytes = xMessageBufferReceive(xMessageBuffer,
-  (void*)dst,
-  sizeof(src),
-  <timeout>);
-if (xReceivedBytes>0) { ... }
+static void MyTask(void *params) {
+  (void)params; 1
+  for (;;) {
+    /* do the work here ... */
+  } /* for */
+  /* never return */
+}
 ```
+
+#[
+  #set image(width: 80%)
+
+  == InterProcess Communication (IPC)
+
+  === Critical Sections, Reentrancy
+
+  #image("reentrancy.png")
+
+  === Semaphore/Mutex
+  #v(-1.9em)
+  #h(1fr)#small[$N$ Producer (#b[T]ask #b[I]nterrupt) $->$ $N$ Consumer (TI)]
+  #v(0.1em)
+
+  #image("semaphore_mutex.png")
+
+  ```c
+  SemaphoreHandle_t IPC_Semaphore;
+  BaseType_t res;
+  IPC_Semaphore = xSemaphoreCreateBinary();  // NULL on fail
+
+  res = xSemaphoreGive(IPC_Semaphore);
+  if (res!=pdTRUE) {/* failed give */}
+
+  res = xSemaphoreTake(IPC_Semaphore, pdMS_TO_TICKS(50));
+  if (res == pdTRUE) {/* received */}
+  ```
+
+  === Event Bits
+  #v(-1.9em)
+  #h(1fr)#small[$N$ Producer (TI) $->$ $N$ Consumer (TI)]
+  #v(0.1em)
+
+  #image("eventsbits.png")
+
+  ```c
+  EventGroupHandle_t IPC_EventBits;
+  IPC_EventBits = xEventGroupCreate(); // NULL on fail
+
+  uxBits = xEventGroupSetBits(IPC_EventBits, value);
+  uxBits = xEventGroupWaitBits(
+    IPC_EventBits,
+    /* the bits within the event group to wait for. */
+    0x02 | 0x03,
+    pdTRUE, /* both should be cleared before returning. */
+    pdFALSE, /* don’t wait for both bits, either bit will do. */
+    pdMS_TO_TICKS(100) /* timeout */
+  );
+  ```
+  #colbreak()
+
+  === Message Queues
+  #v(-1.9em)
+  #h(1fr)#small[$N$ Producer (TI) $->$ $N$ Consumer (TI)]
+  #v(0.1em)
+
+  #v(1.3cm)
+
+  ```c
+  QueueHandle_t IPC_Queue;
+  IPC_Queue = xQueueCreate(<count>, sizeof(<type>)); // NULL on fail
+  xQueueSendToBack(IPC_Queue, <obj>, <timeout>); // pdTRUE
+  xQueueReceive(IPC_Queue, <*dest>, <timeout>); // pdTRUE on read
+  // errQUEUE_EMPTY if empty
+  ```
+
+
+
+  === Direct Task Notification
+  #v(-1.9em)
+  #h(1fr)#small[$N$ Producer (TI) $->$ $1$ Consumer (T)]
+  #v(0.1em)
+
+  #v(1.3cm)
+
+  ```c
+  TaskHandle_t taskHandle;
+  xTaskNotify(taskHandle, <value>, <event>);
+  // <event>: eNoAction, eSetBits, eIncrement,
+  //   eSetValueWithOverwrite, eSetValueWithoutOverwrite
+  res = xTaskNotifyWait(<clear-on-entry>, <clear-on-exit>, <*dest>,
+    <timeout>);
+  ```
+
+  === Stream Buffer
+  #v(-1.9em)
+  #h(1fr)#small[$1$ Producer (TI) $->$ $1$ Consumer (TI)]
+  #v(0.1em)
+  #image("stream_buffer.png", width: 100%)
+
+  #small[Bytes werden einfach in einen Art FIFO-Buffer reingelegt. Da es sich um einen Stream handelt, kann z.B. die Länge einer Nachricht und somit die Nachricht selbst nicht identifiziert werden (dafür gibts Message buffers)]
+
+  ```c
+  StreamBufferHandle_t stream;
+  stream = xStreamBufferCreate(<buffer-size>, <minimum-for-event);
+  xStreamBufferSend(stream, <src>, <size-src>, <timeout>);
+  uint8_t buf[16];
+  size_t size = xStreamBufferReceive(stream, buf, sizeof(buf),
+    portMAX_DELAY);
+  if (size!=0) {
+    ...
+  }
+  ```
+
+  === Message Buffer
+  #v(-1.9em)
+  #h(1fr)#small[$1$ Producer (TI) $->$ $1$ Consumer (TI)]
+  #v(0.1em)
+
+  #image("message_buffer.png", width: 100%)
+
+  #small[Sind zwar Stream Buffers, aber können diskrete Nachrichten beinhalten, bzw. die Länge der Nachrichten wird gemerkt $->$ Vor Nachricht werden die Anzahl Bytes angegeben. Diese Information wird standardmässig als `size_t` angegeben (ist aber konfigurierbar via #raw(lang: "c", "#define")).]
+
+  ```c
+  MessageBufferHandle_t xMessageBuffer;
+  xMessageBuffer = xMessageBufferCreate(<bytes>);
+  xBytesSent = xMessageBufferSend(xMessageBuffer,
+    (void*) src,
+    sizeof(src),
+    <timeout>);
+  if (xBytesSent>0) {...}
+
+  xReceivedBytes = xMessageBufferReceive(xMessageBuffer,
+    (void*)dst,
+    sizeof(src),
+    <timeout>);
+  if (xReceivedBytes>0) {...}
+  ```
 
 ]
 
@@ -1344,7 +1570,145 @@ if (xReceivedBytes>0) { ... }
 #h(1fr)#small[*C*\ontinuous *I*\ntegration and *C*\ontinuous *D*\elivery]
 #v(-0.3em)
 
-== Pipeline
+#small[CI/CD wird für die agile Entwicklung verwendet: kurze Iterationen und schnelles Feedback.
+
+  / CI: lokale Entwicklung + Unit-Testing:
+    - "unit tests + any tests related to specific component being built in isolation from other components" [#link("https://stackoverflow.com/questions/76818090/testing-in-ci-vs-testing-in-cd",[Stackoverflow])]
+
+  / CD: Automatische Auslieferung zur Produktion(ähnlicher Umgebung)
+    - "integration testing, where software stack is deployed to some non-prod environment and being tested there." (automatisch oder manuell) [#link("https://stackoverflow.com/questions/76818090/testing-in-ci-vs-testing-in-cd",[Stackoverflow])]
+
+  #callout(title: "Prediktive vs. Agile Planung", icon: "info")[
+    / Prediktiv: Jährliche 'heldenhafte' Anstrengungen für einen grossen und komplexen Release
+    / Agil: regelmässiger Abgleich mit Kunden $->$ schneller ans Endziel kommen
+  ]
+]
+
+#colbreak()
+
+#block(height: 100%)[
+  == Generelle Pipeline
+
+  #align(horizon + center)[
+    #image("cicd_gitlab.png", height: 90%)
+    #box(
+      stroke: red + 1.5pt,
+      inset: (x: 5pt, y: 6pt),
+      radius: 10pt,
+      text(1.3em)[*Protect the main branch at all costs!*],
+    )
+  ]
+]
+
+
+=== Wichtig
+
+#[
+  #set par(leading: 0.8em)
+  - Main Branch Pulls sind sauber
+    - solange gute Tests verwendet werden
+  - Main Branch bleibt geschützt
+    - aus diesem Branch wird die Production-Version deployed
+  - Änderungen können schneller integriert werden
+  - Commits und Main werden mit Checks regelmässig geprüft
+  - Änderungen sollten klein gehalten werden
+    - reduziert Risko und Debug-Komplexität
+]
+
+=== Continuous Deployment
+
+- *Automatisierung* der Auslieferung zur Produktion oder ähnlichen Umgebungen
+- Auslieferung von `main` oder `release` branch
+- Nicht jede Änderung wird ausgeliefert, aber könnte $->$ *continuous delivery*
+- Für Auslieferung können zusätzliche Tests ausgeführt werden: Automatisierte Acceptance Tests, Load Testing, Compliance Review
+
+== Werkzeuge
+
+#image("ci_cd_flow.png", width: 100%)
+
+
+
+#image("cicd_pipeline.png")
+
+== DevOps
+
+#image("Devops-toolchain.svg", width: 80%)
+
+Eine DevOps-Toolchain ist ein Set oder eine Kombination von Tools, die bei der Bereitstellung, Entwicklung und Verwaltung von Softwareanwendungen während des gesamten Lebenszyklus der Systementwicklung helfen, wie sie von einer Organisation koordiniert werden, die DevOps-Praktiken anwendet.
+
+== GitLab CI/CD Pipeline
+
+#image("gitlab_pipeline.png", width: 80%)
+
+1. Aufsetzen der Runner auf dem Host
+2. Push löst einen Trigger aus
+3. Jobs wird geschedulet
+4. Jobs werden auf Runnder verteilt
+5. Runner melden Resultate
+
+
+=== Aufsetzen
+
+Im Root des Repos eine Datei mit Namen `.gitlab-ci.yml` erstellen.
+
+#colbreak()
+
+=== Stages, Variables & Jobs
+
+Die CI/CD-Datei ist in drei Hauptteilen aufgeteilt: Stages, Variablen und Jobs. Folgend ist ein Beispiel für eine solche Datei.
+
+1. Zuerst werden die Stages und (Umgebungs) Variablen definiert. 
+
+```yaml
+stages:
+  - build
+  - test
+  - deploy
+variables: # global variables (for local, define inside jobs)
+  # example: docker image names
+  - IMAGE_NAME_NXP: "erichstyger/cicd_nxp-image:latest"
+  - IMAGE_NAME_ESP: "espressif/idf:release-v5.3"
+```
+
+2. Danach werden Jobs definiert, welche irgendeine Aufgabe machen.
+
+```yaml
+build-esp-remote:
+  stage: build # job type
+  when: manual # needs to be started manually
+  image: # which docker image is used
+    name: $IMAGE_NAME_ESP
+    entrypoint: [""]
+  script: # executed when container is ready
+    - cd projects/vscode/esp_remote/
+    - source /opt/esp/idf/export.sh
+    - idf.py build
+  artifacts: # which files & folders to keep
+    when: always
+    paths:
+    - projects/esp_remote/build/esp_remote.bin
+    - projects/esp_remote/build/esp_remote.elf
+build-robot:
+  stage: build
+  when: on_success # if previous stages succeded
+  image: 
+    name: $IMAGE_NAME_NXP
+    entrypoint: [""]
+  script:
+    - cd projects/robot/
+    - cmake --preset debug
+    - cmake --build --preset app-debug
+    - cmake --preset release
+    - cmake --build --preset app-release
+  artifacts:
+    when: always
+    paths:
+    - projects/robot/build/Release/robot.elf
+    - projects/robot/build/Release/robot.s19
+    - projects/robot/build/Release/robot.hex
+```
+
+- Bei mehreren Stages, welche voneinander abhängen, werden die _Job Artifacts_ in den neuen Job kopiert.
 
 === Ausführung von Jobs & Stages überspringen
 
