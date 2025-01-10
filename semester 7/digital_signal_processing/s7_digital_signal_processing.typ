@@ -1647,7 +1647,7 @@ $ y[n] = sum_(k=0)^(N) b_k dot x[n-k] - sum_(k=1)^(M) a_k dot y[n-k] $
   #highlight[z-Transfer-Function]
 
   $
-    H(z)=Y(z) / X(z)=(product_(n=0)^(N) b_n z^(-n)) / (product_(m=0)^(M) a_m z^(-m))
+    H(z)=Y(z) / X(z)=(sum_(n=0)^(N) b_n z^(-n)) / (sum_(m=0)^(M) a_m z^(-m))
   $
 ]
 
