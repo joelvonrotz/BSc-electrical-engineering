@@ -673,7 +673,7 @@ Im Main-View wird das ViewModel als _DataContext_ mit dem View verknüpft
 ```
 
 #small(callout(title: "Benamslig vom ViewModel-Objekt")[
-  Im Main-View gibt man an, welches Model genommen wird. Es können z.B. verschiedene Views das gleiche ViewModel verwende.n
+  Im Main-View gibt man an, welches Model genommen wird. Es können z.B. verschiedene Views das gleiche ViewModel verwenden.
 ])
 \
 
@@ -868,7 +868,7 @@ Ein *GDB-Server* für Debugging, In-System Programming und _boundry-scan_ testin
 
 (ESP-IDF hat eine eigene modifizierte Version)
 
-=== GBD Client-Server Architektur
+=== GDB Client-Server Architektur
 #v(-2em)
 #h(1fr)#small[GNU Debugger]
 #v(0.1em)
