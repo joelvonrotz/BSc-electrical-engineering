@@ -3,13 +3,20 @@
 #import "@preview/codly-languages:0.1.1": *
 #show: codly-init.with()
 
-
+#import "@preview/metro:0.3.0": *
 
 
 #import "../summary_template.typ": conf
 #import "../commands.typ": *
 
-#codly(enabled: true, smart-indent: true, number-format: it => [#text(0.8em, color.darken(gray, 20%))[#h(-2pt)#it]], inset:2pt, annotations: none, lang-format: none)
+#codly(
+  enabled: true,
+  smart-indent: true,
+  number-format: it => [#text(0.8em, color.darken(gray, 20%))[#h(-2pt)#it]],
+  inset: 2pt,
+  annotations: none,
+  lang-format: none,
+)
 
 #import "@preview/octique:0.1.0": *
 
@@ -53,10 +60,9 @@
   source: "https://github.com/joelvonrotz/BSc-electrical-engineering/tree/main/semester%207",
 )
 
+#image("meme.jpg", width: 80%)
 
 #pagebreak()
-
-#counter(page).update(1)
 
 = Automatisierung
 
@@ -195,6 +201,22 @@ Ein Feldbus verbindet in einer Anlage Feldgeräte wie Messfühler (Sensoren) und
 
 #image("digital_closed_loop.png")
 
+#columns(2)[
+  #text(fill: color_green)[#octicon("check-circle", color: color_green) *Vorteile*]
+  - Reglerparamter können per Software geändert werden
+  - platzsparend und kostengünstig
+  - nicht nur PID, kann komplexer werden
+  - Rechner kann noch andere Aufgaben übernehmen
+  
+  #colbreak()
+
+  #text(fill: color_redish)[#octicon("x-circle", color: color_redish) *Nachteile*]
+
+  - Diskretisieren ist nicht vernachlässigbar im Design
+  - Minderung der dynamischen Leistung
+  - Konzept weniger intuitiv als in der analogen Welt
+]
+
 == Direkt vs Indirekt
 
 #grid(columns: (1fr, 1fr), column-gutter: 10pt)[
@@ -232,8 +254,10 @@ Ein wichtiger Aspekt eines digitalen Reglers ist die Dauer einer Reglersequenz: 
 
 == Euler
 
+Der I-Anteil eines Reglers kann anhand drei Varianten berechnet werden: Rückwärts-Rechteckregel, Vorwärts-Rechteckregel und die Regel
+
 #columns(2)[
-  === Rückwärts-Recht.
+  === Rückwärts-Rechteckregel
 
   #grid(columns: (1fr, 0.5fr), align: horizon)[
 
@@ -247,7 +271,7 @@ Ein wichtiger Aspekt eines digitalen Reglers ist die Dauer einer Reglersequenz: 
 
   #colbreak()
 
-  === Trapezoidal-Recht.
+  === Trapezoidal-Regel (Tustin-Approx)
 
 
   #grid(columns: (1fr, 0.3fr))[
@@ -267,23 +291,31 @@ Ein wichtiger Aspekt eines digitalen Reglers ist die Dauer einer Reglersequenz: 
 == Differenzengleichung
 
 $
-  H(z) = Y(z)/X(z) = U(z)/E(z) = (sum_(m=0)^(M) b_m dot z^(-m))/(sum_(n=0)^(N) b_n dot z^(-n))
+  H(z) = Y(z) / X(z) = U(z) / E(z) = (sum_(m=0)^(M) b_m dot z^(-m)) / (sum_(n=0)^(N) b_n dot z^(-n))
 $
 
 == Prozesse
 
 === PT1 Prozess
 
-$ G(s) = Y(s)/U(s) = 1/(1+ tau dot s) -> s=(1-z^(-1))/T ->  #formula(inset: (x: 4pt, y: 3pt), baseline: 0.5em, boxalign: center)[$ y[k] = (1+T\/tau) dot u[k] + (1 + tau\/T) dot y[k-1] $] $
+$
+  G(s) = Y(s)/U(s) = 1/(1+ tau dot s) -> s=(1-z^(-1))/T ->  #formula(inset: (x: 4pt, y: 3pt), baseline: 0.5em, boxalign: center)[$ y[k] = (1+T\/tau) dot u[k] + (1 + tau\/T) dot y[k-1] $]
+$
 
-  === PT2 Prozess
-  
-  $ G(s) = Y(s)/U(s) = K/((1 + tau_1 s) (1 + tau_2 s)) -> s=(1-z^(-1))/T -> H(z) = (b_0)/(1 + a_1 dot z^(-1) + a_2 dot z^(-2)) $
+=== PT2 Prozess
 
-  $ alpha_1 = T + tau_1 quad ; quad alpha_2 = T + tau_2 quad ; quad b_0 = (K dot T^2)/(alpha_1 alpha_2) quad a_1 = -(tau_1 / alpha_1 + tau_2 / alpha_2 ) quad ; quad a_2 = (tau_1 tau_2)/(alpha_1 alpha_2) $
+$
+  G(s) = Y(s) / U(s) = K / ((1 + tau_1 s) (1 + tau_2 s)) -> s=(1-z^(-1)) / T -> H(z) = (b_0) / (1 + a_1 dot z^(-1) + a_2 dot z^(-2))
+$
 
-  
-  #formula(inset: (x: 4pt, y: 3pt), baseline: 1.2em, boxalign: center)[$ y[k] = -a_1 dot y[k-1] - a_2 dot  y[k-2] + b_0 dot u[k] $]
+$
+  alpha_1 = T + tau_1 quad ; quad alpha_2 = T + tau_2 quad ; quad b_0 = (K dot T^2) / (alpha_1 alpha_2) quad a_1 = -(tau_1 / alpha_1 + tau_2 / alpha_2 ) quad ; quad a_2 = (tau_1 tau_2) / (alpha_1 alpha_2)
+$
+
+
+#formula(inset: (x: 4pt, y: 3pt), baseline: 1.2em, boxalign: center)[$
+    y[k] = -a_1 dot y[k-1] - a_2 dot y[k-2] + b_0 dot u[k]
+  $]
 
 
 == PID Regler
@@ -292,28 +324,28 @@ $ G(s) = Y(s)/U(s) = 1/(1+ tau dot s) -> s=(1-z^(-1))/T ->  #formula(inset: (x: 
 
 
 $
-  u(t) = u_"k,a"(e(t))+ u_"i,a"(e(t))+ u_"d,a"(e(t)) = K_a (e(t) + 1/(T_(i,a)) integral_(0)^(t) e(tau) space d tau + T_(d,a) dot dot(e)(t))
+  u(t) = u_"k,a"(e(t))+ u_"i,a"(e(t))+ u_"d,a"(e(t)) = K_P (e(t) + 1 / (T_(i,a)) integral_(0)^(t) e(tau) space d tau + T_(d,a) dot dot(e)(t))
 $
 
 
-#image("pid_danteil_alternative.png")
+#image("pid_danteil_alternative.png", width: 90%)
 
 === Proportionalität
 
 #grid(columns: (1fr, 1fr), align: horizon)[
   #formula(inset: (x: 4pt, y: 3pt), baseline: 1.2em, boxalign: center)[$
-      u_p [k] = K_d dot e[k]
+      u_p [k] = K_P dot e[k]
     $]
 ][
-  $K_d$ ist equivalent zur analogen Version $K_a$
+  $K_P$ ist equivalent zur analogen Version $K_a$
 ]
 
 
 === Integration
 
 $
-  sum_(0)^(k)#[] = sum_(0)^(k-1)#[] + space alpha (k) quad ==> quad &#formula(inset: (x:4pt, y:3pt), baseline: 1.2em)[$ u_(i,d) [k] = u_i [k-1] + K_a/T_i dot (e[k] + e[k-1])/2 dot T $] <- "Trapez"\
-&#formula(inset: (x:4pt, y:3pt), baseline: 1.2em)[$ u_(i,d) [k] = u_i [k-1] + K_a/T_(i,d) dot e[k] dot T $] <- "Rückwärts"
+  sum_(0)^(k)#[] = sum_(0)^(k-1)#[] + space alpha (k) quad ==> quad &#formula(inset: (x:4pt, y:3pt), baseline: 1.2em)[$ u_(i,d) [k] = u_i [k-1] + K_P/T_i dot (e[k] + e[k-1])/2 dot T $] <- "Trapez"\
+&#formula(inset: (x:4pt, y:3pt), baseline: 1.2em)[$ u_(i,d) [k] = u_i [k-1] + K_P/T_(i,d) dot e[k] dot T $] <- "Rückwärts"
 $
 
 #v(-3.5em)
@@ -326,7 +358,7 @@ $
 
 #grid(columns: (1fr, 1fr), align: horizon)[
   #formula(inset: (x: 4pt, y: 3pt), baseline: 1.2em, boxalign: center)[$
-      u_(d,d) [k] = (e[k] - e[k-1]) / T dot K_d dot T_(d,d)
+      u_(d,d) [k] = (e[k] - e[k-1]) / T dot K_P dot T_(d,d)
     $]
 ][
 
@@ -334,52 +366,62 @@ $
 
 ]
 
-== Antireset-Windup
+== D-Anteil gefiltert
 
-Der Wandel von Digital zu Analog führt zu Overshoots im $u[]$ Anteil, da die Diskretisierung Tod-Zeiten einführt, wo der Regler nicht reagiert!
+Je kleiner die Abtastrate, umso grösser sind die Overshoots des D-Anteils. Durch das Quantisieren des AD-Wandlers entsteht ein zusätzlicher Fehler (Bit "Flackern", wenn die gemessene Spannung zwischen zwei Bit-Werten ist).
 
+Um diese Overshoots zu korrigieren, wird ein Tiefpass-Filter zum D-Anteil hinzugefügt.
+
+$
+  u_d = K_P dot T_d dot s dot 1/(T_d / N dot s + 1) -> s = (1-z^(-1)) / T
+$
+#formula(inset: (x: 4pt, y: 3pt), baseline: 1.2em, boxalign: center)[
+$ u_d [k] = K_P dot (T_d)/(T + T_F) dot (e[k] - e[k-1]) + T_F/(T + T_F) dot u[k-1] quad "mit" T_F = T_d/N $
+]
+
+== Saturation
+
+Die Stellgrössen für den Prozess haben (immer) einen begrenzten Bereich (z.B. $plus.minus 24 unit(V) $ für einen Motor).
+
+#v(-1em)
+#formula(inset: (x: 4pt, y: 3pt), baseline: 1.2em, boxalign: center)[
+$
+  u[k] = cases(
+  u_"sat,max" quad quad & "if" u_"nosat" [k] > u_"sat,max",
+  u_"sat,min" & "if" u_"nosat" [k] < u_"sat,min",
+  u_"nosat" [k] & "else"
+)
+$]
+
+Da mit der Saturation der I-Anteil kontinuierlich einen Fehler aufaddieren kann (bis ein Overflow oder andere Probleme entstehen), wird dies folgend noch mit einem Antireset-Windup gelöst!
+
+
+== Antireset-Windup (ARW)
+
+Der Wandel von Digital zu Analog führt zu Overshoots im $u[]$ Anteil, da die Diskretisierung Tod-Zeiten einführt, wo der Regler nicht reagieren kann!
+
+Mit dem ARW wird gegen den starken Einfluss des I-Anteils in die Stellgrösse bei grossen Differenzen (welche zur Saturation führt) gewirkt. 
 
 #columns(2)[
 
-=== Ohne ARW
+  === Ohne ARW
 
-$ u_i [k] = u_i [k-1] + K_a T/T_i dot (e[k] + e[k-1])/2 $
+  $ u_i [k] = u_i [k-1] + K_P T / T_i dot (e[k] + e[k-1]) / 2 $
 
-#v(3em)
+  $ u_"nosat" [k] = u_p [k] + u_i [k] + u_d [k] $
 
-$ u_"nosat" [k] = u_p [k] + u_i [k] + u_d [k] $
+  #small[$==>$ Durch die Saturation Funktion drücken!]
 
-$
-  u[k] = cases(
-    u_"sat,max" quad quad & "if" u_"nosat" [k] > u_"sat,max",
-    u_"sat,min" & "if" u_"nosat" [k] < u_"sat,min",
-    u_"nosat" [k] & "else"
-  )
-$
+  #colbreak()
+  === Mit ARW
 
-#colbreak()
-=== Mit ARW
+  $
+    u_i [k] &= u_i [k-1] + K_P T / T_i dot (e[k] + e[k-1]) / 2\
+    &+ T / T_r (u[k] - u_"nosat" [k])
+  $
 
-$ u_i [k] &= u_i [k-1] + K_a T/T_i dot (e[k] + e[k-1])/2\ 
-  &+ T/T_r (u[k] - u_"nosat" [k]) $
-
-$ u_"nosat" [k] = u_p [k] + u_i [k-1] + u_d [k] $
-
-$
-  u[k] = cases(
-    u_"sat,max" quad quad & "if" u_"nosat" [k] > u_"sat,max",
-    u_"sat,min" & "if" u_"nosat" [k] < u_"sat,min",
-    u_"nosat" [k] & "else"
-  )
-$
+  $ u_"nosat" [k] = u_p [k] + u_i [k-1] + u_d [k] $
 ]
-
-== D-Anteil gefiltert
-
-$ 
-  u_d = (T_d dot s)/(T_d / N dot s + 1) -> s = (1-z^(-1))/T
-$
-
 
 
 = TwinCAT
@@ -660,13 +702,98 @@ nRes:=nVar1;
 
 === #octicon("code") Bitshifting SHR/SHL
 
-#todo[schreiben!]
+```c
+PROGRAM Shr_st// right shifting
+VAR
+    nInByte  :  BYTE:=16#45;   // 2#01000101
+    nInWord  :  WORD:=16#0045; // 2#0000000001000101
+    nResByte :  BYTE;
+    nResWord :  WORD;
+    nVar : BYTE := 2; // amount of shifting
+END_VAR
+
+nResByte := SHR(nInByte,nVar); //Result is 16#11, 2#00010001
+nResWord := SHR(nInWord,nVar); //Result is 16#0011, 2#0000000000010001
+```
+
+```c
+PROGRAM Shl_st // left shifting
+VAR
+    nInByte  :  BYTE:=16#45;   // 2#01000101
+    nInWord  :  WORD:=16#0045; // 2#0000000001000101
+    nResByte :  BYTE;
+    nResWord :  WORD;
+    nVar : BYTE  := 2; // amount of shifting
+END_VAR
+
+nResByte := SHL(nInByte,nVar); // Result is 16#14, 2#00010100
+nResWord := SHL(nInWord,nVar); // Result is 16#0114, 2#0000000100010100
+```
+
+#callout(title: "Circular Shifting")[
+  Mit `ROL` und `ROR` können Bits rotiert werden (herausgeschobene werden am anderen Ende wieder hineingeschoben).
+]
 
 === #octicon("package") Array
 
-#todo[schreiben!]
+```c
+<variable name> : ARRAY[ <dimension> ] OF <data type> ( := <initialization> )? ;
+// (...)? : Optional
 
-=== #octicon("package") Struct/Enum
+VAR
+    aCounter : ARRAY[0..9] OF INT;
+    // Short notation for [10, 10, 20, 20]
+    aCardGame : ARRAY[1..2, 3..4] OF INT := [2(10),2(20)];
+END_VAR
+```
+
+=== #octicon("package") Structure
+
+```c
+TYPE <structure name> :
+STRUCT
+    (<variable declaration optional with initialization>)+
+END_STRUCT
+END_TYPE
+
+TYPE ST_POLYGONLINE :
+STRUCT
+    aStart : ARRAY[1..2] OF INT := [-99, -99];
+    aPoint1 : ARRAY[1..2] OF INT;
+    aPoint2 : ARRAY[1..2] OF INT;
+    aPoint3 : ARRAY[1..2] OF INT;
+    aPoint4 : ARRAY[1..2] OF INT;
+    aEnd : ARRAY[1..2] OF INT := [99, 99];
+END_STRUCT
+END_TYPE
+```
+
+
+=== #octicon("package") Enumeration
+
+```c
+{attribute 'strict'} 
+TYPE <enumeration name>:
+(
+    <component declaration>,
+    <component declaration>
+) <basic data type> := <default variable initialization>
+;
+END_TYPE
+
+{attribute 'qualified_only'}
+{attribute 'strict'}
+TYPE E_ColorBasic :
+(
+    eRed, 
+    eYellow,
+    eGreen := 10,
+    eBlue,
+    eBlack
+) // Basic data type is INT, default initialization for all E_ColorBasic  variables is eYellow
+;
+END_TYPE
+```
 
 #todo[schreiben!]
 
@@ -891,11 +1018,6 @@ fbTP(IN := bInput, PT := T#500MS);
 bLamp := fbTP.Q;
 ```
 
-== AMS Net ID
-
-Die _AMS Net ID_ ist die Adresse des lokalen Rechners im TwinCAT-Netzwerk.
-
-
 #pagebreak()
 = Beispiel Code
 
@@ -999,7 +1121,7 @@ END_VAR
 SinusFunction := SIN(rAngularFrequency * rTime) * rAmplitude + rYOffset;
 ```
 
-== #octicon("code") PWM Signal  `F_SquareFunction`
+== #octicon("code") PWM Signal `F_SquareFunction`
 
 ```c
 FUNCTION SquareSignal : REAL
@@ -1030,7 +1152,7 @@ ELSE
 END_IF
 ```
 
-== #octicon("code") PT1 Prozess 
+== #octicon("code") PT1 Prozess
 
 ```c
 FUNCTION_BLOCK FB_LowpassFilter
@@ -1052,7 +1174,21 @@ rOutputValue := (rDeltaTimeSec * rInputValue + rTau * rLastOutputValue)/(rDeltaT
 rLastOutputValue := rOutputValue;
 ```
 
-== #octicon("code") PT2 Prozess 
+== #octicon("code") PT2 Prozess
+
+=== Struct Parameter
+
+```c
+TYPE STRUCT_PT1T2_Parameter :
+STRUCT
+	rK : REAL;
+	rT1 : REAL;
+	rT2 : REAL;
+END_STRUCT
+END_TYPE
+```
+
+=== Prozess Implementation
 
 ```c
 FUNCTION_BLOCK FB_SecondOrderLag
@@ -1080,3 +1216,156 @@ rOutputValue := (rInputValue * EXPT(rDeltaTimeSec,2) * EXPT(rRotFreq,2)
 rLastOutputValues[1] := rLastOutputValues[0];
 rLastOutputValues[0] := rOutputValue;
 ```
+
+== #octicon("code") PID Regler Prozess
+
+=== SystemModus Enumeration
+
+```c
+{attribute 'qualified_only'}
+{attribute 'strict'}
+TYPE ENUM_SystemModus :
+(
+	System_Init := 0,
+	System_Run,
+	OpenLoop,
+	ClosedLoop_Real,
+	ClosedLoop_Simulation
+);
+END_TYPE
+```
+
+=== Struct Parameter
+
+```c
+TYPE STRUCT_PID_Parameter :
+STRUCT
+	rKp : REAL; // P-Anteil
+	rTi : REAL; // I-Anteil
+	rTd : REAL; // D-Anteil
+	uN : UINT;  // D-Anteil Filterung
+	bARW : BOOL; // Anti-Reset Windup aktiv (true: yes)
+	rTr : REAL; // Anti-Reset Windup Gewichtung (1/Tr)
+	rUmin: REAL; // Steuergrösse minimaler Wert
+	rUmax: REAL; // Steuergrösse maximaler Wert
+END_STRUCT
+END_TYPE
+```
+
+=== Regler Implementation
+
+
+```c
+FUNCTION_BLOCK FB_PID_Regler
+VAR_INPUT
+	rR : REAL;
+	rY : REAL;
+	eSystemModus : ENUM_SystemModus;
+	sParam : STRUCT_PID_Parameter;
+	rT : REAL;
+END_VAR
+VAR_OUTPUT
+	rU : REAL;
+	rUsat : REAL;
+END_VAR
+VAR
+	rTau : REAL;
+	rE : REAL;
+	rE_old : REAL;
+	rUp : REAL := 0;
+	rUi : REAL := 0;
+	rUi_old : REAL := 0;
+	rUsat_old : REAL := 0;
+	rI : REAL := 0;
+	rI_old : REAL := 0;
+	rUd : REAL  := 0;
+	rY_old : REAL  := 0;
+	rUd_old : REAL  := 0;
+	cIntegralFactor : REAL;
+	cARWIntegralFactor : ARRAY[0..2] OF REAL;
+	cDiffFactor : ARRAY[0..1] OF REAL;
+END_VAR
+```
+
+```c
+CASE eSystemModus OF
+	ENUM_SystemModus.System_Init:
+		rTau := sParam.rTd/UINT_TO_REAL(sParam.uN);
+
+		// precalculation of factor for I-Value
+		cIntegralFactor := rT * sParam.rKp/(2 * sParam.rTi);
+
+		IF sParam.bARW THEN
+			cARWIntegralFactor[0] := sParam.rKp/sParam.rTi;
+			cARWIntegralFactor[1] := 1/sParam.rTr;
+			cARWIntegralFactor[2] := rT/2;
+		END_IF
+
+		// precalculation of factor for D-Value
+		cDiffFactor[0] := sParam.rTd * sParam.rKp / (rTau + rT); // for e[k] & e[k-1]
+		cDiffFactor[1] := rTau / (rTau + rT); // for u[k-1]
+
+	ENUM_SystemModus.ClosedLoop_Real, ENUM_SystemModus.ClosedLoop_Simulation, ENUM_SystemModus.System_Run:
+		// calculate error
+		rE := rR - rY;
+
+		// calculate P value
+		rUp := rE * sParam.rKp;
+
+		// calculate I value
+		IF sParam.bARW THEN // anti-reset windup
+			// substituted value
+			rI := cARWIntegralFactor[0] * rE + cARWIntegralFactor[1] * (rUsat_old - rU);
+
+			// integration
+			rUi := rUi_old + cARWIntegralFactor[2] * (rI + rI_old);
+			rI_old := rI;
+		ELSE
+			rUi := rUi_old + cIntegralFactor * (rE + rE_old);
+		END_IF
+
+		// calculate D value
+		rUd := cDiffFactor[0] * (rE - rE_old) + cDiffFactor[1] * rUd_old;
+
+		// calculate U
+		rU := rUp + rUi + rUd;
+
+		IF rU > sParam.rUmax THEN
+			rUsat := sParam.rUmax;
+		ELSIF rU < sParam.rUmin THEN
+			rUsat := sParam.rUmin;
+		ELSE
+			rUsat := rU;
+		END_IF
+
+		rE_old := rE;
+		rUi_old := rUi;
+		rUd_old := rUd;
+		rUsat_old := rUsat;
+		rY_old := rY;
+END_CASE
+```
+
+#pagebreak()
+
+= Weise Seiten
+
+== z-Transformation
+
+#image("ztransform1.png")
+
+#image("ztransform2.png")
+
+#image("ztransform3.png")
+
+#image("ztransform.png")
+
+== Laplace Transformation
+
+#image("laplace1.png")
+
+#image("laplace2.png")
+
+#image("laplace3.png")
+
+#image("laplace4.png")
