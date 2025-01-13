@@ -173,13 +173,13 @@ Ein Feldbus verbindet in einer Anlage Feldgeräte wie Messfühler (Sensoren) und
 
 #columns(2)[
 
-  #text(fill: color_green)[#octicon("check-circle", color: color_green) *Vorteile*]
+  #text(fill: color_green)[#octicon("check-circle", color: color_green) *Vorteile*] Feldbus
 
   - geringerer Verkabelungsaufwand
   - Erweiterungen oder Änderungen
 
   #colbreak()
-  #text(fill: color_redish)[#octicon("x-circle", color: color_redish) *Nachteile*]
+  #text(fill: color_redish)[#octicon("x-circle", color: color_redish) *Nachteile*] Feldbus
 
   - Komplexität
   - Preis
@@ -202,15 +202,15 @@ Ein Feldbus verbindet in einer Anlage Feldgeräte wie Messfühler (Sensoren) und
 #image("digital_closed_loop.png")
 
 #columns(2)[
-  #text(fill: color_green)[#octicon("check-circle", color: color_green) *Vorteile*]
+  #text(fill: color_green)[#octicon("check-circle", color: color_green) *Vorteile*] Regelkreis
   - Reglerparamter können per Software geändert werden
   - platzsparend und kostengünstig
-  - nicht nur PID, kann komplexer werden
+  - nicht nur PID, können auch andere (komplexere) Regler implementiert werden
   - Rechner kann noch andere Aufgaben übernehmen
   
   #colbreak()
 
-  #text(fill: color_redish)[#octicon("x-circle", color: color_redish) *Nachteile*]
+  #text(fill: color_redish)[#octicon("x-circle", color: color_redish) *Nachteile*] Regelkreis
 
   - Diskretisieren ist nicht vernachlässigbar im Design
   - Minderung der dynamischen Leistung
@@ -223,15 +223,15 @@ Ein Feldbus verbindet in einer Anlage Feldgeräte wie Messfühler (Sensoren) und
   #image("direct_indirect.png", width: 100%)
 ][
 
-  #text(fill: color_green)[#octicon("check-circle", color: color_green) *Vorteile*]
+  #text(fill: color_green)[#octicon("check-circle", color: color_green) *Vorteile*] Indirekt
 
   - Keine neuen Methode notwendig
-  - Intuitivit¨at, Intepretation
+  - Intuitivität, Intepretation
 
-  #text(fill: color_redish)[#octicon("x-circle", color: color_redish) *Nachteile*]
+  #text(fill: color_redish)[#octicon("x-circle", color: color_redish) *Nachteile*] Indirekt
 
-  - Auf analogen Regler beschr¨ankt (PID)
-  - Keine explizite Ber¨ucksichtigung der Discretizierung
+  - Auf analogen Regler beschränkt (PID)
+  - Keine explizite Berücksichtigung der Diskretisierung
 
 ]
 
@@ -252,7 +252,7 @@ Ein wichtiger Aspekt eines digitalen Reglers ist die Dauer einer Reglersequenz: 
 = Diskretisierung
 
 
-== Euler
+== Laplace zu z-Bereich
 
 Der I-Anteil eines Reglers kann anhand drei Varianten berechnet werden: Rückwärts-Rechteckregel, Vorwärts-Rechteckregel und die Regel
 
@@ -280,13 +280,24 @@ Der I-Anteil eines Reglers kann anhand drei Varianten berechnet werden: Rückwä
 
   ][
     #v(1cm)
-    $ s= (z-1) / (T z) $
+    $ s= 2/T dot (z-1) / (z+1) $
 
   ]
   #v(-0.7cm)
   #image("trapezoid.png", width: 70%)
 ]
 
+
+#columns(2)[
+  === Vorwärts-Rechteckregel / Euler
+  $ s = (z-1)/T -> y[k] = 1/T dot (x[k + 1] - x[k]) $
+
+  Wird eher weniger angewendet, da "in die Zukunft blicken" schwer implementierbar ist.
+
+  #colbreak()
+  #image("forward.png", width: 70%)
+
+]
 
 == Differenzengleichung
 
@@ -299,13 +310,13 @@ $
 === PT1 Prozess
 
 $
-  G(s) = Y(s)/U(s) = 1/(1+ tau dot s) -> s=(1-z^(-1))/T ->  #formula(inset: (x: 4pt, y: 3pt), baseline: 0.5em, boxalign: center)[$ y[k] = (1+T\/tau) dot u[k] + (1 + tau\/T) dot y[k-1] $]
+  G(s) = Y(s)/U(s) = 1/(1+ tau dot s) -> s=(z-1)/(T z) ->  #formula(inset: (x: 4pt, y: 3pt), baseline: 0.5em, boxalign: center)[$ y[k] = (1+T\/tau) dot u[k] + (1 + tau\/T) dot y[k-1] $]
 $
 
 === PT2 Prozess
 
 $
-  G(s) = Y(s) / U(s) = K / ((1 + tau_1 s) (1 + tau_2 s)) -> s=(1-z^(-1)) / T -> H(z) = (b_0) / (1 + a_1 dot z^(-1) + a_2 dot z^(-2))
+  G(s) = Y(s) / U(s) = K / ((1 + tau_1 s) (1 + tau_2 s)) -> s=s=(z-1)/(T z) -> H(z) = (b_0) / (1 + a_1 dot z^(-1) + a_2 dot z^(-2))
 $
 
 $
@@ -395,7 +406,7 @@ $]
 
 Da mit der Saturation der I-Anteil kontinuierlich einen Fehler aufaddieren kann (bis ein Overflow oder andere Probleme entstehen), wird dies folgend noch mit einem Antireset-Windup gelöst!
 
-
+#colbreak()
 == Antireset-Windup (ARW)
 
 Der Wandel von Digital zu Analog führt zu Overshoots im $u[]$ Anteil, da die Diskretisierung Tod-Zeiten einführt, wo der Regler nicht reagieren kann!
@@ -423,7 +434,7 @@ Mit dem ARW wird gegen den starken Einfluss des I-Anteils in die Stellgrösse be
   $ u_"nosat" [k] = u_p [k] + u_i [k-1] + u_d [k] $
 ]
 
-
+#v(-1em)
 = TwinCAT
 
 == Datentypen
@@ -479,10 +490,10 @@ Ist die einzige weltweit gültige Norm für Programmiersprachen von speicherprog
   [*SFC*], [Sequential Function Chart], [*AS*], [Ablaufsprache],
 )
 
-#columns(2)[
+#columns(2, gutter: 5pt)[
   === AWL (IL): Anweisungsliste
 
-  #image("lang_awl.png")
+  #image("lang_awl.png", height: 54%)
   #small[- Assembler für SPS
     - Urmutter der SPS Programmierung
     - Geeignet für einfachen sequentiellen Programme (keine Schleife)]
@@ -506,27 +517,32 @@ Ist die einzige weltweit gültige Norm für Programmiersprachen von speicherprog
     - Geeignet für einfachen sequentiellen Programme (keine Schleife)
   ]
 
-  === ST: Strukturierter Text
+]
 
+=== ST: Strukturierter Text
+
+#columns(2, gutter: 0pt)[
   #image("lang_st.png")
-  #small[
-    - Hochsprache (C, Pascal)
-    - Schleifenprogrammierung auch ohne Sprungbefehl möglich
-    - In Europa sehr oft gewählt
-  ]
+  #colbreak()
+  
+  - Hochsprache (C, Pascal)
+  - Schleifenprogrammierung auch ohne Sprungbefehl möglich
+  - In Europa sehr oft gewählt
+  
+]
 
 
-  === AS (SFC): Ablaufsprache
 
-  #image("lang_as.png")
-  #small[
-    - Grafisch
-    - Zustandsautomaten
-    - Gut lesbar
-    - Geeignet für übergeordneter Zustandsabläufe
-      - *Beispiel*: Programm einer Operationsmanager-SPS wird mit AS geschrieben und die Arbeiter-SPS in ST
-  ]
+=== AS (SFC): Ablaufsprache
 
+#columns(2, gutter: 0pt)[
+#image("lang_as.png")
+#colbreak()
+  - Grafisch
+  - Zustandsautomaten
+  - Gut lesbar
+  - Geeignet für übergeordneter Zustandsabläufe
+    - *Beispiel*: Programm einer Operationsmanager-SPS wird mit AS geschrieben und die Arbeiter-SPS in ST
 ]
 
 == Syntax
@@ -576,6 +592,8 @@ VAR_IN_OUT
 END_VAR
 ```
 
+#colbreak()
+
 #callout(title: "Namenskonvention")[
   Auch für die SPS gibst eine Namenskonvention, welche nicht unbedingt eingehalten werden muss. Variablennamen werden jeweils ein Kürzel des Datentyps vorangestellt. Konstanten werden komplett gross geschrieben (ausser das Kürzel).
 
@@ -587,7 +605,7 @@ END_VAR
 ```c
 IF <condition1> THEN
   // Stuff 1
-ELSE IF <condition2> THEN
+ELSIF <condition2> THEN
   // Stuff 2
 ELSE
   // Other stuff
@@ -624,14 +642,14 @@ ELSE
 END_CASE;
 ```
 
-Switch-Case kann auch für Enums verwendet werden:
+Switch-Cases können auch für Enums verwendet werden:
 
 ```c
 CASE eSystemMode OF
 	ENUM_SystemModus.System_Init:
     bVar1 := TRUE;
     bVar2 := FALSE;
-  ENUM_SystemModus.System_Init:
+  ENUM_SystemModus.System_Run:
     bVar1 := FALSE;
     bVar2 := TRUE;
   ELSE // for unused enums
@@ -650,6 +668,8 @@ END_WHILE;
 
 === #octicon("code") REPEAT
 
+Wird mindestens 1$times$ ausgeführt.
+
 ```c
 REPEAT
   nVar1 := nVar1*2;
@@ -667,6 +687,10 @@ IF bVar1 = TRUE THEN
 END_IF;
 nVar2 := nVar2 + 1;
 ```
+
+Unterschied zu `EXIT` $->$ verlässt die Funktion/der Funktionsblock komplett.
+
+#colbreak()
 
 === #octicon("code") JMP
 
@@ -715,6 +739,9 @@ END_VAR
 nResByte := SHR(nInByte,nVar); //Result is 16#11, 2#00010001
 nResWord := SHR(nInWord,nVar); //Result is 16#0011, 2#0000000000010001
 ```
+
+$==>$ Nächste Seite für die Implementation $==>$
+#colbreak()
 
 ```c
 PROGRAM Shl_st // left shifting
@@ -785,17 +812,15 @@ END_TYPE
 {attribute 'strict'}
 TYPE E_ColorBasic :
 (
-    eRed, 
-    eYellow,
+    eRed, // = 0 (default, if not defined)
+    eYellow, // = 1
     eGreen := 10,
-    eBlue,
-    eBlack
-) // Basic data type is INT, default initialization for all E_ColorBasic  variables is eYellow
+    eBlue, // = 11
+    eBlack // = 12
+) := eYellow // Basic data type is INT, default initialization for all E_ColorBasic  variables is eYellow
 ;
 END_TYPE
 ```
-
-#todo[schreiben!]
 
 === #octicon("package") Global Variable List (GVL)
 
@@ -809,6 +834,7 @@ VAR_GLOBAL
 	iGlobalMotorVelocity AT %Q* : INT;
 END_VAR
 ```
+
 
 
 === Hardware Verknüpfen / AT-Deklaration
@@ -851,7 +877,7 @@ iMotorSpeed  := REAL_TO_INT(32767.0 * rU/24.0);
 ```
 
 === Programm
-- Können als Funktion gestartet werden: z.B. `P_Programm();`
+- Können als Funktion gestartet werden: z.B. `ProgrammXYZ();`
 - Können keinen Rückgabewert haben
 
 ```c
@@ -863,6 +889,8 @@ VAR
 END_VAR
 ```
 
+$==>$ Nächster Abschnitt ist die Implementation $==>$
+#colbreak()
 ```c
 // do stuff in the main program
 IF (bTrig = FALSE) AND (rValue >= -1.0) THEN // also just `NOT bTrig` works
@@ -1021,7 +1049,7 @@ bLamp := fbTP.Q;
 #pagebreak()
 = Beispiel Code
 
-== #octicon("code") Edge Detector
+== #octicon("code") Edge Detector `FB_EdgeDetector`
 
 ```c
 FUNCTION_BLOCK  FB_EdgeDetector
@@ -1075,7 +1103,7 @@ bOldValue := bInputValue;
 == #octicon("code") PWM Signal `F_PWMFunction`
 
 ```c
-FUNCTION PwmSignal : REAL
+FUNCTION F_PwmSignal : REAL
 VAR_INPUT
 	rYMax : REAL := 1;
 	rYMin : REAL := 0;
@@ -1108,7 +1136,7 @@ END_IF
 == #octicon("code") Sinus Signal `F_SinusFunction`
 
 ```c
-FUNCTION SinusFunction : REAL
+FUNCTION F_SinusFunction : REAL
 VAR_INPUT
 	rAmplitude : REAL := 1;
 	rYOffset : REAL := 0;
@@ -1124,7 +1152,7 @@ SinusFunction := SIN(rAngularFrequency * rTime) * rAmplitude + rYOffset;
 == #octicon("code") PWM Signal `F_SquareFunction`
 
 ```c
-FUNCTION SquareSignal : REAL
+FUNCTION F_SquareSignal : REAL
 VAR_INPUT
 	rYMax : REAL := 1;
 	rYMin : REAL := 0;
@@ -1162,10 +1190,10 @@ VAR_INPUT
 	rTau : REAL;
 END_VAR
 VAR_OUTPUT
-	rOutputValue : REAL;
+	rOutputValue : REAL; // y[n]
 END_VAR
 VAR
-	rLastOutputValue : REAL := 0; // x[n-1]
+	rLastOutputValue : REAL := 0; // y[n-1]
 END_VAR
 ```
 
@@ -1199,10 +1227,10 @@ VAR_INPUT
 	rDamping : REAL;
 END_VAR
 VAR_OUTPUT
-	rOutputValue : REAL;
+	rOutputValue : REAL; // y[n]
 END_VAR
 VAR
-	rLastOutputValues : ARRAY[0..1] OF REAL := [0,0]; // x[n-1], x[n-2]
+	rLastOutputValues : ARRAY[0..1] OF REAL := [0,0]; // y[n-1], y[n-2]
 END_VAR
 ```
 
