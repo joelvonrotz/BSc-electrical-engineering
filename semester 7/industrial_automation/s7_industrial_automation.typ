@@ -62,6 +62,23 @@
 
 #image("meme.jpg", width: 80%)
 
+#align(center)[
+  #callout(width: 80%, color: color_redish, title: "Achtung, Achtung!")[
+    #set align(left)
+    Anstatt über die Fehler in der Zusammenfassung zu meckern, wäre ein _Pull Request_ sehr töfte!
+    #v(-6.5mm)#h(1fr)#box(
+      text(color_links)[#link(
+          "https://github.com/joelvonrotz/BSc-electrical-engineering/tree/main/semester%207",
+          [#octicon("repo", color: color_links) Github Repo Link],
+        )],
+      baseline: 50%,
+      stroke: (thickness: 0.5pt, paint: color_links, dash: (3pt, 3pt), cap: "round"),
+      inset: 2pt,
+      radius: 4pt,
+    )
+  ]]
+
+
 #pagebreak()
 
 = Automatisierung
@@ -207,7 +224,7 @@ Ein Feldbus verbindet in einer Anlage Feldgeräte wie Messfühler (Sensoren) und
   - platzsparend und kostengünstig
   - nicht nur PID, können auch andere (komplexere) Regler implementiert werden
   - Rechner kann noch andere Aufgaben übernehmen
-  
+
   #colbreak()
 
   #text(fill: color_redish)[#octicon("x-circle", color: color_redish) *Nachteile*] Regelkreis
@@ -280,7 +297,7 @@ Der I-Anteil eines Reglers kann anhand drei Varianten berechnet werden: Rückwä
 
   ][
     #v(1cm)
-    $ s= 2/T dot (z-1) / (z+1) $
+    $ s= 2 / T dot (z-1) / (z+1) $
 
   ]
   #v(-0.7cm)
@@ -290,7 +307,7 @@ Der I-Anteil eines Reglers kann anhand drei Varianten berechnet werden: Rückwä
 
 #columns(2)[
   === Vorwärts-Rechteckregel / Euler
-  $ s = (z-1)/T -> y[k] = 1/T dot (x[k + 1] - x[k]) $
+  $ s = (z-1) / T -> y[k] = 1 / T dot (x[k + 1] - x[k]) $
 
   Wird eher weniger angewendet, da "in die Zukunft blicken" schwer implementierbar ist.
 
@@ -316,7 +333,7 @@ $
 === PT2 Prozess
 
 $
-  G(s) = Y(s) / U(s) = K / ((1 + tau_1 s) (1 + tau_2 s)) -> s=s=(z-1)/(T z) -> H(z) = (b_0) / (1 + a_1 dot z^(-1) + a_2 dot z^(-2))
+  G(s) = Y(s) / U(s) = K / ((1 + tau_1 s) (1 + tau_2 s)) -> s=s=(z-1) / (T z) -> H(z) = (b_0) / (1 + a_1 dot z^(-1) + a_2 dot z^(-2))
 $
 
 $
@@ -384,10 +401,10 @@ Je kleiner die Abtastrate, umso grösser sind die Overshoots des D-Anteils. Durc
 Um diese Overshoots zu korrigieren, wird ein Tiefpass-Filter zum D-Anteil hinzugefügt.
 
 $
-  u_d = K_P dot T_d dot s dot 1/(T_d / N dot s + 1) -> s = (1-z^(-1)) / T
+  u_d = K_P dot T_d dot s dot 1 / (T_d / N dot s + 1) -> s = (1-z^(-1)) / T
 $
 #formula(inset: (x: 4pt, y: 3pt), baseline: 1.2em, boxalign: center)[
-$ u_d [k] = K_P dot (T_d)/(T + T_F) dot (e[k] - e[k-1]) + T_F/(T + T_F) dot u[k-1] quad "mit" T_F = T_d/N $
+  $ u_d [k] = K_P dot (T_d) / (T + T_F) dot (e[k] - e[k-1]) + T_F / (T + T_F) dot u[k-1] quad "mit" T_F = T_d / N $
 ]
 
 == Saturation
@@ -396,13 +413,13 @@ Die Stellgrössen für den Prozess haben (immer) einen begrenzten Bereich (z.B. 
 
 #v(-1em)
 #formula(inset: (x: 4pt, y: 3pt), baseline: 1.2em, boxalign: center)[
-$
-  u[k] = cases(
+  $
+    u[k] = cases(
   u_"sat,max" quad quad & "if" u_"nosat" [k] > u_"sat,max",
   u_"sat,min" & "if" u_"nosat" [k] < u_"sat,min",
   u_"nosat" [k] & "else"
 )
-$]
+  $]
 
 Da mit der Saturation der I-Anteil kontinuierlich einen Fehler aufaddieren kann (bis ein Overflow oder andere Probleme entstehen), wird dies folgend noch mit einem Antireset-Windup gelöst!
 
@@ -411,7 +428,7 @@ Da mit der Saturation der I-Anteil kontinuierlich einen Fehler aufaddieren kann 
 
 Der Wandel von Digital zu Analog führt zu Overshoots im $u[]$ Anteil, da die Diskretisierung Tod-Zeiten einführt, wo der Regler nicht reagieren kann!
 
-Mit dem ARW wird gegen den starken Einfluss des I-Anteils in die Stellgrösse bei grossen Differenzen (welche zur Saturation führt) gewirkt. 
+Mit dem ARW wird gegen den starken Einfluss des I-Anteils in die Stellgrösse bei grossen Differenzen (welche zur Saturation führt) gewirkt.
 
 #columns(2)[
 
@@ -524,11 +541,11 @@ Ist die einzige weltweit gültige Norm für Programmiersprachen von speicherprog
 #columns(2, gutter: 0pt)[
   #image("lang_st.png")
   #colbreak()
-  
+
   - Hochsprache (C, Pascal)
   - Schleifenprogrammierung auch ohne Sprungbefehl möglich
   - In Europa sehr oft gewählt
-  
+
 ]
 
 
@@ -536,8 +553,8 @@ Ist die einzige weltweit gültige Norm für Programmiersprachen von speicherprog
 === AS (SFC): Ablaufsprache
 
 #columns(2, gutter: 0pt)[
-#image("lang_as.png")
-#colbreak()
+  #image("lang_as.png")
+  #colbreak()
   - Grafisch
   - Zustandsautomaten
   - Gut lesbar
@@ -799,7 +816,7 @@ END_TYPE
 === #octicon("package") Enumeration
 
 ```c
-{attribute 'strict'} 
+{attribute 'strict'}
 TYPE <enumeration name>:
 (
     <component declaration>,
