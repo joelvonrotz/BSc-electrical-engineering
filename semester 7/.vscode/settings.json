@@ -1,0 +1,10 @@
+{
+    "ltex.additionalRules.motherTongue": "de-CH",
+    "ltex.additionalRules.enablePickyRules": false,
+    "ltex.language": "de-CH",
+    "cSpell.language": "en,de-CH",
+    "cSpell.words": [
+        "Espressif",
+        "Zeichenorientiert"
+    ]
+}
