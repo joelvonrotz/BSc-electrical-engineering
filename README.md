@@ -4,12 +4,14 @@ Hello Dweller of Github or Studentbox User (or curious friends that I've sent th
 
 This repository contains summaries and some lab reports written both in Latex & Quarto. The majority of the summaries is written using [Quarto](https://quarto.org/) and has been extended with some Latex templates.
 
-> ***Why Quarto and not Office Word?***<br>
-> I've found Latex to be really powerful for thesis and documentations and gives off a consistent style! Quarto solves the learning curve of Latex for me, by replacing the language by rMarkdown.
+> ***Why Quarto (& Typst) and not Office Word?***<br>
+> I've found Latex to be really powerful for thesis and documentations and gives off a consistent style! Quarto solves the learning curve of Latex for me, by replacing the language by rMarkdown. 
+> 
+> Newer tools such as Typst have emerged, which I've used for the final semester summaries. It's a cool tool and I'm thinking about using it for my future masters degree. It has (almost) instant compilation and thus allows for live previewing it.
 
 ## Lovely Contributors
 
-The peeps below have helped me out a lot with writing the summaries and without them I probably wouldn't be able to write the majority of the summaries!
+The peeps below have helped me out a lot with writing the summaries and without them I probably wouldn't be able to write the majority of them!
 
 |<img src="https://github.com/threaming.png" width="60px;"/><br /><a href="https://github.com/threaming">threaming</a>|<img src="https://github.com/manuelfanger.png" width="60px;"/><br /><a href="https://github.com/manuelfanger">manuelfanger</a>|
 |:-------------------------------------------------------------------------------------------------------------------------:|:----------------------------------------------------------------------------------------------------------------------------:|
