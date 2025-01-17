@@ -41,10 +41,17 @@
   source: "https://github.com/joelvonrotz/BSc-electrical-engineering/tree/main/semester%207",
 )
 #colbreak(weak: true)
-#v(45.3em)
+#v(20em)
+#align(center)[
+#callout(width: 80%,color: color_redish, title: "Achtung, Achtung!")[
+  #set align(left)
+  Anstatt über die Fehler in der Zusammenfassung zu meckern, wäre ein _Pull Request_ sehr töfte!
+#v(-6.5mm)#h(1fr)#box(text(color_blue)[#link("https://github.com/joelvonrotz/BSc-electrical-engineering/tree/main/semester%207", [#octicon("repo", color: color_blue) Github Repo Link])], baseline: 50%, stroke: (thickness: 0.5pt, paint: color_blue, dash: (3pt, 3pt), cap: "round"), inset: 2pt, radius: 4pt)]
+]
+#v(20em)
 #[
   #show image: set align(right)
-  #image("meme.png", width: 140%)
+  #image("meme.png", width: 130%)
 ]
 #colbreak(weak: true)
 
@@ -771,8 +778,8 @@ Perfect reconstruction might not be possible in presence of noise $->$ approxima
   $ epsilon_"MSE" = E{abs(hat(s)[n+D]-s[n+D])^2} $
   #v(
     -0.8em,
-  )#h(33.5%)#small[*mean*#imageIcon("arrow-narrow-up.svg")]#h(15%)#small[#imageIcon("arrow-narrow-up.svg")*original*]
-  #v(-4.4em)#h(43.5%)#small[#imageIcon("arrow-narrow-down.svg")*prediction*]
+  )#h(3.5%)#small[*mean*#imageIcon("arrow-narrow-up.svg")]#h(44%)#small[#imageIcon("arrow-narrow-up.svg")*original*]
+  #v(-4.4em)#h(36%)#small[#imageIcon("arrow-narrow-down.svg")*prediction*]
 
   #colbreak()
   #highlight[optimal coefficients]:
