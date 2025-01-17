@@ -42,6 +42,23 @@
 #image("meme.jpg")
 #image("meme.jpeg")
 
+#align(center)[
+  #callout(width: 80%, color: color_redish, title: "Achtung, Achtung!")[
+    #set align(left)
+    Anstatt über die Fehler in der Zusammenfassung zu meckern, wäre ein _Pull Request_ sehr töfte!
+    #align(center)[#box(
+      text(color_links)[#link(
+          "https://github.com/joelvonrotz/BSc-electrical-engineering/tree/main/semester%207",
+          [#octicon("repo", color: color_links) Github Repo Link],
+        )],
+      baseline: 50%,
+      stroke: (thickness: 0.5pt, paint: color_links, dash: (3pt, 3pt), cap: "round"),
+      inset: 2pt,
+      radius: 4pt,
+    )
+  ]]
+]
+
 #set page(columns: 3)
 
 /* -------------------------------------------------------------------------- */
@@ -673,7 +690,7 @@ Im Main-View wird das ViewModel als _DataContext_ mit dem View verknüpft
 ```
 
 #small(callout(title: "Benamslig vom ViewModel-Objekt")[
-  Im Main-View gibt man an, welches Model genommen wird. Es können z.B. verschiedene Views das gleiche ViewModel verwende.n
+  Im Main-View gibt man an, welches Model genommen wird. Es können z.B. verschiedene Views das gleiche ViewModel verwenden.
 ])
 \
 
