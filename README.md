@@ -1,13 +1,20 @@
 # Bachelor Electrical Engineering :zap:
 
-Hello Dweller of Github or Studentbox User (or curious friends that I've sent the summary to)
+> [!NOTE]
+> I'm done with my bachelor degree, so this is going to be a quieter repository. Feel free to add changes (or if you want, forking it, although I encourage you to create your own one).
 
-This repository contains summaries and some lab reports written both in Latex & Quarto. The majority of the summaries is written using [Quarto](https://quarto.org/) and has been extended with some Latex templates.
+Hello Dweller of Github or StudentBox User or curious friends that I've sent the summary to.
+
+This repository contains summaries and some lab reports written in Latex, Quarto and Typst. The majority of the summaries are written using [Quarto](https://quarto.org/) and has been extended with some Latex templates. The last summaries were written using [Typst](https://typst.app/home/).
 
 > ***Why Quarto (& Typst) and not Office Word?***<br>
 > I've found Latex to be really powerful for thesis and documentations and gives off a consistent style! Quarto solves the learning curve of Latex for me, by replacing the language by rMarkdown. 
 > 
-> Newer tools such as Typst have emerged, which I've used for the final semester summaries. It's a cool tool and I'm thinking about using it for my future masters degree. It has (almost) instant compilation and thus allows for live previewing it.
+> Newer tools such as Typst have emerged, which I've used for the final semester summaries. It's a cool tool and I'm thinking about using it for my future masters degree. It has (almost) instant compilation and thus allows for live previewing it. It has an easier programmer approach, than the other tools.
+
+<center>
+  <img src="important.jpg" alt="Flowers" width="400">
+</center>
 
 ## Lovely Contributors
 
@@ -16,7 +23,10 @@ The peeps below have helped me out a lot with writing the summaries and without 
 |<img src="https://github.com/threaming.png" width="60px;"/><br /><a href="https://github.com/threaming">threaming</a>|<img src="https://github.com/manuelfanger.png" width="60px;"/><br /><a href="https://github.com/manuelfanger">manuelfanger</a>|
 |:-------------------------------------------------------------------------------------------------------------------------:|:----------------------------------------------------------------------------------------------------------------------------:|
 
-## Compiling it yourself
+## Compiling it yourself using Quarto
+
+> [!WARNING]
+> This will not work with Typst based documents. For those either use the [typst-cli](https://github.com/typst/typst) or the version of it [typst.app](https://typst.app/).
 
 If you want to compile the documents for yourself, in the following steps I will try to explain the installation process.
 
