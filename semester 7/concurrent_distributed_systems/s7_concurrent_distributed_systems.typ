@@ -885,7 +885,7 @@ Ein *GDB-Server* für Debugging, In-System Programming und _boundry-scan_ testin
 
 (ESP-IDF hat eine eigene modifizierte Version)
 
-=== GBD Client-Server Architektur
+=== GDB Client-Server Architektur
 #v(-2em)
 #h(1fr)#small[GNU Debugger]
 #v(0.1em)
