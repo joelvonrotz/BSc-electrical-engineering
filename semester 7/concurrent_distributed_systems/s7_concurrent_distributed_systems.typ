@@ -171,7 +171,7 @@ Die Funktion #raw(".Abort()", lang: "cs") "killed" den Thread à la:
 
 / `Object lock-pool`: Bei der Verwendung vom _lock_-Konstrukt, erhält der Threads Lebenszyklus diesen zusätzlichen Zustand. Jedes Object hat genau einen lock-pool.
 
-/ `Object wait-pool`: Menge von Threads, die vom Scheduler unterbrochen wurden und auf ein Ereignis warten, um fortgesetzt wreden zu können.
+/ `Object wait-pool`: Menge von Threads, die vom Scheduler unterbrochen wurden und auf ein Ereignis warten, um fortgesetzt werden zu können.
 
 #callout(title: [Wichtig], icon: "alert", color: color_alert)[
   Der Objects lock-pool und der Objects wait-pool müssen zum gleichen Objekt gehören.
