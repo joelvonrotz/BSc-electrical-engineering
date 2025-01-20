@@ -43,10 +43,19 @@
 #colbreak(weak: true)
 #v(20em)
 #align(center)[
-#callout(width: 80%,color: color_redish, title: "Achtung, Achtung!")[
-  #set align(left)
-  Anstatt über die Fehler in der Zusammenfassung zu meckern, wäre ein _Pull Request_ sehr töfte!
-#v(-6.5mm)#h(1fr)#box(text(color_blue)[#link("https://github.com/joelvonrotz/BSc-electrical-engineering/tree/main/semester%207", [#octicon("repo", color: color_blue) Github Repo Link])], baseline: 50%, stroke: (thickness: 0.5pt, paint: color_blue, dash: (3pt, 3pt), cap: "round"), inset: 2pt, radius: 4pt)]
+  #callout(width: 80%, color: color_redish, title: "Achtung, Achtung!")[
+    #set align(left)
+    Anstatt über die Fehler in der Zusammenfassung zu meckern, wäre ein _Pull Request_ sehr töfte!
+    #v(-6.5mm)#h(1fr)#box(
+      text(color_blue)[#link(
+          "https://github.com/joelvonrotz/BSc-electrical-engineering/tree/main/semester%207",
+          [#octicon("repo", color: color_blue) Github Repo Link],
+        )],
+      baseline: 50%,
+      stroke: (thickness: 0.5pt, paint: color_blue, dash: (3pt, 3pt), cap: "round"),
+      inset: 2pt,
+      radius: 4pt,
+    )]
 ]
 #v(20em)
 #[
@@ -363,13 +372,12 @@ $
     - instead of inverting matrices, the TM is used to iteratively determine the solution.
 
     #columns(2)[
-    / (linear) convolution:
-      $ z[n] = sum_(i=-infinity)^infinity x[i]y[n - i] = x[n]*y[n] $
-      #colbreak()
-      #h(-6em)*Linear Correlation*
-      #v(-2em)
-      $ r_(x y)[n]=1 / N sum^(N-1)_(i=0)x[i]y[i+n] $
-  $ N_(x y)=N_x+N_y-1 quad r_(x y)[n] != r_(y x)[n] $
+      / (linear) convolution: $ z[n] = sum_(i=-infinity)^infinity x[i]y[n - i] = x[n]*y[n] $
+        #colbreak()
+        #h(-6em)*Linear Correlation*
+        #v(-2em)
+        $ r_(x y)[n]=1 / N sum^(N-1)_(i=0)x[i]y[i+n] $
+      $ N_(x y)=N_x+N_y-1 quad r_(x y)[n] != r_(y x)[n] $
     ]
   ],
 )
@@ -456,11 +464,11 @@ $
 #grid(columns: (1fr, 1fr), align: horizon)[
 
 
-#highlight[Wiener-Khinchin-Theorem]
+  #highlight[Wiener-Khinchin-Theorem]
 
-#small[
-Power Spectrum Density corresponds to the DTFT of the autocorrelation sequence (of stat. rand. sig)
-]
+  #small[
+    Power Spectrum Density corresponds to the DTFT of the autocorrelation sequence (of stat. rand. sig)
+  ]
 ][
 
   $ Gamma_(x x)(Omega) = sum_(m=-infinity)^(infinity) gamma_(x x)[m] dot e^(-j Omega m) $
@@ -1774,49 +1782,39 @@ A FIR filter is symmetric when #formula(inset:(x: 1pt, y: 3pt), baseline: 0.4em)
 #image("fir_linear_phase_types.png", width: 90%)
 
 #[
-  #show table.cell.where(x: 0): it => small(strong(it))
-  #show table.cell.where(y: 0): it => small(strong(it))
-  #set table(
-    stroke: (x, y) => {
-      // draw "border"
-      if y == 0 {
-        (bottom: 0.25pt, top: 0.25pt)
-      }
-      if x == 0 or x == 5 {
-        (right: 0.25pt)
-      }
+#show table.cell.where(x: 0): it => small(strong(it))
+#show table.cell.where(y: 0): it => small(strong(it))
+#table(
+  columns: (3.1em, 2.1cm, 1fr, 1fr, 1.2fr, 2cm),
+  align: (center + horizon),
+  inset: (x: 2pt),
+  stroke: none, // clear frame
 
-      if x == 0 {
-        (left: 0.25pt)
-      }
+  // Draw minor lines
+  table.hline(stroke: .25pt + gray, y: 2, start: 2, end: 5),
+  table.hline(stroke: .25pt + gray, y: 4, start: 2, end: 5),
+  table.vline(stroke: (thickness: .25pt, dash: (3pt, 3pt), paint: gray), x: 2),
+  table.vline(stroke: (thickness: .25pt, dash: (3pt, 3pt), paint: gray), x: 5),
 
-      // draw special lines
-      if (x > 1 and x < 5) and (y == 1 or y == 3) {
-        (bottom: (thickness: 0.25pt, paint: gray))
-      }
-      if (x >= 2 and x <= 5) {
-        (left: (thickness: 0.25pt, dash: (1pt, 4pt), paint: gray))
-      }
+  // Draw Frame (overwrites minor lines)
+  table.hline(stroke: .25pt, y: 0),
+  table.hline(stroke: .25pt, y: 1),
+  table.hline(stroke: .25pt, y: 3),
+  table.hline(stroke: .25pt, y: 5),
+  table.vline(stroke: .25pt, x: 0),
+  table.vline(stroke: .25pt, x: 1),
+  table.vline(stroke: .25pt, x: 6),
 
-      if ((y == 2 or (y == 1 and (x == 1 or x == 5))) or (y == 4 or (y == 3 and (x == 1 or x == 5)))) {
-        (bottom: 0.25pt)
-      }
-    },
-  )
-  #table(
-    columns: (3.1em, 2.1cm, 1fr, 1fr, 1.2fr, 2cm),
-    align: (center + horizon),
-    inset: (x: 2pt),
-    [Type], [Symmetry], [Order $N$], [$abs(H(f=0))$], [$abs(H(f=f_S\/2))$], [$H(Omega)$#text(red)[$#[]^1$]],
-    [1], table.cell(rowspan: 2)[$ h[n]=h[N-n] $ #small[(symmetric)]], [even], [any], [any], table.cell(rowspan: 2)[$
-        e^(-j Omega N / 2) dot H_"zp"(Omega)
-      $],
-    [2], [odd], [any], [$ 0 $],
-    [3], table.cell(rowspan: 2)[$ h[n]=-h[N-n] $ #small[(anti-symmetric)]], [even], [0], [0], table.cell(rowspan: 2)[$
-        e^(-j (Omega N / 2 - pi / 2)) dot H_"zp"(Omega)
-      $],
-    [4], [odd], [0], [any]
-  )
+  [Type], [Symmetry], [Order $N$], [$abs(H(f=0))$], [$abs(H(f=f_S\/2))$], [$H(Omega)$#text(red)[$#[]^1$]],
+  [1], table.cell(rowspan: 2)[$ h[n]=h[N-n] $ #small[(symmetric)]], [even], [any], [any], table.cell(rowspan: 2)[$
+      e^(-j Omega N / 2) dot H_"zp"(Omega)
+    $],
+  [2], [odd], [any], [$ 0 $],
+  [3], table.cell(rowspan: 2)[$ h[n]=-h[N-n] $ #small[(anti-symmetric)]], [even], [0], [0], table.cell(rowspan: 2)[$
+      e^(-j (Omega N / 2 - pi / 2)) dot H_"zp"(Omega)
+    $],
+  [4], [odd], [0], [any],
+)
 ]
 
 #[
@@ -1837,19 +1835,27 @@ A FIR filter is symmetric when #formula(inset:(x: 1pt, y: 3pt), baseline: 0.4em)
   #show table.cell: it => small(it)
   #show table.cell.where(x: 0): it => small(strong(it))
   #show table.cell.where(y: 0): it => small(strong(it))
-  #set table(
-    stroke: (x, y) => {
-      if y == 0 { (bottom: 0.25pt, top: 0.25pt) }
-      if x == 0 or x == 4 { (right: 0.25pt) }
-      if x == 0 { (left: 0.25pt) }
-      if (x >= 2 and x <= 5) { (left: (thickness: 0.25pt, dash: (2pt, 4pt), paint: gray)) }
-      if (y > 0) { (bottom: 0.25pt) }
-    },
-  )
   #table(
     columns: (2.6em, auto, auto, auto, auto),
     align: (center + horizon),
     inset: (x: 2pt, y: 3pt),
+    stroke: none,
+    // Draw minor lines
+    table.vline(stroke: (thickness: .25pt, dash: (3pt, 3pt), paint: gray), x: 2),
+    table.vline(stroke: (thickness: .25pt, dash: (3pt, 3pt), paint: gray), x: 3),
+    table.vline(stroke: (thickness: .25pt, dash: (3pt, 3pt), paint: gray), x: 4),
+
+    // Draw Frame (overwrites minor lines)
+    table.hline(stroke: .25pt, y: 0),
+    table.hline(stroke: .25pt, y: 1),
+    table.hline(stroke: .25pt, y: 2),
+    table.hline(stroke: .25pt, y: 3),
+    table.hline(stroke: .25pt, y: 4),
+    table.hline(stroke: .25pt, y: 5),
+    table.vline(stroke: .25pt, x: 0),
+    table.vline(stroke: .25pt, x: 1),
+    table.vline(stroke: .25pt, x: 5),
+  
     [Type], [low-pass (LP)], [high-pass (HP)], [band-pass(BP)], [band-stop (BS)],
     [1], [yes], [yes], [yes], [yes],
     [2], [yes], [--], [yes], [--],
