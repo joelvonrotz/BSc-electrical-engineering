@@ -17,6 +17,7 @@
 >     - Consumers watch how billionaires fly with 90 fucking private jets to Venice and have the most goddamn, out of touch wedding the world has ever seen.
 >     - Billionaires are not people we should respect. They don't earn money to help us (they would have done that a long time ago and in a much fairer way like improving fair competitivness) 
 
+> [!TIP]
 > What you can do:
 > - Be a little bit sceptical about things coming out of Silicon Valley (or from any person who does not have a full degree in the product they sell)
 > - Care about your family and friends and give something to the local community. Money is not everything to live for. Go play board games with friends or learn how to rock climb. Punch all the Nazis. Spit on billionaires, they probably do they same to us (metaphorically).
